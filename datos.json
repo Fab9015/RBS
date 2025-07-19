@@ -178,5 +178,302 @@
     "p3": 5,
     "p4": "Sí",
     "p5": 0
+  },
+  {
+    "calle": "Sequoia",
+    "domicilio": 162,
+    "p1": 3,
+    "p2": 5,
+    "p3": 4,
+    "p4": "Sí",
+    "p5": 4
+  },
+  {
+    "calle": "Sequoia",
+    "domicilio": 523,
+    "p1": 5,
+    "p2": 0,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sequoia",
+    "domicilio": 525,
+    "p1": 2,
+    "p2": 2,
+    "p3": 4,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sequoia",
+    "domicilio": 527,
+    "p1": 3,
+    "p2": 3,
+    "p3": 5,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sequoia",
+    "domicilio": 532,
+    "p1": 0,
+    "p2": 5,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 4
+  },
+    {
+    "calle": "Sabino",
+    "domicilio": 142,
+    "p1": 4,
+    "p2": 4,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 0
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 144,
+    "p1": 2,
+    "p2": 4,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 147,
+    "p1": 5,
+    "p2": 5,
+    "p3": 5,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 149,
+    "p1": 2,
+    "p2": 1,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 151,
+    "p1": 2,
+    "p2": 3,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 152,
+    "p1": 4,
+    "p2": 2,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 2
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 153,
+    "p1": 1,
+    "p2": 3,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 158,
+    "p1": 4,
+    "p2": 3,
+    "p3": 1,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 155,
+    "p1": 4,
+    "p2": 4,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 156,
+    "p1": 0,
+    "p2": 5,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 157,
+    "p1": 0,
+    "p2": 0,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 154,
+    "p1": 0,
+    "p2": 5,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 0
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 159,
+    "p1": 1,
+    "p2": 5,
+    "p3": 1,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 256,
+    "p1": 4,
+    "p2": 4,
+    "p3": 1,
+    "p4": "No",
+    "p5": 4
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 101,
+    "p1": 3,
+    "p2": 2,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 102,
+    "p1": 5,
+    "p2": 0,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 108,
+    "p1": 3,
+    "p2": 2,
+    "p3": 1,
+    "p4": "Sí",
+    "p5": 2
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 114,
+    "p1": 3,
+    "p2": 2,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 3
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 117,
+    "p1": 3,
+    "p2": 2,
+    "p3": 4,
+    "p4": "Sí",
+    "p5": 2
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 120,
+    "p1": 4,
+    "p2": 0,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 0
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 244,
+    "p1": 3,
+    "p2": 2,
+    "p3": 1,
+    "p4": "Sí",
+    "p5": 1
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 121,
+    "p1": 0,
+    "p2": 5,
+    "p3": 5,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 122,
+    "p1": 5,
+    "p2": 5,
+    "p3": 5,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 124,
+    "p1": 0,
+    "p2": 5,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 126,
+    "p1": 0,
+    "p2": 5,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 130,
+    "p1": 2,
+    "p2": 1,
+    "p3": 3,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 135,
+    "p1": 2,
+    "p2": 5,
+    "p3": 2,
+    "p4": "Sí",
+    "p5": 5
+  },
+  {
+    "calle": "Sabino",
+    "domicilio": 140,
+    "p1": 1,
+    "p2": 5,
+    "p3": 0,
+    "p4": "Sí",
+    "p5": 2
   }
 ]
