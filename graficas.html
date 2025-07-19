@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Dashboard Emocional con JSON</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f4;
+      margin: 40px 20px;
+      color: #333;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    header h1 {
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+    .chart-box {
+      background: white;
+      padding: 20px;
+      margin: 0 auto 40px auto;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      max-width: 680px;
+    }
+    .chart-box h2 {
+      text-align: center;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+    .emoji {
+      text-align: center;
+      font-size: 40px;
+      margin-bottom: 10px;
+    }
+    .interpretacion {
+      text-align: center;
+      font-size: 15px;
+      color: #555;
+      margin-top: 10px;
+    }
+    canvas {
+      width: 100%;
+      max-height: 180px;
+      margin-bottom: 10px;
+    }
+    .velocimetro canvas {
+      max-height: 260px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Dashboard Emocional Comunitario</h1>
+</header>
+
+<div id="contenedorGraficas"></div>
+
+<script>
+  const preguntas = [
+    { clave: "p1", texto: "1. ¿Qué tan deacuerdo estás con la administración de Agendum/Parametro?" },
+    { clave: "p2", texto: "2. ¿Qué tan deacuerdo estás en cambiar la administración actual?" },
+    { clave: "p3", texto: "3. ¿Qué tan deacuerdo estás con aumentar la cuota si es necesario?" },
+    { clave: "p4", texto: "4. ¿Sabías que si la cuota no es adecuada, la cantidad y/o calidad de los servicios puede verse afectada?", binaria: true },
+    { clave: "p5", texto: "5. ¿Qué tan disponible te consideras para participar en actividades del condominio?" }
+  ];
+
+  const expresiones = ["😠", "😒", "😕", "😐", "🙂", "😄"];
+  const interpretaciones = [
+    "Desagrado total",
+    "Molestia leve",
+    "Insatisfacción",
+    "Neutral",
+    "Aprobación",
+    "Agrado total"
+  ];
+
+  // 👉 Aquí está tu JSON personalizado con identificadores
+  const datos = [
+    { calle: "Olivos", domicilio: 37, p1: 4, p2: 2, p3: 5, p4: "Sí", p5: 3 },
+    { calle: "Cedros", domicilio: 122, p1: 1, p2: 0, p3: 2, p4: "No", p5: 0 },
+    { calle: "Limones", domicilio: 54, p1: 5, p2: 4, p3: 3, p4: "Sí", p5: 2 },
+    { calle: "Magnolias", domicilio: 9, p1: 3, p2: 3, p3: 4, p4: "Sí", p5: 1 },
+    { calle: "Abetos", domicilio: 221, p1: 2, p2: 5, p3: 0, p4: "No", p5: 4 }
+  ];
+
+  const contenedor = document.getElementById("contenedorGraficas");
+
+  preguntas.forEach(pregunta => {
+    const div = document.createElement("div");
+    div.className = "chart-box";
+    const canvasId = `grafico_${pregunta.clave}`;
+    let valor;
+
+    if (pregunta.binaria) {
+      const si = datos.filter(d => d.p4 === "Sí").length;
+      valor = Math.round((si / datos.length) * 100);
+    } else {
+      const promedio = Math.round(
+        datos.reduce((acc, d) => acc + d[pregunta.clave], 0) / datos.length
+      );
+      valor = promedio;
+    }
+
+    const emoji = pregunta.binaria
+      ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "😄")
+      : expresiones[valor];
+
+    const textoInterpretativo = pregunta.binaria
+      ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el desagrado" : valor < 70 ? "Resultado neutral" : "Predomina el agrado"}`
+      : `Promedio emocional: ${valor} — ${interpretaciones[valor]}`;
+
+    div.innerHTML = `
+      <h2>${pregunta.texto}</h2>
+      <div class="emoji">${emoji}</div>
+      <canvas id="${canvasId}"></canvas>
+      <div class="interpretacion">${textoInterpretativo}</div>
+    `;
+    contenedor.appendChild(div);
+
+    const canvas = document.getElementById(canvasId);
+    const ctx = canvas.getContext("2d");
+    const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+    grad.addColorStop(0.0, "#d73027");
+    grad.addColorStop(0.5, "#f1c40f");
+    grad.addColorStop(1.0, "#2ecc71");
+
+    if (pregunta.binaria) {
+      new Chart(ctx, {
+        type: "doughnut",
+        data: {
+          labels: ["Sí", "No"],
+          datasets: [{
+            data: [valor, 100 - valor],
+            backgroundColor: [grad, "#eee"],
+            rotation: -90,
+            circumference: 180
+          }]
+        },
+        options: {
+          cutout: "70%",
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `${ctx.label}: ${ctx.raw}%`
+              }
+            }
+          }
+        }
+      });
+    } else {
+      new Chart(ctx, {
+        type: "bar",
+        data: {
+          labels: [pregunta.clave.toUpperCase()],
+          datasets: [{
+            label: "Nivel emocional",
+            data: [valor],
+            backgroundColor: grad
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          scales: {
+            x: {
+              min: 0,
+              max: 5,
+              ticks: {
+                callback: val => expresiones[val] || val
+              }
+            },
+            y: { ticks: { display: false } }
+          },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: {
+                label: ctx => `Nivel promedio: ${ctx.raw} (${expresiones[ctx.raw] || ''})`
+              }
+            }
+          }
+        }
+      });
+    }
+  });
+</script>
+</body>
+</html>
