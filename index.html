@@ -42,6 +42,7 @@
       font-size: 15px;
       color: #555;
       margin-top: 10px;
+      margin-bottom: 10px;
     }
     canvas {
       width: 100%;
@@ -50,6 +51,21 @@
     }
     .velocimetro canvas {
       max-height: 260px;
+    }
+    .conteo {
+      font-size: 14px;
+      margin-top: 10px;
+      padding: 10px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+    .conteo span {
+      display: inline-block;
+      padding: 5px 8px;
+      margin: 3px;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
     }
   </style>
 </head>
@@ -72,123 +88,126 @@
 
   const expresiones = ["😠", "😒", "😕", "😐", "🙂", "😄"];
   const interpretaciones = [
-    "Desagrado total",
-    "Molestia leve",
-    "Insatisfacción",
-    "Neutral",
-    "Aprobación",
-    "Agrado total"
+    "Desagrado total", "Molestia leve", "Insatisfacción", "Neutral", "Aprobación", "Agrado total"
   ];
+  const colores = ["#d73027", "#fc8d59", "#fdae61", "#fee08b", "#a6d96a", "#1a9850"];
 
-  // 👉 Aquí está tu JSON personalizado con identificadores
-  const datos = [
-    { calle: "Olivos", domicilio: 37, p1: 4, p2: 2, p3: 5, p4: "Sí", p5: 3 },
-    { calle: "Cedros", domicilio: 122, p1: 1, p2: 0, p3: 2, p4: "No", p5: 0 },
-    { calle: "Limones", domicilio: 54, p1: 5, p2: 4, p3: 3, p4: "Sí", p5: 2 },
-    { calle: "Magnolias", domicilio: 9, p1: 3, p2: 3, p3: 4, p4: "Sí", p5: 1 },
-    { calle: "Abetos", domicilio: 221, p1: 2, p2: 5, p3: 0, p4: "No", p5: 4 }
-  ];
+  fetch('datos.json')
+    .then(response => response.json())
+    .then(datos => {
+      const contenedor = document.getElementById("contenedorGraficas");
 
-  const contenedor = document.getElementById("contenedorGraficas");
+      preguntas.forEach(pregunta => {
+        const div = document.createElement("div");
+        div.className = "chart-box";
+        const canvasId = `grafico_${pregunta.clave}`;
 
-  preguntas.forEach(pregunta => {
-    const div = document.createElement("div");
-    div.className = "chart-box";
-    const canvasId = `grafico_${pregunta.clave}`;
-    let valor;
+        let valor, conteo = {}, total = datos.length;
 
-    if (pregunta.binaria) {
-      const si = datos.filter(d => d.p4 === "Sí").length;
-      valor = Math.round((si / datos.length) * 100);
-    } else {
-      const promedio = Math.round(
-        datos.reduce((acc, d) => acc + d[pregunta.clave], 0) / datos.length
-      );
-      valor = promedio;
-    }
-
-    const emoji = pregunta.binaria
-      ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "😄")
-      : expresiones[valor];
-
-    const textoInterpretativo = pregunta.binaria
-      ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el desagrado" : valor < 70 ? "Resultado neutral" : "Predomina el agrado"}`
-      : `Promedio emocional: ${valor} — ${interpretaciones[valor]}`;
-
-    div.innerHTML = `
-      <h2>${pregunta.texto}</h2>
-      <div class="emoji">${emoji}</div>
-      <canvas id="${canvasId}"></canvas>
-      <div class="interpretacion">${textoInterpretativo}</div>
-    `;
-    contenedor.appendChild(div);
-
-    const canvas = document.getElementById(canvasId);
-    const ctx = canvas.getContext("2d");
-    const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
-    grad.addColorStop(0.0, "#d73027");
-    grad.addColorStop(0.5, "#f1c40f");
-    grad.addColorStop(1.0, "#2ecc71");
-
-    if (pregunta.binaria) {
-      new Chart(ctx, {
-        type: "doughnut",
-        data: {
-          labels: ["Sí", "No"],
-          datasets: [{
-            data: [valor, 100 - valor],
-            backgroundColor: [grad, "#eee"],
-            rotation: -90,
-            circumference: 180
-          }]
-        },
-        options: {
-          cutout: "70%",
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: ctx => `${ctx.label}: ${ctx.raw}%`
-              }
-            }
+        if (pregunta.binaria) {
+          const si = datos.filter(d => d.p4 === "Sí").length;
+          valor = Math.round((si / total) * 100);
+        } else {
+          valor = Math.round(datos.reduce((sum, d) => sum + d[pregunta.clave], 0) / total);
+          for (let i = 0; i <= 5; i++) {
+            conteo[i] = datos.filter(d => d[pregunta.clave] === i).length;
           }
         }
-      });
-    } else {
-      new Chart(ctx, {
-        type: "bar",
-        data: {
-          labels: [pregunta.clave.toUpperCase()],
-          datasets: [{
-            label: "Nivel emocional",
-            data: [valor],
-            backgroundColor: grad
-          }]
-        },
-        options: {
-          indexAxis: 'y',
-          scales: {
-            x: {
-              min: 0,
-              max: 5,
-              ticks: {
-                callback: val => expresiones[val] || val
-              }
+
+        const emoji = pregunta.binaria
+          ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "😄")
+          : expresiones[valor];
+
+        const textoInterpretativo = pregunta.binaria
+          ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el desagrado" : valor < 70 ? "Resultado neutral" : "Predomina el agrado"}`
+          : `Promedio emocional: ${valor} — ${interpretaciones[valor]}`;
+
+        div.innerHTML = `
+          <h2>${pregunta.texto}</h2>
+          <div class="emoji">${emoji}</div>
+          <canvas id="${canvasId}"></canvas>
+          <div class="interpretacion">${textoInterpretativo}</div>
+        `;
+
+        if (!pregunta.binaria) {
+          const resumen = document.createElement("div");
+          resumen.className = "conteo";
+          resumen.innerHTML = `<strong>Total votos:</strong> ${total}<br><strong>Conteo por nivel:</strong><br>`;
+          for (let i = 0; i <= 5; i++) {
+            resumen.innerHTML += `<span style="background:${colores[i]}">${i}: ${conteo[i]}</span> `;
+          }
+          div.appendChild(resumen);
+        }
+
+        contenedor.appendChild(div);
+
+        const canvas = document.getElementById(canvasId);
+        const ctx = canvas.getContext("2d");
+        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+        grad.addColorStop(0.0, "#d73027");
+        grad.addColorStop(0.5, "#f1c40f");
+        grad.addColorStop(1.0, "#2ecc71");
+
+        if (pregunta.binaria) {
+          new Chart(ctx, {
+            type: "doughnut",
+            data: {
+              labels: ["Sí", "No"],
+              datasets: [{
+                data: [valor, 100 - valor],
+                backgroundColor: [grad, "#eee"],
+                rotation: -90,
+                circumference: 180
+              }]
             },
-            y: { ticks: { display: false } }
-          },
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              callbacks: {
-                label: ctx => `Nivel promedio: ${ctx.raw} (${expresiones[ctx.raw] || ''})`
+            options: {
+              cutout: "70%",
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: ctx => `${ctx.label}: ${ctx.raw}%`
+                  }
+                }
               }
             }
-          }
+          });
+        } else {
+          new Chart(ctx, {
+            type: "bar",
+            data: {
+              labels: [pregunta.clave.toUpperCase()],
+              datasets: [{
+                label: "Nivel emocional",
+                data: [valor],
+                backgroundColor: grad
+              }]
+            },
+            options: {
+              indexAxis: 'y',
+              scales: {
+                x: {
+                  min: 0,
+                  max: 5,
+                  ticks: {
+                    callback: val => expresiones[val] || val
+                  }
+                },
+                y: { ticks: { display: false } }
+              },
+              plugins: {
+                legend: { display: false },
+                tooltip: {
+                  callbacks: {
+                    label: ctx => `Nivel promedio: ${ctx.raw} (${expresiones[ctx.raw] || ''})`
+                  }
+                }
+              }
+            }
+          });
         }
       });
-    }
-  });
+    });
 </script>
 </body>
 </html>
