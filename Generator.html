@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Datos Comunitarios</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f2f2f2;
+      padding: 20px;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    fieldset {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      background: white;
+    }
+    label {
+      display: block;
+      margin: 10px 0 4px;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 5px;
+      border: 1px solid #bbb;
+    }
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      background: #0078d4;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #005fa1;
+    }
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-top: 20px;
+      padding: 10px;
+      font-family: monospace;
+      resize: vertical;
+    }
+    .acciones {
+      margin-top: 10px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Generador de datos comunitarios</h1>
+
+<fieldset>
+  <legend><strong>Agregar entrada</strong></legend>
+  <label for="calle">Calle</label>
+  <input type="text" id="calle" placeholder="Ejemplo: Olivos">
+
+  <label for="domicilio">Domicilio</label>
+  <input type="number" id="domicilio" placeholder="Ejemplo: 101">
+
+  <label for="p1">Pregunta 1 (0–5)</label>
+  <select id="p1">
+    <option value="">--Selecciona--</option>
+    <option value="0">0 - Desagrado total</option>
+    <option value="1">1 - Molestia leve</option>
+    <option value="2">2 - Insatisfacción</option>
+    <option value="3">3 - Neutral</option>
+    <option value="4">4 - Aprobación</option>
+    <option value="5">5 - Agrado total</option>
+  </select>
+
+  <label for="p2">Pregunta 2 (0–5)</label>
+  <select id="p2">
+    <option value="">--Selecciona--</option>
+    <option value="0">0 - Desagrado total</option>
+    <option value="1">1 - Molestia leve</option>
+    <option value="2">2 - Insatisfacción</option>
+    <option value="3">3 - Neutral</option>
+    <option value="4">4 - Aprobación</option>
+    <option value="5">5 - Agrado total</option>
+  </select>
+
+  <label for="p3">Pregunta 3 (0–5)</label>
+  <select id="p3">
+    <option value="">--Selecciona--</option>
+    <option value="0">0 - Desagrado total</option>
+    <option value="1">1 - Molestia leve</option>
+    <option value="2">2 - Insatisfacción</option>
+    <option value="3">3 - Neutral</option>
+    <option value="4">4 - Aprobación</option>
+    <option value="5">5 - Agrado total</option>
+  </select>
+
+  <label for="p4">Pregunta 4 (Sí / No)</label>
+  <select id="p4">
+    <option value="">--Selecciona--</option>
+    <option value="Sí">Sí</option>
+    <option value="No">No</option>
+  </select>
+
+  <label for="p5">Pregunta 5 (0–5)</label>
+  <select id="p5">
+    <option value="">--Selecciona--</option>
+    <option value="0">0 - Desagrado total</option>
+    <option value="1">1 - Molestia leve</option>
+    <option value="2">2 - Insatisfacción</option>
+    <option value="3">3 - Neutral</option>
+    <option value="4">4 - Aprobación</option>
+    <option value="5">5 - Agrado total</option>
+  </select>
+
+  <button onclick="agregarEntrada()">Agregar entrada</button>
+</fieldset>
+
+<h3>Contenido actual del archivo JSON</h3>
+<textarea id="jsonOutput" readonly>[]</textarea>
+
+<div class="acciones">
+  <button onclick="copiarJSON()">📋 Copiar al portapapeles</button>
+  <button onclick="descargarJSON()">📥 Descargar datos.json</button>
+</div>
+
+<script>
+  let datos = [];
+
+  function agregarEntrada() {
+    const calle = document.getElementById("calle").value.trim();
+    const domicilio = parseInt(document.getElementById("domicilio").value);
+    const p1 = parseInt(document.getElementById("p1").value);
+    const p2 = parseInt(document.getElementById("p2").value);
+    const p3 = parseInt(document.getElementById("p3").value);
+    const p4 = document.getElementById("p4").value;
+    const p5 = parseInt(document.getElementById("p5").value);
+
+    if (!calle || isNaN(domicilio) || isNaN(p1) || isNaN(p2) || isNaN(p3) || !p4 || isNaN(p5)) {
+      alert("Por favor, completa todos los campos correctamente.");
+      return;
+    }
+
+    datos.push({ calle, domicilio, p1, p2, p3, p4, p5 });
+    document.getElementById("jsonOutput").value = JSON.stringify(datos, null, 2);
+    limpiarFormulario();
+  }
+
+  function limpiarFormulario() {
+    document.getElementById("calle").value = "";
+    document.getElementById("domicilio").value = "";
+    ["p1", "p2", "p3", "p4", "p5"].forEach(id => {
+      document.getElementById(id).value = "";
+    });
+  }
+
+  function copiarJSON() {
+    const textArea = document.getElementById("jsonOutput");
+    textArea.select();
+    document.execCommand("copy");
+    alert("Contenido copiado al portapapeles.");
+  }
+
+  function descargarJSON() {
+    const blob = new Blob([JSON.stringify(datos, null, 2)], { type: "application/json" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "datos.json";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+</script>
+</body>
+</html>
