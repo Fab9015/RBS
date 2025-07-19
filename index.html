@@ -86,11 +86,25 @@
     { clave: "p5", texto: "5. ¿Qué tan disponible te consideras para participar en actividades del condominio?" }
   ];
 
-  const expresiones = ["😠", "😒", "😕", "😐", "🙂", "😄"];
+  const expresiones = ["😠", "😕", "😐", "🙂", "😌", "🫡"];
+
   const interpretaciones = [
-    "Desagrado total", "Molestia leve", "Insatisfacción", "Neutral", "Aprobación", "Agrado total"
+    "Rechazo completo",
+    "Rechazo parcial",
+    "Inconformidad",
+    "Postura neutral",
+    "Aprobación parcial",
+    "Aprobación total"
   ];
-  const colores = ["#d73027", "#fc8d59", "#fdae61", "#fee08b", "#a6d96a", "#1a9850"];
+
+  const colores = [
+    "#d32f2f", // 0
+    "#f57c00", // 1
+    "#fbc02d", // 2
+    "#cddc39", // 3
+    "#7cb342", // 4
+    "#388e3c"  // 5
+  ];
 
   fetch('datos.json')
     .then(response => response.json())
@@ -117,12 +131,12 @@
         }
 
         const emoji = pregunta.binaria
-          ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "😄")
+          ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "🫡")
           : expresiones[valor];
 
         const textoInterpretativo = pregunta.binaria
-          ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el desagrado" : valor < 70 ? "Resultado neutral" : "Predomina el agrado"}`
-          : `Promedio emocional: ${valor} — ${interpretaciones[valor]}`;
+          ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el rechazo" : valor < 70 ? "Resultado neutral" : "Predomina la aprobación"}`
+          : `Promedio de aprobación: ${valor} — ${interpretaciones[valor]}`;
 
         div.innerHTML = `
           <h2>${pregunta.texto}</h2>
@@ -148,7 +162,7 @@
             const color = colores[i];
             const texto = interpretaciones[i];
             const cantidad = conteo[i] || 0;
-            resumen.innerHTML += `<span style="background:${color}">${i} - ${texto}: ${cantidad}</span> `;
+            resumen.innerHTML += `<span style="background:${color};color:white">${i} - ${texto}: ${cantidad}</span> `;
           }
         }
 
@@ -158,9 +172,9 @@
         const canvas = document.getElementById(canvasId);
         const ctx = canvas.getContext("2d");
         const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        grad.addColorStop(0.0, "#d73027");
-        grad.addColorStop(0.5, "#f1c40f");
-        grad.addColorStop(1.0, "#2ecc71");
+        grad.addColorStop(0.0, "#d32f2f");
+        grad.addColorStop(0.5, "#fbc02d");
+        grad.addColorStop(1.0, "#388e3c");
 
         if (pregunta.binaria) {
           const si = datos.filter(d => d.p4 === "Sí").length;
@@ -194,7 +208,7 @@
             data: {
               labels: [pregunta.clave.toUpperCase()],
               datasets: [{
-                label: "Nivel emocional",
+                label: "Nivel de aprobación",
                 data: [valor],
                 backgroundColor: grad
               }]
