@@ -3,59 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <title>Generador de Datos Comunitarios</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
       background: #f2f2f2;
       padding: 20px;
       color: #333;
+      max-width: 600px;
+      margin: auto;
     }
     h1 {
       text-align: center;
+      font-size: 24px;
       margin-bottom: 30px;
     }
     fieldset {
       border: 1px solid #ccc;
-      padding: 15px;
+      padding: 20px;
       margin-bottom: 20px;
       border-radius: 8px;
       background: white;
     }
     label {
       display: block;
-      margin: 10px 0 4px;
+      margin: 12px 0 4px;
+      font-weight: bold;
     }
     input, select {
       width: 100%;
-      padding: 8px;
-      border-radius: 5px;
+      padding: 12px;
+      font-size: 16px;
+      border-radius: 6px;
       border: 1px solid #bbb;
+      box-sizing: border-box;
     }
     button {
-      margin-top: 10px;
-      padding: 10px 20px;
+      margin-top: 15px;
+      padding: 12px;
+      font-size: 16px;
       border: none;
-      border-radius: 5px;
+      border-radius: 6px;
       background: #0078d4;
       color: white;
       cursor: pointer;
-      font-weight: bold;
+      width: 100%;
     }
     button:hover {
       background: #005fa1;
     }
     textarea {
       width: 100%;
-      height: 200px;
+      height: 240px;
       margin-top: 20px;
-      padding: 10px;
+      padding: 12px;
       font-family: monospace;
+      font-size: 14px;
+      border-radius: 6px;
       resize: vertical;
+      box-sizing: border-box;
     }
     .acciones {
       margin-top: 10px;
       display: flex;
-      flex-wrap: wrap;
+      flex-direction: column;
       gap: 10px;
     }
   </style>
@@ -66,8 +77,14 @@
 
 <fieldset>
   <legend><strong>Agregar entrada</strong></legend>
+
   <label for="calle">Calle</label>
-  <input type="text" id="calle" placeholder="Ejemplo: Olivos">
+  <select id="calle">
+    <option value="">--Selecciona calle--</option>
+    <option value="Sakura">Sakura</option>
+    <option value="Sabino">Sabino</option>
+    <option value="Sequoia">Sequoia</option>
+  </select>
 
   <label for="domicilio">Domicilio</label>
   <input type="number" id="domicilio" placeholder="Ejemplo: 101">
@@ -123,7 +140,7 @@
     <option value="5">5 - Agrado total</option>
   </select>
 
-  <button onclick="agregarEntrada()">Agregar entrada</button>
+  <button onclick="agregarEntrada()">➕ Agregar entrada</button>
 </fieldset>
 
 <h3>Contenido actual del archivo JSON</h3>
@@ -138,7 +155,7 @@
   let datos = [];
 
   function agregarEntrada() {
-    const calle = document.getElementById("calle").value.trim();
+    const calle = document.getElementById("calle").value;
     const domicilio = parseInt(document.getElementById("domicilio").value);
     const p1 = parseInt(document.getElementById("p1").value);
     const p2 = parseInt(document.getElementById("p2").value);
