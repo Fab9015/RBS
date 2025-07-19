@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard Emocional con JSON</title>
+  <title>Dashboard Emocional Final</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -102,10 +102,12 @@
         div.className = "chart-box";
         const canvasId = `grafico_${pregunta.clave}`;
 
-        let valor, conteo = {}, total = datos.length;
+        let valor, total = datos.length;
+        let conteo = {};
 
         if (pregunta.binaria) {
           const si = datos.filter(d => d.p4 === "Sí").length;
+          const no = total - si;
           valor = Math.round((si / total) * 100);
         } else {
           valor = Math.round(datos.reduce((sum, d) => sum + d[pregunta.clave], 0) / total);
@@ -129,16 +131,28 @@
           <div class="interpretacion">${textoInterpretativo}</div>
         `;
 
-        if (!pregunta.binaria) {
-          const resumen = document.createElement("div");
-          resumen.className = "conteo";
-          resumen.innerHTML = `<strong>Total votos:</strong> ${total}<br><strong>Conteo por nivel:</strong><br>`;
+        const resumen = document.createElement("div");
+        resumen.className = "conteo";
+
+        if (pregunta.binaria) {
+          const si = datos.filter(d => d.p4 === "Sí").length;
+          const no = total - si;
+          resumen.innerHTML = `
+            <strong>Total votos:</strong> ${total}<br>
+            <strong>“Sí”:</strong> ${si}<br>
+            <strong>“No”:</strong> ${no}
+          `;
+        } else {
+          resumen.innerHTML = `<strong>Total votos:</strong> ${total}<br><strong>Distribución:</strong><br>`;
           for (let i = 0; i <= 5; i++) {
-            resumen.innerHTML += `<span style="background:${colores[i]}">${i}: ${conteo[i]}</span> `;
+            const color = colores[i];
+            const texto = interpretaciones[i];
+            const cantidad = conteo[i] || 0;
+            resumen.innerHTML += `<span style="background:${color}">${i} - ${texto}: ${cantidad}</span> `;
           }
-          div.appendChild(resumen);
         }
 
+        div.appendChild(resumen);
         contenedor.appendChild(div);
 
         const canvas = document.getElementById(canvasId);
@@ -149,12 +163,14 @@
         grad.addColorStop(1.0, "#2ecc71");
 
         if (pregunta.binaria) {
+          const si = datos.filter(d => d.p4 === "Sí").length;
+          const no = total - si;
           new Chart(ctx, {
             type: "doughnut",
             data: {
               labels: ["Sí", "No"],
               datasets: [{
-                data: [valor, 100 - valor],
+                data: [si, no],
                 backgroundColor: [grad, "#eee"],
                 rotation: -90,
                 circumference: 180
@@ -166,7 +182,7 @@
                 legend: { display: false },
                 tooltip: {
                   callbacks: {
-                    label: ctx => `${ctx.label}: ${ctx.raw}%`
+                    label: ctx => `${ctx.label}: ${ctx.raw} votos`
                   }
                 }
               }
@@ -199,7 +215,7 @@
                 legend: { display: false },
                 tooltip: {
                   callbacks: {
-                    label: ctx => `Nivel promedio: ${ctx.raw} (${expresiones[ctx.raw] || ''})`
+                    label: ctx => `Nivel promedio: ${ctx.raw} (${interpretaciones[ctx.raw] || ''})`
                   }
                 }
               }
