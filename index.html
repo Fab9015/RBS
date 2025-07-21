@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Dashboard Emocional Final</title>
+  <title>Resultados de la encuesta</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -72,7 +72,7 @@
 <body>
 
 <header>
-  <h1>Dashboard Emocional Comunitario</h1>
+  <h1>Resultados de la encuesta</h1>
 </header>
 
 <div id="contenedorGraficas"></div>
@@ -233,11 +233,14 @@
         }
       });
 
-      // Nueva sección final de compromiso comunitario
+      // 🧑‍🤝‍🧑 Compromiso comunitario
       const comprometidos = datos.filter(d => d.p2 >= 3 && d.p5 >= 3).length;
-      const porcentajeCompromiso = Math.round((comprometidos / datos.length) * 100);
+      const porcentaje = Math.round((comprometidos / datos.length) * 100);
 
       const resumenFinal = document.createElement("div");
       resumenFinal.className = "chart-box";
       resumenFinal.innerHTML = `
-        <h2>Compromiso
+        <h2>Compromiso comunitario</h2>
+        <div class="emoji">🧑‍🤝‍🧑</div>
+        <div class="interpretacion">
+          <strong>${comprometidos}</strong> vecinos respondieron con disposición al
