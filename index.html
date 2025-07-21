@@ -105,8 +105,7 @@
     .then(response => response.json())
     .then(datos => {
       const contenedor = document.getElementById("contenedorGraficas");
-
-      preguntas.forEach(pregunta => {
+            preguntas.forEach(pregunta => {
         const div = document.createElement("div");
         div.className = "chart-box";
         const canvasId = `grafico_${pregunta.clave}`;
@@ -243,4 +242,12 @@
         <h2>Compromiso comunitario</h2>
         <div class="emoji">🧑‍🤝‍🧑</div>
         <div class="interpretacion">
-          <strong>${comprometidos}</strong> vecinos respondieron con disposición al
+          <strong>${comprometidos}</strong> vecinos respondieron con disposición al cambio y participación<br>
+          Eso representa el <strong>${porcentaje}%</strong> del total encuestado
+        </div>
+      `;
+      contenedor.appendChild(resumenFinal);
+    });
+</script>
+</body>
+</html>
