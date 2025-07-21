@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Resultados de la encuesta</title>
+  <title>Dashboard Emocional Final</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     body {
@@ -72,7 +72,7 @@
 <body>
 
 <header>
-  <h1>Resultados de la encuesta</h1>
+  <h1>Dashboard Emocional Comunitario</h1>
 </header>
 
 <div id="contenedorGraficas"></div>
@@ -98,12 +98,7 @@
   ];
 
   const colores = [
-    "#d32f2f", // 0
-    "#f57c00", // 1
-    "#fbc02d", // 2
-    "#cddc39", // 3
-    "#7cb342", // 4
-    "#388e3c"  // 5
+    "#d32f2f", "#f57c00", "#fbc02d", "#cddc39", "#7cb342", "#388e3c"
   ];
 
   fetch('datos.json')
@@ -237,7 +232,12 @@
           });
         }
       });
-    });
-</script>
-</body>
-</html>
+
+      // Nueva sección final de compromiso comunitario
+      const comprometidos = datos.filter(d => d.p2 >= 3 && d.p5 >= 3).length;
+      const porcentajeCompromiso = Math.round((comprometidos / datos.length) * 100);
+
+      const resumenFinal = document.createElement("div");
+      resumenFinal.className = "chart-box";
+      resumenFinal.innerHTML = `
+        <h2>Compromiso
