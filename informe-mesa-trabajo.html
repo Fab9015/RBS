@@ -8,9 +8,11 @@
     :root {
       --color-bg: #f5f0e6;        /* Fondo general beige claro */
       --color-title: #4b2e2e;     /* Marrón oscuro para títulos */
+      --color-footer: #3a241f;    /* Marrón profundo para pie de página */
+      --color-accent: #7a8b4a;    /* Verde olivo para detalles */
       --color-highlight: #b94c3a; /* Terracota para bloques destacados */
-      --color-text: #1f1f1f;      /* Gris oscuro para texto general */
       --color-white: #ffffff;     /* Texto blanco en bloques */
+      --color-text: #1f1f1f;      /* Texto general gris oscuro */
       --color-border: #dcdcdc;    /* Bordes suaves */
     }
 
@@ -30,6 +32,7 @@
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
+      border-bottom: 2px solid var(--color-accent);
     }
 
     .header-text {
@@ -49,6 +52,7 @@
 
     .logo {
       max-width: 180px;
+      height: auto;
     }
 
     section {
@@ -86,7 +90,7 @@
     }
 
     footer {
-      background: var(--color-title);
+      background: var(--color-footer);
       color: var(--color-white);
       text-align: center;
       padding: 1.5em 1em;
