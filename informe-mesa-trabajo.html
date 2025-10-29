@@ -6,15 +6,15 @@
   <title>Transición Administrativa - Condominio</title>
   <style>
     :root {
-      --color-bg: #f4f4f4;
-      --color-primary: #005f73;
-      --color-accent: #0a9396;
-      --color-highlight: #e9d8a6;
-      --color-text: #333;
+      --color-bg: #ffffff;
+      --color-primary: #1e3a8a; /* Azul oscuro */
+      --color-accent: #facc15;  /* Amarillo dorado */
+      --color-text: #1f2937;    /* Gris oscuro */
+      --color-soft: #f3f4f6;    /* Gris claro */
     }
 
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       background: var(--color-bg);
       margin: 0;
       padding: 0;
@@ -24,7 +24,7 @@
     header {
       background: var(--color-primary);
       color: white;
-      padding: 1.5em 1em;
+      padding: 2em 1em;
       text-align: center;
     }
 
@@ -34,21 +34,23 @@
     }
 
     section {
-      padding: 1.5em 1em;
-      border-bottom: 1px solid #ccc;
+      padding: 2em 1em;
+      border-bottom: 1px solid #e5e7eb;
     }
 
     h2 {
-      color: var(--color-accent);
+      color: var(--color-primary);
       margin-top: 0;
     }
 
     .highlight {
-      background: var(--color-highlight);
-      padding: 0.75em;
-      border-radius: 5px;
+      background: var(--color-accent);
+      color: #111827;
+      padding: 1em;
+      border-radius: 6px;
       font-weight: bold;
       margin-bottom: 1em;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     }
 
     .grid {
@@ -65,21 +67,17 @@
       background: var(--color-primary);
       color: white;
       text-align: center;
-      padding: 1em;
+      padding: 1.5em 1em;
       font-size: 0.9em;
     }
 
     @media (max-width: 600px) {
-      body {
-        padding: 0;
-      }
-
       header h1 {
         font-size: 1.5em;
       }
 
       section {
-        padding: 1em;
+        padding: 1.5em 1em;
       }
 
       .grid {
