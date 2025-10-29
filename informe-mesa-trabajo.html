@@ -67,19 +67,22 @@
         nav {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
+            flex-wrap: nowrap;
             gap: 1.5em;
             background: var(--color-bg);
             padding: 1em;
             border-bottom: 1px solid var(--color-border);
             font-weight: bold;
             overflow-x: auto;
+            white-space: nowrap;
+            font-size: clamp(0.9em, 2vw, 1.1em);
+            scroll-snap-type: x mandatory;
         }
 
         nav a {
             color: var(--color-title);
             text-decoration: none;
-            white-space: nowrap;
+            scroll-snap-align: start;
         }
 
         nav a:hover {
@@ -346,7 +349,8 @@
                 <li><strong>Cartera vencida:</strong> El condominio cederá a Agendum la cartera vencida por un monto de
                     <strong>$146,072.89 M.N.</strong>, correspondiente al periodo 2022–2025. Esta cantidad representa
                     cuotas no cubiertas que Agendum continuó sufragando de buena fe. Agendum gestionará el cobro
-                    directamente, en coordinación con la nueva administración.</li>
+                    directamente, en coordinación con la nueva administración.
+                </li>
                 <li><strong>Renuncia de derechos:</strong> Agendum renuncia expresamente a cualquier derecho de cobro
                     adicional por insuficiencia presupuestal, conforme al Anexo 1 del convenio, y declara estar en
                     entera satisfacción respecto a la cartera vencida cedida.</li>
@@ -359,7 +363,8 @@
                     condóminos.</li>
                 <li><strong>Fechas de retiro:</strong> Agendum se retirará jurídicamente de la administración el
                     <strong>1 de noviembre de 2025</strong> y cesará sus operaciones el <strong>31 de noviembre de
-                        2025</strong>, continuando con la prestación de servicios hasta esa fecha.</li>
+                        2025</strong>, continuando con la prestación de servicios hasta esa fecha.
+                </li>
                 <li><strong>Dictamen técnico-jurídico:</strong> Agendum ya inició los trámites para la elaboración del
                     Dictamen Técnico-Jurídico de Conclusión de Obras de Urbanización. Este dictamen será elaborado por
                     el Municipio de Aguascalientes y autoridades competentes, con participación del perito
@@ -389,7 +394,8 @@
                 <li>Designación de Presidente, Secretario y Escrutador de la Asamblea</li>
                 <li>Verificación del quórum legal y declaración de instalación formal de la Asamblea</li>
                 <li>Discusión y posible aprobación de la revocación o terminación del contrato de administración con
-                    <strong>Agendum S.A. de C.V.</strong></li>
+                    <strong>Agendum S.A. de C.V.</strong>
+                </li>
                 <li>Presentación y posible aprobación del <strong>convenio de entrega-recepción</strong> de la primera
                     administración</li>
                 <li>Propuesta y posible aprobación para la <strong>designación y contratación de una nueva empresa
