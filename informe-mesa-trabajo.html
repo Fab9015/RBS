@@ -5,17 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Transición Administrativa - Condominio</title>
   <style>
-:root {
-  --color-bg: #fdfaf5;        /* Fondo general beige muy claro */
-  --color-title: #5c4033;     /* Marrón suave para títulos */
-  --color-footer: #5c4033;    /* Marrón suave para pie de página */
-  --color-accent: #a1b27a;    /* Verde olivo claro para detalles */
-  --color-highlight: #d77c5a; /* Terracota suave para bloques destacados */
-  --color-white: #fefefe;     /* Texto blanco suave */
-  --color-text: #2e2e2e;      /* Gris oscuro para texto general */
-  --color-border: #e6e2dc;    /* Bordes suaves */
-}
-
+    :root {
+      --color-bg: #fdfaf5;
+      --color-title: #5c4033;
+      --color-footer: #5c4033;
+      --color-accent: #a1b27a;
+      --color-highlight: #a1b27a;
+      --color-white: #fefefe;
+      --color-text: #5c4033;
+      --color-border: #e6e2dc;
+    }
 
     body {
       font-family: 'Segoe UI', sans-serif;
@@ -31,13 +30,14 @@
       align-items: center;
       justify-content: space-between;
       padding: 2em 1em;
-      background: var(--color-header);
-      color: var(--color-white);
+      background: var(--color-bg);
+      color: var(--color-title);
     }
 
     .header-text {
       flex-grow: 1;
       padding-right: 1em;
+      color: var(--color-title);
     }
 
     .header-text h1 {
@@ -90,7 +90,7 @@
       border-radius: 6px;
       font-weight: bold;
       margin-bottom: 1em;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
     }
 
     .grid {
@@ -108,8 +108,8 @@
     }
 
     footer {
-      background: var(--color-header);
-      color: var(--color-white);
+      background: var(--color-bg);
+      color: var(--color-footer);
       text-align: center;
       padding: 1.5em 1em;
       font-size: 0.9em;
@@ -120,15 +120,15 @@
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1em;
       padding: 2em 1em;
-      background: var(--color-highlight);
       color: var(--color-text);
     }
 
     .column-section div {
       background: var(--color-accent);
+      color: var(--color-white);
       padding: 1em;
       border-radius: 6px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
   </style>
 </head>
