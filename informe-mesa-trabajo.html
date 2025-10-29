@@ -26,7 +26,7 @@
 
     header {
       display: flex;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       align-items: center;
       justify-content: space-between;
       padding: 2em 1em;
@@ -58,19 +58,23 @@
       object-fit: contain;
     }
 
-    @media (max-width: 600px) {
-      header {
-        flex-direction: row;
-        flex-wrap: nowrap;
-      }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 2em;
+      background: var(--color-bg);
+      padding: 1em;
+      border-bottom: 1px solid var(--color-border);
+      font-weight: bold;
+    }
 
-      .header-text {
-        flex: 1;
-      }
+    nav a {
+      color: var(--color-title);
+      text-decoration: none;
+    }
 
-      .logo {
-        max-width: 120px;
-      }
+    nav a:hover {
+      text-decoration: underline;
     }
 
     section {
@@ -130,6 +134,46 @@
       border-radius: 6px;
       box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     }
+
+    @media (max-width: 600px) {
+      .header-text h1 {
+        font-size: 1.4em;
+      }
+
+      .header-text p {
+        font-size: 0.9em;
+      }
+
+      .logo {
+        max-width: 100px;
+      }
+
+      nav {
+        flex-direction: column;
+        gap: 0.5em;
+      }
+    }
+
+    @media print {
+      nav {
+        display: none;
+      }
+
+      header, footer {
+        page-break-before: avoid;
+        page-break-after: avoid;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-size: 12pt;
+      }
+
+      .highlight, .column-section div {
+        box-shadow: none;
+      }
+    }
   </style>
 </head>
 <body>
@@ -142,13 +186,20 @@
     <img src="img/logo.png" alt="Logo Comité de Administración Reserva Bosque Sereno" class="logo" />
   </header>
 
-  <section>
+  <nav>
+    <a href="#contexto">Contexto</a>
+    <a href="#calendario">Calendario</a>
+    <a href="#temas">Temas</a>
+    <a href="#indicaciones">Indicaciones</a>
+  </nav>
+
+  <section id="contexto">
     <h2>🔍 Contexto</h2>
     <p>Resultado de la reunión en conciliación y decisión del comité tomada el <strong>28 de octubre</strong>.</p>
     <div class="highlight">El comité asumirá la administración a partir de <strong>noviembre</strong>.</div>
   </section>
 
-  <section>
+  <section id="calendario">
     <h2>📅 Calendario clave</h2>
     <ul>
       <li><strong>Domingo 2 de noviembre:</strong> Mesa de trabajo abierta, 9:00 a.m., salón de eventos.</li>
@@ -156,7 +207,7 @@
     </ul>
   </section>
 
-  <section>
+  <section id="temas">
     <h2>💬 Temas a abordar</h2>
     <div class="grid">
       <div class="highlight">Cambio de administración</div>
@@ -167,7 +218,7 @@
     </div>
   </section>
 
-  <section>
+  <section id="indicaciones">
     <h2>📌 Indicaciones prácticas</h2>
     <ul>
       <li>El pago de la cuota de noviembre ya no debe realizarse a Agendum.</li>
@@ -180,7 +231,6 @@
     <div>Ejemplo de columna 1</div>
     <div>Ejemplo de columna 2</div>
     <div>Ejemplo de columna 3</div>
-    <!-- Puedes seguir agregando divs aquí -->
   </section>
 
   <footer>
