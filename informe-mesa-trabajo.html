@@ -6,14 +6,15 @@
   <title>Transición Administrativa - Condominio</title>
   <style>
     :root {
-      --color-bg: #fdfaf5;        /* Fondo general beige muy claro */
-      --color-title: #5c4033;     /* Marrón suave para títulos */
-      --color-footer: #5c4033;    /* Marrón suave para pie de página */
-      --color-accent: #a1b27a;    /* Verde olivo claro para detalles */
-      --color-highlight: #d77c5a; /* Terracota suave para bloques destacados */
-      --color-white: #fefefe;     /* Texto blanco suave */
-      --color-text: #2e2e2e;      /* Gris oscuro para texto general */
-      --color-border: #e6e2dc;    /* Bordes suaves */
+      --color-bg: #fff5eb;       /* Fondo general */
+      --color-header: #ad7658;   /* Fondo institucional del header */
+      --color-title: #5a3921;    /* Títulos y encabezados */
+      --color-text: #8b7b65;     /* Texto principal */
+      --color-secondary: #bca796;/* Texto secundario */
+      --color-accent: #6f5443;   /* Acentos suaves */
+      --color-highlight: #e0cfc1;/* Bloques destacados */
+      --color-white: #ffffff;    /* Texto sobre bloques */
+      --color-border: #e6ddd2;   /* Bordes suaves */
     }
 
     body {
@@ -25,18 +26,18 @@
     }
 
     header {
-      background: var(--color-bg);
-      color: var(--color-title);
-      padding: 2em 1em;
       display: flex;
-      justify-content: space-between;
+      flex-wrap: nowrap;
       align-items: center;
-      flex-wrap: wrap;
-      border-bottom: 2px solid var(--color-accent);
+      justify-content: space-between;
+      padding: 2em 1em;
+      background: var(--color-header);
+      color: var(--color-white);
     }
 
     .header-text {
-      max-width: 70%;
+      flex-grow: 1;
+      padding-right: 1em;
     }
 
     .header-text h1 {
@@ -52,8 +53,24 @@
     }
 
     .logo {
-      max-width: 180px;
+      max-width: 160px;
       height: auto;
+      object-fit: contain;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: row;
+        flex-wrap: nowrap;
+      }
+
+      .header-text {
+        flex: 1;
+      }
+
+      .logo {
+        max-width: 120px;
+      }
     }
 
     section {
@@ -68,17 +85,17 @@
 
     .highlight {
       background: var(--color-highlight);
-      color: var(--color-white);
+      color: var(--color-text);
       padding: 1em;
       border-radius: 6px;
       font-weight: bold;
       margin-bottom: 1em;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 1em;
     }
 
@@ -91,25 +108,28 @@
     }
 
     footer {
-      background: var(--color-footer);
+      background: var(--color-header);
       color: var(--color-white);
       text-align: center;
       padding: 1.5em 1em;
       font-size: 0.9em;
     }
 
-    @media (max-width: 600px) {
-      .header-text {
-        max-width: 100%;
-      }
+    /* Sección de columnas dinámicas */
+    .column-section {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1em;
+      padding: 2em 1em;
+      background: var(--color-highlight);
+      color: var(--color-text);
+    }
 
-      .logo {
-        margin-top: 1em;
-      }
-
-      .grid {
-        grid-template-columns: 1fr;
-      }
+    .column-section div {
+      background: var(--color-bg);
+      padding: 1em;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
     }
   </style>
 </head>
@@ -120,7 +140,7 @@
       <h1>Transición Administrativa del Condominio</h1>
       <p>Resumen visual para la mesa de trabajo</p>
     </div>
-    <img src="img/Imagen de WhatsApp 2025-10-29 a las 12.41.21_70fd8335.jpg" class="logo" />
+    <img src="img/logo" class="logo" />
   </header>
 
   <section>
@@ -155,6 +175,13 @@
       <li>Se explicará el nuevo procedimiento de pago en la mesa de trabajo.</li>
       <li>Todos los vecinos están invitados a participar activamente.</li>
     </ul>
+  </section>
+
+  <section class="column-section">
+    <div>Ejemplo de columna 1</div>
+    <div>Ejemplo de columna 2</div>
+    <div>Ejemplo de columna 3</div>
+    <!-- Puedes seguir agregando divs aquí -->
   </section>
 
   <footer>
