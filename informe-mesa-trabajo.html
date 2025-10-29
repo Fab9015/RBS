@@ -66,27 +66,42 @@
 
         nav {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
-            flex-wrap: nowrap;
-            gap: 1.5em;
+            gap: 1em 2em;
             background: var(--color-bg);
             padding: 1em;
             border-bottom: 1px solid var(--color-border);
             font-weight: bold;
-            overflow-x: auto;
-            white-space: nowrap;
-            font-size: clamp(0.9em, 2vw, 1.1em);
-            scroll-snap-type: x mandatory;
+            font-size: 1em;
         }
 
         nav a {
             color: var(--color-title);
             text-decoration: none;
-            scroll-snap-align: start;
+            padding: 0.3em 0.6em;
+            border-radius: 4px;
+            transition: background 0.2s ease;
         }
 
         nav a:hover {
-            text-decoration: underline;
+            background: var(--color-accent);
+            color: var(--color-white);
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 0.5em 1em;
+                font-size: 0.95em;
+                padding: 0.5em 1em;
+            }
+
+            nav a {
+                flex: 1 1 auto;
+                text-align: left;
+            }
         }
 
         section {
