@@ -577,7 +577,7 @@
                     <li>Protocolización de la asamblea pasada</li>
                     <li>Protocolización de la asamblea siguiente</li>
                     <li>Pago para la constitución legal de la Asociación Civil</li>
-                    <li>Conformación de un fondo económico-financiero inicial para la rehabilitación del condominio</li>
+                    <li>Creación de un fondo económico-financiero inicial para la rehabilitación del condominio</li>
                 </ul>
             </div>
         </div>
@@ -590,29 +590,31 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll("nav a");
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll(".nav-link");
 
-        const observer = new IntersectionObserver(
-            entries => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const id = entry.target.getAttribute("id");
-                        navLinks.forEach(link => {
-                            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
-                        });
-                    }
-                });
-            },
-            {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.5 // Ajusta si quieres que se active antes o después
-            }
-        );
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute("id");
 
-        sections.forEach(section => observer.observe(section));
+                    navLinks.forEach((link) => {
+                        link.classList.remove("active");
+                        if (link.getAttribute("href").includes(id)) {
+                            link.classList.add("active");
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.6 // Ajusta este valor para controlar cuándo se considera "visible"
+        });
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
     });
+
 </script>
 
 
