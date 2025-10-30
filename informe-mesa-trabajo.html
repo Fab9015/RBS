@@ -292,34 +292,31 @@
         }
 
         #temas {
-            background-color: #f5f8f6;
             padding: 2em;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            max-width: 700px;
             margin: 2em auto;
-            font-family: 'Segoe UI', sans-serif;
         }
 
         .index-list {
             list-style: none;
             padding: 0;
             margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            /* Align items to the left */
+            gap: 0.6em;
         }
 
         .index-list li {
+            width: 300px;
+            /* Fixed width */
             background-color: #e8f0ee;
             border-left: 5px solid #4a7c59;
             padding: 0.75em 1em;
-            margin-bottom: 0.6em;
             border-radius: 6px;
             font-weight: 500;
             color: #2c3e50;
             transition: background-color 0.3s ease;
-        }
-
-        .index-list li:hover {
-            background-color: #dbe7e4;
         }
     </style>
 
