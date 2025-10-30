@@ -384,7 +384,7 @@
     </nav>
 
     <section id="temas">
-        <div class="observe-anchor"></div>
+
         <h2>💬 Temas a abordar</h2>
         <ul class="index-list">
             <li>Cambio de administración</li>
@@ -394,7 +394,7 @@
     </section>
     <div class="section-divider" aria-hidden="true"></div>
     <section id="informacion">
-        <div class="observe-anchor"></div>
+
         <h2>ℹ️ Información general</h2>
         <div class="info-block">
             <h3>📅 Calendario clave</h3>
@@ -416,7 +416,7 @@
 
     <div class="section-divider" aria-hidden="true"></div>
     <section id="contexto">
-        <div class="observe-anchor"></div>
+
         <h2>🔍 Contexto</h2>
         <p>Resultado de la reunión en conciliación y decisión del comité tomada el <strong>28 de octubre</strong>.</p>
 
@@ -467,7 +467,7 @@
     </section>
     <div class="section-divider" aria-hidden="true"></div>
     <section id="entrega-recepcion">
-        <div class="observe-anchor"></div>
+
         <h2>📄 Proceso de entrega-recepción</h2>
         <h3>Parte 1: Convenio de entrega-recepción</h3>
         <p>El <strong>convenio de entrega-recepción</strong> entre <strong>Agendum S.A. de C.V.</strong> y el Comité de
@@ -572,7 +572,7 @@
     </section>
     <div class="section-divider" aria-hidden="true"></div>
     <section id="proximos-pasos">
-        <div class="observe-anchor"></div>
+
         <h2>📌 Próximos pasos y seguimiento</h2>
         <p>Durante esta mesa de trabajo se presentan las acciones clave para consolidar la nueva etapa administrativa
             del condominio.</p>
@@ -603,12 +603,23 @@
     <footer>
         Comité de Administración · Condominio Reserba Bosque Sereno, Aguascalientes · Octubre 2025
     </footer>
+
 </body>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var navLinks = document.querySelectorAll("nav a");
-        var anchors = document.querySelectorAll(".observe-anchor");
+        var sections = document.querySelectorAll("section[id]");
+        var hasScrolled = false;
+
+        // Activar manualmente el primer enlace al cargar
+        var defaultLink = document.querySelector('nav a[href="#temas"]');
+        if (defaultLink) {
+            navLinks.forEach(function (l) {
+                l.classList.remove("active");
+            });
+            defaultLink.classList.add("active");
+        }
 
         // Activar manualmente al hacer clic
         navLinks.forEach(function (link) {
@@ -620,30 +631,35 @@
             });
         });
 
-        // Esperar 300ms antes de activar el observer
-        setTimeout(function () {
-            var observer = new IntersectionObserver(function (entries) {
-                entries.forEach(function (entry) {
-                    if (entry.isIntersecting) {
-                        var section = entry.target.closest("section");
-                        var id = section.getAttribute("id");
-                        navLinks.forEach(function (link) {
-                            var match = link.getAttribute("href") === "#" + id;
-                            link.classList.toggle("active", match);
-                        });
-                    }
-                });
-            }, {
-                root: null,
-                rootMargin: "0px",
-                threshold: 0.01
-            });
+        // Detectar primer scroll
+        window.addEventListener("scroll", function () {
+            hasScrolled = true;
+        }, { once: true });
 
-            anchors.forEach(function (anchor) {
-                observer.observe(anchor);
+        // Activar automáticamente al hacer scroll
+        var observer = new IntersectionObserver(function (entries) {
+            if (!hasScrolled) return;
+
+            entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                    var id = entry.target.getAttribute("id");
+                    navLinks.forEach(function (link) {
+                        var match = link.getAttribute("href") === "#" + id;
+                        link.classList.toggle("active", match);
+                    });
+                }
             });
-        }, 300); // puedes ajustar el tiempo si lo deseas
+        }, {
+            root: null,
+            rootMargin: "-66% 0px -33% 0px", // activa cuando el tercio superior del viewport intersecta
+            threshold: 0
+        });
+
+        sections.forEach(function (section) {
+            observer.observe(section);
+        });
     });
+
 </script>
 
 
