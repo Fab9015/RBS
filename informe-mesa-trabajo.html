@@ -233,22 +233,30 @@
             margin-top: 1.5em;
         }
 
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2em;
+            margin-top: 2em;
+        }
+
         .card {
             background: var(--color-bg);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 1em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            transition: box-shadow 0.2s ease;
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 1.2em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            transition: box-shadow 0.2s ease, transform 0.2s ease;
         }
 
         .card:hover {
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
         }
 
         .card h3 {
             margin-top: 0;
-            font-size: 1.1em;
+            font-size: 1.15em;
             color: var(--color-title);
         }
 
@@ -463,34 +471,36 @@
     <div class="section-divider" aria-hidden="true"></div>
     <section id="proximos-pasos">
         <h2>📌 Próximos pasos y seguimiento</h2>
-        <p>Esta sección presenta las acciones propuestas para consolidar la nueva etapa administrativa del condominio.
-        </p>
+        <p>Durante esta mesa de trabajo se presentan las acciones clave para consolidar la nueva etapa administrativa
+            del condominio.</p>
 
         <div class="card-grid">
             <div class="card">
                 <h3>🏢 Propuesta de administración</h3>
-                <p>Se propone contratar a <strong>Defast</strong> como nueva empresa administradora, en sustitución de
-                    Agendum.</p>
+                <p>Se presenta a <strong>Defast</strong> como propuesta para asumir la administración del condominio, en
+                    sustitución de Agendum.</p>
             </div>
 
             <div class="card">
                 <h3>💰 Ajuste de cuota mensual</h3>
-                <p>Se propone aumentar la cuota mensual de mantenimiento a <strong>$650.00 M.N.</strong>, con base en la
-                    proyección financiera del comité.</p>
+                <p>Se expone la necesidad de ajustar la cuota mensual de mantenimiento, conforme al contexto operativo
+                    actual del condominio. La propuesta será presentada durante esta mesa de trabajo, acompañada de una
+                    proyección financiera.</p>
             </div>
 
             <div class="card">
                 <h3>🧾 Cuota extraordinaria</h3>
-                <p>Se solicitará una cuota extraordinaria para cubrir gastos clave:</p>
+                <p>Se propone una cuota extraordinaria para cubrir los siguientes conceptos:</p>
                 <ul>
                     <li>Protocolización de la asamblea pasada</li>
                     <li>Protocolización de la asamblea siguiente</li>
-                    <li>Pago para la creación de la Asociación Civil</li>
-                    <li>Conformación de un fondo económico para rehabilitación del condominio</li>
+                    <li>Pago para la constitución legal de la Asociación Civil</li>
+                    <li>Conformación de un fondo económico-financiero inicial para la rehabilitación del condominio</li>
                 </ul>
             </div>
         </div>
     </section>
+
 
     <footer>
         Comité de Administración · Condominio Reserba Bosque Sereno, Aguascalientes · Octubre 2025
