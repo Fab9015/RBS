@@ -591,40 +591,28 @@
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         const sections = document.querySelectorAll("section[id]");
-        const navLinks = document.querySelectorAll(".nav-link");
+        const navLinks = document.querySelectorAll("nav a");
 
-        function activateSection() {
-            let closestSection = null;
-            let minDistance = Infinity;
-
-            sections.forEach((section) => {
-                const rect = section.getBoundingClientRect();
-                const distance = Math.abs(rect.top);
-
-                if (distance < minDistance && rect.top >= 0) {
-                    minDistance = distance;
-                    closestSection = section;
-                }
-            });
-
-            if (closestSection) {
-                const id = closestSection.getAttribute("id");
-
-                navLinks.forEach((link) => {
-                    link.classList.remove("active");
-                    if (link.getAttribute("href") === `#${id}`) {
-                        link.classList.add("active");
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach(link => {
+                            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+                        });
                     }
                 });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.5 // Ajusta si quieres que se active antes o después
             }
-        }
+        );
 
-        window.addEventListener("scroll", activateSection);
-        window.addEventListener("resize", activateSection);
-        activateSection(); // Run once on load
+        sections.forEach(section => observer.observe(section));
     });
-
-
 </script>
 
 
