@@ -263,6 +263,29 @@
         .card ul {
             margin: 0.5em 0 0 1.2em;
         }
+
+        #informacion {
+            margin-top: 2em;
+        }
+
+        .info-block {
+            background: var(--color-bg);
+            border-left: 4px solid var(--color-accent);
+            padding: 1em 1.2em;
+            margin-bottom: 1.5em;
+            border-radius: 6px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .info-block h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .info-block ul {
+            margin: 0.5em 0 0 1.2em;
+        }
     </style>
 
 </head>
@@ -278,7 +301,7 @@
     </header>
 
     <nav>
-        <a href="#temas">Temas</a>
+        <a href="#temas">ïndice</a>
         <a href="#informacion">información</a>
         <a href="#contexto">Contexto</a>
         <a href="#entrega-recepcion">Entrega-recepción</a>
@@ -295,18 +318,24 @@
     </section>
     <div class="section-divider" aria-hidden="true"></div>
     <section id="informacion">
-        <h2>ℹ️ informacion</h2>
-        <h3>📅 Calendario clave</h3>
-        <ul>
-            <li><strong>Domingo 2 de noviembre:</strong> Mesa de trabajo abierta, 9:00 a.m., salón de eventos.</li>
-            <li><strong>Martes 5 de noviembre:</strong> Asamblea vecinal. Primera llamada: 6:30 p.m. / Segunda
-                llamada:7:00 p.m.</li>
-        </ul>
-        <h3>📌 Indicaciones prácticas</h3>
-        <ul>
-            <li>El pago de la cuota de noviembre ya no debe realizarse a Agendum.</li>
-        </ul>
+        <h2>ℹ️ Información general</h2>
+        <div class="info-block">
+            <h3>📅 Calendario clave</h3>
+            <ul>
+                <li><strong>Domingo 2 de noviembre:</strong> Mesa de trabajo abierta, 9:00 a.m., salón de eventos.</li>
+                <li><strong>Martes 5 de noviembre:</strong> Asamblea vecinal. Primera llamada: 6:30 p.m. / Segunda
+                    llamada: 7:00 p.m.</li>
+            </ul>
+        </div>
+
+        <div class="info-block">
+            <h3>📌 Indicaciones prácticas</h3>
+            <ul>
+                <li>El pago de la cuota de noviembre ya no debe realizarse a Agendum.</li>
+            </ul>
+        </div>
     </section>
+
     <div class="section-divider" aria-hidden="true"></div>
     <section id="contexto">
         <h2>🔍 Contexto</h2>
