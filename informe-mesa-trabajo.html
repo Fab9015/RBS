@@ -225,6 +225,36 @@
             border-radius: 1px;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
         }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5em;
+            margin-top: 1.5em;
+        }
+
+        .card {
+            background: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: box-shadow 0.2s ease;
+        }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .card ul {
+            margin: 0.5em 0 0 1.2em;
+        }
     </style>
 
 </head>
@@ -244,6 +274,7 @@
         <a href="#informacion">información</a>
         <a href="#contexto">Contexto</a>
         <a href="#entrega-recepcion">Entrega-recepción</a>
+        <a href="#proximos-pasos">Próximos pasos</a>
     </nav>
 
     <section id="temas">
@@ -430,6 +461,36 @@
         </div>
     </section>
     <div class="section-divider" aria-hidden="true"></div>
+    <section id="proximos-pasos">
+        <h2>📌 Próximos pasos y seguimiento</h2>
+        <p>Esta sección presenta las acciones propuestas para consolidar la nueva etapa administrativa del condominio.
+        </p>
+
+        <div class="card-grid">
+            <div class="card">
+                <h3>🏢 Propuesta de administración</h3>
+                <p>Se propone contratar a <strong>Defast</strong> como nueva empresa administradora, en sustitución de
+                    Agendum.</p>
+            </div>
+
+            <div class="card">
+                <h3>💰 Ajuste de cuota mensual</h3>
+                <p>Se propone aumentar la cuota mensual de mantenimiento a <strong>$650.00 M.N.</strong>, con base en la
+                    proyección financiera del comité.</p>
+            </div>
+
+            <div class="card">
+                <h3>🧾 Cuota extraordinaria</h3>
+                <p>Se solicitará una cuota extraordinaria para cubrir gastos clave:</p>
+                <ul>
+                    <li>Protocolización de la asamblea pasada</li>
+                    <li>Protocolización de la asamblea siguiente</li>
+                    <li>Pago para la creación de la Asociación Civil</li>
+                    <li>Conformación de un fondo económico para rehabilitación del condominio</li>
+                </ul>
+            </div>
+        </div>
+    </section>
 
     <footer>
         Comité de Administración · Condominio Reserba Bosque Sereno, Aguascalientes · Octubre 2025
