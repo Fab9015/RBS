@@ -110,6 +110,15 @@
             color: var(--color-white);
         }
 
+        nav a.active {
+            background-color: #dbe7e4;
+            font-weight: 600;
+            border-left: 4px solid var(--color-accent);
+            padding: 0.5em 1em;
+            border-radius: 6px;
+            color: var(--color-text);
+        }
+
         @media (max-width: 600px) {
             nav {
                 flex-direction: row;
@@ -354,7 +363,7 @@
     </header>
 
     <nav>
-        <a href="#temas">Índice</a>
+        <a href="#temas" class="active">Índice</a>
         <a href="#informacion">Información</a>
         <a href="#contexto">Contexto</a>
         <a href="#entrega-recepcion">Entrega-recepción</a>
@@ -578,5 +587,33 @@
     </footer>
 
 </body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const sections = document.querySelectorAll("section[id]");
+        const navLinks = document.querySelectorAll("nav a");
+
+        const observer = new IntersectionObserver(
+            entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.getAttribute("id");
+                        navLinks.forEach(link => {
+                            link.classList.toggle("active", link.getAttribute("href") === `#${id}`);
+                        });
+                    }
+                });
+            },
+            {
+                root: null,
+                rootMargin: "0px",
+                threshold: 0.5 // Ajusta si quieres que se active antes o después
+            }
+        );
+
+        sections.forEach(section => observer.observe(section));
+    });
+</script>
+
 
 </html>
