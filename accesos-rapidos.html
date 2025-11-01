@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Accesos rápidos – Mesa de trabajo</title>
+  <style>
+    :root {
+      --color-primario: #2c3e50; /* Azul oscuro institucional */
+      --color-secundario: #1a73e8; /* Azul brillante */
+      --color-fondo: #f5f7fa;
+      --color-texto: #333;
+      --color-borde: #dce1e7;
+      --color-blanco: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-fondo);
+      color: var(--color-texto);
+    }
+
+    header.main-header {
+      background-color: var(--color-primario);
+      color: var(--color-blanco);
+      padding: 1rem 2rem;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    header.main-header h1 {
+      margin: 0;
+      font-size: 1.5rem;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem;
+      gap: 1.5rem;
+    }
+
+    .pill-card {
+      background-color: var(--color-blanco);
+      border: 1px solid var(--color-borde);
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 100%;
+      max-width: 320px;
+      text-decoration: none;
+      color: var(--color-primario);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .pill-card h2 {
+      margin-top: 0;
+      font-size: 1.2rem;
+      color: var(--color-secundario);
+    }
+
+    .pill-card p {
+      font-size: 0.95rem;
+      margin-bottom: 0;
+      color: var(--color-texto);
+    }
+
+    @media (max-width: 600px) {
+      .card-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="main-header">
+    <h1>Accesos rápidos – Mesa de trabajo</h1>
+  </header>
+
+  <main class="card-container">
+    <a href="https://drive.google.com/your-link" class="pill-card" target="_blank">
+      <h2>Documentos oficiales</h2>
+      <p>Accede a los archivos compartidos en Drive para consulta y edición.</p>
+    </a>
+
+    <a href="https://github.com/your-repo" class="pill-card" target="_blank">
+      <h2>Repositorio técnico</h2>
+      <p>Consulta scripts, documentación y avances técnicos en GitHub.</p>
+    </a>
+
+    <a href="https://your-link.com" class="pill-card" target="_blank">
+      <h2>Minutas y acuerdos</h2>
+      <p>Revisa los acuerdos recientes y minutas de reuniones.</p>
+    </a>
+  </main>
+</body>
+</html>
