@@ -43,7 +43,7 @@
     header {
       position: relative;
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
       align-items: flex-start;
       justify-content: space-between;
       padding: 2em 1em;
@@ -53,7 +53,6 @@
 
     .header-text {
       flex-grow: 1;
-      padding-right: 180px;
       min-width: 0;
     }
 
@@ -71,12 +70,12 @@
     }
 
     .logo {
-      position: absolute;
-      top: 2em;
-      right: 1em;
+      flex-shrink: 0;
       max-width: 160px;
       height: auto;
       object-fit: contain;
+      margin-left: 2em;
+      margin-top: 0.2em;
     }
 
     main {
@@ -125,20 +124,22 @@
     }
 
     @media (max-width: 600px) {
-      .header-text {
-        padding-right: 0;
-        min-width: 100%;
+      header {
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: flex-start;
       }
 
-      .header-text h1 {
-        font-size: 1.6em;
+      .header-text {
+        flex: 1 1 100%;
+        padding-right: 0;
       }
 
       .logo {
-        position: absolute;
-        top: 1em;
-        right: 1em;
+        position: relative;
         max-width: 120px;
+        margin-left: auto;
+        margin-top: 1em;
       }
 
       main {
@@ -170,7 +171,7 @@
     </ul>
 
     <div style="margin-top: 3em;">
-      <a href="index.html" class="return-button">← Regresar</a>
+      <a href="index.html" class="return-button">← Regresar a Accesos rápidos</a>
     </div>
   </main>
 </body>
