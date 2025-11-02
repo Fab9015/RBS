@@ -18,7 +18,7 @@
     <meta property="og:locale" content="es_MX">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
-
+    <title>Accesos rápidos – Mesa de trabajo</title>
     <style>
         :root {
             --color-bg: #fdfaf5;
@@ -31,7 +31,6 @@
             --color-border: #e6e2dc;
         }
 
-        /* Tipografía */
         body {
             font-family: 'Lato', sans-serif;
             background: var(--color-bg);
@@ -44,29 +43,9 @@
         h2,
         h3 {
             font-family: 'Montserrat', sans-serif;
-        }
-
-        h2,
-        h3,
-        h4 {
             color: var(--color-title);
         }
 
-        h2 {
-            margin-top: 0;
-        }
-
-        h3 {
-            font-size: 1.2em;
-            margin-top: 1.5em;
-        }
-
-        h4 {
-            font-size: 1em;
-            margin-top: 1em;
-        }
-
-        /* Estructura */
         header {
             position: relative;
             display: flex;
@@ -105,149 +84,26 @@
             object-fit: contain;
         }
 
-        nav {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            background-color: var(--color-bg);
-            padding: 1em;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            display: flex;
-            gap: 1em;
-            border-bottom: 1px solid var(--color-accent);
-        }
-
-        nav a {
-            color: var(--color-title);
-            text-decoration: none;
-            padding: 0.3em 0;
-            border-radius: 4px;
-            transition: background 0.2s ease;
-        }
-
-        nav a:hover {
-            background: var(--color-accent);
-            color: var(--color-white);
-        }
-
-        nav a.active {
-            background-color: #dbe7e4;
-            font-weight: 600;
-            border-left: 4px solid var(--color-accent);
-            padding: 0.5em 1em;
-            border-radius: 6px;
-            color: var(--color-text);
-        }
-
-        /* Responsive nav */
-        @media (max-width: 600px) {
-            nav {                
-                align-items: stretch;
-                font-size: 0.66em;
-                padding: 0.5em 1em;
-                gap: 0.5em 1em;
-            }
-
-            nav a {
-                flex: 1 1 auto;
-                text-align: left;
-                padding: 0.75em;
-                border-left: none;
-                border-bottom: 1px solid var(--color-accent);
-            }
-        }
-
-        /* Secciones */
-        section {
+        main {
             padding: 2em 1em;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        #temas {
-            padding: 2em;
-            margin: 2em auto;
-            min-height: 60vh;
-        }
-
-        #index-list {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 0.6em;
-        }
-
-        .index-list li {
-            width: 260px;
-            background-color: #e8f0ee;
-            border-left: 4px solid var(--color-accent);
-            padding: 0.75em 1em;
-            border-radius: 6px;
-            font-weight: 500;
-            color: #2c3e50;
-            transition: background-color 0.3s ease;
-        }
-
-        /* Bloques destacados */
-        .highlight,
-        .highlight.important {
-            background: var(--color-highlight);
-            color: var(--color-text);
-            padding: 0.5em;
-            border-radius: 6px;
-            font-weight: bold;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .highlight.important {
-            border-left: 6px solid var(--color-accent);
-        }
-
-        /* Grillas */
-        .grid,
-        .column-section,
-        .card-grid {
-            display: grid;
-            gap: 1em;
-        }
-
-        .grid {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        .grid .highlight {
-            text-align: center;
-        }
-
-        .column-section {
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            padding: 2em 1em;
-            color: var(--color-text);
-        }
-
-        .column-section div {
-            background: var(--color-accent);
-            color: var(--color-white);
-            padding: 1em;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         }
 
         .card-grid {
+            display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2em;
             margin-top: 2em;
         }
 
         .card {
-            background: var(--color-bg);
+            background: var(--color-white);
             border: 2px solid var(--color-accent);
             border-radius: 10px;
             padding: 1.2em;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             transition: box-shadow 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            color: var(--color-text);
         }
 
         .card:hover {
@@ -261,396 +117,53 @@
             color: var(--color-title);
         }
 
-        .card ul {
-            margin: 0.5em 0 0 1.2em;
+        .card p {
+            font-size: 0.95em;
+            margin-bottom: 0;
         }
 
-        /* Bloques informativos */
-        .info-block {
-            background: var(--color-bg);
-            border-left: 4px solid var(--color-accent);
-            padding: 1em 1.2em;
-            margin-bottom: 1.5em;
-            border-radius: 6px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-        }
-
-        .info-block h3 {
-            margin-top: 0;
-            font-size: 1.1em;
-            color: var(--color-title);
-        }
-
-        .info-block ul {
-            margin: 0.5em 0 0 1.2em;
-        }
-
-        /* Bloques de decisión */
-        .decision-block {
-            background: var(--color-bg);
-            border-left: 4px solid var(--color-accent);
-            padding: 1em;
-            margin: 1em 0;
-            border-radius: 6px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        }
-
-        .decision-block ul {
-            margin: 0.5em 0 0 1.2em;
-            padding-left: 0;
-        }
-
-        .decision-block ul li {
-            margin-bottom: 0.8em;
-        }
-
-        /* Otros */
-        ul {
-            padding-left: 1.2em;
-        }
-
-        footer {
-            background: var(--color-bg);
-            color: var(--color-footer);
-            text-align: center;
-            padding: 1.5em 1em;
-            font-size: 0.9em;
-        }
-
-        .section-divider {
-            width: 100%;
-            height: 1px;
-            background: var(--color-title);
-            border-radius: 1px;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
-        }
-
-        #informacion {
-            margin-top: 2em;
-        }
-
-        /* Impresión */
-        @media print {
-            nav {
-                display: none;
-            }
-
-            header,
-            footer {
-                page-break-before: avoid;
-                page-break-after: avoid;
-            }
-
-            body {
-                margin: 0;
-                padding: 0;
-                font-size: 12pt;
-            }
-
-            .highlight,
-            .column-section div {
-                box-shadow: none;
+        @media (max-width: 600px) {
+            .card-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5em;
             }
         }
     </style>
-
 </head>
 
 <body>
     <header>
         <div class="header-text">
-            <h1>Guía informativa sobre la transición operativa</h1>
-            <p>Elementos clave para comprender esta etapa y su impacto futuro</p>
+            <h1>Accesos rápidos</h1>
+            <p>Mesa de trabajo y recursos compartidos</p>
         </div>
-        <img src="img/logo.png" alt="Administración Reserva Bosque Sereno" class="logo" />
+        <img src="img/logo.png" alt="Logo institucional" class="logo" />
     </header>
 
-    <nav>
-        <a href="#temas" class="active">Índice</a>
-        <a href="#informacion">Información</a>
-        <a href="#contexto">Contexto</a>
-        <a href="#entrega-recepcion">Entrega-recepción</a>
-        <a href="#proximos-pasos">Próximos pasos</a>
-    </nav>
-
-    <section id="temas">
-
-        <h2>💬 Temas a abordar</h2>
-        <ul class="index-list">
-            <li>Cambio de administración</li>
-            <li>Proceso de entrega-recepción</li>
-            <li>Próximos pasos y seguimiento</li>
-        </ul>
-    </section>
-    <div class="section-divider" aria-hidden="true"></div>
-    <section id="informacion">
-
-        <h2>ℹ️ Información general</h2>
-        <div class="info-block">
-            <h3>📅 Calendario clave</h3>
-            <ul>
-                <li><strong>Domingo 2 de noviembre:</strong> <br>Mesa de trabajo abierta, 9:00 a.m., salón de eventos.
-                </li>
-                <li><strong>Jueves 6 de noviembre:</strong> <br>Asamblea vecinal. Primera llamada: 6:30 p.m. / Segunda
-                    llamada: 7:00 p.m.</li>
-            </ul>
-        </div>
-
-        <div class="info-block">
-            <h3>📌 Indicaciones prácticas</h3>
-            <ul>
-                <li>El pago de la cuota de noviembre ya no debe realizarse a Agendum.</li>
-            </ul>
-        </div>
-    </section>
-
-    <div class="section-divider" aria-hidden="true"></div>
-    <section id="contexto">
-
-        <h2>🔍 Contexto</h2>
-        <p>Resultado de la reunión en conciliación y decisión del comité tomada el <strong>28 de octubre</strong>.</p>
-
-        <div class="highlight">
-            Se acordó gestionar una reunión con el área de producción para revisar el tema del muro y obtener respuestas
-            concretas.
-        </div>
-
-        <h3>⚖️ Dos caminos posibles ante la amenaza de consignación</h3>
-        <p>Alejandro Torres amenazó con que, de no recibir la administración, la dejaría en consignación. Esto llevó al
-            comité a considerar dos alternativas:</p>
-
-        <div class="decision-block">
-            <h4>Opción 1: Mantener a Agendum hasta conformar la AC</h4>
-            <ul>
-                <li>Condiciones indispensables para que agendum permanezca en el cargo:</li>
-                <ul>
-                    <li>Aumento de cuota</li>
-                    <li>Cobro judicial de cartera vencida</li>
-                    <li>Permanencia de Agendum limitada al periodo previo a la constitución de la AC</li>
-                </ul>
-                <li><strong>Ventajas: </strong>Continuidad en el cobro electrónico</li>
-                <li><strong>Desventajas: </strong>Prolongar la gestión de Agendum perpetúa el deterioro organizativo del
-                    condominio</li>
-            </ul>
-        </div>
-        <div class="decision-block">
-            <h4>Opción 2: El comité asume la administración desde noviembre</h4>
-            <ul>
-                <li><strong>Ventajas:</strong></li>
-                <ul>
-                    <li>Control directo de la administración</li>
-                    <li>Posibilidad de contratar nueva empresa</li>
-                    <li>Inicio de la rehabilitación del condominio</li>
-                </ul>
-                <li><strong>Desventajas:</strong></li>
-                <ul>
-                    <li>La AC aún no está finalizada</li>
-                    <li>Cobro en efectivo temporal</li>
-                    <li>Presión constante sobre el comité para reaccionar con rapidez ante múltiples frentes</li>
-                </ul>
-            </ul>
-        </div>
-        <div class="highlight important">
-            El comité se reunió el <strong>27 de octubre</strong> y decidió avanzar con la <strong>Opción 2</strong>:
-            asumir la administración desde noviembre.
-        </div>
-    </section>
-    <div class="section-divider" aria-hidden="true"></div>
-    <section id="entrega-recepcion">
-
-        <h2>📄 Proceso de entrega-recepción</h2>
-        <h3>Parte 1: Convenio de entrega-recepción</h3>
-        <p>El <strong>convenio de entrega-recepción</strong> entre <strong>Agendum S.A. de C.V.</strong> y el Comité de
-            Administración del Condominio Reserva Bosque Sereno será presentado ante la <strong>Asamblea
-                General</strong> para su análisis y posible aprobación. Este documento establece los términos bajo los
-            cuales se formalizaría la transferencia de la administración del condominio.</p>
-
-        <div class="highlight">
-            La firma del convenio está sujeta a la aprobación de la Asamblea General del Condominio.
-        </div>
-        <div class="decision-block">
-            <h4>📦 Documentación contemplada en la entrega</h4>
-            <ul>
-                <li>Instrumentos notariales de asambleas generales</li>
-                <li>Reglamento del condominio</li>
-                <li>Escrituras de los sub-régimenes</li>
-                <li>Registros de flujos de efectivo anuales</li>
-                <li>Copias de facturas realizadas durante la gestión de Agendum</li>
-            </ul>
-        </div>
-        <div class="decision-block">
-            <h4>📌 Obligaciones y acuerdos propuestos en el convenio</h4>
-            <ul>
-                <li><strong>Entrega sin adeudos:</strong> Agendum se compromete a entregar la administración sin deudas
-                    pendientes con proveedores, incluyendo pagos de luz, agua y servicios generales, al momento de la
-                    Asamblea General Extraordinaria.</li>
-                <li><strong>Renuncia a mejoras:</strong> Agendum no asumirá responsabilidad por mejoras o reparaciones
-                    infraestructurales posteriores a la entrega. El comité se obliga a mantener en paz y a salvo a la
-                    empresa ante cualquier reclamación.</li>
-                <li><strong>Muro pendiente:</strong> Se reconoce que el muro cuya construcción está pendiente ha
-                    comenzado gracias a gestiones de Agendum. La nueva administración será responsable de continuar el
-                    seguimiento directamente con el promotor.</li>
-                <li><strong>Responsabilidad ambiental:</strong> Ambas partes reconocen que el condominio es considerado
-                    Gran Generador de Residuos. Tras la firma del convenio, se notificará a la SSMAA el cambio de
-                    responsable ambiental, conforme a la Ley de Protección Ambiental del Estado.</li>
-                <li><strong>Cartera vencida:</strong> El condominio cederá a Agendum la cartera vencida por un monto de
-                    <strong>$146,072.89 M.N.</strong>, correspondiente al periodo 2022–2025. Esta cantidad representa
-                    cuotas no cubiertas que Agendum continuó sufragando de buena fe. Agendum gestionará el cobro
-                    directamente, en coordinación con la nueva administración.
-                </li>
-                <li><strong>Renuncia de derechos:</strong> Agendum renuncia expresamente a cualquier derecho de cobro
-                    adicional por insuficiencia presupuestal, conforme al Anexo 1 del convenio, y declara estar en
-                    entera satisfacción respecto a la cartera vencida cedida.</li>
-                <li><strong>Pozo y planta tratadora:</strong> Se reconoce que el condominio cuenta con un pozo y una
-                    planta tratadora de agua en funcionamiento. El promotor mantiene su vigilancia hasta la entrega
-                    formal de infraestructura. La nueva administración deberá coordinar directamente con el promotor
-                    para el pago y mantenimiento de la planta.</li>
-                <li><strong>Relaciones laborales:</strong> Agendum se compromete a finiquitar todas las relaciones
-                    laborales generadas durante su administración, sin que ello implique responsabilidad alguna para los
-                    condóminos.</li>
-                <li><strong>Fechas de retiro:</strong> Agendum se retirará jurídicamente de la administración el
-                    <strong>1 de noviembre de 2025</strong> y cesará sus operaciones el <strong>31 de noviembre de
-                        2025</strong>, continuando con la prestación de servicios hasta esa fecha.
-                </li>
-                <li><strong>Dictamen técnico-jurídico:</strong> Agendum ya inició los trámites para la elaboración del
-                    Dictamen Técnico-Jurídico de Conclusión de Obras de Urbanización. Este dictamen será elaborado por
-                    el Municipio de Aguascalientes y autoridades competentes, con participación del perito
-                    correspondiente, y permitirá validar que el promotor ha cumplido con las obligaciones legales y
-                    técnicas del proyecto.</li>
-            </ul>
-        </div>
-        <div class="highlight important">
-            En caso de aprobación, el comité recibiría la administración a entera satisfacción, en las condiciones
-            físicas, financieras y administrativas existentes.
-        </div>
-
-        <h3>Parte 2: Asamblea General Extraordinaria</h3>
-        <p>La Asamblea General Extraordinaria de Condóminos está convocada para el <strong>jueves 6 de noviembre de
-                2025</strong> en la Casa Club del Condominio Reserva Bosque Sereno. Primera convocatoria: <strong>18:30
-                h</strong>. Segunda convocatoria: <strong>19:00 h</strong>, con los condóminos presentes.</p>
-        <div class="highlight">
-            La Asamblea se celebrará conforme al Reglamento Interno del Condominio y al Código Urbano para el Estado de
-            Aguascalientes.
-        </div>
-        <div class="decision-block">
-            <h4>🗂️ Orden del día</h4>
-            <ul>
-                <li>Designación de Presidente, Secretario y Escrutador de la Asamblea</li>
-                <li>Verificación del quórum legal y declaración de instalación formal de la Asamblea</li>
-                <li>Discusión y posible aprobación de la revocación o terminación del contrato de administración con
-                    <strong>Agendum S.A. de C.V.</strong>
-                </li>
-                <li>Presentación y posible aprobación del <strong>convenio de entrega-recepción</strong> de la primera
-                    administración</li>
-                <li>Propuesta y posible aprobación para la <strong>designación y contratación de una nueva empresa
-                        administradora</strong></li>
-                <li>Propuesta y posible aprobación para otorgar <strong>facultades legales de cobro judicial</strong> a
-                    la nueva empresa administradora, conforme al artículo 525 del Código Urbano</li>
-                <li>Propuesta y posible aprobación de una <strong>cuota extraordinaria</strong> para mejorar servicios y
-                    fortalecer el fondo de reserva</li>
-                <li>Propuesta y posible aprobación para el <strong>ajuste de la cuota mensual de mantenimiento</strong>,
-                    según proyección financiera del Comité</li>
-                <li>Designación de un <strong>delegado especial</strong> para protocolizar el acta de Asamblea ante
-                    Notario Público</li>
-                <li>Clausura de la Asamblea</li>
-            </ul>
-        </div>
-        <div class="highlight">
-            Los condóminos podrán ser representados mediante carta poder simple o poder notarial, acompañados de
-            identificación oficial.
-        </div>
-    </section>
-    <div class="section-divider" aria-hidden="true"></div>
-    <section id="proximos-pasos">
-
-        <h2>📌 Próximos pasos y seguimiento</h2>
-        <p>Durante esta mesa de trabajo se presentan las acciones clave para consolidar la nueva etapa administrativa
-            del condominio.</p>
+    <main>
         <div class="card-grid">
-            <div class="card">
-                <h3>🏢 Propuesta de administración</h3>
-                <p>Se presenta a <strong>Defast</strong> como propuesta para asumir la administración del condominio, en
-                    sustitución de Agendum.</p>
-            </div>
-            <div class="card">
-                <h3>💰 Ajuste de cuota mensual</h3>
-                <p>Se expone la necesidad de ajustar la cuota mensual de mantenimiento, conforme al contexto operativo
-                    actual del condominio. La propuesta será presentada durante esta mesa de trabajo, acompañada de una
-                    proyección financiera.</p>
-            </div>
-            <div class="card">
-                <h3>🧾 Cuota extraordinaria</h3>
-                <p>Se propone una cuota extraordinaria para cubrir los siguientes conceptos:</p>
-                <ul>
-                    <li>Protocolización de la asamblea pasada</li>
-                    <li>Protocolización de la asamblea siguiente</li>
-                    <li>Pago para la constitución legal de la Asociación Civil</li>
-                    <li>Creación de un fondo económico-financiero inicial para la rehabilitación del condominio</li>
-                </ul>
-            </div>
+            <a href="https://drive.google.com/your-link" class="card" target="_blank">
+                <h3>Reglas del juego</h3>
+                <p>No corro, no empujo, no grito.</p>
+            </a>
+            <a href="https://fab9015.github.io/RBS/informe-mesa-trabajo.html" class="card" target="_blank">
+                <h3>Mesa de trabajo</h3>
+                <p>Guía informativa sobre la transición operativa.</p>
+            </a>
+            <a href="https://fab9015.github.io/RBS/informe-mesa-trabajo.html" class="card" target="_blank">
+                <h3>Prorrateo de la proyección de la cuota</h3>
+                <p>¿Que cubre mi cuota?.</p>
+            </a>
+            <a href="https://your-link.com" class="card" target="_blank">
+                <h3>Condovive</h3>
+                <p>Ejemplo practico de la visualización de los pagos de la cuota.</p>
+            </a>
+            <a href="https://your-link.com" class="card" target="_blank">
+                <h3>Condovive</h3>
+                <p>Ejemplo practico de la visualización de los pagos de la cuota.</p>
+            </a>
         </div>
-    </section>
-    <footer>
-        Comité de Administración · Condominio Reserba Bosque Sereno, Aguascalientes · Octubre 2025
-    </footer>
-
+    </main>
 </body>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        var navLinks = document.querySelectorAll("nav a");
-        var sections = document.querySelectorAll("section[id]");
-        var hasScrolled = false;
-
-        // Activar manualmente el primer enlace al cargar
-        var defaultLink = document.querySelector('nav a[href="#temas"]');
-        if (defaultLink) {
-            navLinks.forEach(function (l) {
-                l.classList.remove("active");
-            });
-            defaultLink.classList.add("active");
-        }
-
-        // Activar manualmente al hacer clic
-        navLinks.forEach(function (link) {
-            link.addEventListener("click", function () {
-                navLinks.forEach(function (l) {
-                    l.classList.remove("active");
-                });
-                link.classList.add("active");
-            });
-        });
-
-        // Detectar primer scroll
-        window.addEventListener("scroll", function () {
-            hasScrolled = true;
-        }, { once: true });
-
-        // Activar automáticamente al hacer scroll
-        var observer = new IntersectionObserver(function (entries) {
-            if (!hasScrolled) return;
-
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    var id = entry.target.getAttribute("id");
-                    navLinks.forEach(function (link) {
-                        var match = link.getAttribute("href") === "#" + id;
-                        link.classList.toggle("active", match);
-                    });
-                }
-            });
-        }, {
-            root: null,
-            rootMargin: "-66% 0px -33% 0px", // activa cuando el tercio superior del viewport intersecta
-            threshold: 0
-        });
-
-        sections.forEach(function (section) {
-            observer.observe(section);
-        });
-    });
-
-</script>
-
 
 </html>
