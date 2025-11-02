@@ -2,6 +2,7 @@
 <html lang="es">
 
 <head>
+    <title>Reglas del juego – Reunión</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -17,7 +18,6 @@
     <meta property="og:locale" content="es_MX">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
-    <title>Accesos rápidos – Mesa de trabajo</title>
     <style>
         :root {
             --color-bg: #fdfaf5;
@@ -53,14 +53,12 @@
             justify-content: space-between;
             padding: 2em 1em;
             background: var(--color-bg);
-            color: var(--color-title);
             border-bottom: 1px solid var(--color-border);
         }
 
         .header-text {
             flex-grow: 1;
             padding-right: 180px;
-            color: var(--color-title);
         }
 
         .header-text h1 {
@@ -86,54 +84,72 @@
 
         main {
             padding: 2em 1em;
+            max-width: 800px;
+            margin: 0 auto;
         }
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2em;
-            margin: 2em auto;
-            max-width: 1080px;
-            padding: 0 1em;
+        ul.rules-list {
+            list-style: none;
+            padding: 0;
+            margin-top: 2em;
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
         }
 
-        .card {
-            background: var(--color-white);
-            border: 2px solid var(--color-accent);
-            border-radius: 10px;
-            padding: 1.2em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
+        ul.rules-list li {
+            background-color: var(--color-white);
+            border-left: 6px solid var(--color-accent);
+            padding: 1em 1.2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: left;
+        }
+
+        .return-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.8em 1.2em;
+            border-radius: 6px;
             text-decoration: none;
-            color: var(--color-text);
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.2s ease, transform 0.2s ease;
         }
 
-        .card:hover {
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        .return-button:hover {
+            background-color: #8fa76a;
             transform: translateY(-2px);
         }
 
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.15em;
-            color: var(--color-title);
-        }
-
-        .card p {
-            font-size: 0.95em;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 900px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
         @media (max-width: 600px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5em;
+            .header-text {
+                padding-right: 0;
+                text-align: center;
+            }
+
+            .logo {
+                position: static;
+                max-width: 120px;
+                margin-top: 1em;
+            }
+
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            main {
+                padding: 1.5em 1em;
+            }
+
+            ul.rules-list li {
+                text-align: left;
             }
         }
     </style>
@@ -142,34 +158,22 @@
 <body>
     <header>
         <div class="header-text">
-            <h1>Accesos rápidos</h1>
-            <p>Mesa de trabajo y recursos compartidos</p>
+            <h1>Reglas del juego</h1>
+            <p>Indicaciones para el inicio de la reunión</p>
         </div>
         <img src="img/logo.png" alt="Logo institucional" class="logo" />
     </header>
 
     <main>
-        <div class="card-grid">
-            <a href="reglas-del-juego.html" class="card" target="_blank">
-                <h3>Reglas del juego</h3>
-                <p>No corro, no empujo, no grito.</p>
-            </a>
-            <a href="informe-mesa-trabajo.html" class="card" target="_blank">
-                <h3>Mesa de trabajo</h3>
-                <p>Guía informativa sobre la transición operativa.</p>
-            </a>
-            <a href="#" class="card" target="_blank">
-                <h3>Prorrateo de la proyección de la cuota</h3>
-                <p>¿Que cubre mi cuota?.</p>
-            </a>
-            <a href="#" class="card" target="_blank">
-                <h3>Condovive</h3>
-                <p>Ejemplo practico de la visualización de los pagos de la cuota.</p>
-            </a>
-            <a href="#" class="card" target="_blank">
-                <h3>Condovive</h3>
-                <p>Ejemplo practico de la visualización de los pagos de la cuota.</p>
-            </a>
+        <ul class="rules-list">
+            <li>Pongan atención desde el inicio. La información será clara y directa.</li>
+            <li>No interrumpan mientras alguien más está hablando.</li>
+            <li>Si tienen dudas, que sean puntuales y concisas.</li>
+            <li>Si necesitan revisar algo en lo particular, lo podemos ver al final de la reunión.</li>
+        </ul>
+
+        <div style="text-align: center; margin-top: 3em;">
+            <a href="accesos-rapidos.html" class="return-button">← Regresar a Accesos rápidos</a>
         </div>
     </main>
 </body>
