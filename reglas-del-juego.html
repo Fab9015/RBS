@@ -113,6 +113,24 @@
                 padding: 1.5em 1em;
             }
         }
+
+        .return-button {
+            display: inline-block;
+            background-color: var(--color-accent);
+            color: var(--color-white);
+            padding: 0.8em 1.2em;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .return-button:hover {
+            background-color: #8fa76a;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
@@ -133,6 +151,9 @@
             <li>Si necesitan revisar algo en lo particular, lo podemos ver al final de la reunión.</li>
         </ul>
     </main>
+    <div style="text-align: center; margin-top: 3em;">
+        <a href="accesos-rapidos.html" class="return-button">← Regresar a Accesos rápidos</a>
+    </div>
 </body>
 
 </html>
