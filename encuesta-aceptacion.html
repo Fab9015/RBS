@@ -1,244 +1,280 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Resultados de la encuesta</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4;
-      margin: 40px 20px;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-    header h1 {
-      font-size: 28px;
-      margin-bottom: 10px;
-    }
-    .chart-box {
-      background: white;
-      padding: 20px;
-      margin: 0 auto 40px auto;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      max-width: 680px;
-    }
-    .chart-box h2 {
-      text-align: center;
-      font-size: 18px;
-      margin-bottom: 15px;
-    }
-    .emoji {
-      text-align: center;
-      font-size: 40px;
-      margin-bottom: 10px;
-    }
-    .interpretacion {
-      text-align: center;
-      font-size: 15px;
-      color: #555;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    canvas {
-      width: 100%;
-      max-height: 180px;
-      margin-bottom: 10px;
-    }
-    .velocimetro canvas {
-      max-height: 260px;
-    }
-    .conteo {
-      font-size: 14px;
-      margin-top: 10px;
-      padding: 10px;
-      background: #f9f9f9;
-      border-radius: 8px;
-    }
-    .conteo span {
-      display: inline-block;
-      padding: 5px 8px;
-      margin: 3px;
-      border-radius: 5px;
-      font-weight: bold;
-      color: white;
-    }
-  </style>
-</head>
-<body>
-
-<header>
-  <h1>Resultados de la encuesta</h1>
-</header>
-
-<div id="contenedorGraficas"></div>
-
-<script>
-  const preguntas = [
-    { clave: "p1", texto: "1. ¿Qué tan deacuerdo estás con la administración de Agendum/Parametro?" },
-    { clave: "p2", texto: "2. ¿Qué tan deacuerdo estás en cambiar la administración actual?" },
-    { clave: "p3", texto: "3. ¿Qué tan deacuerdo estás con aumentar la cuota si es necesario?" },
-    { clave: "p4", texto: "4. ¿Sabías que si la cuota no es adecuada, la cantidad y/o calidad de los servicios puede verse afectada?", binaria: true },
-    { clave: "p5", texto: "5. ¿Qué tan disponible te consideras para participar en actividades del condominio?" }
-  ];
-
-  const expresiones = ["😠", "😕", "😐", "🙂", "😌", "🫡"];
-
-  const interpretaciones = [
-    "Rechazo completo",
-    "Rechazo parcial",
-    "Inconformidad",
-    "Postura neutral",
-    "Aprobación parcial",
-    "Aprobación total"
-  ];
-
-  const colores = [
-    "#d32f2f", "#f57c00", "#fbc02d", "#cddc39", "#7cb342", "#388e3c"
-  ];
-
-  fetch('datos.json')
-    .then(response => response.json())
-    .then(datos => {
-      const contenedor = document.getElementById("contenedorGraficas");
-            preguntas.forEach(pregunta => {
-        const div = document.createElement("div");
-        div.className = "chart-box";
-        const canvasId = `grafico_${pregunta.clave}`;
-
-        let valor, total = datos.length;
-        let conteo = {};
-
-        if (pregunta.binaria) {
-          const si = datos.filter(d => d.p4 === "Sí").length;
-          const no = total - si;
-          valor = Math.round((si / total) * 100);
-        } else {
-          valor = Math.round(datos.reduce((sum, d) => sum + d[pregunta.clave], 0) / total);
-          for (let i = 0; i <= 5; i++) {
-            conteo[i] = datos.filter(d => d[pregunta.clave] === i).length;
-          }
+    <meta charset="UTF-8">
+    <title>Resultados de la encuesta</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4f4f4;
+            margin: 40px 20px;
+            color: #333;
         }
 
-        const emoji = pregunta.binaria
-          ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "🫡")
-          : expresiones[valor];
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
 
-        const textoInterpretativo = pregunta.binaria
-          ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el rechazo" : valor < 70 ? "Resultado neutral" : "Predomina la aprobación"}`
-          : `Promedio de aprobación: ${valor} — ${interpretaciones[valor]}`;
+        header h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
 
-        div.innerHTML = `
+        .chart-box {
+            background: white;
+            padding: 20px;
+            margin: 0 auto 40px auto;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            max-width: 680px;
+        }
+
+        .chart-box h2 {
+            text-align: center;
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .emoji {
+            text-align: center;
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .interpretacion {
+            text-align: center;
+            font-size: 15px;
+            color: #555;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        canvas {
+            width: 100%;
+            max-height: 180px;
+            margin-bottom: 10px;
+        }
+
+        .velocimetro canvas {
+            max-height: 260px;
+        }
+
+        .conteo {
+            font-size: 14px;
+            margin-top: 10px;
+            padding: 10px;
+            background: #f9f9f9;
+            border-radius: 8px;
+        }
+
+        .conteo span {
+            display: inline-block;
+            padding: 5px 8px;
+            margin: 3px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: white;
+        }
+
+        .return-button {
+            display: inline-block;
+            background-color: #a1b27a;
+            /* verde institucional */
+            color: #fefefe;
+            /* blanco */
+            padding: 0.8em 1.2em;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-family: 'Lato', sans-serif;
+            font-size: 1rem;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+
+        .return-button:hover {
+            background-color: #8fa76a;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Resultados de la encuesta</h1>
+    </header>
+
+    <div id="contenedorGraficas"></div>
+
+    <div style="text-align: center; margin-top: 3em;">
+        <a href="accesos-rapidos.html" class="return-button">← Regresar a Accesos rápidos</a>
+    </div>
+    <script>
+        const preguntas = [
+            { clave: "p1", texto: "1. ¿Qué tan deacuerdo estás con la administración de Agendum/Parametro?" },
+            { clave: "p2", texto: "2. ¿Qué tan deacuerdo estás en cambiar la administración actual?" },
+            { clave: "p3", texto: "3. ¿Qué tan deacuerdo estás con aumentar la cuota si es necesario?" },
+            { clave: "p4", texto: "4. ¿Sabías que si la cuota no es adecuada, la cantidad y/o calidad de los servicios puede verse afectada?", binaria: true },
+            { clave: "p5", texto: "5. ¿Qué tan disponible te consideras para participar en actividades del condominio?" }
+        ];
+
+        const expresiones = ["😠", "😕", "😐", "🙂", "😌", "🫡"];
+
+        const interpretaciones = [
+            "Rechazo completo",
+            "Rechazo parcial",
+            "Inconformidad",
+            "Postura neutral",
+            "Aprobación parcial",
+            "Aprobación total"
+        ];
+
+        const colores = [
+            "#d32f2f", "#f57c00", "#fbc02d", "#cddc39", "#7cb342", "#388e3c"
+        ];
+
+        fetch('datos.json')
+            .then(response => response.json())
+            .then(datos => {
+                const contenedor = document.getElementById("contenedorGraficas");
+                preguntas.forEach(pregunta => {
+                    const div = document.createElement("div");
+                    div.className = "chart-box";
+                    const canvasId = `grafico_${pregunta.clave}`;
+
+                    let valor, total = datos.length;
+                    let conteo = {};
+
+                    if (pregunta.binaria) {
+                        const si = datos.filter(d => d.p4 === "Sí").length;
+                        const no = total - si;
+                        valor = Math.round((si / total) * 100);
+                    } else {
+                        valor = Math.round(datos.reduce((sum, d) => sum + d[pregunta.clave], 0) / total);
+                        for (let i = 0; i <= 5; i++) {
+                            conteo[i] = datos.filter(d => d[pregunta.clave] === i).length;
+                        }
+                    }
+
+                    const emoji = pregunta.binaria
+                        ? (valor < 40 ? "😠" : valor < 70 ? "😐" : "🫡")
+                        : expresiones[valor];
+
+                    const textoInterpretativo = pregunta.binaria
+                        ? `Aprobación del ${valor}% — ${valor < 40 ? "Predomina el rechazo" : valor < 70 ? "Resultado neutral" : "Predomina la aprobación"}`
+                        : `Promedio de aprobación: ${valor} — ${interpretaciones[valor]}`;
+
+                    div.innerHTML = `
           <h2>${pregunta.texto}</h2>
           <div class="emoji">${emoji}</div>
           <canvas id="${canvasId}"></canvas>
           <div class="interpretacion">${textoInterpretativo}</div>
         `;
 
-        const resumen = document.createElement("div");
-        resumen.className = "conteo";
+                    const resumen = document.createElement("div");
+                    resumen.className = "conteo";
 
-        if (pregunta.binaria) {
-          const si = datos.filter(d => d.p4 === "Sí").length;
-          const no = total - si;
-          resumen.innerHTML = `
+                    if (pregunta.binaria) {
+                        const si = datos.filter(d => d.p4 === "Sí").length;
+                        const no = total - si;
+                        resumen.innerHTML = `
             <strong>Total votos:</strong> ${total}<br>
             <strong>“Sí”:</strong> ${si}<br>
             <strong>“No”:</strong> ${no}
           `;
-        } else {
-          resumen.innerHTML = `<strong>Total votos:</strong> ${total}<br><strong>Distribución:</strong><br>`;
-          for (let i = 0; i <= 5; i++) {
-            const color = colores[i];
-            const texto = interpretaciones[i];
-            const cantidad = conteo[i] || 0;
-            resumen.innerHTML += `<span style="background:${color};color:white">${i} - ${texto}: ${cantidad}</span> `;
-          }
-        }
+                    } else {
+                        resumen.innerHTML = `<strong>Total votos:</strong> ${total}<br><strong>Distribución:</strong><br>`;
+                        for (let i = 0; i <= 5; i++) {
+                            const color = colores[i];
+                            const texto = interpretaciones[i];
+                            const cantidad = conteo[i] || 0;
+                            resumen.innerHTML += `<span style="background:${color};color:white">${i} - ${texto}: ${cantidad}</span> `;
+                        }
+                    }
 
-        div.appendChild(resumen);
-        contenedor.appendChild(div);
+                    div.appendChild(resumen);
+                    contenedor.appendChild(div);
 
-        const canvas = document.getElementById(canvasId);
-        const ctx = canvas.getContext("2d");
-        const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
-        grad.addColorStop(0.0, "#d32f2f");
-        grad.addColorStop(0.5, "#fbc02d");
-        grad.addColorStop(1.0, "#388e3c");
+                    const canvas = document.getElementById(canvasId);
+                    const ctx = canvas.getContext("2d");
+                    const grad = ctx.createLinearGradient(0, 0, canvas.width, 0);
+                    grad.addColorStop(0.0, "#d32f2f");
+                    grad.addColorStop(0.5, "#fbc02d");
+                    grad.addColorStop(1.0, "#388e3c");
 
-        if (pregunta.binaria) {
-          const si = datos.filter(d => d.p4 === "Sí").length;
-          const no = total - si;
-          new Chart(ctx, {
-            type: "doughnut",
-            data: {
-              labels: ["Sí", "No"],
-              datasets: [{
-                data: [si, no],
-                backgroundColor: [grad, "#eee"],
-                rotation: -90,
-                circumference: 180
-              }]
-            },
-            options: {
-              cutout: "70%",
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  callbacks: {
-                    label: ctx => `${ctx.label}: ${ctx.raw} votos`
-                  }
-                }
-              }
-            }
-          });
-        } else {
-          new Chart(ctx, {
-            type: "bar",
-            data: {
-              labels: [pregunta.clave.toUpperCase()],
-              datasets: [{
-                label: "Nivel de aprobación",
-                data: [valor],
-                backgroundColor: grad
-              }]
-            },
-            options: {
-              indexAxis: 'y',
-              scales: {
-                x: {
-                  min: 0,
-                  max: 5,
-                  ticks: {
-                    callback: val => expresiones[val] || val
-                  }
-                },
-                y: { ticks: { display: false } }
-              },
-              plugins: {
-                legend: { display: false },
-                tooltip: {
-                  callbacks: {
-                    label: ctx => `Nivel promedio: ${ctx.raw} (${interpretaciones[ctx.raw] || ''})`
-                  }
-                }
-              }
-            }
-          });
-        }
-      });
+                    if (pregunta.binaria) {
+                        const si = datos.filter(d => d.p4 === "Sí").length;
+                        const no = total - si;
+                        new Chart(ctx, {
+                            type: "doughnut",
+                            data: {
+                                labels: ["Sí", "No"],
+                                datasets: [{
+                                    data: [si, no],
+                                    backgroundColor: [grad, "#eee"],
+                                    rotation: -90,
+                                    circumference: 180
+                                }]
+                            },
+                            options: {
+                                cutout: "70%",
+                                plugins: {
+                                    legend: { display: false },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: ctx => `${ctx.label}: ${ctx.raw} votos`
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    } else {
+                        new Chart(ctx, {
+                            type: "bar",
+                            data: {
+                                labels: [pregunta.clave.toUpperCase()],
+                                datasets: [{
+                                    label: "Nivel de aprobación",
+                                    data: [valor],
+                                    backgroundColor: grad
+                                }]
+                            },
+                            options: {
+                                indexAxis: 'y',
+                                scales: {
+                                    x: {
+                                        min: 0,
+                                        max: 5,
+                                        ticks: {
+                                            callback: val => expresiones[val] || val
+                                        }
+                                    },
+                                    y: { ticks: { display: false } }
+                                },
+                                plugins: {
+                                    legend: { display: false },
+                                    tooltip: {
+                                        callbacks: {
+                                            label: ctx => `Nivel promedio: ${ctx.raw} (${interpretaciones[ctx.raw] || ''})`
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                });
 
-      // 🧑‍🤝‍🧑 Compromiso comunitario
-      const comprometidos = datos.filter(d => d.p2 >= 3 && d.p5 >= 3).length;
-      const porcentaje = Math.round((comprometidos / datos.length) * 100);
+                // 🧑‍🤝‍🧑 Compromiso comunitario
+                const comprometidos = datos.filter(d => d.p2 >= 3 && d.p5 >= 3).length;
+                const porcentaje = Math.round((comprometidos / datos.length) * 100);
 
-      const resumenFinal = document.createElement("div");
-      resumenFinal.className = "chart-box";
-      resumenFinal.innerHTML = `
+                const resumenFinal = document.createElement("div");
+                resumenFinal.className = "chart-box";
+                resumenFinal.innerHTML = `
         <h2>Compromiso comunitario</h2>
         <div class="emoji">🧑‍🤝‍🧑</div>
         <div class="interpretacion">
@@ -246,8 +282,9 @@
           Eso representa el <strong>${porcentaje}%</strong> del total encuestado
         </div>
       `;
-      contenedor.appendChild(resumenFinal);
-    });
-</script>
+                contenedor.appendChild(resumenFinal);
+            });
+    </script>
 </body>
+
 </html>
