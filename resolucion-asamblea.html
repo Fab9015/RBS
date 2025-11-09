@@ -13,6 +13,8 @@
       --color-accent: #a1b27a;
       --color-border: #e6e2dc;
       --color-text: #5c4033;
+      --color-favor: #8b6f4e;
+      --color-contra: #c3d1a1;
     }
 
     body {
@@ -29,17 +31,20 @@
     }
 
     header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--color-bg);
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
+      align-items: center;
       justify-content: space-between;
-      padding: 2em 1em;
+      padding: 1.5em 1em;
       border-bottom: 1px solid var(--color-border);
     }
 
     .header-text {
       flex-grow: 1;
-      padding-right: 180px;
+      padding-right: 1em;
     }
 
     .header-text h1 {
@@ -55,7 +60,7 @@
     }
 
     .logo {
-      max-width: 160px;
+      max-width: 140px;
       height: auto;
       object-fit: contain;
     }
@@ -107,12 +112,13 @@
     .vote-bar {
       display: flex;
       flex-direction: row;
-      height: 32px;
+      height: auto;
       border-radius: 6px;
       overflow: hidden;
       background: var(--color-border);
       margin: 0.5em 0;
       max-width: 600px;
+      font-size: 0.9em;
     }
 
     .vote-favor, .vote-contra {
@@ -120,38 +126,27 @@
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-size: 0.9em;
+      padding: 0.5em;
       white-space: nowrap;
-      padding: 0 0.5em;
     }
 
     .vote-favor {
-      background: var(--color-accent);
+      background: var(--color-favor);
     }
 
     .vote-contra {
-      background: var(--color-title);
+      background: var(--color-contra);
+      color: #333;
     }
 
     @media (max-width: 600px) {
-      .header-text {
-        padding-right: 0;
-      }
-
-      .logo {
-        margin-top: 1em;
-        max-width: 120px;
-      }
-
       .vote-bar {
         flex-direction: column;
-        height: auto;
       }
 
       .vote-favor, .vote-contra {
         width: 100% !important;
         justify-content: flex-start;
-        padding: 0.5em;
       }
     }
   </style>
@@ -236,6 +231,4 @@
           <p>Se aprobó el ajuste de cuota mensual conforme a la proyección financiera.</p>
         </li>
         <li>
-          <h3>¿Están de acuerdo con que Aries Jiménez Esparza acuda ante notario para protocolizar el acta?</h3>
-          <div class="vote-bar">
-            <div class="vote-favor" style="width:100%">95 votos a favor
+          <h3>¿Están de acuerdo con que Aries Jiménez Esparza acuda ante notario para
