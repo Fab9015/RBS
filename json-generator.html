@@ -27,8 +27,9 @@
         const fila = matrix[r].map(normalizar);
         if (fila.some(c => c.includes("nombre")) &&
             fila.some(c => c.includes("consumo")) &&
+            fila.some(c => c.includes("excedente")) &&
             fila.some(c => c.includes("calle")) &&
-            fila.some(c => c.includes("no"))) {
+            fila.some(c => c.includes("ext"))) {
           return { rowIndex: r, headers: matrix[r] };
         }
       }
@@ -49,7 +50,7 @@
         consumo: findIndex("consumo"),
         excedente: findIndex("excedente"),
         calle: findIndex("calle"),
-        noext: findIndex("no")
+        noext: findIndex("ext") // detecta No.Ext
       };
     }
 
