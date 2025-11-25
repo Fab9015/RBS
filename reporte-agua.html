@@ -1,141 +1,219 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Gestión Hídrica RBS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 20px;
+    body { font-family: Arial, sans-serif; margin: 20px; color: #2c3e50; }
+    h1, h2 { margin: 0 0 12px; }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-bottom: 32px;
     }
-    h1, h2 {
-      color: #2c3e50;
+    .card {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 16px;
+      background: #fff;
     }
     .chart-container {
       width: 100%;
-      height: 600px; /* más grande */
-      margin-bottom: 40px;
+      height: 420px; /* gráfica de pastel y barras más grandes */
+      position: relative;
+    }
+    .bar-container {
+      width: 100%;
+      height: 600px; /* barras horizontales más grandes para direcciones */
+      position: relative;
     }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 20px;
+      margin-top: 12px;
+      font-size: 14px;
     }
     th, td {
-      border: 1px solid #ccc;
+      border: 1px solid #e6e6e6;
       padding: 8px;
       text-align: left;
     }
-    th {
-      background-color: #f4f4f4;
-    }
+    th { background-color: #f7f7f7; }
     .calle {
       background-color: #e8f6ff;
       font-weight: bold;
+    }
+    .status {
+      margin-bottom: 16px;
+      font-size: 14px;
+      color: #606c76;
+    }
+    .legend {
+      font-size: 12px;
+      color: #606c76;
+      margin-top: 6px;
     }
   </style>
 </head>
 <body>
   <h1>Gestión Hídrica RBS</h1>
+  <div class="status" id="status">Cargando datos de data.json…</div>
 
-  <h2>Vecinos con excedentes</h2>
-  <div class="chart-container">
-    <canvas id="graficaExcedentes"></canvas>
+  <div class="grid">
+    <div class="card">
+      <h2>Distribución general</h2>
+      <div class="chart-container">
+        <canvas id="graficaPastel"></canvas>
+      </div>
+      <div class="legend">Pastel: vecinos con excedente vs sin excedente.</div>
+    </div>
+
+    <div class="card">
+      <h2>Excedentes por dirección</h2>
+      <div class="bar-container">
+        <canvas id="graficaBarras"></canvas>
+      </div>
+      <div class="legend">Barras horizontales: eje Y muestra la dirección completa; eje X los litros excedentes.</div>
+    </div>
   </div>
 
-  <h2>Listado completo de vecinos</h2>
-  <div id="listaVecinos"></div>
+  <div class="card">
+    <h2>Listado completo por calle</h2>
+    <div id="listaVecinos"></div>
+  </div>
 
   <script>
-    // JSON enriquecido de ejemplo
-    const data = {
-      "pactados": 15,
-      "personas": [
-        {
-          "nombre": "CASETA",
-          "consumo": 0,
-          "excedente": 0,
-          "calle": "Av. Principal",
-          "numero_interior": 1,
-          "direccion": "Av. Principal #1"
-        },
-        {
-          "nombre": "CARLOS ROBERTO FELIX MARTINEZ",
-          "consumo": 0,
-          "excedente": 0,
-          "calle": "Av. Principal",
-          "numero_interior": 2,
-          "direccion": "Av. Principal #2"
-        },
-        {
-          "nombre": "ANGELA AZUCENA HERRERA RODRIGUEZ",
-          "consumo": 12,
-          "excedente": 3,
-          "calle": "Calle Hidalgo",
-          "numero_interior": 4,
-          "direccion": "Calle Hidalgo #123, Interior 4"
-        },
-        {
-          "nombre": "SARA ALEJANDRA GONZALEZ PADILLA",
-          "consumo": 19,
-          "excedente": 4,
-          "calle": "Calle Juárez",
-          "numero_interior": 7,
-          "direccion": "Calle Juárez #45, Interior 7"
-        }
-        // ... resto de registros enriquecidos
-      ]
-    };
+    async function cargarDatos() {
+      const statusEl = document.getElementById('status');
+      try {
+        const resp = await fetch('data.json', { cache: 'no-store' });
+        if (!resp.ok) throw new Error('No se pudo cargar data.json');
+        const data = await resp.json();
 
-    // Filtrar vecinos con excedentes
-    const excedentes = data.personas.filter(p => p.excedente > 0);
+        statusEl.textContent = 'Datos cargados correctamente.';
 
-    // Preparar datos para la gráfica
-    const chartData = {
-      labels: excedentes.map(p => p.direccion),
-      datasets: [{
-        label: 'Litros excedentes',
-        data: excedentes.map(p => p.excedente),
-        backgroundColor: 'rgba(54, 162, 235, 0.7)'
-      }]
-    };
+        // Validaciones mínimas esperadas en data.json
+        const pactados = Number(data.pactados ?? 0);
+        const personas = Array.isArray(data.personas) ? data.personas : [];
 
-    const config = {
-      type: 'bar',
-      data: chartData,
-      options: {
-        indexAxis: 'y', // barras horizontales
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            title: { display: true, text: 'Litros excedentes' }
-          },
-          y: {
-            title: { display: true, text: 'Dirección' }
+        // Pastel: excedente vs sin excedente
+        const conExcedente = personas.filter(p => Number(p.excedente) > 0).length;
+        const sinExcedente = personas.length - conExcedente;
+
+        const pastelData = {
+          labels: ['Con excedente', 'Sin excedente'],
+          datasets: [{
+            data: [conExcedente, sinExcedente],
+            backgroundColor: ['#36a2eb', '#9ad0f5']
+          }]
+        };
+
+        new Chart(document.getElementById('graficaPastel'), {
+          type: 'pie',
+          data: pastelData,
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { position: 'bottom' }
+            }
           }
-        }
+        });
+
+        // Barras horizontales: solo direcciones con excedente
+        // Nota: asumimos que data.json ya incluye 'direccion' en cada registro.
+        const excedentes = personas
+          .filter(p => Number(p.excedente) > 0)
+          .map(p => ({
+            direccion: p.direccion ?? construirDireccionFallback(p),
+            excedente: Number(p.excedente)
+          }));
+
+        const barrasConfig = {
+          type: 'bar',
+          data: {
+            labels: excedentes.map(e => e.direccion),
+            datasets: [{
+              label: 'Litros excedentes',
+              data: excedentes.map(e => e.excedente),
+              backgroundColor: 'rgba(54, 162, 235, 0.7)'
+            }]
+          },
+          options: {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+              x: {
+                title: { display: true, text: 'Litros excedentes' },
+                ticks: { precision: 0 }
+              },
+              y: {
+                title: { display: true, text: 'Dirección' }
+              }
+            },
+            plugins: {
+              legend: { display: false },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => `Excedente: ${ctx.parsed.x} L`
+                }
+              }
+            }
+          }
+        };
+
+        new Chart(document.getElementById('graficaBarras'), barrasConfig);
+
+        // Lista agrupada por calle y ordenada por número interior
+        renderLista(personas);
+
+      } catch (err) {
+        console.error(err);
+        statusEl.textContent = 'Error al cargar data.json. Verifica el archivo en el repositorio.';
       }
-    };
+    }
 
-    new Chart(document.getElementById('graficaExcedentes'), config);
+    // Fallback para construir dirección si falta el campo en data.json
+    function construirDireccionFallback(p) {
+      const calle = p.calle ?? 'Calle sin nombre';
+      const numero = p.numero ?? p.numero_exterior ?? p.numero_interior ?? '';
+      if (numero === '' || numero === null || numero === undefined) {
+        return calle;
+      }
+      // Si el dataset maneja número interior separado, lo agregamos
+      const interior = p.numero_interior != null ? `, Interior ${p.numero_interior}` : '';
+      return `${calle} #${numero}${interior}`;
+    }
 
-    // Agrupar por calles y ordenar por número interior
     function renderLista(personas) {
       const contenedor = document.getElementById('listaVecinos');
-      const calles = {};
 
-      personas.forEach(p => {
-        if (!calles[p.calle]) calles[p.calle] = [];
-        calles[p.calle].push(p);
-      });
+      // Normalizamos claves esperadas
+      const normalizadas = personas.map(p => ({
+        direccion: p.direccion ?? construirDireccionFallback(p),
+        consumo: Number(p.consumo ?? 0),
+        excedente: Number(p.excedente ?? 0),
+        calle: p.calle ?? inferirCalle(p),
+        numeroInterior: inferirNumeroInterior(p)
+      }));
 
-      let html = '<table><tr><th>Dirección</th><th>Consumo</th><th>Excedente</th></tr>';
-      for (const calle in calles) {
+      // Agrupar por calle
+      const agrupadas = normalizadas.reduce((acc, p) => {
+        if (!acc[p.calle]) acc[p.calle] = [];
+        acc[p.calle].push(p);
+        return acc;
+      }, {});
+
+      // Render HTML
+      let html = '<table><thead><tr><th>Dirección</th><th>Consumo</th><th>Excedente</th></tr></thead><tbody>';
+
+      Object.keys(agrupadas).sort((a, b) => a.localeCompare(b)).forEach(calle => {
         html += `<tr class="calle"><td colspan="3">${calle}</td></tr>`;
-        calles[calle]
-          .sort((a, b) => a.numero_interior - b.numero_interior)
+        agrupadas[calle]
+          .sort((a, b) => (a.numeroInterior ?? 0) - (b.numeroInterior ?? 0))
           .forEach(p => {
             html += `<tr>
               <td>${p.direccion}</td>
@@ -143,12 +221,37 @@
               <td>${p.excedente}</td>
             </tr>`;
           });
-      }
-      html += '</table>';
+      });
+
+      html += '</tbody></table>';
       contenedor.innerHTML = html;
     }
 
-    renderLista(data.personas);
+    // Inferencias suaves si el JSON original no trae todas las llaves
+    function inferirCalle(p) {
+      // Si data.json incluye 'direccion', intentamos extraer la calle antes del '#'
+      if (p.direccion && typeof p.direccion === 'string') {
+        const corte = p.direccion.split('#')[0].trim();
+        return corte.length ? corte : 'Sin calle';
+      }
+      return 'Sin calle';
+    }
+
+    function inferirNumeroInterior(p) {
+      // Preferimos 'numero_interior'; si no existe, intentamos parsear desde 'direccion'
+      if (p.numero_interior != null) return Number(p.numero_interior);
+      if (p.direccion && typeof p.direccion === 'string') {
+        // Busca patrones comunes: "#123, Interior 4" o "#123-4"
+        const interiorMatch = p.direccion.match(/Interior\s+(\d+)/i) || p.direccion.match(/#\s*\d+\s*[-/]\s*(\d+)/);
+        if (interiorMatch) return Number(interiorMatch[1]);
+        // Si no hay interior, intenta número exterior:
+        const exteriorMatch = p.direccion.match(/#\s*(\d+)/);
+        if (exteriorMatch) return Number(exteriorMatch[1]);
+      }
+      return null;
+    }
+
+    cargarDatos();
   </script>
 </body>
 </html>
