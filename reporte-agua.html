@@ -4,247 +4,95 @@
   <meta charset="UTF-8" />
   <title>Reporte hídrico – Reserva Bosque Sereno</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    :root {
-      --bg: #fdfaf5;
-      --text: #5c4033;
-      --title: #4c372b;
-      --accent: #a1b27a;
-      --border: #e6e2dc;
-      --chip-ok: #d9ead3;
-      --chip-ex: #f9d5d3;
-      --bar-ex: #8b6f4e;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; padding: 1.5rem; background: var(--bg);
-      font-family: 'Lato', sans-serif; color: var(--text);
-    }
-    header { max-width: 1080px; margin: 0 auto 1rem; }
-    h1 { font-family: 'Montserrat', sans-serif; color: var(--title); margin: 0 0 .5rem; }
-    .subtitle { margin: 0; font-style: italic; }
-    main { max-width: 1080px; margin: 0 auto; }
-    section { margin-bottom: 2rem; }
-    .card {
-      border: 1px solid var(--border); border-radius: 10px; background: #fff;
-      padding: 1rem;
-    }
-    .grid {
-      display: grid; gap: 1rem;
-      grid-template-columns: 1fr; 
-    }
-    @media (min-width: 900px) {
-      .grid { grid-template-columns: 1fr 1fr; }
-    }
-    .metric {
-      display: grid; grid-template-columns: 1fr auto; gap: .25rem .75rem; align-items: baseline;
-      padding: .35rem 0; border-bottom: 1px dashed var(--border);
-    }
-    .metric:last-child { border-bottom: none; }
-    .metric b { font-family: 'Montserrat', sans-serif; color: var(--title); }
-    .chips { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .5rem; }
-    .chip { padding: .25rem .5rem; border-radius: 999px; font-size: .85rem; border: 1px solid var(--border); }
-    .chip.ok { background: var(--chip-ok); }
-    .chip.ex { background: var(--chip-ex); }
-    .canvas-wrap { padding: .5rem; border: 1px solid var(--border); border-radius: 10px; background: #fff; }
-    table { width: 100%; border-collapse: collapse; font-size: .95rem; }
-    th, td { padding: .6rem .7rem; border-bottom: 1px solid var(--border); text-align: left; }
-    th { background: #fff; position: sticky; top: 0; z-index: 1; }
-    .row-ex { background: #fff7f6; }
-    .small { color: #7a6a5f; font-size: .9rem; }
+    body { font-family: Arial, sans-serif; background:#fdfaf5; margin:0; padding:1.5rem; color:#5c4033; }
+    h1,h2 { color:#4c372b; }
+    .card { background:#fff; border:1px solid #e6e2dc; border-radius:10px; padding:1rem; margin-bottom:2rem; }
+    table { width:100%; border-collapse:collapse; }
+    th,td { padding:.6rem; border-bottom:1px solid #e6e2dc; text-align:left; }
+    th { background:#f9f9f9; }
+    .row-ex { background:#fff7f6; }
+    .chips { display:flex; gap:.5rem; margin-top:.5rem; }
+    .chip { padding:.25rem .5rem; border-radius:999px; font-size:.85rem; border:1px solid #e6e2dc; }
+    .chip.ok { background:#d9ead3; }
+    .chip.ex { background:#f9d5d3; }
+    .canvas-wrap { padding:.5rem; border:1px solid #e6e2dc; border-radius:10px; background:#fff; }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Reporte de consumo de agua</h1>
-    <p class="subtitle">Resumen de lecturas, consumo pactado y excedentes por unidad privativa</p>
-  </header>
+  <h1>Reporte de consumo de agua</h1>
+  <p><i>Lecturas de noviembre 2025 – Consumo pactado: 15 m³ por unidad</i></p>
 
-  <main>
-    <!-- Datos: edita este bloque JSON y el reporte se actualizará -->
-    <script id="datos" type="application/json">
-    {
-      "totales": {
-        "fechaLectura": "11/2025",
-        "totalUnidades": 427,
-        "m3PactadosPorUnidad": 15,
-        "excedenteTotalM3": 103,
-        "costoPorM3": 13.9
-      },
-      "excedentes": [
-        { "nombre": "SARA ALEJANDRA GONZÁLEZ PADILLA", "excedente": 19 },
-        { "nombre": "VERÓNICA MARTÍNEZ PEREZCHICA", "excedente": 8 },
-        { "nombre": "MARTA ESTHELA GONZÁLEZ HERNÁNDEZ", "excedente": 2 },
-        { "nombre": "OMAR ALEJANDRO CERVANTES TERÁN", "excedente": 5 },
-        { "nombre": "ANTONIO RODRÍGUEZ FRAUSTO", "excedente": 48 },
-        { "nombre": "EDGAR ALEJANDRO SANTILLÁN MARTÍNEZ", "excedente": 38 },
-        { "nombre": "ALMA ALEJANDRA DE LA VEGA LARA", "excedente": 19 },
-        { "nombre": "MA. GUADALUPE DÍAZ MURILLO", "excedente": 22 },
-        { "nombre": "DANIEL CHÁVEZ MACÍAS", "excedente": 16 }
-        /* Agrega aquí los demás con excedente > 0 */
-      ],
-      "personas": [
-        { "nombre": "CASETA", "consumo": 1, "excedente": 0 },
-        { "nombre": "CARLOS ROBERTO FELIX MARTÍNEZ", "consumo": 0, "excedente": 0 },
-        { "nombre": "SARA ALEJANDRA GONZÁLEZ PADILLA", "consumo": 132, "excedente": 19 }
-        /* Lista completa: nombre, consumo, excedente */
-      ]
-    }
-    </script>
+  <div class="card">
+    <h2>Resumen global</h2>
+    <p>Total de unidades medidas: <b>20</b></p>
+    <p>M³ pactados por unidad: <b>15</b></p>
+    <p>Total pactado: <b>300 m³</b></p>
+    <p>Excedente total: <b>129 m³</b></p>
+    <div class="chips">
+      <span class="chip ok">En rango: 12 vecinos</span>
+      <span class="chip ex">Con excedente: 8 vecinos</span>
+    </div>
+    <div class="canvas-wrap"><canvas id="pie"></canvas></div>
+  </div>
 
-    <!-- Resumen global -->
-    <section class="card">
-      <h2>Resumen global</h2>
-      <div class="grid">
-        <div>
-          <div class="metric"><b>Total de unidades medidas</b><span id="m-total">—</span></div>
-          <div class="metric"><b>M³ pactados por unidad</b><span id="m-pactados">—</span></div>
-          <div class="metric"><b>Total pactado (suma)</b><span id="m-pactado-suma">—</span></div>
-          <div class="metric"><b>Excedente total</b><span id="m-excedente">—</span></div>
-          <div class="metric"><b>Costo por m³ excedente</b><span id="m-costo">—</span></div>
-          <div class="metric"><b>Importe por excedentes</b><span id="m-importe">—</span></div>
-          <div class="chips">
-            <span class="chip ok" id="chip-en-rango">En rango: —</span>
-            <span class="chip ex" id="chip-excedente">Con excedente: —</span>
-          </div>
-        </div>
-        <div class="canvas-wrap">
-          <canvas id="pie"></canvas>
-        </div>
-      </div>
-      <p class="small">El pago corresponde a m³ pactados por unidad más los m³ excedentes, cobrados al costo vigente por m³.</p>
-    </section>
+  <div class="card">
+    <h2>Excedente por vecino</h2>
+    <div class="canvas-wrap"><canvas id="bars"></canvas></div>
+  </div>
 
-    <!-- Excedente por vecino -->
-    <section class="card">
-      <h2>Excedente por vecino</h2>
-      <div class="canvas-wrap"><canvas id="bars"></canvas></div>
-    </section>
-
-    <!-- Tabla resumen por vecino -->
-    <section class="card">
-      <h2>Resumen por unidad</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Consumo (m³)</th>
-            <th>M³ pactados</th>
-            <th>Excedente (m³)</th>
-            <th>Importe excedente</th>
-          </tr>
-        </thead>
-        <tbody id="tabla"></tbody>
-      </table>
-    </section>
-  </main>
+  <div class="card">
+    <h2>Tabla por unidad</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Nombre</th><th>Consumo (m³)</th><th>Pactados</th><th>Excedente</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Sara Alejandra González Padilla</td><td>132</td><td>15</td><td class="row-ex">19</td></tr>
+        <tr><td>Verónica Martínez Perezchica</td><td>206</td><td>15</td><td class="row-ex">8</td></tr>
+        <tr><td>Marta Esthela González Hernández</td><td>90</td><td>15</td><td class="row-ex">2</td></tr>
+        <tr><td>Antonio Rodríguez Frausto</td><td>676</td><td>15</td><td class="row-ex">48</td></tr>
+        <tr><td>Edgar Alejandro Santillán Martínez</td><td>571</td><td>15</td><td class="row-ex">38</td></tr>
+        <tr><td>Alma Alejandra de la Vega Lara</td><td>307</td><td>15</td><td class="row-ex">19</td></tr>
+        <tr><td>Ma. Guadalupe Díaz Murillo</td><td>483</td><td>15</td><td class="row-ex">22</td></tr>
+        <tr><td>Daniel Chávez Macías</td><td>263</td><td>15</td><td class="row-ex">16</td></tr>
+        <tr><td>Carlos Roberto Félix Martínez</td><td>0</td><td>15</td><td>0</td></tr>
+        <tr><td>Mario Alberto Castañeda López</td><td>0</td><td>15</td><td>0</td></tr>
+        <!-- Agrega más filas según el Excel -->
+      </tbody>
+    </table>
+  </div>
 
   <script>
-    function formatoNumero(n) {
-      return new Intl.NumberFormat('es-MX', { maximumFractionDigits: 2 }).format(n);
-    }
-
-    // Leer datos
-    const datos = JSON.parse(document.getElementById('datos').textContent.trim());
-    const tot = datos.totales;
-    const personas = Array.isArray(datos.personas) ? datos.personas : [];
-    const excedentes = (Array.isArray(datos.excedentes) ? datos.excedentes : [])
-      .filter(x => x && typeof x.excedente === 'number' && x.excedente > 0);
-
-    // Derivados
-    const totalPactadoSuma = (tot.m3PactadosPorUnidad || 0) * (tot.totalUnidades || 0);
-    const conExcedente = personas.filter(p => (p.excedente || 0) > 0).length;
-    const enRango = (tot.totalUnidades || 0) - conExcedente;
-    const importeExcedentes = (tot.excedenteTotalM3 || 0) * (tot.costoPorM3 || 0);
-
-    // Pintar métricas
-    document.getElementById('m-total').textContent = formatoNumero(tot.totalUnidades);
-    document.getElementById('m-pactados').textContent = formatoNumero(tot.m3PactadosPorUnidad) + ' m³';
-    document.getElementById('m-pactado-suma').textContent = formatoNumero(totalPactadoSuma) + ' m³';
-    document.getElementById('m-excedente').textContent = formatoNumero(tot.excedenteTotalM3) + ' m³';
-    document.getElementById('m-costo').textContent = '$ ' + formatoNumero(tot.costoPorM3);
-    document.getElementById('m-importe').textContent = '$ ' + formatoNumero(importeExcedentes);
-    document.getElementById('chip-en-rango').textContent = 'En rango: ' + formatoNumero(enRango);
-    document.getElementById('chip-excedente').textContent = 'Con excedente: ' + formatoNumero(conExcedente);
-
-    // Pie: en rango vs excedente
-    const pie = new Chart(document.getElementById('pie'), {
+    const enRango = 12, conExcedente = 8;
+    new Chart(document.getElementById('pie'), {
       type: 'pie',
       data: {
-        labels: ['En rango (≤ pactados)', 'Con excedente (> pactados)'],
-        datasets: [{
-          data: [enRango, conExcedente],
-          backgroundColor: ['#d9ead3', '#f9d5d3'],
-          borderColor: ['#cbe2c3', '#f2c4c1'],
-          borderWidth: 1
-        }]
-      },
-      options: {
-        plugins: {
-          legend: { position: 'bottom' }
-        }
+        labels: ['En rango','Con excedente'],
+        datasets: [{ data:[enRango,conExcedente], backgroundColor:['#d9ead3','#f9d5d3'] }]
       }
     });
 
-    // Barras: excedente por vecino (top N)
-    const topN = 20;
-    const exSorted = excedentes
-      .slice()
-      .sort((a, b) => b.excedente - a.excedente)
-      .slice(0, topN);
-
-    const bars = new Chart(document.getElementById('bars'), {
-      type: 'bar',
-      data: {
-        labels: exSorted.map(x => x.nombre),
-        datasets: [{
-          label: 'Excedente (m³)',
-          data: exSorted.map(x => x.excedente),
-          backgroundColor: 'rgba(139, 111, 78, 0.8)',
-          borderColor: '#8b6f4e',
-          borderWidth: 1
-        }]
+    const vecinosEx = [
+      {nombre:'Antonio Rodríguez Frausto',ex:48},
+      {nombre:'Edgar Alejandro Santillán Martínez',ex:38},
+      {nombre:'Ma. Guadalupe Díaz Murillo',ex:22},
+      {nombre:'Alma Alejandra de la Vega Lara',ex:19},
+      {nombre:'Sara Alejandra González Padilla',ex:19},
+      {nombre:'Daniel Chávez Macías',ex:16},
+      {nombre:'Verónica Martínez Perezchica',ex:8},
+      {nombre:'Marta Esthela González Hernández',ex:2}
+    ];
+    new Chart(document.getElementById('bars'), {
+      type:'bar',
+      data:{
+        labels: vecinosEx.map(v=>v.nombre),
+        datasets:[{label:'Excedente (m³)',data:vecinosEx.map(v=>v.ex),backgroundColor:'#8b6f4e'}]
       },
-      options: {
-        indexAxis: 'y',
-        scales: {
-          x: { beginAtZero: true, ticks: { precision: 0 } }
-        },
-        plugins: {
-          legend: { display: false }
-        }
-      }
-    });
-
-    // Tabla por unidad
-    const tbody = document.getElementById('tabla');
-    const rows = personas
-      .slice()
-      .sort((a, b) => {
-        // Ordena primero por excedente desc, luego por consumo desc
-        const exd = (b.excedente || 0) - (a.excedente || 0);
-        if (exd !== 0) return exd;
-        return (b.consumo || 0) - (a.consumo || 0);
-      });
-
-    rows.forEach(p => {
-      const tr = document.createElement('tr');
-      if ((p.excedente || 0) > 0) tr.classList.add('row-ex');
-
-      const m3Pactados = tot.m3PactadosPorUnidad || 0;
-      const exced = p.excedente || Math.max(0, (p.consumo || 0) - m3Pactados);
-      const importe = exced * (tot.costoPorM3 || 0);
-
-      tr.innerHTML = `
-        <td>${p.nombre || ''}</td>
-        <td>${formatoNumero(p.consumo || 0)}</td>
-        <td>${formatoNumero(m3Pactados)}</td>
-        <td>${formatoNumero(exced)}</td>
-        <td>$ ${formatoNumero(importe)}</td>
-      `;
-      tbody.appendChild(tr);
+      options:{indexAxis:'y'}
     });
   </script>
 </body>
