@@ -29,9 +29,15 @@
   <script>
     let dataJson = null;
 
+    function normalizar(texto) {
+      return String(texto || "")
+        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+        .trim().toLowerCase();
+    }
+
     function detectarEncabezados(matrix) {
       for (let r = 0; r < matrix.length; r++) {
-        const fila = matrix[r].map(x => String(x).toLowerCase().trim());
+        const fila = matrix[r].map(normalizar);
         if (fila.includes("nombre condómino") && fila.includes("consumo") && fila.includes("calle") && fila.includes("no.ext")) {
           return { rowIndex: r, headers: matrix[r] };
         }
@@ -39,17 +45,28 @@
       return null;
     }
 
-    function procesarMatriz(matrix, headerInfo) {
-      const headers = headerInfo.headers;
-      const idx = {
-        nombre: headers.indexOf("Nombre Condómino"),
-        consumo: headers.indexOf("Consumo"),
-        excedente: headers.indexOf("Excedente"),
-        calle: headers.indexOf("Calle"),
-        noext: headers.indexOf("No.Ext")
+    function mapearIndices(headers) {
+      const normHeaders = headers.map(normalizar);
+      function findIndex(...candidatos) {
+        for (const c of candidatos) {
+          const i = normHeaders.indexOf(c);
+          if (i !== -1) return i;
+        }
+        return -1;
+      }
+      return {
+        nombre: findIndex("nombre condómino"),
+        consumo: findIndex("consumo"),
+        excedente: findIndex("excedente"),
+        calle: findIndex("calle"),
+        noext: findIndex("no.ext", "no ext", "no exterior")
       };
+    }
 
+    function procesarMatriz(matrix, headerInfo) {
+      const idx = mapearIndices(headerInfo.headers);
       const personas = [];
+
       for (let r = headerInfo.rowIndex + 1; r < matrix.length; r++) {
         const row = matrix[r];
         if (!row[idx.nombre]) continue;
@@ -57,8 +74,8 @@
         const nombre = String(row[idx.nombre]).trim();
         const consumo = Number(row[idx.consumo] || 0);
         const excedente = Number(row[idx.excedente] || 0);
-        const calle = row[idx.calle] || "Sin calle";
-        const noext = row[idx.noext] || "";
+        const calle = row[idx.calle] ? String(row[idx.calle]).trim() : "Sin calle";
+        const noext = row[idx.noext] ? String(row[idx.noext]).trim() : "";
         const direccion = `${calle} #${noext}`;
 
         personas.push({ nombre, consumo, excedente, calle, numero_exterior: noext, direccion });
