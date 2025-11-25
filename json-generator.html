@@ -9,10 +9,13 @@
   <h1>Generar data.json desde Excel</h1>
   <input type="file" id="inputExcel" accept=".xlsx,.xls" />
   <button onclick="procesarExcel()">Procesar Excel</button>
-  <pre id="output"></pre>
   <button id="descargarBtn" style="display:none;">Descargar JSON</button>
+  <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
+  <pre id="output"></pre>
 
   <script>
+    let dataJson = null;
+
     function procesarExcel() {
       const fileInput = document.getElementById('inputExcel');
       if (!fileInput.files.length) {
@@ -32,18 +35,18 @@
 
         // Construimos el JSON enriquecido
         const personas = rows.map(row => {
-          const nombre = row["Nombre"] || "";
+          const nombre = row["Nombre Condómino"] || "";
           const consumo = Number(row["Consumo"] || 0);
           const excedente = Number(row["Excedente"] || 0);
           const calle = row["Calle"] || "Sin calle";
-          const numeroInterior = row["Interior"] || null;
-          const numeroExterior = row["Exterior"] || "";
+          const numeroExterior = row["No.Ext"] || "";
+          const numeroInterior = row["Interior"] || row["lote"] || row["Mz"] || null;
           const direccion = `${calle} #${numeroExterior}${numeroInterior ? ", Interior " + numeroInterior : ""}`;
 
           return { nombre, consumo, excedente, calle, numero_interior: numeroInterior, direccion };
         });
 
-        const dataJson = { pactados: 15, personas };
+        dataJson = { pactados: 15, personas };
 
         // Mostrar en pantalla
         document.getElementById('output').textContent = JSON.stringify(dataJson, null, 2);
@@ -58,6 +61,15 @@
           a.href = url;
           a.download = "data.json";
           a.click();
+        };
+
+        // Habilitar copiar
+        const copiarBtn = document.getElementById('copiarBtn');
+        copiarBtn.style.display = "inline";
+        copiarBtn.onclick = () => {
+          navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
+            .then(() => alert("JSON copiado al portapapeles"))
+            .catch(err => alert("Error al copiar: " + err));
         };
       };
 
