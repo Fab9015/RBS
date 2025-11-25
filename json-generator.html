@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de data.json desde Excel</title>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+</head>
+<body>
+  <h1>Generar data.json desde Excel</h1>
+  <input type="file" id="inputExcel" accept=".xlsx,.xls" />
+  <button onclick="procesarExcel()">Procesar Excel</button>
+  <pre id="output"></pre>
+  <button id="descargarBtn" style="display:none;">Descargar JSON</button>
+
+  <script>
+    function procesarExcel() {
+      const fileInput = document.getElementById('inputExcel');
+      if (!fileInput.files.length) {
+        alert("Por favor selecciona un archivo Excel.");
+        return;
+      }
+
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
+
+        // Tomamos la primera hoja
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet);
+
+        // Construimos el JSON enriquecido
+        const personas = rows.map(row => {
+          const nombre = row["Nombre"] || "";
+          const consumo = Number(row["Consumo"] || 0);
+          const excedente = Number(row["Excedente"] || 0);
+          const calle = row["Calle"] || "Sin calle";
+          const numeroInterior = row["Interior"] || null;
+          const numeroExterior = row["Exterior"] || "";
+          const direccion = `${calle} #${numeroExterior}${numeroInterior ? ", Interior " + numeroInterior : ""}`;
+
+          return { nombre, consumo, excedente, calle, numero_interior: numeroInterior, direccion };
+        });
+
+        const dataJson = { pactados: 15, personas };
+
+        // Mostrar en pantalla
+        document.getElementById('output').textContent = JSON.stringify(dataJson, null, 2);
+
+        // Habilitar descarga
+        const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const descargarBtn = document.getElementById('descargarBtn');
+        descargarBtn.style.display = "inline";
+        descargarBtn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "data.json";
+          a.click();
+        };
+      };
+
+      reader.readAsArrayBuffer(fileInput.files[0]);
+    }
+  </script>
+</body>
+</html>
