@@ -2,245 +2,78 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador robusto de data.json desde Excel</title>
+  <title>Generador de data.json desde Excel</title>
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 20px; color: #2c3e50; }
-    h1 { margin-bottom: 8px; }
-    .controls { margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap; }
-    button { padding: 8px 12px; }
-    .status { margin-top: 8px; font-size: 14px; color: #606c76; }
-    pre { background: #f7f7f7; padding: 12px; border: 1px solid #e6e6e6; max-height: 50vh; overflow: auto; }
-    .error { color: #c0392b; }
-    .ok { color: #2e7d32; }
-  </style>
 </head>
 <body>
   <h1>Generar data.json desde Excel</h1>
-  <div class="controls">
-    <input type="file" id="inputExcel" accept=".xlsx,.xls" />
-    <button id="procesarBtn">Procesar Excel</button>
-    <button id="descargarBtn" style="display:none;">Descargar JSON</button>
-    <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
-  </div>
-  <div id="status" class="status"></div>
+  <input type="file" id="inputExcel" accept=".xlsx,.xls" />
+  <button onclick="procesarExcel()">Procesar Excel</button>
+  <button id="descargarBtn" style="display:none;">Descargar JSON</button>
+  <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
   <pre id="output"></pre>
 
   <script>
     let dataJson = null;
 
-    // Normaliza strings: sin acentos, minúsculas, sin espacios extra
-    function norm(s) {
-      if (s == null) return '';
-      return String(s)
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .replace(/\s+/g, ' ')
-        .trim()
-        .toLowerCase();
-    }
-
-    // Intenta encontrar la fila de encabezados en una matriz (header:1)
-    function detectarEncabezados(matrix) {
-      // Catálogo de encabezados esperados en tu reporte
-      const esperado = [
-        'n.cond', 'lect.ant', 'nombre condomino', 'lect.', 'consumo',
-        'm3 pactados', 'calle', 'no.ext', 'excedente', 'lote', 'mz', 'medidor', 'f.lect.'
-      ];
-
-      for (let r = 0; r < matrix.length; r++) {
-        const fila = matrix[r];
-        const nfila = fila.map(norm);
-        // criterio: que al menos 5 encabezados esperados estén en la fila
-        const coincidencias = esperado.filter(h => nfila.includes(h)).length;
-        if (coincidencias >= 5) {
-          return { rowIndex: r, headers: fila };
-        }
-      }
-      return null;
-    }
-
-    // Construye un mapa de columna => índice a partir de la fila de encabezados
-    function mapearIndices(headers) {
-      const idx = {};
-      const nheaders = headers.map(norm);
-
-      function findIndex(...candidatos) {
-        for (const c of candidatos) {
-          const i = nheaders.indexOf(c);
-          if (i !== -1) return i;
-        }
-        return -1;
-      }
-
-      idx.nombre = findIndex('nombre condomino', 'nombre condómino', 'nombre condómino'); // variaciones
-      idx.consumo = findIndex('consumo');
-      idx.excedente = findIndex('excedente');
-      idx.calle = findIndex('calle');
-      idx.noext = findIndex('no.ext', 'no ext', 'no exterior');
-      idx.m3 = findIndex('m3 pactados', 'm3pactados');
-      idx.lote = findIndex('lote');
-      idx.mz = findIndex('mz', 'manzana');
-      idx.lect = findIndex('lect.', 'lectura');
-      idx.lectant = findIndex('lect.ant', 'lectura anterior');
-      idx.medidor = findIndex('medidor');
-      idx.flect = findIndex('f.lect.', 'f. lect.', 'fecha lectura');
-
-      return idx;
-    }
-
-    // Crea la dirección a partir de columnas disponibles
-    function construirDireccion(calle, noext, interior) {
-      const calleStr = (calle && String(calle).trim()) ? String(calle).trim() : 'Sin calle';
-      const extStr = (noext && String(noext).trim()) ? ` #${String(noext).trim()}` : '';
-      const intStr = (interior != null && String(interior).trim() !== '') ? `, Interior ${String(interior).trim()}` : '';
-      return `${calleStr}${extStr}${intStr}`;
-    }
-
-    function toNumber(val) {
-      const num = Number(val);
-      return isFinite(num) ? num : 0;
-    }
-
-    function procesarMatriz(matrix, headerInfo) {
-      const personas = [];
-      const idx = mapearIndices(headerInfo.headers);
-
-      // Validación de columnas clave
-      const faltantes = [];
-      if (idx.nombre === -1) faltantes.push('Nombre Condómino');
-      if (idx.consumo === -1) faltantes.push('Consumo');
-      if (idx.excedente === -1) faltantes.push('Excedente');
-      if (idx.calle === -1) faltantes.push('Calle');
-      if (idx.noext === -1) faltantes.push('No.Ext');
-      // 'm3 pactados' puede faltar, asumimos 15
-
-      // Si faltan columnas esenciales, avisamos pero seguimos intentando con lo disponible
-      if (faltantes.length) {
-        document.getElementById('status').innerHTML =
-          `<span class="error">Advertencia:</span> faltan columnas en encabezado: ${faltantes.join(', ')}. Intentaré procesar con lo disponible.`;
-      } else {
-        document.getElementById('status').innerHTML = `<span class="ok">Encabezados detectados correctamente.</span>`;
-      }
-
-      // Recorrer filas desde la siguiente a los encabezados
-      for (let r = headerInfo.rowIndex + 1; r < matrix.length; r++) {
-        const row = matrix[r];
-        const nombre = (idx.nombre !== -1) ? row[idx.nombre] : null;
-        const consumo = (idx.consumo !== -1) ? row[idx.consumo] : null;
-        const excedente = (idx.excedente !== -1) ? row[idx.excedente] : null;
-        const calle = (idx.calle !== -1) ? row[idx.calle] : null;
-        const noext = (idx.noext !== -1) ? row[idx.noext] : null;
-        const interior = (idx.lote !== -1 && row[idx.lote] != null && String(row[idx.lote]).trim() !== '') ? row[idx.lote]
-                        : (idx.mz !== -1 && row[idx.mz] != null && String(row[idx.mz]).trim() !== '') ? row[idx.mz]
-                        : null;
-
-        // Criterio de fin del data: si aparece "Total Condóminos" en alguna columna
-        const nf = row.map(norm).join(' ');
-        if (nf.includes('total condominos') || nf.includes('427 domicilios')) break;
-
-        // Filtrar filas vacías o líneas de título
-        if (!nombre || norm(nombre).length === 0) continue;
-        if (norm(nombre).includes('lecturas') || norm(nombre).includes('fecha impresion')) continue;
-
-        const registro = {
-          nombre: String(nombre).trim(),
-          consumo: toNumber(consumo),
-          excedente: toNumber(excedente),
-          calle: calle ? String(calle).trim() : 'Sin calle',
-          numero_interior: interior != null ? String(interior).trim() : null,
-          direccion: construirDireccion(calle, noext, interior)
-        };
-
-        // Filtra registros administrativos no domiciliarios si lo deseas:
-        // Ejemplos: "BAÑOS ALBERCA", "CUARTO DE BOMBAS", "OFICINA DE ADMINISTRACION"
-        const nd = norm(registro.nombre);
-        const esAdmin = ['banos alberca', 'banos casa club', 'cuarto de bombas', 'oficina de administracion'].some(t => nd.includes(t));
-        if (esAdmin) continue;
-
-        personas.push(registro);
-      }
-
-      // Pactados: usamos la columna si existe, si no valor por defecto 15
-      const pactados = 15;
-
-      return { pactados, personas };
-    }
-
-    async function procesarExcel() {
-      const statusEl = document.getElementById('status');
-      const outputEl = document.getElementById('output');
-      outputEl.textContent = '';
-      statusEl.textContent = 'Leyendo Excel…';
-
+    function procesarExcel() {
       const fileInput = document.getElementById('inputExcel');
       if (!fileInput.files.length) {
         alert("Por favor selecciona un archivo Excel.");
-        statusEl.textContent = '';
         return;
       }
 
-      try {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const data = new Uint8Array(e.target.result);
-          const workbook = XLSX.read(data, { type: 'array' });
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const data = new Uint8Array(e.target.result);
+        const workbook = XLSX.read(data, { type: 'array' });
 
-          // Usamos la primera hoja
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
+        // Tomamos la primera hoja
+        const sheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[sheetName];
+        const rows = XLSX.utils.sheet_to_json(sheet);
 
-          // Leemos como matriz de filas (header:1) para detectar encabezados robustamente
-          const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+        // Construimos el JSON enriquecido
+        const personas = rows.map(row => {
+          const nombre = row["Nombre Condómino"] || "";
+          const consumo = Number(row["Consumo"] || 0);
+          const excedente = Number(row["Excedente"] || 0);
+          const calle = row["Calle"] || "Sin calle";
+          const numeroExterior = row["No.Ext"] || "";
+          const direccion = `${calle} #${numeroExterior}`;
 
-          // Detectamos encabezados
-          const headerInfo = detectarEncabezados(matrix);
-          if (!headerInfo) {
-            statusEl.innerHTML = '<span class="error">No se pudo detectar la fila de encabezados. Verifica que el Excel tenga encabezados como “Nombre Condómino”, “Consumo”, “Calle”, “No.Ext”, “Excedente”.</span>';
-            return;
-          }
+          return { nombre, consumo, excedente, calle, numero_exterior: numeroExterior, direccion };
+        });
 
-          const resultado = procesarMatriz(matrix, headerInfo);
-          dataJson = resultado;
+        dataJson = { pactados: 15, personas };
 
-          // Resumen
-          const total = resultado.personas.length;
-          const conExc = resultado.personas.filter(p => p.excedente > 0).length;
-          const sinExc = total - conExc;
-          statusEl.innerHTML = `<span class="ok">Procesado:</span> ${total} registros. Con excedente: ${conExc}. Sin excedente: ${sinExc}.`;
+        // Mostrar en pantalla
+        document.getElementById('output').textContent = JSON.stringify(dataJson, null, 2);
 
-          // Mostrar JSON
-          outputEl.textContent = JSON.stringify(dataJson, null, 2);
-
-          // Habilitar descarga
-          const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
-          const url = URL.createObjectURL(blob);
-          const descargarBtn = document.getElementById('descargarBtn');
-          descargarBtn.style.display = "inline";
-          descargarBtn.onclick = () => {
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "data.json";
-            a.click();
-          };
-
-          // Habilitar copiar
-          const copiarBtn = document.getElementById('copiarBtn');
-          copiarBtn.style.display = "inline";
-          copiarBtn.onclick = () => {
-            navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
-              .then(() => alert("JSON copiado al portapapeles"))
-              .catch(err => alert("Error al copiar: " + err));
-          };
+        // Habilitar descarga
+        const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const descargarBtn = document.getElementById('descargarBtn');
+        descargarBtn.style.display = "inline";
+        descargarBtn.onclick = () => {
+          const a = document.createElement("a");
+          a.href = url;
+          a.download = "data.json";
+          a.click();
         };
 
-        reader.readAsArrayBuffer(fileInput.files[0]);
-      } catch (err) {
-        console.error(err);
-        statusEl.innerHTML = '<span class="error">Error al procesar el Excel. Revisa el archivo o compárteme detalles del fallo.</span>';
-      }
-    }
+        // Habilitar copiar
+        const copiarBtn = document.getElementById('copiarBtn');
+        copiarBtn.style.display = "inline";
+        copiarBtn.onclick = () => {
+          navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
+            .then(() => alert("JSON copiado al portapapeles"))
+            .catch(err => alert("Error al copiar: " + err));
+        };
+      };
 
-    document.getElementById('procesarBtn').addEventListener('click', procesarExcel);
+      reader.readAsArrayBuffer(fileInput.files[0]);
+    }
   </script>
 </body>
 </html>
