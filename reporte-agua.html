@@ -1,97 +1,154 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <title>Reporte hídrico – Reserva Bosque Sereno</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Gestión Hídrica RBS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; background:#fdfaf5; margin:0; padding:1.5rem; color:#5c4033; }
-    h1,h2 { color:#4c372b; }
-    .card { background:#fff; border:1px solid #e6e2dc; border-radius:10px; padding:1rem; margin-bottom:2rem; }
-    table { width:100%; border-collapse:collapse; font-size:.9rem; }
-    th,td { padding:.5rem; border-bottom:1px solid #e6e2dc; text-align:left; }
-    th { background:#f9f9f9; position:sticky; top:0; }
-    .row-ex { background:#fff7f6; }
-    .chips { display:flex; gap:.5rem; margin-top:.5rem; }
-    .chip { padding:.25rem .5rem; border-radius:999px; font-size:.85rem; border:1px solid #e6e2dc; }
-    .chip.ok { background:#d9ead3; }
-    .chip.ex { background:#f9d5d3; }
-    .canvas-wrap { padding:.5rem; border:1px solid #e6e2dc; border-radius:10px; background:#fff; }
-    canvas { max-width:600px; max-height:400px; margin:auto; }
-    .scroll-table { max-height:400px; overflow-y:auto; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    .chart-container {
+      width: 100%;
+      height: 600px; /* más grande */
+      margin-bottom: 40px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f4f4f4;
+    }
+    .calle {
+      background-color: #e8f6ff;
+      font-weight: bold;
+    }
   </style>
 </head>
 <body>
-  <h1>Reporte de consumo de agua</h1>
-  <p><i>Lecturas de noviembre 2025 – Consumo pactado: 15 m³ por unidad</i></p>
+  <h1>Gestión Hídrica RBS</h1>
 
-  <div class="card">
-    <h2>Resumen global</h2>
-    <p>Total de unidades medidas: <b id="totalUnidades"></b></p>
-    <p>Total pactado: <b id="totalPactado"></b> m³</p>
-    <p>Excedente total: <b id="totalExcedente"></b> m³</p>
-    <div class="chips">
-      <span class="chip ok" id="chipEnRango"></span>
-      <span class="chip ex" id="chipExcedente"></span>
-    </div>
-    <div class="canvas-wrap"><canvas id="pie"></canvas></div>
+  <h2>Vecinos con excedentes</h2>
+  <div class="chart-container">
+    <canvas id="graficaExcedentes"></canvas>
   </div>
 
-  <div class="card">
-    <h2>Excedente por vecino</h2>
-    <div class="canvas-wrap"><canvas id="bars"></canvas></div>
-  </div>
-
-  <div class="card">
-    <h2>Tabla por unidad</h2>
-    <div class="scroll-table">
-      <table>
-        <thead>
-          <tr><th>Nombre</th><th>Consumo</th><th>Pactados</th><th>Excedente</th></tr>
-        </thead>
-        <tbody id="tabla"></tbody>
-      </table>
-    </div>
-  </div>
+  <h2>Listado completo de vecinos</h2>
+  <div id="listaVecinos"></div>
 
   <script>
-    fetch('data.json')
-      .then(res => res.json())
-      .then(datos => {
-        const totalUnidades = datos.personas.length;
-        const totalPactado = totalUnidades * datos.pactados;
-        const totalExcedente = datos.personas.reduce((s,p)=>s+(p.excedente||0),0);
-        const conExcedente = datos.personas.filter(p=>p.excedente>0).length;
-        const enRango = totalUnidades - conExcedente;
+    // JSON enriquecido de ejemplo
+    const data = {
+      "pactados": 15,
+      "personas": [
+        {
+          "nombre": "CASETA",
+          "consumo": 0,
+          "excedente": 0,
+          "calle": "Av. Principal",
+          "numero_interior": 1,
+          "direccion": "Av. Principal #1"
+        },
+        {
+          "nombre": "CARLOS ROBERTO FELIX MARTINEZ",
+          "consumo": 0,
+          "excedente": 0,
+          "calle": "Av. Principal",
+          "numero_interior": 2,
+          "direccion": "Av. Principal #2"
+        },
+        {
+          "nombre": "ANGELA AZUCENA HERRERA RODRIGUEZ",
+          "consumo": 12,
+          "excedente": 3,
+          "calle": "Calle Hidalgo",
+          "numero_interior": 4,
+          "direccion": "Calle Hidalgo #123, Interior 4"
+        },
+        {
+          "nombre": "SARA ALEJANDRA GONZALEZ PADILLA",
+          "consumo": 19,
+          "excedente": 4,
+          "calle": "Calle Juárez",
+          "numero_interior": 7,
+          "direccion": "Calle Juárez #45, Interior 7"
+        }
+        // ... resto de registros enriquecidos
+      ]
+    };
 
-        document.getElementById("totalUnidades").textContent = totalUnidades;
-        document.getElementById("totalPactado").textContent = totalPactado;
-        document.getElementById("totalExcedente").textContent = totalExcedente;
-        document.getElementById("chipEnRango").textContent = "En rango: "+enRango;
-        document.getElementById("chipExcedente").textContent = "Con excedente: "+conExcedente;
+    // Filtrar vecinos con excedentes
+    const excedentes = data.personas.filter(p => p.excedente > 0);
 
-        new Chart(document.getElementById('pie'), {
-          type:'pie',
-          data:{labels:['En rango','Con excedente'],datasets:[{data:[enRango,conExcedente],backgroundColor:['#d9ead3','#f9d5d3']}]},
-          options:{plugins:{legend:{position:'bottom'}}}
-        });
+    // Preparar datos para la gráfica
+    const chartData = {
+      labels: excedentes.map(p => p.direccion),
+      datasets: [{
+        label: 'Litros excedentes',
+        data: excedentes.map(p => p.excedente),
+        backgroundColor: 'rgba(54, 162, 235, 0.7)'
+      }]
+    };
 
-        const exSorted = datos.personas.filter(p=>p.excedente>0).sort((a,b)=>b.excedente-a.excedente);
-        new Chart(document.getElementById('bars'), {
-          type:'bar',
-          data:{labels:exSorted.map(p=>p.nombre),datasets:[{label:'Excedente (m³)',data:exSorted.map(p=>p.excedente),backgroundColor:'#8b6f4e'}]},
-          options:{indexAxis:'y',scales:{x:{beginAtZero:true}}}
-        });
+    const config = {
+      type: 'bar',
+      data: chartData,
+      options: {
+        indexAxis: 'y', // barras horizontales
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: {
+            title: { display: true, text: 'Litros excedentes' }
+          },
+          y: {
+            title: { display: true, text: 'Dirección' }
+          }
+        }
+      }
+    };
 
-        const tbody = document.getElementById("tabla");
-        datos.personas.forEach(p=>{
-          const tr=document.createElement("tr");
-          if(p.excedente>0) tr.classList.add("row-ex");
-          tr.innerHTML=`<td>${p.nombre}</td><td>${p.consumo}</td><td>${datos.pactados}</td><td>${p.excedente}</td>`;
-          tbody.appendChild(tr);
-        });
+    new Chart(document.getElementById('graficaExcedentes'), config);
+
+    // Agrupar por calles y ordenar por número interior
+    function renderLista(personas) {
+      const contenedor = document.getElementById('listaVecinos');
+      const calles = {};
+
+      personas.forEach(p => {
+        if (!calles[p.calle]) calles[p.calle] = [];
+        calles[p.calle].push(p);
       });
+
+      let html = '<table><tr><th>Dirección</th><th>Consumo</th><th>Excedente</th></tr>';
+      for (const calle in calles) {
+        html += `<tr class="calle"><td colspan="3">${calle}</td></tr>`;
+        calles[calle]
+          .sort((a, b) => a.numero_interior - b.numero_interior)
+          .forEach(p => {
+            html += `<tr>
+              <td>${p.direccion}</td>
+              <td>${p.consumo}</td>
+              <td>${p.excedente}</td>
+            </tr>`;
+          });
+      }
+      html += '</table>';
+      contenedor.innerHTML = html;
+    }
+
+    renderLista(data.personas);
   </script>
 </body>
 </html>
