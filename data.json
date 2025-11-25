@@ -5,3385 +5,3385 @@
       "nombre": "CASETA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #101"
+      "calle": "RESERVA DE BAOBAB",
+      "numero_exterior": "101",
+      "direccion": "RESERVA DE BAOBAB #101"
     },
     {
       "nombre": "CARLOS ROBERTO FELIX MARTINEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #101"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "101",
+      "direccion": "RESERVA DE SAKURA #101"
     },
     {
       "nombre": "ANGELA  AZUCENA HERRERA RODRIGUEZ",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #102"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "102",
+      "direccion": "RESERVA DE SAKURA #102"
     },
     {
       "nombre": "LUIS  ANTONIO GONZALEZ VALDIVIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #103"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "103",
+      "direccion": "RESERVA DE SAKURA #103"
     },
     {
       "nombre": "NORMA  ALICIA MARIN ALVARADO",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #104"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "104",
+      "direccion": "RESERVA DE SAKURA #104"
     },
     {
       "nombre": "MARIO ALBERTO CASTAÑEDA LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #105"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "105",
+      "direccion": "RESERVA DE SAKURA #105"
     },
     {
       "nombre": "MARTA ESTHELA GONZALEZ HERNANDEZ",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #106"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "106",
+      "direccion": "RESERVA DE SAKURA #106"
     },
     {
       "nombre": "EDUARDO ESCARCEGA RANGEL",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #107"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "107",
+      "direccion": "RESERVA DE SAKURA #107"
     },
     {
       "nombre": "SARA  ALEJANDRA GONZALEZ PADILLA",
       "consumo": 19,
       "excedente": 4,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #108"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "108",
+      "direccion": "RESERVA DE SAKURA #108"
     },
     {
       "nombre": "NANCY CARINA JIMENEZ DE LA TORRE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #109"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "109",
+      "direccion": "RESERVA DE SAKURA #109"
     },
     {
       "nombre": "VERONICA MARTINEZ PEREZCHICA",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #110"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "110",
+      "direccion": "RESERVA DE SAKURA #110"
     },
     {
       "nombre": "ELIZABETH  GUADALUPE  RANGEL",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #111"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "111",
+      "direccion": "RESERVA DE SAKURA #111"
     },
     {
       "nombre": "MARIA JHOANA ALBA DE ALBA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #112"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "112",
+      "direccion": "RESERVA DE SAKURA #112"
     },
     {
       "nombre": "AYRA JUDITH  REYES LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #113"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "113",
+      "direccion": "RESERVA DE SAKURA #113"
     },
     {
       "nombre": "IMELDA LLAMAS LOZANO",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #114"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "114",
+      "direccion": "RESERVA DE SAKURA #114"
     },
     {
       "nombre": "ROSALINDA FLORES GARCIA",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #116"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "116",
+      "direccion": "RESERVA DE SAKURA #116"
     },
     {
       "nombre": "EMILIO PATIÑO PEREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #117"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "117",
+      "direccion": "RESERVA DE SAKURA #117"
     },
     {
       "nombre": "FRIDA ESTEFANIA ALVAREZ AGUIÑAGA",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #118"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "118",
+      "direccion": "RESERVA DE SAKURA #118"
     },
     {
       "nombre": "JESUS  EDUARDO MUÑOZ DE LEON",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #119"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "119",
+      "direccion": "RESERVA DE SAKURA #119"
     },
     {
       "nombre": "MA. GUADALUPE DIAZ MURILLO",
       "consumo": 22,
       "excedente": 7,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #120"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "120",
+      "direccion": "RESERVA DE SAKURA #120"
     },
     {
       "nombre": "LAURA  ELENA VELOZ  ROMO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #121"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "121",
+      "direccion": "RESERVA DE SAKURA #121"
     },
     {
       "nombre": "ISAIAS LOMELI VAZQUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #122"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "122",
+      "direccion": "RESERVA DE SAKURA #122"
     },
     {
       "nombre": "GERARDO PEREZ GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #123"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "123",
+      "direccion": "RESERVA DE SAKURA #123"
     },
     {
       "nombre": "ALEJANDRA FLORES ARELLANO",
       "consumo": 16,
       "excedente": 1,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #124"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "124",
+      "direccion": "RESERVA DE SAKURA #124"
     },
     {
       "nombre": "LUIS MARIANO SANDOVAL GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #125"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "125",
+      "direccion": "RESERVA DE SAKURA #125"
     },
     {
       "nombre": "MARIA NAYELI SAUCEDO MUÑOZ",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #126"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "126",
+      "direccion": "RESERVA DE SAKURA #126"
     },
     {
       "nombre": "CLAUDIO ROA LOPEZ VELARDE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #127"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "127",
+      "direccion": "RESERVA DE SAKURA #127"
     },
     {
       "nombre": "OMAR  ALEJANDRO CERVANTES TERAN",
       "consumo": 5,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #128"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "128",
+      "direccion": "RESERVA DE SAKURA #128"
     },
     {
       "nombre": "OSWALDO GUILLERMO NAVARRO GARCIA",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #130"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "130",
+      "direccion": "RESERVA DE SAKURA #130"
     },
     {
       "nombre": "ANGEL GONZALEZ SANCHEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #131"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "131",
+      "direccion": "RESERVA DE SAKURA #131"
     },
     {
       "nombre": "ROBERTO EDUARDO TORRES OROZCO BERMEO",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #132"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "132",
+      "direccion": "RESERVA DE SAKURA #132"
     },
     {
       "nombre": "ANDRES KOTHOLAY MEDINA MOTA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #133"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "133",
+      "direccion": "RESERVA DE SAKURA #133"
     },
     {
       "nombre": "ANTONIO RODRIGUEZ FRAUSTO",
       "consumo": 48,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #134"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "134",
+      "direccion": "RESERVA DE SAKURA #134"
     },
     {
       "nombre": "PABLO ARELLANO RAMIREZ ESPAÑA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #135"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "135",
+      "direccion": "RESERVA DE SAKURA #135"
     },
     {
       "nombre": "RAFAEL CAMPA GARCIA",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #136"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "136",
+      "direccion": "RESERVA DE SAKURA #136"
     },
     {
       "nombre": "SALVADOR VENEGAS ESCOBAR",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #137"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "137",
+      "direccion": "RESERVA DE SAKURA #137"
     },
     {
       "nombre": "PATRICIA MUÑOZ MARIN",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #138"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "138",
+      "direccion": "RESERVA DE SAKURA #138"
     },
     {
       "nombre": "ERNESTO PASILLAS LUEVANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #139"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "139",
+      "direccion": "RESERVA DE SAKURA #139"
     },
     {
       "nombre": "SUPERVISOR INTEGRAL DE  OBRA CIVIL",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #140"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "140",
+      "direccion": "RESERVA DE SAKURA #140"
     },
     {
       "nombre": "LUZ MARIA ALEJANDRA LOPEZ ESPINOZA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #141"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "141",
+      "direccion": "RESERVA DE SAKURA #141"
     },
     {
       "nombre": "KARLA NOHELIA RODRIGUEZ RUIZ",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #142"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "142",
+      "direccion": "RESERVA DE SAKURA #142"
     },
     {
       "nombre": "HILDA XOCHITL HERRERA JARAMILLO",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #144"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "144",
+      "direccion": "RESERVA DE SAKURA #144"
     },
     {
       "nombre": "MA. GUADALUPE HARO SANCHEZ",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #146"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "146",
+      "direccion": "RESERVA DE SAKURA #146"
     },
     {
       "nombre": "JOSE ANTELMO SOLIS ORTEGA",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #148"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "148",
+      "direccion": "RESERVA DE SAKURA #148"
     },
     {
       "nombre": "BERENICE MEDINA MOTA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #150"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "150",
+      "direccion": "RESERVA DE SAKURA #150"
     },
     {
       "nombre": "ROXANA YARETH CHAVEZ DIAZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #152"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "152",
+      "direccion": "RESERVA DE SAKURA #152"
     },
     {
       "nombre": "MARIA FERNANDA LOZANO REYES",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #154"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "154",
+      "direccion": "RESERVA DE SAKURA #154"
     },
     {
       "nombre": "EDGAR ALEJANDRO SANTILLAN MARTINEZ",
       "consumo": 38,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #156"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "156",
+      "direccion": "RESERVA DE SAKURA #156"
     },
     {
       "nombre": "FERNANDO HERNANDEZ CAMARILLO",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #158"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "158",
+      "direccion": "RESERVA DE SAKURA #158"
     },
     {
       "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
       "consumo": 19,
       "excedente": 4,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #160"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "160",
+      "direccion": "RESERVA DE SAKURA #160"
     },
     {
       "nombre": "AGUSTÍN QUINTANA RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #201"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "201",
+      "direccion": "RESERVA DE SAKURA #201"
     },
     {
       "nombre": "MIGUEL ANGEL GONZALEZ VILLEGAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #202"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "202",
+      "direccion": "RESERVA DE SAKURA #202"
     },
     {
       "nombre": "ANA  LILIA CENA VALDES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #203"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "203",
+      "direccion": "RESERVA DE SAKURA #203"
     },
     {
       "nombre": "MONICA FABIOLA BAÑUELOS RODARTE",
       "consumo": 43,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #204"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "204",
+      "direccion": "RESERVA DE SAKURA #204"
     },
     {
       "nombre": "MA. DE JESUS HERMOSILLO PADILLA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #205"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "205",
+      "direccion": "RESERVA DE SAKURA #205"
     },
     {
       "nombre": "MARIA DEL CARMEN ARELLANO ESPINOZA",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #206"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "206",
+      "direccion": "RESERVA DE SAKURA #206"
     },
     {
       "nombre": "CATALINA JAUREGUI GOMEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #207"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "207",
+      "direccion": "RESERVA DE SAKURA #207"
     },
     {
       "nombre": "EDUARDO MENDEZ HERNANDEZ",
       "consumo": 106,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #208"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "208",
+      "direccion": "RESERVA DE SAKURA #208"
     },
     {
       "nombre": "MA. CECILIA GUERRERO LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #209"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "209",
+      "direccion": "RESERVA DE SAKURA #209"
     },
     {
       "nombre": "AURORA MARTIN ALVAREZ",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #210"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "210",
+      "direccion": "RESERVA DE SAKURA #210"
     },
     {
       "nombre": "JUAN  MANUEL VICENCIO JUAREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #211"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "211",
+      "direccion": "RESERVA DE SAKURA #211"
     },
     {
       "nombre": "FABIAN GERARDO GONZALES ANGELES",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #212"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "212",
+      "direccion": "RESERVA DE SAKURA #212"
     },
     {
       "nombre": "LUZ MARIA SANCHEZ MARQUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #213"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "213",
+      "direccion": "RESERVA DE SAKURA #213"
     },
     {
       "nombre": "CAROLINA ROBLES RAMON",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #214"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "214",
+      "direccion": "RESERVA DE SAKURA #214"
     },
     {
       "nombre": "ALAN VEGA LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #215"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "215",
+      "direccion": "RESERVA DE SAKURA #215"
     },
     {
       "nombre": "CHRISTIAN JESUS ORENDAY  GOURCY",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #216"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "216",
+      "direccion": "RESERVA DE SAKURA #216"
     },
     {
       "nombre": "CONSTRUCTORA JOMAC, S.A. DE C.V.",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #217"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "217",
+      "direccion": "RESERVA DE SAKURA #217"
     },
     {
       "nombre": "EDITH CARRILLO BRIANO",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #218"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "218",
+      "direccion": "RESERVA DE SAKURA #218"
     },
     {
       "nombre": "JUANA  ANGELICA GARCIA  LUNA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #219"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "219",
+      "direccion": "RESERVA DE SAKURA #219"
     },
     {
       "nombre": "FELIPE DE JESUS IBARRA TORRES",
       "consumo": 5,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #220"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "220",
+      "direccion": "RESERVA DE SAKURA #220"
     },
     {
       "nombre": "ANA PAULINA LOPEZ GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #221"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "221",
+      "direccion": "RESERVA DE SAKURA #221"
     },
     {
       "nombre": "JEANETH  IVONNE DELGADILLO CASILLAS",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #222"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "222",
+      "direccion": "RESERVA DE SAKURA #222"
     },
     {
       "nombre": "KAREN LIZETH SOTO CASTILLO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #223"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "223",
+      "direccion": "RESERVA DE SAKURA #223"
     },
     {
       "nombre": "DANIEL CHAVEZ MACIAS",
       "consumo": 16,
       "excedente": 1,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #224"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "224",
+      "direccion": "RESERVA DE SAKURA #224"
     },
     {
       "nombre": "ANGEL MUÑOZ HERNANDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #225"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "225",
+      "direccion": "RESERVA DE SAKURA #225"
     },
     {
       "nombre": "RAUL HERMOSILLO GOMEZ",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #226"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "226",
+      "direccion": "RESERVA DE SAKURA #226"
     },
     {
       "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #227"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "227",
+      "direccion": "RESERVA DE SAKURA #227"
     },
     {
       "nombre": "MA. EUGENIA CASTILLO CASTRO",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #228"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "228",
+      "direccion": "RESERVA DE SAKURA #228"
     },
     {
       "nombre": "LUIS  GABRIEL GUTIERREZ ACOSTA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #229"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "229",
+      "direccion": "RESERVA DE SAKURA #229"
     },
     {
       "nombre": "ISABEL SARAHI RODRIGUEZ COLIS",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #230"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "230",
+      "direccion": "RESERVA DE SAKURA #230"
     },
     {
       "nombre": "RAUL REYES FRAUSTO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #231"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "231",
+      "direccion": "RESERVA DE SAKURA #231"
     },
     {
       "nombre": "JOSE MANUEL AVILA  SANCHEZ",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #232"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "232",
+      "direccion": "RESERVA DE SAKURA #232"
     },
     {
       "nombre": "JOSE MANUEL MARTIN ESPARZA CHAVEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #233"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "233",
+      "direccion": "RESERVA DE SAKURA #233"
     },
     {
       "nombre": "KARLA DOLORES AIDEE RAMIREZ LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #234"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "234",
+      "direccion": "RESERVA DE SAKURA #234"
     },
     {
       "nombre": "NORMA MARIANA DIAZ REGALADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #235"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "235",
+      "direccion": "RESERVA DE SAKURA #235"
     },
     {
       "nombre": "IVAN YOED GONZALEZ ARECHIGA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #236"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "236",
+      "direccion": "RESERVA DE SAKURA #236"
     },
     {
       "nombre": "JONATHAN ULISES LOPEZ RAMOS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #237"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "237",
+      "direccion": "RESERVA DE SAKURA #237"
     },
     {
       "nombre": "CAROLINA  CONCEPCION VELASQUEZ  TISCAREÑO",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #238"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "238",
+      "direccion": "RESERVA DE SAKURA #238"
     },
     {
       "nombre": "EDGAR AGUSTIN GOMEZ RUIZ ESPARZA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #239"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "239",
+      "direccion": "RESERVA DE SAKURA #239"
     },
     {
       "nombre": "EDGAR PEREZ CRUZ",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #240"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "240",
+      "direccion": "RESERVA DE SAKURA #240"
     },
     {
       "nombre": "JUAN MANUEL TORRES VARGAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #241"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "241",
+      "direccion": "RESERVA DE SAKURA #241"
     },
     {
       "nombre": "MARINA SARAI ECHEVERRIA DIAZ DE LEON",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #242"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "242",
+      "direccion": "RESERVA DE SAKURA #242"
     },
     {
       "nombre": "JESSICA ESCALANTE GARCIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #243"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "243",
+      "direccion": "RESERVA DE SAKURA #243"
     },
     {
       "nombre": "CRISTO NOMAR MARIN CRUZ",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #244"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "244",
+      "direccion": "RESERVA DE SAKURA #244"
     },
     {
       "nombre": "JUAN FRANCISCO NAVARRO LLAMAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #245"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "245",
+      "direccion": "RESERVA DE SAKURA #245"
     },
     {
       "nombre": "JORGE PRIETO TERRONES",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #246"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "246",
+      "direccion": "RESERVA DE SAKURA #246"
     },
     {
       "nombre": "REBECA JUDITH MEDINA SIFUENTES",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #248"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "248",
+      "direccion": "RESERVA DE SAKURA #248"
     },
     {
       "nombre": "AARON MONROY PIZA",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #250"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "250",
+      "direccion": "RESERVA DE SAKURA #250"
     },
     {
       "nombre": "ANGELICA DE LA CRUZ GARCIA",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #252"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "252",
+      "direccion": "RESERVA DE SAKURA #252"
     },
     {
       "nombre": "AARON SANCHEZ CHAVEZ",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #254"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "254",
+      "direccion": "RESERVA DE SAKURA #254"
     },
     {
       "nombre": "MARIA GUADALUPE ARELLANO ESPINOZA",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #256"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "256",
+      "direccion": "RESERVA DE SAKURA #256"
     },
     {
       "nombre": "RAFAEL RODRIGUEZ PEÑA",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #258"
+      "calle": "RESERVA DE SAKURA",
+      "numero_exterior": "258",
+      "direccion": "RESERVA DE SAKURA #258"
     },
     {
       "nombre": "GRACIELA AGUILERA  ROSALES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #101"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "101",
+      "direccion": "RESERVA DE SEQUOIA #101"
     },
     {
       "nombre": "HELIO DANIEL RIOS ROSALES",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #102"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "102",
+      "direccion": "RESERVA DE SEQUOIA #102"
     },
     {
       "nombre": "FATIMA GORETTI ZAVALA ENRIQUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #103"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "103",
+      "direccion": "RESERVA DE SEQUOIA #103"
     },
     {
       "nombre": "JUAN ANTONIO VELASCO VARGAS",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #104"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "104",
+      "direccion": "RESERVA DE SEQUOIA #104"
     },
     {
       "nombre": "ROSA MARIA YAÑEZ BARRON",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #105"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "105",
+      "direccion": "RESERVA DE SEQUOIA #105"
     },
     {
       "nombre": "SAYRALINN SANCHEZ VERDIN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #106"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "106",
+      "direccion": "RESERVA DE SEQUOIA #106"
     },
     {
       "nombre": "PATRICIA EUGENIA ESPINOZA CASTORENA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #107"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "107",
+      "direccion": "RESERVA DE SEQUOIA #107"
     },
     {
       "nombre": "LAURA ALEJANDRA ORTIZ RODRIGUEZ",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #108"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "108",
+      "direccion": "RESERVA DE SEQUOIA #108"
     },
     {
       "nombre": "GILBERTO SILVA RAMIREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #109"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "109",
+      "direccion": "RESERVA DE SEQUOIA #109"
     },
     {
       "nombre": "NALLELY DEL ROCIO  JIMENEZ ALCALA",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #110"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "110",
+      "direccion": "RESERVA DE SEQUOIA #110"
     },
     {
       "nombre": "MARCOS ALVAREZ GOMEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #111"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "111",
+      "direccion": "RESERVA DE SEQUOIA #111"
     },
     {
       "nombre": "LUIS DANIEL PARGA CRUZ",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #112"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "112",
+      "direccion": "RESERVA DE SEQUOIA #112"
     },
     {
       "nombre": "MARCO ANTONIO ARIZMENDI MACEDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #113"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "113",
+      "direccion": "RESERVA DE SEQUOIA #113"
     },
     {
       "nombre": "RICARDO SALDAÑA GARAY",
       "consumo": 18,
       "excedente": 3,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #114"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "114",
+      "direccion": "RESERVA DE SEQUOIA #114"
     },
     {
       "nombre": "CHRISTOPHER ADABACHE PINEDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #115"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "115",
+      "direccion": "RESERVA DE SEQUOIA #115"
     },
     {
       "nombre": "LUIS MIGUEL REYNOSO ROMAN",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #116"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "116",
+      "direccion": "RESERVA DE SEQUOIA #116"
     },
     {
       "nombre": "JOSEPH CARRILLO GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #117"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "117",
+      "direccion": "RESERVA DE SEQUOIA #117"
     },
     {
       "nombre": "EDGAR GALLEGOS RUIZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #118"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "118",
+      "direccion": "RESERVA DE SEQUOIA #118"
     },
     {
       "nombre": "ENRIQUE RIOS ROMO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #119"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "119",
+      "direccion": "RESERVA DE SEQUOIA #119"
     },
     {
       "nombre": "LEONEL ARMANDO RAMIREZ DIAZ DE LEON",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #120"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "120",
+      "direccion": "RESERVA DE SEQUOIA #120"
     },
     {
       "nombre": "MALIKE DANIELA LEDESMA MUÑOZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #121"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "121",
+      "direccion": "RESERVA DE SEQUOIA #121"
     },
     {
       "nombre": "MARIA FERNANDA GUTIERREZ GALVAN",
       "consumo": 30,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #122"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "122",
+      "direccion": "RESERVA DE SEQUOIA #122"
     },
     {
       "nombre": "REYES GERARDO MEDELLIN ROBLES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #123"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "123",
+      "direccion": "RESERVA DE SEQUOIA #123"
     },
     {
       "nombre": "PEDRO GIBRAN ORNELAS  ACOSTA",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #124"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "124",
+      "direccion": "RESERVA DE SEQUOIA #124"
     },
     {
       "nombre": "MARIA SOLEDAD FELIZ MURILLO",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #126"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "126",
+      "direccion": "RESERVA DE SEQUOIA #126"
     },
     {
       "nombre": "REGINA ARELLANO RAMIREZ ESPAÑA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #127"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "127",
+      "direccion": "RESERVA DE SEQUOIA #127"
     },
     {
       "nombre": "KARLA JANET ROCHA NUÑEZ",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #128"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "128",
+      "direccion": "RESERVA DE SEQUOIA #128"
     },
     {
       "nombre": "MARY CARMEN PAZ PEREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #129"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "129",
+      "direccion": "RESERVA DE SEQUOIA #129"
     },
     {
       "nombre": "BRAYANT  ALEXIS GONZALEZ RODRIGUEZ",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #130"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "130",
+      "direccion": "RESERVA DE SEQUOIA #130"
     },
     {
       "nombre": "PAULA REY ORTIZ MEDINA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #131"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "131",
+      "direccion": "RESERVA DE SEQUOIA #131"
     },
     {
       "nombre": "ANITA ARANDA CHAVARRIA",
       "consumo": 5,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #132"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "132",
+      "direccion": "RESERVA DE SEQUOIA #132"
     },
     {
       "nombre": "LUIS RICARDO LEOS ALCALA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #133"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "133",
+      "direccion": "RESERVA DE SEQUOIA #133"
     },
     {
       "nombre": "HUMBERTO VILLALPANDO LOPEZ",
       "consumo": 5,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #134"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "134",
+      "direccion": "RESERVA DE SEQUOIA #134"
     },
     {
       "nombre": "MIRIAM JANINE OROS LUENGO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #135"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "135",
+      "direccion": "RESERVA DE SEQUOIA #135"
     },
     {
       "nombre": "ENRIQUE ROSALES HERNANDEZ",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #136"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "136",
+      "direccion": "RESERVA DE SEQUOIA #136"
     },
     {
       "nombre": "JUAN FRANCISCO VIRAMONTES VALENZUELA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #137"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "137",
+      "direccion": "RESERVA DE SEQUOIA #137"
     },
     {
       "nombre": "JESUS  ALEJANDRO SANCHEZ  GRANADOS",
       "consumo": 31,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #138"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "138",
+      "direccion": "RESERVA DE SEQUOIA #138"
     },
     {
       "nombre": "ANGELICA CHAVEZ SANTILLAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #139"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "139",
+      "direccion": "RESERVA DE SEQUOIA #139"
     },
     {
       "nombre": "ARIADNA LUCIA VALERO GARCIA",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #140"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "140",
+      "direccion": "RESERVA DE SEQUOIA #140"
     },
     {
       "nombre": "MARIA DEL CARMEN ALVARADO VALLADOLID",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #141"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "141",
+      "direccion": "RESERVA DE SEQUOIA #141"
     },
     {
       "nombre": "OSCAR HERNANDEZ CERON",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #142"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "142",
+      "direccion": "RESERVA DE SEQUOIA #142"
     },
     {
       "nombre": "KARLA  AZUCENA RANGEL  JIMENEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #143"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "143",
+      "direccion": "RESERVA DE SEQUOIA #143"
     },
     {
       "nombre": "MIGUEL HORACIO FLORES LUCIO",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #144"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "144",
+      "direccion": "RESERVA DE SEQUOIA #144"
     },
     {
       "nombre": "MAURICIO RIVAS  PRIETO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #145"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "145",
+      "direccion": "RESERVA DE SEQUOIA #145"
     },
     {
       "nombre": "JESUS MARIN VELAZQUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #147"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "147",
+      "direccion": "RESERVA DE SEQUOIA #147"
     },
     {
       "nombre": "JORGE HUMBERTO TORRES MARTINEZ",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #148"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "148",
+      "direccion": "RESERVA DE SEQUOIA #148"
     },
     {
       "nombre": "CARLOS DEMIAN CORONADO MENA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #149"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "149",
+      "direccion": "RESERVA DE SEQUOIA #149"
     },
     {
       "nombre": "MARIA  CONSUELO SEPULVEDA VALLE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #151"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "151",
+      "direccion": "RESERVA DE SEQUOIA #151"
     },
     {
       "nombre": "MARIANA AGUILAR SANDOVAL",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #152"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "152",
+      "direccion": "RESERVA DE SEQUOIA #152"
     },
     {
       "nombre": "EDUARDO DE LA CRUZ JIMENEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #153"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "153",
+      "direccion": "RESERVA DE SEQUOIA #153"
     },
     {
       "nombre": "SERGIO SALAZAR SANCHEZ",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #154"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "154",
+      "direccion": "RESERVA DE SEQUOIA #154"
     },
     {
       "nombre": "FABIAN CHAVEZ CAMPOS",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #156"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "156",
+      "direccion": "RESERVA DE SEQUOIA #156"
     },
     {
       "nombre": "MARIA EUGENIA CASTAÑEDA CEDILLO",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #162"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "162",
+      "direccion": "RESERVA DE SEQUOIA #162"
     },
     {
       "nombre": "EDUARDO OBREGON PADILLA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #164"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "164",
+      "direccion": "RESERVA DE SEQUOIA #164"
     },
     {
       "nombre": "RICARDO ALEXIS MARTINEZ PEREZ",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #166"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "166",
+      "direccion": "RESERVA DE SEQUOIA #166"
     },
     {
       "nombre": "SANDRA  PATRICIA SERNA MUÑOZ",
       "consumo": 23,
       "excedente": 8,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #168"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "168",
+      "direccion": "RESERVA DE SEQUOIA #168"
     },
     {
       "nombre": "JOSE ISAI MENDOZA LOPEZ",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #170"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "170",
+      "direccion": "RESERVA DE SEQUOIA #170"
     },
     {
       "nombre": "DIANA LUCIA ELIAS LOZANO",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #172"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "172",
+      "direccion": "RESERVA DE SEQUOIA #172"
     },
     {
       "nombre": "EDGAR GONZALO VASQUEZ ACOSTA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #201"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "201",
+      "direccion": "RESERVA DE SEQUOIA #201"
     },
     {
       "nombre": "JUAN PABLO GOMEZ DIOSDADO",
       "consumo": 23,
       "excedente": 8,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #202"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "202",
+      "direccion": "RESERVA DE SEQUOIA #202"
     },
     {
       "nombre": "UBALDO BUGARIN RUVALCABA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #203"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "203",
+      "direccion": "RESERVA DE SEQUOIA #203"
     },
     {
       "nombre": "SAUL CARRILLO VILLALOBOS",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #204"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "204",
+      "direccion": "RESERVA DE SEQUOIA #204"
     },
     {
       "nombre": "LEONARDO DANIEL MEZA RAMIREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #205"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "205",
+      "direccion": "RESERVA DE SEQUOIA #205"
     },
     {
       "nombre": "DENI RAMOS ORTEGA",
       "consumo": 20,
       "excedente": 5,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #206"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "206",
+      "direccion": "RESERVA DE SEQUOIA #206"
     },
     {
       "nombre": "RAUL RICARDO ROMERO FRAIRE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #207"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "207",
+      "direccion": "RESERVA DE SEQUOIA #207"
     },
     {
       "nombre": "MARIA ELBA MACIAS GUERRA",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #208"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "208",
+      "direccion": "RESERVA DE SEQUOIA #208"
     },
     {
       "nombre": "CLAUDIA MARÍA VARELA PINEDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #209"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "209",
+      "direccion": "RESERVA DE SEQUOIA #209"
     },
     {
       "nombre": "ADRIANA RAMIREZ CASTAÑEDA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #210"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "210",
+      "direccion": "RESERVA DE SEQUOIA #210"
     },
     {
       "nombre": "MA. CELIA TRUJILLO PRADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #211"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "211",
+      "direccion": "RESERVA DE SEQUOIA #211"
     },
     {
       "nombre": "ARACELI NAJERA  GARCIA",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #212"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "212",
+      "direccion": "RESERVA DE SEQUOIA #212"
     },
     {
       "nombre": "SERGIO MARTINEZ VILLALPANDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #213"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "213",
+      "direccion": "RESERVA DE SEQUOIA #213"
     },
     {
       "nombre": "FELIPE DE JESUS MARTIN DEL CAMPO RAMOS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #214"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "214",
+      "direccion": "RESERVA DE SEQUOIA #214"
     },
     {
       "nombre": "CINDY HERNANDEZ DE LOERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #215"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "215",
+      "direccion": "RESERVA DE SEQUOIA #215"
     },
     {
       "nombre": "JAVIER VALENZUELA MARIN",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #216"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "216",
+      "direccion": "RESERVA DE SEQUOIA #216"
     },
     {
       "nombre": "ARMANDO LEAL MANZANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #217"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "217",
+      "direccion": "RESERVA DE SEQUOIA #217"
     },
     {
       "nombre": "LUIS  ANTONIO MOYA ESPINOZA",
       "consumo": 14,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #218"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "218",
+      "direccion": "RESERVA DE SEQUOIA #218"
     },
     {
       "nombre": "ANA PAOLA FLORES NIÑO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #219"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "219",
+      "direccion": "RESERVA DE SEQUOIA #219"
     },
     {
       "nombre": "MARIA DEL ROCIO HERNANDEZ DIAZ DE LEON",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #220"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "220",
+      "direccion": "RESERVA DE SEQUOIA #220"
     },
     {
       "nombre": "ANTONIO LOPEZ HERNANDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #221"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "221",
+      "direccion": "RESERVA DE SEQUOIA #221"
     },
     {
       "nombre": "ALDO RIOS PEÑA",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #222"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "222",
+      "direccion": "RESERVA DE SEQUOIA #222"
     },
     {
       "nombre": "EDGAR JAVIER SOLIS MENDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #223"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "223",
+      "direccion": "RESERVA DE SEQUOIA #223"
     },
     {
       "nombre": "MARIA ZAPOPAN TEJEDA CALDERA",
       "consumo": 16,
       "excedente": 1,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #224"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "224",
+      "direccion": "RESERVA DE SEQUOIA #224"
     },
     {
       "nombre": "FANNY IVETTE MARTINEZ MARTINEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #225"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "225",
+      "direccion": "RESERVA DE SEQUOIA #225"
     },
     {
       "nombre": "GUILLERMO ENRIQUE SIERRA HUANTE",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #226"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "226",
+      "direccion": "RESERVA DE SEQUOIA #226"
     },
     {
       "nombre": "MA. ELENA SANDOVAL CORNEJO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #227"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "227",
+      "direccion": "RESERVA DE SEQUOIA #227"
     },
     {
       "nombre": "JUAN CARLOS REYES  OROZCO",
       "consumo": 62,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #228"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "228",
+      "direccion": "RESERVA DE SEQUOIA #228"
     },
     {
       "nombre": "DAISY  PAMELA FLORES ESPARZA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #229"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "229",
+      "direccion": "RESERVA DE SEQUOIA #229"
     },
     {
       "nombre": "DAVID ERACLIO CASAS ARANDA",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #230"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "230",
+      "direccion": "RESERVA DE SEQUOIA #230"
     },
     {
       "nombre": "ALFREDO DURAN CENDEJAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #231"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "231",
+      "direccion": "RESERVA DE SEQUOIA #231"
     },
     {
       "nombre": "VERONICA  LORENA ZAMBRANO ESPARZA",
       "consumo": 21,
       "excedente": 6,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #232"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "232",
+      "direccion": "RESERVA DE SEQUOIA #232"
     },
     {
       "nombre": "MARTIN ALEJANDRO VERA CAMACHO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #233"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "233",
+      "direccion": "RESERVA DE SEQUOIA #233"
     },
     {
       "nombre": "MARIA DE JESUS MIRAMONTES  AVILA",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #234"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "234",
+      "direccion": "RESERVA DE SEQUOIA #234"
     },
     {
       "nombre": "AURORA  BETSABE ALCALA ESTRADA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #235"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "235",
+      "direccion": "RESERVA DE SEQUOIA #235"
     },
     {
       "nombre": "LETICIA DEL CARMEN JIMENEZ OROZCO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #236"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "236",
+      "direccion": "RESERVA DE SEQUOIA #236"
     },
     {
       "nombre": "SAMHARA  AMALINALLI VELAZQUEZ GUZMAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #237"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "237",
+      "direccion": "RESERVA DE SEQUOIA #237"
     },
     {
       "nombre": "DIANA  GUADALUPE MARTINEZ LOERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #238"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "238",
+      "direccion": "RESERVA DE SEQUOIA #238"
     },
     {
       "nombre": "JOSE  LUIS PADILLA MARTINEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #239"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "239",
+      "direccion": "RESERVA DE SEQUOIA #239"
     },
     {
       "nombre": "SANDY PAULETTE CERVANTES RODRIGUEZ",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #240"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "240",
+      "direccion": "RESERVA DE SEQUOIA #240"
     },
     {
       "nombre": "MARIA GABRIELA SIXTOS ALONSO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #241"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "241",
+      "direccion": "RESERVA DE SEQUOIA #241"
     },
     {
       "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #242"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "242",
+      "direccion": "RESERVA DE SEQUOIA #242"
     },
     {
       "nombre": "DANIEL MEDINA LOERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #243"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "243",
+      "direccion": "RESERVA DE SEQUOIA #243"
     },
     {
       "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #244"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "244",
+      "direccion": "RESERVA DE SEQUOIA #244"
     },
     {
       "nombre": "FRANCISCO LUIS ALBERTO  TISCAREÑO RUVALCABA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #245"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "245",
+      "direccion": "RESERVA DE SEQUOIA #245"
     },
     {
       "nombre": "SERGIO DELGADO PLASCENCIA",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #246"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "246",
+      "direccion": "RESERVA DE SEQUOIA #246"
     },
     {
       "nombre": "BRIAN ALEXIS AQUINO ANDRADE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #247"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "247",
+      "direccion": "RESERVA DE SEQUOIA #247"
     },
     {
       "nombre": "GLORIA ESPARZA RODARTE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #248"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "248",
+      "direccion": "RESERVA DE SEQUOIA #248"
     },
     {
       "nombre": "MA. DE JESUS AMAYA HERRERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #249"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "249",
+      "direccion": "RESERVA DE SEQUOIA #249"
     },
     {
       "nombre": "STEPHANY ERANDI PAREDES  RAMIREZ",
       "consumo": 18,
       "excedente": 3,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #250"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "250",
+      "direccion": "RESERVA DE SEQUOIA #250"
     },
     {
       "nombre": "DIEGO DANIEL VELAZQUEZ CANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #251"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "251",
+      "direccion": "RESERVA DE SEQUOIA #251"
     },
     {
       "nombre": "VICTOR ALFONSO MARTINEZ ALVAREZ",
       "consumo": 32,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #252"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "252",
+      "direccion": "RESERVA DE SEQUOIA #252"
     },
     {
       "nombre": "CHRISTIAN FERNANDO AGREDANO HERRERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #253"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "253",
+      "direccion": "RESERVA DE SEQUOIA #253"
     },
     {
       "nombre": "LAURA ARELLANO MIRANDA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #255"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "255",
+      "direccion": "RESERVA DE SEQUOIA #255"
     },
     {
       "nombre": "BRENDA JUDITH OVALLE RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #301"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "301",
+      "direccion": "RESERVA DE SEQUOIA #301"
     },
     {
       "nombre": "MARIA DE LOURDES CENDEJAS AYALA",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #302"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "302",
+      "direccion": "RESERVA DE SEQUOIA #302"
     },
     {
       "nombre": "JONATHAN ALEJANDRO SERRANO ZAMORA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #303"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "303",
+      "direccion": "RESERVA DE SEQUOIA #303"
     },
     {
       "nombre": "ADRIAN HERNANDEZ GARCIA",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #304"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "304",
+      "direccion": "RESERVA DE SEQUOIA #304"
     },
     {
       "nombre": "ANA RAQUEL AGUILERA  RUVALCABA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #305"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "305",
+      "direccion": "RESERVA DE SEQUOIA #305"
     },
     {
       "nombre": "LOURDES ADRIANA RUVALCABA  DE LOERA",
       "consumo": 21,
       "excedente": 6,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #306"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "306",
+      "direccion": "RESERVA DE SEQUOIA #306"
     },
     {
       "nombre": "ANGELA PAULINA PEREZ DIAZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #307"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "307",
+      "direccion": "RESERVA DE SEQUOIA #307"
     },
     {
       "nombre": "ASTRID VALADEZ PEÑA",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #308"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "308",
+      "direccion": "RESERVA DE SEQUOIA #308"
     },
     {
       "nombre": "CLAUDIA ELIZABETH LOPEZ DELGADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #309"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "309",
+      "direccion": "RESERVA DE SEQUOIA #309"
     },
     {
       "nombre": "EDGAR GONZALEZ FERNANDEZ",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #310"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "310",
+      "direccion": "RESERVA DE SEQUOIA #310"
     },
     {
       "nombre": "LUZ MARIANA LEON CHAVEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #311"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "311",
+      "direccion": "RESERVA DE SEQUOIA #311"
     },
     {
       "nombre": "JUAN ANTONIO GARY ORTIZ",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #312"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "312",
+      "direccion": "RESERVA DE SEQUOIA #312"
     },
     {
       "nombre": "J. JESUS ARREGUI OLIVARES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #313"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "313",
+      "direccion": "RESERVA DE SEQUOIA #313"
     },
     {
       "nombre": "LUIS FERNANDO RAYMUNDO MARTINEZ",
       "consumo": 21,
       "excedente": 6,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #314"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "314",
+      "direccion": "RESERVA DE SEQUOIA #314"
     },
     {
       "nombre": "JUAN ALBERTO DUHNE ECHEVERRIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #315"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "315",
+      "direccion": "RESERVA DE SEQUOIA #315"
     },
     {
       "nombre": "JUAN FERNANDO ORTIZ VAZQUEZ",
       "consumo": 28,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #316"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "316",
+      "direccion": "RESERVA DE SEQUOIA #316"
     },
     {
       "nombre": "MARCO ANTONIO HERNANDEZ LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #317"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "317",
+      "direccion": "RESERVA DE SEQUOIA #317"
     },
     {
       "nombre": "MARTIN GUZMAN VILLALOBOS",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #318"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "318",
+      "direccion": "RESERVA DE SEQUOIA #318"
     },
     {
       "nombre": "JUAN DIEGO RODRIGUEZ BASTO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #319"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "319",
+      "direccion": "RESERVA DE SEQUOIA #319"
     },
     {
       "nombre": "DANNA LAURA REYES AGUIRRE",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #320"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "320",
+      "direccion": "RESERVA DE SEQUOIA #320"
     },
     {
       "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #321"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "321",
+      "direccion": "RESERVA DE SEQUOIA #321"
     },
     {
       "nombre": "ANA  CAROLINA DE LUNA RAMIREZ",
       "consumo": 20,
       "excedente": 5,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #322"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "322",
+      "direccion": "RESERVA DE SEQUOIA #322"
     },
     {
       "nombre": "ESTEFANIA CUELLAR DEL RIO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #323"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "323",
+      "direccion": "RESERVA DE SEQUOIA #323"
     },
     {
       "nombre": "KARLA NATALY VAZQUEZ DAVILA",
       "consumo": 36,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #324"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "324",
+      "direccion": "RESERVA DE SEQUOIA #324"
     },
     {
       "nombre": "OMAR MARTINEZ CADENA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #325"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "325",
+      "direccion": "RESERVA DE SEQUOIA #325"
     },
     {
       "nombre": "MAURICIO RENDON REYES",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #326"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "326",
+      "direccion": "RESERVA DE SEQUOIA #326"
     },
     {
       "nombre": "SERGIO RAMON ARROYO RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #327"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "327",
+      "direccion": "RESERVA DE SEQUOIA #327"
     },
     {
       "nombre": "SARA URIBE MOLINA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #328"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "328",
+      "direccion": "RESERVA DE SEQUOIA #328"
     },
     {
       "nombre": "MAURICIO RIVAS PRIETO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #329"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "329",
+      "direccion": "RESERVA DE SEQUOIA #329"
     },
     {
       "nombre": "BEATRIZ GONZALEZ RANGEL",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #330"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "330",
+      "direccion": "RESERVA DE SEQUOIA #330"
     },
     {
       "nombre": "SERGIO  ALEJANDRO RODRIGUEZ REYES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #331"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "331",
+      "direccion": "RESERVA DE SEQUOIA #331"
     },
     {
       "nombre": "JOSE LUIS BARRERA SOLIS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #332"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "332",
+      "direccion": "RESERVA DE SEQUOIA #332"
     },
     {
       "nombre": "JESSICA  ALEXANDRA MARTINEZ  MACIAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #333"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "333",
+      "direccion": "RESERVA DE SEQUOIA #333"
     },
     {
       "nombre": "BRENDA DE LOURDES CAMACHO PADILLA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #334"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "334",
+      "direccion": "RESERVA DE SEQUOIA #334"
     },
     {
       "nombre": "NANCY BERENICE PIÑA RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #335"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "335",
+      "direccion": "RESERVA DE SEQUOIA #335"
     },
     {
       "nombre": "VICTOR REFUGIO VILLALPANDO FERNANDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #336"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "336",
+      "direccion": "RESERVA DE SEQUOIA #336"
     },
     {
       "nombre": "MARCO DAVID MARTINEZ REYES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #337"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "337",
+      "direccion": "RESERVA DE SEQUOIA #337"
     },
     {
       "nombre": "J. REFUGIO VILLAPANDO SAUCEDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #338"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "338",
+      "direccion": "RESERVA DE SEQUOIA #338"
     },
     {
       "nombre": "LAURA  MARISOL CHAVEZ ROMO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #339"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "339",
+      "direccion": "RESERVA DE SEQUOIA #339"
     },
     {
       "nombre": "PABLO ORTIZ LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #340"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "340",
+      "direccion": "RESERVA DE SEQUOIA #340"
     },
     {
       "nombre": "GERARDO LOPEZ VELARDE VALENCIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #341"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "341",
+      "direccion": "RESERVA DE SEQUOIA #341"
     },
     {
       "nombre": "GUILLERMO CARRERA ROCHA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #342"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "342",
+      "direccion": "RESERVA DE SEQUOIA #342"
     },
     {
       "nombre": "MANUEL OSWALDO ROMERO  GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #343"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "343",
+      "direccion": "RESERVA DE SEQUOIA #343"
     },
     {
       "nombre": "JOSE DE JESUS ALBA FIGUEROA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #344"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "344",
+      "direccion": "RESERVA DE SEQUOIA #344"
     },
     {
       "nombre": "LAURA  ELISA GALARCEP MEDINA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #345"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "345",
+      "direccion": "RESERVA DE SEQUOIA #345"
     },
     {
       "nombre": "JESUS ALFREDO ARREGUI HULING",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #346"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "346",
+      "direccion": "RESERVA DE SEQUOIA #346"
     },
     {
       "nombre": "JOSE LUIS ESCOBAR GARLVAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #347"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "347",
+      "direccion": "RESERVA DE SEQUOIA #347"
     },
     {
       "nombre": "NABOR LARIOS MAGDALENO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #348"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "348",
+      "direccion": "RESERVA DE SEQUOIA #348"
     },
     {
       "nombre": "JOSE DE JESUS MEDINA DELGADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #349"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "349",
+      "direccion": "RESERVA DE SEQUOIA #349"
     },
     {
       "nombre": "JESSICA  PAOLA RODRIGUEZ HERMOSILLO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #350"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "350",
+      "direccion": "RESERVA DE SEQUOIA #350"
     },
     {
       "nombre": "JAIME AUGUSTO MACIAS GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #351"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "351",
+      "direccion": "RESERVA DE SEQUOIA #351"
     },
     {
       "nombre": "CAMILO ROMO LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #352"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "352",
+      "direccion": "RESERVA DE SEQUOIA #352"
     },
     {
       "nombre": "DANIEL MARTIN ROMO LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #353"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "353",
+      "direccion": "RESERVA DE SEQUOIA #353"
     },
     {
       "nombre": "JUAN ANTONIO DIAZ AGUILAR",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #354"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "354",
+      "direccion": "RESERVA DE SEQUOIA #354"
     },
     {
       "nombre": "GABRIEL ALVAREZ TOSTADO ARCHUNDIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #355"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "355",
+      "direccion": "RESERVA DE SEQUOIA #355"
     },
     {
       "nombre": "MARIA GLORIA DURON PRADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #356"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "356",
+      "direccion": "RESERVA DE SEQUOIA #356"
     },
     {
       "nombre": "SAFA HASAN ALI",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #357"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "357",
+      "direccion": "RESERVA DE SEQUOIA #357"
     },
     {
       "nombre": "FERNANDO REYNOSO CHEQUI",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #358"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "358",
+      "direccion": "RESERVA DE SEQUOIA #358"
     },
     {
       "nombre": "JOSE DE JESUS MARTINEZ CAMARA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #359"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "359",
+      "direccion": "RESERVA DE SEQUOIA #359"
     },
     {
       "nombre": "FERNANDO REYNOSO CHEQUI",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #360"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "360",
+      "direccion": "RESERVA DE SEQUOIA #360"
     },
     {
       "nombre": "MARIA DE LOURDES NUÑEZ VEGA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #501"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "501",
+      "direccion": "RESERVA DE SEQUOIA #501"
     },
     {
       "nombre": "DANIEL ESPINOSA DIAZ DE LEON",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #503"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "503",
+      "direccion": "RESERVA DE SEQUOIA #503"
     },
     {
       "nombre": "LUIS  ALFONSO GONZALEZ HERRERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #507"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "507",
+      "direccion": "RESERVA DE SEQUOIA #507"
     },
     {
       "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #511"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "511",
+      "direccion": "RESERVA DE SEQUOIA #511"
     },
     {
       "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #513"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "513",
+      "direccion": "RESERVA DE SEQUOIA #513"
     },
     {
       "nombre": "JOSE LUIS BARRERA SOLIS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #516"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "516",
+      "direccion": "RESERVA DE SEQUOIA #516"
     },
     {
       "nombre": "BAUDELIO ARCEO HARO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #519"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "519",
+      "direccion": "RESERVA DE SEQUOIA #519"
     },
     {
       "nombre": "FREDDY MORA SANTIAGO",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #520"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "520",
+      "direccion": "RESERVA DE SEQUOIA #520"
     },
     {
       "nombre": "RAFAEL ALEJANDRO LOMELI",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #521"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "521",
+      "direccion": "RESERVA DE SEQUOIA #521"
     },
     {
       "nombre": "JESSICA CAMPOS AGUILERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #521"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "521",
+      "direccion": "RESERVA DE SEQUOIA #521"
     },
     {
       "nombre": "ALDO MISAEL CORONA SANCHEZ",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #522"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "522",
+      "direccion": "RESERVA DE SEQUOIA #522"
     },
     {
       "nombre": "MA. MARISOL BERNAL AVILA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #523"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "523",
+      "direccion": "RESERVA DE SEQUOIA #523"
     },
     {
       "nombre": "MARIO ANDRADE LOZANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #525"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "525",
+      "direccion": "RESERVA DE SEQUOIA #525"
     },
     {
       "nombre": "PEDRO PADILLA PADILLA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #526"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "526",
+      "direccion": "RESERVA DE SEQUOIA #526"
     },
     {
       "nombre": "CLAUDIA RIVERA  GARCIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #527"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "527",
+      "direccion": "RESERVA DE SEQUOIA #527"
     },
     {
       "nombre": "DANIEL LEGASPI JAUREGUI",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #530"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "530",
+      "direccion": "RESERVA DE SEQUOIA #530"
     },
     {
       "nombre": "IVAN GARCIA ROMERO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #531"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "531",
+      "direccion": "RESERVA DE SEQUOIA #531"
     },
     {
       "nombre": "MARISELA MARTINEZ ESPARZA",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #532"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "532",
+      "direccion": "RESERVA DE SEQUOIA #532"
     },
     {
       "nombre": "JOSE LUIS BARRER SOLIS",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #534"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "534",
+      "direccion": "RESERVA DE SEQUOIA #534"
     },
     {
       "nombre": "BRENDA PATRICIA LEOS JUAREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #536"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "536",
+      "direccion": "RESERVA DE SEQUOIA #536"
     },
     {
       "nombre": "FABIOLA ARIAS VELASCO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #537"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "537",
+      "direccion": "RESERVA DE SEQUOIA #537"
     },
     {
       "nombre": "JOSE ANTONIO ULLOA AVELAR",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #538"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "538",
+      "direccion": "RESERVA DE SEQUOIA #538"
     },
     {
       "nombre": "JOSE DANIEL MALDONADO NUÑEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #539"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "539",
+      "direccion": "RESERVA DE SEQUOIA #539"
     },
     {
       "nombre": "ENRIQUE MUÑIZ RUIZ",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #540"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "540",
+      "direccion": "RESERVA DE SEQUOIA #540"
     },
     {
       "nombre": "KARLA VIANEY VARGAS GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #541"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "541",
+      "direccion": "RESERVA DE SEQUOIA #541"
     },
     {
       "nombre": "THANIA  MARYSOL TORRES MARTINEZ",
       "consumo": 18,
       "excedente": 3,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #542"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "542",
+      "direccion": "RESERVA DE SEQUOIA #542"
     },
     {
       "nombre": "CARLOS ALBERTO GONZALEZ RAMIREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #543"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "543",
+      "direccion": "RESERVA DE SEQUOIA #543"
     },
     {
       "nombre": "JESUS  ANTONIO MADRIGAL ARELLANO",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #544"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "544",
+      "direccion": "RESERVA DE SEQUOIA #544"
     },
     {
       "nombre": "DANIEL ESTRADA CAMPOS",
       "consumo": 21,
       "excedente": 6,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #546"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "546",
+      "direccion": "RESERVA DE SEQUOIA #546"
     },
     {
       "nombre": "JESUS MORALES  GARCIA",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #548"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "548",
+      "direccion": "RESERVA DE SEQUOIA #548"
     },
     {
       "nombre": "ANGELICA MARIA SOTO HERNANDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #550"
+      "calle": "RESERVA DE SEQUOIA",
+      "numero_exterior": "550",
+      "direccion": "RESERVA DE SEQUOIA #550"
     },
     {
       "nombre": "TRINIDAD GARCIA IGLESIAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #101"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "101",
+      "direccion": "RESERVA DEL SABINO #101"
     },
     {
       "nombre": "HERIBERTO MEDRANO MEDINA",
       "consumo": 18,
       "excedente": 3,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #102"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "102",
+      "direccion": "RESERVA DEL SABINO #102"
     },
     {
       "nombre": "IRVING SANTIAGO FRAIRE FELIX",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #103"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "103",
+      "direccion": "RESERVA DEL SABINO #103"
     },
     {
       "nombre": "MARIA TERESA DEL RAYO LOZANO ORTIZ",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #104"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "104",
+      "direccion": "RESERVA DEL SABINO #104"
     },
     {
       "nombre": "JOSE PADILLA GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #105"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "105",
+      "direccion": "RESERVA DEL SABINO #105"
     },
     {
       "nombre": "MARIA DENISSE LOPEZ LOPEZ",
       "consumo": 21,
       "excedente": 6,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #106"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "106",
+      "direccion": "RESERVA DEL SABINO #106"
     },
     {
       "nombre": "LUIS ALBERTO BRECEDA DE LARA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #107"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "107",
+      "direccion": "RESERVA DEL SABINO #107"
     },
     {
       "nombre": "LUCIA  EVANGELINA ESPARZA MEZA",
       "consumo": 34,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #108"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "108",
+      "direccion": "RESERVA DEL SABINO #108"
     },
     {
       "nombre": "LAURA ORTEGA RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #109"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "109",
+      "direccion": "RESERVA DEL SABINO #109"
     },
     {
       "nombre": "LUIS RODRIGO ESPARZA CHAVEZ",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #110"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "110",
+      "direccion": "RESERVA DEL SABINO #110"
     },
     {
       "nombre": "PEDRO SANDOVAL ARELLANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #111"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "111",
+      "direccion": "RESERVA DEL SABINO #111"
     },
     {
       "nombre": "JORGE ALBERTO LOPEZ GONZALEZ",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #112"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "112",
+      "direccion": "RESERVA DEL SABINO #112"
     },
     {
       "nombre": "GERARDO ESQUIVEL PEREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #113"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "113",
+      "direccion": "RESERVA DEL SABINO #113"
     },
     {
       "nombre": "PALOMA DEL CARMEN PRIETO TERRONES",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #114"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "114",
+      "direccion": "RESERVA DEL SABINO #114"
     },
     {
       "nombre": "ALEJANDRA MONSIVAIZ HERRERA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #115"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "115",
+      "direccion": "RESERVA DEL SABINO #115"
     },
     {
       "nombre": "SILVIA PIÑA URIBE",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #116"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "116",
+      "direccion": "RESERVA DEL SABINO #116"
     },
     {
       "nombre": "VICTOR MANUEL MALACARA  TEJEDA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #117"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "117",
+      "direccion": "RESERVA DEL SABINO #117"
     },
     {
       "nombre": "MIGUEL ANGEL GALINDO LOPEZ",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #118"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "118",
+      "direccion": "RESERVA DEL SABINO #118"
     },
     {
       "nombre": "OMAR ARREOLA ESQUIVEL",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #119"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "119",
+      "direccion": "RESERVA DEL SABINO #119"
     },
     {
       "nombre": "MARIA GRACIELA ALVARADO ARELLANO",
       "consumo": 32,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #120"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "120",
+      "direccion": "RESERVA DEL SABINO #120"
     },
     {
       "nombre": "HECTOR DANIEL DAVILA DOMINGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #121"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "121",
+      "direccion": "RESERVA DEL SABINO #121"
     },
     {
       "nombre": "MARLEN KARINA VELASCO LOERA",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #122"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "122",
+      "direccion": "RESERVA DEL SABINO #122"
     },
     {
       "nombre": "NORMA ANGELICA BERNAL SOLIS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #123"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "123",
+      "direccion": "RESERVA DEL SABINO #123"
     },
     {
       "nombre": "CARLOS NAPOLEON CURIEL MARTINEZ",
       "consumo": 11,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #124"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "124",
+      "direccion": "RESERVA DEL SABINO #124"
     },
     {
       "nombre": "DAVID ALEJANDRO GONZALEZ RODRIGUEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #125"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "125",
+      "direccion": "RESERVA DEL SABINO #125"
     },
     {
       "nombre": "MA. GUADALUPE HERNANDEZ CASTILLO",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #126"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "126",
+      "direccion": "RESERVA DEL SABINO #126"
     },
     {
       "nombre": "EDGAR RAMIREZ PEREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #127"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "127",
+      "direccion": "RESERVA DEL SABINO #127"
     },
     {
       "nombre": "EDGAR RUIZ MONTEMAYOR",
       "consumo": 71,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #128"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "128",
+      "direccion": "RESERVA DEL SABINO #128"
     },
     {
       "nombre": "CESAR DAVID MORENO DELGADILLO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #129"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "129",
+      "direccion": "RESERVA DEL SABINO #129"
     },
     {
       "nombre": "CRISTOBAL RODRIGUEZ MARTINEZ",
       "consumo": 5,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #130"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "130",
+      "direccion": "RESERVA DEL SABINO #130"
     },
     {
       "nombre": "MARIO ANDRADE CERVANTES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #131"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "131",
+      "direccion": "RESERVA DEL SABINO #131"
     },
     {
       "nombre": "ADRIAN ROMO ROMO",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #132"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "132",
+      "direccion": "RESERVA DEL SABINO #132"
     },
     {
       "nombre": "LAURA  ALICIA HERNANDEZ VALDES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #133"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "133",
+      "direccion": "RESERVA DEL SABINO #133"
     },
     {
       "nombre": "JONATHAN EMMANUEL RODRIGUEZ HERMOSILLO",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #134"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "134",
+      "direccion": "RESERVA DEL SABINO #134"
     },
     {
       "nombre": "MARIA LOURDES CORNEJO GUZMAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #135"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "135",
+      "direccion": "RESERVA DEL SABINO #135"
     },
     {
       "nombre": "JESSICA LUZ DIAZ MARIN",
       "consumo": 16,
       "excedente": 1,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #136"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "136",
+      "direccion": "RESERVA DEL SABINO #136"
     },
     {
       "nombre": "EDGAR ROMO LARIOS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #137"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "137",
+      "direccion": "RESERVA DEL SABINO #137"
     },
     {
       "nombre": "ANTONIO BAÑUELOS MENDEZ",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #138"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "138",
+      "direccion": "RESERVA DEL SABINO #138"
     },
     {
       "nombre": "HECTOR MANUEL MARQUEZ SANCHEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #139"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "139",
+      "direccion": "RESERVA DEL SABINO #139"
     },
     {
       "nombre": "FERNANDA GUADALUPE DIAZ RICHART",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #140"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "140",
+      "direccion": "RESERVA DEL SABINO #140"
     },
     {
       "nombre": "LIZETH CAROLINA REAL PAREDES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #141"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "141",
+      "direccion": "RESERVA DEL SABINO #141"
     },
     {
       "nombre": "MARTHA  ALICIA VELOZ ROMO",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #142"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "142",
+      "direccion": "RESERVA DEL SABINO #142"
     },
     {
       "nombre": "ROBERTO CRUZ VALENZUELA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #143"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "143",
+      "direccion": "RESERVA DEL SABINO #143"
     },
     {
       "nombre": "ELSA ESTELA FREGOSO GARCIA",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #144"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "144",
+      "direccion": "RESERVA DEL SABINO #144"
     },
     {
       "nombre": "MERCEDES ITUARTE MERCADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #145"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "145",
+      "direccion": "RESERVA DEL SABINO #145"
     },
     {
       "nombre": "GERARDO MENDOZA LOPEZ",
       "consumo": 3,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #146"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "146",
+      "direccion": "RESERVA DEL SABINO #146"
     },
     {
       "nombre": "ALLAN MUÑOZ ARELLANO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #147"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "147",
+      "direccion": "RESERVA DEL SABINO #147"
     },
     {
       "nombre": "SANDRA ILIANA GONZALEZ PLANCARTE",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #148"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "148",
+      "direccion": "RESERVA DEL SABINO #148"
     },
     {
       "nombre": "HERMES IKARO TORREBLANCA RAMIREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #149"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "149",
+      "direccion": "RESERVA DEL SABINO #149"
     },
     {
       "nombre": "MYRIAM DEL CARMEN CORRALES AGUIRRE",
       "consumo": 34,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #150"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "150",
+      "direccion": "RESERVA DEL SABINO #150"
     },
     {
       "nombre": "ALEJANDRO REYNOSO PEREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #151"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "151",
+      "direccion": "RESERVA DEL SABINO #151"
     },
     {
       "nombre": "ALAN MARQUEZ BATRES",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #152"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "152",
+      "direccion": "RESERVA DEL SABINO #152"
     },
     {
       "nombre": "CARLOS IVAN CAMPOS  ALONSO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #153"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "153",
+      "direccion": "RESERVA DEL SABINO #153"
     },
     {
       "nombre": "ANA MARIA ALVAREZ PEREZ",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #154"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "154",
+      "direccion": "RESERVA DEL SABINO #154"
     },
     {
       "nombre": "ALFONSO ALEJANDRO NAVARRO PONCE",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #155"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "155",
+      "direccion": "RESERVA DEL SABINO #155"
     },
     {
       "nombre": "LAURA ANGELICA GALLARDO MONTOYA",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #156"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "156",
+      "direccion": "RESERVA DEL SABINO #156"
     },
     {
       "nombre": "MARIA PATRICIA MARTINEZ  GONZALEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #157"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "157",
+      "direccion": "RESERVA DEL SABINO #157"
     },
     {
       "nombre": "OMAR FERNANDO GARAY MIRELES",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #158"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "158",
+      "direccion": "RESERVA DEL SABINO #158"
     },
     {
       "nombre": "RODAN PEREZ BAUMGARTEN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #159"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "159",
+      "direccion": "RESERVA DEL SABINO #159"
     },
     {
       "nombre": "JOSE DE JESUS AVELAR VILLALPANDO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #160"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "160",
+      "direccion": "RESERVA DEL SABINO #160"
     },
     {
       "nombre": "NAYELI DE JESUS  DIAZ GUZMAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #201"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "201",
+      "direccion": "RESERVA DEL SABINO #201"
     },
     {
       "nombre": "JUANA ORTIZ PADILLA",
       "consumo": -2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #202"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "202",
+      "direccion": "RESERVA DEL SABINO #202"
     },
     {
       "nombre": "IRENE HERNANDEZ TAVARES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #203"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "203",
+      "direccion": "RESERVA DEL SABINO #203"
     },
     {
       "nombre": "JOSE ALEJANDRO GONZALEZ REYNOSO",
       "consumo": 19,
       "excedente": 4,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #204"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "204",
+      "direccion": "RESERVA DEL SABINO #204"
     },
     {
       "nombre": "ANA DE MONSERRAT MEDINA SIFUENTES",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #205"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "205",
+      "direccion": "RESERVA DEL SABINO #205"
     },
     {
       "nombre": "ANA  ROSA MUÑOZ YAÑEZ",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #206"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "206",
+      "direccion": "RESERVA DEL SABINO #206"
     },
     {
       "nombre": "ELIZABETH  GUADALUPE BARBOSA PADILLA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #207"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "207",
+      "direccion": "RESERVA DEL SABINO #207"
     },
     {
       "nombre": "MIGUEL ANGEL RAMIREZ GIACINTI",
       "consumo": 10,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #208"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "208",
+      "direccion": "RESERVA DEL SABINO #208"
     },
     {
       "nombre": "BEATRIZ GUTIERREZ LOPEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #209"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "209",
+      "direccion": "RESERVA DEL SABINO #209"
     },
     {
       "nombre": "LUIS MANUEL PADILLA CORTEZ",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #210"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "210",
+      "direccion": "RESERVA DEL SABINO #210"
     },
     {
       "nombre": "MA. TERESA MACIAS GALAVIZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #211"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "211",
+      "direccion": "RESERVA DEL SABINO #211"
     },
     {
       "nombre": "PATRICIA  ALEJANDRA SOTO PLASCENCIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #212"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "212",
+      "direccion": "RESERVA DEL SABINO #212"
     },
     {
       "nombre": "MA. DE LOURDES MONTELLANO DELGADO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #213"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "213",
+      "direccion": "RESERVA DEL SABINO #213"
     },
     {
       "nombre": "IVAN  WENCESLAO LEIJA FRANCO",
       "consumo": 14,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #214"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "214",
+      "direccion": "RESERVA DEL SABINO #214"
     },
     {
       "nombre": "EVA BRITTANIA DELGADO MENDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #215"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "215",
+      "direccion": "RESERVA DEL SABINO #215"
     },
     {
       "nombre": "VICTOR HUGO WENCES FUEYO",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #216"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "216",
+      "direccion": "RESERVA DEL SABINO #216"
     },
     {
       "nombre": "EMILIO ANTONIO OBANDO SAN MARTIN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #217"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "217",
+      "direccion": "RESERVA DEL SABINO #217"
     },
     {
       "nombre": "JOSE  DAVID HERNANDEZ CARRION",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #218"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "218",
+      "direccion": "RESERVA DEL SABINO #218"
     },
     {
       "nombre": "JOSE ESTEBAN SAINZ GUTIÉRREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #219"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "219",
+      "direccion": "RESERVA DEL SABINO #219"
     },
     {
       "nombre": "MARIA DEL ROSARIO RUIZ AVILA",
       "consumo": 72,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #220"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "220",
+      "direccion": "RESERVA DEL SABINO #220"
     },
     {
       "nombre": "LUIS GUILLERMO ALCALA DURAN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #221"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "221",
+      "direccion": "RESERVA DEL SABINO #221"
     },
     {
       "nombre": "SUPERVISOR INTEGRAL DE OBRA CIVIL",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #222"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "222",
+      "direccion": "RESERVA DEL SABINO #222"
     },
     {
       "nombre": "JESUS BENJAMIN GONZALEZ CASTORENA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #223"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "223",
+      "direccion": "RESERVA DEL SABINO #223"
     },
     {
       "nombre": "ROGELIO MONDRAGON BONILLA",
       "consumo": 15,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #224"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "224",
+      "direccion": "RESERVA DEL SABINO #224"
     },
     {
       "nombre": "DIANA YESENIA MARQUEZ GUTIERREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #225"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "225",
+      "direccion": "RESERVA DEL SABINO #225"
     },
     {
       "nombre": "LUIS FERNANDO CASANOVA TRINIDAD",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #226"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "226",
+      "direccion": "RESERVA DEL SABINO #226"
     },
     {
       "nombre": "ROSA MARIA YAÑEZ BARRON",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #227"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "227",
+      "direccion": "RESERVA DEL SABINO #227"
     },
     {
       "nombre": "LETICIA GARCIA MACIAS",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #228"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "228",
+      "direccion": "RESERVA DEL SABINO #228"
     },
     {
       "nombre": "ANDRES LOERA NAVARRO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #229"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "229",
+      "direccion": "RESERVA DEL SABINO #229"
     },
     {
       "nombre": "FABIAN MALACARA ARDIT",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #230"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "230",
+      "direccion": "RESERVA DEL SABINO #230"
     },
     {
       "nombre": "RAYMUNDO ORTIZ ALVAREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #231"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "231",
+      "direccion": "RESERVA DEL SABINO #231"
     },
     {
       "nombre": "VIVIANA  ESTEFANI ESPARZA OCHOA",
       "consumo": 17,
       "excedente": 2,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #232"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "232",
+      "direccion": "RESERVA DEL SABINO #232"
     },
     {
       "nombre": "CHRISTIAN HERMOSILLO GOMEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #233"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "233",
+      "direccion": "RESERVA DEL SABINO #233"
     },
     {
       "nombre": "EDITH CARRILLO BRIANO",
       "consumo": 4,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #234"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "234",
+      "direccion": "RESERVA DEL SABINO #234"
     },
     {
       "nombre": "LIZETH GUADALUPE GUTIERREZ VALLEJO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #235"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "235",
+      "direccion": "RESERVA DEL SABINO #235"
     },
     {
       "nombre": "JUAN ANDRES ALTAMIRA CAMPOS",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #236"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "236",
+      "direccion": "RESERVA DEL SABINO #236"
     },
     {
       "nombre": "GERMAN LOPEZ SANTIAGO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #237"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "237",
+      "direccion": "RESERVA DEL SABINO #237"
     },
     {
       "nombre": "ROSA MARIA YAÑEZ JIMENEZ",
       "consumo": 2,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #238"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "238",
+      "direccion": "RESERVA DEL SABINO #238"
     },
     {
       "nombre": "LETICIA  MABEL CABRERA MAYAGOITIA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #239"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "239",
+      "direccion": "RESERVA DEL SABINO #239"
     },
     {
       "nombre": "ROSA MARIA PATRICIA CAZARES  SOLIS",
       "consumo": 13,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #240"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "240",
+      "direccion": "RESERVA DEL SABINO #240"
     },
     {
       "nombre": "BRENDA JAUREGUI SANCHEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #241"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "241",
+      "direccion": "RESERVA DEL SABINO #241"
     },
     {
       "nombre": "CECILIA IMELDA ARAGON BURGOS",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #242"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "242",
+      "direccion": "RESERVA DEL SABINO #242"
     },
     {
       "nombre": "AMAURY JAIME ORNELAS SAHAGUN",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #243"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "243",
+      "direccion": "RESERVA DEL SABINO #243"
     },
     {
       "nombre": "LUIS  ADRIAN LUEVANO RAMOS",
       "consumo": 52,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #244"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "244",
+      "direccion": "RESERVA DEL SABINO #244"
     },
     {
       "nombre": "CARLOS  ALEJANDRO MENDOZA RAMIREZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #245"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "245",
+      "direccion": "RESERVA DEL SABINO #245"
     },
     {
       "nombre": "JOSE ALBERTO CENTENO  LARA",
       "consumo": 7,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #246"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "246",
+      "direccion": "RESERVA DEL SABINO #246"
     },
     {
       "nombre": "ADRIAN CHAVIRA HERNANDEZ",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #247"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "247",
+      "direccion": "RESERVA DEL SABINO #247"
     },
     {
       "nombre": "CARLOS ESPARZA REYNA",
       "consumo": 1,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #248"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "248",
+      "direccion": "RESERVA DEL SABINO #248"
     },
     {
       "nombre": "RENAN DELGADO  PIÑA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #249"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "249",
+      "direccion": "RESERVA DEL SABINO #249"
     },
     {
       "nombre": "RICARDO RAMIREZ HARO",
       "consumo": 9,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #250"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "250",
+      "direccion": "RESERVA DEL SABINO #250"
     },
     {
       "nombre": "MONICA LISSETTE LOZANO AMPOSTA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #251"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "251",
+      "direccion": "RESERVA DEL SABINO #251"
     },
     {
       "nombre": "LUIS RODOLFO ESCOBAR ZANELLA",
       "consumo": 8,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #252"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "252",
+      "direccion": "RESERVA DEL SABINO #252"
     },
     {
       "nombre": "CESAR ALEJANDRO VILLALOBOS SERNA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #253"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "253",
+      "direccion": "RESERVA DEL SABINO #253"
     },
     {
       "nombre": "LUIS DANIEL VEGA ZAPATA",
       "consumo": 12,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #254"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "254",
+      "direccion": "RESERVA DEL SABINO #254"
     },
     {
       "nombre": "MAQUINAS REFACCIONES Y  SERVICIO",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #255"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "255",
+      "direccion": "RESERVA DEL SABINO #255"
     },
     {
       "nombre": "RICARDO DIAZ TREJO",
       "consumo": 6,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #256"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "256",
+      "direccion": "RESERVA DEL SABINO #256"
     },
     {
       "nombre": "JUAN  ANTONIO  DE LA CRUZ LUNA",
       "consumo": 0,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #257"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "257",
+      "direccion": "RESERVA DEL SABINO #257"
     },
     {
       "nombre": "CAROLINA DUARTE DELGADO",
       "consumo": 14,
       "excedente": 0,
-      "calle": "Sin calle",
-      "numero_interior": null,
-      "direccion": "Sin calle #258"
+      "calle": "RESERVA DEL SABINO",
+      "numero_exterior": "258",
+      "direccion": "RESERVA DEL SABINO #258"
     }
   ]
 }
