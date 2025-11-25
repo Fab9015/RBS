@@ -4,76 +4,135 @@
   <meta charset="UTF-8">
   <title>Generador de data.json desde Excel</title>
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; color: #2c3e50; }
+    h1 { margin-bottom: 8px; }
+    .controls { margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap; }
+    button { padding: 8px 12px; }
+    .status { margin-top: 8px; font-size: 14px; color: #606c76; }
+    pre { background: #f7f7f7; padding: 12px; border: 1px solid #e6e6e6; max-height: 50vh; overflow: auto; }
+    .error { color: #c0392b; }
+    .ok { color: #2e7d32; }
+  </style>
 </head>
 <body>
   <h1>Generar data.json desde Excel</h1>
-  <input type="file" id="inputExcel" accept=".xlsx,.xls" />
-  <button onclick="procesarExcel()">Procesar Excel</button>
-  <button id="descargarBtn" style="display:none;">Descargar JSON</button>
-  <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
+  <div class="controls">
+    <input type="file" id="inputExcel" accept=".xlsx,.xls" />
+    <button id="procesarBtn">Procesar Excel</button>
+    <button id="descargarBtn" style="display:none;">Descargar JSON</button>
+    <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
+  </div>
+  <div id="status" class="status"></div>
   <pre id="output"></pre>
 
   <script>
     let dataJson = null;
 
-    function procesarExcel() {
+    function detectarEncabezados(matrix) {
+      for (let r = 0; r < matrix.length; r++) {
+        const fila = matrix[r].map(x => String(x).toLowerCase().trim());
+        if (fila.includes("nombre condómino") && fila.includes("consumo") && fila.includes("calle") && fila.includes("no.ext")) {
+          return { rowIndex: r, headers: matrix[r] };
+        }
+      }
+      return null;
+    }
+
+    function procesarMatriz(matrix, headerInfo) {
+      const headers = headerInfo.headers;
+      const idx = {
+        nombre: headers.indexOf("Nombre Condómino"),
+        consumo: headers.indexOf("Consumo"),
+        excedente: headers.indexOf("Excedente"),
+        calle: headers.indexOf("Calle"),
+        noext: headers.indexOf("No.Ext")
+      };
+
+      const personas = [];
+      for (let r = headerInfo.rowIndex + 1; r < matrix.length; r++) {
+        const row = matrix[r];
+        if (!row[idx.nombre]) continue;
+
+        const nombre = String(row[idx.nombre]).trim();
+        const consumo = Number(row[idx.consumo] || 0);
+        const excedente = Number(row[idx.excedente] || 0);
+        const calle = row[idx.calle] || "Sin calle";
+        const noext = row[idx.noext] || "";
+        const direccion = `${calle} #${noext}`;
+
+        personas.push({ nombre, consumo, excedente, calle, numero_exterior: noext, direccion });
+      }
+
+      return { pactados: 15, personas };
+    }
+
+    async function procesarExcel() {
+      const statusEl = document.getElementById('status');
+      const outputEl = document.getElementById('output');
+      outputEl.textContent = '';
+      statusEl.textContent = 'Leyendo Excel…';
+
       const fileInput = document.getElementById('inputExcel');
       if (!fileInput.files.length) {
         alert("Por favor selecciona un archivo Excel.");
+        statusEl.textContent = '';
         return;
       }
 
-      const reader = new FileReader();
-      reader.onload = function(e) {
-        const data = new Uint8Array(e.target.result);
-        const workbook = XLSX.read(data, { type: 'array' });
+      try {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const data = new Uint8Array(e.target.result);
+          const workbook = XLSX.read(data, { type: 'array' });
+          const sheetName = workbook.SheetNames[0];
+          const sheet = workbook.Sheets[sheetName];
 
-        // Tomamos la primera hoja
-        const sheetName = workbook.SheetNames[0];
-        const sheet = workbook.Sheets[sheetName];
-        const rows = XLSX.utils.sheet_to_json(sheet);
+          const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
+          const headerInfo = detectarEncabezados(matrix);
+          if (!headerInfo) {
+            statusEl.innerHTML = '<span class="error">No se pudo detectar la fila de encabezados. Revisa el Excel.</span>';
+            return;
+          }
 
-        // Construimos el JSON enriquecido
-        const personas = rows.map(row => {
-          const nombre = row["Nombre Condómino"] || "";
-          const consumo = Number(row["Consumo"] || 0);
-          const excedente = Number(row["Excedente"] || 0);
-          const calle = row["Calle"] || "Sin calle";
-          const numeroExterior = row["No.Ext"] || "";
-          const direccion = `${calle} #${numeroExterior}`;
+          const resultado = procesarMatriz(matrix, headerInfo);
+          dataJson = resultado;
 
-          return { nombre, consumo, excedente, calle, numero_exterior: numeroExterior, direccion };
-        });
+          const total = resultado.personas.length;
+          const conExc = resultado.personas.filter(p => p.excedente > 0).length;
+          const sinExc = total - conExc;
+          statusEl.innerHTML = `<span class="ok">Procesado:</span> ${total} registros. Con excedente: ${conExc}. Sin excedente: ${sinExc}.`;
 
-        dataJson = { pactados: 15, personas };
+          outputEl.textContent = JSON.stringify(dataJson, null, 2);
 
-        // Mostrar en pantalla
-        document.getElementById('output').textContent = JSON.stringify(dataJson, null, 2);
+          const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
+          const url = URL.createObjectURL(blob);
+          const descargarBtn = document.getElementById('descargarBtn');
+          descargarBtn.style.display = "inline";
+          descargarBtn.onclick = () => {
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "data.json";
+            a.click();
+          };
 
-        // Habilitar descarga
-        const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
-        const url = URL.createObjectURL(blob);
-        const descargarBtn = document.getElementById('descargarBtn');
-        descargarBtn.style.display = "inline";
-        descargarBtn.onclick = () => {
-          const a = document.createElement("a");
-          a.href = url;
-          a.download = "data.json";
-          a.click();
+          const copiarBtn = document.getElementById('copiarBtn');
+          copiarBtn.style.display = "inline";
+          copiarBtn.onclick = () => {
+            navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
+              .then(() => alert("JSON copiado al portapapeles"))
+              .catch(err => alert("Error al copiar: " + err));
+          };
         };
 
-        // Habilitar copiar
-        const copiarBtn = document.getElementById('copiarBtn');
-        copiarBtn.style.display = "inline";
-        copiarBtn.onclick = () => {
-          navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
-            .then(() => alert("JSON copiado al portapapeles"))
-            .catch(err => alert("Error al copiar: " + err));
-        };
-      };
-
-      reader.readAsArrayBuffer(fileInput.files[0]);
+        reader.readAsArrayBuffer(fileInput.files[0]);
+      } catch (err) {
+        console.error(err);
+        statusEl.innerHTML = '<span class="error">Error al procesar el Excel.</span>';
+      }
     }
+
+    document.getElementById('procesarBtn').addEventListener('click', procesarExcel);
   </script>
 </body>
 </html>
