@@ -21,12 +21,12 @@
     }
     .chart-container {
       width: 100%;
-      height: 420px; /* gráfica de pastel y barras más grandes */
+      height: 420px;
       position: relative;
     }
     .bar-container {
       width: 100%;
-      height: 600px; /* barras horizontales más grandes para direcciones */
+      height: 600px; /* más grande para direcciones */
       position: relative;
     }
     table {
@@ -94,8 +94,6 @@
 
         statusEl.textContent = 'Datos cargados correctamente.';
 
-        // Validaciones mínimas esperadas en data.json
-        const pactados = Number(data.pactados ?? 0);
         const personas = Array.isArray(data.personas) ? data.personas : [];
 
         // Pastel: excedente vs sin excedente
@@ -116,28 +114,20 @@
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            plugins: {
-              legend: { position: 'bottom' }
-            }
+            plugins: { legend: { position: 'bottom' } }
           }
         });
 
         // Barras horizontales: solo direcciones con excedente
-        // Nota: asumimos que data.json ya incluye 'direccion' en cada registro.
-        const excedentes = personas
-          .filter(p => Number(p.excedente) > 0)
-          .map(p => ({
-            direccion: p.direccion ?? construirDireccionFallback(p),
-            excedente: Number(p.excedente)
-          }));
+        const excedentes = personas.filter(p => Number(p.excedente) > 0);
 
         const barrasConfig = {
           type: 'bar',
           data: {
-            labels: excedentes.map(e => e.direccion),
+            labels: excedentes.map(p => p.direccion),
             datasets: [{
               label: 'Litros excedentes',
-              data: excedentes.map(e => e.excedente),
+              data: excedentes.map(p => p.excedente),
               backgroundColor: 'rgba(54, 162, 235, 0.7)'
             }]
           },
@@ -146,28 +136,16 @@
             responsive: true,
             maintainAspectRatio: false,
             scales: {
-              x: {
-                title: { display: true, text: 'Litros excedentes' },
-                ticks: { precision: 0 }
-              },
-              y: {
-                title: { display: true, text: 'Dirección' }
-              }
+              x: { title: { display: true, text: 'Litros excedentes' }, ticks: { precision: 0 } },
+              y: { title: { display: true, text: 'Dirección' } }
             },
-            plugins: {
-              legend: { display: false },
-              tooltip: {
-                callbacks: {
-                  label: (ctx) => `Excedente: ${ctx.parsed.x} L`
-                }
-              }
-            }
+            plugins: { legend: { display: false } }
           }
         };
 
         new Chart(document.getElementById('graficaBarras'), barrasConfig);
 
-        // Lista agrupada por calle y ordenada por número interior
+        // Lista agrupada por calle y ordenada por No.Ext
         renderLista(personas);
 
       } catch (err) {
@@ -176,44 +154,22 @@
       }
     }
 
-    // Fallback para construir dirección si falta el campo en data.json
-    function construirDireccionFallback(p) {
-      const calle = p.calle ?? 'Calle sin nombre';
-      const numero = p.numero ?? p.numero_exterior ?? p.numero_interior ?? '';
-      if (numero === '' || numero === null || numero === undefined) {
-        return calle;
-      }
-      // Si el dataset maneja número interior separado, lo agregamos
-      const interior = p.numero_interior != null ? `, Interior ${p.numero_interior}` : '';
-      return `${calle} #${numero}${interior}`;
-    }
-
     function renderLista(personas) {
       const contenedor = document.getElementById('listaVecinos');
 
-      // Normalizamos claves esperadas
-      const normalizadas = personas.map(p => ({
-        direccion: p.direccion ?? construirDireccionFallback(p),
-        consumo: Number(p.consumo ?? 0),
-        excedente: Number(p.excedente ?? 0),
-        calle: p.calle ?? inferirCalle(p),
-        numeroInterior: inferirNumeroInterior(p)
-      }));
-
       // Agrupar por calle
-      const agrupadas = normalizadas.reduce((acc, p) => {
+      const agrupadas = personas.reduce((acc, p) => {
         if (!acc[p.calle]) acc[p.calle] = [];
         acc[p.calle].push(p);
         return acc;
       }, {});
 
-      // Render HTML
       let html = '<table><thead><tr><th>Dirección</th><th>Consumo</th><th>Excedente</th></tr></thead><tbody>';
 
       Object.keys(agrupadas).sort((a, b) => a.localeCompare(b)).forEach(calle => {
         html += `<tr class="calle"><td colspan="3">${calle}</td></tr>`;
         agrupadas[calle]
-          .sort((a, b) => (a.numeroInterior ?? 0) - (b.numeroInterior ?? 0))
+          .sort((a, b) => Number(a.numero_exterior) - Number(b.numero_exterior))
           .forEach(p => {
             html += `<tr>
               <td>${p.direccion}</td>
@@ -225,30 +181,6 @@
 
       html += '</tbody></table>';
       contenedor.innerHTML = html;
-    }
-
-    // Inferencias suaves si el JSON original no trae todas las llaves
-    function inferirCalle(p) {
-      // Si data.json incluye 'direccion', intentamos extraer la calle antes del '#'
-      if (p.direccion && typeof p.direccion === 'string') {
-        const corte = p.direccion.split('#')[0].trim();
-        return corte.length ? corte : 'Sin calle';
-      }
-      return 'Sin calle';
-    }
-
-    function inferirNumeroInterior(p) {
-      // Preferimos 'numero_interior'; si no existe, intentamos parsear desde 'direccion'
-      if (p.numero_interior != null) return Number(p.numero_interior);
-      if (p.direccion && typeof p.direccion === 'string') {
-        // Busca patrones comunes: "#123, Interior 4" o "#123-4"
-        const interiorMatch = p.direccion.match(/Interior\s+(\d+)/i) || p.direccion.match(/#\s*\d+\s*[-/]\s*(\d+)/);
-        if (interiorMatch) return Number(interiorMatch[1]);
-        // Si no hay interior, intenta número exterior:
-        const exteriorMatch = p.direccion.match(/#\s*(\d+)/);
-        if (exteriorMatch) return Number(exteriorMatch[1]);
-      }
-      return null;
     }
 
     cargarDatos();
