@@ -16,65 +16,6 @@
   <script>
     let dataJson = null;
 
-    function normalizar(texto) {
-      return String(texto || "")
-        .normalize("NFD").replace(/[\u0300-\u036f]/g, "")
-        .trim().toLowerCase();
-    }
-
-    function detectarEncabezados(matrix) {
-      for (let r = 0; r < matrix.length; r++) {
-        const fila = matrix[r].map(normalizar);
-        if (fila.some(c => c.includes("nombre")) &&
-            fila.some(c => c.includes("consumo")) &&
-            fila.some(c => c.includes("excedente")) &&
-            fila.some(c => c.includes("calle")) &&
-            fila.some(c => c.includes("ext"))) {
-          return { rowIndex: r, headers: matrix[r] };
-        }
-      }
-      return null;
-    }
-
-    function mapearIndices(headers) {
-      const normHeaders = headers.map(normalizar);
-      function findIndex(...candidatos) {
-        for (const c of candidatos) {
-          const i = normHeaders.findIndex(h => h.includes(c));
-          if (i !== -1) return i;
-        }
-        return -1;
-      }
-      return {
-        nombre: findIndex("nombre"),
-        consumo: findIndex("consumo"),
-        excedente: findIndex("excedente"),
-        calle: findIndex("calle"),
-        noext: findIndex("ext")
-      };
-    }
-
-    function procesarMatriz(matrix, headerInfo) {
-      const idx = mapearIndices(headerInfo.headers);
-      const personas = [];
-
-      for (let r = headerInfo.rowIndex + 1; r < matrix.length; r++) {
-        const row = matrix[r];
-        if (!row[idx.nombre]) continue;
-
-        const nombre = String(row[idx.nombre]).trim();
-        const consumo = Number(row[idx.consumo] || 0);
-        const excedente = Number(row[idx.excedente] || 0);
-        const calle = row[idx.calle] ? String(row[idx.calle]).trim() : "Sin calle";
-        const noext = row[idx.noext] ? String(row[idx.noext]).trim() : "";
-        const direccion = `${calle} #${noext}`;
-
-        personas.push({ nombre, consumo, excedente, calle, numero_exterior: noext, direccion });
-      }
-
-      return { pactados: 15, personas };
-    }
-
     function procesarExcel() {
       const fileInput = document.getElementById('inputExcel');
       if (!fileInput.files.length) {
@@ -89,16 +30,31 @@
         const sheetName = workbook.SheetNames[0];
         const sheet = workbook.Sheets[sheetName];
 
+        // Leer como matriz
         const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: "" });
-        const headerInfo = detectarEncabezados(matrix);
-        if (!headerInfo) {
-          alert("No se pudo detectar la fila de encabezados. Revisa el Excel.");
+
+        // Buscar fila de encabezados (la que contiene "Nombre Condómino")
+        const headerRowIndex = matrix.findIndex(row => row.some(cell => String(cell).toLowerCase().includes("nombre")));
+        if (headerRowIndex === -1) {
+          alert("No se pudo detectar la fila de encabezados.");
           return;
         }
 
-        const resultado = procesarMatriz(matrix, headerInfo);
-        dataJson = resultado;
+        const personas = [];
+        for (let r = headerRowIndex + 1; r < matrix.length; r++) {
+          const row = matrix[r];
+          const nombre = row[2];       // Nombre Condómino
+          const consumo = Number(row[4] || 0); // Consumo
+          const excedente = Number(row[8] || 0); // Excedente
+          const calle = row[6] ? String(row[6]).trim() : "Sin calle"; // Calle
+          const noext = row[7] ? String(row[7]).trim() : ""; // No.Ext
+          if (!nombre) continue;
 
+          const direccion = `${calle} #${noext}`;
+          personas.push({ nombre, consumo, excedente, calle, numero_exterior: noext, direccion });
+        }
+
+        dataJson = { pactados: 15, personas };
         document.getElementById('output').textContent = JSON.stringify(dataJson, null, 2);
 
         const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
