@@ -9,15 +9,17 @@
     body { font-family: Arial, sans-serif; background:#fdfaf5; margin:0; padding:1.5rem; color:#5c4033; }
     h1,h2 { color:#4c372b; }
     .card { background:#fff; border:1px solid #e6e2dc; border-radius:10px; padding:1rem; margin-bottom:2rem; }
-    table { width:100%; border-collapse:collapse; }
-    th,td { padding:.6rem; border-bottom:1px solid #e6e2dc; text-align:left; }
-    th { background:#f9f9f9; }
+    table { width:100%; border-collapse:collapse; font-size:.9rem; }
+    th,td { padding:.5rem; border-bottom:1px solid #e6e2dc; text-align:left; }
+    th { background:#f9f9f9; position:sticky; top:0; }
     .row-ex { background:#fff7f6; }
     .chips { display:flex; gap:.5rem; margin-top:.5rem; }
     .chip { padding:.25rem .5rem; border-radius:999px; font-size:.85rem; border:1px solid #e6e2dc; }
     .chip.ok { background:#d9ead3; }
     .chip.ex { background:#f9d5d3; }
     .canvas-wrap { padding:.5rem; border:1px solid #e6e2dc; border-radius:10px; background:#fff; }
+    canvas { max-width:600px; max-height:400px; margin:auto; }
+    .scroll-table { max-height:400px; overflow-y:auto; }
   </style>
 </head>
 <body>
@@ -26,13 +28,12 @@
 
   <div class="card">
     <h2>Resumen global</h2>
-    <p>Total de unidades medidas: <b>20</b></p>
-    <p>M³ pactados por unidad: <b>15</b></p>
-    <p>Total pactado: <b>300 m³</b></p>
-    <p>Excedente total: <b>129 m³</b></p>
+    <p>Total de unidades medidas: <b id="totalUnidades"></b></p>
+    <p>Total pactado: <b id="totalPactado"></b> m³</p>
+    <p>Excedente total: <b id="totalExcedente"></b> m³</p>
     <div class="chips">
-      <span class="chip ok">En rango: 12 vecinos</span>
-      <span class="chip ex">Con excedente: 8 vecinos</span>
+      <span class="chip ok" id="chipEnRango"></span>
+      <span class="chip ex" id="chipExcedente"></span>
     </div>
     <div class="canvas-wrap"><canvas id="pie"></canvas></div>
   </div>
@@ -44,56 +45,53 @@
 
   <div class="card">
     <h2>Tabla por unidad</h2>
-    <table>
-      <thead>
-        <tr>
-          <th>Nombre</th><th>Consumo (m³)</th><th>Pactados</th><th>Excedente</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>Sara Alejandra González Padilla</td><td>132</td><td>15</td><td class="row-ex">19</td></tr>
-        <tr><td>Verónica Martínez Perezchica</td><td>206</td><td>15</td><td class="row-ex">8</td></tr>
-        <tr><td>Marta Esthela González Hernández</td><td>90</td><td>15</td><td class="row-ex">2</td></tr>
-        <tr><td>Antonio Rodríguez Frausto</td><td>676</td><td>15</td><td class="row-ex">48</td></tr>
-        <tr><td>Edgar Alejandro Santillán Martínez</td><td>571</td><td>15</td><td class="row-ex">38</td></tr>
-        <tr><td>Alma Alejandra de la Vega Lara</td><td>307</td><td>15</td><td class="row-ex">19</td></tr>
-        <tr><td>Ma. Guadalupe Díaz Murillo</td><td>483</td><td>15</td><td class="row-ex">22</td></tr>
-        <tr><td>Daniel Chávez Macías</td><td>263</td><td>15</td><td class="row-ex">16</td></tr>
-        <tr><td>Carlos Roberto Félix Martínez</td><td>0</td><td>15</td><td>0</td></tr>
-        <tr><td>Mario Alberto Castañeda López</td><td>0</td><td>15</td><td>0</td></tr>
-        <!-- Agrega más filas según el Excel -->
-      </tbody>
-    </table>
+    <div class="scroll-table">
+      <table>
+        <thead>
+          <tr><th>Nombre</th><th>Consumo</th><th>Pactados</th><th>Excedente</th></tr>
+        </thead>
+        <tbody id="tabla"></tbody>
+      </table>
+    </div>
   </div>
 
   <script>
-    const enRango = 12, conExcedente = 8;
-    new Chart(document.getElementById('pie'), {
-      type: 'pie',
-      data: {
-        labels: ['En rango','Con excedente'],
-        datasets: [{ data:[enRango,conExcedente], backgroundColor:['#d9ead3','#f9d5d3'] }]
-      }
-    });
+    fetch('data.json')
+      .then(res => res.json())
+      .then(datos => {
+        const totalUnidades = datos.personas.length;
+        const totalPactado = totalUnidades * datos.pactados;
+        const totalExcedente = datos.personas.reduce((s,p)=>s+(p.excedente||0),0);
+        const conExcedente = datos.personas.filter(p=>p.excedente>0).length;
+        const enRango = totalUnidades - conExcedente;
 
-    const vecinosEx = [
-      {nombre:'Antonio Rodríguez Frausto',ex:48},
-      {nombre:'Edgar Alejandro Santillán Martínez',ex:38},
-      {nombre:'Ma. Guadalupe Díaz Murillo',ex:22},
-      {nombre:'Alma Alejandra de la Vega Lara',ex:19},
-      {nombre:'Sara Alejandra González Padilla',ex:19},
-      {nombre:'Daniel Chávez Macías',ex:16},
-      {nombre:'Verónica Martínez Perezchica',ex:8},
-      {nombre:'Marta Esthela González Hernández',ex:2}
-    ];
-    new Chart(document.getElementById('bars'), {
-      type:'bar',
-      data:{
-        labels: vecinosEx.map(v=>v.nombre),
-        datasets:[{label:'Excedente (m³)',data:vecinosEx.map(v=>v.ex),backgroundColor:'#8b6f4e'}]
-      },
-      options:{indexAxis:'y'}
-    });
+        document.getElementById("totalUnidades").textContent = totalUnidades;
+        document.getElementById("totalPactado").textContent = totalPactado;
+        document.getElementById("totalExcedente").textContent = totalExcedente;
+        document.getElementById("chipEnRango").textContent = "En rango: "+enRango;
+        document.getElementById("chipExcedente").textContent = "Con excedente: "+conExcedente;
+
+        new Chart(document.getElementById('pie'), {
+          type:'pie',
+          data:{labels:['En rango','Con excedente'],datasets:[{data:[enRango,conExcedente],backgroundColor:['#d9ead3','#f9d5d3']}]},
+          options:{plugins:{legend:{position:'bottom'}}}
+        });
+
+        const exSorted = datos.personas.filter(p=>p.excedente>0).sort((a,b)=>b.excedente-a.excedente);
+        new Chart(document.getElementById('bars'), {
+          type:'bar',
+          data:{labels:exSorted.map(p=>p.nombre),datasets:[{label:'Excedente (m³)',data:exSorted.map(p=>p.excedente),backgroundColor:'#8b6f4e'}]},
+          options:{indexAxis:'y',scales:{x:{beginAtZero:true}}}
+        });
+
+        const tbody = document.getElementById("tabla");
+        datos.personas.forEach(p=>{
+          const tr=document.createElement("tr");
+          if(p.excedente>0) tr.classList.add("row-ex");
+          tr.innerHTML=`<td>${p.nombre}</td><td>${p.consumo}</td><td>${datos.pactados}</td><td>${p.excedente}</td>`;
+          tbody.appendChild(tr);
+        });
+      });
   </script>
 </body>
 </html>
