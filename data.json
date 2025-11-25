@@ -1,2845 +1,3389 @@
 {
-    "pactados": 15,
-    "personas": [
-        {
-            "nombre": "CASETA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS ROBERTO FELIX MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGELA AZUCENA HERRERA RODRIGUEZ",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS ANTONIO GONZALEZ VALDIVIA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NORMA ALICIA MARIN ALVARADO",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIO ALBERTO CASTAÑEDA LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARTA ESTHELA GONZALEZ HERNANDEZ",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO ESCARCEGA RANGEL",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SARA ALEJANDRA GONZALEZ PADILLA",
-            "consumo": 19,
-            "excedente": 4
-        },
-        {
-            "nombre": "NANCY CARINA JIMENEZ DE LA TORRE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VERONICA MARTINEZ PEREZCHICA",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "ELIZABETH GUADALUPE RANGEL",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JHOANA ALBA DE ALBA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "AYRA JUDITH REYES LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "IMELDA LLAMAS LOZANO",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSALINDA FLORES GARCIA",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "EMILIO PATIÑO PEREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRIDA ESTEFANIA ALVAREZ AGUIÑAGA",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS EDUARDO MUÑOZ DE LEON",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. GUADALUPE DIAZ MURILLO",
-            "consumo": 22,
-            "excedente": 7
-        },
-        {
-            "nombre": "LAURA ELENA VELOZ ROMO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ISAIAS LOMELI VAZQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GERARDO PEREZ GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRA FLORES ARELLANO",
-            "consumo": 16,
-            "excedente": 1
-        },
-        {
-            "nombre": "LUIS MARIANO SANDOVAL GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA NAYELI SAUCEDO MUÑOZ",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "CLAUDIO ROA LOPEZ VELARDE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "OMAR ALEJANDRO CERVANTES TERAN",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "OSWALDO GUILLERMO NAVARRO GARCIA",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGEL GONZALEZ SANCHEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROBERTO EDUARDO TORRES OROZCO BERMEO",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANDRES KOTHOLAY MEDINA MOTA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANTONIO RODRIGUEZ FRAUSTO",
-            "consumo": 48,
-            "excedente": 33
-        },
-        {
-            "nombre": "PABLO ARELLANO RAMIREZ ESPAÑA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL CAMPA GARCIA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "SALVADOR VENEGAS ESCOBAR",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PATRICIA MUÑOZ MARIN",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "ERNESTO PASILLAS LUEVANO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SUPERVISOR INTEGRAL DE OBRA CIVIL",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUZ MARIA ALEJANDRA LOPEZ ESPINOZA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA NOHELIA RODRIGUEZ RUIZ",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "HILDA XOCHITL HERRERA JARAMILLO",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. GUADALUPE HARO SANCHEZ",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE ANTELMO SOLIS ORTEGA",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "BERENICE MEDINA MOTA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROXANA YARETH CHAVEZ DIAZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA LOZANO REYES",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR ALEJANDRO SANTILLAN MARTINEZ",
-            "consumo": 38,
-            "excedente": 23
-        },
-        {
-            "nombre": "FERNANDO HERNANDEZ CAMARILLO",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALMA ALEJANDRA DE LA VEGA LARA",
-            "consumo": 19,
-            "excedente": 4
-        },
-        {
-            "nombre": "AGUSTÍN QUINTANA RODRIGUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL ANGEL GONZALEZ VILLEGAS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA LILIA CENA VALDES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MONICA FABIOLA BAÑUELOS RODARTE",
-            "consumo": 43,
-            "excedente": 28
-        },
-        {
-            "nombre": "MA. DE JESUS HERMOSILLO PADILLA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL CARMEN ARELLANO ESPINOZA",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "CATALINA JAUREGUI GOMEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO MENDEZ HERNANDEZ",
-            "consumo": 106,
-            "excedente": 91
-        },
-        {
-            "nombre": "MA. CECILIA GUERRERO LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "AURORA MARTIN ALVAREZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL VICENCIO JUAREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FABIAN GERARDO GONZALES ANGELES",
-            "consumo": 7,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUZ MARIA SANCHEZ MARQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CAROLINA ROBLES RAMON",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALAN VEGA LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CHRISTIAN JESUS ORENDAY GOURCY",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CONSTRUCTORA JOMAC, S.A. DE C.V.",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDITH CARRILLO BRIANO",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUANA ANGELICA GARCIA LUNA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FELIPE DE JESUS IBARRA TORRES",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA PAULINA LOPEZ GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JEANETH IVONNE DELGADILLO CASILLAS",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "KAREN LIZETH SOTO CASTILLO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL CHAVEZ MACIAS",
-            "consumo": 16,
-            "excedente": 1
-        },
-        {
-            "nombre": "ANGEL MUÑOZ HERNANDEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAUL HERMOSILLO GOMEZ",
-            "consumo": 11,
-            "excedente": 0
-        },
-        {
-            "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. EUGENIA CASTILLO CASTRO",
-            "consumo": 11,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS GABRIEL GUTIERREZ ACOSTA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ISABEL SARAHI RODRIGUEZ COLIS",
-            "consumo": 7,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAUL REYES FRAUSTO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE MANUEL AVILA SANCHEZ",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE MANUEL MARTIN ESPARZA CHAVEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA DOLORES AIDEE RAMIREZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NORMA MARIANA DIAZ REGALADO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "IVAN YOED GONZALEZ ARECHIGA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JONATHAN ULISES LOPEZ RAMOS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CAROLINA CONCEPCION VELASQUEZ TISCAREÑO",
-            "consumo": 11,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR AGUSTIN GOMEZ RUIZ ESPARZA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR PEREZ CRUZ",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL TORRES VARGAS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARINA SARAI ECHEVERRIA DIAZ DE LEON",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESSICA ESCALANTE GARCIA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CRISTO NOMAR MARIN CRUZ",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN FRANCISCO NAVARRO LLAMAS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE PRIETO TERRONES",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "REBECA JUDITH MEDINA SIFUENTES",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "AARON MONROY PIZA",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGELICA DE LA CRUZ GARCIA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "AARON SANCHEZ CHAVEZ",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE ARELLANO ESPINOZA",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL RODRIGUEZ PEÑA",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "GRACIELA AGUILERA ROSALES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HELIO DANIEL RIOS ROSALES",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "FATIMA GORETTI ZAVALA ENRIQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN ANTONIO VELASCO VARGAS",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARIA YAÑEZ BARRON",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAYRALINN SANCHEZ VERDIN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PATRICIA EUGENIA ESPINOZA CASTORENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA ALEJANDRA ORTIZ RODRIGUEZ",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "GILBERTO SILVA RAMIREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NALLELY DEL ROCIO JIMENEZ ALCALA",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCOS ALVAREZ GOMEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS DANIEL PARGA CRUZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCO ANTONIO ARIZMENDI MACEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO SALDAÑA GARAY",
-            "consumo": 18,
-            "excedente": 3
-        },
-        {
-            "nombre": "CHRISTOPHER ADABACHE PINEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL REYNOSO ROMAN",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSEPH CARRILLO GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR GALLEGOS RUIZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE RIOS ROMO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LEONEL ARMANDO RAMIREZ DIAZ DE LEON",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MALIKE DANIELA LEDESMA MUÑOZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA GUTIERREZ GALVAN",
-            "consumo": 30,
-            "excedente": 15
-        },
-        {
-            "nombre": "REYES GERARDO MEDELLIN ROBLES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO GIBRAN ORNELAS ACOSTA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA SOLEDAD FELIZ MURILLO",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "REGINA ARELLANO RAMIREZ ESPAÑA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA JANET ROCHA NUÑEZ",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARY CARMEN PAZ PEREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "BRAYANT ALEXIS GONZALEZ RODRIGUEZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "PAULA REY ORTIZ MEDINA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANITA ARANDA CHAVARRIA",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS RICARDO LEOS ALCALA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HUMBERTO VILLALPANDO LOPEZ",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIRIAM JANINE OROS LUENGO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE ROSALES HERNANDEZ",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN FRANCISCO VIRAMONTES VALENZUELA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS ALEJANDRO SANCHEZ GRANADOS",
-            "consumo": 31,
-            "excedente": 16
-        },
-        {
-            "nombre": "ANGELICA CHAVEZ SANTILLAN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ARIADNA LUCIA VALERO GARCIA",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL CARMEN ALVARADO VALLADOLID",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "OSCAR HERNANDEZ CERON",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA AZUCENA RANGEL JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL HORACIO FLORES LUCIO",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MAURICIO RIVAS PRIETO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS MARIN VELAZQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE HUMBERTO TORRES MARTINEZ",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS DEMIAN CORONADO MENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA CONSUELO SEPULVEDA VALLE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIANA AGUILAR SANDOVAL",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO DE LA CRUZ JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO SALAZAR SANCHEZ",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "FABIAN CHAVEZ CAMPOS",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA EUGENIA CASTAÑEDA CEDILLO",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO OBREGON PADILLA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO ALEXIS MARTINEZ PEREZ",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "GRACIELA AGUILERA ROSALES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HELIO DANIEL RIOS ROSALES",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "FATIMA GORETTI ZAVALA ENRIQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN ANTONIO VELASCO VARGAS",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARIA YAÑEZ BARRON",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAYRALINN SANCHEZ VERDIN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PATRICIA EUGENIA ESPINOZA CASTORENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA ALEJANDRA ORTIZ RODRIGUEZ",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "GILBERTO SILVA RAMIREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NALLELY DEL ROCIO JIMENEZ ALCALA",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCOS ALVAREZ GOMEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS DANIEL PARGA CRUZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCO ANTONIO ARIZMENDI MACEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO SALDAÑA GARAY",
-            "consumo": 18,
-            "excedente": 3
-        },
-        {
-            "nombre": "CHRISTOPHER ADABACHE PINEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL REYNOSO ROMAN",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSEPH CARRILLO GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR GALLEGOS RUIZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE RIOS ROMO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LEONEL ARMANDO RAMIREZ DIAZ DE LEON",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MALIKE DANIELA LEDESMA MUÑOZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA GUTIERREZ GALVAN",
-            "consumo": 30,
-            "excedente": 15
-        },
-        {
-            "nombre": "REYES GERARDO MEDELLIN ROBLES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO GIBRAN ORNELAS ACOSTA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA SOLEDAD FELIZ MURILLO",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "REGINA ARELLANO RAMIREZ ESPAÑA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA JANET ROCHA NUÑEZ",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARY CARMEN PAZ PEREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "BRAYANT ALEXIS GONZALEZ RODRIGUEZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "PAULA REY ORTIZ MEDINA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANITA ARANDA CHAVARRIA",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS RICARDO LEOS ALCALA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HUMBERTO VILLALPANDO LOPEZ",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIRIAM JANINE OROS LUENGO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE ROSALES HERNANDEZ",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN FRANCISCO VIRAMONTES VALENZUELA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS ALEJANDRO SANCHEZ GRANADOS",
-            "consumo": 31,
-            "excedente": 16
-        },
-        {
-            "nombre": "ANGELICA CHAVEZ SANTILLAN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ARIADNA LUCIA VALERO GARCIA",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL CARMEN ALVARADO VALLADOLID",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "OSCAR HERNANDEZ CERON",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA AZUCENA RANGEL JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL HORACIO FLORES LUCIO",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MAURICIO RIVAS PRIETO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS MARIN VELAZQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE HUMBERTO TORRES MARTINEZ",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS DEMIAN CORONADO MENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA CONSUELO SEPULVEDA VALLE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIANA AGUILAR SANDOVAL",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO DE LA CRUZ JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO SALAZAR SANCHEZ",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "FABIAN CHAVEZ CAMPOS",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA EUGENIA CASTAÑEDA CEDILLO",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO OBREGON PADILLA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO ALEXIS MARTINEZ PEREZ",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "GRACIELA AGUILERA ROSALES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HELIO DANIEL RIOS ROSALES",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "FATIMA GORETTI ZAVALA ENRIQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN ANTONIO VELASCO VARGAS",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARIA YAÑEZ BARRON",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAYRALINN SANCHEZ VERDIN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PATRICIA EUGENIA ESPINOZA CASTORENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA ALEJANDRA ORTIZ RODRIGUEZ",
-            "consumo": 8,
-            "excedente": 0
-        },
-        {
-            "nombre": "GILBERTO SILVA RAMIREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NALLELY DEL ROCIO JIMENEZ ALCALA",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCOS ALVAREZ GOMEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS DANIEL PARGA CRUZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCO ANTONIO ARIZMENDI MACEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO SALDAÑA GARAY",
-            "consumo": 18,
-            "excedente": 3
-        },
-        {
-            "nombre": "CHRISTOPHER ADABACHE PINEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL REYNOSO ROMAN",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSEPH CARRILLO GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR GALLEGOS RUIZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE RIOS ROMO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LEONEL ARMANDO RAMIREZ DIAZ DE LEON",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MALIKE DANIELA LEDESMA MUÑOZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA GUTIERREZ GALVAN",
-            "consumo": 30,
-            "excedente": 15
-        },
-        {
-            "nombre": "REYES GERARDO MEDELLIN ROBLES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO GIBRAN ORNELAS ACOSTA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA SOLEDAD FELIZ MURILLO",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "REGINA ARELLANO RAMIREZ ESPAÑA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA JANET ROCHA NUÑEZ",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARY CARMEN PAZ PEREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "BRAYANT ALEXIS GONZALEZ RODRIGUEZ",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "PAULA REY ORTIZ MEDINA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANITA ARANDA CHAVARRIA",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS RICARDO LEOS ALCALA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "HUMBERTO VILLALPANDO LOPEZ",
-            "consumo": 5,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIRIAM JANINE OROS LUENGO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ENRIQUE ROSALES HERNANDEZ",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN FRANCISCO VIRAMONTES VALENZUELA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS ALEJANDRO SANCHEZ GRANADOS",
-            "consumo": 31,
-            "excedente": 16
-        },
-        {
-            "nombre": "ANGELICA CHAVEZ SANTILLAN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ARIADNA LUCIA VALERO GARCIA",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL CARMEN ALVARADO VALLADOLID",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "OSCAR HERNANDEZ CERON",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA AZUCENA RANGEL JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL HORACIO FLORES LUCIO",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "MAURICIO RIVAS PRIETO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS MARIN VELAZQUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE HUMBERTO TORRES MARTINEZ",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS DEMIAN CORONADO MENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA CONSUELO SEPULVEDA VALLE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIANA AGUILAR SANDOVAL",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO DE LA CRUZ JIMENEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO SALAZAR SANCHEZ",
-            "consumo": 2,
-            "excedente": 0
-        },
-        {
-            "nombre": "FABIAN CHAVEZ CAMPOS",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA EUGENIA CASTAÑEDA CEDILLO",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDUARDO OBREGON PADILLA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO ALEXIS MARTINEZ PEREZ",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "SANDRA PATRICIA SERNA MUÑOZ",
-            "consumo": 23,
-            "excedente": 8
-        },
-        {
-            "nombre": "JOSE ISAI MENDOZA LOPEZ",
-            "consumo": 7,
-            "excedente": 0
-        },
-        {
-            "nombre": "DIANA LUCIA ELIAS LOZANO",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR GONZALO VASQUEZ ACOSTA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN PABLO GOMEZ DIOSDADO",
-            "consumo": 23,
-            "excedente": 8
-        },
-        {
-            "nombre": "UBALDO BUGARIN RUVALCABA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAUL CARRILLO VILLALOBOS",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "LEONARDO DANIEL MEZA RAMIREZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DENI RAMOS ORTEGA",
-            "consumo": 20,
-            "excedente": 5
-        },
-        {
-            "nombre": "RAUL RICARDO ROMERO FRAIRE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ELBA MACIAS GUERRA",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "CLAUDIA MARÍA VARELA PINEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ADRIANA RAMIREZ CASTAÑEDA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. CELIA TRUJILLO PRADO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ARACELI NAJERA GARCIA",
-            "consumo": 13,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO MARTINEZ VILLALPANDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FELIPE DE JESUS MARTIN DEL CAMPO RAMOS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CINDY HERNANDEZ DE LOERA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JAVIER VALENZUELA MARIN",
-            "consumo": 3,
-            "excedente": 0
-        },
-        {
-            "nombre": "ARMANDO LEAL MANZANO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS ANTONIO MOYA ESPINOZA",
-            "consumo": 14,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA PAOLA FLORES NIÑO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL ROCIO HERNANDEZ DIAZ DE LEON",
-            "consumo": 1,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANTONIO LOPEZ HERNANDEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALDO RIOS PEÑA",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR JAVIER SOLIS MENDEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ZAPOPAN TEJEDA CALDERA",
-            "consumo": 16,
-            "excedente": 1
-        },
-        {
-            "nombre": "FANNY IVETTE MARTINEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GUILLERMO ENRIQUE SIERRA HUANTE",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. ELENA SANDOVAL CORNEJO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN CARLOS REYES OROZCO",
-            "consumo": 62,
-            "excedente": 47
-        },
-        {
-            "nombre": "DAISY PAMELA FLORES ESPARZA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DAVID ERACLIO CASAS ARANDA",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALFREDO DURAN CENDEJAS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VERONICA LORENA ZAMBRANO ESPARZA",
-            "consumo": 21,
-            "excedente": 6
-        },
-        {
-            "nombre": "MARTIN ALEJANDRO VERA CAMACHO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DE JESUS MIRAMONTES AVILA",
-            "consumo": 6,
-            "excedente": 0
-        },
-        {
-            "nombre": "AURORA BETSABE ALCALA ESTRADA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LETICIA DEL CARMEN JIMENEZ OROZCO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAMHARA AMALINALLI VELAZQUEZ GUZMAN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DIANA GUADALUPE MARTINEZ LOERA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE LUIS PADILLA MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SANDY PAULETTE CERVANTES RODRIGUEZ",
-            "consumo": 9,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GABRIELA SIXTOS ALONSO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
-            "consumo": 11,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MEDINA LOERA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
-            "consumo": 4,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO LUIS ALBERTO TISCAREÑO RUVALCABA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO DELGADO PLASCENCIA",
-            "consumo": 7,
-            "excedente": 0
-        },
-        {
-            "nombre": "BRIAN ALEXIS AQUINO ANDRADE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GLORIA ESPARZA RODARTE",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MA. DE JESUS AMAYA HERRERA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "STEPHANY ERANDI PAREDES RAMIREZ",
-            "consumo": 18,
-            "excedente": 3
-        },
-        {
-            "nombre": "DIEGO DANIEL VELAZQUEZ CANO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR ALFONSO MARTINEZ ALVAREZ",
-            "consumo": 32,
-            "excedente": 17
-        },
-        {
-            "nombre": "CHRISTIAN FERNANDO AGREDANO HERRERA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA ARELLANO MIRANDA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JONATHAN ALEJANDRO SERRANO ZAMORA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ADRIAN HERNANDEZ GARCIA",
-            "consumo": 15,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA RAQUEL AGUILERA RUVALCABA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LOURDES ADRIANA RUVALCABA DE LOERA",
-            "consumo": 21,
-            "excedente": 6
-        },
-        {
-            "nombre": "ANGELA PAULINA PEREZ DIAZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ASTRID VALADEZ PEÑA",
-            "consumo": 17,
-            "excedente": 2
-        },
-        {
-            "nombre": "CLAUDIA ELIZABETH LOPEZ DELGADO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "EDGAR GONZALEZ FERNANDEZ",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUZ MARIANA LEON CHAVEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN ANTONIO GARY ORTIZ",
-            "consumo": 17,
-            "excedente": 2
-        },
-        {
-            "nombre": "J. JESUS ARREGUI OLIVARES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS FERNANDO RAYMUNDO MARTINEZ",
-            "consumo": 21,
-            "excedente": 6
-        },
-        {
-            "nombre": "JUAN ALBERTO DUHNE ECHEVERRIA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN FERNANDO ORTIZ VAZQUEZ",
-            "consumo": 28,
-            "excedente": 13
-        },
-        {
-            "nombre": "MARCO ANTONIO HERNANDEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARTIN GUZMAN VILLALOBOS",
-            "consumo": 10,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN DIEGO RODRIGUEZ BASTO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANNA LAURA REYES AGUIRRE",
-            "consumo": 12,
-            "excedente": 0
-        },
-        {
-            "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA CAROLINA DE LUNA RAMIREZ",
-            "consumo": 20,
-            "excedente": 5
-        },
-        {
-            "nombre": "ESTEFANIA CUELLAR DEL RIO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "KARLA NATALY VAZQUEZ DAVILA",
-            "consumo": 36,
-            "excedente": 21
-        },
-        {
-            "nombre": "OMAR MARTINEZ CADENA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MAURICIO RENDON REYES",
-            "consumo": 17,
-            "excedente": 2
-        },
-        {
-            "nombre": "SERGIO RAMON ARROYO RODRIGUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SARA URIBE MOLINA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MAURICIO RIVAS PRIETO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "BEATRIZ GONZALEZ RANGEL",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SERGIO ALEJANDRO RODRIGUEZ REYES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE LUIS BARRERA SOLIS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESSICA ALEXANDRA MARTINEZ MACIAS",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "BRENDA DE LOURDES CAMACHO PADILLA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NANCY BERENICE PIÑA RODRIGUEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR REFUGIO VILLALPANDO FERNANDEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARCO DAVID MARTINEZ REYES",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "J. REFUGIO VILLAPANDO SAUCEDO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA MARISOL CHAVEZ ROMO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO ORTIZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GERARDO LOPEZ VELARDE VALENCIA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GUILLERMO CARRERA ROCHA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MANUEL OSWALDO ROMERO GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE DE JESUS ALBA FIGUEROA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LAURA ELISA GALARCEP MEDINA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS ALFREDO ARREGUI HULING",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE LUIS ESCOBAR GARLVAN",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "NABOR LARIOS MAGDALENO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE DE JESUS MEDINA DELGADO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESSICA PAOLA RODRIGUEZ HERMOSILLO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JAIME AUGUSTO MACIAS GONZALEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CAMILO ROMO LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MARTIN ROMO LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN ANTONIO DIAZ AGUILAR",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "GABRIEL ALVAREZ TOSTADO ARCHUNDIA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GLORIA DURON PRADO",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "SAFA HASAN ALI",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO REYNOSO CHEQUI",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE DE JESUS MARTINEZ CAMARA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE DE JESUS MARTINEZ CAMARA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DE JESUS MARTINEZ CAMARA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN CARLOS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ELENA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA TERESA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE ANTONIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL ROSARIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ISABEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LUIS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DE JESUS MARTINEZ CAMARA",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN CARLOS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ELENA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE ALBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA TERESA LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE ANTONIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL ROSARIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ISABEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGEL LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROBERTO LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LUIS LOPEZ MARTINEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA TERESA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE ANTONIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL ROSARIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ISABEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LUIS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA FERNANDA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE ALBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA TERESA MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "LUIS MIGUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JOSE ANTONIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA DEL ROSARIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN MANUEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA ISABEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RAFAEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANGEL MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "VICTOR MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JESUS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "RICARDO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROBERTO MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JORGE LUIS MARTINEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA GUADALUPE LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "JUAN LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "CARLOS LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ANA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PEDRO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MIGUEL LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ROSA LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALBERTO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "MARIA JOSE LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FERNANDO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "PABLO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "ALEJANDRO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "DANIEL LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        },
-        {
-            "nombre": "FRANCISCO LOPEZ LOPEZ",
-            "consumo": 0,
-            "excedente": 0
-        }
-    ]
+  "pactados": 15,
+  "personas": [
+    {
+      "nombre": "CASETA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #101"
+    },
+    {
+      "nombre": "CARLOS ROBERTO FELIX MARTINEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #101"
+    },
+    {
+      "nombre": "ANGELA  AZUCENA HERRERA RODRIGUEZ",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #102"
+    },
+    {
+      "nombre": "LUIS  ANTONIO GONZALEZ VALDIVIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #103"
+    },
+    {
+      "nombre": "NORMA  ALICIA MARIN ALVARADO",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #104"
+    },
+    {
+      "nombre": "MARIO ALBERTO CASTAÑEDA LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #105"
+    },
+    {
+      "nombre": "MARTA ESTHELA GONZALEZ HERNANDEZ",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #106"
+    },
+    {
+      "nombre": "EDUARDO ESCARCEGA RANGEL",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #107"
+    },
+    {
+      "nombre": "SARA  ALEJANDRA GONZALEZ PADILLA",
+      "consumo": 19,
+      "excedente": 4,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #108"
+    },
+    {
+      "nombre": "NANCY CARINA JIMENEZ DE LA TORRE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #109"
+    },
+    {
+      "nombre": "VERONICA MARTINEZ PEREZCHICA",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #110"
+    },
+    {
+      "nombre": "ELIZABETH  GUADALUPE  RANGEL",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #111"
+    },
+    {
+      "nombre": "MARIA JHOANA ALBA DE ALBA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #112"
+    },
+    {
+      "nombre": "AYRA JUDITH  REYES LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #113"
+    },
+    {
+      "nombre": "IMELDA LLAMAS LOZANO",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #114"
+    },
+    {
+      "nombre": "ROSALINDA FLORES GARCIA",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #116"
+    },
+    {
+      "nombre": "EMILIO PATIÑO PEREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #117"
+    },
+    {
+      "nombre": "FRIDA ESTEFANIA ALVAREZ AGUIÑAGA",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #118"
+    },
+    {
+      "nombre": "JESUS  EDUARDO MUÑOZ DE LEON",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #119"
+    },
+    {
+      "nombre": "MA. GUADALUPE DIAZ MURILLO",
+      "consumo": 22,
+      "excedente": 7,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #120"
+    },
+    {
+      "nombre": "LAURA  ELENA VELOZ  ROMO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #121"
+    },
+    {
+      "nombre": "ISAIAS LOMELI VAZQUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #122"
+    },
+    {
+      "nombre": "GERARDO PEREZ GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #123"
+    },
+    {
+      "nombre": "ALEJANDRA FLORES ARELLANO",
+      "consumo": 16,
+      "excedente": 1,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #124"
+    },
+    {
+      "nombre": "LUIS MARIANO SANDOVAL GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #125"
+    },
+    {
+      "nombre": "MARIA NAYELI SAUCEDO MUÑOZ",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #126"
+    },
+    {
+      "nombre": "CLAUDIO ROA LOPEZ VELARDE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #127"
+    },
+    {
+      "nombre": "OMAR  ALEJANDRO CERVANTES TERAN",
+      "consumo": 5,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #128"
+    },
+    {
+      "nombre": "OSWALDO GUILLERMO NAVARRO GARCIA",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #130"
+    },
+    {
+      "nombre": "ANGEL GONZALEZ SANCHEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #131"
+    },
+    {
+      "nombre": "ROBERTO EDUARDO TORRES OROZCO BERMEO",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #132"
+    },
+    {
+      "nombre": "ANDRES KOTHOLAY MEDINA MOTA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #133"
+    },
+    {
+      "nombre": "ANTONIO RODRIGUEZ FRAUSTO",
+      "consumo": 48,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #134"
+    },
+    {
+      "nombre": "PABLO ARELLANO RAMIREZ ESPAÑA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #135"
+    },
+    {
+      "nombre": "RAFAEL CAMPA GARCIA",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #136"
+    },
+    {
+      "nombre": "SALVADOR VENEGAS ESCOBAR",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #137"
+    },
+    {
+      "nombre": "PATRICIA MUÑOZ MARIN",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #138"
+    },
+    {
+      "nombre": "ERNESTO PASILLAS LUEVANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #139"
+    },
+    {
+      "nombre": "SUPERVISOR INTEGRAL DE  OBRA CIVIL",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #140"
+    },
+    {
+      "nombre": "LUZ MARIA ALEJANDRA LOPEZ ESPINOZA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #141"
+    },
+    {
+      "nombre": "KARLA NOHELIA RODRIGUEZ RUIZ",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #142"
+    },
+    {
+      "nombre": "HILDA XOCHITL HERRERA JARAMILLO",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #144"
+    },
+    {
+      "nombre": "MA. GUADALUPE HARO SANCHEZ",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #146"
+    },
+    {
+      "nombre": "JOSE ANTELMO SOLIS ORTEGA",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #148"
+    },
+    {
+      "nombre": "BERENICE MEDINA MOTA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #150"
+    },
+    {
+      "nombre": "ROXANA YARETH CHAVEZ DIAZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #152"
+    },
+    {
+      "nombre": "MARIA FERNANDA LOZANO REYES",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #154"
+    },
+    {
+      "nombre": "EDGAR ALEJANDRO SANTILLAN MARTINEZ",
+      "consumo": 38,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #156"
+    },
+    {
+      "nombre": "FERNANDO HERNANDEZ CAMARILLO",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #158"
+    },
+    {
+      "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
+      "consumo": 19,
+      "excedente": 4,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #160"
+    },
+    {
+      "nombre": "AGUSTÍN QUINTANA RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #201"
+    },
+    {
+      "nombre": "MIGUEL ANGEL GONZALEZ VILLEGAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #202"
+    },
+    {
+      "nombre": "ANA  LILIA CENA VALDES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #203"
+    },
+    {
+      "nombre": "MONICA FABIOLA BAÑUELOS RODARTE",
+      "consumo": 43,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #204"
+    },
+    {
+      "nombre": "MA. DE JESUS HERMOSILLO PADILLA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #205"
+    },
+    {
+      "nombre": "MARIA DEL CARMEN ARELLANO ESPINOZA",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #206"
+    },
+    {
+      "nombre": "CATALINA JAUREGUI GOMEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #207"
+    },
+    {
+      "nombre": "EDUARDO MENDEZ HERNANDEZ",
+      "consumo": 106,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #208"
+    },
+    {
+      "nombre": "MA. CECILIA GUERRERO LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #209"
+    },
+    {
+      "nombre": "AURORA MARTIN ALVAREZ",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #210"
+    },
+    {
+      "nombre": "JUAN  MANUEL VICENCIO JUAREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #211"
+    },
+    {
+      "nombre": "FABIAN GERARDO GONZALES ANGELES",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #212"
+    },
+    {
+      "nombre": "LUZ MARIA SANCHEZ MARQUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #213"
+    },
+    {
+      "nombre": "CAROLINA ROBLES RAMON",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #214"
+    },
+    {
+      "nombre": "ALAN VEGA LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #215"
+    },
+    {
+      "nombre": "CHRISTIAN JESUS ORENDAY  GOURCY",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #216"
+    },
+    {
+      "nombre": "CONSTRUCTORA JOMAC, S.A. DE C.V.",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #217"
+    },
+    {
+      "nombre": "EDITH CARRILLO BRIANO",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #218"
+    },
+    {
+      "nombre": "JUANA  ANGELICA GARCIA  LUNA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #219"
+    },
+    {
+      "nombre": "FELIPE DE JESUS IBARRA TORRES",
+      "consumo": 5,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #220"
+    },
+    {
+      "nombre": "ANA PAULINA LOPEZ GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #221"
+    },
+    {
+      "nombre": "JEANETH  IVONNE DELGADILLO CASILLAS",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #222"
+    },
+    {
+      "nombre": "KAREN LIZETH SOTO CASTILLO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #223"
+    },
+    {
+      "nombre": "DANIEL CHAVEZ MACIAS",
+      "consumo": 16,
+      "excedente": 1,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #224"
+    },
+    {
+      "nombre": "ANGEL MUÑOZ HERNANDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #225"
+    },
+    {
+      "nombre": "RAUL HERMOSILLO GOMEZ",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #226"
+    },
+    {
+      "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #227"
+    },
+    {
+      "nombre": "MA. EUGENIA CASTILLO CASTRO",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #228"
+    },
+    {
+      "nombre": "LUIS  GABRIEL GUTIERREZ ACOSTA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #229"
+    },
+    {
+      "nombre": "ISABEL SARAHI RODRIGUEZ COLIS",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #230"
+    },
+    {
+      "nombre": "RAUL REYES FRAUSTO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #231"
+    },
+    {
+      "nombre": "JOSE MANUEL AVILA  SANCHEZ",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #232"
+    },
+    {
+      "nombre": "JOSE MANUEL MARTIN ESPARZA CHAVEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #233"
+    },
+    {
+      "nombre": "KARLA DOLORES AIDEE RAMIREZ LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #234"
+    },
+    {
+      "nombre": "NORMA MARIANA DIAZ REGALADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #235"
+    },
+    {
+      "nombre": "IVAN YOED GONZALEZ ARECHIGA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #236"
+    },
+    {
+      "nombre": "JONATHAN ULISES LOPEZ RAMOS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #237"
+    },
+    {
+      "nombre": "CAROLINA  CONCEPCION VELASQUEZ  TISCAREÑO",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #238"
+    },
+    {
+      "nombre": "EDGAR AGUSTIN GOMEZ RUIZ ESPARZA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #239"
+    },
+    {
+      "nombre": "EDGAR PEREZ CRUZ",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #240"
+    },
+    {
+      "nombre": "JUAN MANUEL TORRES VARGAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #241"
+    },
+    {
+      "nombre": "MARINA SARAI ECHEVERRIA DIAZ DE LEON",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #242"
+    },
+    {
+      "nombre": "JESSICA ESCALANTE GARCIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #243"
+    },
+    {
+      "nombre": "CRISTO NOMAR MARIN CRUZ",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #244"
+    },
+    {
+      "nombre": "JUAN FRANCISCO NAVARRO LLAMAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #245"
+    },
+    {
+      "nombre": "JORGE PRIETO TERRONES",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #246"
+    },
+    {
+      "nombre": "REBECA JUDITH MEDINA SIFUENTES",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #248"
+    },
+    {
+      "nombre": "AARON MONROY PIZA",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #250"
+    },
+    {
+      "nombre": "ANGELICA DE LA CRUZ GARCIA",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #252"
+    },
+    {
+      "nombre": "AARON SANCHEZ CHAVEZ",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #254"
+    },
+    {
+      "nombre": "MARIA GUADALUPE ARELLANO ESPINOZA",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #256"
+    },
+    {
+      "nombre": "RAFAEL RODRIGUEZ PEÑA",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #258"
+    },
+    {
+      "nombre": "GRACIELA AGUILERA  ROSALES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #101"
+    },
+    {
+      "nombre": "HELIO DANIEL RIOS ROSALES",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #102"
+    },
+    {
+      "nombre": "FATIMA GORETTI ZAVALA ENRIQUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #103"
+    },
+    {
+      "nombre": "JUAN ANTONIO VELASCO VARGAS",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #104"
+    },
+    {
+      "nombre": "ROSA MARIA YAÑEZ BARRON",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #105"
+    },
+    {
+      "nombre": "SAYRALINN SANCHEZ VERDIN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #106"
+    },
+    {
+      "nombre": "PATRICIA EUGENIA ESPINOZA CASTORENA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #107"
+    },
+    {
+      "nombre": "LAURA ALEJANDRA ORTIZ RODRIGUEZ",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #108"
+    },
+    {
+      "nombre": "GILBERTO SILVA RAMIREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #109"
+    },
+    {
+      "nombre": "NALLELY DEL ROCIO  JIMENEZ ALCALA",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #110"
+    },
+    {
+      "nombre": "MARCOS ALVAREZ GOMEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #111"
+    },
+    {
+      "nombre": "LUIS DANIEL PARGA CRUZ",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #112"
+    },
+    {
+      "nombre": "MARCO ANTONIO ARIZMENDI MACEDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #113"
+    },
+    {
+      "nombre": "RICARDO SALDAÑA GARAY",
+      "consumo": 18,
+      "excedente": 3,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #114"
+    },
+    {
+      "nombre": "CHRISTOPHER ADABACHE PINEDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #115"
+    },
+    {
+      "nombre": "LUIS MIGUEL REYNOSO ROMAN",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #116"
+    },
+    {
+      "nombre": "JOSEPH CARRILLO GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #117"
+    },
+    {
+      "nombre": "EDGAR GALLEGOS RUIZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #118"
+    },
+    {
+      "nombre": "ENRIQUE RIOS ROMO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #119"
+    },
+    {
+      "nombre": "LEONEL ARMANDO RAMIREZ DIAZ DE LEON",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #120"
+    },
+    {
+      "nombre": "MALIKE DANIELA LEDESMA MUÑOZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #121"
+    },
+    {
+      "nombre": "MARIA FERNANDA GUTIERREZ GALVAN",
+      "consumo": 30,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #122"
+    },
+    {
+      "nombre": "REYES GERARDO MEDELLIN ROBLES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #123"
+    },
+    {
+      "nombre": "PEDRO GIBRAN ORNELAS  ACOSTA",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #124"
+    },
+    {
+      "nombre": "MARIA SOLEDAD FELIZ MURILLO",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #126"
+    },
+    {
+      "nombre": "REGINA ARELLANO RAMIREZ ESPAÑA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #127"
+    },
+    {
+      "nombre": "KARLA JANET ROCHA NUÑEZ",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #128"
+    },
+    {
+      "nombre": "MARY CARMEN PAZ PEREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #129"
+    },
+    {
+      "nombre": "BRAYANT  ALEXIS GONZALEZ RODRIGUEZ",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #130"
+    },
+    {
+      "nombre": "PAULA REY ORTIZ MEDINA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #131"
+    },
+    {
+      "nombre": "ANITA ARANDA CHAVARRIA",
+      "consumo": 5,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #132"
+    },
+    {
+      "nombre": "LUIS RICARDO LEOS ALCALA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #133"
+    },
+    {
+      "nombre": "HUMBERTO VILLALPANDO LOPEZ",
+      "consumo": 5,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #134"
+    },
+    {
+      "nombre": "MIRIAM JANINE OROS LUENGO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #135"
+    },
+    {
+      "nombre": "ENRIQUE ROSALES HERNANDEZ",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #136"
+    },
+    {
+      "nombre": "JUAN FRANCISCO VIRAMONTES VALENZUELA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #137"
+    },
+    {
+      "nombre": "JESUS  ALEJANDRO SANCHEZ  GRANADOS",
+      "consumo": 31,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #138"
+    },
+    {
+      "nombre": "ANGELICA CHAVEZ SANTILLAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #139"
+    },
+    {
+      "nombre": "ARIADNA LUCIA VALERO GARCIA",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #140"
+    },
+    {
+      "nombre": "MARIA DEL CARMEN ALVARADO VALLADOLID",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #141"
+    },
+    {
+      "nombre": "OSCAR HERNANDEZ CERON",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #142"
+    },
+    {
+      "nombre": "KARLA  AZUCENA RANGEL  JIMENEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #143"
+    },
+    {
+      "nombre": "MIGUEL HORACIO FLORES LUCIO",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #144"
+    },
+    {
+      "nombre": "MAURICIO RIVAS  PRIETO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #145"
+    },
+    {
+      "nombre": "JESUS MARIN VELAZQUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #147"
+    },
+    {
+      "nombre": "JORGE HUMBERTO TORRES MARTINEZ",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #148"
+    },
+    {
+      "nombre": "CARLOS DEMIAN CORONADO MENA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #149"
+    },
+    {
+      "nombre": "MARIA  CONSUELO SEPULVEDA VALLE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #151"
+    },
+    {
+      "nombre": "MARIANA AGUILAR SANDOVAL",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #152"
+    },
+    {
+      "nombre": "EDUARDO DE LA CRUZ JIMENEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #153"
+    },
+    {
+      "nombre": "SERGIO SALAZAR SANCHEZ",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #154"
+    },
+    {
+      "nombre": "FABIAN CHAVEZ CAMPOS",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #156"
+    },
+    {
+      "nombre": "MARIA EUGENIA CASTAÑEDA CEDILLO",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #162"
+    },
+    {
+      "nombre": "EDUARDO OBREGON PADILLA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #164"
+    },
+    {
+      "nombre": "RICARDO ALEXIS MARTINEZ PEREZ",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #166"
+    },
+    {
+      "nombre": "SANDRA  PATRICIA SERNA MUÑOZ",
+      "consumo": 23,
+      "excedente": 8,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #168"
+    },
+    {
+      "nombre": "JOSE ISAI MENDOZA LOPEZ",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #170"
+    },
+    {
+      "nombre": "DIANA LUCIA ELIAS LOZANO",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #172"
+    },
+    {
+      "nombre": "EDGAR GONZALO VASQUEZ ACOSTA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #201"
+    },
+    {
+      "nombre": "JUAN PABLO GOMEZ DIOSDADO",
+      "consumo": 23,
+      "excedente": 8,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #202"
+    },
+    {
+      "nombre": "UBALDO BUGARIN RUVALCABA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #203"
+    },
+    {
+      "nombre": "SAUL CARRILLO VILLALOBOS",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #204"
+    },
+    {
+      "nombre": "LEONARDO DANIEL MEZA RAMIREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #205"
+    },
+    {
+      "nombre": "DENI RAMOS ORTEGA",
+      "consumo": 20,
+      "excedente": 5,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #206"
+    },
+    {
+      "nombre": "RAUL RICARDO ROMERO FRAIRE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #207"
+    },
+    {
+      "nombre": "MARIA ELBA MACIAS GUERRA",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #208"
+    },
+    {
+      "nombre": "CLAUDIA MARÍA VARELA PINEDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #209"
+    },
+    {
+      "nombre": "ADRIANA RAMIREZ CASTAÑEDA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #210"
+    },
+    {
+      "nombre": "MA. CELIA TRUJILLO PRADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #211"
+    },
+    {
+      "nombre": "ARACELI NAJERA  GARCIA",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #212"
+    },
+    {
+      "nombre": "SERGIO MARTINEZ VILLALPANDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #213"
+    },
+    {
+      "nombre": "FELIPE DE JESUS MARTIN DEL CAMPO RAMOS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #214"
+    },
+    {
+      "nombre": "CINDY HERNANDEZ DE LOERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #215"
+    },
+    {
+      "nombre": "JAVIER VALENZUELA MARIN",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #216"
+    },
+    {
+      "nombre": "ARMANDO LEAL MANZANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #217"
+    },
+    {
+      "nombre": "LUIS  ANTONIO MOYA ESPINOZA",
+      "consumo": 14,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #218"
+    },
+    {
+      "nombre": "ANA PAOLA FLORES NIÑO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #219"
+    },
+    {
+      "nombre": "MARIA DEL ROCIO HERNANDEZ DIAZ DE LEON",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #220"
+    },
+    {
+      "nombre": "ANTONIO LOPEZ HERNANDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #221"
+    },
+    {
+      "nombre": "ALDO RIOS PEÑA",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #222"
+    },
+    {
+      "nombre": "EDGAR JAVIER SOLIS MENDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #223"
+    },
+    {
+      "nombre": "MARIA ZAPOPAN TEJEDA CALDERA",
+      "consumo": 16,
+      "excedente": 1,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #224"
+    },
+    {
+      "nombre": "FANNY IVETTE MARTINEZ MARTINEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #225"
+    },
+    {
+      "nombre": "GUILLERMO ENRIQUE SIERRA HUANTE",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #226"
+    },
+    {
+      "nombre": "MA. ELENA SANDOVAL CORNEJO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #227"
+    },
+    {
+      "nombre": "JUAN CARLOS REYES  OROZCO",
+      "consumo": 62,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #228"
+    },
+    {
+      "nombre": "DAISY  PAMELA FLORES ESPARZA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #229"
+    },
+    {
+      "nombre": "DAVID ERACLIO CASAS ARANDA",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #230"
+    },
+    {
+      "nombre": "ALFREDO DURAN CENDEJAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #231"
+    },
+    {
+      "nombre": "VERONICA  LORENA ZAMBRANO ESPARZA",
+      "consumo": 21,
+      "excedente": 6,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #232"
+    },
+    {
+      "nombre": "MARTIN ALEJANDRO VERA CAMACHO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #233"
+    },
+    {
+      "nombre": "MARIA DE JESUS MIRAMONTES  AVILA",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #234"
+    },
+    {
+      "nombre": "AURORA  BETSABE ALCALA ESTRADA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #235"
+    },
+    {
+      "nombre": "LETICIA DEL CARMEN JIMENEZ OROZCO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #236"
+    },
+    {
+      "nombre": "SAMHARA  AMALINALLI VELAZQUEZ GUZMAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #237"
+    },
+    {
+      "nombre": "DIANA  GUADALUPE MARTINEZ LOERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #238"
+    },
+    {
+      "nombre": "JOSE  LUIS PADILLA MARTINEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #239"
+    },
+    {
+      "nombre": "SANDY PAULETTE CERVANTES RODRIGUEZ",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #240"
+    },
+    {
+      "nombre": "MARIA GABRIELA SIXTOS ALONSO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #241"
+    },
+    {
+      "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #242"
+    },
+    {
+      "nombre": "DANIEL MEDINA LOERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #243"
+    },
+    {
+      "nombre": "CONSTRUCCIONES DE LA ASUNCIÓN, S.A. DE C.V.",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #244"
+    },
+    {
+      "nombre": "FRANCISCO LUIS ALBERTO  TISCAREÑO RUVALCABA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #245"
+    },
+    {
+      "nombre": "SERGIO DELGADO PLASCENCIA",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #246"
+    },
+    {
+      "nombre": "BRIAN ALEXIS AQUINO ANDRADE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #247"
+    },
+    {
+      "nombre": "GLORIA ESPARZA RODARTE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #248"
+    },
+    {
+      "nombre": "MA. DE JESUS AMAYA HERRERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #249"
+    },
+    {
+      "nombre": "STEPHANY ERANDI PAREDES  RAMIREZ",
+      "consumo": 18,
+      "excedente": 3,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #250"
+    },
+    {
+      "nombre": "DIEGO DANIEL VELAZQUEZ CANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #251"
+    },
+    {
+      "nombre": "VICTOR ALFONSO MARTINEZ ALVAREZ",
+      "consumo": 32,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #252"
+    },
+    {
+      "nombre": "CHRISTIAN FERNANDO AGREDANO HERRERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #253"
+    },
+    {
+      "nombre": "LAURA ARELLANO MIRANDA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #255"
+    },
+    {
+      "nombre": "BRENDA JUDITH OVALLE RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #301"
+    },
+    {
+      "nombre": "MARIA DE LOURDES CENDEJAS AYALA",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #302"
+    },
+    {
+      "nombre": "JONATHAN ALEJANDRO SERRANO ZAMORA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #303"
+    },
+    {
+      "nombre": "ADRIAN HERNANDEZ GARCIA",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #304"
+    },
+    {
+      "nombre": "ANA RAQUEL AGUILERA  RUVALCABA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #305"
+    },
+    {
+      "nombre": "LOURDES ADRIANA RUVALCABA  DE LOERA",
+      "consumo": 21,
+      "excedente": 6,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #306"
+    },
+    {
+      "nombre": "ANGELA PAULINA PEREZ DIAZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #307"
+    },
+    {
+      "nombre": "ASTRID VALADEZ PEÑA",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #308"
+    },
+    {
+      "nombre": "CLAUDIA ELIZABETH LOPEZ DELGADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #309"
+    },
+    {
+      "nombre": "EDGAR GONZALEZ FERNANDEZ",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #310"
+    },
+    {
+      "nombre": "LUZ MARIANA LEON CHAVEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #311"
+    },
+    {
+      "nombre": "JUAN ANTONIO GARY ORTIZ",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #312"
+    },
+    {
+      "nombre": "J. JESUS ARREGUI OLIVARES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #313"
+    },
+    {
+      "nombre": "LUIS FERNANDO RAYMUNDO MARTINEZ",
+      "consumo": 21,
+      "excedente": 6,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #314"
+    },
+    {
+      "nombre": "JUAN ALBERTO DUHNE ECHEVERRIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #315"
+    },
+    {
+      "nombre": "JUAN FERNANDO ORTIZ VAZQUEZ",
+      "consumo": 28,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #316"
+    },
+    {
+      "nombre": "MARCO ANTONIO HERNANDEZ LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #317"
+    },
+    {
+      "nombre": "MARTIN GUZMAN VILLALOBOS",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #318"
+    },
+    {
+      "nombre": "JUAN DIEGO RODRIGUEZ BASTO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #319"
+    },
+    {
+      "nombre": "DANNA LAURA REYES AGUIRRE",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #320"
+    },
+    {
+      "nombre": "RODOLFO DEMETRIO GONZALEZ TORRES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #321"
+    },
+    {
+      "nombre": "ANA  CAROLINA DE LUNA RAMIREZ",
+      "consumo": 20,
+      "excedente": 5,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #322"
+    },
+    {
+      "nombre": "ESTEFANIA CUELLAR DEL RIO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #323"
+    },
+    {
+      "nombre": "KARLA NATALY VAZQUEZ DAVILA",
+      "consumo": 36,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #324"
+    },
+    {
+      "nombre": "OMAR MARTINEZ CADENA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #325"
+    },
+    {
+      "nombre": "MAURICIO RENDON REYES",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #326"
+    },
+    {
+      "nombre": "SERGIO RAMON ARROYO RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #327"
+    },
+    {
+      "nombre": "SARA URIBE MOLINA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #328"
+    },
+    {
+      "nombre": "MAURICIO RIVAS PRIETO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #329"
+    },
+    {
+      "nombre": "BEATRIZ GONZALEZ RANGEL",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #330"
+    },
+    {
+      "nombre": "SERGIO  ALEJANDRO RODRIGUEZ REYES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #331"
+    },
+    {
+      "nombre": "JOSE LUIS BARRERA SOLIS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #332"
+    },
+    {
+      "nombre": "JESSICA  ALEXANDRA MARTINEZ  MACIAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #333"
+    },
+    {
+      "nombre": "BRENDA DE LOURDES CAMACHO PADILLA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #334"
+    },
+    {
+      "nombre": "NANCY BERENICE PIÑA RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #335"
+    },
+    {
+      "nombre": "VICTOR REFUGIO VILLALPANDO FERNANDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #336"
+    },
+    {
+      "nombre": "MARCO DAVID MARTINEZ REYES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #337"
+    },
+    {
+      "nombre": "J. REFUGIO VILLAPANDO SAUCEDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #338"
+    },
+    {
+      "nombre": "LAURA  MARISOL CHAVEZ ROMO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #339"
+    },
+    {
+      "nombre": "PABLO ORTIZ LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #340"
+    },
+    {
+      "nombre": "GERARDO LOPEZ VELARDE VALENCIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #341"
+    },
+    {
+      "nombre": "GUILLERMO CARRERA ROCHA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #342"
+    },
+    {
+      "nombre": "MANUEL OSWALDO ROMERO  GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #343"
+    },
+    {
+      "nombre": "JOSE DE JESUS ALBA FIGUEROA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #344"
+    },
+    {
+      "nombre": "LAURA  ELISA GALARCEP MEDINA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #345"
+    },
+    {
+      "nombre": "JESUS ALFREDO ARREGUI HULING",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #346"
+    },
+    {
+      "nombre": "JOSE LUIS ESCOBAR GARLVAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #347"
+    },
+    {
+      "nombre": "NABOR LARIOS MAGDALENO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #348"
+    },
+    {
+      "nombre": "JOSE DE JESUS MEDINA DELGADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #349"
+    },
+    {
+      "nombre": "JESSICA  PAOLA RODRIGUEZ HERMOSILLO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #350"
+    },
+    {
+      "nombre": "JAIME AUGUSTO MACIAS GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #351"
+    },
+    {
+      "nombre": "CAMILO ROMO LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #352"
+    },
+    {
+      "nombre": "DANIEL MARTIN ROMO LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #353"
+    },
+    {
+      "nombre": "JUAN ANTONIO DIAZ AGUILAR",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #354"
+    },
+    {
+      "nombre": "GABRIEL ALVAREZ TOSTADO ARCHUNDIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #355"
+    },
+    {
+      "nombre": "MARIA GLORIA DURON PRADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #356"
+    },
+    {
+      "nombre": "SAFA HASAN ALI",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #357"
+    },
+    {
+      "nombre": "FERNANDO REYNOSO CHEQUI",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #358"
+    },
+    {
+      "nombre": "JOSE DE JESUS MARTINEZ CAMARA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #359"
+    },
+    {
+      "nombre": "FERNANDO REYNOSO CHEQUI",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #360"
+    },
+    {
+      "nombre": "MARIA DE LOURDES NUÑEZ VEGA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #501"
+    },
+    {
+      "nombre": "DANIEL ESPINOSA DIAZ DE LEON",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #503"
+    },
+    {
+      "nombre": "LUIS  ALFONSO GONZALEZ HERRERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #507"
+    },
+    {
+      "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #511"
+    },
+    {
+      "nombre": "ALMA  ALEJANDRA DE LA VEGA LARA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #513"
+    },
+    {
+      "nombre": "JOSE LUIS BARRERA SOLIS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #516"
+    },
+    {
+      "nombre": "BAUDELIO ARCEO HARO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #519"
+    },
+    {
+      "nombre": "FREDDY MORA SANTIAGO",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #520"
+    },
+    {
+      "nombre": "RAFAEL ALEJANDRO LOMELI",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #521"
+    },
+    {
+      "nombre": "JESSICA CAMPOS AGUILERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #521"
+    },
+    {
+      "nombre": "ALDO MISAEL CORONA SANCHEZ",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #522"
+    },
+    {
+      "nombre": "MA. MARISOL BERNAL AVILA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #523"
+    },
+    {
+      "nombre": "MARIO ANDRADE LOZANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #525"
+    },
+    {
+      "nombre": "PEDRO PADILLA PADILLA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #526"
+    },
+    {
+      "nombre": "CLAUDIA RIVERA  GARCIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #527"
+    },
+    {
+      "nombre": "DANIEL LEGASPI JAUREGUI",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #530"
+    },
+    {
+      "nombre": "IVAN GARCIA ROMERO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #531"
+    },
+    {
+      "nombre": "MARISELA MARTINEZ ESPARZA",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #532"
+    },
+    {
+      "nombre": "JOSE LUIS BARRER SOLIS",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #534"
+    },
+    {
+      "nombre": "BRENDA PATRICIA LEOS JUAREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #536"
+    },
+    {
+      "nombre": "FABIOLA ARIAS VELASCO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #537"
+    },
+    {
+      "nombre": "JOSE ANTONIO ULLOA AVELAR",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #538"
+    },
+    {
+      "nombre": "JOSE DANIEL MALDONADO NUÑEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #539"
+    },
+    {
+      "nombre": "ENRIQUE MUÑIZ RUIZ",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #540"
+    },
+    {
+      "nombre": "KARLA VIANEY VARGAS GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #541"
+    },
+    {
+      "nombre": "THANIA  MARYSOL TORRES MARTINEZ",
+      "consumo": 18,
+      "excedente": 3,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #542"
+    },
+    {
+      "nombre": "CARLOS ALBERTO GONZALEZ RAMIREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #543"
+    },
+    {
+      "nombre": "JESUS  ANTONIO MADRIGAL ARELLANO",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #544"
+    },
+    {
+      "nombre": "DANIEL ESTRADA CAMPOS",
+      "consumo": 21,
+      "excedente": 6,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #546"
+    },
+    {
+      "nombre": "JESUS MORALES  GARCIA",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #548"
+    },
+    {
+      "nombre": "ANGELICA MARIA SOTO HERNANDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #550"
+    },
+    {
+      "nombre": "TRINIDAD GARCIA IGLESIAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #101"
+    },
+    {
+      "nombre": "HERIBERTO MEDRANO MEDINA",
+      "consumo": 18,
+      "excedente": 3,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #102"
+    },
+    {
+      "nombre": "IRVING SANTIAGO FRAIRE FELIX",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #103"
+    },
+    {
+      "nombre": "MARIA TERESA DEL RAYO LOZANO ORTIZ",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #104"
+    },
+    {
+      "nombre": "JOSE PADILLA GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #105"
+    },
+    {
+      "nombre": "MARIA DENISSE LOPEZ LOPEZ",
+      "consumo": 21,
+      "excedente": 6,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #106"
+    },
+    {
+      "nombre": "LUIS ALBERTO BRECEDA DE LARA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #107"
+    },
+    {
+      "nombre": "LUCIA  EVANGELINA ESPARZA MEZA",
+      "consumo": 34,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #108"
+    },
+    {
+      "nombre": "LAURA ORTEGA RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #109"
+    },
+    {
+      "nombre": "LUIS RODRIGO ESPARZA CHAVEZ",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #110"
+    },
+    {
+      "nombre": "PEDRO SANDOVAL ARELLANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #111"
+    },
+    {
+      "nombre": "JORGE ALBERTO LOPEZ GONZALEZ",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #112"
+    },
+    {
+      "nombre": "GERARDO ESQUIVEL PEREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #113"
+    },
+    {
+      "nombre": "PALOMA DEL CARMEN PRIETO TERRONES",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #114"
+    },
+    {
+      "nombre": "ALEJANDRA MONSIVAIZ HERRERA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #115"
+    },
+    {
+      "nombre": "SILVIA PIÑA URIBE",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #116"
+    },
+    {
+      "nombre": "VICTOR MANUEL MALACARA  TEJEDA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #117"
+    },
+    {
+      "nombre": "MIGUEL ANGEL GALINDO LOPEZ",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #118"
+    },
+    {
+      "nombre": "OMAR ARREOLA ESQUIVEL",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #119"
+    },
+    {
+      "nombre": "MARIA GRACIELA ALVARADO ARELLANO",
+      "consumo": 32,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #120"
+    },
+    {
+      "nombre": "HECTOR DANIEL DAVILA DOMINGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #121"
+    },
+    {
+      "nombre": "MARLEN KARINA VELASCO LOERA",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #122"
+    },
+    {
+      "nombre": "NORMA ANGELICA BERNAL SOLIS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #123"
+    },
+    {
+      "nombre": "CARLOS NAPOLEON CURIEL MARTINEZ",
+      "consumo": 11,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #124"
+    },
+    {
+      "nombre": "DAVID ALEJANDRO GONZALEZ RODRIGUEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #125"
+    },
+    {
+      "nombre": "MA. GUADALUPE HERNANDEZ CASTILLO",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #126"
+    },
+    {
+      "nombre": "EDGAR RAMIREZ PEREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #127"
+    },
+    {
+      "nombre": "EDGAR RUIZ MONTEMAYOR",
+      "consumo": 71,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #128"
+    },
+    {
+      "nombre": "CESAR DAVID MORENO DELGADILLO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #129"
+    },
+    {
+      "nombre": "CRISTOBAL RODRIGUEZ MARTINEZ",
+      "consumo": 5,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #130"
+    },
+    {
+      "nombre": "MARIO ANDRADE CERVANTES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #131"
+    },
+    {
+      "nombre": "ADRIAN ROMO ROMO",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #132"
+    },
+    {
+      "nombre": "LAURA  ALICIA HERNANDEZ VALDES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #133"
+    },
+    {
+      "nombre": "JONATHAN EMMANUEL RODRIGUEZ HERMOSILLO",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #134"
+    },
+    {
+      "nombre": "MARIA LOURDES CORNEJO GUZMAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #135"
+    },
+    {
+      "nombre": "JESSICA LUZ DIAZ MARIN",
+      "consumo": 16,
+      "excedente": 1,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #136"
+    },
+    {
+      "nombre": "EDGAR ROMO LARIOS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #137"
+    },
+    {
+      "nombre": "ANTONIO BAÑUELOS MENDEZ",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #138"
+    },
+    {
+      "nombre": "HECTOR MANUEL MARQUEZ SANCHEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #139"
+    },
+    {
+      "nombre": "FERNANDA GUADALUPE DIAZ RICHART",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #140"
+    },
+    {
+      "nombre": "LIZETH CAROLINA REAL PAREDES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #141"
+    },
+    {
+      "nombre": "MARTHA  ALICIA VELOZ ROMO",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #142"
+    },
+    {
+      "nombre": "ROBERTO CRUZ VALENZUELA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #143"
+    },
+    {
+      "nombre": "ELSA ESTELA FREGOSO GARCIA",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #144"
+    },
+    {
+      "nombre": "MERCEDES ITUARTE MERCADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #145"
+    },
+    {
+      "nombre": "GERARDO MENDOZA LOPEZ",
+      "consumo": 3,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #146"
+    },
+    {
+      "nombre": "ALLAN MUÑOZ ARELLANO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #147"
+    },
+    {
+      "nombre": "SANDRA ILIANA GONZALEZ PLANCARTE",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #148"
+    },
+    {
+      "nombre": "HERMES IKARO TORREBLANCA RAMIREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #149"
+    },
+    {
+      "nombre": "MYRIAM DEL CARMEN CORRALES AGUIRRE",
+      "consumo": 34,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #150"
+    },
+    {
+      "nombre": "ALEJANDRO REYNOSO PEREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #151"
+    },
+    {
+      "nombre": "ALAN MARQUEZ BATRES",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #152"
+    },
+    {
+      "nombre": "CARLOS IVAN CAMPOS  ALONSO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #153"
+    },
+    {
+      "nombre": "ANA MARIA ALVAREZ PEREZ",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #154"
+    },
+    {
+      "nombre": "ALFONSO ALEJANDRO NAVARRO PONCE",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #155"
+    },
+    {
+      "nombre": "LAURA ANGELICA GALLARDO MONTOYA",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #156"
+    },
+    {
+      "nombre": "MARIA PATRICIA MARTINEZ  GONZALEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #157"
+    },
+    {
+      "nombre": "OMAR FERNANDO GARAY MIRELES",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #158"
+    },
+    {
+      "nombre": "RODAN PEREZ BAUMGARTEN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #159"
+    },
+    {
+      "nombre": "JOSE DE JESUS AVELAR VILLALPANDO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #160"
+    },
+    {
+      "nombre": "NAYELI DE JESUS  DIAZ GUZMAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #201"
+    },
+    {
+      "nombre": "JUANA ORTIZ PADILLA",
+      "consumo": -2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #202"
+    },
+    {
+      "nombre": "IRENE HERNANDEZ TAVARES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #203"
+    },
+    {
+      "nombre": "JOSE ALEJANDRO GONZALEZ REYNOSO",
+      "consumo": 19,
+      "excedente": 4,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #204"
+    },
+    {
+      "nombre": "ANA DE MONSERRAT MEDINA SIFUENTES",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #205"
+    },
+    {
+      "nombre": "ANA  ROSA MUÑOZ YAÑEZ",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #206"
+    },
+    {
+      "nombre": "ELIZABETH  GUADALUPE BARBOSA PADILLA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #207"
+    },
+    {
+      "nombre": "MIGUEL ANGEL RAMIREZ GIACINTI",
+      "consumo": 10,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #208"
+    },
+    {
+      "nombre": "BEATRIZ GUTIERREZ LOPEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #209"
+    },
+    {
+      "nombre": "LUIS MANUEL PADILLA CORTEZ",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #210"
+    },
+    {
+      "nombre": "MA. TERESA MACIAS GALAVIZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #211"
+    },
+    {
+      "nombre": "PATRICIA  ALEJANDRA SOTO PLASCENCIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #212"
+    },
+    {
+      "nombre": "MA. DE LOURDES MONTELLANO DELGADO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #213"
+    },
+    {
+      "nombre": "IVAN  WENCESLAO LEIJA FRANCO",
+      "consumo": 14,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #214"
+    },
+    {
+      "nombre": "EVA BRITTANIA DELGADO MENDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #215"
+    },
+    {
+      "nombre": "VICTOR HUGO WENCES FUEYO",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #216"
+    },
+    {
+      "nombre": "EMILIO ANTONIO OBANDO SAN MARTIN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #217"
+    },
+    {
+      "nombre": "JOSE  DAVID HERNANDEZ CARRION",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #218"
+    },
+    {
+      "nombre": "JOSE ESTEBAN SAINZ GUTIÉRREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #219"
+    },
+    {
+      "nombre": "MARIA DEL ROSARIO RUIZ AVILA",
+      "consumo": 72,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #220"
+    },
+    {
+      "nombre": "LUIS GUILLERMO ALCALA DURAN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #221"
+    },
+    {
+      "nombre": "SUPERVISOR INTEGRAL DE OBRA CIVIL",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #222"
+    },
+    {
+      "nombre": "JESUS BENJAMIN GONZALEZ CASTORENA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #223"
+    },
+    {
+      "nombre": "ROGELIO MONDRAGON BONILLA",
+      "consumo": 15,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #224"
+    },
+    {
+      "nombre": "DIANA YESENIA MARQUEZ GUTIERREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #225"
+    },
+    {
+      "nombre": "LUIS FERNANDO CASANOVA TRINIDAD",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #226"
+    },
+    {
+      "nombre": "ROSA MARIA YAÑEZ BARRON",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #227"
+    },
+    {
+      "nombre": "LETICIA GARCIA MACIAS",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #228"
+    },
+    {
+      "nombre": "ANDRES LOERA NAVARRO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #229"
+    },
+    {
+      "nombre": "FABIAN MALACARA ARDIT",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #230"
+    },
+    {
+      "nombre": "RAYMUNDO ORTIZ ALVAREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #231"
+    },
+    {
+      "nombre": "VIVIANA  ESTEFANI ESPARZA OCHOA",
+      "consumo": 17,
+      "excedente": 2,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #232"
+    },
+    {
+      "nombre": "CHRISTIAN HERMOSILLO GOMEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #233"
+    },
+    {
+      "nombre": "EDITH CARRILLO BRIANO",
+      "consumo": 4,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #234"
+    },
+    {
+      "nombre": "LIZETH GUADALUPE GUTIERREZ VALLEJO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #235"
+    },
+    {
+      "nombre": "JUAN ANDRES ALTAMIRA CAMPOS",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #236"
+    },
+    {
+      "nombre": "GERMAN LOPEZ SANTIAGO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #237"
+    },
+    {
+      "nombre": "ROSA MARIA YAÑEZ JIMENEZ",
+      "consumo": 2,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #238"
+    },
+    {
+      "nombre": "LETICIA  MABEL CABRERA MAYAGOITIA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #239"
+    },
+    {
+      "nombre": "ROSA MARIA PATRICIA CAZARES  SOLIS",
+      "consumo": 13,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #240"
+    },
+    {
+      "nombre": "BRENDA JAUREGUI SANCHEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #241"
+    },
+    {
+      "nombre": "CECILIA IMELDA ARAGON BURGOS",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #242"
+    },
+    {
+      "nombre": "AMAURY JAIME ORNELAS SAHAGUN",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #243"
+    },
+    {
+      "nombre": "LUIS  ADRIAN LUEVANO RAMOS",
+      "consumo": 52,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #244"
+    },
+    {
+      "nombre": "CARLOS  ALEJANDRO MENDOZA RAMIREZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #245"
+    },
+    {
+      "nombre": "JOSE ALBERTO CENTENO  LARA",
+      "consumo": 7,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #246"
+    },
+    {
+      "nombre": "ADRIAN CHAVIRA HERNANDEZ",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #247"
+    },
+    {
+      "nombre": "CARLOS ESPARZA REYNA",
+      "consumo": 1,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #248"
+    },
+    {
+      "nombre": "RENAN DELGADO  PIÑA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #249"
+    },
+    {
+      "nombre": "RICARDO RAMIREZ HARO",
+      "consumo": 9,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #250"
+    },
+    {
+      "nombre": "MONICA LISSETTE LOZANO AMPOSTA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #251"
+    },
+    {
+      "nombre": "LUIS RODOLFO ESCOBAR ZANELLA",
+      "consumo": 8,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #252"
+    },
+    {
+      "nombre": "CESAR ALEJANDRO VILLALOBOS SERNA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #253"
+    },
+    {
+      "nombre": "LUIS DANIEL VEGA ZAPATA",
+      "consumo": 12,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #254"
+    },
+    {
+      "nombre": "MAQUINAS REFACCIONES Y  SERVICIO",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #255"
+    },
+    {
+      "nombre": "RICARDO DIAZ TREJO",
+      "consumo": 6,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #256"
+    },
+    {
+      "nombre": "JUAN  ANTONIO  DE LA CRUZ LUNA",
+      "consumo": 0,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #257"
+    },
+    {
+      "nombre": "CAROLINA DUARTE DELGADO",
+      "consumo": 14,
+      "excedente": 0,
+      "calle": "Sin calle",
+      "numero_interior": null,
+      "direccion": "Sin calle #258"
+    }
+  ]
 }
