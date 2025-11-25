@@ -5,130 +5,124 @@
   <title>Gestión Hídrica RBS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; color: #2c3e50; }
+    :root {
+      --color-azul: #003366;
+      --color-verde: #2e8b57;
+      --color-gris: #f4f4f4;
+      --color-naranja: #f39c12;
+      --color-rojo: #c0392b;
+      --color-texto: #2c3e50;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--color-gris);
+      color: var(--color-texto);
+    }
+    header {
+      background: var(--color-azul);
+      color: white;
+      padding: 16px;
+      text-align: center;
+    }
     h1, h2 { margin: 0 0 12px; }
-    .grid {
+    .container {
+      padding: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
-      margin-bottom: 32px;
     }
     .card {
-      border: 1px solid #ddd;
       border-radius: 8px;
       padding: 16px;
-      background: #fff;
+      background: white;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
     }
-    .chart-container {
-      width: 100%;
-      height: 420px;
-      position: relative;
-    }
-    .bar-container {
-      width: 100%;
-      height: 600px; /* más grande para direcciones */
-      position: relative;
+    .chart-container { width: 100%; height: 420px; }
+    .bar-container { width: 100%; height: 600px; }
+    .legend { font-size: 12px; color: #606c76; margin-top: 6px; }
+    .search-box { margin: 12px 0; }
+    .search-box input {
+      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;
     }
     table {
-      width: 100%;
-      border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
+      width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px;
     }
-    th, td {
-      border: 1px solid #e6e6e6;
-      padding: 8px;
-      text-align: left;
-    }
-    th { background-color: #f7f7f7; }
-    .calle {
-      background-color: #e8f6ff;
-      font-weight: bold;
-    }
-    .status {
-      margin-bottom: 16px;
-      font-size: 14px;
-      color: #606c76;
-    }
-    .legend {
-      font-size: 12px;
-      color: #606c76;
-      margin-top: 6px;
+    th, td { border: 1px solid #e6e6e6; padding: 8px; text-align: left; }
+    th { background-color: var(--color-azul); color: white; }
+    .calle { background-color: var(--color-verde); color: white; font-weight: bold; }
+    .excedente { background-color: var(--color-naranja); color: white; }
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; }
+      .bar-container { height: 400px; }
     }
   </style>
 </head>
 <body>
-  <h1>Gestión Hídrica RBS</h1>
-  <div class="status" id="status">Cargando datos de data.json…</div>
+  <header>
+    <h1>Gestión Hídrica RBS</h1>
+    <div id="status">Cargando datos de data.json…</div>
+  </header>
 
-  <div class="grid">
+  <div class="container">
     <div class="card">
       <h2>Distribución general</h2>
-      <div class="chart-container">
-        <canvas id="graficaPastel"></canvas>
-      </div>
+      <div class="chart-container"><canvas id="graficaPastel"></canvas></div>
       <div class="legend">Pastel: vecinos con excedente vs sin excedente.</div>
     </div>
-
     <div class="card">
       <h2>Excedentes por dirección</h2>
-      <div class="bar-container">
-        <canvas id="graficaBarras"></canvas>
-      </div>
-      <div class="legend">Barras horizontales: eje Y muestra la dirección completa; eje X los litros excedentes.</div>
+      <div class="bar-container"><canvas id="graficaBarras"></canvas></div>
+      <div class="legend">Barras horizontales: eje Y muestra la dirección completa.</div>
     </div>
   </div>
 
-  <div class="card">
+  <div class="card" style="margin:20px;">
     <h2>Listado completo por calle</h2>
+    <div class="search-box">
+      <input type="text" id="busqueda" placeholder="Buscar por nombre o dirección...">
+    </div>
     <div id="listaVecinos"></div>
   </div>
 
   <script>
+    let personas = [];
+
     async function cargarDatos() {
       const statusEl = document.getElementById('status');
       try {
         const resp = await fetch('data.json', { cache: 'no-store' });
         if (!resp.ok) throw new Error('No se pudo cargar data.json');
         const data = await resp.json();
-
+        personas = Array.isArray(data.personas) ? data.personas : [];
         statusEl.textContent = 'Datos cargados correctamente.';
 
-        const personas = Array.isArray(data.personas) ? data.personas : [];
-
-        // Pastel: excedente vs sin excedente
+        // Pastel
         const conExcedente = personas.filter(p => Number(p.excedente) > 0).length;
         const sinExcedente = personas.length - conExcedente;
-
-        const pastelData = {
-          labels: ['Con excedente', 'Sin excedente'],
-          datasets: [{
-            data: [conExcedente, sinExcedente],
-            backgroundColor: ['#36a2eb', '#9ad0f5']
-          }]
-        };
-
         new Chart(document.getElementById('graficaPastel'), {
           type: 'pie',
-          data: pastelData,
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: { legend: { position: 'bottom' } }
-          }
+          data: {
+            labels: ['Con excedente', 'Sin excedente'],
+            datasets: [{
+              data: [conExcedente, sinExcedente],
+              backgroundColor: [getColor('--color-naranja'), getColor('--color-verde')]
+            }]
+          },
+          options: { responsive: true, maintainAspectRatio: false }
         });
 
-        // Barras horizontales: solo direcciones con excedente
+        // Barras
         const excedentes = personas.filter(p => Number(p.excedente) > 0);
-
-        const barrasConfig = {
+        new Chart(document.getElementById('graficaBarras'), {
           type: 'bar',
           data: {
             labels: excedentes.map(p => p.direccion),
             datasets: [{
               label: 'Litros excedentes',
               data: excedentes.map(p => p.excedente),
-              backgroundColor: 'rgba(54, 162, 235, 0.7)'
+              backgroundColor: getColor('--color-azul')
             }]
           },
           options: {
@@ -141,46 +135,51 @@
             },
             plugins: { legend: { display: false } }
           }
-        };
+        });
 
-        new Chart(document.getElementById('graficaBarras'), barrasConfig);
-
-        // Lista agrupada por calle y ordenada por No.Ext
         renderLista(personas);
-
+        document.getElementById('busqueda').addEventListener('input', filtrarLista);
       } catch (err) {
         console.error(err);
-        statusEl.textContent = 'Error al cargar data.json. Verifica el archivo en el repositorio.';
+        statusEl.textContent = 'Error al cargar data.json.';
       }
     }
 
-    function renderLista(personas) {
-      const contenedor = document.getElementById('listaVecinos');
+    function getColor(name) {
+      return getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    }
 
-      // Agrupar por calle
-      const agrupadas = personas.reduce((acc, p) => {
+    function renderLista(data) {
+      const contenedor = document.getElementById('listaVecinos');
+      const agrupadas = data.reduce((acc, p) => {
         if (!acc[p.calle]) acc[p.calle] = [];
         acc[p.calle].push(p);
         return acc;
       }, {});
-
       let html = '<table><thead><tr><th>Dirección</th><th>Consumo</th><th>Excedente</th></tr></thead><tbody>';
-
       Object.keys(agrupadas).sort((a, b) => a.localeCompare(b)).forEach(calle => {
         html += `<tr class="calle"><td colspan="3">${calle}</td></tr>`;
         agrupadas[calle]
           .sort((a, b) => Number(a.numero_exterior) - Number(b.numero_exterior))
           .forEach(p => {
-            html += `<tr>
+            const clase = Number(p.excedente) > 0 ? 'excedente' : '';
+            html += `<tr class="${clase}">
               <td>${p.direccion}</td>
               <td>${p.consumo}</td>
               <td>${p.excedente}</td>
             </tr>`;
           });
       });
-
       html += '</tbody></table>';
       contenedor.innerHTML = html;
+    }
+
+    function filtrarLista() {
+      const q = document.getElementById('busqueda').value.toLowerCase();
+      const filtrados = personas.filter(p =>
+        p.nombre.toLowerCase().includes(q) || p.direccion.toLowerCase().includes(q)
+      );
+      renderLista(filtrados);
     }
 
     cargarDatos();
