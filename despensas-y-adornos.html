@@ -76,9 +76,10 @@
     .carousel .slide.active {
       display: block;
     }
-    .carousel video {
+    .carousel img, .carousel video {
       width: 100%;
       height: auto;
+      border-radius: 8px;
     }
     .carousel-controls {
       text-align: center;
@@ -106,19 +107,65 @@
 
   <div class="container">
     <div class="card">
+      <h2>Gracias!</h2>
+      <p>Queremos agradecer a todos los vecinos que aportaron dinero y despensa en especie para adornar la entrada del condominio y entregar una despensa a cada uno de los trabajadores:</p>
+      <ul>
+        <li>4 vigilantes</li>
+        <li>2 jardineros</li>
+        <li>1 persona de limpieza de áreas comunes</li>
+        <li>3 personas del servicio de recolección de basura</li>
+      </ul>
+    </div>
+
+    <div class="card">
       <h2>Lista de vecinos que aportaron</h2>
-      <!-- tabla igual que antes -->
+      <table>
+        <thead><tr><th>Dirección</th></tr></thead>
+        <tbody>
+          <tr class="calle"><td>Sabino</td></tr>
+          <tr><td>Sabino 144</td></tr>
+          <tr><td>Sabino 146</td></tr>
+          <tr><td>Sabino 156</td></tr>
+          <tr><td>Sabino 203</td></tr>
+          <tr><td>Sabino 209</td></tr>
+          <tr><td>Sabino 210</td></tr>
+          <tr><td>Sabino 216</td></tr>
+          <tr><td>Sabino 219</td></tr>
+          
+          <tr class="calle"><td>Sakura</td></tr>
+          <tr><td>Sakura 120</td></tr>
+          <tr><td>Sakura 130</td></tr>
+          <tr><td>Sakura 207</td></tr>
+          <tr><td>Sakura 212</td></tr>
+          <tr><td>Sakura 241</td></tr>
+
+          <tr class="calle"><td>Sequoia</td></tr>
+          <tr><td>Sequoia 141</td></tr>
+          <tr><td>Sequoia 152</td></tr>
+          <tr><td>Sequoia 153</td></tr>
+          <tr><td>Sequoia 162</td></tr>
+          <tr><td>Sequoia 214</td></tr>
+          <tr><td>Sequoia 309</td></tr>
+          <tr><td>Sequoia 503</td></tr>
+          <tr><td>Sequoia 525</td></tr>
+        </tbody>
+      </table>
     </div>
 
     <div class="card">
       <h2>Evidencias</h2>
       <div class="carousel" id="carousel">
-        <!-- Ejemplo: imágenes -->
-        <div class="slide active"><img src="media/foto1.jpg" alt="Evidencia 1"></div>
-        <div class="slide"><img src="media/foto2.jpg" alt="Evidencia 2"></div>
-        <!-- Ejemplo: videos -->
-        <div class="slide"><video controls><source src="media/video1.mp4" type="video/mp4"></video></div>
-        <div class="slide"><video controls><source src="media/video2.mp4" type="video/mp4"></video></div>
+        <!-- Imágenes -->
+        <div class="slide active"><img src="img/1.jpg" alt="Evidencia 1"></div>
+        <div class="slide"><img src="img/2.jpg" alt="Evidencia 2"></div>
+        <div class="slide"><img src="img/3.jpg" alt="Evidencia 3"></div>
+        <div class="slide"><img src="img/4.jpg" alt="Evidencia 4"></div>
+        <div class="slide"><img src="img/5.jpg" alt="Evidencia 5"></div>
+        <div class="slide"><img src="img/6.jpg" alt="Evidencia 6"></div>
+        <div class="slide"><img src="img/7.jpg" alt="Evidencia 7"></div>
+        <!-- Videos -->
+        <div class="slide"><video controls><source src="media/v1.mp4" type="video/mp4"></video></div>
+        <div class="slide"><video controls><source src="media/v2.mp4" type="video/mp4"></video></div>
       </div>
       <div class="carousel-controls">
         <button onclick="prevSlide()">Anterior</button>
