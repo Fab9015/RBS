@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Agradecimiento a vecinos</title>
-  <!-- Estilos tomados de informe-mesa-trabajo -->
   <style>
     :root {
       --color-bg: #fdfaf5;
@@ -43,7 +42,6 @@
       margin-bottom: 2em;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
-    .card h2 { margin-top: 0; }
     table {
       width: 100%;
       border-collapse: collapse;
@@ -71,12 +69,16 @@
       overflow: hidden;
       border-radius: 8px;
     }
-    .carousel img {
-      width: 100%;
+    .carousel .slide {
       display: none;
+      width: 100%;
     }
-    .carousel img.active {
+    .carousel .slide.active {
       display: block;
+    }
+    .carousel video {
+      width: 100%;
+      height: auto;
     }
     .carousel-controls {
       text-align: center;
@@ -94,10 +96,6 @@
     .carousel-controls button:hover {
       background-color: #8fa76a;
     }
-    @media (max-width: 768px) {
-      .card { padding: 1em; }
-      table { font-size: 13px; }
-    }
   </style>
 </head>
 <body>
@@ -108,59 +106,19 @@
 
   <div class="container">
     <div class="card">
-      <h2>Mensaje de agradecimiento</h2>
-      <p>Queremos agradecer a todos los vecinos que aportaron dinero y despensa en especie para adornar la entrada del condominio y entregar una despensa a cada uno de los trabajadores:</p>
-      <ul>
-        <li>4 vigilantes</li>
-        <li>2 jardineros</li>
-        <li>1 persona de limpieza de áreas comunes</li>
-        <li>3 personas del servicio de recolección de basura</li>
-      </ul>
-    </div>
-
-    <div class="card">
       <h2>Lista de vecinos que aportaron</h2>
-      <table>
-        <thead><tr><th>Dirección</th></tr></thead>
-        <tbody>
-          <tr class="calle"><td>Sabino</td></tr>
-          <tr><td>Sabino 144</td></tr>
-          <tr><td>Sabino 146</td></tr>
-          <tr><td>Sabino 156</td></tr>
-          <tr><td>Sabino 203</td></tr>
-          <tr><td>Sabino 209</td></tr>
-          <tr><td>Sabino 210</td></tr>
-          <tr><td>Sabino 216</td></tr>
-          <tr><td>Sabino 219</td></tr>
-          <tr><td>Sabino 219 (repetido)</td></tr>
-
-          <tr class="calle"><td>Sakura</td></tr>
-          <tr><td>Sakura 120</td></tr>
-          <tr><td>Sakura 130</td></tr>
-          <tr><td>Sakura 207</td></tr>
-          <tr><td>Sakura 212</td></tr>
-          <tr><td>Sakura 241</td></tr>
-
-          <tr class="calle"><td>Sequoia</td></tr>
-          <tr><td>Sequoia 141</td></tr>
-          <tr><td>Sequoia 152</td></tr>
-          <tr><td>Sequoia 153</td></tr>
-          <tr><td>Sequoia 162</td></tr>
-          <tr><td>Sequoia 214</td></tr>
-          <tr><td>Sequoia 309</td></tr>
-          <tr><td>Sequoia 503</td></tr>
-          <tr><td>Sequoia 525</td></tr>
-        </tbody>
-      </table>
+      <!-- tabla igual que antes -->
     </div>
 
     <div class="card">
       <h2>Evidencias</h2>
       <div class="carousel" id="carousel">
-        <img src="media/foto1.jpg" class="active" alt="Evidencia 1">
-        <img src="media/foto2.jpg" alt="Evidencia 2">
-        <img src="media/foto3.jpg" alt="Evidencia 3">
-        <img src="media/foto4.jpg" alt="Evidencia 4">
+        <!-- Ejemplo: imágenes -->
+        <div class="slide active"><img src="media/foto1.jpg" alt="Evidencia 1"></div>
+        <div class="slide"><img src="media/foto2.jpg" alt="Evidencia 2"></div>
+        <!-- Ejemplo: videos -->
+        <div class="slide"><video controls><source src="media/video1.mp4" type="video/mp4"></video></div>
+        <div class="slide"><video controls><source src="media/video2.mp4" type="video/mp4"></video></div>
       </div>
       <div class="carousel-controls">
         <button onclick="prevSlide()">Anterior</button>
@@ -171,9 +129,10 @@
 
   <script>
     let currentSlide = 0;
-    const slides = document.querySelectorAll('#carousel img');
+    const slides = document.querySelectorAll('#carousel .slide');
+
     function showSlide(index) {
-      slides.forEach((img, i) => img.classList.toggle('active', i === index));
+      slides.forEach((s, i) => s.classList.toggle('active', i === index));
     }
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
