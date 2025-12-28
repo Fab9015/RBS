@@ -198,6 +198,7 @@
         const vid = s.querySelector('video');
         if (vid) {
           vid.pause();
+          vid.currentTime = 0; // opcional: reinicia al inicio
         }
       });
 
@@ -217,4 +218,13 @@
     }
 
     function prevSlide() {
-      currentSlide = (currentSlide - 1 + slides
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    // Inicializar primer slide
+    showSlide(currentSlide);
+  </script>
+</body>
+</html>
+
