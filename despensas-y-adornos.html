@@ -3,64 +3,65 @@
 <head>
   <meta charset="UTF-8">
   <title>Agradecimiento a vecinos</title>
+  <!-- Estilos tomados de informe-mesa-trabajo -->
   <style>
     :root {
-      --color-verde-oscuro: #2e8b57;   /* encabezados */
-      --color-verde-medio: #4caf50;    /* acentos positivos */
-      --color-cafe: #8b5e3c;           /* detalles tierra */
-      --color-beige: #f5f2e9;          /* fondo cálido */
-      --color-gris: #f4f4f4;           /* fondo neutro */
-      --color-naranja: #d35400;        /* alertas */
-      --color-texto: #333333;          /* texto principal */
+      --color-bg: #fdfaf5;
+      --color-title: #5c4033;
+      --color-footer: #5c4033;
+      --color-accent: #a1b27a;
+      --color-highlight: #a1b27a;
+      --color-white: #fefefe;
+      --color-text: #5c4033;
+      --color-border: #e6e2dc;
     }
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Lato', sans-serif;
+      background: var(--color-bg);
       margin: 0;
-      background: var(--color-beige);
-      color: var(--color-texto);
+      padding: 0;
+      color: var(--color-text);
     }
+    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
+    h2,h3,h4 { color: var(--color-title); }
     header {
-      background: var(--color-verde-oscuro);
-      color: white;
-      padding: 20px;
+      background: var(--color-bg);
+      color: var(--color-title);
       text-align: center;
+      padding: 2em 1em;
     }
-    h1, h2 { margin: 0 0 12px; }
     .container {
-      padding: 20px;
+      padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
     }
     .card {
-      background: white;
-      border-radius: 8px;
-      padding: 20px;
-      margin-bottom: 24px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      background: var(--color-bg);
+      border: 2px solid var(--color-accent);
+      border-radius: 10px;
+      padding: 1.2em;
+      margin-bottom: 2em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
+    .card h2 { margin-top: 0; }
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-top: 12px;
-      font-size: 14px;
+      margin-top: 1em;
     }
     th, td {
-      border: 1px solid #e6e6e6;
+      border: 1px solid var(--color-border);
       padding: 8px;
       text-align: left;
     }
     th {
-      background-color: var(--color-verde-oscuro);
-      color: white;
+      background-color: var(--color-accent);
+      color: var(--color-white);
     }
     .calle {
-      background-color: var(--color-verde-medio);
-      color: white;
+      background-color: var(--color-highlight);
+      color: var(--color-text);
       font-weight: bold;
-    }
-    .agradecimiento {
-      font-size: 16px;
-      line-height: 1.5;
     }
     /* Carrusel */
     .carousel {
@@ -82,27 +83,32 @@
       margin-top: 8px;
     }
     .carousel-controls button {
-      background: var(--color-cafe);
-      color: white;
+      background: var(--color-accent);
+      color: var(--color-white);
       border: none;
       padding: 8px 12px;
       margin: 0 4px;
-      border-radius: 4px;
+      border-radius: 6px;
       cursor: pointer;
     }
+    .carousel-controls button:hover {
+      background-color: #8fa76a;
+    }
     @media (max-width: 768px) {
-      .card { padding: 12px; }
-      table { font-size: 12px; }
+      .card { padding: 1em; }
+      table { font-size: 13px; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Agradecimiento a vecinos</h1>
+    <p>Gracias a su apoyo logramos reconocer la labor de quienes cuidan nuestro condominio</p>
   </header>
 
   <div class="container">
-    <div class="card agradecimiento">
+    <div class="card">
+      <h2>Mensaje de agradecimiento</h2>
       <p>Queremos agradecer a todos los vecinos que aportaron dinero y despensa en especie para adornar la entrada del condominio y entregar una despensa a cada uno de los trabajadores:</p>
       <ul>
         <li>4 vigilantes</li>
@@ -110,15 +116,12 @@
         <li>1 persona de limpieza de áreas comunes</li>
         <li>3 personas del servicio de recolección de basura</li>
       </ul>
-      <p>Gracias a su apoyo, logramos reconocer y agradecer la labor diaria de quienes cuidan y mantienen nuestro condominio 🙌.</p>
     </div>
 
     <div class="card">
       <h2>Lista de vecinos que aportaron</h2>
       <table>
-        <thead>
-          <tr><th>Dirección</th></tr>
-        </thead>
+        <thead><tr><th>Dirección</th></tr></thead>
         <tbody>
           <tr class="calle"><td>Sabino</td></tr>
           <tr><td>Sabino 144</td></tr>
@@ -154,7 +157,6 @@
     <div class="card">
       <h2>Evidencias</h2>
       <div class="carousel" id="carousel">
-        <!-- Ejemplo: coloca tus imágenes en media/ -->
         <img src="media/foto1.jpg" class="active" alt="Evidencia 1">
         <img src="media/foto2.jpg" alt="Evidencia 2">
         <img src="media/foto3.jpg" alt="Evidencia 3">
@@ -170,18 +172,13 @@
   <script>
     let currentSlide = 0;
     const slides = document.querySelectorAll('#carousel img');
-
     function showSlide(index) {
-      slides.forEach((img, i) => {
-        img.classList.toggle('active', i === index);
-      });
+      slides.forEach((img, i) => img.classList.toggle('active', i === index));
     }
-
     function nextSlide() {
       currentSlide = (currentSlide + 1) % slides.length;
       showSlide(currentSlide);
     }
-
     function prevSlide() {
       currentSlide = (currentSlide - 1 + slides.length) % slides.length;
       showSlide(currentSlide);
