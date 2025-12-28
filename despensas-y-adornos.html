@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Agradecimiento a vecinos</title>
+  <style>
+    :root {
+      --color-azul: #003366;
+      --color-verde: #2e8b57;
+      --color-gris: #f4f4f4;
+      --color-naranja: #f39c12;
+      --color-rojo: #c0392b;
+      --color-texto: #2c3e50;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: var(--color-gris);
+      color: var(--color-texto);
+    }
+    header {
+      background: var(--color-azul);
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    h1, h2 { margin: 0 0 12px; }
+    .container {
+      padding: 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 20px;
+      margin-bottom: 24px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #e6e6e6;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: var(--color-azul);
+      color: white;
+    }
+    .calle {
+      background-color: var(--color-verde);
+      color: white;
+      font-weight: bold;
+    }
+    .agradecimiento {
+      font-size: 16px;
+      line-height: 1.5;
+    }
+    /* Carrusel */
+    .carousel {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+      overflow: hidden;
+      border-radius: 8px;
+    }
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel-controls {
+      text-align: center;
+      margin-top: 8px;
+    }
+    .carousel-controls button {
+      background: var(--color-azul);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      margin: 0 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    @media (max-width: 768px) {
+      .card { padding: 12px; }
+      table { font-size: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Agradecimiento a vecinos</h1>
+  </header>
+
+  <div class="container">
+    <div class="card agradecimiento">
+      <p>Queremos agradecer a todos los vecinos que aportaron dinero y despensa en especie para adornar la entrada del condominio y entregar una despensa a cada uno de los trabajadores:</p>
+      <ul>
+        <li>4 vigilantes</li>
+        <li>2 jardineros</li>
+        <li>1 persona de limpieza de áreas comunes</li>
+        <li>3 personas del servicio de recolección de basura</li>
+      </ul>
+      <p>Gracias a su apoyo, logramos reconocer y agradecer la labor diaria de quienes cuidan y mantienen nuestro condominio 🙌.</p>
+    </div>
+
+    <div class="card">
+      <h2>Lista de vecinos que aportaron</h2>
+      <table>
+        <thead>
+          <tr><th>Dirección</th></tr>
+        </thead>
+        <tbody>
+          <tr class="calle"><td>Sabino</td></tr>
+          <tr><td>Sabino 144</td></tr>
+          <tr><td>Sabino 146</td></tr>
+          <tr><td>Sabino 156</td></tr>
+          <tr><td>Sabino 203</td></tr>
+          <tr><td>Sabino 209</td></tr>
+          <tr><td>Sabino 210</td></tr>
+          <tr><td>Sabino 216</td></tr>
+          <tr><td>Sabino 219</td></tr>
+          <tr><td>Sabino 219 (repetido)</td></tr>
+
+          <tr class="calle"><td>Sakura</td></tr>
+          <tr><td>Sakura 120</td></tr>
+          <tr><td>Sakura 130</td></tr>
+          <tr><td>Sakura 207</td></tr>
+          <tr><td>Sakura 212</td></tr>
+          <tr><td>Sakura 241</td></tr>
+
+          <tr class="calle"><td>Sequoia</td></tr>
+          <tr><td>Sequoia 141</td></tr>
+          <tr><td>Sequoia 152</td></tr>
+          <tr><td>Sequoia 153</td></tr>
+          <tr><td>Sequoia 162</td></tr>
+          <tr><td>Sequoia 214</td></tr>
+          <tr><td>Sequoia 309</td></tr>
+          <tr><td>Sequoia 503</td></tr>
+          <tr><td>Sequoia 525</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h2>Evidencias</h2>
+      <div class="carousel" id="carousel">
+        <!-- Ejemplo: coloca tus imágenes en media/ -->
+        <img src="media/foto1.jpg" class="active" alt="Evidencia 1">
+        <img src="media/foto2.jpg" alt="Evidencia 2">
+        <img src="media/foto3.jpg" alt="Evidencia 3">
+        <img src="media/foto4.jpg" alt="Evidencia 4">
+      </div>
+      <div class="carousel-controls">
+        <button onclick="prevSlide()">Anterior</button>
+        <button onclick="nextSlide()">Siguiente</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('#carousel img');
+
+    function showSlide(index) {
+      slides.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+      });
+    }
+
+    function nextSlide() {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }
+
+    function prevSlide() {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      showSlide(currentSlide);
+    }
+  </script>
+</body>
+</html>
