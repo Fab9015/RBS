@@ -5,21 +5,22 @@
   <title>Agradecimiento a vecinos</title>
   <style>
     :root {
-      --color-azul: #003366;
-      --color-verde: #2e8b57;
-      --color-gris: #f4f4f4;
-      --color-naranja: #f39c12;
-      --color-rojo: #c0392b;
-      --color-texto: #2c3e50;
+      --color-verde-oscuro: #2e8b57;   /* encabezados */
+      --color-verde-medio: #4caf50;    /* acentos positivos */
+      --color-cafe: #8b5e3c;           /* detalles tierra */
+      --color-beige: #f5f2e9;          /* fondo cálido */
+      --color-gris: #f4f4f4;           /* fondo neutro */
+      --color-naranja: #d35400;        /* alertas */
+      --color-texto: #333333;          /* texto principal */
     }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
-      background: var(--color-gris);
+      background: var(--color-beige);
       color: var(--color-texto);
     }
     header {
-      background: var(--color-azul);
+      background: var(--color-verde-oscuro);
       color: white;
       padding: 20px;
       text-align: center;
@@ -49,11 +50,11 @@
       text-align: left;
     }
     th {
-      background-color: var(--color-azul);
+      background-color: var(--color-verde-oscuro);
       color: white;
     }
     .calle {
-      background-color: var(--color-verde);
+      background-color: var(--color-verde-medio);
       color: white;
       font-weight: bold;
     }
@@ -81,7 +82,7 @@
       margin-top: 8px;
     }
     .carousel-controls button {
-      background: var(--color-azul);
+      background: var(--color-cafe);
       color: white;
       border: none;
       padding: 8px 12px;
