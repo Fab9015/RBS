@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
-      --color-bg: #fdfaf5;       /* beige claro */
-      --color-title: #5c4033;    /* marrón */
-      --color-accent: #a1b27a;   /* verde */
+      --color-bg: #fdfaf5;
+      --color-title: #5c4033;
+      --color-accent: #a1b27a;
       --color-white: #fefefe;
       --color-text: #5c4033;
       --color-border: #e6e2dc;
@@ -26,7 +26,6 @@
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
 
-    /* Header con división */
     header {
       background: var(--color-bg);
       color: var(--color-title);
@@ -38,27 +37,12 @@
       margin-bottom: 0;
       border-bottom: 2px solid var(--color-border); /* división visible */
     }
-    .header-text {
-      max-width: 70%;
-    }
-    .header-text h1 {
-      margin: 0;
-      font-size: 1.4em;
-    }
-    .header-text p {
-      margin-top: 0.4em;
-      font-size: 0.95em;
-    }
-    .logo {
-      width: 100px;
-      height: auto;
-    }
+    .header-text { max-width: 70%; }
+    .header-text h1 { margin: 0; font-size: 1.4em; }
+    .header-text p { margin-top: 0.4em; font-size: 0.95em; }
+    .logo { width: 100px; height: auto; }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 1em;
-    }
+    .container { max-width: 1000px; margin: auto; padding: 1em; }
 
     .contact-card {
       position: relative;
@@ -67,7 +51,7 @@
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: 8px;
-      padding: 2em 1em 1em 1em; /* más altura arriba */
+      padding: 2em 1em 1em 1em;
       margin-bottom: 1em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       max-width: 100%;
@@ -81,11 +65,10 @@
     .contact-info h3 {
       margin: 0;
       color: var(--color-title);
-      font-size: 1.2em; /* más grande */
-      margin-top: 1.2em; /* espacio extra debajo del tag */
+      font-size: 1.4em; /* ✅ más grande */
+      margin-top: 1.2em; /* ✅ espacio extra debajo del tag */
     }
 
-    /* Etiqueta flotante */
     .category-tag {
       position: absolute;
       top: 8px;
@@ -97,11 +80,8 @@
       font-size: 0.85em;
     }
 
-    .contact-line {
-      margin-bottom: 0.3em;
-    }
+    .contact-line { margin-bottom: 0.3em; }
 
-    /* Botones uniformes */
     .whatsapp-btn, .copy-btn {
       display: inline-flex;
       align-items: center;
@@ -116,19 +96,12 @@
       margin-bottom: 0.3em;
       border: 1px solid var(--color-border);
       cursor: pointer;
-      width: 140px; /* ancho fijo igual para ambos */
+      width: 150px; /* ✅ mismo ancho */
       justify-content: center;
     }
-    .whatsapp-btn i {
-      font-size: 18px;
-      color: green;
-    }
-    .copy-btn i {
-      font-size: 16px;
-      color: var(--color-title);
-    }
+    .whatsapp-btn i { font-size: 18px; color: green; }
+    .copy-btn i { font-size: 16px; color: var(--color-title); }
 
-    /* Correos truncados */
     .contact-email {
       display: inline-block;
       max-width: 140px;
@@ -136,10 +109,9 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;
-      margin-right: 10px; /* espacio antes del botón Copiar */
+      margin-right: 10px;
     }
 
-    /* Tabs */
     .tabs button {
       background: var(--color-accent);
       color: var(--color-white);
@@ -149,84 +121,36 @@
       cursor: pointer;
       font-size: 1.1em;
     }
-    .tabs {
-      margin-bottom: 1em;
-    }
+    .tabs { margin-bottom: 1em; }
 
-    /* Carrusel móvil */
     @media (max-width: 768px) {
-      #carousel-container {
-        overflow: hidden;
-        width: 100%;
-      }
-      #relevantes {
-        display: flex;
-        transition: transform 0.4s ease-in-out;
-      }
-      #relevantes .contact-card {
-        flex: 0 0 80%;
-        margin: 0 auto;
-      }
-      .tabs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8em;
-      }
-      .tabs button {
-        padding: 8px 12px;
-        font-size: 0.95em;
-      }
-      .carousel-indicators {
-        display: block;
-        text-align: center;
-        margin-top: 0.5em;
-        margin-bottom: 1em;
-      }
+      #carousel-container { overflow: hidden; width: 100%; }
+      #relevantes { display: flex; transition: transform 0.4s ease-in-out; }
+      #relevantes .contact-card { flex: 0 0 100%; margin: 0; } /* ✅ centrado */
+      .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+      .tabs button { padding: 8px 12px; font-size: 0.95em; }
+      .carousel-indicators { display: block; text-align: center; margin: 0.5em 0 1em; }
     }
 
-    /* Desktop */
     @media (min-width: 769px) {
-      #relevantes {
-        display: flex;
-        justify-content: center;
-        gap: 2em;
-        transform: none !important;
-      }
-      #relevantes .contact-card {
-        flex: 0 0 250px;
-        margin: 0;
-      }
-      .tabs {
-        display: flex;
-        gap: 1em;
-        justify-content: center;
-        margin-top: 1.5em;
-      }
-      .carousel-indicators {
-        display: none;
-      }
+      #relevantes { display: flex; justify-content: center; gap: 2em; transform: none !important; }
+      #relevantes .contact-card { flex: 0 0 250px; margin: 0; }
+      .tabs { display: flex; gap: 1em; justify-content: center; margin-top: 1.5em; }
+      .carousel-indicators { display: none; }
     }
 
     .carousel-indicators span {
       display: inline-block;
-      width: 10px;
-      height: 10px;
+      width: 10px; height: 10px;
       margin: 0 4px;
       background: var(--color-border);
       border-radius: 50%;
       cursor: pointer;
     }
-    .carousel-indicators span.active {
-      background: var(--color-accent);
-    }
+    .carousel-indicators span.active { background: var(--color-accent); }
 
-    #lista {
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    #lista .contact-card {
-      flex-direction: row;
-    }
+    #lista { max-width: 100%; margin: 0 auto; }
+    #lista .contact-card { flex-direction: row; }
 
     .pagination {
       display: flex;
@@ -422,7 +346,7 @@
         alert("Correo copiado al portapapeles");
       });
     }
-          function filtrar(cat, btn) {
+        function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
