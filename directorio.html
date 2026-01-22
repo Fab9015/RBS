@@ -32,14 +32,32 @@
       margin: auto;
       padding: 1em;
     }
-    .card {
+
+    /* Contactos relevantes en horizontal */
+    .relevantes-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+      justify-content: center;
+      margin-bottom: 2em;
+    }
+    .relevante-card {
+      flex: 1 1 220px;
+      max-width: 220px;
       background: var(--color-bg);
       border: 2px solid var(--color-accent);
       border-radius: 10px;
       padding: 1em;
-      margin-bottom: 1em;
+      text-align: center;
       box-shadow: 0 4px 10px rgba(0,0,0,0.08);
     }
+    .relevante-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-bottom: 0.5em;
+    }
+
     /* Contact card */
     .contact-card {
       display: flex;
@@ -61,6 +79,7 @@
       margin: 0;
       color: var(--color-title);
     }
+
     /* Tabs */
     .tabs {
       display: flex;
@@ -80,6 +99,7 @@
     .tabs button:hover {
       background: #8fa76a;
     }
+
     /* Dropdown */
     .filter {
       text-align: center;
@@ -90,6 +110,7 @@
       border-radius: 6px;
       border: 1px solid var(--color-border);
     }
+
     /* Paginación */
     .pagination {
       display: flex;
@@ -113,6 +134,7 @@
       margin: 0 4px;
       font-weight: bold;
     }
+
     /* Responsive */
     @media (max-width: 768px) {
       .contact-card {
@@ -121,6 +143,10 @@
       }
       .contact-card img {
         margin-bottom: 0.5em;
+      }
+      .relevantes-grid {
+        flex-direction: column;
+        align-items: center;
       }
     }
   </style>
@@ -132,24 +158,26 @@
   </header>
 
   <div class="container">
-    <!-- Contactos relevantes -->
-    <div class="card">
-      <h2>Contactos importantes</h2>
-      <div class="contact-card">
+    <!-- Contactos relevantes en horizontal -->
+    <h2>Contactos importantes</h2>
+    <div class="relevantes-grid">
+      <div class="relevante-card">
         <img src="img/admin.png" alt="Administración">
-        <div class="contact-info">
-          <h3>Administración</h3>
-          <p><strong>Tel:</strong> 449-123-4567</p>
-          <p><strong>Email:</strong> admin@condominio.com</p>
-        </div>
+        <h3>Administración</h3>
+        <p><strong>Tel:</strong> 449-123-4567</p>
+        <p><strong>Email:</strong> admin@condominio.com</p>
       </div>
-      <div class="contact-card">
-        <img src="img/caseta.png" alt="Caseta">
-        <div class="contact-info">
-          <h3>Caseta de vigilancia</h3>
-          <p><strong>Tel:</strong> 449-987-6543</p>
-          <p><strong>Email:</strong> caseta@condominio.com</p>
-        </div>
+      <div class="relevante-card">
+        <img src="img/vigilancia.png" alt="Vigilancia">
+        <h3>Caseta de vigilancia</h3>
+        <p><strong>Tel:</strong> 449-987-6543</p>
+        <p><strong>Email:</strong> caseta@condominio.com</p>
+      </div>
+      <div class="relevante-card">
+        <img src="img/dummy.png" alt="Otro">
+        <h3>Contacto extra</h3>
+        <p><strong>Tel:</strong> 449-000-0000</p>
+        <p><strong>Email:</strong> otro@condominio.com</p>
       </div>
     </div>
 
@@ -200,5 +228,13 @@
       </select>
     </div>
   </div>
+
+  <script>
+    fetch('directorio.txt')
+      .then(response => response.json())
+      .then(data => {
+        // Aquí irá la lógica para mostrar trabajadores y paginación
+      });
+  </script>
 </body>
 </html>
