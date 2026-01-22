@@ -31,31 +31,6 @@
       padding: 1em;
     }
 
-    /* Contactos relevantes en horizontal */
-    .relevantes-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1em;
-      justify-content: center;
-      margin-bottom: 2em;
-    }
-    .relevante-card {
-      flex: 1 1 220px;
-      max-width: 220px;
-      background: var(--color-bg);
-      border: 2px solid var(--color-accent);
-      border-radius: 10px;
-      padding: 1em;
-      text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-    }
-    .relevante-card img {
-      width: 60px;
-      height: 60px;
-      object-fit: contain;
-      margin-bottom: 0.5em;
-    }
-
     /* Contact card estilo credencial */
     .contact-card {
       display: flex;
@@ -77,21 +52,22 @@
       margin: 0;
       color: var(--color-title);
     }
-    .contact-actions {
-      margin-top: 0.5em;
+    .contact-line {
       display: flex;
-      flex-wrap: wrap;
-      gap: 0.5em;
+      align-items: center;
+      justify-content: space-between;
+      margin: 4px 0;
     }
-    .action-btn {
+    .whatsapp-btn {
       background: var(--color-accent);
       color: white;
-      padding: 6px 10px;
+      padding: 4px 8px;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 14px;
+      font-size: 12px;
+      margin-left: 8px;
     }
-    .action-btn:hover {
+    .whatsapp-btn:hover {
       background: #8fa76a;
     }
 
@@ -159,10 +135,6 @@
       .contact-card img {
         margin-bottom: 0.5em;
       }
-      .relevantes-grid {
-        flex-direction: column;
-        align-items: center;
-      }
     }
   </style>
 </head>
@@ -175,7 +147,7 @@
   <div class="container">
     <!-- Contactos relevantes -->
     <h2>Contactos importantes</h2>
-    <div class="relevantes-grid" id="relevantes"></div>
+    <div id="relevantes"></div>
 
     <!-- Tabs -->
     <div class="tabs" id="tabs"></div>
@@ -203,8 +175,7 @@
       </select>
     </div>
   </div>
-
-  <script>
+    <script>
     let datos = {};
     let paginaActual = 1;
     let porPagina = 10;
@@ -226,17 +197,17 @@
       datos.relevantes.forEach((c, i) => {
         const icono = i === 0 ? "img/admin.png" : i === 1 ? "img/vigilancia.png" : "img/trabajador.png";
         const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correo = c.correo ? `<p><strong>Email:</strong> <a href="mailto:${c.correo}">${c.correo}</a></p>` : "";
+        const correo = c.correo ? `<div class="contact-line"><strong>Email:</strong> <a href="mailto:${c.correo}">${c.correo}</a></div>` : "";
         cont.innerHTML += `
-          <div class="relevante-card">
+          <div class="contact-card">
             <img src="${icono}" alt="${c.nombre}">
-            <h3>${c.nombre}</h3>
-            <p><strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a></p>
-            ${correo}
-            <div class="contact-actions">
-              <a class="action-btn" href="tel:${c.telefono}">📞 Llamar</a>
-              <a class="action-btn" href="${whatsapp}" target="_blank">💬 Enviar WhatsApp</a>
-              ${c.correo ? `<a class="action-btn" href="mailto:${c.correo}">✉️ Enviar correo</a>` : ""}
+            <div class="contact-info">
+              <h3>${c.nombre}</h3>
+              <div class="contact-line">
+                <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
+                <a class="whatsapp-btn" href="${whatsapp}" target="_blank">💬 WhatsApp</a>
+              </div>
+              ${correo}
             </div>
           </div>`;
       });
@@ -245,19 +216,20 @@
     function renderTabs() {
       const cont = document.getElementById('tabs');
       cont.innerHTML = "";
-      datos.busquedasFrecuentes.forEach(cat => {
-        cont.innerHTML += `<button onclick="filtrar('${cat}')">${cat}</button>`;
+      datos.busquedasRelevantes.forEach(b => {
+        if(b.activo){
+          cont.innerHTML += `<button onclick="filtrar('${b.categoria}')">${b.categoria}</button>`;
+        }
       });
     }
 
     function renderCategorias() {
       const sel = document.getElementById('categoria');
-      datos.busquedasFrecuentes.forEach(cat => {
+      datos.categorias.forEach(cat => {
         const opt = document.createElement("option");
         opt.value = cat;
         opt.textContent = cat;
-        sel.appendChild
-                sel.appendChild(opt);
+        sel.appendChild(opt);
       });
     }
 
@@ -282,19 +254,19 @@
 
       pagina.forEach(t => {
         const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correoLink = t.correo ? `<p><strong>Email:</strong> <a href="mailto:${t.correo}">${t.correo}</a></p>` : "";
+        const correoLink = t.correo ? `<div class="contact-line"><strong>Email:</strong> <a href="mailto:${t.correo}">${t.correo}</a></div>` : "";
         lista.innerHTML += `
           <div class="contact-card">
             <img src="img/trabajador.png" alt="${t.categoria}">
             <div class="contact-info">
               <h3>${t.nombre}</h3>
-              <p><strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a></p>
+              <div class="contact-line">
+                <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
+                <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">💬 WhatsApp</a>
+              </div>
               ${correoLink}
-              <p><strong>Categoría:</strong> ${t.categoria}</p>
-              <div class="contact-actions">
-                <a class="action-btn" href="tel:${t.telefono}">📞 Llamar</a>
-                <a class="action-btn" href="${whatsappLink}" target="_blank">💬 Enviar WhatsApp</a>
-                ${t.correo ? `<a class="action-btn" href="mailto:${t.correo}">✉️ Enviar correo</a>` : ""}
+              <div class="contact-line">
+                <strong>Categoría:</strong> ${t.categoria}
               </div>
             </div>
           </div>`;
@@ -315,7 +287,7 @@
 
       cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
       for(let i=1; i<=totalPaginas; i++){
-        cont.innerHTML += `<span style="${i===paginaActual?"color:var(--color-accent)":"color:var(--color-text)"}">${i}</span>`;
+        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
       }
       cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual+1})" ${paginaActual===totalPaginas?"disabled":""}>&raquo;</button>`;
     }
