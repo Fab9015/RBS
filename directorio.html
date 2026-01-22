@@ -153,19 +153,80 @@
       font-weight: bold;
     }
 
-    /* Responsive */
+    /* Responsive móvil */
     @media (max-width: 768px) {
-      .contact-card {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
+      header h1 {
+        font-size: 1.8em;
+        text-align: center;
       }
-      .contact-card img {
+      header p {
+        font-size: 1.2em;
+        text-align: center;
+        margin-top: 0.5em;
+      }
+
+      /* Carrusel de relevantes */
+      #relevantes {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 1em;
+        padding: 1em 0;
+      }
+      #relevantes .contact-card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        width: 85%;
+        margin: 0 auto;
+      }
+
+      /* Tabs más grandes */
+      .tabs button {
+        flex: 1 1 100%;
+        font-size: 1.2em;
+        padding: 12px;
+        margin: 6px 0;
+      }
+
+      /* Filtro más grande */
+      .filter label {
+        font-size: 1.2em;
+      }
+      .filter select {
+        font-size: 1.1em;
+        padding: 10px;
+        width: 100%;
+        margin-top: 0.5em;
+      }
+
+      /* Lista de trabajadores estilo app */
+      #lista .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+        font-size: 1.1em;
+        padding: 1.2em;
+      }
+      #lista .contact-card h3 {
+        font-size: 1.4em;
         margin-bottom: 0.5em;
       }
-      #relevantes {
-        flex-direction: column;
-        align-items: center;
+      #lista .contact-line,
+      #lista .contact-line-inline {
+        font-size: 1.1em;
+        width: 100%;
+        justify-content: space-between;
+      }
+      .whatsapp-btn {
+        font-size: 1em;
+        padding: 6px 12px;
+      }
+
+      /* Paginador más grande */
+      .pagination button {
+        font-size: 1.2em;
+        padding: 10px 14px;
+        margin: 0 6px;
       }
     }
   </style>
