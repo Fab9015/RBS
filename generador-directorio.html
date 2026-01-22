@@ -70,7 +70,9 @@
     <label>Nombre: <input id="trab-nombre"></label>
     <label>Teléfono: <input id="trab-telefono"></label>
     <label>Correo: <input id="trab-correo"></label>
-    <label>Categoría: <input id="trab-cat"></label>
+    <label>Categoría:
+      <select id="trab-cat"></select>
+    </label>
     <button onclick="addTrabajador()">Agregar trabajador</button>
   </div>
 
@@ -94,6 +96,7 @@
       .then(json => {
         data = json;
         updateOutput();
+        fillCategories();
       })
       .catch(err => console.error("Error al cargar directorio.json:", err));
 
@@ -101,33 +104,68 @@
       document.getElementById('output').value = JSON.stringify(data, null, 2);
     }
 
+    // Validación básica de correo
+    function validateEmail(email) {
+      return /\S+@\S+\.\S+/.test(email);
+    }
+
     function addRelevante() {
-      const nombre = document.getElementById('rel-nombre').value;
-      const telefono = document.getElementById('rel-telefono').value;
-      const correo = document.getElementById('rel-correo').value;
-      if(nombre && telefono && correo){
-        data.relevantes.push({ nombre, telefono, correo });
-        updateOutput();
+      const nombre = document.getElementById('rel-nombre').value.trim();
+      const telefono = document.getElementById('rel-telefono').value.trim();
+      const correo = document.getElementById('rel-correo').value.trim();
+      if(!nombre || !telefono || !correo){
+        alert("Todos los campos son obligatorios.");
+        return;
       }
+      if(!validateEmail(correo)){
+        alert("Correo inválido.");
+        return;
+      }
+      data.relevantes.push({ nombre, telefono, correo });
+      updateOutput();
     }
 
     function addBusqueda() {
-      const cat = document.getElementById('busq-cat').value;
-      if(cat){
-        data.busquedasFrecuentes.push(cat);
-        updateOutput();
+      const cat = document.getElementById('busq-cat').value.trim();
+      if(!cat){
+        alert("La categoría no puede estar vacía.");
+        return;
       }
+      if(data.busquedasFrecuentes.includes(cat)){
+        alert("La categoría ya existe.");
+        return;
+      }
+      data.busquedasFrecuentes.push(cat);
+      updateOutput();
+      fillCategories(); // actualizar dropdown
     }
 
     function addTrabajador() {
-      const nombre = document.getElementById('trab-nombre').value;
-      const telefono = document.getElementById('trab-telefono').value;
-      const correo = document.getElementById('trab-correo').value;
+      const nombre = document.getElementById('trab-nombre').value.trim();
+      const telefono = document.getElementById('trab-telefono').value.trim();
+      const correo = document.getElementById('trab-correo').value.trim();
       const categoria = document.getElementById('trab-cat').value;
-      if(nombre && telefono && correo && categoria){
-        data.trabajadores.push({ nombre, telefono, correo, categoria });
-        updateOutput();
+      if(!nombre || !telefono || !correo || !categoria){
+        alert("Todos los campos son obligatorios.");
+        return;
       }
+      if(!validateEmail(correo)){
+        alert("Correo inválido.");
+        return;
+      }
+      data.trabajadores.push({ nombre, telefono, correo, categoria });
+      updateOutput();
+    }
+
+    function fillCategories() {
+      const select = document.getElementById('trab-cat');
+      select.innerHTML = "";
+      data.busquedasFrecuentes.forEach(cat => {
+        const option = document.createElement("option");
+        option.value = cat;
+        option.textContent = cat;
+        select.appendChild(option);
+      });
     }
 
     function downloadJSON() {
