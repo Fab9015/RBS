@@ -79,7 +79,8 @@
       width: 100%;
     }
     #relevantes .contact-card {
-      flex: 0 0 100%; /* ✅ una card por pantalla */
+      flex: 0 0 85%; /* ✅ menos ancho para espacio */
+      margin: 0 auto;
     }
     .carousel-indicators {
       text-align: center;
@@ -141,6 +142,20 @@
       border-radius: 4px;
       cursor: pointer;
     }
+
+    /* ✅ Responsive móvil */
+    @media (max-width: 768px) {
+      .contact-line {
+        flex-direction: column; /* Tel arriba, WhatsApp debajo */
+        align-items: flex-start;
+      }
+      .whatsapp-btn {
+        margin-left: 0;
+        margin-top: 6px;
+        font-size: 1em;
+        padding: 6px 12px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -168,6 +183,9 @@
       </select>
     </div>
 
+    <!-- ✅ Nuevo título -->
+    <h2 style="margin-top:1.5em;">Resultados</h2>
+
     <!-- Lista de trabajadores -->
     <div id="lista"></div>
 
@@ -183,11 +201,14 @@
         <option value="15">15</option>
       </select>
     </div>
-  </div>4  <script>
+  </div>
+    <script>
     let datos = {};
     let paginaActual = 1;
     let porPagina = 5; 
     let currentSlide = 0; // índice del carrusel
+    let startX = 0;
+    let isDragging = false;
 
     fetch('directorio.json')
       .then(r => r.json())
@@ -199,6 +220,7 @@
         renderCategorias();
         renderLista();
         renderPaginacion();
+        initCarouselTouch();
       });
 
     /* Carrusel de contactos importantes */
@@ -216,8 +238,8 @@
               <h3>${c.nombre}</h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
-                <a class="whatsapp-btn" href="${whatsapp}" target="_blank">💬 WhatsApp</a>
               </div>
+              <a class="whatsapp-btn" href="${whatsapp}" target="_blank">💬 WhatsApp</a>
               ${correo}
             </div>
           </div>`;
@@ -251,6 +273,28 @@
       if(index < 0 || index >= datos.relevantes.length) return;
       currentSlide = index;
       updateCarousel();
+    }
+
+    function initCarouselTouch() {
+      const carousel = document.getElementById('relevantes');
+      carousel.addEventListener('touchstart', e => {
+        startX = e.touches[0].clientX;
+        isDragging = true;
+      });
+      carousel.addEventListener('touchmove', e => {
+        if(!isDragging) return;
+        const diff = e.touches[0].clientX - startX;
+        if(diff > 50) { // deslizar a la derecha
+          goToSlide(currentSlide - 1);
+          isDragging = false;
+        } else if(diff < -50) { // deslizar a la izquierda
+          goToSlide(currentSlide + 1);
+          isDragging = false;
+        }
+      });
+      carousel.addEventListener('touchend', () => {
+        isDragging = false;
+      });
     }
 
     /* Tabs */
@@ -306,8 +350,8 @@
               <h3>${t.nombre}</h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
-                <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">💬 WhatsApp</a>
               </div>
+              <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">💬 WhatsApp</a>
               ${correoLink}
               <div class="contact-line-inline">
                 <strong>Categoría:</strong> ${t.categoria}
