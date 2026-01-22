@@ -8,9 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
-      --color-bg: #fdfaf5;
-      --color-title: #5c4033;
-      --color-accent: #a1b27a;
+      --color-bg: #fdfaf5;       /* beige claro */
+      --color-title: #5c4033;    /* marrón */
+      --color-accent: #a1b27a;   /* verde */
       --color-white: #fefefe;
       --color-text: #5c4033;
       --color-border: #e6e2dc;
@@ -28,8 +28,8 @@
 
     /* Header estilo cuota */
     header {
-      background: var(--color-accent);
-      color: var(--color-white);
+      background: var(--color-bg);
+      color: var(--color-title);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,11 +42,11 @@
     }
     .header-text h1 {
       margin: 0;
-      font-size: 1.6em;
+      font-size: 1.4em; /* más compacto */
     }
     .header-text p {
       margin-top: 0.4em;
-      font-size: 1em;
+      font-size: 0.95em; /* más pequeño */
     }
     .logo {
       width: 100px;
@@ -60,6 +60,7 @@
     }
 
     .contact-card {
+      position: relative; /* necesario para etiqueta flotante */
       display: flex;
       align-items: center;
       background: var(--color-bg);
@@ -79,17 +80,16 @@
     .contact-info h3 {
       margin: 0;
       color: var(--color-title);
-      display: flex;
-      align-items: center;
-      gap: 8px;
     }
 
-    /* Etiqueta de categoría */
+    /* Etiqueta flotante */
     .category-tag {
-      display: inline-block;
+      position: absolute;
+      top: 8px;
+      right: 8px;
       background: var(--color-accent);
       color: var(--color-white);
-      padding: 2px 8px;
+      padding: 4px 10px;
       border-radius: 6px;
       font-size: 0.85em;
     }
@@ -317,9 +317,10 @@
           </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
+            <span class="category-tag">${c.categoria}</span>
             <img src="${icono}" alt="${c.nombre}">
             <div class="contact-info">
-              <h3>${c.nombre} <span class="category-tag">${c.categoria}</span></h3>
+              <h3>${c.nombre}</h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
               </div>
@@ -451,9 +452,10 @@
           </div>` : "";
         lista.innerHTML += `
           <div class="contact-card">
+            <span class="category-tag">${t.categoria}</span>
             <img src="img/trabajador.png" alt="${t.categoria}">
             <div class="contact-info">
-              <h3>${t.nombre} <span class="category-tag">${t.categoria}</span></h3>
+              <h3>${t.nombre}</h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
               </div>
@@ -506,4 +508,4 @@
     });
   </script>
 </body>
-</html>
+</html> 
