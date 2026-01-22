@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Directorio de Contactos</title>
+  <style>
+    :root {
+      --color-bg: #fdfaf5;
+      --color-title: #5c4033;
+      --color-footer: #5c4033;
+      --color-accent: #a1b27a;
+      --color-highlight: #a1b27a;
+      --color-white: #fefefe;
+      --color-text: #5c4033;
+      --color-border: #e6e2dc;
+    }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--color-bg);
+      margin: 0;
+      padding: 0;
+      color: var(--color-text);
+    }
+    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
+    h2,h3,h4 { color: var(--color-title); }
+    header {
+      text-align: center;
+      padding: 2em 1em;
+    }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 1em;
+    }
+    .card {
+      background: var(--color-bg);
+      border: 2px solid var(--color-accent);
+      border-radius: 10px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+    /* Contact card */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
+    .contact-card img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      margin-right: 1em;
+    }
+    .contact-info h3 {
+      margin: 0;
+      color: var(--color-title);
+    }
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1em 0;
+    }
+    .tabs button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 8px 16px;
+      margin: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tabs button:hover {
+      background: #8fa76a;
+    }
+    /* Dropdown */
+    .filter {
+      text-align: center;
+      margin: 1em 0;
+    }
+    select {
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+    }
+    /* Paginación */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1em 0;
+    }
+    .pagination button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 6px 10px;
+      margin: 0 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background: #8fa76a;
+    }
+    .pagination span {
+      margin: 0 4px;
+      font-weight: bold;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .contact-card {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .contact-card img {
+        margin-bottom: 0.5em;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Directorio de Contactos del Condominio</h1>
+    <p>Encuentra teléfonos y correos de trabajadores recomendados y contactos importantes.</p>
+  </header>
+
+  <div class="container">
+    <!-- Contactos relevantes -->
+    <div class="card">
+      <h2>Contactos importantes</h2>
+      <div class="contact-card">
+        <img src="img/admin.png" alt="Administración">
+        <div class="contact-info">
+          <h3>Administración</h3>
+          <p><strong>Tel:</strong> 449-123-4567</p>
+          <p><strong>Email:</strong> admin@condominio.com</p>
+        </div>
+      </div>
+      <div class="contact-card">
+        <img src="img/caseta.png" alt="Caseta">
+        <div class="contact-info">
+          <h3>Caseta de vigilancia</h3>
+          <p><strong>Tel:</strong> 449-987-6543</p>
+          <p><strong>Email:</strong> caseta@condominio.com</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tabs de búsquedas frecuentes -->
+    <div class="tabs">
+      <button>Plomeros</button>
+      <button>Electricistas</button>
+      <button>Carpinteros</button>
+      <button>Servicios de limpieza</button>
+      <button>Jardineros</button>
+    </div>
+
+    <!-- Dropdown de categorías -->
+    <div class="filter">
+      <label for="categoria">Selecciona categoría: </label>
+      <select id="categoria">
+        <option value="todos">Todos</option>
+        <option value="Plomero">Plomeros</option>
+        <option value="Electricista">Electricistas</option>
+        <option value="Carpintero">Carpinteros</option>
+        <option value="Limpieza">Servicios de limpieza</option>
+        <option value="Jardinero">Jardineros</option>
+      </select>
+    </div>
+
+    <!-- Lista de resultados -->
+    <div id="lista">
+      <!-- Aquí se insertan los contact-card con JS -->
+    </div>
+
+    <!-- Paginación -->
+    <div class="pagination">
+      <button>&laquo;</button>
+      <span>1</span>
+      <span>2</span>
+      <span>...</span>
+      <span>5</span>
+      <span>6</span>
+      <button>&raquo;</button>
+    </div>
+
+    <!-- Dropdown cantidad por página -->
+    <div class="filter" style="text-align:left;">
+      <label for="porPagina">Elementos por página: </label>
+      <select id="porPagina">
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
+  </div>
+</body>
+</html>
