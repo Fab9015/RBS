@@ -1,110 +1,36 @@
 {
+  "categorias": [
+    "Plomeros",
+    "Electricistas",
+    "Carpinteros",
+    "Servicios de limpieza",
+    "Jardineros"
+  ],
+  "busquedasRelevantes": [
+    { "categoria": "Plomeros", "activo": true },
+    { "categoria": "Electricistas", "activo": true },
+    { "categoria": "Carpinteros", "activo": false },
+    { "categoria": "Servicios de limpieza", "activo": false },
+    { "categoria": "Jardineros", "activo": true }
+  ],
   "relevantes": [
     {
-      "nombre": "Lic. Rocio",
-      "telefono": "123456",
-      "correo": "rocio.test@test.com"
+      "nombre": "Administración",
+      "telefono": "449-123-4567",
+      "correo": "admin@condominio.com"
+    },
+    {
+      "nombre": "Caseta de vigilancia",
+      "telefono": "449-987-6543",
+      "correo": "caseta@condominio.com"
     }
-  ],
-  "busquedasFrecuentes": [
-    "Electricista"
   ],
   "trabajadores": [
     {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "Test",
-      "telefono": "1234",
-      "correo": "correotest@test.com",
-      "categoria": "Electricista"
-    },
-    {
-      "nombre": "test 3",
-      "telefono": "343",
-      "correo": "tets@test.com",
-      "categoria": "Electricista"
+      "nombre": "Juan Pérez",
+      "telefono": "449-555-1111",
+      "correo": "juanperez@ejemplo.com",
+      "categoria": "Plomeros"
     }
   ]
 }
