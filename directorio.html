@@ -7,9 +7,7 @@
     :root {
       --color-bg: #fdfaf5;
       --color-title: #5c4033;
-      --color-footer: #5c4033;
       --color-accent: #a1b27a;
-      --color-highlight: #a1b27a;
       --color-white: #fefefe;
       --color-text: #5c4033;
       --color-border: #e6e2dc;
@@ -58,7 +56,7 @@
       margin-bottom: 0.5em;
     }
 
-    /* Contact card */
+    /* Contact card estilo identificación */
     .contact-card {
       display: flex;
       align-items: center;
@@ -70,8 +68,8 @@
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
     .contact-card img {
-      width: 60px;
-      height: 60px;
+      width: 100px;
+      height: 100px;
       object-fit: contain;
       margin-right: 1em;
     }
@@ -79,60 +77,22 @@
       margin: 0;
       color: var(--color-title);
     }
-
-    /* Tabs */
-    .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin: 1em 0;
+    .contact-actions {
+      margin-top: 0.5em;
     }
-    .tabs button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      padding: 8px 16px;
-      margin: 4px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .tabs button:hover {
-      background: #8fa76a;
-    }
-
-    /* Dropdown */
-    .filter {
-      text-align: center;
-      margin: 1em 0;
-    }
-    select {
-      padding: 6px;
-      border-radius: 6px;
-      border: 1px solid var(--color-border);
-    }
-
-    /* Paginación */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1em 0;
-    }
-    .pagination button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      padding: 6px 10px;
-      margin: 0 4px;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .pagination button:hover {
-      background: #8fa76a;
-    }
-    .pagination span {
-      margin: 0 4px;
+    .contact-actions a {
+      margin-right: 10px;
+      text-decoration: none;
       font-weight: bold;
+      color: var(--color-accent);
+    }
+    .whatsapp-btn {
+      display: inline-block;
+      background: #25D366;
+      color: white;
+      padding: 6px 10px;
+      border-radius: 6px;
+      font-size: 14px;
     }
 
     /* Responsive */
@@ -143,10 +103,6 @@
       }
       .contact-card img {
         margin-bottom: 0.5em;
-      }
-      .relevantes-grid {
-        flex-direction: column;
-        align-items: center;
       }
     }
   </style>
@@ -164,77 +120,59 @@
       <div class="relevante-card">
         <img src="img/admin.png" alt="Administración">
         <h3>Administración</h3>
-        <p><strong>Tel:</strong> 449-123-4567</p>
+        <p><strong>Tel:</strong> <a href="tel:4491234567">449-123-4567</a></p>
         <p><strong>Email:</strong> admin@condominio.com</p>
+        <div class="contact-actions">
+          <a class="whatsapp-btn" href="https://wa.me/524491234567?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
+        </div>
       </div>
       <div class="relevante-card">
         <img src="img/vigilancia.png" alt="Vigilancia">
         <h3>Caseta de vigilancia</h3>
-        <p><strong>Tel:</strong> 449-987-6543</p>
+        <p><strong>Tel:</strong> <a href="tel:4499876543">449-987-6543</a></p>
         <p><strong>Email:</strong> caseta@condominio.com</p>
+        <div class="contact-actions">
+          <a class="whatsapp-btn" href="https://wa.me/524499876543?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
+        </div>
       </div>
       <div class="relevante-card">
-        <img src="img/dummy.png" alt="Otro">
+        <img src="img/trabajador.png" alt="Otro">
         <h3>Contacto extra</h3>
-        <p><strong>Tel:</strong> 449-000-0000</p>
+        <p><strong>Tel:</strong> <a href="tel:4490000000">449-000-0000</a></p>
         <p><strong>Email:</strong> otro@condominio.com</p>
+        <div class="contact-actions">
+          <a class="whatsapp-btn" href="https://wa.me/524490000000?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
+        </div>
       </div>
     </div>
 
-    <!-- Tabs de búsquedas frecuentes -->
-    <div class="tabs">
-      <button>Plomeros</button>
-      <button>Electricistas</button>
-      <button>Carpinteros</button>
-      <button>Servicios de limpieza</button>
-      <button>Jardineros</button>
-    </div>
-
-    <!-- Dropdown de categorías -->
-    <div class="filter">
-      <label for="categoria">Selecciona categoría: </label>
-      <select id="categoria">
-        <option value="todos">Todos</option>
-        <option value="Plomero">Plomeros</option>
-        <option value="Electricista">Electricistas</option>
-        <option value="Carpintero">Carpinteros</option>
-        <option value="Limpieza">Servicios de limpieza</option>
-        <option value="Jardinero">Jardineros</option>
-      </select>
-    </div>
-
-    <!-- Lista de resultados -->
-    <div id="lista">
-      <!-- Aquí se insertan los contact-card con JS -->
-    </div>
-
-    <!-- Paginación -->
-    <div class="pagination">
-      <button>&laquo;</button>
-      <span>1</span>
-      <span>2</span>
-      <span>...</span>
-      <span>5</span>
-      <span>6</span>
-      <button>&raquo;</button>
-    </div>
-
-    <!-- Dropdown cantidad por página -->
-    <div class="filter" style="text-align:left;">
-      <label for="porPagina">Elementos por página: </label>
-      <select id="porPagina">
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-    </div>
+    <!-- Lista de trabajadores -->
+    <h2>Trabajadores</h2>
+    <div id="lista"></div>
   </div>
 
   <script>
     fetch('directorio.json')
       .then(response => response.json())
       .then(data => {
-        // Aquí irá la lógica para mostrar trabajadores y paginación
-        console.log("Datos cargados:", data);
+        const lista = document.getElementById('lista');
+        lista.innerHTML = "";
+        data.trabajadores.forEach(t => {
+          const card = `
+            <div class="contact-card">
+              <img src="img/trabajador.png" alt="${t.categoria}">
+              <div class="contact-info">
+                <h3>${t.nombre}</h3>
+                <p><strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a></p>
+                <p><strong>Email:</strong> ${t.correo}</p>
+                <p><strong>Categoría:</strong> ${t.categoria}</p>
+                <div class="contact-actions">
+                  <a class="whatsapp-btn" href="https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
+                </div>
+              </div>
+            </div>`;
+          lista.innerHTML += card;
+        });
       });
   </script>
 </body>
