@@ -1,10 +1,10 @@
 {
   "categorias": [
-    "Plomeros",
-    "Electricistas",
-    "Carpinteros",
+    "Plomero",
+    "Electricista",
+    "Carpintero",
     "Servicios de limpieza",
-    "Jardineros"
+    "Jardinero"
   ],
   "busquedasRelevantes": [
     { "categoria": "Plomeros", "activo": true },
