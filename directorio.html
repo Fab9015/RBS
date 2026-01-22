@@ -25,10 +25,30 @@
     }
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
+
     header {
       text-align: center;
       padding: 2em 1em;
     }
+
+    /* Banner principal */
+    .banner {
+      background: var(--color-accent);
+      color: var(--color-white);
+      text-align: center;
+      padding: 2em 1em;
+      border-radius: 8px;
+      margin-bottom: 1.5em;
+    }
+    .banner h2 {
+      margin: 0;
+      font-size: 2em;
+    }
+    .banner p {
+      margin-top: 0.5em;
+      font-size: 1.2em;
+    }
+
     .container {
       max-width: 1000px;
       margin: auto;
@@ -75,6 +95,26 @@
       border: 1px solid var(--color-border);
     }
 
+    /* Correos truncados */
+    .contact-email {
+      display: inline-block;
+      max-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      vertical-align: middle;
+    }
+    .copy-btn {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 4px 8px;
+      margin-left: 6px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8em;
+    }
+
     /* Tabs */
     .tabs button {
       background: var(--color-accent);
@@ -109,14 +149,14 @@
         gap: 0.8em;
       }
       .tabs button {
-        padding: 8px 12px; /* ✅ más pequeños */
-        font-size: 0.95em; /* ✅ más chicos */
+        padding: 8px 12px; /* más pequeños */
+        font-size: 0.95em;
       }
       .carousel-indicators {
         display: block;
         text-align: center;
         margin-top: 0.5em;
-        margin-bottom: 1em; /* ✅ espacio debajo de los puntos */
+        margin-bottom: 1em; /* espacio debajo de los puntos */
       }
     }
 
@@ -136,10 +176,10 @@
         display: flex;
         gap: 1em;
         justify-content: center;
-        margin-top: 1.5em; /* ✅ espacio entre cards y botones */
+        margin-top: 1.5em; /* espacio entre cards y botones */
       }
       .carousel-indicators {
-        display: none; /* ✅ ocultar en desktop */
+        display: none; /* ocultar en desktop */
       }
     }
 
@@ -187,6 +227,12 @@
     <h1>Directorio de Contactos del Condominio</h1>
     <p>Encuentra teléfonos y correos de trabajadores recomendados y contactos importantes.</p>
   </header>
+
+  <!-- Banner principal -->
+  <div class="banner">
+    <h2>Directorio del Condominio</h2>
+    <p>Encuentra contactos importantes y trabajadores recomendados de manera rápida y sencilla.</p>
+  </div>
 
   <div class="container">
     <h2>Contactos importantes</h2>
@@ -247,7 +293,12 @@
       datos.relevantes.forEach((c, i) => {
         const icono = i === 0 ? "img/admin.png" : i === 1 ? "img/vigilancia.png" : "img/trabajador.png";
         const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correo = c.correo ? `<div class="contact-line"><strong>Email:</strong> <a href="mailto:${c.correo}">${c.correo}</a></div>` : "";
+        const correo = c.correo ? `
+          <div class="contact-line">
+            <strong>Email:</strong> 
+            <span class="contact-email" title="${c.correo}">${c.correo}</span>
+            <button class="copy-btn" onclick="copiarEmail('${c.correo}')">Copiar</button>
+          </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
             <img src="${icono}" alt="${c.nombre}">
@@ -344,6 +395,13 @@
         sel.appendChild(opt);
       });
     }
+
+    /* Función para copiar email */
+    function copiarEmail(email) {
+      navigator.clipboard.writeText(email).then(() => {
+        alert("Correo copiado al portapapeles");
+      });
+    }
           function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
@@ -368,7 +426,12 @@
 
       pagina.forEach(t => {
         const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correoLink = t.correo ? `<div class="contact-line"><strong>Email:</strong> <a href="mailto:${t.correo}">${t.correo}</a></div>` : "";
+        const correoLink = t.correo ? `
+          <div class="contact-line">
+            <strong>Email:</strong> 
+            <span class="contact-email" title="${t.correo}">${t.correo}</span>
+            <button class="copy-btn" onclick="copiarEmail('${t.correo}')">Copiar</button>
+          </div>` : "";
         lista.innerHTML += `
           <div class="contact-card">
             <img src="img/trabajador.png" alt="${t.categoria}">
