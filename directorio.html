@@ -56,7 +56,7 @@
       margin-bottom: 0.5em;
     }
 
-    /* Contact card estilo identificación */
+    /* Contact card estilo credencial */
     .contact-card {
       display: flex;
       align-items: center;
@@ -79,20 +79,75 @@
     }
     .contact-actions {
       margin-top: 0.5em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5em;
     }
-    .contact-actions a {
-      margin-right: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      color: var(--color-accent);
-    }
-    .whatsapp-btn {
-      display: inline-block;
-      background: #25D366;
+    .action-btn {
+      background: var(--color-accent);
       color: white;
       padding: 6px 10px;
       border-radius: 6px;
+      text-decoration: none;
       font-size: 14px;
+    }
+    .action-btn:hover {
+      background: #8fa76a;
+    }
+
+    /* Tabs */
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1em 0;
+    }
+    .tabs button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 8px 16px;
+      margin: 4px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    .tabs button:hover {
+      background: #8fa76a;
+    }
+
+    /* Dropdown */
+    .filter {
+      text-align: center;
+      margin: 1em 0;
+    }
+    select {
+      padding: 6px;
+      border-radius: 6px;
+      border: 1px solid var(--color-border);
+    }
+
+    /* Paginación */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 1em 0;
+    }
+    .pagination button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 6px 10px;
+      margin: 0 4px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pagination button:hover {
+      background: #8fa76a;
+    }
+    .pagination span {
+      margin: 0 4px;
+      font-weight: bold;
     }
 
     /* Responsive */
@@ -104,6 +159,10 @@
       .contact-card img {
         margin-bottom: 0.5em;
       }
+      .relevantes-grid {
+        flex-direction: column;
+        align-items: center;
+      }
     }
   </style>
 </head>
@@ -114,66 +173,172 @@
   </header>
 
   <div class="container">
-    <!-- Contactos relevantes en horizontal -->
+    <!-- Contactos relevantes -->
     <h2>Contactos importantes</h2>
-    <div class="relevantes-grid">
-      <div class="relevante-card">
-        <img src="img/admin.png" alt="Administración">
-        <h3>Administración</h3>
-        <p><strong>Tel:</strong> <a href="tel:4491234567">449-123-4567</a></p>
-        <p><strong>Email:</strong> admin@condominio.com</p>
-        <div class="contact-actions">
-          <a class="whatsapp-btn" href="https://wa.me/524491234567?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
-        </div>
-      </div>
-      <div class="relevante-card">
-        <img src="img/vigilancia.png" alt="Vigilancia">
-        <h3>Caseta de vigilancia</h3>
-        <p><strong>Tel:</strong> <a href="tel:4499876543">449-987-6543</a></p>
-        <p><strong>Email:</strong> caseta@condominio.com</p>
-        <div class="contact-actions">
-          <a class="whatsapp-btn" href="https://wa.me/524499876543?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
-        </div>
-      </div>
-      <div class="relevante-card">
-        <img src="img/trabajador.png" alt="Otro">
-        <h3>Contacto extra</h3>
-        <p><strong>Tel:</strong> <a href="tel:4490000000">449-000-0000</a></p>
-        <p><strong>Email:</strong> otro@condominio.com</p>
-        <div class="contact-actions">
-          <a class="whatsapp-btn" href="https://wa.me/524490000000?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
-        </div>
-      </div>
+    <div class="relevantes-grid" id="relevantes"></div>
+
+    <!-- Tabs -->
+    <div class="tabs" id="tabs"></div>
+
+    <!-- Filtro por categoría -->
+    <div class="filter">
+      <label for="categoria">Selecciona categoría: </label>
+      <select id="categoria">
+        <option value="todos">Todos</option>
+      </select>
     </div>
 
     <!-- Lista de trabajadores -->
-    <h2>Trabajadores</h2>
     <div id="lista"></div>
+
+    <!-- Paginación -->
+    <div class="pagination" id="paginacion"></div>
+
+    <!-- Filtro de ítems por página -->
+    <div class="filter" style="text-align:left;">
+      <label for="porPagina">Elementos por página: </label>
+      <select id="porPagina">
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
   </div>
 
   <script>
+    let datos = {};
+    let paginaActual = 1;
+    let porPagina = 10;
+
     fetch('directorio.json')
-      .then(response => response.json())
-      .then(data => {
-        const lista = document.getElementById('lista');
-        lista.innerHTML = "";
-        data.trabajadores.forEach(t => {
-          const card = `
-            <div class="contact-card">
-              <img src="img/trabajador.png" alt="${t.categoria}">
-              <div class="contact-info">
-                <h3>${t.nombre}</h3>
-                <p><strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a></p>
-                <p><strong>Email:</strong> ${t.correo}</p>
-                <p><strong>Categoría:</strong> ${t.categoria}</p>
-                <div class="contact-actions">
-                  <a class="whatsapp-btn" href="https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio" target="_blank">WhatsApp</a>
-                </div>
-              </div>
-            </div>`;
-          lista.innerHTML += card;
-        });
+      .then(r => r.json())
+      .then(json => {
+        datos = json;
+        renderRelevantes();
+        renderTabs();
+        renderCategorias();
+        renderLista();
+        renderPaginacion();
       });
+
+    function renderRelevantes() {
+      const cont = document.getElementById('relevantes');
+      cont.innerHTML = "";
+      datos.relevantes.forEach((c, i) => {
+        const icono = i === 0 ? "img/admin.png" : i === 1 ? "img/vigilancia.png" : "img/trabajador.png";
+        const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+        const correo = c.correo ? `<p><strong>Email:</strong> <a href="mailto:${c.correo}">${c.correo}</a></p>` : "";
+        cont.innerHTML += `
+          <div class="relevante-card">
+            <img src="${icono}" alt="${c.nombre}">
+            <h3>${c.nombre}</h3>
+            <p><strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a></p>
+            ${correo}
+            <div class="contact-actions">
+              <a class="action-btn" href="tel:${c.telefono}">📞 Llamar</a>
+              <a class="action-btn" href="${whatsapp}" target="_blank">💬 Enviar WhatsApp</a>
+              ${c.correo ? `<a class="action-btn" href="mailto:${c.correo}">✉️ Enviar correo</a>` : ""}
+            </div>
+          </div>`;
+      });
+    }
+
+    function renderTabs() {
+      const cont = document.getElementById('tabs');
+      cont.innerHTML = "";
+      datos.busquedasFrecuentes.forEach(cat => {
+        cont.innerHTML += `<button onclick="filtrar('${cat}')">${cat}</button>`;
+      });
+    }
+
+    function renderCategorias() {
+      const sel = document.getElementById('categoria');
+      datos.busquedasFrecuentes.forEach(cat => {
+        const opt = document.createElement("option");
+        opt.value = cat;
+        opt.textContent = cat;
+        sel.appendChild
+                sel.appendChild(opt);
+      });
+    }
+
+    function filtrar(cat) {
+      document.getElementById('categoria').value = cat;
+      paginaActual = 1;
+      renderLista();
+      renderPaginacion();
+    }
+
+    function renderLista() {
+      const lista = document.getElementById('lista');
+      lista.innerHTML = "";
+      const categoria = document.getElementById('categoria').value;
+      let filtrados = datos.trabajadores;
+      if(categoria !== "todos"){
+        filtrados = filtrados.filter(t => t.categoria === categoria);
+      }
+      const inicio = (paginaActual - 1) * porPagina;
+      const fin = inicio + porPagina;
+      const pagina = filtrados.slice(inicio, fin);
+
+      pagina.forEach(t => {
+        const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+        const correoLink = t.correo ? `<p><strong>Email:</strong> <a href="mailto:${t.correo}">${t.correo}</a></p>` : "";
+        lista.innerHTML += `
+          <div class="contact-card">
+            <img src="img/trabajador.png" alt="${t.categoria}">
+            <div class="contact-info">
+              <h3>${t.nombre}</h3>
+              <p><strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a></p>
+              ${correoLink}
+              <p><strong>Categoría:</strong> ${t.categoria}</p>
+              <div class="contact-actions">
+                <a class="action-btn" href="tel:${t.telefono}">📞 Llamar</a>
+                <a class="action-btn" href="${whatsappLink}" target="_blank">💬 Enviar WhatsApp</a>
+                ${t.correo ? `<a class="action-btn" href="mailto:${t.correo}">✉️ Enviar correo</a>` : ""}
+              </div>
+            </div>
+          </div>`;
+      });
+    }
+
+    function renderPaginacion() {
+      const cont = document.getElementById('paginacion');
+      cont.innerHTML = "";
+      const categoria = document.getElementById('categoria').value;
+      let filtrados = datos.trabajadores;
+      if(categoria !== "todos"){
+        filtrados = filtrados.filter(t => t.categoria === categoria);
+      }
+      const totalPaginas = Math.ceil(filtrados.length / porPagina);
+
+      if(totalPaginas <= 1) return;
+
+      cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
+      for(let i=1; i<=totalPaginas; i++){
+        cont.innerHTML += `<span style="${i===paginaActual?"color:var(--color-accent)":"color:var(--color-text)"}">${i}</span>`;
+      }
+      cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual+1})" ${paginaActual===totalPaginas?"disabled":""}>&raquo;</button>`;
+    }
+
+    function cambiarPagina(num) {
+      const categoria = document.getElementById('categoria').value;
+      let filtrados = datos.trabajadores;
+      if(categoria !== "todos"){
+        filtrados = filtrados.filter(t => t.categoria === categoria);
+      }
+      const totalPaginas = Math.ceil(filtrados.length / porPagina);
+      if(num < 1 || num > totalPaginas) return;
+      paginaActual = num;
+      renderLista();
+      renderPaginacion();
+    }
+
+    document.getElementById('porPagina').addEventListener('change', e => {
+      porPagina = parseInt(e.target.value);
+      paginaActual = 1;
+      renderLista();
+      renderPaginacion();
+    });
   </script>
 </body>
 </html>
