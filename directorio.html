@@ -58,6 +58,10 @@
       color: var(--color-title);
     }
 
+    .contact-line {
+      margin-bottom: 0.3em; /* ✅ espacio debajo del teléfono */
+    }
+
     /* Botón WhatsApp */
     .whatsapp-btn {
       display: inline-flex;
@@ -69,8 +73,8 @@
       border-radius: 6px;
       text-decoration: none;
       font-size: 0.95em;
-      margin-top: 0;     /* ✅ corregido */
-      margin-bottom: 0;  /* ✅ corregido */
+      margin-top: 0;        /* ✅ corregido */
+      margin-bottom: 0.3em; /* ✅ espacio debajo del botón */
       border: 1px solid var(--color-border);
     }
 
@@ -82,11 +86,10 @@
     }
     #relevantes {
       display: flex;
-      transition: transform 0.3s ease-in-out;
-      width: 100%;
+      transition: transform 0.4s ease-in-out;
     }
     #relevantes .contact-card {
-      flex: 0 0 70%;   /* ✅ más angosta */
+      flex: 0 0 70%;   /* ✅ ancho fijo */
       margin: 0 auto;  /* ✅ centrada */
     }
     .carousel-indicators {
@@ -148,22 +151,6 @@
       margin: 0 4px;
       border-radius: 4px;
       cursor: pointer;
-    }
-
-    /* Responsive móvil */
-    @media (max-width: 768px) {
-      .contact-line {
-        flex-direction: column;
-        align-items: flex-start;
-        margin-bottom: 0.5em;
-      }
-      .whatsapp-btn {
-        margin-left: 0;
-        margin-top: 0;   /* ✅ corregido */
-        margin-bottom: 0;/* ✅ corregido */
-        font-size: 1em;
-        padding: 6px 12px;
-      }
     }
   </style>
 </head>
@@ -261,8 +248,12 @@
     }
 
     function updateCarousel() {
+      const card = document.querySelector('#relevantes .contact-card');
+      const cardWidth = card.offsetWidth;
+      const containerWidth = document.getElementById('carousel-container').offsetWidth;
+      const offset = (containerWidth - cardWidth) / 2; // margen para centrar
       const cont = document.getElementById('relevantes');
-      cont.style.transform = `translateX(-${currentSlide * 100}%)`;
+      cont.style.transform = `translateX(-${currentSlide * (cardWidth + offset)}px)`;
       updateIndicators();
     }
 
