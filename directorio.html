@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ necesario para móviles -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Directorio de Contactos</title>
   <style>
     :root {
@@ -79,7 +79,7 @@
       background: #8fa76a;
     }
 
-    /* Relevantes en horizontal (desktop) */
+    /* Relevantes en desktop */
     #relevantes {
       display: flex;
       flex-wrap: wrap;
@@ -87,12 +87,21 @@
       gap: 1em;
     }
 
-    /* Lista centrada */
+    /* Lista de trabajadores en dos columnas */
     #lista {
-      max-width: 800px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+      max-width: 1000px;
       margin: 0 auto;
-      padding-left: 1em;
-      padding-right: 1em;
+    }
+    #lista .contact-card {
+      display: flex;
+      flex-direction: row; /* imagen a la izquierda */
+      align-items: center;
+    }
+    #lista .contact-card img {
+      margin-right: 1em;
     }
 
     /* Tabs */
@@ -141,17 +150,14 @@
       background: var(--color-accent);
       color: var(--color-white);
       border: none;
-      padding: 6px 10px;
+      font-size: 1em;   /* más compacto */
+      padding: 8px 12px;
       margin: 0 4px;
       border-radius: 4px;
       cursor: pointer;
     }
     .pagination button:hover {
       background: #8fa76a;
-    }
-    .pagination span {
-      margin: 0 4px;
-      font-weight: bold;
     }
 
     /* ✅ Responsive móvil */
@@ -169,66 +175,43 @@
       /* Carrusel de relevantes */
       #relevantes {
         display: flex;
-        overflow-x: auto;
+        overflow-x: scroll;
         scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
         gap: 1em;
         padding: 1em;
       }
       #relevantes .contact-card {
-        flex: 0 0 85%;
+        flex: 0 0 90%;
         scroll-snap-align: center;
         margin: 0 auto;
       }
 
-      /* Tabs más grandes */
+      /* Tabs en dos columnas */
+      .tabs {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.8em;
+        margin: 1em 0;
+      }
       .tabs button {
-        flex: 1 1 100%;
-        font-size: 1.2em;
-        padding: 12px;
-        margin: 6px 0;
-      }
-
-      /* Filtro más grande */
-      .filter label {
-        font-size: 1.2em;
-      }
-      .filter select {
         font-size: 1.1em;
         padding: 10px;
         width: 100%;
-        margin-top: 0.5em;
       }
 
-      /* Lista de trabajadores estilo app */
+      /* Lista de trabajadores sigue en dos columnas */
+      #lista {
+        grid-template-columns: 1fr 1fr;
+      }
       #lista .contact-card {
-        flex-direction: column;
-        align-items: flex-start;
-        width: 100%;
-        font-size: 1.2em;
-        padding: 1.5em;
-        border-radius: 12px;
-      }
-      #lista .contact-card h3 {
-        font-size: 1.6em;
-        margin-bottom: 0.5em;
-      }
-      #lista .contact-line,
-      #lista .contact-line-inline {
-        font-size: 1.1em;
-        width: 100%;
-        justify-content: space-between;
-      }
-      .whatsapp-btn {
-        font-size: 1em;
-        padding: 6px 12px;
+        flex-direction: row; /* mantener imagen a la izquierda */
       }
 
-      /* Paginador más grande */
+      /* Paginador compacto */
       .pagination button {
-        font-size: 1.4em;
-        padding: 12px 18px;
-        margin: 0 6px;
+        font-size: 1em;
+        padding: 8px 12px;
       }
     }
   </style>
