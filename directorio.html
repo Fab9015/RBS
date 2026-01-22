@@ -2,6 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ necesario para móviles -->
   <title>Directorio de Contactos</title>
   <style>
     :root {
@@ -78,7 +79,7 @@
       background: #8fa76a;
     }
 
-    /* Relevantes en horizontal */
+    /* Relevantes en horizontal (desktop) */
     #relevantes {
       display: flex;
       flex-wrap: wrap;
@@ -153,7 +154,7 @@
       font-weight: bold;
     }
 
-    /* Responsive móvil */
+    /* ✅ Responsive móvil */
     @media (max-width: 768px) {
       header h1 {
         font-size: 1.8em;
@@ -170,13 +171,13 @@
         display: flex;
         overflow-x: auto;
         scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
         gap: 1em;
-        padding: 1em 0;
+        padding: 1em;
       }
       #relevantes .contact-card {
         flex: 0 0 85%;
         scroll-snap-align: center;
-        width: 85%;
         margin: 0 auto;
       }
 
@@ -204,11 +205,12 @@
         flex-direction: column;
         align-items: flex-start;
         width: 100%;
-        font-size: 1.1em;
-        padding: 1.2em;
+        font-size: 1.2em;
+        padding: 1.5em;
+        border-radius: 12px;
       }
       #lista .contact-card h3 {
-        font-size: 1.4em;
+        font-size: 1.6em;
         margin-bottom: 0.5em;
       }
       #lista .contact-line,
@@ -224,8 +226,8 @@
 
       /* Paginador más grande */
       .pagination button {
-        font-size: 1.2em;
-        padding: 10px 14px;
+        font-size: 1.4em;
+        padding: 12px 18px;
         margin: 0 6px;
       }
     }
