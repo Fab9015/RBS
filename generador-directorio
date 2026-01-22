@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de JSON de Contactos</title>
+  <style>
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #fdfaf5;
+      color: #5c4033;
+      margin: 0;
+      padding: 1em;
+    }
+    h1 { text-align: center; color: #5c4033; }
+    .section {
+      border: 2px solid #a1b27a;
+      border-radius: 8px;
+      padding: 1em;
+      margin: 1em 0;
+      background: #fff;
+    }
+    label { display: block; margin-top: 0.5em; }
+    input, select {
+      width: 100%;
+      padding: 6px;
+      margin-top: 4px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 1em;
+      padding: 8px 12px;
+      background: #a1b27a;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover { background: #8fa76a; }
+    textarea {
+      width: 100%;
+      height: 200px;
+      margin-top: 1em;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1>Generador de JSON de Contactos</h1>
+
+  <!-- Contactos relevantes -->
+  <div class="section">
+    <h2>Agregar contacto relevante</h2>
+    <label>Nombre: <input id="rel-nombre"></label>
+    <label>Teléfono: <input id="rel-telefono"></label>
+    <label>Correo: <input id="rel-correo"></label>
+    <button onclick="addRelevante()">Agregar relevante</button>
+  </div>
+
+  <!-- Búsquedas frecuentes -->
+  <div class="section">
+    <h2>Agregar búsqueda frecuente</h2>
+    <label>Categoría: <input id="busq-cat"></label>
+    <button onclick="addBusqueda()">Agregar búsqueda</button>
+  </div>
+
+  <!-- Trabajadores -->
+  <div class="section">
+    <h2>Agregar trabajador</h2>
+    <label>Nombre: <input id="trab-nombre"></label>
+    <label>Teléfono: <input id="trab-telefono"></label>
+    <label>Correo: <input id="trab-correo"></label>
+    <label>Categoría: <input id="trab-cat"></label>
+    <button onclick="addTrabajador()">Agregar trabajador</button>
+  </div>
+
+  <!-- JSON generado -->
+  <div class="section">
+    <h2>JSON generado</h2>
+    <textarea id="output" readonly></textarea>
+    <button onclick="downloadJSON()">Descargar JSON</button>
+  </div>
+
+  <script>
+    const data = {
+      relevantes: [],
+      busquedasFrecuentes: [],
+      trabajadores: []
+    };
+
+    function updateOutput() {
+      document.getElementById('output').value = JSON.stringify(data, null, 2);
+    }
+
+    function addRelevante() {
+      const nombre = document.getElementById('rel-nombre').value;
+      const telefono = document.getElementById('rel-telefono').value;
+      const correo = document.getElementById('rel-correo').value;
+      if(nombre && telefono && correo){
+        data.relevantes.push({ nombre, telefono, correo });
+        updateOutput();
+      }
+    }
+
+    function addBusqueda() {
+      const cat = document.getElementById('busq-cat').value;
+      if(cat){
+        data.busquedasFrecuentes.push(cat);
+        updateOutput();
+      }
+    }
+
+    function addTrabajador() {
+      const nombre = document.getElementById('trab-nombre').value;
+      const telefono = document.getElementById('trab-telefono').value;
+      const correo = document.getElementById('trab-correo').value;
+      const categoria = document.getElementById('trab-cat').value;
+      if(nombre && telefono && correo && categoria){
+        data.trabajadores.push({ nombre, telefono, correo, categoria });
+        updateOutput();
+      }
+    }
+
+    function downloadJSON() {
+      const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "contactos.json";
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body>
+</html>
