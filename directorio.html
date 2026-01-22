@@ -42,11 +42,11 @@
     }
     .header-text h1 {
       margin: 0;
-      font-size: 1.4em; /* más compacto */
+      font-size: 1.4em;
     }
     .header-text p {
       margin-top: 0.4em;
-      font-size: 0.95em; /* más pequeño */
+      font-size: 0.95em;
     }
     .logo {
       width: 100px;
@@ -60,13 +60,13 @@
     }
 
     .contact-card {
-      position: relative; /* necesario para etiqueta flotante */
+      position: relative;
       display: flex;
       align-items: center;
       background: var(--color-bg);
       border: 1px solid var(--color-border);
       border-radius: 8px;
-      padding: 1em;
+      padding: 2em 1em 1em 1em; /* más altura arriba */
       margin-bottom: 1em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
       max-width: 100%;
@@ -89,7 +89,7 @@
       right: 8px;
       background: var(--color-accent);
       color: var(--color-white);
-      padding: 4px 10px;
+      padding: 4px 12px;
       border-radius: 6px;
       font-size: 0.85em;
     }
@@ -98,6 +98,7 @@
       margin-bottom: 0.3em;
     }
 
+    /* Botones uniformes */
     .whatsapp-btn, .copy-btn {
       display: inline-flex;
       align-items: center;
@@ -108,10 +109,12 @@
       border-radius: 6px;
       text-decoration: none;
       font-size: 0.95em;
-      margin-top: 0;
+      margin-top: 0.3em;
       margin-bottom: 0.3em;
       border: 1px solid var(--color-border);
       cursor: pointer;
+      min-width: 120px; /* ancho uniforme */
+      justify-content: center;
     }
     .whatsapp-btn i {
       font-size: 18px;
@@ -130,6 +133,7 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;
+      margin-right: 10px; /* espacio antes del botón Copiar */
     }
 
     /* Tabs */
@@ -278,8 +282,7 @@
         <option value="15">15</option>
       </select>
     </div>
-  </div>
-    <script>
+      <script>
     let datos = {};
     let paginaActual = 1;
     let porPagina = 5; 
@@ -300,7 +303,7 @@
         initCarouselTouch();
       });
 
-    /* Carrusel de contactos importantes */
+    /* Carrusel de contactos importantes (sin categoría) */
     function renderRelevantes() {
       const cont = document.getElementById('relevantes');
       cont.innerHTML = "";
@@ -317,7 +320,6 @@
           </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
-            <span class="category-tag">${c.categoria}</span>
             <img src="${icono}" alt="${c.nombre}">
             <div class="contact-info">
               <h3>${c.nombre}</h3>
@@ -418,7 +420,7 @@
         alert("Correo copiado al portapapeles");
       });
     }
-        function filtrar(cat, btn) {
+            function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
@@ -427,7 +429,7 @@
       btn.classList.add('active-tab');
     }
 
-    /* Lista de trabajadores */
+    /* Lista de trabajadores (con categoría flotante) */
     function renderLista() {
       const lista = document.getElementById('lista');
       lista.innerHTML = "";
@@ -508,4 +510,5 @@
     });
   </script>
 </body>
-</html> 
+</html>
+        
