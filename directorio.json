@@ -1,1 +1,20 @@
-
+{
+  "relevantes": [
+    {
+      "nombre": "Lic. Rocio",
+      "telefono": "123456",
+      "correo": "rocio.test@test.com"
+    }
+  ],
+  "busquedasFrecuentes": [
+    "Electricista"
+  ],
+  "trabajadores": [
+    {
+      "nombre": "Test",
+      "telefono": "1234",
+      "correo": "correotest@test.com",
+      "categoria": "Electricista"
+    }
+  ]
+}
