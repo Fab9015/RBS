@@ -86,6 +86,14 @@
       gap: 1em;
     }
 
+    /* Lista centrada */
+    #lista {
+      max-width: 800px;
+      margin: 0 auto;
+      padding-left: 1em;
+      padding-right: 1em;
+    }
+
     /* Tabs */
     .tabs {
       display: flex;
@@ -104,6 +112,10 @@
     }
     .tabs button:hover {
       background: #8fa76a;
+    }
+    .tabs button.active-tab {
+      background: var(--color-title);
+      color: var(--color-white);
     }
 
     /* Dropdown */
@@ -145,7 +157,8 @@
     @media (max-width: 768px) {
       .contact-card {
         flex-direction: column;
-        align-items: flex-start;
+        align-items: center;
+        width: 100%;
       }
       .contact-card img {
         margin-bottom: 0.5em;
@@ -189,6 +202,7 @@
     <div class="filter" style="text-align:left;">
       <label for="porPagina">Elementos por página: </label>
       <select id="porPagina">
+        <option value="5" selected>5</option>
         <option value="10">10</option>
         <option value="15">15</option>
       </select>
@@ -197,7 +211,7 @@
     <script>
     let datos = {};
     let paginaActual = 1;
-    let porPagina = 10;
+    let porPagina = 5; // valor inicial por defecto
 
     fetch('directorio.json')
       .then(r => r.json())
@@ -237,7 +251,7 @@
       cont.innerHTML = "";
       datos.busquedasRelevantes.forEach(b => {
         if(b.activo){
-          cont.innerHTML += `<button onclick="filtrar('${b.categoria}')">${b.categoria}</button>`;
+          cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
         }
       });
     }
@@ -252,11 +266,15 @@
       });
     }
 
-    function filtrar(cat) {
+    function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
       renderPaginacion();
+
+      // Marcar botón activo
+      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
+      btn.classList.add('active-tab');
     }
 
     function renderLista() {
