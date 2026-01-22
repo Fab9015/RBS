@@ -26,7 +26,7 @@
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
 
-    /* Header estilo cuota */
+    /* Header con división */
     header {
       background: var(--color-bg);
       color: var(--color-title);
@@ -34,8 +34,9 @@
       justify-content: space-between;
       align-items: center;
       padding: 1.5em 1em;
-      border-radius: 8px;
-      margin-bottom: 1.5em;
+      border-radius: 8px 8px 0 0;
+      margin-bottom: 0;
+      border-bottom: 2px solid var(--color-border); /* división visible */
     }
     .header-text {
       max-width: 70%;
@@ -80,6 +81,8 @@
     .contact-info h3 {
       margin: 0;
       color: var(--color-title);
+      font-size: 1.2em; /* más grande */
+      margin-top: 1.2em; /* espacio extra debajo del tag */
     }
 
     /* Etiqueta flotante */
@@ -113,7 +116,7 @@
       margin-bottom: 0.3em;
       border: 1px solid var(--color-border);
       cursor: pointer;
-      min-width: 120px; /* ancho uniforme */
+      width: 140px; /* ancho fijo igual para ambos */
       justify-content: center;
     }
     .whatsapp-btn i {
@@ -251,8 +254,7 @@
     </div>
     <img src="img/logo.png" alt="Logo institucional" class="logo">
   </header>
-
-  <div class="container">
+    <div class="container">
     <h2>Contactos importantes</h2>
     <div id="carousel-container">
       <div id="relevantes"></div>
@@ -420,7 +422,7 @@
         alert("Correo copiado al portapapeles");
       });
     }
-            function filtrar(cat, btn) {
+          function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
@@ -511,4 +513,3 @@
   </script>
 </body>
 </html>
-        
