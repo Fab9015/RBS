@@ -88,18 +88,14 @@
       trabajadores: []
     };
 
-    // Cargar archivo directorio.txt
-    fetch('directorio.txt')
-      .then(response => response.text())
-      .then(text => {
-        try {
-          const parsed = JSON.parse(text);
-          data = parsed;
-          updateOutput();
-        } catch (e) {
-          console.error("Error al leer directorio.txt:", e);
-        }
-      });
+    // Cargar archivo directorio.json
+    fetch('directorio.json')
+      .then(response => response.json())
+      .then(json => {
+        data = json;
+        updateOutput();
+      })
+      .catch(err => console.error("Error al cargar directorio.json:", err));
 
     function updateOutput() {
       document.getElementById('output').value = JSON.stringify(data, null, 2);
@@ -139,7 +135,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "directorio.txt";
+      a.download = "directorio.json";
       a.click();
       URL.revokeObjectURL(url);
     }
