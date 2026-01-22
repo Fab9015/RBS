@@ -23,7 +23,7 @@
       color: var(--color-text);
       overflow-x: hidden;
     }
-    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
+    h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
     header {
       text-align: center;
@@ -108,10 +108,15 @@
         grid-template-columns: 1fr 1fr;
         gap: 0.8em;
       }
+      .tabs button {
+        padding: 8px 12px; /* ✅ más pequeños */
+        font-size: 0.95em; /* ✅ más chicos */
+      }
       .carousel-indicators {
-        display: block; /* ✅ visible en móvil */
+        display: block;
         text-align: center;
         margin-top: 0.5em;
+        margin-bottom: 1em; /* ✅ espacio debajo de los puntos */
       }
     }
 
@@ -131,6 +136,7 @@
         display: flex;
         gap: 1em;
         justify-content: center;
+        margin-top: 1.5em; /* ✅ espacio entre cards y botones */
       }
       .carousel-indicators {
         display: none; /* ✅ ocultar en desktop */
@@ -189,6 +195,7 @@
       <div class="carousel-indicators" id="carousel-indicators"></div>
     </div>
 
+    <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
     <div class="tabs" id="tabs"></div>
 
     <div class="filter">
@@ -198,7 +205,7 @@
       </select>
     </div>
 
-    <h2 style="margin-top:1.5em;">Resultados</h2>
+    <h4 style="margin-top:1.5em;">Resultados:</h4>
     <div id="lista"></div>
 
     <div class="pagination" id="paginacion"></div>
