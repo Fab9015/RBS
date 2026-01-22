@@ -97,6 +97,16 @@
       trabajadores: []
     };
 
+    // Lista de imágenes disponibles por categoría
+    const imagenesDisponibles = {
+      "Electricista": "img/electricista.png",
+      "Plomero": "img/plomero.png",
+      "Carpintero": "img/carpintero.png",
+      "Jardinero": "img/jardinero.png",
+      "Vigilancia": "img/vigilancia.png",
+      "Administrador": "img/admin.png"
+    };
+
     // Cargar archivo directorio.json
     fetch('directorio.json')
       .then(response => response.json())
@@ -112,12 +122,10 @@
       document.getElementById('output').value = JSON.stringify(data, null, 2);
     }
 
-    // Validación básica de correo
     function validateEmail(email) {
       return /\S+@\S+\.\S+/.test(email);
     }
 
-    // Agregar categoría
     function addCategoria() {
       const cat = document.getElementById('new-cat').value.trim();
       if(!cat){ alert("La categoría no puede estar vacía."); return; }
@@ -129,7 +137,6 @@
       renderBusquedas();
     }
 
-    // Llenar dropdown de categorías para trabajadores
     function fillCategories() {
       const select = document.getElementById('trab-cat');
       select.innerHTML = "";
@@ -141,7 +148,6 @@
       });
     }
 
-    // Renderizar checkboxes de búsquedas relevantes
     function renderBusquedas() {
       const cont = document.getElementById('busquedas-list');
       cont.innerHTML = "";
@@ -160,18 +166,20 @@
       updateOutput();
     }
 
-    // Agregar contacto relevante
     function addRelevante() {
       const nombre = document.getElementById('rel-nombre').value.trim();
       const telefono = document.getElementById('rel-telefono').value.trim();
       const correo = document.getElementById('rel-correo').value.trim();
       if(!nombre || !telefono){ alert("Nombre y teléfono son obligatorios."); return; }
       if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
-      data.relevantes.push({ nombre, telefono, correo });
+
+      // Imagen por defecto para relevantes
+      const imagen = "img/trabajador.png";
+
+      data.relevantes.push({ nombre, telefono, correo, imagen });
       updateOutput();
     }
 
-    // Agregar trabajador
     function addTrabajador() {
       const nombre = document.getElementById('trab-nombre').value.trim();
       const telefono = document.getElementById('trab-telefono').value.trim();
@@ -179,11 +187,14 @@
       const categoria = document.getElementById('trab-cat').value;
       if(!nombre || !telefono || !categoria){ alert("Nombre, teléfono y categoría son obligatorios."); return; }
       if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
-      data.trabajadores.push({ nombre, telefono, correo, categoria });
+
+      // Validar imagen según categoría
+      const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
+
+      data.trabajadores.push({ nombre, telefono, correo, categoria, imagen });
       updateOutput();
     }
 
-    // Descargar JSON
     function downloadJSON() {
       const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
       const url = URL.createObjectURL(blob);
