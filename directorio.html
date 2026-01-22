@@ -19,6 +19,7 @@
       margin: 0;
       padding: 0;
       color: var(--color-text);
+      overflow-x: hidden; /* ✅ evitar scroll lateral */
     }
     h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
@@ -32,7 +33,7 @@
       padding: 1em;
     }
 
-    /* Contact card estilo credencial */
+    /* Contact card */
     .contact-card {
       display: flex;
       align-items: center;
@@ -42,6 +43,7 @@
       padding: 1em;
       margin-bottom: 1em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      max-width: 100%;
     }
     .contact-card img {
       width: 100px;
@@ -49,23 +51,12 @@
       object-fit: contain;
       margin-right: 1em;
     }
+
     .contact-info h3 {
       margin: 0;
       color: var(--color-title);
     }
-    .contact-line {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin: 4px 0;
-    }
-    .contact-line-inline {
-      display: flex;
-      align-items: center;
-      justify-content: flex-start;
-      gap: 4px;
-      margin: 4px 0;
-    }
+
     .whatsapp-btn {
       background: var(--color-accent);
       color: white;
@@ -75,68 +66,62 @@
       font-size: 12px;
       margin-left: 8px;
     }
-    .whatsapp-btn:hover {
-      background: #8fa76a;
-    }
 
-    /* Relevantes en desktop */
+    /* Carrusel contenedor */
+    #carousel-container {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+    }
     #relevantes {
       display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1em;
+      transition: transform 0.3s ease-in-out;
+      width: 100%;
     }
-
-    /* Lista de trabajadores en dos columnas */
-    #lista {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1em;
-      max-width: 1000px;
-      margin: 0 auto;
+    #relevantes .contact-card {
+      flex: 0 0 100%; /* ✅ una card por pantalla */
     }
-    #lista .contact-card {
-      display: flex;
-      flex-direction: row; /* imagen a la izquierda */
-      align-items: center;
+    .carousel-indicators {
+      text-align: center;
+      margin-top: 0.5em;
     }
-    #lista .contact-card img {
-      margin-right: 1em;
+    .carousel-indicators span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      background: var(--color-border);
+      border-radius: 50%;
+      cursor: pointer;
+    }
+    .carousel-indicators span.active {
+      background: var(--color-accent);
     }
 
     /* Tabs */
     .tabs {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8em;
       margin: 1em 0;
     }
     .tabs button {
       background: var(--color-accent);
       color: var(--color-white);
       border: none;
-      padding: 8px 16px;
-      margin: 4px;
+      padding: 10px;
       border-radius: 6px;
       cursor: pointer;
-    }
-    .tabs button:hover {
-      background: #8fa76a;
-    }
-    .tabs button.active-tab {
-      background: var(--color-title);
-      color: var(--color-white);
+      font-size: 1.1em;
     }
 
-    /* Dropdown */
-    .filter {
-      text-align: center;
-      margin: 1em 0;
+    /* Lista de trabajadores */
+    #lista {
+      max-width: 100%;
+      margin: 0 auto;
     }
-    select {
-      padding: 6px;
-      border-radius: 6px;
-      border: 1px solid var(--color-border);
+    #lista .contact-card {
+      flex-direction: row; /* imagen izquierda, datos derecha */
     }
 
     /* Paginación */
@@ -150,69 +135,11 @@
       background: var(--color-accent);
       color: var(--color-white);
       border: none;
-      font-size: 1em;   /* más compacto */
-      padding: 8px 12px;
+      font-size: 0.9em;   /* ✅ más compacto */
+      padding: 6px 10px;
       margin: 0 4px;
       border-radius: 4px;
       cursor: pointer;
-    }
-    .pagination button:hover {
-      background: #8fa76a;
-    }
-
-    /* ✅ Responsive móvil */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 1.8em;
-        text-align: center;
-      }
-      header p {
-        font-size: 1.2em;
-        text-align: center;
-        margin-top: 0.5em;
-      }
-
-      /* Carrusel de relevantes */
-      #relevantes {
-        display: flex;
-        overflow-x: scroll;
-        scroll-snap-type: x mandatory;
-        -webkit-overflow-scrolling: touch;
-        gap: 1em;
-        padding: 1em;
-      }
-      #relevantes .contact-card {
-        flex: 0 0 90%;
-        scroll-snap-align: center;
-        margin: 0 auto;
-      }
-
-      /* Tabs en dos columnas */
-      .tabs {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 0.8em;
-        margin: 1em 0;
-      }
-      .tabs button {
-        font-size: 1.1em;
-        padding: 10px;
-        width: 100%;
-      }
-
-      /* Lista de trabajadores sigue en dos columnas */
-      #lista {
-        grid-template-columns: 1fr 1fr;
-      }
-      #lista .contact-card {
-        flex-direction: row; /* mantener imagen a la izquierda */
-      }
-
-      /* Paginador compacto */
-      .pagination button {
-        font-size: 1em;
-        padding: 8px 12px;
-      }
     }
   </style>
 </head>
@@ -223,9 +150,12 @@
   </header>
 
   <div class="container">
-    <!-- Contactos relevantes -->
+    <!-- Contactos relevantes en carrusel -->
     <h2>Contactos importantes</h2>
-    <div id="relevantes"></div>
+    <div id="carousel-container">
+      <div id="relevantes"></div>
+      <div class="carousel-indicators" id="carousel-indicators"></div>
+    </div>
 
     <!-- Tabs -->
     <div class="tabs" id="tabs"></div>
@@ -253,23 +183,25 @@
         <option value="15">15</option>
       </select>
     </div>
-  </div>
-    <script>
+  </div>4  <script>
     let datos = {};
     let paginaActual = 1;
-    let porPagina = 5; // valor inicial por defecto
+    let porPagina = 5; 
+    let currentSlide = 0; // índice del carrusel
 
     fetch('directorio.json')
       .then(r => r.json())
       .then(json => {
         datos = json;
         renderRelevantes();
+        renderIndicators();
         renderTabs();
         renderCategorias();
         renderLista();
         renderPaginacion();
       });
 
+    /* Carrusel de contactos importantes */
     function renderRelevantes() {
       const cont = document.getElementById('relevantes');
       cont.innerHTML = "";
@@ -290,8 +222,38 @@
             </div>
           </div>`;
       });
+      updateCarousel();
     }
 
+    function renderIndicators() {
+      const ind = document.getElementById('carousel-indicators');
+      ind.innerHTML = "";
+      datos.relevantes.forEach((_, i) => {
+        ind.innerHTML += `<span onclick="goToSlide(${i})" id="indicator-${i}"></span>`;
+      });
+      updateIndicators();
+    }
+
+    function updateCarousel() {
+      const cont = document.getElementById('relevantes');
+      cont.style.transform = `translateX(-${currentSlide * 100}%)`;
+      updateIndicators();
+    }
+
+    function updateIndicators() {
+      datos.relevantes.forEach((_, i) => {
+        const el = document.getElementById(`indicator-${i}`);
+        if(el) el.classList.toggle("active", i === currentSlide);
+      });
+    }
+
+    function goToSlide(index) {
+      if(index < 0 || index >= datos.relevantes.length) return;
+      currentSlide = index;
+      updateCarousel();
+    }
+
+    /* Tabs */
     function renderTabs() {
       const cont = document.getElementById('tabs');
       cont.innerHTML = "";
@@ -317,12 +279,11 @@
       paginaActual = 1;
       renderLista();
       renderPaginacion();
-
-      // Marcar botón activo
       document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
       btn.classList.add('active-tab');
     }
 
+    /* Lista de trabajadores */
     function renderLista() {
       const lista = document.getElementById('lista');
       lista.innerHTML = "";
@@ -356,6 +317,7 @@
       });
     }
 
+    /* Paginación */
     function renderPaginacion() {
       const cont = document.getElementById('paginacion');
       cont.innerHTML = "";
@@ -365,7 +327,6 @@
         filtrados = filtrados.filter(t => t.categoria === categoria);
       }
       const totalPaginas = Math.ceil(filtrados.length / porPagina);
-
       if(totalPaginas <= 1) return;
 
       cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
