@@ -26,27 +26,31 @@
     h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
     h2,h3,h4 { color: var(--color-title); }
 
+    /* Header estilo cuota */
     header {
-      text-align: center;
-      padding: 2em 1em;
-    }
-
-    /* Banner principal */
-    .banner {
       background: var(--color-accent);
       color: var(--color-white);
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       padding: 2em 1em;
       border-radius: 8px;
       margin-bottom: 1.5em;
     }
-    .banner h2 {
+    .header-text {
+      max-width: 70%;
+    }
+    .header-text h1 {
       margin: 0;
       font-size: 2em;
     }
-    .banner p {
+    .header-text p {
       margin-top: 0.5em;
       font-size: 1.2em;
+    }
+    .logo {
+      width: 80px;
+      height: auto;
     }
 
     .container {
@@ -98,21 +102,20 @@
     /* Correos truncados */
     .contact-email {
       display: inline-block;
-      max-width: 200px;
+      max-width: 140px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;
     }
     .copy-btn {
-      background: var(--color-accent);
-      color: var(--color-white);
+      background: none;
       border: none;
-      padding: 4px 8px;
-      margin-left: 6px;
-      border-radius: 4px;
+      color: var(--color-accent);
+      font-size: 0.85em;
       cursor: pointer;
-      font-size: 0.8em;
+      margin-left: 6px;
+      text-decoration: underline;
     }
 
     /* Tabs */
@@ -149,14 +152,14 @@
         gap: 0.8em;
       }
       .tabs button {
-        padding: 8px 12px; /* más pequeños */
+        padding: 8px 12px;
         font-size: 0.95em;
       }
       .carousel-indicators {
         display: block;
         text-align: center;
         margin-top: 0.5em;
-        margin-bottom: 1em; /* espacio debajo de los puntos */
+        margin-bottom: 1em;
       }
     }
 
@@ -176,10 +179,10 @@
         display: flex;
         gap: 1em;
         justify-content: center;
-        margin-top: 1.5em; /* espacio entre cards y botones */
+        margin-top: 1.5em;
       }
       .carousel-indicators {
-        display: none; /* ocultar en desktop */
+        display: none;
       }
     }
 
@@ -224,15 +227,12 @@
 </head>
 <body>
   <header>
-    <h1>Directorio de Contactos del Condominio</h1>
-    <p>Encuentra teléfonos y correos de trabajadores recomendados y contactos importantes.</p>
+    <div class="header-text">
+      <h1>Directorio del Condominio</h1>
+      <p>Encuentra contactos importantes y trabajadores recomendados de manera rápida y sencilla</p>
+    </div>
+    <img src="img/logo.png" alt="Logo institucional" class="logo">
   </header>
-
-  <!-- Banner principal -->
-  <div class="banner">
-    <h2>Directorio del Condominio</h2>
-    <p>Encuentra contactos importantes y trabajadores recomendados de manera rápida y sencilla.</p>
-  </div>
 
   <div class="container">
     <h2>Contactos importantes</h2>
@@ -354,7 +354,7 @@
     }
 
     function initCarouselTouch() {
-      const carousel = document.getElementById('carousel-container'); // ✅ usar el contenedor completo
+      const carousel = document.getElementById('carousel-container');
       carousel.addEventListener('touchstart', e => {
         startX = e.touches[0].clientX;
         isDragging = true;
