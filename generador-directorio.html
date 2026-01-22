@@ -82,11 +82,24 @@
   </div>
 
   <script>
-    const data = {
+    let data = {
       relevantes: [],
       busquedasFrecuentes: [],
       trabajadores: []
     };
+
+    // Cargar archivo directorio.txt
+    fetch('directorio.txt')
+      .then(response => response.text())
+      .then(text => {
+        try {
+          const parsed = JSON.parse(text);
+          data = parsed;
+          updateOutput();
+        } catch (e) {
+          console.error("Error al leer directorio.txt:", e);
+        }
+      });
 
     function updateOutput() {
       document.getElementById('output').value = JSON.stringify(data, null, 2);
@@ -126,7 +139,7 @@
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
       a.href = url;
-      a.download = "contactos.json";
+      a.download = "directorio.txt";
       a.click();
       URL.revokeObjectURL(url);
     }
