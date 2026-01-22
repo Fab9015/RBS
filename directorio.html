@@ -230,10 +230,11 @@
   </div>
 
   <script>
-    fetch('directorio.txt')
+    fetch('directorio.json')
       .then(response => response.json())
       .then(data => {
         // Aquí irá la lógica para mostrar trabajadores y paginación
+        console.log("Datos cargados:", data);
       });
   </script>
 </body>
