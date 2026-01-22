@@ -39,7 +39,7 @@
     button:hover { background: #8fa76a; }
     textarea {
       width: 100%;
-      height: 200px;
+      height: 250px;
       margin-top: 1em;
       font-family: monospace;
     }
@@ -48,6 +48,19 @@
 <body>
   <h1>Generador de JSON de Contactos</h1>
 
+  <!-- Agregar categoría -->
+  <div class="section">
+    <h2>Agregar categoría</h2>
+    <label>Nueva categoría: <input id="new-cat"></label>
+    <button onclick="addCategoria()">Agregar categoría</button>
+  </div>
+
+  <!-- Configurar búsquedas relevantes -->
+  <div class="section">
+    <h2>Configurar búsquedas relevantes</h2>
+    <div id="busquedas-list"></div>
+  </div>
+
   <!-- Contactos relevantes -->
   <div class="section">
     <h2>Agregar contacto relevante</h2>
@@ -55,13 +68,6 @@
     <label>Teléfono: <input id="rel-telefono"></label>
     <label>Correo: <input id="rel-correo"></label>
     <button onclick="addRelevante()">Agregar relevante</button>
-  </div>
-
-  <!-- Búsquedas frecuentes -->
-  <div class="section">
-    <h2>Agregar búsqueda frecuente</h2>
-    <label>Categoría: <input id="busq-cat"></label>
-    <button onclick="addBusqueda()">Agregar búsqueda</button>
   </div>
 
   <!-- Trabajadores -->
@@ -85,8 +91,9 @@
 
   <script>
     let data = {
+      categorias: [],
+      busquedasRelevantes: [],
       relevantes: [],
-      busquedasFrecuentes: [],
       trabajadores: []
     };
 
@@ -97,6 +104,7 @@
         data = json;
         updateOutput();
         fillCategories();
+        renderBusquedas();
       })
       .catch(err => console.error("Error al cargar directorio.json:", err));
 
@@ -109,58 +117,23 @@
       return /\S+@\S+\.\S+/.test(email);
     }
 
-    function addRelevante() {
-      const nombre = document.getElementById('rel-nombre').value.trim();
-      const telefono = document.getElementById('rel-telefono').value.trim();
-      const correo = document.getElementById('rel-correo').value.trim();
-      if(!nombre || !telefono || !correo){
-        alert("Todos los campos son obligatorios.");
-        return;
-      }
-      if(!validateEmail(correo)){
-        alert("Correo inválido.");
-        return;
-      }
-      data.relevantes.push({ nombre, telefono, correo });
+    // Agregar categoría
+    function addCategoria() {
+      const cat = document.getElementById('new-cat').value.trim();
+      if(!cat){ alert("La categoría no puede estar vacía."); return; }
+      if(data.categorias.includes(cat)){ alert("La categoría ya existe."); return; }
+      data.categorias.push(cat);
+      data.busquedasRelevantes.push({ categoria: cat, activo: false });
       updateOutput();
+      fillCategories();
+      renderBusquedas();
     }
 
-    function addBusqueda() {
-      const cat = document.getElementById('busq-cat').value.trim();
-      if(!cat){
-        alert("La categoría no puede estar vacía.");
-        return;
-      }
-      if(data.busquedasFrecuentes.includes(cat)){
-        alert("La categoría ya existe.");
-        return;
-      }
-      data.busquedasFrecuentes.push(cat);
-      updateOutput();
-      fillCategories(); // actualizar dropdown
-    }
-
-    function addTrabajador() {
-      const nombre = document.getElementById('trab-nombre').value.trim();
-      const telefono = document.getElementById('trab-telefono').value.trim();
-      const correo = document.getElementById('trab-correo').value.trim();
-      const categoria = document.getElementById('trab-cat').value;
-      if(!nombre || !telefono || !correo || !categoria){
-        alert("Todos los campos son obligatorios.");
-        return;
-      }
-      if(!validateEmail(correo)){
-        alert("Correo inválido.");
-        return;
-      }
-      data.trabajadores.push({ nombre, telefono, correo, categoria });
-      updateOutput();
-    }
-
+    // Llenar dropdown de categorías para trabajadores
     function fillCategories() {
       const select = document.getElementById('trab-cat');
       select.innerHTML = "";
-      data.busquedasFrecuentes.forEach(cat => {
+      data.categorias.forEach(cat => {
         const option = document.createElement("option");
         option.value = cat;
         option.textContent = cat;
@@ -168,6 +141,49 @@
       });
     }
 
+    // Renderizar checkboxes de búsquedas relevantes
+    function renderBusquedas() {
+      const cont = document.getElementById('busquedas-list');
+      cont.innerHTML = "";
+      data.busquedasRelevantes.forEach((b, i) => {
+        cont.innerHTML += `
+          <label>
+            <input type="checkbox" ${b.activo ? "checked" : ""} 
+              onchange="toggleBusqueda(${i}, this.checked)">
+            ${b.categoria}
+          </label><br>`;
+      });
+    }
+
+    function toggleBusqueda(index, checked) {
+      data.busquedasRelevantes[index].activo = checked;
+      updateOutput();
+    }
+
+    // Agregar contacto relevante
+    function addRelevante() {
+      const nombre = document.getElementById('rel-nombre').value.trim();
+      const telefono = document.getElementById('rel-telefono').value.trim();
+      const correo = document.getElementById('rel-correo').value.trim();
+      if(!nombre || !telefono){ alert("Nombre y teléfono son obligatorios."); return; }
+      if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
+      data.relevantes.push({ nombre, telefono, correo });
+      updateOutput();
+    }
+
+    // Agregar trabajador
+    function addTrabajador() {
+      const nombre = document.getElementById('trab-nombre').value.trim();
+      const telefono = document.getElementById('trab-telefono').value.trim();
+      const correo = document.getElementById('trab-correo').value.trim();
+      const categoria = document.getElementById('trab-cat').value;
+      if(!nombre || !telefono || !categoria){ alert("Nombre, teléfono y categoría son obligatorios."); return; }
+      if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
+      data.trabajadores.push({ nombre, telefono, correo, categoria });
+      updateOutput();
+    }
+
+    // Descargar JSON
     function downloadJSON() {
       const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
       const url = URL.createObjectURL(blob);
