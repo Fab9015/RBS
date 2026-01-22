@@ -144,18 +144,22 @@
     }
 
     /* ✅ Responsive móvil */
-    @media (max-width: 768px) {
-      .contact-line {
-        flex-direction: column; /* Tel arriba, WhatsApp debajo */
-        align-items: flex-start;
-      }
-      .whatsapp-btn {
-        margin-left: 0;
-        margin-top: 6px;
-        font-size: 1em;
-        padding: 6px 12px;
-      }
+  @media (max-width: 768px) {
+    .contact-line {
+      flex-direction: column; /* Tel arriba */
+      align-items: flex-start;
+      margin-bottom: 0.5em; /* espacio extra debajo del teléfono */
     }
+    .whatsapp-btn {
+      margin-left: 0;
+      margin-top: 10px;   /* ✅ más espacio respecto al teléfono */
+      margin-bottom: 10px;/* ✅ más espacio respecto al correo */
+      font-size: 1.1em;
+      padding: 8px 14px;  /* botón más cómodo */
+      display: inline-block;
+    }
+}
+
   </style>
 </head>
 <body>
