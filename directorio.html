@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Directorio de Contactos</title>
-  <!-- Font Awesome para el icono de WhatsApp -->
+  <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     :root {
@@ -33,7 +33,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2em 1em;
+      padding: 1.5em 1em;
       border-radius: 8px;
       margin-bottom: 1.5em;
     }
@@ -42,14 +42,14 @@
     }
     .header-text h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: 1.6em;
     }
     .header-text p {
-      margin-top: 0.5em;
-      font-size: 1.2em;
+      margin-top: 0.4em;
+      font-size: 1em;
     }
     .logo {
-      width: 80px;
+      width: 100px;
       height: auto;
     }
 
@@ -79,12 +79,26 @@
     .contact-info h3 {
       margin: 0;
       color: var(--color-title);
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
+
+    /* Etiqueta de categoría */
+    .category-tag {
+      display: inline-block;
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-size: 0.85em;
+    }
+
     .contact-line {
       margin-bottom: 0.3em;
     }
 
-    .whatsapp-btn {
+    .whatsapp-btn, .copy-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -97,6 +111,15 @@
       margin-top: 0;
       margin-bottom: 0.3em;
       border: 1px solid var(--color-border);
+      cursor: pointer;
+    }
+    .whatsapp-btn i {
+      font-size: 18px;
+      color: green;
+    }
+    .copy-btn i {
+      font-size: 16px;
+      color: var(--color-title);
     }
 
     /* Correos truncados */
@@ -107,15 +130,6 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       vertical-align: middle;
-    }
-    .copy-btn {
-      background: none;
-      border: none;
-      color: var(--color-accent);
-      font-size: 0.85em;
-      cursor: pointer;
-      margin-left: 6px;
-      text-decoration: underline;
     }
 
     /* Tabs */
@@ -296,20 +310,21 @@
         const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
-            <span class="contact-email" title="${c.correo}">${c.correo}</span>
-            <button class="copy-btn" onclick="copiarEmail('${c.correo}')">Copiar</button>
+            <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
+            <button class="copy-btn" onclick="copiarEmail('${c.correo}')">
+              <i class="fa-solid fa-clipboard"></i> Copiar
+            </button>
           </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
             <img src="${icono}" alt="${c.nombre}">
             <div class="contact-info">
-              <h3>${c.nombre}</h3>
+              <h3>${c.nombre} <span class="category-tag">${c.categoria}</span></h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
-                <i class="fa-brands fa-whatsapp" style="font-size:18px; color:green;"></i>
-                WhatsApp
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </a>
               ${correo}
             </div>
@@ -402,7 +417,7 @@
         alert("Correo copiado al portapapeles");
       });
     }
-          function filtrar(cat, btn) {
+        function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
@@ -429,25 +444,23 @@
         const correoLink = t.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
-            <span class="contact-email" title="${t.correo}">${t.correo}</span>
-            <button class="copy-btn" onclick="copiarEmail('${t.correo}')">Copiar</button>
+            <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
+            <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
+              <i class="fa-solid fa-clipboard"></i> Copiar
+            </button>
           </div>` : "";
         lista.innerHTML += `
           <div class="contact-card">
             <img src="img/trabajador.png" alt="${t.categoria}">
             <div class="contact-info">
-              <h3>${t.nombre}</h3>
+              <h3>${t.nombre} <span class="category-tag">${t.categoria}</span></h3>
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
-                <i class="fa-brands fa-whatsapp" style="font-size:18px; color:green;"></i>
-                WhatsApp
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </a>
               ${correoLink}
-              <div class="contact-line-inline">
-                <strong>Categoría:</strong> ${t.categoria}
-              </div>
             </div>
           </div>`;
       });
