@@ -7,254 +7,272 @@
   <!-- Font Awesome para iconos -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
-    :root {
-      --color-bg: #fdfaf5;
-      --color-title: #5c4033;
-      --color-accent: #a1b27a;
-      --color-white: #fefefe;
-      --color-text: #5c4033;
-      --color-border: #e6e2dc;
-    }
+   :root {
+  --color-bg: #fdfaf5;
+  --color-title: #5c4033;
+  --color-accent: #a1b27a;
+  --color-white: #fefefe;
+  --color-text: #5c4033;
+  --color-border: #e6e2dc;
+}
 
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--color-bg);
-      margin: 0;
-      padding: 0;
-      color: var(--color-text);
-      overflow-x: hidden;
-    }
+body {
+  font-family: 'Lato', sans-serif;
+  background: var(--color-bg);
+  margin: 0;
+  padding: 0;
+  color: var(--color-text);
+  overflow-x: hidden;
+}
 
-    h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
-    h2,h3,h4 { color: var(--color-title); }
+h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
+h2,h3,h4 { color: var(--color-title); }
 
-    /* Header */
-    header {
-      background: var(--color-bg);
-      color: var(--color-title);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5em 1em;
-      border-bottom: 2px solid var(--color-border);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .header-text { max-width: 70%; }
-    .header-text h1 { margin: 0; font-size: 1.8em; }
-    .header-text p { margin-top: 0.4em; font-size: 1em; color: #6a4f3d; }
-    .logo { width: 100px; height: auto; }
+/* Header */
+header {
+  background: var(--color-bg);
+  color: var(--color-title);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5em 1em;
+  border-bottom: 2px solid var(--color-border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.header-text { max-width: 70%; }
+.header-text h1 { margin: 0; font-size: 1.8em; }
+.header-text p { margin-top: 0.4em; font-size: 1em; color: #6a4f3d; }
+.logo { width: 100px; height: auto; }
 
-    .container { max-width: 1000px; margin: auto; padding: 1em; }
+.container { max-width: 1000px; margin: auto; padding: 1em; }
 
-    /* Contact cards */
-    .contact-card {
-      position: relative;
-      display: flex;
-      align-items: center;
-      background: #fcfcfa;
-      border: 1px solid var(--color-border);
-      border-radius: 12px;
-      padding: 2em 1em 1em 1em;
-      margin-bottom: 1.5em;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-    .contact-card img {
-      width: 100px;
-      height: 100px;
-      object-fit: contain;
-      margin-right: 1em;
-    }
-    .contact-info h3 {
-      margin: 0 0 0.6em 0;
-      color: var(--color-title);
-      font-size: 1.3em;
-      font-weight: 600;
-    }
+/* Contact cards generales */
+.contact-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  background: #fcfcfa;
+  border: 1px solid var(--color-border);
+  border-radius: 12px;
+  padding: 2em 1em 1em 1em;
+  margin-bottom: 1.5em;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.contact-card img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  margin-right: 1em;
+}
+.contact-info h3 {
+  margin: 0 0 0.6em 0;
+  color: var(--color-title);
+  font-size: 1.3em;
+  font-weight: 600;
+}
 
-    /* Etiqueta de categoría (solo trabajadores) */
-    .category-tag {
-      position: absolute;
-      top: 12px;
-      right: 12px;
-      background: var(--color-accent);
-      color: var(--color-white);
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: 0.9em;
-      font-weight: 600;
-      white-space: nowrap;
-    }
+/* Ajuste solo para cards de trabajadores */
+#lista .contact-card {
+  min-height: 150px;     /* ✅ más altura */
+  padding-top: 2.8em;    /* ✅ espacio extra arriba */
+}
 
-    .contact-line { margin-bottom: 0.3em; }
+/* Tag de categoría (solo trabajadores) */
+.category-tag {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 0.9em;
+  font-weight: 600;
+  white-space: nowrap;
+}
 
-    /* Filtros */
-    .filter {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      margin: 1em 0;
-    }
-    .filter-left { text-align: left; }
-    .filter-right { text-align: right; }
-    .filter select {
-      margin-left: 6px;
-      border-radius: 8px;
-      padding: 4px 8px;
-      border: 1px solid var(--color-border);
-      font-size: 0.9em;
-    }
-        /* Botón WhatsApp */
-    .whatsapp-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--color-white);
-      color: var(--color-text);
-      padding: 6px 8px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9em;
-      margin: 0.3em 0;
-      border: 1px solid var(--color-border);
-      cursor: pointer;
-      justify-content: center;
-      width: 90px; /* ✅ ancho fijo */
-    }
-    .whatsapp-btn i { font-size: 18px; color: green; }
+.contact-line { margin-bottom: 0.3em; }
 
-    /* Botón Copiar */
-    .copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: var(--color-white);
-      color: var(--color-text);
-      padding: 6px 8px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9em;
-      margin: 0.3em 0;
-      border: 1px solid var(--color-border);
-      cursor: pointer;
-      justify-content: center;
-      width: 108px; /* ✅ nuevo ancho */
-    }
-    .copy-btn i { font-size: 16px; color: var(--color-title); }
+/* Filtros */
+.filter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1em 0;
+}
+.filter-left { text-align: left; }
+.filter-right { text-align: right; }
+.filter select {
+  margin-left: 6px;
+  border-radius: 8px;
+  padding: 4px 8px;
+  border: 1px solid var(--color-border);
+  font-size: 0.9em;
+}
+    /* Botón WhatsApp */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-white);
+  color: var(--color-text);
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  margin: 0.3em 0;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  justify-content: center;
+  width: 90px; /* ✅ ancho fijo */
+}
+.whatsapp-btn i { font-size: 18px; color: green; }
 
-    /* Correos */
-    @media (max-width: 768px) {
-      .contact-email {
-        display: inline-block;
-        max-width: 160px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        vertical-align: middle;
-        margin-right: 10px;
-      }
-      .copy-btn { margin-left: 0; }
-    }
-    @media (min-width: 769px) {
-      .contact-email {
-        display: block;
-        max-width: none;
-        overflow: visible;
-        white-space: normal;
-        margin-bottom: 6px;
-      }
-      .copy-btn { display: block; margin-top: 4px; }
-    }
+/* Botón Copiar */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--color-white);
+  color: var(--color-text);
+  padding: 6px 8px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.9em;
+  margin: 0.3em 0;
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  justify-content: center;
+  width: 108px; /* ✅ ancho fijo */
+}
+.copy-btn i { font-size: 16px; color: var(--color-title); }
 
-    /* Tabs */
-    .tabs button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      padding: 8px 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      font-size: 1em;
-      transition: background 0.3s ease, transform 0.2s ease;
-    }
-    .tabs button:hover { transform: scale(1.05); }
-    .tabs button.active-tab {
-      background: var(--color-title);
-      color: var(--color-white);
-    }
-    .tabs { margin-bottom: 1em; }
+/* Correos */
+@media (max-width: 768px) {
+  .contact-email {
+    display: inline-block;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin-right: 10px;
+  }
+  .copy-btn { margin-left: 0; }
+}
+@media (min-width: 769px) {
+  .contact-email {
+    display: block;
+    max-width: none;
+    overflow: visible;
+    white-space: normal;
+    margin-bottom: 6px;
+  }
+  .copy-btn { display: block; margin-top: 4px; }
+}
 
-    /* Dropdown */
-    select {
-      border-radius: 12px;
-      padding: 6px 10px;
-      border: 1px solid var(--color-border);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      font-size: 0.95em;
-    }
+/* Tabs */
+.tabs button {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  padding: 8px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+.tabs button:hover { transform: scale(1.05); }
+.tabs button.active-tab {
+  background: var(--color-title);
+  color: var(--color-white);
+}
+.tabs { margin-bottom: 1em; }
 
-    /* Carrusel móvil */
-    @media (max-width: 768px) {
-      #carousel-container { overflow: hidden; width: 100%; }
-      #relevantes { display: flex; transition: transform 0.4s ease-in-out; }
-      #relevantes .contact-card { flex: 0 0 100%; margin: 0; }
-      .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
-      .tabs button { padding: 8px 12px; font-size: 0.95em; }
-      .carousel-indicators { display: block; text-align: center; margin: 0.5em 0 1em; }
-    }
+/* Dropdown */
+select {
+  border-radius: 12px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  font-size: 0.95em;
+}
 
-    /* Desktop */
-    @media (min-width: 769px) {
-      #relevantes { display: flex; justify-content: center; gap: 2em; transform: none !important; }
-      #relevantes .contact-card { flex: 0 0 250px; margin: 0; }
-      .tabs { display: flex; gap: 1em; justify-content: center; margin-top: 1.5em; }
-      .carousel-indicators { display: none; }
-    }
+/* Carrusel móvil */
+@media (max-width: 768px) {
+  #carousel-container { overflow: hidden; width: 100%; }
+  #relevantes { display: flex; transition: transform 0.4s ease-in-out; }
+  #relevantes .contact-card { flex: 0 0 100%; margin: 0; }
+  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
+  .tabs button { padding: 8px 12px; font-size: 0.95em; }
+  .carousel-indicators { display: block; text-align: center; margin: 0.5em 0 1em; }
+}
 
-    .carousel-indicators span {
-      display: inline-block;
-      width: 10px; height: 10px;
-      margin: 0 4px;
-      background: var(--color-border);
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s ease;
-    }
-    .carousel-indicators span.active { background: var(--color-accent); }
+/* Desktop */
+@media (min-width: 769px) {
+  #relevantes { display: flex; justify-content: center; gap: 2em; transform: none !important; }
+  #relevantes .contact-card { flex: 0 0 250px; margin: 0; }
+  .tabs { display: flex; gap: 1em; justify-content: center; margin-top: 1.5em; }
+  .carousel-indicators { display: none; }
+}
 
-    #lista { max-width: 100%; margin: 0 auto; }
-    #lista .contact-card { flex-direction: row; }
+.carousel-indicators span {
+  display: inline-block;
+  width: 10px; height: 10px;
+  margin: 0 4px;
+  background: var(--color-border);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.carousel-indicators span.active { background: var(--color-accent); }
 
-    /* Paginación */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 1em 0;
-      flex-wrap: wrap;
-    }
-    .pagination button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      font-size: 0.9em;
-      padding: 6px 8px;
-      margin: 0 2px;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    .pagination button:hover { background: var(--color-title); }
-    .pagination span { margin: 0 4px; color: var(--color-text); }
+#lista { max-width: 100%; margin: 0 auto; }
+#lista .contact-card { flex-direction: row; }
 
-    /* Links */
-    a {
-      color: #006d77;
-      text-decoration: none;
-    }
-    a:visited { color: #004c4f; }
-    a:hover {
-      color: var(--color-accent);
-      text-decoration: underline;
-    }
+/* Paginación */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1em 0;
+  flex-wrap: wrap;
+}
+.pagination button {
+  background: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  font-size: 0.9em;
+  padding: 6px 8px;
+  margin: 0 2px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.pagination button:hover { background: var(--color-title); }
+.pagination span { margin: 0 4px; color: var(--color-text); }
+
+/* Links */
+a {
+  color: #006d77;
+  text-decoration: none;
+}
+a:visited { color: #004c4f; }
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  background: var(--color-accent);
+  color: var(--color-white);
+  text-align: center;
+  padding: 1.2em 0;
+  width: 100%;          /* ✅ ocupa todo el ancho */
+  margin: 0;            /* ✅ elimina márgenes */
+  position: relative;   /* ✅ en flujo normal */
+}
+    
   </style>
 </head>
 <body>
