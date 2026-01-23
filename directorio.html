@@ -93,8 +93,23 @@
     }
 
     .contact-line { margin-bottom: 0.3em; }
-        /* Botones */
-    .whatsapp-btn, .copy-btn {
+
+    /* Filtros */
+    .filter {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin: 1em 0;
+    }
+    .filter select {
+      margin-left: 6px;
+      border-radius: 8px;
+      padding: 4px 8px;
+      border: 1px solid var(--color-border);
+      font-size: 0.9em;
+    }
+        /* Botón WhatsApp */
+    .whatsapp-btn {
       display: inline-flex;
       align-items: center;
       gap: 6px;
@@ -108,10 +123,27 @@
       border: 1px solid var(--color-border);
       cursor: pointer;
       justify-content: center;
+      min-width: 140px; /* ✅ tamaño base */
     }
-    .whatsapp-btn { width: 120px; }  /* ✅ mismo ancho */
-    .copy-btn { width: 120px; }      /* ✅ mismo ancho */
     .whatsapp-btn i { font-size: 18px; color: green; }
+
+    /* Botón Copiar */
+    .copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--color-white);
+      color: var(--color-text);
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 0.95em;
+      margin: 0.3em 0;
+      border: 1px solid var(--color-border);
+      cursor: pointer;
+      justify-content: center;
+      min-width: 140px; /* ✅ igual que WhatsApp */
+    }
     .copy-btn i { font-size: 16px; color: var(--color-title); }
 
     /* Correos truncados */
@@ -245,26 +277,34 @@
     <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
     <div class="tabs" id="tabs"></div>
 
+    <!-- Filtros combinados -->
     <div class="filter">
-      <label for="categoria">Selecciona categoría: </label>
-      <select id="categoria">
-        <option value="todos">Todos</option>
-      </select>
+      <div>
+        <label for="categoria">Categoría: </label>
+        <select id="categoria">
+          <option value="todos">Todos</option>
+        </select>
+
+        <label for="orden">Ordenar: </label>
+        <select id="orden">
+          <option value="az">A-Z</option>
+          <option value="za">Z-A</option>
+        </select>
+      </div>
+
+      <div>
+        <select id="porPagina">
+          <option value="5" selected>5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+        </select>
+      </div>
     </div>
 
     <h4 style="margin-top:1.5em;">Resultados:</h4>
     <div id="lista"></div>
 
     <div class="pagination" id="paginacion"></div>
-
-    <div class="filter" style="text-align:left;">
-      <label for="porPagina">Elementos por página: </label>
-      <select id="porPagina">
-        <option value="5" selected>5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-    </div>
         <script>
     let datos = {};
     let paginaActual = 1;
@@ -421,6 +461,15 @@
       if(categoria !== "todos"){
         filtrados = filtrados.filter(t => t.categoria === categoria);
       }
+
+      // Ordenar según filtro
+      const orden = document.getElementById('orden').value;
+      if(orden === "az"){
+        filtrados.sort((a,b) => a.nombre.localeCompare(b.nombre));
+      } else {
+        filtrados.sort((a,b) => b.nombre.localeCompare(a.nombre));
+      }
+
       const inicio = (paginaActual - 1) * porPagina;
       const fin = inicio + porPagina;
       const pagina = filtrados.slice(inicio, fin);
@@ -452,7 +501,7 @@
           </div>`;
       });
     }
-          /* Paginación optimizada con tu nueva idea */
+              /* Paginación dinámica */
     function renderPaginacion() {
       const cont = document.getElementById('paginacion');
       cont.innerHTML = "";
@@ -467,26 +516,29 @@
       // Flecha atrás
       cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
 
-      // Siempre mostrar primeras dos páginas
-      for(let i=1; i<=Math.min(2,totalPaginas); i++){
-        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
-      }
-
-      // Bloque central dinámico
-      let start = Math.max(3, paginaActual - 2);
-      let end = Math.min(totalPaginas - 2, paginaActual + 2);
-
-      if(start > 3) cont.innerHTML += `<span>…</span>`;
-      for(let i=start; i<=end; i++){
-        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
-      }
-      if(end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
-
-      // Siempre mostrar últimas dos páginas
-      for(let i=totalPaginas-1; i<=totalPaginas; i++){
-        if(i>2){ // evitar duplicar si totalPaginas <= 2
+      if(totalPaginas <= 7) {
+        // Mostrar todas las páginas
+        for(let i=1; i<=totalPaginas; i++){
           cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
         }
+      } else {
+        // Siempre mostrar primeras dos
+        cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual===1?"style='background:var(--color-title);color:white;'":""}>1</button>`;
+        cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual===2?"style='background:var(--color-title);color:white;'":""}>2</button>`;
+
+        // Bloque central dinámico
+        let start = Math.max(3, paginaActual - 2);
+        let end = Math.min(totalPaginas - 2, paginaActual + 2);
+
+        if(start > 3) cont.innerHTML += `<span>…</span>`;
+        for(let i=start; i<=end; i++){
+          cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
+        }
+        if(end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
+
+        // Últimas dos
+        cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas-1})" ${paginaActual===totalPaginas-1?"style='background:var(--color-title);color:white;'":""}>${totalPaginas-1}</button>`;
+        cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual===totalPaginas?"style='background:var(--color-title);color:white;'":""}>${totalPaginas}</button>`;
       }
 
       // Flecha adelante
@@ -530,6 +582,13 @@
       renderLista();
       renderPaginacion();
     });
+
+    /* Orden A-Z / Z-A */
+    document.getElementById('orden').addEventListener('change', e => {
+      paginaActual = 1;
+      renderLista();
+      renderPaginacion();
+    });
   </script>
 </body>
-</html>    
+</html>
