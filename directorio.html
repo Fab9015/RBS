@@ -234,7 +234,7 @@ header {
         <option value="15">15</option>
       </select>
     </div>
-      <script>
+        <script>
     let datos = {};
     let paginaActual = 1;
     let porPagina = 5; 
@@ -255,12 +255,11 @@ header {
         initCarouselTouch();
       });
 
-    /* Carrusel de contactos importantes (sin categoría) */
+    /* Carrusel de contactos importantes (usa imagen del JSON) */
     function renderRelevantes() {
       const cont = document.getElementById('relevantes');
       cont.innerHTML = "";
-      datos.relevantes.forEach((c, i) => {
-        const icono = i === 0 ? "img/admin.png" : i === 1 ? "img/vigilancia.png" : "img/trabajador.png";
+      datos.relevantes.forEach((c) => {
         const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
         const correo = c.correo ? `
           <div class="contact-line">
@@ -272,7 +271,7 @@ header {
           </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
-            <img src="${icono}" alt="${c.nombre}">
+            <img src="${c.imagen}" alt="${c.nombre}">
             <div class="contact-info">
               <h3>${c.nombre}</h3>
               <div class="contact-line">
@@ -372,7 +371,8 @@ header {
         alert("Correo copiado al portapapeles");
       });
     }
-        function filtrar(cat, btn) {
+
+    function filtrar(cat, btn) {
       document.getElementById('categoria').value = cat;
       paginaActual = 1;
       renderLista();
@@ -381,7 +381,7 @@ header {
       btn.classList.add('active-tab');
     }
 
-    /* Lista de trabajadores (con categoría flotante) */
+    /* Lista de trabajadores (usa imagen del JSON) */
     function renderLista() {
       const lista = document.getElementById('lista');
       lista.innerHTML = "";
@@ -407,7 +407,7 @@ header {
         lista.innerHTML += `
           <div class="contact-card">
             <span class="category-tag">${t.categoria}</span>
-            <img src="img/trabajador.png" alt="${t.categoria}">
+            <img src="${t.imagen}" alt="${t.categoria}">
             <div class="contact-info">
               <h3>${t.nombre}</h3>
               <div class="contact-line">
@@ -421,8 +421,7 @@ header {
           </div>`;
       });
     }
-
-    /* Paginación */
+        /* Paginación */
     function renderPaginacion() {
       const cont = document.getElementById('paginacion');
       cont.innerHTML = "";
