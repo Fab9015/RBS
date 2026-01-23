@@ -108,6 +108,14 @@
       border: 1px solid var(--color-border);
       font-size: 0.9em;
     }
+    @media (min-width: 769px) {
+      .filter-left { order: 1; text-align: left; }
+      .filter-right { order: 2; text-align: right; }
+    }
+    @media (max-width: 768px) {
+      .filter-left { text-align: left; }
+      .filter-right { text-align: right; }
+    }
         /* Botón WhatsApp */
     .whatsapp-btn {
       display: inline-flex;
@@ -115,15 +123,15 @@
       gap: 6px;
       background: var(--color-white);
       color: var(--color-text);
-      padding: 6px 12px;
+      padding: 6px 8px;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 0.95em;
+      font-size: 0.9em;
       margin: 0.3em 0;
       border: 1px solid var(--color-border);
       cursor: pointer;
       justify-content: center;
-      min-width: 140px; /* ✅ tamaño base */
+      width: 90px; /* ✅ ancho fijo */
     }
     .whatsapp-btn i { font-size: 18px; color: green; }
 
@@ -134,27 +142,40 @@
       gap: 6px;
       background: var(--color-white);
       color: var(--color-text);
-      padding: 6px 12px;
+      padding: 6px 8px;
       border-radius: 6px;
       text-decoration: none;
-      font-size: 0.95em;
+      font-size: 0.9em;
       margin: 0.3em 0;
       border: 1px solid var(--color-border);
       cursor: pointer;
       justify-content: center;
-      min-width: 140px; /* ✅ igual que WhatsApp */
+      width: 117px; /* ✅ ancho fijo */
     }
     .copy-btn i { font-size: 16px; color: var(--color-title); }
 
-    /* Correos truncados */
-    .contact-email {
-      display: inline-block;
-      max-width: 160px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      vertical-align: middle;
-      margin-right: 10px;
+    /* Correos */
+    @media (max-width: 768px) {
+      .contact-email {
+        display: inline-block;
+        max-width: 160px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        vertical-align: middle;
+        margin-right: 10px;
+      }
+      .copy-btn { margin-left: 8px; }
+    }
+    @media (min-width: 769px) {
+      .contact-email {
+        display: block;
+        max-width: none;
+        overflow: visible;
+        white-space: normal;
+        margin-bottom: 6px;
+      }
+      .copy-btn { display: block; margin-top: 4px; }
     }
 
     /* Tabs */
@@ -168,9 +189,7 @@
       font-size: 1em;
       transition: background 0.3s ease, transform 0.2s ease;
     }
-    .tabs button:hover {
-      transform: scale(1.05);
-    }
+    .tabs button:hover { transform: scale(1.05); }
     .tabs button.active-tab {
       background: var(--color-title);
       color: var(--color-white);
@@ -236,24 +255,17 @@
       border-radius: 6px;
       cursor: pointer;
     }
-    .pagination button:hover {
-      background: var(--color-title);
-    }
-    .pagination span {
-      margin: 0 4px;
-      color: var(--color-text);
-    }
+    .pagination button:hover { background: var(--color-title); }
+    .pagination span { margin: 0 4px; color: var(--color-text); }
 
     /* Links */
     a {
       color: #006d77; /* ✅ azul verdoso más legible */
       text-decoration: none;
     }
-    a:visited {
-      color: #004c4f; /* ✅ tono más oscuro para visitados */
-    }
+    a:visited { color: #004c4f; }
     a:hover {
-      color: var(--color-accent); /* verde acento en hover */
+      color: var(--color-accent);
       text-decoration: underline;
     }
   </style>
@@ -277,26 +289,19 @@
     <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
     <div class="tabs" id="tabs"></div>
 
-    <!-- Filtros combinados -->
+    <!-- Filtros en línea -->
     <div class="filter">
-      <div>
-        <label for="categoria">Categoría: </label>
-        <select id="categoria">
-          <option value="todos">Todos</option>
-        </select>
-
+      <div class="filter-left">
         <label for="orden">Ordenar: </label>
         <select id="orden">
           <option value="az">A-Z</option>
           <option value="za">Z-A</option>
         </select>
       </div>
-
-      <div>
-        <select id="porPagina">
-          <option value="5" selected>5</option>
-          <option value="10">10</option>
-          <option value="15">15</option>
+      <div class="filter-right">
+        <label for="categoria">Categoría: </label>
+        <select id="categoria">
+          <option value="todos">Todos</option>
         </select>
       </div>
     </div>
@@ -305,6 +310,15 @@
     <div id="lista"></div>
 
     <div class="pagination" id="paginacion"></div>
+
+    <!-- Dropdown de elementos por página debajo del paginador -->
+    <div style="display:flex; justify-content:flex-end; margin-top:0.5em;">
+      <select id="porPagina">
+        <option value="5" selected>5</option>
+        <option value="10">10</option>
+        <option value="15">15</option>
+      </select>
+    </div>
         <script>
     let datos = {};
     let paginaActual = 1;
@@ -501,7 +515,7 @@
           </div>`;
       });
     }
-              /* Paginación dinámica */
+        /* Paginación dinámica */
     function renderPaginacion() {
       const cont = document.getElementById('paginacion');
       cont.innerHTML = "";
@@ -522,11 +536,11 @@
           cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
         }
       } else {
-        // Siempre mostrar primeras dos
+        // primeras dos
         cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual===1?"style='background:var(--color-title);color:white;'":""}>1</button>`;
         cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual===2?"style='background:var(--color-title);color:white;'":""}>2</button>`;
 
-        // Bloque central dinámico
+        // bloque central
         let start = Math.max(3, paginaActual - 2);
         let end = Math.min(totalPaginas - 2, paginaActual + 2);
 
@@ -536,7 +550,7 @@
         }
         if(end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
 
-        // Últimas dos
+        // últimas dos
         cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas-1})" ${paginaActual===totalPaginas-1?"style='background:var(--color-title);color:white;'":""}>${totalPaginas-1}</button>`;
         cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual===totalPaginas?"style='background:var(--color-title);color:white;'":""}>${totalPaginas}</button>`;
       }
