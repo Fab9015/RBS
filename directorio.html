@@ -1,357 +1,494 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Directorio de Contactos</title>
-  <!-- Font Awesome para iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-  <style>
-   :root {
-  --color-bg: #fdfaf5;
-  --color-title: #5c4033;
-  --color-accent: #a1b27a;
-  --color-white: #fefefe;
-  --color-text: #5c4033;
-  --color-border: #e6e2dc;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Directorio de Contactos</title>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --color-bg: #fdfaf5;
+            --color-title: #5c4033;
+            --color-accent: #a1b27a;
+            --color-white: #fefefe;
+            --color-text: #5c4033;
+            --color-border: #e6e2dc;
+        }
 
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--color-bg);
-  margin: 0;
-  padding: 0;
-  color: var(--color-text);
-  overflow-x: hidden;
-}
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--color-bg);
+            margin: 0;
+            padding: 0;
+            color: var(--color-text);
+            overflow-x: hidden;
+        }
 
-h1,h2,h3,h4 { font-family: 'Montserrat', sans-serif; }
-h2,h3,h4 { color: var(--color-title); }
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Montserrat', sans-serif;
+        }
 
-/* Header */
-header {
-  background: var(--color-bg);
-  color: var(--color-title);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1.5em 1em;
-  border-bottom: 2px solid var(--color-border);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.header-text { max-width: 70%; }
-.header-text h1 { margin: 0; font-size: 1.8em; }
-.header-text p { margin-top: 0.4em; font-size: 1em; color: #6a4f3d; }
-.logo { width: 100px; height: auto; }
+        h2,
+        h3,
+        h4 {
+            color: var(--color-title);
+        }
 
-.container { max-width: 1000px; margin: auto; padding: 1em; }
+        /* Header */
+        header {
+            background: var(--color-bg);
+            color: var(--color-title);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5em 1em;
+            border-bottom: 2px solid var(--color-border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-/* Contact cards generales */
-.contact-card {
-  position: relative;
-  display: flex;
-  align-items: center;
-  background: #fcfcfa;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 2em 1em 1em 1em;
-  margin-bottom: 1.5em;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-}
-.contact-card img {
-  width: 100px;
-  height: 100px;
-  object-fit: contain;
-  margin-right: 1em;
-}
-.contact-info h3 {
-  margin: 0 0 0.6em 0;
-  color: var(--color-title);
-  font-size: 1.3em;
-  font-weight: 600;
-}
+        .header-text {
+            max-width: 70%;
+        }
 
-/* Ajuste solo para cards de trabajadores */
-#lista .contact-card {
-  min-height: 150px;     /* ✅ más altura */
-  padding-top: 2.8em;    /* ✅ espacio extra arriba */
-}
+        .header-text h1 {
+            margin: 0;
+            font-size: 1.8em;
+        }
 
-/* Tag de categoría (solo trabajadores) */
-.category-tag {
-  position: absolute;
-  top: 12px;
-  right: 12px;
-  background: var(--color-accent);
-  color: var(--color-white);
-  padding: 6px 14px;
-  border-radius: 8px;
-  font-size: 0.9em;
-  font-weight: 600;
-  white-space: nowrap;
-}
+        .header-text p {
+            margin-top: 0.4em;
+            font-size: 1em;
+            color: #6a4f3d;
+        }
 
-.contact-line { margin-bottom: 0.3em; }
+        .logo {
+            width: 100px;
+            height: auto;
+        }
 
-/* Filtros */
-.filter {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 1em 0;
-}
-.filter-left { text-align: left; }
-.filter-right { text-align: right; }
-.filter select {
-  margin-left: 6px;
-  border-radius: 8px;
-  padding: 4px 8px;
-  border: 1px solid var(--color-border);
-  font-size: 0.9em;
-}
-    /* Botón WhatsApp */
-.whatsapp-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--color-white);
-  color: var(--color-text);
-  padding: 6px 8px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9em;
-  margin: 0.3em 0;
-  border: 1px solid var(--color-border);
-  cursor: pointer;
-  justify-content: center;
-  width: 90px; /* ✅ ancho fijo */
-}
-.whatsapp-btn i { font-size: 18px; color: green; }
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            padding: 1em;
+        }
 
-/* Botón Copiar */
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--color-white);
-  color: var(--color-text);
-  padding: 6px 8px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9em;
-  margin: 0.3em 0;
-  border: 1px solid var(--color-border);
-  cursor: pointer;
-  justify-content: center;
-  width: 108px; /* ✅ ancho fijo */
-}
-.copy-btn i { font-size: 16px; color: var(--color-title); }
+        /* Contact cards generales */
+        .contact-card {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background: #fcfcfa;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 2em 1em 1em 1em;
+            margin-bottom: 1.5em;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        }
 
-/* Correos */
-@media (max-width: 768px) {
-  .contact-email {
-    display: inline-block;
-    max-width: 160px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    vertical-align: middle;
-    margin-right: 10px;
-  }
-  .copy-btn { margin-left: 0; }
-}
-@media (min-width: 769px) {
-  .contact-email {
-    display: block;
-    max-width: none;
-    overflow: visible;
-    white-space: normal;
-    margin-bottom: 6px;
-  }
-  .copy-btn { display: block; margin-top: 4px; }
-}
+        .contact-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            margin-right: 1em;
+        }
 
-/* Tabs */
-.tabs button {
-  background: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  padding: 8px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-size: 1em;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-.tabs button:hover { transform: scale(1.05); }
-.tabs button.active-tab {
-  background: var(--color-title);
-  color: var(--color-white);
-}
-.tabs { margin-bottom: 1em; }
+        .contact-info h3 {
+            margin: 0 0 0.6em 0;
+            color: var(--color-title);
+            font-size: 1.3em;
+            font-weight: 600;
+        }
 
-/* Dropdown */
-select {
-  border-radius: 12px;
-  padding: 6px 10px;
-  border: 1px solid var(--color-border);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-  font-size: 0.95em;
-}
+        /* Ajuste solo para cards de trabajadores */
+        #lista .contact-card {
+            min-height: 150px;
+            /* ✅ más altura */
+            padding-top: 2.8em;
+            /* ✅ espacio extra arriba */
+        }
 
-/* Carrusel móvil */
-@media (max-width: 768px) {
-  #carousel-container { overflow: hidden; width: 100%; }
-  #relevantes { display: flex; transition: transform 0.4s ease-in-out; }
-  #relevantes .contact-card { flex: 0 0 100%; margin: 0; }
-  .tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8em; }
-  .tabs button { padding: 8px 12px; font-size: 0.95em; }
-  .carousel-indicators { display: block; text-align: center; margin: 0.5em 0 1em; }
-}
+        /* Tag de categoría (solo trabajadores) */
+        .category-tag {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-size: 0.9em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
 
-/* Desktop */
-@media (min-width: 769px) {
-  #relevantes { display: flex; justify-content: center; gap: 2em; transform: none !important; }
-  #relevantes .contact-card { flex: 0 0 250px; margin: 0; }
-  .tabs { display: flex; gap: 1em; justify-content: center; margin-top: 1.5em; }
-  .carousel-indicators { display: none; }
-}
+        .contact-line {
+            margin-bottom: 0.3em;
+        }
 
-.carousel-indicators span {
-  display: inline-block;
-  width: 10px; height: 10px;
-  margin: 0 4px;
-  background: var(--color-border);
-  border-radius: 50%;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-.carousel-indicators span.active { background: var(--color-accent); }
+        /* Filtros */
+        .filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1em 0;
+        }
 
-#lista { max-width: 100%; margin: 0 auto; }
-#lista .contact-card { flex-direction: row; }
+        .filter-left {
+            text-align: left;
+        }
 
-/* Paginación */
-.pagination {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1em 0;
-  flex-wrap: wrap;
-}
-.pagination button {
-  background: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  font-size: 0.9em;
-  padding: 6px 8px;
-  margin: 0 2px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-.pagination button:hover { background: var(--color-title); }
-.pagination span { margin: 0 4px; color: var(--color-text); }
+        .filter-right {
+            text-align: right;
+        }
 
-/* Links */
-a {
-  color: #006d77;
-  text-decoration: none;
-}
-a:visited { color: #004c4f; }
-a:hover {
-  color: var(--color-accent);
-  text-decoration: underline;
-}
+        .filter select {
+            margin-left: 6px;
+            border-radius: 8px;
+            padding: 4px 8px;
+            border: 1px solid var(--color-border);
+            font-size: 0.9em;
+        }
 
-/* Footer */
-footer {
-  background: var(--color-accent);
-  color: var(--color-white);
-  text-align: center;
-  padding: 1.2em 0;
-  width: 100%;          /* ✅ ocupa todo el ancho */
-  margin: 0;            /* ✅ elimina márgenes */
-  position: relative;   /* ✅ en flujo normal */
-}
-    
-  </style>
+        /* Botón WhatsApp */
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-white);
+            color: var(--color-text);
+            padding: 6px 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0.3em 0;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            justify-content: center;
+            width: 90px;
+            /* ✅ ancho fijo */
+        }
+
+        .whatsapp-btn i {
+            font-size: 18px;
+            color: green;
+        }
+
+        /* Botón Copiar */
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--color-white);
+            color: var(--color-text);
+            padding: 6px 8px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-size: 0.9em;
+            margin: 0.3em 0;
+            border: 1px solid var(--color-border);
+            cursor: pointer;
+            justify-content: center;
+            width: 108px;
+            /* ✅ ancho fijo */
+        }
+
+        .copy-btn i {
+            font-size: 16px;
+            color: var(--color-title);
+        }
+
+        /* Correos */
+        @media (max-width: 768px) {
+            .contact-email {
+                display: inline-block;
+                max-width: 160px;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                vertical-align: middle;
+                margin-right: 10px;
+            }
+
+            .copy-btn {
+                margin-left: 0;
+            }
+        }
+
+        @media (min-width: 769px) {
+            .contact-email {
+                display: block;
+                max-width: none;
+                overflow: visible;
+                white-space: normal;
+                margin-bottom: 6px;
+            }
+
+            .copy-btn {
+                display: block;
+                margin-top: 4px;
+            }
+        }
+
+        /* Tabs */
+        .tabs button {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            padding: 8px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+
+        .tabs button:hover {
+            transform: scale(1.05);
+        }
+
+        .tabs button.active-tab {
+            background: var(--color-title);
+            color: var(--color-white);
+        }
+
+        .tabs {
+            margin-bottom: 1em;
+        }
+
+        /* Dropdown */
+        select {
+            border-radius: 12px;
+            padding: 6px 10px;
+            border: 1px solid var(--color-border);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            font-size: 0.95em;
+        }
+
+        /* Carrusel móvil */
+        @media (max-width: 768px) {
+            #carousel-container {
+                overflow: hidden;
+                width: 100%;
+            }
+
+            #relevantes {
+                display: flex;
+                transition: transform 0.4s ease-in-out;
+            }
+
+            #relevantes .contact-card {
+                flex: 0 0 100%;
+                margin: 0;
+            }
+
+            .tabs {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 0.8em;
+            }
+
+            .tabs button {
+                padding: 8px 12px;
+                font-size: 0.95em;
+            }
+
+            .carousel-indicators {
+                display: block;
+                text-align: center;
+                margin: 0.5em 0 1em;
+            }
+        }
+
+        /* Desktop */
+        @media (min-width: 769px) {
+            #relevantes {
+                display: flex;
+                justify-content: center;
+                gap: 2em;
+                transform: none !important;
+            }
+
+            #relevantes .contact-card {
+                flex: 0 0 250px;
+                margin: 0;
+            }
+
+            .tabs {
+                display: flex;
+                gap: 1em;
+                justify-content: center;
+                margin-top: 1.5em;
+            }
+
+            .carousel-indicators {
+                display: none;
+            }
+        }
+
+        .carousel-indicators span {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            background: var(--color-border);
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-indicators span.active {
+            background: var(--color-accent);
+        }
+
+        #lista {
+            max-width: 100%;
+            margin: 0 auto;
+        }
+
+        #lista .contact-card {
+            flex-direction: row;
+        }
+
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 1em 0;
+            flex-wrap: wrap;
+        }
+
+        .pagination button {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            font-size: 0.9em;
+            padding: 6px 8px;
+            margin: 0 2px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .pagination button:hover {
+            background: var(--color-title);
+        }
+
+        .pagination span {
+            margin: 0 4px;
+            color: var(--color-text);
+        }
+
+        /* Links */
+        a {
+            color: #006d77;
+            text-decoration: none;
+        }
+
+        a:visited {
+            color: #004c4f;
+        }
+
+        a:hover {
+            color: var(--color-accent);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-accent);
+            color: var(--color-white);
+            text-align: center;
+            padding: 1.2em 0;
+            width: 100%;
+            /* ✅ ocupa todo el ancho */
+            margin: 0;
+            /* ✅ elimina márgenes */
+            position: relative;
+            /* ✅ en flujo normal */
+        }
+    </style>
 </head>
+
 <body>
-  <header>
-    <div class="header-text">
-      <h1>Directorio del Condominio</h1>
-      <p>Encuentra contactos importantes y trabajadores recomendados de manera rápida y sencilla</p>
-    </div>
-    <img src="img/logo.png" alt="Logo institucional" class="logo">
-  </header>
+    <header>
+        <div class="header-text">
+            <h1>Directorio del Condominio</h1>
+            <p>Encuentra contactos importantes y trabajadores recomendados de manera rápida y sencilla</p>
+        </div>
+        <img src="img/logo.png" alt="Logo institucional" class="logo">
+    </header>
+    <div class="container">
+        <h2>Contactos importantes</h2>
+        <div id="carousel-container">
+            <div id="relevantes"></div>
+            <div class="carousel-indicators" id="carousel-indicators"></div>
+        </div>
 
-  <div class="container">
-    <h2>Contactos importantes</h2>
-    <div id="carousel-container">
-      <div id="relevantes"></div>
-      <div class="carousel-indicators" id="carousel-indicators"></div>
-    </div>
+        <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
+        <div class="tabs" id="tabs"></div>
 
-    <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
-    <div class="tabs" id="tabs"></div>
+        <!-- Filtros en línea -->
+        <div class="filter">
+            <div class="filter-left">
+                <label for="categoria">Categoría: </label>
+                <select id="categoria">
+                    <option value="todos">Todos</option>
+                </select>
+            </div>
+            <div class="filter-right">
+                <label for="orden">Ordenar: </label>
+                <select id="orden">
+                    <option value="az">A-Z</option>
+                    <option value="za">Z-A</option>
+                </select>
+            </div>
+        </div>
 
-    <!-- Filtros en línea -->
-    <div class="filter">
-      <div class="filter-left">
-        <label for="categoria">Categoría: </label>
-        <select id="categoria">
-          <option value="todos">Todos</option>
-        </select>
-      </div>
-      <div class="filter-right">
-        <label for="orden">Ordenar: </label>
-        <select id="orden">
-          <option value="az">A-Z</option>
-          <option value="za">Z-A</option>
-        </select>
-      </div>
-    </div>
+        <h4 style="margin-top:1.5em;">Resultados:</h4>
+        <div id="lista"></div>
 
-    <h4 style="margin-top:1.5em;">Resultados:</h4>
-    <div id="lista"></div>
+        <div class="pagination" id="paginacion"></div>
 
-    <div class="pagination" id="paginacion"></div>
-
-    <!-- Dropdown de elementos por página debajo del paginador -->
-    <div style="display:flex; justify-content:flex-end; margin-top:0.5em;">
-      <select id="porPagina">
-        <option value="5" selected>5</option>
-        <option value="10">10</option>
-        <option value="15">15</option>
-      </select>
-    </div>
+        <!-- Dropdown de elementos por página debajo del paginador -->
+        <div style="display:flex; justify-content:flex-end; margin-top:0.5em;">
+            <select id="porPagina">
+                <option value="5" selected>5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+            </select>
+        </div>
         <script>
-    let datos = {};
-    let paginaActual = 1;
-    let porPagina = 5; 
-    let currentSlide = 0; 
-    let startX = 0;
-    let isDragging = false;
+            let datos = {};
+            let paginaActual = 1;
+            let porPagina = 5;
+            let currentSlide = 0;
+            let startX = 0;
+            let isDragging = false;
 
-    fetch('directorio.json')
-      .then(r => r.json())
-      .then(json => {
-        datos = json;
-        renderRelevantes();
-        renderIndicators();
-        renderTabs();
-        renderCategorias();
-        renderLista();
-        renderPaginacion();
-        initCarouselTouch();
-      });
+            fetch('directorio.json')
+                .then(r => r.json())
+                .then(json => {
+                    datos = json;
+                    renderRelevantes();
+                    renderIndicators();
+                    renderTabs();
+                    renderCategorias();
+                    renderLista();
+                    renderPaginacion();
+                    initCarouselTouch();
+                });
 
-    /* Carrusel de contactos importantes */
-    function renderRelevantes() {
-      const cont = document.getElementById('relevantes');
-      cont.innerHTML = "";
-      datos.relevantes.forEach((c) => {
-        const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correo = c.correo ? `
+            /* Carrusel de contactos importantes */
+            function renderRelevantes() {
+                const cont = document.getElementById('relevantes');
+                cont.innerHTML = "";
+                datos.relevantes.forEach((c) => {
+                    const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                    const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
             <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
@@ -359,7 +496,7 @@ footer {
               <i class="fa-solid fa-clipboard"></i> Copiar
             </button>
           </div>` : "";
-        cont.innerHTML += `
+                    cont.innerHTML += `
           <div class="contact-card">
             <img src="${c.imagen}" alt="${c.nombre}">
             <div class="contact-info">
@@ -373,128 +510,128 @@ footer {
               ${correo}
             </div>
           </div>`;
-      });
-      updateCarousel();
-    }
+                });
+                updateCarousel();
+            }
 
-    function renderIndicators() {
-      const ind = document.getElementById('carousel-indicators');
-      ind.innerHTML = "";
-      datos.relevantes.forEach((_, i) => {
-        ind.innerHTML += `<span onclick="goToSlide(${i})" id="indicator-${i}"></span>`;
-      });
-      updateIndicators();
-    }
+            function renderIndicators() {
+                const ind = document.getElementById('carousel-indicators');
+                ind.innerHTML = "";
+                datos.relevantes.forEach((_, i) => {
+                    ind.innerHTML += `<span onclick="goToSlide(${i})" id="indicator-${i}"></span>`;
+                });
+                updateIndicators();
+            }
 
-    function updateCarousel() {
-      if (window.innerWidth <= 768) {
-        const card = document.querySelector('#relevantes .contact-card');
-        if(!card) return;
-        const cardWidth = card.offsetWidth;
-        const cont = document.getElementById('relevantes');
-        cont.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-      } else {
-        document.getElementById('relevantes').style.transform = 'none';
-      }
-      updateIndicators();
-    }
+            function updateCarousel() {
+                if (window.innerWidth <= 768) {
+                    const card = document.querySelector('#relevantes .contact-card');
+                    if (!card) return;
+                    const cardWidth = card.offsetWidth;
+                    const cont = document.getElementById('relevantes');
+                    cont.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+                } else {
+                    document.getElementById('relevantes').style.transform = 'none';
+                }
+                updateIndicators();
+            }
 
-    function updateIndicators() {
-      datos.relevantes.forEach((_, i) => {
-        const el = document.getElementById(`indicator-${i}`);
-        if(el) el.classList.toggle("active", i === currentSlide);
-      });
-    }
+            function updateIndicators() {
+                datos.relevantes.forEach((_, i) => {
+                    const el = document.getElementById(`indicator-${i}`);
+                    if (el) el.classList.toggle("active", i === currentSlide);
+                });
+            }
 
-    function goToSlide(index) {
-      if(index < 0 || index >= datos.relevantes.length) return;
-      currentSlide = index;
-      updateCarousel();
-    }
+            function goToSlide(index) {
+                if (index < 0 || index >= datos.relevantes.length) return;
+                currentSlide = index;
+                updateCarousel();
+            }
 
-    function initCarouselTouch() {
-      const carousel = document.getElementById('carousel-container');
-      carousel.addEventListener('touchstart', e => {
-        startX = e.touches[0].clientX;
-        isDragging = true;
-      });
-      carousel.addEventListener('touchmove', e => {
-        if(!isDragging) return;
-        const diff = e.touches[0].clientX - startX;
-        if(diff > 50) { 
-          goToSlide(currentSlide - 1);
-          isDragging = false;
-        } else if(diff < -50) { 
-          goToSlide(currentSlide + 1);
-          isDragging = false;
-        }
-      });
-      carousel.addEventListener('touchend', () => {
-        isDragging = false;
-      });
-    }
+            function initCarouselTouch() {
+                const carousel = document.getElementById('carousel-container');
+                carousel.addEventListener('touchstart', e => {
+                    startX = e.touches[0].clientX;
+                    isDragging = true;
+                });
+                carousel.addEventListener('touchmove', e => {
+                    if (!isDragging) return;
+                    const diff = e.touches[0].clientX - startX;
+                    if (diff > 50) {
+                        goToSlide(currentSlide - 1);
+                        isDragging = false;
+                    } else if (diff < -50) {
+                        goToSlide(currentSlide + 1);
+                        isDragging = false;
+                    }
+                });
+                carousel.addEventListener('touchend', () => {
+                    isDragging = false;
+                });
+            }
 
-    /* Tabs */
-    function renderTabs() {
-      const cont = document.getElementById('tabs');
-      cont.innerHTML = "";
-      datos.busquedasRelevantes.forEach(b => {
-        if(b.activo){
-          cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
-        }
-      });
-    }
+            /* Tabs */
+            function renderTabs() {
+                const cont = document.getElementById('tabs');
+                cont.innerHTML = "";
+                datos.busquedasRelevantes.forEach(b => {
+                    if (b.activo) {
+                        cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
+                    }
+                });
+            }
 
-    function renderCategorias() {
-      const sel = document.getElementById('categoria');
-      datos.categorias.forEach(cat => {
-        const opt = document.createElement("option");
-        opt.value = cat;
-        opt.textContent = cat;
-        sel.appendChild(opt);
-      });
-    }
+            function renderCategorias() {
+                const sel = document.getElementById('categoria');
+                datos.categorias.forEach(cat => {
+                    const opt = document.createElement("option");
+                    opt.value = cat;
+                    opt.textContent = cat;
+                    sel.appendChild(opt);
+                });
+            }
 
-    /* Copiar email */
-    function copiarEmail(email) {
-      navigator.clipboard.writeText(email).then(() => {
-        alert("Correo copiado al portapapeles");
-      });
-    }
+            /* Copiar email */
+            function copiarEmail(email) {
+                navigator.clipboard.writeText(email).then(() => {
+                    alert("Correo copiado al portapapeles");
+                });
+            }
 
-    function filtrar(cat, btn) {
-      document.getElementById('categoria').value = cat;
-      paginaActual = 1;
-      renderLista();
-      renderPaginacion();
-      document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
-      btn.classList.add('active-tab');
-    }
+            function filtrar(cat, btn) {
+                document.getElementById('categoria').value = cat;
+                paginaActual = 1;
+                renderLista();
+                renderPaginacion();
+                document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
+                btn.classList.add('active-tab');
+            }
 
-    /* Lista de trabajadores */
-    function renderLista() {
-      const lista = document.getElementById('lista');
-      lista.innerHTML = "";
-      const categoria = document.getElementById('categoria').value;
-      let filtrados = datos.trabajadores;
-      if(categoria !== "todos"){
-        filtrados = filtrados.filter(t => t.categoria === categoria);
-      }
+            /* Lista de trabajadores */
+            function renderLista() {
+                const lista = document.getElementById('lista');
+                lista.innerHTML = "";
+                const categoria = document.getElementById('categoria').value;
+                let filtrados = datos.trabajadores;
+                if (categoria !== "todos") {
+                    filtrados = filtrados.filter(t => t.categoria === categoria);
+                }
 
-      const orden = document.getElementById('orden').value;
-      if(orden === "az"){
-        filtrados.sort((a,b) => a.nombre.localeCompare(b.nombre));
-      } else {
-        filtrados.sort((a,b) => b.nombre.localeCompare(a.nombre));
-      }
+                const orden = document.getElementById('orden').value;
+                if (orden === "az") {
+                    filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+                } else {
+                    filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+                }
 
-      const inicio = (paginaActual - 1) * porPagina;
-      const fin = inicio + porPagina;
-      const pagina = filtrados.slice(inicio, fin);
+                const inicio = (paginaActual - 1) * porPagina;
+                const fin = inicio + porPagina;
+                const pagina = filtrados.slice(inicio, fin);
 
-      pagina.forEach(t => {
-        const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
-        const correoLink = t.correo ? `
+                pagina.forEach(t => {
+                    const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                    const correoLink = t.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
             <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
@@ -502,7 +639,7 @@ footer {
               <i class="fa-solid fa-clipboard"></i> Copiar
             </button>
           </div>` : "";
-        lista.innerHTML += `
+                    lista.innerHTML += `
           <div class="contact-card">
             <span class="category-tag">${t.categoria}</span>
             <img src="${t.imagen}" alt="${t.categoria}">
@@ -517,105 +654,94 @@ footer {
               ${correoLink}
             </div>
           </div>`;
-      });
-    }
-        /* Paginación dinámica */
-    function renderPaginacion() {
-      const cont = document.getElementById('paginacion');
-      cont.innerHTML = "";
-      const categoria = document.getElementById('categoria').value;
-      let filtrados = datos.trabajadores;
-      if(categoria !== "todos"){
-        filtrados = filtrados.filter(t => t.categoria === categoria);
-      }
-      const totalPaginas = Math.ceil(filtrados.length / porPagina);
-      if(totalPaginas <= 1) return;
+                });
+            }
+            /* Paginación dinámica */
+            function renderPaginacion() {
+                const cont = document.getElementById('paginacion');
+                cont.innerHTML = "";
+                const categoria = document.getElementById('categoria').value;
+                let filtrados = datos.trabajadores;
+                if (categoria !== "todos") {
+                    filtrados = filtrados.filter(t => t.categoria === categoria);
+                }
+                const totalPaginas = Math.ceil(filtrados.length / porPagina);
+                if (totalPaginas <= 1) return;
 
-      // Flecha atrás
-      cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
+                // Flecha atrás
+                cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
 
-      if(totalPaginas <= 7) {
-        for(let i=1; i<=totalPaginas; i++){
-          cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
-        }
-      } else {
-        cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual===1?"style='background:var(--color-title);color:white;'":""}>1</button>`;
-        cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual===2?"style='background:var(--color-title);color:white;'":""}>2</button>`;
+                if (totalPaginas <= 7) {
+                    for (let i = 1; i <= totalPaginas; i++) {
+                        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+                    }
+                } else {
+                    cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
+                    cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
 
-        let start = Math.max(3, paginaActual - 2);
-        let end = Math.min(totalPaginas - 2, paginaActual + 2);
+                    let start = Math.max(3, paginaActual - 2);
+                    let end = Math.min(totalPaginas - 2, paginaActual + 2);
 
-        if(start > 3) cont.innerHTML += `<span>…</span>`;
-        for(let i=start; i<=end; i++){
-          cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
-        }
-        if(end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
+                    if (start > 3) cont.innerHTML += `<span>…</span>`;
+                    for (let i = start; i <= end; i++) {
+                        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+                    }
+                    if (end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
 
-        cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas-1})" ${paginaActual===totalPaginas-1?"style='background:var(--color-title);color:white;'":""}>${totalPaginas-1}</button>`;
-        cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual===totalPaginas?"style='background:var(--color-title);color:white;'":""}>${totalPaginas}</button>`;
-      }
+                    cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
+                    cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
+                }
 
-      // Flecha adelante
-      cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual+1})" ${paginaActual===totalPaginas?"disabled":""}>&raquo;</button>`;
-    }
+                // Flecha adelante
+                cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+            }
 
-    function cambiarPagina(num) {
-      const categoria = document.getElementById('categoria').value;
-      let filtrados = datos.trabajadores;
-      if(categoria !== "todos"){
-        filtrados = filtrados.filter(t => t.categoria === categoria);
-      }
-      const totalPaginas = Math.ceil(filtrados.length / porPagina);
-      if(num < 1 || num > totalPaginas) return;
-      paginaActual = num;
-      renderLista();
-      renderPaginacion();
-    }
+            function cambiarPagina(num) {
+                const categoria = document.getElementById('categoria').value;
+                let filtrados = datos.trabajadores;
+                if (categoria !== "todos") {
+                    filtrados = filtrados.filter(t => t.categoria === categoria);
+                }
+                const totalPaginas = Math.ceil(filtrados.length / porPagina);
+                if (num < 1 || num > totalPaginas) return;
+                paginaActual = num;
+                renderLista();
+                renderPaginacion();
+            }
 
-    /* Eventos de filtros */
-    document.getElementById('categoria').addEventListener('change', e => {
-      const cat = e.target.value;
-      paginaActual = 1;
-      renderLista();
-      renderPaginacion();
-      document.querySelectorAll('.tabs button').forEach(b => {
-        if(b.textContent === cat){
-          b.classList.add('active-tab');
-        } else {
-          b.classList.remove('active-tab');
-        }
-      });
-    });
+            /* Eventos de filtros */
+            document.getElementById('categoria').addEventListener('change', e => {
+                const cat = e.target.value;
+                paginaActual = 1;
+                renderLista();
+                renderPaginacion();
+                document.querySelectorAll('.tabs button').forEach(b => {
+                    if (b.textContent === cat) {
+                        b.classList.add('active-tab');
+                    } else {
+                        b.classList.remove('active-tab');
+                    }
+                });
+            });
 
-    document.getElementById('porPagina').addEventListener('change', e => {
-      porPagina = parseInt(e.target.value);
-      paginaActual = 1;
-      renderLista();
-      renderPaginacion();
-    });
+            document.getElementById('porPagina').addEventListener('change', e => {
+                porPagina = parseInt(e.target.value);
+                paginaActual = 1;
+                renderLista();
+                renderPaginacion();
+            });
 
-    document.getElementById('orden').addEventListener('change', e => {
-      paginaActual = 1;
-      renderLista();
-      renderPaginacion();
-    });
-  </script>
-
-  <!-- Footer verde institucional -->
-  <footer>
-    <p>Directorio del Condominio · © 2026</p>
-  </footer>
-
-  <style>
-    footer {
-      background: var(--color-accent);
-      color: var(--color-white);
-      text-align: center;
-      padding: 1.2em 0;
-      width: 100%;          /* ✅ ocupa todo el ancho */
-      margin: 0;            /* ✅ elimina márgenes */
-      position: relative;   /* ✅ en flujo normal */
-    }
-  </style>
+            document.getElementById('orden').addEventListener('change', e => {
+                paginaActual = 1;
+                renderLista();
+                renderPaginacion();
+            });
+        </script>
+    </div>
+    <!-- Footer verde institucional -->
+    <footer>
+        <p>Directorio del Condominio · © 2026</p>
+    </footer>
 </body>
+
 </html>
