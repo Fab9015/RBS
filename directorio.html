@@ -71,16 +71,18 @@
       font-weight: 600;
     }
 
-    /* Etiqueta de categoría */
+    /* Etiqueta de categoría (solo trabajadores) */
     .category-tag {
-      display: inline-block;
+      position: absolute;
+      top: 12px;
+      right: 12px;
       background: var(--color-accent);
       color: var(--color-white);
-      padding: 4px 10px;
+      padding: 6px 14px;
       border-radius: 8px;
       font-size: 0.9em;
       font-weight: 600;
-      margin-bottom: 0.6em;
+      white-space: nowrap;
     }
 
     .contact-line { margin-bottom: 0.3em; }
@@ -101,7 +103,7 @@
       border: 1px solid var(--color-border);
       font-size: 0.9em;
     }
-          /* Botón WhatsApp */
+        /* Botón WhatsApp */
     .whatsapp-btn {
       display: inline-flex;
       align-items: center;
@@ -484,10 +486,10 @@
           </div>` : "";
         lista.innerHTML += `
           <div class="contact-card">
+            <span class="category-tag">${t.categoria}</span>
             <img src="${t.imagen}" alt="${t.categoria}">
             <div class="contact-info">
               <h3>${t.nombre}</h3>
-              <div class="category-tag">${t.categoria}</div>
               <div class="contact-line" style="margin-top:0.6em;">
                 <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
               </div>
@@ -593,7 +595,8 @@
       text-align: center;
       padding: 1.2em 0;
       width: 100%;          /* ✅ ocupa todo el ancho */
-      margin-top: 2em;
+      margin: 0;            /* ✅ elimina márgenes */
+      position: relative;   /* ✅ en flujo normal */
     }
   </style>
 </body>
