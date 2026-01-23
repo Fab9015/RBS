@@ -72,7 +72,7 @@
       margin-right: 1em;
     }
     .contact-info h3 {
-      margin: 0 0 0.4em 0; /* ✅ espacio debajo del nombre */
+      margin: 0 0 0.6em 0; /* ✅ más espacio debajo del nombre */
       color: var(--color-title);
       font-size: 1.3em;
       font-weight: 600;
@@ -83,11 +83,12 @@
       position: absolute;
       top: 12px;
       right: 12px;
-      background: #d4c7b0; /* tono neutro */
+      background: #d4c7b0;
       color: var(--color-title);
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 0.8em;
+      padding: 6px 14px;   /* ✅ más grande */
+      border-radius: 10px;
+      font-size: 0.95em;   /* ✅ tipografía más grande */
+      font-weight: 600;
       box-shadow: 0 1px 4px rgba(0,0,0,0.08);
     }
 
@@ -143,7 +144,7 @@
       border: 1px solid var(--color-border);
       cursor: pointer;
       justify-content: center;
-      width: 117px; /* ✅ ancho fijo */
+      width: 108px; /* ✅ nuevo ancho */
     }
     .copy-btn i { font-size: 16px; color: var(--color-title); }
 
@@ -349,10 +350,11 @@
           </div>` : "";
         cont.innerHTML += `
           <div class="contact-card">
+            <span class="category-tag">${c.categoria}</span>
             <img src="${c.imagen}" alt="${c.nombre}">
             <div class="contact-info">
               <h3>${c.nombre}</h3>
-              <div class="contact-line" style="margin-top:0.4em;">
+              <div class="contact-line" style="margin-top:0.6em;">
                 <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
@@ -497,7 +499,7 @@
             <img src="${t.imagen}" alt="${t.categoria}">
             <div class="contact-info">
               <h3>${t.nombre}</h3>
-              <div class="contact-line" style="margin-top:0.4em;">
+              <div class="contact-line" style="margin-top:0.6em;">
                 <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
@@ -589,21 +591,21 @@
       renderPaginacion();
     });
   </script>
-
-  <!-- Footer verde -->
-  <footer>
-    <p>Directorio del Condominio · © 2026</p>
-  </footer>
-
-  <style>
-    footer {
-      background: var(--color-accent);
-      color: var(--color-white);
-      text-align: center;
-      padding: 1em;
-      margin-top: 2em;
-      border-radius: 0 0 12px 12px;
-    }
-  </style>
 </body>
+
+<!-- Footer verde institucional -->
+<footer>
+  <p>Directorio del Condominio · © 2026</p>
+</footer>
+
+<style>
+  footer {
+    background: var(--color-accent);
+    color: var(--color-white);
+    text-align: center;
+    padding: 1em;
+    margin-top: 0;
+    border-radius: 0;
+  }
+</style>
 </html>
