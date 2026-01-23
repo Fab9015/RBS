@@ -2,12 +2,15 @@
 <html lang="es">
 
 <head>
+    <meta charset="UTF-8">
+    <!-- ✅ Evitar zoom en móviles -->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <title>Directorio – Reserva Bosque Sereno</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0" />
     <link rel="icon" href="img/favicon.png" type="image/png">
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:title" content="Directorio – Reserva Bosque Sereno">
     <meta property="og:description"
         content="Encuentra contactos importantes y trabajadores recomendados del condominio de forma rápida y sencilla.">
@@ -25,8 +28,10 @@
     <meta name="twitter:description"
         content="Encuentra contactos importantes y trabajadores recomendados del condominio.">
     <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
-    <!-- Font Awesome para iconos -->
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
         :root {
             --color-bg: #fdfaf5;
@@ -97,7 +102,7 @@
             padding: 1em;
         }
 
-        /* Contact cards generales */
+        /* Contact cards */
         .contact-card {
             position: relative;
             display: flex;
@@ -105,7 +110,7 @@
             background: #fcfcfa;
             border: 1px solid var(--color-border);
             border-radius: 12px;
-            padding: 2em 1em 1em 1em;
+            padding: 2.5em 1em 1em 1em;
             margin-bottom: 1.5em;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
         }
@@ -124,15 +129,7 @@
             font-weight: 600;
         }
 
-        /* Ajuste solo para cards de trabajadores */
-        #lista .contact-card {
-            min-height: 150px;
-            /* ✅ más altura */
-            padding-top: 2.8em;
-            /* ✅ espacio extra arriba */
-        }
-
-        /* Tag de categoría (solo trabajadores) */
+        /* Etiqueta de categoría */
         .category-tag {
             position: absolute;
             top: 12px;
@@ -148,30 +145,6 @@
 
         .contact-line {
             margin-bottom: 0.3em;
-        }
-
-        /* Filtros */
-        .filter {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin: 1em 0;
-        }
-
-        .filter-left {
-            text-align: left;
-        }
-
-        .filter-right {
-            text-align: right;
-        }
-
-        .filter select {
-            margin-left: 6px;
-            border-radius: 8px;
-            padding: 4px 8px;
-            border: 1px solid var(--color-border);
-            font-size: 0.9em;
         }
 
         /* Botón WhatsApp */
@@ -190,7 +163,7 @@
             cursor: pointer;
             justify-content: center;
             width: 90px;
-            /* ✅ ancho fijo */
+            /* ancho fijo */
         }
 
         .whatsapp-btn i {
@@ -214,7 +187,7 @@
             cursor: pointer;
             justify-content: center;
             width: 108px;
-            /* ✅ ancho fijo */
+            /* ancho fijo */
         }
 
         .copy-btn i {
@@ -222,7 +195,7 @@
             color: var(--color-title);
         }
 
-        /* Correos */
+        /* Correos truncados */
         @media (max-width: 768px) {
             .contact-email {
                 display: inline-block;
@@ -277,15 +250,6 @@
 
         .tabs {
             margin-bottom: 1em;
-        }
-
-        /* Dropdown */
-        select {
-            border-radius: 12px;
-            padding: 6px 10px;
-            border: 1px solid var(--color-border);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-            font-size: 0.95em;
         }
 
         /* Carrusel móvil */
@@ -417,18 +381,14 @@
             text-decoration: underline;
         }
 
-        /* Footer */
         footer {
             background: var(--color-accent);
             color: var(--color-white);
             text-align: center;
             padding: 1.2em 0;
             width: 100%;
-            /* ✅ ocupa todo el ancho */
             margin: 0;
-            /* ✅ elimina márgenes */
             position: relative;
-            /* ✅ en flujo normal */
         }
     </style>
 </head>
@@ -441,6 +401,7 @@
         </div>
         <img src="img/logo.png" alt="Logo institucional" class="logo">
     </header>
+
     <div class="container">
         <h2>Contactos importantes</h2>
         <div id="carousel-container">
@@ -451,7 +412,7 @@
         <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
         <div class="tabs" id="tabs"></div>
 
-        <!-- Filtros en línea -->
+        <!-- Filtros -->
         <div class="filter">
             <div class="filter-left">
                 <label for="categoria">Categoría: </label>
@@ -473,8 +434,9 @@
 
         <div class="pagination" id="paginacion"></div>
 
-        <!-- Dropdown de elementos por página debajo del paginador -->
+        <!-- Dropdown de elementos por página -->
         <div style="display:flex; justify-content:flex-end; margin-top:0.5em;">
+            <label for="porPagina" style="margin-right:6px;">Elementos por página:</label>
             <select id="porPagina">
                 <option value="5" selected>5</option>
                 <option value="10">10</option>
@@ -502,12 +464,19 @@
                     initCarouselTouch();
                 });
 
+            /* Función para dar formato visual con guiones */
+            function formatoTelefono(num) {
+                return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+            }
+
             /* Carrusel de contactos importantes */
             function renderRelevantes() {
                 const cont = document.getElementById('relevantes');
                 cont.innerHTML = "";
                 datos.relevantes.forEach((c) => {
-                    const whatsapp = `https://wa.me/52${c.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                    const telefonoLimpio = c.telefono.replace(/\D/g, "");
+                    const telefonoVisible = formatoTelefono(c.telefono);
+                    const whatsapp = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
                     const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
@@ -521,8 +490,8 @@
             <img src="${c.imagen}" alt="${c.nombre}">
             <div class="contact-info">
               <h3>${c.nombre}</h3>
-              <div class="contact-line" style="margin-top:0.6em;">
-                <strong>Tel:</strong> <a href="tel:${c.telefono}">${c.telefono}</a>
+              <div class="contact-line">
+                <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
@@ -618,7 +587,6 @@
                     alert("Correo copiado al portapapeles");
                 });
             }
-
             function filtrar(cat, btn) {
                 document.getElementById('categoria').value = cat;
                 paginaActual = 1;
@@ -638,19 +606,14 @@
                     filtrados = filtrados.filter(t => t.categoria === categoria);
                 }
 
-                const orden = document.getElementById('orden').value;
-                if (orden === "az") {
-                    filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
-                } else {
-                    filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
-                }
-
                 const inicio = (paginaActual - 1) * porPagina;
                 const fin = inicio + porPagina;
                 const pagina = filtrados.slice(inicio, fin);
 
                 pagina.forEach(t => {
-                    const whatsappLink = `https://wa.me/52${t.telefono}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                    const telefonoLimpio = t.telefono.replace(/\D/g, "");
+                    const telefonoVisible = formatoTelefono(t.telefono);
+                    const whatsappLink = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
                     const correoLink = t.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
@@ -665,8 +628,8 @@
             <img src="${t.imagen}" alt="${t.categoria}">
             <div class="contact-info">
               <h3>${t.nombre}</h3>
-              <div class="contact-line" style="margin-top:0.6em;">
-                <strong>Tel:</strong> <a href="tel:${t.telefono}">${t.telefono}</a>
+              <div class="contact-line">
+                <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
               </div>
               <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
@@ -676,7 +639,8 @@
           </div>`;
                 });
             }
-            /* Paginación dinámica */
+
+            /* Paginación */
             function renderPaginacion() {
                 const cont = document.getElementById('paginacion');
                 cont.innerHTML = "";
@@ -688,31 +652,10 @@
                 const totalPaginas = Math.ceil(filtrados.length / porPagina);
                 if (totalPaginas <= 1) return;
 
-                // Flecha atrás
                 cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
-
-                if (totalPaginas <= 7) {
-                    for (let i = 1; i <= totalPaginas; i++) {
-                        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
-                    }
-                } else {
-                    cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
-                    cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
-
-                    let start = Math.max(3, paginaActual - 2);
-                    let end = Math.min(totalPaginas - 2, paginaActual + 2);
-
-                    if (start > 3) cont.innerHTML += `<span>…</span>`;
-                    for (let i = start; i <= end; i++) {
-                        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
-                    }
-                    if (end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
-
-                    cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
-                    cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
+                for (let i = 1; i <= totalPaginas; i++) {
+                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
                 }
-
-                // Flecha adelante
                 cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
             }
 
@@ -729,36 +672,15 @@
                 renderPaginacion();
             }
 
-            /* Eventos de filtros */
-            document.getElementById('categoria').addEventListener('change', e => {
-                const cat = e.target.value;
-                paginaActual = 1;
-                renderLista();
-                renderPaginacion();
-                document.querySelectorAll('.tabs button').forEach(b => {
-                    if (b.textContent === cat) {
-                        b.classList.add('active-tab');
-                    } else {
-                        b.classList.remove('active-tab');
-                    }
-                });
-            });
-
             document.getElementById('porPagina').addEventListener('change', e => {
                 porPagina = parseInt(e.target.value);
                 paginaActual = 1;
                 renderLista();
                 renderPaginacion();
             });
-
-            document.getElementById('orden').addEventListener('change', e => {
-                paginaActual = 1;
-                renderLista();
-                renderPaginacion();
-            });
         </script>
     </div>
-    <!-- Footer verde institucional -->
+    <!-- Footer verde -->
     <footer>
         <p>Directorio del Condominio · © 2026</p>
     </footer>
