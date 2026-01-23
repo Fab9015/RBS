@@ -53,7 +53,7 @@
       position: relative;
       display: flex;
       align-items: center;
-      background: #f2ede6; /* ✅ más oscuro que antes */
+      background: #fcfcfa; /* ✅ más blanco */
       border: 1px solid var(--color-border);
       border-radius: 12px;
       padding: 2em 1em 1em 1em;
@@ -452,7 +452,7 @@
           </div>`;
       });
     }
-        /* Paginación optimizada con puntos suspensivos */
+          /* Paginación optimizada con tu nueva idea */
     function renderPaginacion() {
       const cont = document.getElementById('paginacion');
       cont.innerHTML = "";
@@ -467,25 +467,26 @@
       // Flecha atrás
       cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual-1})" ${paginaActual===1?"disabled":""}>&laquo;</button>`;
 
-      // Primera página
-      cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual===1?"style='background:var(--color-title);color:white;'":""}>1</button>`;
-
-      // Puntos suspensivos si estamos lejos del inicio
-      if(paginaActual > 4) cont.innerHTML += `<span>…</span>`;
-
-      // Rango alrededor de la página actual
-      let start = Math.max(2, paginaActual - 2);
-      let end = Math.min(totalPaginas - 1, paginaActual + 2);
-      for(let i=start; i<=end; i++){
+      // Siempre mostrar primeras dos páginas
+      for(let i=1; i<=Math.min(2,totalPaginas); i++){
         cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
       }
 
-      // Puntos suspensivos si estamos lejos del final
-      if(paginaActual < totalPaginas - 3) cont.innerHTML += `<span>…</span>`;
+      // Bloque central dinámico
+      let start = Math.max(3, paginaActual - 2);
+      let end = Math.min(totalPaginas - 2, paginaActual + 2);
 
-      // Última página
-      if(totalPaginas > 1) {
-        cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual===totalPaginas?"style='background:var(--color-title);color:white;'":""}>${totalPaginas}</button>`;
+      if(start > 3) cont.innerHTML += `<span>…</span>`;
+      for(let i=start; i<=end; i++){
+        cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
+      }
+      if(end < totalPaginas - 2) cont.innerHTML += `<span>…</span>`;
+
+      // Siempre mostrar últimas dos páginas
+      for(let i=totalPaginas-1; i<=totalPaginas; i++){
+        if(i>2){ // evitar duplicar si totalPaginas <= 2
+          cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i===paginaActual?"style='background:var(--color-title);color:white;'":""}>${i}</button>`;
+        }
       }
 
       // Flecha adelante
@@ -531,4 +532,4 @@
     });
   </script>
 </body>
-</html>
+</html>    
