@@ -509,12 +509,25 @@
         function addCategoria() {
             const nuevo = prompt("Nombre de la nueva categoría:");
             if (nuevo && nuevo.trim()) {
-                data.categorias.push(nuevo.trim());
+                const nombreCat = nuevo.trim();
+
+                // ✅ Agregar a lista de categorías
+                data.categorias.push(nombreCat);
+
+                // ✅ Agregar también a búsquedas relevantes con checkbox en false
+                data.busquedasRelevantes.push({
+                    categoria: nombreCat,
+                    activo: false
+                });
+
+                // Refrescar vistas
                 renderCategoriasList();
+                renderBusquedas();
                 fillCategories();
                 updateOutput();
             }
         }
+
         function editCategoria(index) {
             const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
             if (nuevo && nuevo.trim()) {
