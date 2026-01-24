@@ -397,7 +397,6 @@
             </div>
         </div>
     </div>
-    <!-- Scripts -->
     <script>
         let data = {};
         let paginaActual = 1;
@@ -414,24 +413,126 @@
             });
         }
 
-        /* Cargar JSON */
-        fetch('directorio.json')
-            .then(r => r.json())
-            .then(json => {
-                data = json;
+        /* Render cards */
+        function renderCards() {
+            const cont = document.getElementById("cards-container");
+            cont.innerHTML = "";
+            const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
+            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+            if (orden === "az") { filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre)); }
+            else { filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre)); }
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            const inicio = (paginaActual - 1) * porPagina;
+            const fin = inicio + porPagina;
+            const pagina = filtrados.slice(inicio, fin);
+            if (pagina.length === 0) { cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`; }
+            pagina.forEach((t) => {
+                cont.innerHTML += `
+        <div class="card">
+          <span class="category-tag">${t.categoria}</span>
+          <img src="${t.imagen}" alt="${t.categoria}">
+          <h3>${t.nombre}</h3>
+          <p>Tel: ${t.telefono}</p>
+          <p>${t.correo || ""}</p>
+          <p class="relevante-label">${t.relevante ? "⭐ Contacto relevante" : ""}</p>
+          <div class="actions">
+            <button class="edit-btn" onclick="openModal('${t.id}')"><i class="fa fa-edit"></i></button>
+            <button class="delete-btn" onclick="deleteTrabajador('${t.id}')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>`;
+            });
+            renderPaginacion(totalPaginas);
+            updateOutput();
+        }
 
-                // Asignar UUID si no existe
-                data.trabajadores = data.trabajadores.map(t => ({
-                    id: t.id || generarUUID(),
-                    ...t
-                }));
+        /* Paginación */
+        function renderPaginacion(totalPaginas) {
+            const cont = document.getElementById("paginacion");
+            cont.innerHTML = "";
+            if (totalPaginas <= 1) return;
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
+            for (let i = 1; i <= totalPaginas; i++) {
+                cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
+            }
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+        }
+        function cambiarPagina(num) {
+            const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
+            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            if (num < 1 || num > totalPaginas) return;
+            paginaActual = num;
+            renderCards();
+        }
 
-                renderCards();
-                renderBusquedas();
+        /* Búsquedas relevantes */
+        function renderBusquedas() {
+            const cont = document.getElementById("busquedas-list");
+            cont.innerHTML = "";
+            data.busquedasRelevantes.forEach((b, i) => {
+                cont.innerHTML += `
+        <label>
+          <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+          ${b.categoria}
+        </label><br>`;
+            });
+        }
+        function toggleBusqueda(index, checked) {
+            data.busquedasRelevantes[index].activo = checked;
+            updateOutput();
+        }
+
+        /* Categorías */
+        function renderCategoriasList() {
+            const cont = document.getElementById("categorias-list");
+            cont.innerHTML = "";
+            data.categorias.forEach((cat, i) => {
+                cont.innerHTML += `
+        <div class="cat-row">
+          <span>${cat}</span>
+          <div>
+            <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
+            <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>`;
+            });
+        }
+        function addCategoria() {
+            const nuevo = prompt("Nombre de la nueva categoría:");
+            if (nuevo && nuevo.trim()) {
+                data.categorias.push(nuevo.trim());
                 renderCategoriasList();
                 fillCategories();
                 updateOutput();
-            });
+            }
+        }
+        function editCategoria(index) {
+            const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
+            if (nuevo && nuevo.trim()) {
+                const oldCat = data.categorias[index];
+                data.categorias[index] = nuevo.trim();
+                data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nuevo.trim(); });
+                data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nuevo.trim(); });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
+        function deleteCategoria(index) {
+            const cat = data.categorias[index];
+            if (confirm("¿Eliminar la categoría '" + cat + "'?")) {
+                data.categorias.splice(index, 1);
+                data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
+                data.trabajadores.forEach(t => { if (t.categoria === cat) t.categoria = "General"; });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
 
         /* Modal CRUD trabajadores */
         function openModal(id = null) {
@@ -537,6 +638,23 @@
             document.execCommand("copy");
             alert("Datos copiados al portapapeles");
         }
+
+        /* Cargar JSON */
+        fetch('directorio.json')
+            .then(r => r.json())
+            .then(json => {
+                data = json;
+                // Asignar UUID si no existe
+                data.trabajadores = data.trabajadores.map(t => ({
+                    id: t.id || generarUUID(),
+                    ...t
+                }));
+                renderCards();
+                renderBusquedas();
+                renderCategoriasList();
+                fillCategories();
+                updateOutput();
+            });
     </script>
 </body>
 
