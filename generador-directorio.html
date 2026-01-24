@@ -48,17 +48,12 @@
             flex-wrap: wrap;
         }
 
-        .toolbar input {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 200px;
-        }
-
+        .toolbar input,
         .toolbar select {
             padding: 6px;
             border: 1px solid #ccc;
             border-radius: 6px;
+            margin-right: 8px;
         }
 
         .container {
@@ -133,6 +128,92 @@
             left: 8px;
         }
 
+        /* Sidebar */
+        .sidebar {
+            padding: 1em;
+            border-top: 2px solid #a1b27a;
+            background: #fff;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar .cat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 4px 0;
+            padding: 4px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar .cat-row button {
+            margin-left: 4px;
+            padding: 4px 6px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+
+        .sidebar .edit-cat {
+            background: #8fa76a;
+            color: #fff;
+        }
+
+        .sidebar .delete-cat {
+            background: #d9534f;
+            color: #fff;
+        }
+
+        /* Paginación */
+        #paginacion {
+            text-align: center;
+            margin: 1em;
+        }
+
+        #paginacion button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #paginacion span {
+            margin: 0 4px;
+        }
+
+        /* JSON output */
+        .json-section {
+            padding: 1em;
+            background: #fff;
+            border-top: 2px solid #a1b27a;
+        }
+
+        .json-section textarea {
+            width: 100%;
+            height: 250px;
+            font-family: monospace;
+            margin-top: 1em;
+        }
+
+        .json-section button {
+            margin-top: 6px;
+            margin-right: 6px;
+            padding: 6px 10px;
+            background: #a1b27a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .json-section button:hover {
+            background: #8fa76a;
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -170,10 +251,12 @@
 
         .modal-content .relevante {
             display: flex;
-            flex-direction: row;
             align-items: center;
-            gap: 6px;
             margin-top: 0.5em;
+        }
+
+        .modal-content .relevante input {
+            margin-right: 6px;
         }
 
         .modal-actions {
@@ -200,57 +283,6 @@
             color: #333;
         }
 
-        /* Sidebar */
-        .sidebar {
-            padding: 1em;
-            border-top: 2px solid #a1b27a;
-            background: #fff;
-        }
-
-        .sidebar h2 {
-            margin-top: 0;
-        }
-
-        .sidebar input {
-            padding: 6px;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            margin-top: 6px;
-            width: 100%;
-        }
-
-        .sidebar button {
-            margin-top: 6px;
-            padding: 6px 10px;
-            background: #a1b27a;
-            color: #fff;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-        }
-
-        .sidebar button:hover {
-            background: #8fa76a;
-        }
-
-        /* Paginación */
-        #paginacion {
-            text-align: center;
-            margin: 1em;
-        }
-
-        #paginacion button {
-            margin: 0 2px;
-            padding: 6px 10px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        #paginacion span {
-            margin: 0 4px;
-        }
-
         /* Responsive */
         @media(max-width:600px) {
             .card {
@@ -270,10 +302,15 @@
         <h1>Dashboard de Directorio</h1>
         <button onclick="openModal()">+ Crear trabajador</button>
     </header>
-
     <!-- Herramientas -->
     <div class="toolbar">
-        <input id="search-input" placeholder="Buscar por nombre..." oninput="renderCards()">
+        <div>
+            <input id="search-input" placeholder="Buscar por nombre..." oninput="renderCards()">
+            <select id="orden-select" onchange="ordenarTrabajadores(this.value)">
+                <option value="az">Ordenar A-Z</option>
+                <option value="za">Ordenar Z-A</option>
+            </select>
+        </div>
         <label>
             Mostrar:
             <select onchange="porPagina=parseInt(this.value);paginaActual=1;renderCards()">
@@ -294,14 +331,18 @@
     <div class="sidebar">
         <h2>Categorías</h2>
         <div id="categorias-list"></div>
-        <input id="new-cat" placeholder="Nueva categoría">
-        <button onclick="addCategoria()">Agregar categoría</button>
-        <button onclick="removeCategoria()">Eliminar categoría</button>
 
         <h2>Búsquedas relevantes</h2>
         <div id="busquedas-list"></div>
     </div>
 
+    <!-- JSON generado -->
+    <div class="json-section">
+        <h2>JSON generado</h2>
+        <textarea id="output" readonly></textarea>
+        <button onclick="downloadJSON()">Descargar JSON</button>
+        <button onclick="copiarJSON()">Copiar JSON</button>
+    </div>
     <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
@@ -313,8 +354,8 @@
                 <select id="categoria"></select>
             </label>
             <div class="relevante">
-                <label for="relevante">Contacto relevante</label>
                 <input type="checkbox" id="relevante">
+                <label for="relevante">Contacto relevante</label>
             </div>
             <div class="modal-actions">
                 <button class="save-btn" onclick="saveTrabajador()">Guardar</button>
@@ -323,30 +364,70 @@
         </div>
     </div>
     <script>
+        /* ============================
+           Variables globales
+        ============================ */
         let data = {};
         let paginaActual = 1;
         let porPagina = 6;
         let editIndex = null;
+        let orden = "az";
 
-        /* Cargar directorio.json */
+        /* ============================
+           Cargar directorio.json
+        ============================ */
         fetch('directorio.json')
             .then(r => r.json())
             .then(json => {
                 data = json;
+
+                // Fusionar nodo "relevantes" dentro de trabajadores con atributo relevante:true
+                if (data.relevantes) {
+                    data.relevantes.forEach(r => {
+                        data.trabajadores.push({
+                            nombre: r.nombre,
+                            telefono: r.telefono,
+                            correo: r.correo,
+                            categoria: r.categoria || "General",
+                            imagen: r.imagen,
+                            relevante: true
+                        });
+                    });
+                    delete data.relevantes;
+                }
+
                 renderCards();
                 renderBusquedas();
                 renderCategoriasList();
                 fillCategories();
+                updateOutput();
             })
             .catch(err => console.error("Error al cargar directorio.json:", err));
 
-        /* Render cards */
+        /* ============================
+           Ordenar trabajadores
+        ============================ */
+        function ordenarTrabajadores(tipo) {
+            orden = tipo;
+            paginaActual = 1;
+            renderCards();
+        }
+        /* ============================
+           Renderizar cards
+        ============================ */
         function renderCards() {
             const cont = document.getElementById("cards-container");
             cont.innerHTML = "";
 
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
             let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+
+            // Ordenar
+            if (orden === "az") {
+                filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            } else {
+                filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            }
 
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             const inicio = (paginaActual - 1) * porPagina;
@@ -374,143 +455,12 @@
             });
 
             renderPaginacion(totalPaginas);
+            updateOutput();
         }
 
-        /* Render búsquedas relevantes */
-        function renderBusquedas() {
-            const cont = document.getElementById("busquedas-list");
-            if (!cont) return;
-            cont.innerHTML = "";
-            data.busquedasRelevantes.forEach((b, i) => {
-                cont.innerHTML += `
-      <label>
-        <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
-        ${b.categoria}
-      </label><br>`;
-            });
-        }
-
-        function toggleBusqueda(index, checked) {
-            data.busquedasRelevantes[index].activo = checked;
-        }
-
-        /* Render categorías en sidebar */
-        function renderCategoriasList() {
-            const cont = document.getElementById("categorias-list");
-            cont.innerHTML = "";
-            data.categorias.forEach(cat => {
-                cont.innerHTML += `<div>${cat}</div>`;
-            });
-        }
-
-        /* Agregar categoría */
-        function addCategoria() {
-            const cat = document.getElementById("new-cat").value.trim();
-            if (!cat) { alert("Ingresa una categoría"); return; }
-            if (data.categorias.includes(cat)) { alert("Ya existe"); return; }
-            data.categorias.push(cat);
-            data.busquedasRelevantes.push({ categoria: cat, activo: false });
-            renderCategoriasList();
-            renderBusquedas();
-            fillCategories();
-        }
-
-        /* Eliminar categoría */
-        function removeCategoria() {
-            const cat = document.getElementById("new-cat").value.trim();
-            if (!cat) { alert("Ingresa la categoría a eliminar"); return; }
-            data.categorias = data.categorias.filter(c => c !== cat);
-            data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
-            renderCategoriasList();
-            renderBusquedas();
-            fillCategories();
-        }
-
-        /* Abrir modal */
-        function openModal(index = null) {
-            document.getElementById("modal").style.display = "flex";
-            document.getElementById("modal-title").textContent = index === null ? "Agregar trabajador" : "Editar trabajador";
-            editIndex = index;
-
-            fillCategories();
-
-            if (index !== null) {
-                const t = data.trabajadores[index];
-                document.getElementById("nombre").value = t.nombre;
-                document.getElementById("telefono").value = t.telefono;
-                document.getElementById("correo").value = t.correo;
-                document.getElementById("categoria").value = t.categoria;
-                document.getElementById("relevante").checked = t.relevante || false;
-            } else {
-                document.getElementById("nombre").value = "";
-                document.getElementById("telefono").value = "";
-                document.getElementById("correo").value = "";
-                document.getElementById("categoria").value = data.categorias[0];
-                document.getElementById("relevante").checked = false;
-            }
-        }
-
-        /* Guardar trabajador */
-        function saveTrabajador() {
-            const nombre = document.getElementById("nombre").value.trim();
-            const telefono = document.getElementById("telefono").value.trim();
-            const correo = document.getElementById("correo").value.trim();
-            const categoria = document.getElementById("categoria").value;
-            const relevante = document.getElementById("relevante").checked;
-
-            if (!nombre || !telefono) { alert("Nombre y teléfono son obligatorios"); return; }
-
-            const imagenesDisponibles = {
-                "Plomero": "img/plomero.png",
-                "Electricista": "img/electricista.png",
-                "Carpintero": "img/carpintero.png",
-                "Servicios de limpieza": "img/limpieza.png",
-                "Jardinero": "img/jardinero.png",
-                "Albañil": "img/trabajador.png",
-                "Administrador": "img/admin.png",
-                "Vigilancia": "img/vigilancia.png"
-            };
-            const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
-
-            const nuevo = { nombre, telefono, correo, categoria, imagen, relevante };
-
-            if (editIndex === null) {
-                data.trabajadores.push(nuevo);
-            } else {
-                data.trabajadores[editIndex] = nuevo;
-            }
-
-            closeModal();
-            renderCards();
-        }
-
-        /* Eliminar trabajador */
-        function deleteTrabajador(index) {
-            if (confirm("¿Eliminar este trabajador?")) {
-                data.trabajadores.splice(index, 1);
-                renderCards();
-            }
-        }
-
-        /* Cerrar modal */
-        function closeModal() {
-            document.getElementById("modal").style.display = "none";
-            editIndex = null;
-        }
-
-        /* Llenar categorías en modal */
-        function fillCategories() {
-            const sel = document.getElementById("categoria");
-            sel.innerHTML = "";
-            data.categorias.forEach(cat => {
-                const opt = document.createElement("option");
-                opt.value = cat;
-                opt.textContent = cat;
-                sel.appendChild(opt);
-            });
-        }
-
-        /* Paginador inteligente */
+        /* ============================
+           Paginador inteligente
+        ============================ */
         function renderPaginacion(totalPaginas) {
             const cont = document.getElementById("paginacion");
             if (!cont) return;
@@ -554,7 +504,194 @@
             paginaActual = num;
             renderCards();
         }
+
+        /* ============================
+           Búsquedas relevantes
+        ============================ */
+        function renderBusquedas() {
+            const cont = document.getElementById("busquedas-list");
+            if (!cont) return;
+            cont.innerHTML = "";
+            data.busquedasRelevantes.forEach((b, i) => {
+                cont.innerHTML += `
+      <label>
+        <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+        ${b.categoria}
+      </label><br>`;
+            });
+        }
+
+        function toggleBusqueda(index, checked) {
+            data.busquedasRelevantes[index].activo = checked;
+            updateOutput();
+        }
+        /* ============================
+           Categorías con edición/eliminación
+        ============================ */
+        function renderCategoriasList() {
+            const cont = document.getElementById("categorias-list");
+            cont.innerHTML = "";
+            data.categorias.forEach((cat, i) => {
+                cont.innerHTML += `
+      <div class="cat-row">
+        <span>${cat}</span>
+        <div>
+          <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
+          <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>`;
+            });
+        }
+
+        function editCategoria(index) {
+            const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
+            if (nuevo && nuevo.trim()) {
+                const oldCat = data.categorias[index];
+                data.categorias[index] = nuevo.trim();
+
+                // Actualizar búsquedas relevantes
+                data.busquedasRelevantes.forEach(b => {
+                    if (b.categoria === oldCat) b.categoria = nuevo.trim();
+                });
+
+                // Actualizar trabajadores
+                data.trabajadores.forEach(t => {
+                    if (t.categoria === oldCat) t.categoria = nuevo.trim();
+                });
+
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
+
+        function deleteCategoria(index) {
+            const cat = data.categorias[index];
+            if (confirm("¿Eliminar la categoría '" + cat + "'?")) {
+                data.categorias.splice(index, 1);
+                data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
+                data.trabajadores.forEach(t => {
+                    if (t.categoria === cat) t.categoria = "General";
+                });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
+
+        /* ============================
+           Modal CRUD trabajadores
+        ============================ */
+        function openModal(index = null) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-title").textContent = index === null ? "Agregar trabajador" : "Editar trabajador";
+            editIndex = index;
+
+            fillCategories();
+
+            if (index !== null) {
+                const t = data.trabajadores[index];
+                document.getElementById("nombre").value = t.nombre;
+                document.getElementById("telefono").value = t.telefono;
+                document.getElementById("correo").value = t.correo;
+                document.getElementById("categoria").value = t.categoria;
+                document.getElementById("relevante").checked = t.relevante || false;
+            } else {
+                document.getElementById("nombre").value = "";
+                document.getElementById("telefono").value = "";
+                document.getElementById("correo").value = "";
+                document.getElementById("categoria").value = data.categorias[0];
+                document.getElementById("relevante").checked = false;
+            }
+        }
+
+        function saveTrabajador() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const categoria = document.getElementById("categoria").value;
+            const relevante = document.getElementById("relevante").checked;
+
+            if (!nombre || !telefono) { alert("Nombre y teléfono son obligatorios"); return; }
+
+            const imagenesDisponibles = {
+                "Plomero": "img/plomero.png",
+                "Electricista": "img/electricista.png",
+                "Carpintero": "img/carpintero.png",
+                "Servicios de limpieza": "img/limpieza.png",
+                "Jardinero": "img/jardinero.png",
+                "Albañil": "img/trabajador.png",
+                "Administrador": "img/admin.png",
+                "Vigilancia": "img/vigilancia.png"
+            };
+            const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
+
+            const nuevo = { nombre, telefono, correo, categoria, imagen, relevante };
+
+            if (editIndex === null) {
+                data.trabajadores.push(nuevo);
+            } else {
+                data.trabajadores[editIndex] = nuevo;
+            }
+
+            closeModal();
+            renderCards();
+        }
+
+        function deleteTrabajador(index) {
+            if (confirm("¿Eliminar este trabajador?")) {
+                data.trabajadores.splice(index, 1);
+                renderCards();
+            }
+        }
+
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+            editIndex = null;
+        }
+
+        function fillCategories() {
+            const sel = document.getElementById("categoria");
+            sel.innerHTML = "";
+            data.categorias.forEach(cat => {
+                const opt = document.createElement("option");
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+        }
+        /* ============================
+           Exportar y copiar JSON
+        ============================ */
+        function updateOutput() {
+            const out = document.getElementById("output");
+            if (out) {
+                out.value = JSON.stringify(data, null, 2);
+            }
+        }
+
+        function downloadJSON() {
+            const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "directorio.json";
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function copiarJSON() {
+            const out = document.getElementById("output");
+            out.select();
+            document.execCommand("copy");
+            alert("Contenido copiado al portapapeles");
+        }
     </script>
+
 </body>
 
 </html>
