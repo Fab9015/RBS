@@ -624,6 +624,14 @@
             });
         });
 
+        // Listener para cambio en orden (A-Z / Z-A)
+document.getElementById('orden').addEventListener('change', e => {
+    paginaActual = 1; // reinicia a la primera página
+    renderLista();
+    renderPaginacion();
+});
+
+
         function filtrar(cat, btn) {
             document.getElementById('categoria').value = cat;
             paginaActual = 1;
