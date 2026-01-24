@@ -5,8 +5,7 @@
         "Carpintero",
         "Servicios de limpieza",
         "Jardinero",
-        "Albañil",
-        "Vigilancia"
+        "Albañil"
     ],
     "busquedasRelevantes": [
         {
@@ -23,10 +22,14 @@
         },
         {
             "categoria": "Servicios de limpieza",
-            "activo": false
+            "activo": true
         },
         {
             "categoria": "Jardinero",
+            "activo": true
+        },
+                {
+            "categoria": "Albañil",
             "activo": true
         }
     ],
