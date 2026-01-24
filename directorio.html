@@ -662,7 +662,7 @@
             });
         }
 
-        /* Paginación avanzada */
+        /* Paginación inteligente */
         function renderPaginacion() {
             const cont = document.getElementById('paginacion');
             cont.innerHTML = "";
@@ -678,32 +678,33 @@
             // Botón anterior
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
 
-            if (totalPaginas <= 5) {
+            if (totalPaginas <= 7) {
                 // Mostrar todas las páginas
                 for (let i = 1; i <= totalPaginas; i++) {
                     cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
                 }
-            } else if (totalPaginas <= 10) {
-                // Mostrar primeras 2, puntos, últimas 2
-                cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
-                cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
-                cont.innerHTML += `<span>...</span>`;
-                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
-                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
             } else {
-                // Mostrar primeras 2, puntos, bloque de 5 alrededor de la actual, puntos, últimas 2
+                // Mostrar primeras 2
                 cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
                 cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
-                cont.innerHTML += `<span>...</span>`;
 
+                // Bloque dinámico alrededor de la actual
                 let inicio = Math.max(3, paginaActual - 2);
                 let fin = Math.min(totalPaginas - 2, paginaActual + 2);
+
+                if (inicio > 3) {
+                    cont.innerHTML += `<span>...</span>`;
+                }
 
                 for (let i = inicio; i <= fin; i++) {
                     cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
                 }
 
-                cont.innerHTML += `<span>...</span>`;
+                if (fin < totalPaginas - 2) {
+                    cont.innerHTML += `<span>...</span>`;
+                }
+
+                // Últimas 2
                 cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
                 cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
             }
