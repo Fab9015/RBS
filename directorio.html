@@ -662,7 +662,7 @@
             });
         }
 
-        /* Paginación */
+        /* Paginación avanzada */
         function renderPaginacion() {
             const cont = document.getElementById('paginacion');
             cont.innerHTML = "";
@@ -672,12 +672,43 @@
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
+
             if (totalPaginas <= 1) return;
 
+            // Botón anterior
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
-            for (let i = 1; i <= totalPaginas; i++) {
-                cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+
+            if (totalPaginas <= 5) {
+                // Mostrar todas las páginas
+                for (let i = 1; i <= totalPaginas; i++) {
+                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+                }
+            } else if (totalPaginas <= 10) {
+                // Mostrar primeras 2, puntos, últimas 2
+                cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
+                cont.innerHTML += `<span>...</span>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
+            } else {
+                // Mostrar primeras 2, puntos, bloque de 5 alrededor de la actual, puntos, últimas 2
+                cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:var(--color-title);color:white;'" : ""}>1</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:var(--color-title);color:white;'" : ""}>2</button>`;
+                cont.innerHTML += `<span>...</span>`;
+
+                let inicio = Math.max(3, paginaActual - 2);
+                let fin = Math.min(totalPaginas - 2, paginaActual + 2);
+
+                for (let i = inicio; i <= fin; i++) {
+                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+                }
+
+                cont.innerHTML += `<span>...</span>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas - 1}</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:var(--color-title);color:white;'" : ""}>${totalPaginas}</button>`;
             }
+
+            // Botón siguiente
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
         }
 
@@ -688,7 +719,9 @@
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
+
             if (num < 1 || num > totalPaginas) return;
+
             paginaActual = num;
             renderLista();
             renderPaginacion();
@@ -708,6 +741,7 @@
             renderLista();
             renderPaginacion();
 
+            // ✅ activar visualmente el botón de búsqueda relevante si coincide
             document.querySelectorAll('.tabs button').forEach(b => {
                 if (b.textContent === categoria) {
                     b.classList.add('active-tab');
@@ -729,7 +763,6 @@
             renderPaginacion();
         });
     </script>
-
     <!-- Footer verde -->
     <footer>
         <p>Directorio del Condominio · © 2026</p>
