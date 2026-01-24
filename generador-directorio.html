@@ -1,210 +1,475 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Generador de JSON de Contactos</title>
-  <style>
-    body {
-      font-family: 'Lato', sans-serif;
-      background: #fdfaf5;
-      color: #5c4033;
-      margin: 0;
-      padding: 1em;
-    }
-    h1 { text-align: center; color: #5c4033; }
-    .section {
-      border: 2px solid #a1b27a;
-      border-radius: 8px;
-      padding: 1em;
-      margin: 1em 0;
-      background: #fff;
-    }
-    label { display: block; margin-top: 0.5em; }
-    input, select {
-      width: 100%;
-      padding: 6px;
-      margin-top: 4px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-    }
-    button {
-      margin-top: 1em;
-      padding: 8px 12px;
-      background: #a1b27a;
-      color: #fff;
-      border: none;
-      border-radius: 6px;
-      cursor: pointer;
-    }
-    button:hover { background: #8fa76a; }
-    textarea {
-      width: 100%;
-      height: 250px;
-      margin-top: 1em;
-      font-family: monospace;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <title>Dashboard de Directorio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #fdfaf5;
+            color: #5c4033;
+            margin: 0;
+        }
+
+        header {
+            background: #a1b27a;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header button {
+            background: #fff;
+            color: #5c4033;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        header button:hover {
+            background: #eee;
+        }
+
+        .toolbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1em;
+            flex-wrap: wrap;
+        }
+
+        .toolbar input {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            width: 200px;
+        }
+
+        .toolbar select {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 1em;
+        }
+
+        .card {
+            background: #fff;
+            border: 2px solid #a1b27a;
+            border-radius: 8px;
+            width: 280px;
+            margin: 1em;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .card img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+        }
+
+        .card h3 {
+            margin: 0.5em 0;
+        }
+
+        .card .actions {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 0.5em;
+        }
+
+        .card button {
+            flex: 1;
+            margin: 0 4px;
+            padding: 6px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .edit-btn {
+            background: #8fa76a;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background: #d9534f;
+            color: #fff;
+        }
+
+        .edit-btn:hover {
+            background: #7a935d;
+        }
+
+        .delete-btn:hover {
+            background: #c9302c;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 1.5em;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
+        }
+
+        .modal-content label {
+            display: block;
+            margin-top: 0.5em;
+        }
+
+        .modal-content input,
+        .modal-content select {
+            width: 100%;
+            padding: 6px;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        .modal-content .relevante {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5em;
+        }
+
+        .modal-content button {
+            margin-top: 1em;
+            padding: 8px 12px;
+            background: #a1b27a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .modal-content button:hover {
+            background: #8fa76a;
+        }
+
+        /* Sección lateral */
+        .sidebar {
+            padding: 1em;
+            border-top: 2px solid #a1b27a;
+            background: #fff;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        /* Paginación */
+        #paginacion {
+            text-align: center;
+            margin: 1em;
+        }
+
+        #paginacion button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #paginacion span {
+            margin: 0 4px;
+        }
+
+        /* Responsive */
+        @media(max-width:600px) {
+            .card {
+                width: 100%;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                gap: 0.5em;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <h1>Generador de JSON de Contactos</h1>
+    <header>
+        <h1>Dashboard de Directorio</h1>
+        <button onclick="openModal()">+ Crear trabajador</button>
+    </header>
 
-  <!-- Agregar categoría -->
-  <div class="section">
-    <h2>Agregar categoría</h2>
-    <label>Nueva categoría: <input id="new-cat"></label>
-    <button onclick="addCategoria()">Agregar categoría</button>
-  </div>
+    <!-- Herramientas -->
+    <div class="toolbar">
+        <input id="search-input" placeholder="Buscar por nombre..." oninput="renderCards()">
+        <label>
+            Mostrar:
+            <select onchange="porPagina=parseInt(this.value);paginaActual=1;renderCards()">
+                <option value="6">6</option>
+                <option value="12">12</option>
+                <option value="24">24</option>
+            </select>
+        </label>
+    </div>
 
-  <!-- Configurar búsquedas relevantes -->
-  <div class="section">
-    <h2>Configurar búsquedas relevantes</h2>
-    <div id="busquedas-list"></div>
-  </div>
+    <!-- Cards -->
+    <div class="container" id="cards-container"></div>
 
-  <!-- Contactos relevantes -->
-  <div class="section">
-    <h2>Agregar contacto relevante</h2>
-    <label>Nombre: <input id="rel-nombre"></label>
-    <label>Teléfono: <input id="rel-telefono"></label>
-    <label>Correo: <input id="rel-correo"></label>
-    <button onclick="addRelevante()">Agregar relevante</button>
-  </div>
+    <!-- Paginación -->
+    <div id="paginacion"></div>
 
-  <!-- Trabajadores -->
-  <div class="section">
-    <h2>Agregar trabajador</h2>
-    <label>Nombre: <input id="trab-nombre"></label>
-    <label>Teléfono: <input id="trab-telefono"></label>
-    <label>Correo: <input id="trab-correo"></label>
-    <label>Categoría:
-      <select id="trab-cat"></select>
-    </label>
-    <button onclick="addTrabajador()">Agregar trabajador</button>
-  </div>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <h2>Categorías</h2>
+        <div id="categorias-list"></div>
+        <h2>Búsquedas relevantes</h2>
+        <div id="busquedas-list"></div>
+    </div>
 
-  <!-- JSON generado -->
-  <div class="section">
-    <h2>JSON generado</h2>
-    <textarea id="output" readonly></textarea>
-    <button onclick="downloadJSON()">Descargar JSON</button>
-  </div>
+    <!-- Modal -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">Agregar trabajador</h2>
+            <label>Nombre: <input id="nombre"></label>
+            <label>Teléfono: <input id="telefono"></label>
+            <label>Correo: <input id="correo"></label>
+            <label>Categoría:
+                <select id="categoria"></select>
+            </label>
+            <div class="relevante">
+                <input type="checkbox" id="relevante">
+                <label for="relevante">Contacto relevante</label>
+            </div>
+            <button onclick="saveTrabajador()">Guardar</button>
+            <button onclick="closeModal()" style="background:#ccc;color:#333;margin-left:8px;">Cancelar</button>
+        </div>
+    </div>
 
-  <script>
-    let data = {
-      categorias: [],
-      busquedasRelevantes: [],
-      relevantes: [],
-      trabajadores: []
-    };
+    <script>
+        let data = {};
+        let paginaActual = 1;
+        let porPagina = 6;
+        let editIndex = null;
 
-    // Lista de imágenes disponibles por categoría
-    const imagenesDisponibles = {
-      "Electricista": "img/electricista.png",
-      "Plomero": "img/plomero.png",
-      "Carpintero": "img/carpintero.png",
-      "Jardinero": "img/jardinero.png",
-      "Vigilancia": "img/vigilancia.png",
-      "Administrador": "img/admin.png",
-      "Limpieza": "img/limpieza.png"
-    };
+        /* Cargar directorio.json */
+        fetch('directorio.json')
+            .then(r => r.json())
+            .then(json => {
+                data = json;
+                renderCards();
+                renderBusquedas();
+                fillCategories();
+            })
+            .catch(err => console.error("Error al cargar directorio.json:", err));
 
-    // Cargar archivo directorio.json
-    fetch('directorio.json')
-      .then(response => response.json())
-      .then(json => {
-        data = json;
-        updateOutput();
-        fillCategories();
-        renderBusquedas();
-      })
-      .catch(err => console.error("Error al cargar directorio.json:", err));
+        /* Render cards */
+        function renderCards() {
+            const cont = document.getElementById("cards-container");
+            cont.innerHTML = "";
 
-    function updateOutput() {
-      document.getElementById('output').value = JSON.stringify(data, null, 2);
-    }
+            const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
+            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
 
-    function validateEmail(email) {
-      return /\S+@\S+\.\S+/.test(email);
-    }
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            const inicio = (paginaActual - 1) * porPagina;
+            const fin = inicio + porPagina;
+            const pagina = filtrados.slice(inicio, fin);
 
-    function addCategoria() {
-      const cat = document.getElementById('new-cat').value.trim();
-      if(!cat){ alert("La categoría no puede estar vacía."); return; }
-      if(data.categorias.includes(cat)){ alert("La categoría ya existe."); return; }
-      data.categorias.push(cat);
-      data.busquedasRelevantes.push({ categoria: cat, activo: false });
-      updateOutput();
-      fillCategories();
-      renderBusquedas();
-    }
+            if (pagina.length === 0) {
+                cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`;
+            }
 
-    function fillCategories() {
-      const select = document.getElementById('trab-cat');
-      select.innerHTML = "";
-      data.categorias.forEach(cat => {
-        const option = document.createElement("option");
-        option.value = cat;
-        option.textContent = cat;
-        select.appendChild(option);
-      });
-    }
+            pagina.forEach((t, i) => {
+                cont.innerHTML += `
+      <div class="card">
+        <img src="${t.imagen}" alt="${t.categoria}">
+        <h3>${t.nombre}</h3>
+        <p><strong>${t.categoria}</strong></p>
+        <p>Tel: ${t.telefono}</p>
+        <p>${t.correo || ""}</p>
+        <p>${t.relevante ? "⭐ Contacto relevante" : ""}</p>
+        <div class="actions">
+          <button class="edit-btn" onclick="openModal(${inicio + i})"><i class="fa fa-edit"></i></button>
+          <button class="delete-btn" onclick="deleteTrabajador(${inicio + i})"><i class="fa fa-trash"></i></button>
+        </div>
+      </div>`;
+            });
 
-    function renderBusquedas() {
-      const cont = document.getElementById('busquedas-list');
-      cont.innerHTML = "";
-      data.busquedasRelevantes.forEach((b, i) => {
-        cont.innerHTML += `
-          <label>
-            <input type="checkbox" ${b.activo ? "checked" : ""} 
-              onchange="toggleBusqueda(${i}, this.checked)">
-            ${b.categoria}
-          </label><br>`;
-      });
-    }
+            renderPaginacion(totalPaginas);
+        }
 
-    function toggleBusqueda(index, checked) {
-      data.busquedasRelevantes[index].activo = checked;
-      updateOutput();
-    }
+        /* Render búsquedas relevantes */
+        function renderBusquedas() {
+            const cont = document.getElementById("busquedas-list");
+            if (!cont) return;
+            cont.innerHTML = "";
+            data.busquedasRelevantes.forEach((b, i) => {
+                cont.innerHTML += `
+      <label>
+        <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+        ${b.categoria}
+      </label><br>`;
+            });
+        }
 
-    function addRelevante() {
-      const nombre = document.getElementById('rel-nombre').value.trim();
-      const telefono = document.getElementById('rel-telefono').value.trim();
-      const correo = document.getElementById('rel-correo').value.trim();
-      if(!nombre || !telefono){ alert("Nombre y teléfono son obligatorios."); return; }
-      if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
+        function toggleBusqueda(index, checked) {
+            data.busquedasRelevantes[index].activo = checked;
+        }
+        /* Abrir modal */
+        function openModal(index = null) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-title").textContent = index === null ? "Agregar trabajador" : "Editar trabajador";
+            editIndex = index;
 
-      // Imagen por defecto para relevantes
-      const imagen = "img/trabajador.png";
+            fillCategories();
 
-      data.relevantes.push({ nombre, telefono, correo, imagen });
-      updateOutput();
-    }
+            if (index !== null) {
+                const t = data.trabajadores[index];
+                document.getElementById("nombre").value = t.nombre;
+                document.getElementById("telefono").value = t.telefono;
+                document.getElementById("correo").value = t.correo;
+                document.getElementById("categoria").value = t.categoria;
+                document.getElementById("relevante").checked = t.relevante || false;
+            } else {
+                document.getElementById("nombre").value = "";
+                document.getElementById("telefono").value = "";
+                document.getElementById("correo").value = "";
+                document.getElementById("categoria").value = data.categorias[0];
+                document.getElementById("relevante").checked = false;
+            }
+        }
 
-    function addTrabajador() {
-      const nombre = document.getElementById('trab-nombre').value.trim();
-      const telefono = document.getElementById('trab-telefono').value.trim();
-      const correo = document.getElementById('trab-correo').value.trim();
-      const categoria = document.getElementById('trab-cat').value;
-      if(!nombre || !telefono || !categoria){ alert("Nombre, teléfono y categoría son obligatorios."); return; }
-      if(correo && !validateEmail(correo)){ alert("Correo inválido."); return; }
+        /* Guardar trabajador */
+        function saveTrabajador() {
+            const nombre = document.getElementById("nombre").value.trim();
+            const telefono = document.getElementById("telefono").value.trim();
+            const correo = document.getElementById("correo").value.trim();
+            const categoria = document.getElementById("categoria").value;
+            const relevante = document.getElementById("relevante").checked;
 
-      // Validar imagen según categoría
-      const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
+            if (!nombre || !telefono) { alert("Nombre y teléfono son obligatorios"); return; }
 
-      data.trabajadores.push({ nombre, telefono, correo, categoria, imagen });
-      updateOutput();
-    }
+            // Imagen según categoría
+            const imagenesDisponibles = {
+                "Plomero": "img/plomero.png",
+                "Electricista": "img/electricista.png",
+                "Carpintero": "img/carpintero.png",
+                "Servicios de limpieza": "img/limpieza.png",
+                "Jardinero": "img/jardinero.png",
+                "Albañil": "img/trabajador.png",
+                "Administrador": "img/admin.png",
+                "Vigilancia": "img/vigilancia.png"
+            };
+            const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
 
-    function downloadJSON() {
-      const blob = new Blob([JSON.stringify(data, null, 2)], {type: "application/json"});
-      const url = URL.createObjectURL(blob);
-      const a = document.createElement("a");
-      a.href = url;
-      a.download = "directorio.json";
-      a.click();
-      URL.revokeObjectURL(url);
-    }
-  </script>
+            const nuevo = { nombre, telefono, correo, categoria, imagen, relevante };
+
+            if (editIndex === null) {
+                data.trabajadores.push(nuevo);
+            } else {
+                data.trabajadores[editIndex] = nuevo;
+            }
+
+            closeModal();
+            renderCards();
+        }
+
+        /* Eliminar */
+        function deleteTrabajador(index) {
+            if (confirm("¿Eliminar este trabajador?")) {
+                data.trabajadores.splice(index, 1);
+                renderCards();
+            }
+        }
+
+        /* Cerrar modal */
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+            editIndex = null;
+        }
+
+        /* Llenar categorías dinámicamente */
+        function fillCategories() {
+            const sel = document.getElementById("categoria");
+            sel.innerHTML = "";
+            data.categorias.forEach(cat => {
+                const opt = document.createElement("option");
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+        }
+
+        /* Paginador inteligente */
+        function renderPaginacion(totalPaginas) {
+            const cont = document.getElementById("paginacion");
+            if (!cont) return;
+            cont.innerHTML = "";
+
+            if (totalPaginas <= 1) return;
+
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
+
+            if (totalPaginas <= 7) {
+                for (let i = 1; i <= totalPaginas; i++) {
+                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
+                }
+            } else {
+                cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:#a1b27a;color:#fff;'" : ""}>1</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:#a1b27a;color:#fff;'" : ""}>2</button>`;
+
+                let inicio = Math.max(3, paginaActual - 2);
+                let fin = Math.min(totalPaginas - 2, paginaActual + 2);
+
+                if (inicio > 3) cont.innerHTML += "<span>...</span>";
+
+                for (let i = inicio; i <= fin; i++) {
+                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
+                }
+
+                if (fin < totalPaginas - 2) cont.innerHTML += "<span>...</span>";
+
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:#a1b27a;color:#fff;'" : ""}>${totalPaginas - 1}</button>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:#a1b27a;color:#fff;'" : ""}>${totalPaginas}</button>`;
+            }
+
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+        }
+
+        function cambiarPagina(num) {
+            const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
+            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            if (num < 1 || num > totalPaginas) return;
+            paginaActual = num;
+            renderCards();
+        }
+    </script>
 </body>
+
 </html>
