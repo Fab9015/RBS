@@ -5,7 +5,8 @@
     "Carpintero",
     "Servicios de limpieza",
     "Jardinero",
-    "Albañil"
+    "Albañil",
+    "Oficiales"
   ],
   "busquedasRelevantes": [
     {
@@ -31,6 +32,10 @@
     {
       "categoria": "Albañil",
       "activo": true
+    },
+    {
+      "categoria": "Oficiales",
+      "activo": false
     }
   ],
   "trabajadores": [
@@ -420,6 +425,15 @@
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false
+    },
+    {
+      "id": "9fcf515d-9e00-4f19-8e1d-86ed9c2eeb40",
+      "nombre": "Bomberos",
+      "telefono": "4499193093",
+      "correo": "bomberos@test.com",
+      "categoria": "Oficiales",
+      "imagen": "img/trabajador.png",
+      "relevante": true
     }
   ]
 }
