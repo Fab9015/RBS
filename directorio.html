@@ -38,6 +38,8 @@
             --color-white: #fefefe;
             --color-text: #5c4033;
             --color-border: #e6e2dc;
+            --result-card-height: 300px;
+            /* ✅ altura ajustable para cards de resultados */
         }
 
         body {
@@ -357,6 +359,8 @@
 
         #lista .contact-card {
             flex-direction: row;
+            min-height: var(--result-card-height);
+            /* ✅ altura ajustable en resultados */
         }
 
         /* Paginación */
@@ -481,11 +485,12 @@
         function formatoTelefono(num) {
             return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
         }
+
         /* Carrusel de contactos importantes (usa imagen del JSON) */
         function renderRelevantes() {
             const cont = document.getElementById('relevantes');
             cont.innerHTML = "";
-            const relevantes = datos.trabajadores.filter(t => t.relevante); // ✅ ahora filtra por atributo relevante
+            const relevantes = datos.trabajadores.filter(t => t.relevante); // ✅ filtra por atributo relevante
             relevantes.forEach((c) => {
                 const telefonoPlano = c.telefono.replace(/\D/g, "");
                 const whatsapp = `https://wa.me/${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
@@ -618,6 +623,7 @@
                 }
             });
         });
+
         function filtrar(cat, btn) {
             document.getElementById('categoria').value = cat;
             paginaActual = 1;
@@ -626,7 +632,6 @@
             document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
             btn.classList.add('active-tab');
         }
-
         /* Lista de trabajadores (usa imagen del JSON) */
         function renderLista() {
             const lista = document.getElementById('lista');
@@ -640,11 +645,12 @@
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            // Orden alfabético
-            const orden = document.getElementById('orden') ? document.getElementById('orden').value : "az";
+            // ✅ Orden alfabético restaurado
+            const orden = document.getElementById('orden').value;
             filtrados.sort((a, b) => {
-                if (orden === "az") return a.nombre.localeCompare(b.nombre);
-                else return b.nombre.localeCompare(a.nombre);
+                return orden === "az"
+                    ? a.nombre.localeCompare(b.nombre)
+                    : b.nombre.localeCompare(a.nombre);
             });
 
             const inicio = (paginaActual - 1) * porPagina;
@@ -691,8 +697,13 @@
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            const orden = document.getElementById('orden') ? document.getElementById('orden').value : "az";
-            filtrados.sort((a, b) => orden === "az" ? a.nombre.localeCompare(b.nombre) : b.nombre.localeCompare(a.nombre));
+            // ✅ Orden alfabético restaurado
+            const orden = document.getElementById('orden').value;
+            filtrados.sort((a, b) => {
+                return orden === "az"
+                    ? a.nombre.localeCompare(b.nombre)
+                    : b.nombre.localeCompare(a.nombre);
+            });
 
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             if (totalPaginas <= 1) return;
@@ -722,8 +733,6 @@
             // Botón siguiente
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
         }
-
-
         function cambiarPagina(num) {
             const categoria = document.getElementById('categoria').value;
 
@@ -734,10 +743,12 @@
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            const orden = document.getElementById('orden') ? document.getElementById('orden').value : "az";
+            // ✅ Orden alfabético restaurado
+            const orden = document.getElementById('orden').value;
             filtrados.sort((a, b) => {
-                if (orden === "az") return a.nombre.localeCompare(b.nombre);
-                else return b.nombre.localeCompare(a.nombre);
+                return orden === "az"
+                    ? a.nombre.localeCompare(b.nombre)
+                    : b.nombre.localeCompare(a.nombre);
             });
 
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
