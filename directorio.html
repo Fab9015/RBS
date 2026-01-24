@@ -635,6 +635,13 @@
             renderPaginacion();
         });
 
+        // Listener para cambio en "por página"
+        document.getElementById('porPagina').addEventListener('change', e => {
+            porPagina = parseInt(e.target.value);   // actualiza la variable global
+            paginaActual = 1;                       // reinicia a la primera página
+            renderLista();                          // vuelve a renderizar resultados
+            renderPaginacion();                     // vuelve a renderizar paginación
+        });
 
         function filtrar(cat, btn) {
             document.getElementById('categoria').value = cat;
