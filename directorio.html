@@ -602,6 +602,22 @@
                 alert("Correo copiado al portapapeles");
             });
         }
+
+        // Listener para cambio en categoría (drop-down)
+        document.getElementById('categoria').addEventListener('change', e => {
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
+
+            // Marcar tab activo si coincide con la categoría seleccionada
+            document.querySelectorAll('.tabs button').forEach(b => {
+                if (b.textContent === e.target.value) {
+                    b.classList.add('active-tab');
+                } else {
+                    b.classList.remove('active-tab');
+                }
+            });
+        });
         function filtrar(cat, btn) {
             document.getElementById('categoria').value = cat;
             paginaActual = 1;
@@ -616,7 +632,9 @@
             const lista = document.getElementById('lista');
             lista.innerHTML = "";
             const categoria = document.getElementById('categoria').value;
-            let filtrados = datos.trabajadores;
+
+            // ✅ Excluir relevantes
+            let filtrados = datos.trabajadores.filter(t => !t.relevante);
 
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
@@ -635,7 +653,7 @@
 
             pagina.forEach(t => {
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
-                const whatsappLink = `https://wa.me/52${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                const whatsappLink = `https://wa.me/521${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
                 const correoLink = t.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
@@ -666,7 +684,9 @@
             const cont = document.getElementById('paginacion');
             cont.innerHTML = "";
             const categoria = document.getElementById('categoria').value;
-            let filtrados = datos.trabajadores;
+
+            // ✅ Excluir relevantes
+            let filtrados = datos.trabajadores.filter(t => !t.relevante);
 
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
@@ -691,7 +711,9 @@
 
         function cambiarPagina(num) {
             const categoria = document.getElementById('categoria').value;
-            let filtrados = datos.trabajadores;
+
+            // ✅ Excluir relevantes
+            let filtrados = datos.trabajadores.filter(t => !t.relevante);
 
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
@@ -710,22 +732,7 @@
             renderLista();
             renderPaginacion();
         }
-        // Listener para cambiar cantidad de elementos por página
-        document.getElementById('porPagina').addEventListener('change', e => {
-            porPagina = parseInt(e.target.value);
-            paginaActual = 1;
-            renderLista();
-            renderPaginacion();
-        });
-
-        // Listener para cambiar el orden alfabético
-        document.getElementById('orden').addEventListener('change', e => {
-            paginaActual = 1;
-            renderLista();
-            renderPaginacion();
-        });
     </script>
-
     <!-- Footer verde -->
     <footer>
         <p>Directorio del Condominio · © 2026</p>
