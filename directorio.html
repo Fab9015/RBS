@@ -584,7 +584,8 @@
             const cont = document.getElementById('tabs');
             cont.innerHTML = "";
             datos.busquedasRelevantes.forEach(b => {
-                if (b.activo) {
+                const cat = datos.categorias.find(c => c.nombre === b.categoria);
+                if (b.activo && cat?.visible) { // ✅ solo si la categoría está activa y visible
                     cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
                 }
             });
@@ -594,12 +595,15 @@
         function renderCategorias() {
             const sel = document.getElementById('categoria');
             datos.categorias.forEach(cat => {
-                const opt = document.createElement("option");
-                opt.value = cat;
-                opt.textContent = cat;
-                sel.appendChild(opt);
+                if (cat.visible) { // ✅ solo categorías visibles
+                    const opt = document.createElement("option");
+                    opt.value = cat.nombre;
+                    opt.textContent = cat.nombre;
+                    sel.appendChild(opt);
+                }
             });
         }
+
 
         /* Función para copiar email */
         function copiarEmail(email) {
