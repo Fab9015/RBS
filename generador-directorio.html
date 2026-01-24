@@ -75,6 +75,7 @@
             margin: 1em;
             padding: 1em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
         .card img {
@@ -120,6 +121,18 @@
             background: #c9302c;
         }
 
+        .category-tag {
+            display: inline-block;
+            background: #a1b27a;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            position: absolute;
+            top: 8px;
+            left: 8px;
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -157,25 +170,37 @@
 
         .modal-content .relevante {
             display: flex;
+            flex-direction: row;
             align-items: center;
+            gap: 6px;
             margin-top: 0.5em;
         }
 
-        .modal-content button {
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
             margin-top: 1em;
+        }
+
+        .modal-actions button {
             padding: 8px 12px;
-            background: #a1b27a;
-            color: #fff;
             border: none;
             border-radius: 6px;
             cursor: pointer;
         }
 
-        .modal-content button:hover {
-            background: #8fa76a;
+        .modal-actions .save-btn {
+            background: #a1b27a;
+            color: #fff;
         }
 
-        /* Sección lateral */
+        .modal-actions .cancel-btn {
+            background: #ccc;
+            color: #333;
+        }
+
+        /* Sidebar */
         .sidebar {
             padding: 1em;
             border-top: 2px solid #a1b27a;
@@ -184,6 +209,28 @@
 
         .sidebar h2 {
             margin-top: 0;
+        }
+
+        .sidebar input {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-top: 6px;
+            width: 100%;
+        }
+
+        .sidebar button {
+            margin-top: 6px;
+            padding: 6px 10px;
+            background: #a1b27a;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .sidebar button:hover {
+            background: #8fa76a;
         }
 
         /* Paginación */
@@ -247,6 +294,10 @@
     <div class="sidebar">
         <h2>Categorías</h2>
         <div id="categorias-list"></div>
+        <input id="new-cat" placeholder="Nueva categoría">
+        <button onclick="addCategoria()">Agregar categoría</button>
+        <button onclick="removeCategoria()">Eliminar categoría</button>
+
         <h2>Búsquedas relevantes</h2>
         <div id="busquedas-list"></div>
     </div>
@@ -262,14 +313,15 @@
                 <select id="categoria"></select>
             </label>
             <div class="relevante">
-                <input type="checkbox" id="relevante">
                 <label for="relevante">Contacto relevante</label>
+                <input type="checkbox" id="relevante">
             </div>
-            <button onclick="saveTrabajador()">Guardar</button>
-            <button onclick="closeModal()" style="background:#ccc;color:#333;margin-left:8px;">Cancelar</button>
+            <div class="modal-actions">
+                <button class="save-btn" onclick="saveTrabajador()">Guardar</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+            </div>
         </div>
     </div>
-
     <script>
         let data = {};
         let paginaActual = 1;
@@ -283,6 +335,7 @@
                 data = json;
                 renderCards();
                 renderBusquedas();
+                renderCategoriasList();
                 fillCategories();
             })
             .catch(err => console.error("Error al cargar directorio.json:", err));
@@ -307,9 +360,9 @@
             pagina.forEach((t, i) => {
                 cont.innerHTML += `
       <div class="card">
+        <span class="category-tag">${t.categoria}</span>
         <img src="${t.imagen}" alt="${t.categoria}">
         <h3>${t.nombre}</h3>
-        <p><strong>${t.categoria}</strong></p>
         <p>Tel: ${t.telefono}</p>
         <p>${t.correo || ""}</p>
         <p>${t.relevante ? "⭐ Contacto relevante" : ""}</p>
@@ -340,6 +393,39 @@
         function toggleBusqueda(index, checked) {
             data.busquedasRelevantes[index].activo = checked;
         }
+
+        /* Render categorías en sidebar */
+        function renderCategoriasList() {
+            const cont = document.getElementById("categorias-list");
+            cont.innerHTML = "";
+            data.categorias.forEach(cat => {
+                cont.innerHTML += `<div>${cat}</div>`;
+            });
+        }
+
+        /* Agregar categoría */
+        function addCategoria() {
+            const cat = document.getElementById("new-cat").value.trim();
+            if (!cat) { alert("Ingresa una categoría"); return; }
+            if (data.categorias.includes(cat)) { alert("Ya existe"); return; }
+            data.categorias.push(cat);
+            data.busquedasRelevantes.push({ categoria: cat, activo: false });
+            renderCategoriasList();
+            renderBusquedas();
+            fillCategories();
+        }
+
+        /* Eliminar categoría */
+        function removeCategoria() {
+            const cat = document.getElementById("new-cat").value.trim();
+            if (!cat) { alert("Ingresa la categoría a eliminar"); return; }
+            data.categorias = data.categorias.filter(c => c !== cat);
+            data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
+            renderCategoriasList();
+            renderBusquedas();
+            fillCategories();
+        }
+
         /* Abrir modal */
         function openModal(index = null) {
             document.getElementById("modal").style.display = "flex";
@@ -374,7 +460,6 @@
 
             if (!nombre || !telefono) { alert("Nombre y teléfono son obligatorios"); return; }
 
-            // Imagen según categoría
             const imagenesDisponibles = {
                 "Plomero": "img/plomero.png",
                 "Electricista": "img/electricista.png",
@@ -399,7 +484,7 @@
             renderCards();
         }
 
-        /* Eliminar */
+        /* Eliminar trabajador */
         function deleteTrabajador(index) {
             if (confirm("¿Eliminar este trabajador?")) {
                 data.trabajadores.splice(index, 1);
@@ -413,7 +498,7 @@
             editIndex = null;
         }
 
-        /* Llenar categorías dinámicamente */
+        /* Llenar categorías en modal */
         function fillCategories() {
             const sel = document.getElementById("categoria");
             sel.innerHTML = "";
