@@ -67,6 +67,11 @@
             width: auto;
         }
 
+        /* ✅ Nueva regla para alinear el filtro de orden a la derecha */
+        .orden-wrapper {
+            margin-left: auto;
+        }
+
         /* Estilo específico para checkbox */
         .modal-content input[type="checkbox"] {
             width: 20px;
@@ -349,6 +354,8 @@
     <div class="toolbar">
         <div>
             <input id="search-input" placeholder="Buscar por nombre..." oninput="renderCards()">
+        </div>
+        <div class="orden-wrapper">
             <select id="orden-select" onchange="ordenarTrabajadores(this.value)">
                 <option value="az">Ordenar A-Z</option>
                 <option value="za">Ordenar Z-A</option>
@@ -369,11 +376,10 @@
 
     <!-- Paginación -->
     <div id="paginacion"></div>
-
     <!-- Sidebar -->
     <div class="sidebar">
         <h2>Categorías
-            <button class="add-cat-btn" onclick="addCategoria()">+ Agregar categoría</button>
+            <button class="add-cat-btn" onclick="openCategoryModal()">+ Agregar categoría</button>
         </h2>
         <div id="categorias-list"></div>
 
@@ -386,7 +392,7 @@
         <h2>JSON generado</h2>
         <textarea id="output" readonly></textarea>
     </div>
-    <!-- Modal -->
+    <!-- Modal Trabajadores -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <h2 id="modal-title">Agregar trabajador</h2>
@@ -403,6 +409,22 @@
             <div class="modal-actions">
                 <button class="save-btn" onclick="saveTrabajador()">Guardar</button>
                 <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ Nuevo Modal Categorías -->
+    <div class="modal" id="modal-categoria">
+        <div class="modal-content">
+            <h2 id="modal-cat-title">Agregar categoría</h2>
+            <label>Nombre de la categoría: <input id="cat-nombre"></label>
+            <div class="relevante">
+                <label for="cat-visible">Mostrar en directorio</label>
+                <input type="checkbox" id="cat-visible" checked>
+            </div>
+            <div class="modal-actions">
+                <button class="save-btn" onclick="saveCategoria()">Guardar</button>
+                <button class="cancel-btn" onclick="closeCategoryModal()">Cancelar</button>
             </div>
         </div>
     </div>
@@ -428,13 +450,22 @@
             cont.innerHTML = "";
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
             let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
-            if (orden === "az") { filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre)); }
-            else { filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre)); }
+
+            if (orden === "az") {
+                filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            } else {
+                filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            }
+
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             const inicio = (paginaActual - 1) * porPagina;
             const fin = inicio + porPagina;
             const pagina = filtrados.slice(inicio, fin);
-            if (pagina.length === 0) { cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`; }
+
+            if (pagina.length === 0) {
+                cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`;
+            }
+
             pagina.forEach((t) => {
                 cont.innerHTML += `
         <div class="card">
@@ -450,10 +481,17 @@
           </div>
         </div>`;
             });
+
             renderPaginacion(totalPaginas);
             updateOutput();
         }
 
+        /* ✅ Nueva función para ordenar A-Z / Z-A */
+        function ordenarTrabajadores(value) {
+            orden = value;
+            paginaActual = 1;
+            renderCards();
+        }
         /* Paginación */
         function renderPaginacion(totalPaginas) {
             const cont = document.getElementById("paginacion");
@@ -474,6 +512,7 @@
             paginaActual = num;
             renderCards();
         }
+
         /* Búsquedas relevantes */
         function renderBusquedas() {
             const cont = document.getElementById("busquedas-list");
@@ -486,11 +525,11 @@
         </label><br>`;
             });
         }
+
         function toggleBusqueda(index, checked) {
             data.busquedasRelevantes[index].activo = checked;
             updateOutput();
         }
-
         /* Categorías */
         function renderCategoriasList() {
             const cont = document.getElementById("categorias-list");
@@ -498,7 +537,7 @@
             data.categorias.forEach((cat, i) => {
                 cont.innerHTML += `
         <div class="cat-row">
-          <span>${cat}</span>
+          <span>${cat.nombre} ${cat.visible ? "" : "(oculta)"}</span>
           <div>
             <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
             <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
@@ -506,56 +545,82 @@
         </div>`;
             });
         }
-        function addCategoria() {
-            const nuevo = prompt("Nombre de la nueva categoría:");
-            if (nuevo && nuevo.trim()) {
-                const nombreCat = nuevo.trim();
 
-                // ✅ Agregar a lista de categorías
-                data.categorias.push(nombreCat);
+        /* Abrir modal de categoría */
+        function openCategoryModal(index = null) {
+            document.getElementById("modal-categoria").style.display = "flex";
+            document.getElementById("modal-cat-title").textContent = index === null ? "Agregar categoría" : "Editar categoría";
+            document.getElementById("cat-nombre").value = index === null ? "" : data.categorias[index].nombre;
+            document.getElementById("cat-visible").checked = index === null ? true : data.categorias[index].visible;
+            editId = index;
+        }
 
-                // ✅ Agregar también a búsquedas relevantes con checkbox en false
-                data.busquedasRelevantes.push({
-                    categoria: nombreCat,
-                    activo: false
-                });
+        function closeCategoryModal() {
+            document.getElementById("modal-categoria").style.display = "none";
+            editId = null;
+        }
 
-                // Refrescar vistas
-                renderCategoriasList();
-                renderBusquedas();
-                fillCategories();
-                updateOutput();
+        /* Guardar categoría */
+        function saveCategoria() {
+            const nombreCat = document.getElementById("cat-nombre").value.trim();
+            const visibleCat = document.getElementById("cat-visible").checked;
+
+            if (!nombreCat) {
+                alert("El nombre de la categoría es obligatorio");
+                return;
             }
+
+            const nuevaCat = { nombre: nombreCat, visible: visibleCat };
+
+            if (editId === null) {
+                data.categorias.push(nuevaCat);
+                if (visibleCat) {
+                    data.busquedasRelevantes.push({ categoria: nombreCat, activo: false });
+                }
+            } else {
+                const oldCat = data.categorias[editId].nombre;
+                data.categorias[editId] = nuevaCat;
+
+                // Actualizar referencias
+                data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nombreCat; });
+                data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nombreCat; });
+
+                // Ajustar visibilidad en búsquedas relevantes
+                if (!visibleCat) {
+                    data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== nombreCat);
+                } else {
+                    const existe = data.busquedasRelevantes.find(b => b.categoria === nombreCat);
+                    if (!existe) {
+                        data.busquedasRelevantes.push({ categoria: nombreCat, activo: false });
+                    }
+                }
+            }
+
+            closeCategoryModal();
+            renderCategoriasList();
+            renderBusquedas();
+            fillCategories();
+            renderCards();
+            updateOutput();
         }
 
         function editCategoria(index) {
-            const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
-            if (nuevo && nuevo.trim()) {
-                const oldCat = data.categorias[index];
-                data.categorias[index] = nuevo.trim();
-                data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nuevo.trim(); });
-                data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nuevo.trim(); });
-                renderCategoriasList();
-                renderBusquedas();
-                fillCategories();
-                renderCards();
-                updateOutput();
-            }
-        }
-        function deleteCategoria(index) {
-            const cat = data.categorias[index];
-            if (confirm("¿Eliminar la categoría '" + cat + "'?")) {
-                data.categorias.splice(index, 1);
-                data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
-                data.trabajadores.forEach(t => { if (t.categoria === cat) t.categoria = "General"; });
-                renderCategoriasList();
-                renderBusquedas();
-                fillCategories();
-                renderCards();
-                updateOutput();
-            }
+            openCategoryModal(index);
         }
 
+        function deleteCategoria(index) {
+            const cat = data.categorias[index];
+            if (confirm("¿Eliminar la categoría '" + cat.nombre + "'?")) {
+                data.categorias.splice(index, 1);
+                data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat.nombre);
+                data.trabajadores.forEach(t => { if (t.categoria === cat.nombre) t.categoria = "General"; });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
         /* Modal CRUD trabajadores */
         function openModal(id = null) {
             document.getElementById("modal").style.display = "flex";
@@ -573,7 +638,7 @@
                 document.getElementById("nombre").value = "";
                 document.getElementById("telefono").value = "";
                 document.getElementById("correo").value = "";
-                document.getElementById("categoria").value = data.categorias[0];
+                document.getElementById("categoria").value = data.categorias[0]?.nombre || "";
                 document.getElementById("relevante").checked = false;
             }
         }
@@ -610,7 +675,7 @@
             const imagenesDisponibles = {
                 "Plomero": "img/plomero.png", "Electricista": "img/electricista.png", "Carpintero": "img/carpintero.png",
                 "Servicios de limpieza": "img/limpieza.png", "Jardinero": "img/jardinero.png", "Albañil": "img/trabajador.png",
-                "Administrador": "img/admin.png", "Vigilancia": "img/vigilancia.png"
+                "Administrador": "img/admin.png", "Vigilancia": "img/vigilancia.png", "Oficiales": "img/trabajador.png"
             };
             const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
 
@@ -629,6 +694,7 @@
             closeModal();
             renderCards();
         }
+
         function deleteTrabajador(id) {
             if (confirm("¿Eliminar este trabajador?")) {
                 const idx = data.trabajadores.findIndex(x => x.id == id);
@@ -649,12 +715,11 @@
             sel.innerHTML = "";
             data.categorias.forEach(cat => {
                 const opt = document.createElement("option");
-                opt.value = cat;
-                opt.textContent = cat;
+                opt.value = cat.nombre;
+                opt.textContent = cat.nombre;
                 sel.appendChild(opt);
             });
         }
-
         /* Exportar y copiar JSON */
         function updateOutput() {
             const out = document.getElementById("output");
@@ -679,16 +744,27 @@
             document.execCommand("copy");
             alert("Datos copiados al portapapeles");
         }
+
         /* Cargar JSON */
         fetch('directorio.json')
             .then(r => r.json())
             .then(json => {
                 data = json;
+
+                // ✅ Adaptar categorías: si vienen como strings, convertir a objetos { nombre, visible:true }
+                data.categorias = data.categorias.map(cat => {
+                    if (typeof cat === "string") {
+                        return { nombre: cat, visible: true };
+                    }
+                    return cat;
+                });
+
                 // Asignar UUID si no existe
                 data.trabajadores = data.trabajadores.map(t => ({
                     id: t.id || generarUUID(),
                     ...t
                 }));
+
                 renderCards();
                 renderBusquedas();
                 renderCategoriasList();
@@ -696,8 +772,6 @@
                 updateOutput();
             });
     </script>
-
-
 </body>
 
 </html>
