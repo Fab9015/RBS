@@ -3,8 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+    <meta name="viewport" <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Directorio – Reserva Bosque Sereno</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -692,6 +691,25 @@
             renderLista();
             renderPaginacion();
         });
+
+        document.getElementById('categoria').addEventListener('change', e => {
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
+        });
+
+        document.getElementById('orden').addEventListener('change', e => {
+            const orden = e.target.value;
+            if (orden === "az") {
+                datos.trabajadores.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            } else {
+                datos.trabajadores.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            }
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
+        });
+
     </script>
 
     <!-- Footer verde -->
