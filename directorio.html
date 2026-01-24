@@ -488,7 +488,7 @@
             const relevantes = datos.trabajadores.filter(t => t.relevante); // ✅ ahora filtra por atributo relevante
             relevantes.forEach((c) => {
                 const telefonoPlano = c.telefono.replace(/\D/g, "");
-                const whatsapp = `https://wa.me/52${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                const whatsapp = `https://wa.me/${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
                 const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
