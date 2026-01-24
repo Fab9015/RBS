@@ -3,115 +3,254 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Generador de Directorio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Dashboard de Directorio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Lato', sans-serif;
+            background: #fdfaf5;
+            color: #5c4033;
             margin: 0;
-            background: #f4f4f4;
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
         }
 
         header {
             background: #a1b27a;
-            color: white;
-            padding: 10px;
-            text-align: center;
+            color: #fff;
+            padding: 1em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
-        header .header-actions {
-            margin-top: 10px;
+        header h1 {
+            margin: 0;
         }
 
-        header .header-actions button {
-            margin: 0 5px;
-            padding: 6px 12px;
-            border: none;
+        header .header-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        header button {
             background: #fff;
-            color: #333;
+            color: #5c4033;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
             cursor: pointer;
-            border-radius: 4px;
+        }
+
+        header button:hover {
+            background: #eee;
         }
 
         .toolbar {
             display: flex;
             justify-content: space-between;
-            padding: 10px;
-            background: #eaeaea;
+            align-items: center;
+            padding: 1em;
+            flex-wrap: wrap;
+        }
+
+        .toolbar input,
+        .toolbar select {
+            padding: 6px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            margin-right: 8px;
         }
 
         .container {
             display: flex;
             flex-wrap: wrap;
-            gap: 10px;
-            padding: 10px;
-            flex: 1;
-            overflow-y: auto;
+            padding: 1em;
         }
 
         .card {
-            background: white;
-            border: 1px solid #ccc;
-            border-radius: 6px;
-            width: 220px;
-            padding: 10px;
-            box-sizing: border-box;
+            background: #fff;
+            border: 2px solid #a1b27a;
+            border-radius: 8px;
+            width: 280px;
+            margin: 1em;
+            padding: 1em;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+            min-height: 380px;
+            /* altura fija más grande */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            min-height: 280px;
         }
 
         .card img {
             width: 100%;
-            height: 120px;
+            height: 150px;
             object-fit: contain;
         }
 
-        .category-tag {
-            font-size: 12px;
-            background: #a1b27a;
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-bottom: 5px;
-            display: inline-block;
+        .card h3 {
+            margin: 0.5em 0;
         }
 
-        .actions {
+        .card p.relevante-label {
+            min-height: 20px;
+            /* espacio reservado aunque no haya texto */
+        }
+
+        .card .actions {
             display: flex;
             justify-content: space-between;
             margin-top: auto;
         }
 
-        .sidebar {
-            width: 250px;
-            background: #fff;
-            border-left: 1px solid #ccc;
-            padding: 10px;
+        .card button {
+            flex: 1;
+            margin: 0 4px;
+            padding: 6px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
         }
 
-        .json-section {
-            padding: 10px;
+        .edit-btn {
+            background: #8fa76a;
+            color: #fff;
+        }
+
+        .delete-btn {
+            background: #d9534f;
+            color: #fff;
+        }
+
+        .edit-btn:hover {
+            background: #7a935d;
+        }
+
+        .delete-btn:hover {
+            background: #c9302c;
+        }
+
+        .category-tag {
+            display: inline-block;
+            background: #a1b27a;
+            color: #fff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            position: absolute;
+            top: 8px;
+            right: 8px;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            padding: 1em;
+            border-top: 2px solid #a1b27a;
             background: #fff;
-            border-top: 1px solid #ccc;
+        }
+
+        .sidebar h2 {
+            margin-top: 0;
+        }
+
+        .sidebar .cat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 4px 0;
+            padding: 4px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .sidebar .cat-row button {
+            margin-left: 4px;
+            padding: 4px 6px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8em;
+        }
+
+        .sidebar .edit-cat {
+            background: #8fa76a;
+            color: #fff;
+        }
+
+        .sidebar .delete-cat {
+            background: #d9534f;
+            color: #fff;
+        }
+
+        .sidebar .add-cat-btn {
+            background: #fff;
+            color: #5c4033;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .add-cat-btn:hover {
+            background: #eee;
+        }
+
+        /* Paginación */
+        #paginacion {
+            text-align: center;
+            margin: 1em;
+        }
+
+        #paginacion button {
+            margin: 0 2px;
+            padding: 6px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #paginacion span {
+            margin: 0 4px;
+        }
+
+        /* JSON output */
+        .json-section {
+            padding: 1em;
+            background: #fff;
+            border-top: 2px solid #a1b27a;
         }
 
         .json-section textarea {
             width: 100%;
-            height: 200px;
+            height: 250px;
+            font-family: monospace;
+            margin-top: 1em;
         }
 
+        .json-section button {
+            background: #fff;
+            color: #5c4033;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin-right: 6px;
+        }
+
+        .json-section button:hover {
+            background: #eee;
+        }
+
+        /* Modal */
         .modal {
             display: none;
             position: fixed;
             top: 0;
             left: 0;
-            width: 100%;
-            height: 100%;
+            right: 0;
+            bottom: 0;
             background: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
@@ -119,57 +258,82 @@
 
         .modal-content {
             background: #fff;
-            padding: 20px;
-            border-radius: 6px;
-            width: 320px;
+            padding: 1.5em;
+            border-radius: 8px;
+            width: 400px;
+            max-width: 90%;
         }
 
         .modal-content label {
             display: block;
-            margin: 6px 0;
+            margin-top: 0.5em;
         }
 
-        /* Inputs de texto y select */
-        input[type="text"],
-        input[type="tel"],
-        input[type="email"],
-        select {
+        .modal-content input,
+        .modal-content select {
             width: 100%;
             padding: 6px;
-            margin: 4px 0;
+            margin-top: 4px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
         }
 
-        /* Checkbox corregido */
-        input[type="checkbox"] {
-            width: 20px;
-            margin-left: 8px;
-        }
-
-        .relevante {
+        .modal-content .relevante {
             display: flex;
             align-items: center;
-            margin-top: 10px;
+            justify-content: flex-start;
+            margin-top: 0.5em;
         }
 
-        #paginacion {
-            text-align: center;
-            padding: 10px;
+        .modal-content .relevante input {
+            margin-right: 6px;
         }
 
-        #paginacion button {
-            margin: 0 2px;
-            padding: 4px 8px;
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+            margin-top: 1em;
+        }
+
+        .modal-actions button {
+            padding: 8px 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .modal-actions .save-btn {
+            background: #a1b27a;
+            color: #fff;
+        }
+
+        .modal-actions .cancel-btn {
+            background: #ccc;
+            color: #333;
+        }
+
+        /* Responsive */
+        @media(max-width:600px) {
+            .card {
+                width: 100%;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                gap: 0.5em;
+            }
         }
     </style>
 </head>
 
 <body>
     <header>
-        <h1>Directorio de Trabajadores</h1>
-        <div class="header-actions">
+        <h1>Dashboard de Directorio</h1>
+        <div class="header-buttons">
             <button onclick="openModal()">+ Crear trabajador</button>
-            <button onclick="downloadJSON()">⬇ Descargar archivo</button>
-            <button onclick="copiarJSON()">📋 Copiar datos</button>
+            <button onclick="downloadJSON()">Descargar archivo</button>
+            <button onclick="copiarJSON()">Copiar datos</button>
         </div>
     </header>
     <!-- Herramientas -->
@@ -213,34 +377,26 @@
         <h2>JSON generado</h2>
         <textarea id="output" readonly></textarea>
     </div>
-    <!-- Modal CRUD trabajadores -->
+    <!-- Modal -->
     <div class="modal" id="modal">
         <div class="modal-content">
             <h2 id="modal-title">Agregar trabajador</h2>
-            <label>Nombre</label>
-            <input type="text" id="nombre">
-
-            <label>Teléfono</label>
-            <input type="tel" id="telefono">
-
-            <label>Correo</label>
-            <input type="email" id="correo">
-
-            <label>Categoría</label>
-            <select id="categoria"></select>
-
+            <label>Nombre: <input id="nombre"></label>
+            <label>Teléfono: <input id="telefono"></label>
+            <label>Correo: <input id="correo"></label>
+            <label>Categoría:
+                <select id="categoria"></select>
+            </label>
             <div class="relevante">
-                <label for="relevante">Contacto relevante</label>
                 <input type="checkbox" id="relevante">
+                <label for="relevante">Contacto relevante</label>
             </div>
-
-            <div style="margin-top:10px;display:flex;justify-content:space-between;">
-                <button onclick="saveTrabajador()">Guardar</button>
-                <button onclick="closeModal()">Cancelar</button>
+            <div class="modal-actions">
+                <button class="save-btn" onclick="saveTrabajador()">Guardar</button>
+                <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
             </div>
         </div>
     </div>
-    <!-- Scripts -->
     <script>
         let data = {};
         let paginaActual = 1;
@@ -272,18 +428,18 @@
             if (pagina.length === 0) { cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`; }
             pagina.forEach((t) => {
                 cont.innerHTML += `
-          <div class="card">
-            <span class="category-tag">${t.categoria}</span>
-            <img src="${t.imagen}" alt="${t.categoria}">
-            <h3>${t.nombre}</h3>
-            <p>Tel: ${t.telefono}</p>
-            <p>${t.correo || ""}</p>
-            <p class="relevante-label">${t.relevante ? "⭐ Contacto relevante" : ""}</p>
-            <div class="actions">
-              <button class="edit-btn" onclick="openModal('${t.id}')"><i class="fa fa-edit"></i></button>
-              <button class="delete-btn" onclick="deleteTrabajador('${t.id}')"><i class="fa fa-trash"></i></button>
-            </div>
-          </div>`;
+        <div class="card">
+          <span class="category-tag">${t.categoria}</span>
+          <img src="${t.imagen}" alt="${t.categoria}">
+          <h3>${t.nombre}</h3>
+          <p>Tel: ${t.telefono}</p>
+          <p>${t.correo || ""}</p>
+          <p class="relevante-label">${t.relevante ? "⭐ Contacto relevante" : ""}</p>
+          <div class="actions">
+            <button class="edit-btn" onclick="openModal('${t.id}')"><i class="fa fa-edit"></i></button>
+            <button class="delete-btn" onclick="deleteTrabajador('${t.id}')"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>`;
             });
             renderPaginacion(totalPaginas);
             updateOutput();
@@ -315,10 +471,10 @@
             cont.innerHTML = "";
             data.busquedasRelevantes.forEach((b, i) => {
                 cont.innerHTML += `
-          <label>
-            <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
-            ${b.categoria}
-          </label><br>`;
+        <label>
+          <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+          ${b.categoria}
+        </label><br>`;
             });
         }
         function toggleBusqueda(index, checked) {
@@ -332,13 +488,13 @@
             cont.innerHTML = "";
             data.categorias.forEach((cat, i) => {
                 cont.innerHTML += `
-          <div class="cat-row">
-            <span>${cat}</span>
-            <div>
-              <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
-              <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
-            </div>
-          </div>`;
+        <div class="cat-row">
+          <span>${cat}</span>
+          <div>
+            <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
+            <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>`;
             });
         }
         function addCategoria() {
@@ -433,8 +589,7 @@
         }
 
         function deleteTrabajador(id) {
-            const trabajador = data.trabajadores.find(x => x.id == id);
-            if (trabajador && confirm(`¿Eliminar al trabajador "${trabajador.nombre}"?`)) {
+            if (confirm("¿Eliminar este trabajador?")) {
                 const idx = data.trabajadores.findIndex(x => x.id == id);
                 if (idx > -1) {
                     data.trabajadores.splice(idx, 1);
