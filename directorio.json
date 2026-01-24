@@ -1,464 +1,473 @@
 {
-    "categorias": [
-        {
-            "nombre": "Plomero",
-            "visible": true
-        },
-        {
-            "nombre": "Electricista",
-            "visible": true
-        },
-        {
-            "nombre": "Carpintero",
-            "visible": true
-        },
-        {
-            "nombre": "Servicios de limpieza",
-            "visible": true
-        },
-        {
-            "nombre": "Jardinero",
-            "visible": true
-        },
-        {
-            "nombre": "Albañil",
-            "visible": true
-        },
-        {
-            "nombre": "Vigilancia",
-            "visible": false
-        },
-        {
-            "nombre": "Administración",
-            "visible": false
-        },
-        {
-            "nombre": "Oficiales",
-            "visible": false
-        }
-    ],
-    "busquedasRelevantes": [
-        {
-            "categoria": "Plomero",
-            "activo": true
-        },
-        {
-            "categoria": "Electricista",
-            "activo": true
-        },
-        {
-            "categoria": "Carpintero",
-            "activo": true
-        },
-        {
-            "categoria": "Servicios de limpieza",
-            "activo": false
-        },
-        {
-            "categoria": "Jardinero",
-            "activo": true
-        },
-        {
-            "categoria": "Albañil",
-            "activo": true
-        }
-    ],
-    "trabajadores": [
-        {
-            "id": "a1111111-aaaa-4bbb-8ccc-000000000001",
-            "nombre": "Juan Pérez",
-            "telefono": "449-555-1111",
-            "correo": "juanperez@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "a2222222-bbbb-4ccc-8ddd-000000000002",
-            "nombre": "María López",
-            "telefono": "449-555-1112",
-            "correo": "marialopez@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "a3333333-cccc-4ddd-8eee-000000000003",
-            "nombre": "Carlos Sánchez",
-            "telefono": "449-555-1113",
-            "correo": "carlossanchez@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "a4444444-dddd-4eee-8fff-000000000004",
-            "nombre": "Ana Torres",
-            "telefono": "449-555-1114",
-            "correo": "anatorres@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "a5555555-eeee-4fff-8aaa-000000000005",
-            "nombre": "Luis Ramírez",
-            "telefono": "449-555-1115",
-            "correo": "luisramirez@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "a6666666-ffff-4aaa-8bbb-000000000006",
-            "nombre": "Administración",
-            "telefono": "449-213-3944",
-            "correo": "admin@condominio.com",
-            "categoria": "Administrador",
-            "imagen": "img/admin.png",
-            "relevante": true
-        },
-        {
-            "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
-            "nombre": "Caseta de vigilancia",
-            "telefono": "314-378-5941",
-            "correo": "caseta@condominio.com",
-            "categoria": "Vigilancia",
-            "imagen": "img/vigilancia.png",
-            "relevante": true
-        },
-        {
-            "id": "b1111111-aaaa-4bbb-8ccc-000000000008",
-            "nombre": "Sofía Hernández",
-            "telefono": "449-555-1116",
-            "correo": "sofiahernandez@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "b2222222-bbbb-4ccc-8ddd-000000000009",
-            "nombre": "Miguel García",
-            "telefono": "449-555-1117",
-            "correo": "miguelgarcia@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "b3333333-cccc-4ddd-8eee-000000000010",
-            "nombre": "Laura Díaz",
-            "telefono": "449-555-1118",
-            "correo": "lauradiaz@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "b4444444-dddd-4eee-8fff-000000000011",
-            "nombre": "José Martínez",
-            "telefono": "449-555-1119",
-            "correo": "josemartinez@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "b5555555-eeee-4fff-8aaa-000000000012",
-            "nombre": "Patricia Gómez",
-            "telefono": "449-555-1120",
-            "correo": "patriciagomez@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "b6666666-ffff-4aaa-8bbb-000000000013",
-            "nombre": "Andrés Castillo",
-            "telefono": "449-555-1121",
-            "correo": "andrescastillo@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "b7777777-aaaa-4bbb-8ccc-000000000014",
-            "nombre": "Fernanda Ruiz",
-            "telefono": "449-555-1122",
-            "correo": "fernandaruiz@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "b8888888-bbbb-4ccc-8ddd-000000000015",
-            "nombre": "Ricardo Morales",
-            "telefono": "449-555-1123",
-            "correo": "ricardomorales@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "b9999999-cccc-4ddd-8eee-000000000016",
-            "nombre": "Gabriela Vargas",
-            "telefono": "449-555-1124",
-            "correo": "gabrielavargas@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "c1111111-dddd-4eee-8fff-000000000017",
-            "nombre": "Hugo Delgado",
-            "telefono": "449-555-1125",
-            "correo": "hugodelgado@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "c2222222-eeee-4fff-8aaa-000000000018",
-            "nombre": "Claudia Reyes",
-            "telefono": "449-555-1126",
-            "correo": "claudiareyes@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "c3333333-ffff-4aaa-8bbb-000000000019",
-            "nombre": "Roberto Flores",
-            "telefono": "449-555-1127",
-            "correo": "robertoflores@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "c4444444-aaaa-4bbb-8ccc-000000000020",
-            "nombre": "Isabel Cruz",
-            "telefono": "449-555-1128",
-            "correo": "isabelcruz@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "c5555555-bbbb-4ccc-8ddd-000000000021",
-            "nombre": "Daniela Soto",
-            "telefono": "449-555-1129",
-            "correo": "danielasoto@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "c6666666-cccc-4ddd-8eee-000000000022",
-            "nombre": "Francisco Peña",
-            "telefono": "449-555-1130",
-            "correo": "franciscopena@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "c7777777-dddd-4eee-8fff-000000000023",
-            "nombre": "Alejandra Silva",
-            "telefono": "449-555-1131",
-            "correo": "alejandrasilva@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "c8888888-eeee-4fff-8aaa-000000000024",
-            "nombre": "Jorge Navarro",
-            "telefono": "449-555-1132",
-            "correo": "jorgenavarro@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "c9999999-ffff-4aaa-8bbb-000000000025",
-            "nombre": "Mónica Ríos",
-            "telefono": "449-555-1133",
-            "correo": "monicarios@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "d1111111-aaaa-4bbb-8ccc-000000000026",
-            "nombre": "Pedro Aguilar",
-            "telefono": "449-555-1134",
-            "correo": "pedroaguilar@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "d2222222-bbbb-4ccc-8ddd-000000000027",
-            "nombre": "Verónica Estrada",
-            "telefono": "449-555-1135",
-            "correo": "veronicaestrada@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "d3333333-cccc-4ddd-8eee-000000000028",
-            "nombre": "Raúl Mendoza",
-            "telefono": "449-555-1136",
-            "correo": "raulmendoza@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "d4444444-dddd-4eee-8fff-000000000029",
-            "nombre": "Silvia Ortega",
-            "telefono": "449-555-1137",
-            "correo": "silviaortega@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "d5555555-eeee-4fff-8aaa-000000000030",
-            "nombre": "Diego Luna",
-            "telefono": "449-555-1138",
-            "correo": "diegoluna@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "d6666666-ffff-4aaa-8bbb-000000000031",
-            "nombre": "Paola Ramos",
-            "telefono": "449-555-1139",
-            "correo": "paolaramos@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "d7777777-aaaa-4bbb-8ccc-000000000032",
-            "nombre": "Manuel Herrera",
-            "telefono": "449-555-1140",
-            "correo": "manuelherrera@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "d8888888-bbbb-4ccc-8ddd-000000000033",
-            "nombre": "Carmen Fuentes",
-            "telefono": "449-555-1141",
-            "correo": "carmenfuentes@ejemplo.com",
-            "categoria": "Plomero",
-            "imagen": "img/plomero.png",
-            "relevante": false
-        },
-        {
-            "id": "d9999999-cccc-4ddd-8eee-000000000034",
-            "nombre": "Eduardo Paredes",
-            "telefono": "449-555-1142",
-            "correo": "eduardoparedes@ejemplo.com",
-            "categoria": "Electricista",
-            "imagen": "img/electricista.png",
-            "relevante": false
-        },
-        {
-            "id": "e1111111-dddd-4eee-8fff-000000000035",
-            "nombre": "Lucía Bravo",
-            "telefono": "449-555-1143",
-            "correo": "luciabravo@ejemplo.com",
-            "categoria": "Carpintero",
-            "imagen": "img/carpintero.png",
-            "relevante": false
-        },
-        {
-            "id": "e2222222-eeee-4fff-8aaa-000000000036",
-            "nombre": "Felipe Cordero",
-            "telefono": "449-555-1144",
-            "correo": "felipecordero@ejemplo.com",
-            "categoria": "Servicios de limpieza",
-            "imagen": "img/limpieza.png",
-            "relevante": false
-        },
-        {
-            "id": "e3333333-ffff-4aaa-8bbb-000000000037",
-            "nombre": "Marisol Pacheco",
-            "telefono": "449-555-1145",
-            "correo": "marisolpacheco@ejemplo.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "e4444444-aaaa-4bbb-8ccc-000000000038",
-            "nombre": "Albañil Ejemplo 1",
-            "telefono": "449-555-1201",
-            "correo": "albanil1@ejemplo.com",
-            "categoria": "Albañil",
-            "imagen": "img/trabajador.png",
-            "relevante": false
-        },
-        {
-            "id": "e5555555-bbbb-4ccc-8ddd-000000000039",
-            "nombre": "Albañil Ejemplo 2",
-            "telefono": "449-555-1202",
-            "correo": "albanil2@ejemplo.com",
-            "categoria": "Albañil",
-            "imagen": "img/trabajador.png",
-            "relevante": false
-        },
-        {
-            "id": "e6666666-cccc-4ddd-8eee-000000000040",
-            "nombre": "Albañil Ejemplo 3",
-            "telefono": "449-555-1203",
-            "correo": "albanil3@ejemplo.com",
-            "categoria": "Albañil",
-            "imagen": "img/trabajador.png",
-            "relevante": false
-        },
-        {
-            "id": "e7777777-dddd-4eee-8fff-000000000041",
-            "nombre": "Albañil Ejemplo 4",
-            "telefono": "449-555-1204",
-            "correo": "albanil4@ejemplo.com",
-            "categoria": "Albañil",
-            "imagen": "img/trabajador.png",
-            "relevante": false
-        },
-        {
-            "id": "e8888888-eeee-4fff-8aaa-000000000042",
-            "nombre": "Albañil Ejemplo 5",
-            "telefono": "449-555-1205",
-            "correo": "albanil5@ejemplo.com",
-            "categoria": "Albañil",
-            "imagen": "img/trabajador.png",
-            "relevante": false
-        },
-        {
-            "id": "a8f97c06-9777-42b3-8644-bf72626a8f5a",
-            "nombre": "Fabian",
-            "telefono": "4499193093",
-            "correo": "test@test.com",
-            "categoria": "Jardinero",
-            "imagen": "img/jardinero.png",
-            "relevante": false
-        },
-        {
-            "id": "9fcf515d-9e00-4f19-8e1d-86ed9c2eeb40",
-            "nombre": "Bomberos",
-            "telefono": "4499193093",
-            "correo": "bomberos@test.com",
-            "categoria": "Oficiales",
-            "imagen": "img/trabajador.png",
-            "relevante": true
-        }
-    ]
+  "categorias": [
+    {
+      "nombre": "Plomero",
+      "visible": true
+    },
+    {
+      "nombre": "Electricista",
+      "visible": true
+    },
+    {
+      "nombre": "Carpintero",
+      "visible": true
+    },
+    {
+      "nombre": "Servicios de limpieza",
+      "visible": true
+    },
+    {
+      "nombre": "Jardinero",
+      "visible": true
+    },
+    {
+      "nombre": "Albañil",
+      "visible": true
+    },
+    {
+      "nombre": "Vigilancia",
+      "visible": false
+    },
+    {
+      "nombre": "Administración",
+      "visible": false
+    },
+    {
+      "nombre": "Oficiales",
+      "visible": false
+    }
+  ],
+  "busquedasRelevantes": [
+    {
+      "categoria": "Plomero",
+      "activo": true
+    },
+    {
+      "categoria": "Electricista",
+      "activo": true
+    },
+    {
+      "categoria": "Carpintero",
+      "activo": true
+    },
+    {
+      "categoria": "Servicios de limpieza",
+      "activo": true
+    },
+    {
+      "categoria": "Jardinero",
+      "activo": true
+    },
+    {
+      "categoria": "Albañil",
+      "activo": true
+    }
+  ],
+  "trabajadores": [
+    {
+      "id": "a1111111-aaaa-4bbb-8ccc-000000000001",
+      "nombre": "Juan Pérez",
+      "telefono": "449-555-1111",
+      "correo": "juanperez@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "a2222222-bbbb-4ccc-8ddd-000000000002",
+      "nombre": "María López",
+      "telefono": "449-555-1112",
+      "correo": "marialopez@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "a3333333-cccc-4ddd-8eee-000000000003",
+      "nombre": "Carlos Sánchez",
+      "telefono": "449-555-1113",
+      "correo": "carlossanchez@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "a4444444-dddd-4eee-8fff-000000000004",
+      "nombre": "Ana Torres",
+      "telefono": "449-555-1114",
+      "correo": "anatorres@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "a5555555-eeee-4fff-8aaa-000000000005",
+      "nombre": "Luis Ramírez",
+      "telefono": "449-555-1115",
+      "correo": "luisramirez@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "a6666666-ffff-4aaa-8bbb-000000000006",
+      "nombre": "Administración",
+      "telefono": "449-213-3944",
+      "correo": "admin@condominio.com",
+      "categoria": "Administrador",
+      "imagen": "img/admin.png",
+      "relevante": true
+    },
+    {
+      "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
+      "nombre": "Caseta de vigilancia",
+      "telefono": "314-378-5941",
+      "correo": "caseta@condominio.com",
+      "categoria": "Vigilancia",
+      "imagen": "img/vigilancia.png",
+      "relevante": true
+    },
+    {
+      "id": "b1111111-aaaa-4bbb-8ccc-000000000008",
+      "nombre": "Sofía Hernández",
+      "telefono": "449-555-1116",
+      "correo": "sofiahernandez@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "b2222222-bbbb-4ccc-8ddd-000000000009",
+      "nombre": "Miguel García",
+      "telefono": "449-555-1117",
+      "correo": "miguelgarcia@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "b3333333-cccc-4ddd-8eee-000000000010",
+      "nombre": "Laura Díaz",
+      "telefono": "449-555-1118",
+      "correo": "lauradiaz@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "b4444444-dddd-4eee-8fff-000000000011",
+      "nombre": "José Martínez",
+      "telefono": "449-555-1119",
+      "correo": "josemartinez@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "b5555555-eeee-4fff-8aaa-000000000012",
+      "nombre": "Patricia Gómez",
+      "telefono": "449-555-1120",
+      "correo": "patriciagomez@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "b6666666-ffff-4aaa-8bbb-000000000013",
+      "nombre": "Andrés Castillo",
+      "telefono": "449-555-1121",
+      "correo": "andrescastillo@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "b7777777-aaaa-4bbb-8ccc-000000000014",
+      "nombre": "Fernanda Ruiz",
+      "telefono": "449-555-1122",
+      "correo": "fernandaruiz@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "b8888888-bbbb-4ccc-8ddd-000000000015",
+      "nombre": "Ricardo Morales",
+      "telefono": "449-555-1123",
+      "correo": "ricardomorales@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "b9999999-cccc-4ddd-8eee-000000000016",
+      "nombre": "Gabriela Vargas",
+      "telefono": "449-555-1124",
+      "correo": "gabrielavargas@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "c1111111-dddd-4eee-8fff-000000000017",
+      "nombre": "Hugo Delgado",
+      "telefono": "449-555-1125",
+      "correo": "hugodelgado@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "c2222222-eeee-4fff-8aaa-000000000018",
+      "nombre": "Claudia Reyes",
+      "telefono": "449-555-1126",
+      "correo": "claudiareyes@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "c3333333-ffff-4aaa-8bbb-000000000019",
+      "nombre": "Roberto Flores",
+      "telefono": "449-555-1127",
+      "correo": "robertoflores@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "c4444444-aaaa-4bbb-8ccc-000000000020",
+      "nombre": "Isabel Cruz",
+      "telefono": "449-555-1128",
+      "correo": "isabelcruz@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "c5555555-bbbb-4ccc-8ddd-000000000021",
+      "nombre": "Daniela Soto",
+      "telefono": "449-555-1129",
+      "correo": "danielasoto@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "c6666666-cccc-4ddd-8eee-000000000022",
+      "nombre": "Francisco Peña",
+      "telefono": "449-555-1130",
+      "correo": "franciscopena@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "c7777777-dddd-4eee-8fff-000000000023",
+      "nombre": "Alejandra Silva",
+      "telefono": "449-555-1131",
+      "correo": "alejandrasilva@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "c8888888-eeee-4fff-8aaa-000000000024",
+      "nombre": "Jorge Navarro",
+      "telefono": "449-555-1132",
+      "correo": "jorgenavarro@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "c9999999-ffff-4aaa-8bbb-000000000025",
+      "nombre": "Mónica Ríos",
+      "telefono": "449-555-1133",
+      "correo": "monicarios@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "d1111111-aaaa-4bbb-8ccc-000000000026",
+      "nombre": "Pedro Aguilar",
+      "telefono": "449-555-1134",
+      "correo": "pedroaguilar@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "d2222222-bbbb-4ccc-8ddd-000000000027",
+      "nombre": "Verónica Estrada",
+      "telefono": "449-555-1135",
+      "correo": "veronicaestrada@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "d3333333-cccc-4ddd-8eee-000000000028",
+      "nombre": "Raúl Mendoza",
+      "telefono": "449-555-1136",
+      "correo": "raulmendoza@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "d4444444-dddd-4eee-8fff-000000000029",
+      "nombre": "Silvia Ortega",
+      "telefono": "449-555-1137",
+      "correo": "silviaortega@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "d5555555-eeee-4fff-8aaa-000000000030",
+      "nombre": "Diego Luna",
+      "telefono": "449-555-1138",
+      "correo": "diegoluna@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "d6666666-ffff-4aaa-8bbb-000000000031",
+      "nombre": "Paola Ramos",
+      "telefono": "449-555-1139",
+      "correo": "paolaramos@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "d7777777-aaaa-4bbb-8ccc-000000000032",
+      "nombre": "Manuel Herrera",
+      "telefono": "449-555-1140",
+      "correo": "manuelherrera@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "d8888888-bbbb-4ccc-8ddd-000000000033",
+      "nombre": "Carmen Fuentes",
+      "telefono": "449-555-1141",
+      "correo": "carmenfuentes@ejemplo.com",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": false
+    },
+    {
+      "id": "d9999999-cccc-4ddd-8eee-000000000034",
+      "nombre": "Eduardo Paredes",
+      "telefono": "449-555-1142",
+      "correo": "eduardoparedes@ejemplo.com",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false
+    },
+    {
+      "id": "e1111111-dddd-4eee-8fff-000000000035",
+      "nombre": "Lucía Bravo",
+      "telefono": "449-555-1143",
+      "correo": "luciabravo@ejemplo.com",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false
+    },
+    {
+      "id": "e2222222-eeee-4fff-8aaa-000000000036",
+      "nombre": "Felipe Cordero",
+      "telefono": "449-555-1144",
+      "correo": "felipecordero@ejemplo.com",
+      "categoria": "Servicios de limpieza",
+      "imagen": "img/limpieza.png",
+      "relevante": false
+    },
+    {
+      "id": "e3333333-ffff-4aaa-8bbb-000000000037",
+      "nombre": "Marisol Pacheco",
+      "telefono": "449-555-1145",
+      "correo": "marisolpacheco@ejemplo.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "e4444444-aaaa-4bbb-8ccc-000000000038",
+      "nombre": "Albañil Ejemplo 1",
+      "telefono": "449-555-1201",
+      "correo": "albanil1@ejemplo.com",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": false
+    },
+    {
+      "id": "e5555555-bbbb-4ccc-8ddd-000000000039",
+      "nombre": "Albañil Ejemplo 2",
+      "telefono": "449-555-1202",
+      "correo": "albanil2@ejemplo.com",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": false
+    },
+    {
+      "id": "e6666666-cccc-4ddd-8eee-000000000040",
+      "nombre": "Albañil Ejemplo 3",
+      "telefono": "449-555-1203",
+      "correo": "albanil3@ejemplo.com",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": false
+    },
+    {
+      "id": "e7777777-dddd-4eee-8fff-000000000041",
+      "nombre": "Albañil Ejemplo 4",
+      "telefono": "449-555-1204",
+      "correo": "albanil4@ejemplo.com",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": false
+    },
+    {
+      "id": "e8888888-eeee-4fff-8aaa-000000000042",
+      "nombre": "Albañil Ejemplo 5",
+      "telefono": "449-555-1205",
+      "correo": "albanil5@ejemplo.com",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": false
+    },
+    {
+      "id": "a8f97c06-9777-42b3-8644-bf72626a8f5a",
+      "nombre": "Fabian",
+      "telefono": "4499193093",
+      "correo": "test@test.com",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false
+    },
+    {
+      "id": "9fcf515d-9e00-4f19-8e1d-86ed9c2eeb40",
+      "nombre": "Bomberos",
+      "telefono": "4499193093",
+      "correo": "bomberos@test.com",
+      "categoria": "Oficiales",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "54885c64-7431-436e-83ed-35eee8f30b9c",
+      "nombre": "Policia",
+      "telefono": "4499193093",
+      "correo": "test@test.com",
+      "categoria": "Oficiales",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    }
+  ]
 }
