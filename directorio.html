@@ -625,11 +625,11 @@
         });
 
         // Listener para cambio en orden (A-Z / Z-A)
-document.getElementById('orden').addEventListener('change', e => {
-    paginaActual = 1; // reinicia a la primera página
-    renderLista();
-    renderPaginacion();
-});
+        document.getElementById('orden').addEventListener('change', e => {
+            paginaActual = 1; // reinicia a la primera página
+            renderLista();
+            renderPaginacion();
+        });
 
 
         function filtrar(cat, btn) {
@@ -649,11 +649,12 @@ document.getElementById('orden').addEventListener('change', e => {
             // ✅ Excluir relevantes
             let filtrados = datos.trabajadores.filter(t => !t.relevante);
 
+            // ✅ Filtrar por categoría
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            // ✅ Orden alfabético restaurado
+            // ✅ Orden alfabético según drop‑down
             const orden = document.getElementById('orden').value;
             filtrados.sort((a, b) => {
                 return orden === "az"
@@ -661,36 +662,47 @@ document.getElementById('orden').addEventListener('change', e => {
                     : b.nombre.localeCompare(a.nombre);
             });
 
+            // ✅ Mensaje si no hay resultados
+            if (filtrados.length === 0) {
+                lista.innerHTML = `<p style="text-align:center; color:var(--color-text); margin-top:1em;">
+            No se encontraron resultados para la categoría seleccionada.
+        </p>`;
+                return;
+            }
+
+            // Paginación
             const inicio = (paginaActual - 1) * porPagina;
             const fin = inicio + porPagina;
             const pagina = filtrados.slice(inicio, fin);
 
+            // Render de cada card
             pagina.forEach(t => {
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
                 const whatsappLink = `https://wa.me/521${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
                 const correoLink = t.correo ? `
-          <div class="contact-line">
-            <strong>Email:</strong> 
-            <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
-            <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
-              <i class="fa-solid fa-clipboard"></i> Copiar
-            </button>
-          </div>` : "";
+      <div class="contact-line">
+        <strong>Email:</strong> 
+        <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
+        <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
+          <i class="fa-solid fa-clipboard"></i> Copiar
+        </button>
+      </div>` : "";
+
                 lista.innerHTML += `
-          <div class="contact-card">
-            <span class="category-tag">${t.categoria}</span>
-            <img src="${t.imagen}" alt="${t.categoria}">
-            <div class="contact-info">
-              <h3>${t.nombre}</h3>
-              <div class="contact-line">
-                <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(t.telefono)}</a>
-              </div>
-              <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-              </a>
-              ${correoLink}
-            </div>
-          </div>`;
+      <div class="contact-card">
+        <span class="category-tag">${t.categoria}</span>
+        <img src="${t.imagen}" alt="${t.categoria}">
+        <div class="contact-info">
+          <h3>${t.nombre}</h3>
+          <div class="contact-line">
+            <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(t.telefono)}</a>
+          </div>
+          <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          ${correoLink}
+        </div>
+      </div>`;
             });
         }
         /* Paginación */
