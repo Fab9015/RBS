@@ -217,6 +217,7 @@
         #paginacion {
             text-align: center;
             margin: 1em;
+            position: relative;
         }
 
         #paginacion button {
@@ -229,6 +230,13 @@
 
         #paginacion span {
             margin: 0 4px;
+        }
+
+        /* ✅ Contenedor para el filtro "Mostrar" en el paginador */
+        #mostrar-wrapper {
+            position: absolute;
+            right: 0;
+            top: 0;
         }
 
         /* JSON output */
@@ -359,16 +367,10 @@
             <select id="orden-select" onchange="ordenarTrabajadores(this.value)">
                 <option value="az">Ordenar A-Z</option>
                 <option value="za">Ordenar Z-A</option>
+                <!-- ✅ Nueva opción -->
+                <option value="relevantes">Relevantes</option>
             </select>
         </div>
-        <label>
-            Mostrar:
-            <select onchange="porPagina=parseInt(this.value);paginaActual=1;renderCards()">
-                <option value="6">6</option>
-                <option value="12">12</option>
-                <option value="24">24</option>
-            </select>
-        </label>
     </div>
 
     <!-- Cards -->
@@ -453,8 +455,10 @@
 
             if (orden === "az") {
                 filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
-            } else {
+            } else if (orden === "za") {
                 filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            } else if (orden === "relevantes") {
+                filtrados = filtrados.filter(t => t.relevante === true);
             }
 
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
@@ -486,7 +490,7 @@
             updateOutput();
         }
 
-        /* ✅ Nueva función para ordenar A-Z / Z-A */
+        /* Función para ordenar A-Z / Z-A / Relevantes */
         function ordenarTrabajadores(value) {
             orden = value;
             paginaActual = 1;
@@ -497,16 +501,37 @@
             const cont = document.getElementById("paginacion");
             cont.innerHTML = "";
             if (totalPaginas <= 1) return;
+
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
             for (let i = 1; i <= totalPaginas; i++) {
                 cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
             }
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+
+            /* ✅ Filtro "Mostrar" movido aquí */
+            cont.innerHTML += `
+            <div id="mostrar-wrapper">
+                Mostrar:
+                <select onchange="porPagina=parseInt(this.value);paginaActual=1;renderCards()">
+                    <option value="6" ${porPagina === 6 ? "selected" : ""}>6</option>
+                    <option value="12" ${porPagina === 12 ? "selected" : ""}>12</option>
+                    <option value="24" ${porPagina === 24 ? "selected" : ""}>24</option>
+                </select>
+            </div>`;
         }
 
         function cambiarPagina(num) {
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
             let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+
+            if (orden === "az") {
+                filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
+            } else if (orden === "za") {
+                filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
+            } else if (orden === "relevantes") {
+                filtrados = filtrados.filter(t => t.relevante === true);
+            }
+
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             if (num < 1 || num > totalPaginas) return;
             paginaActual = num;
@@ -560,13 +585,20 @@
             editId = null;
         }
 
-        /* Guardar categoría */
+        /* Guardar categoría con validación de duplicados */
         function saveCategoria() {
             const nombreCat = document.getElementById("cat-nombre").value.trim();
             const visibleCat = document.getElementById("cat-visible").checked;
 
             if (!nombreCat) {
                 alert("El nombre de la categoría es obligatorio");
+                return;
+            }
+
+            // ✅ Validación de duplicados
+            const existe = data.categorias.some((c, i) => c.nombre.toLowerCase() === nombreCat.toLowerCase() && i !== editId);
+            if (existe) {
+                alert("La categoría ya existe");
                 return;
             }
 
@@ -589,8 +621,8 @@
                 if (!visibleCat) {
                     data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== nombreCat);
                 } else {
-                    const existe = data.busquedasRelevantes.find(b => b.categoria === nombreCat);
-                    if (!existe) {
+                    const existeBusqueda = data.busquedasRelevantes.find(b => b.categoria === nombreCat);
+                    if (!existeBusqueda) {
                         data.busquedasRelevantes.push({ categoria: nombreCat, activo: false });
                     }
                 }
