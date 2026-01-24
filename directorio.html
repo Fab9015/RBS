@@ -685,29 +685,44 @@
             cont.innerHTML = "";
             const categoria = document.getElementById('categoria').value;
 
-            // ✅ Excluir relevantes
+            // Excluir relevantes
             let filtrados = datos.trabajadores.filter(t => !t.relevante);
-
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            // Orden alfabético aplicado también en la paginación
             const orden = document.getElementById('orden') ? document.getElementById('orden').value : "az";
-            filtrados.sort((a, b) => {
-                if (orden === "az") return a.nombre.localeCompare(b.nombre);
-                else return b.nombre.localeCompare(a.nombre);
-            });
+            filtrados.sort((a, b) => orden === "az" ? a.nombre.localeCompare(b.nombre) : b.nombre.localeCompare(a.nombre));
 
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             if (totalPaginas <= 1) return;
 
+            // Botón anterior
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
-            for (let i = 1; i <= totalPaginas; i++) {
+
+            // Paginador inteligente
+            const rango = 2; // páginas visibles alrededor de la actual
+            let inicio = Math.max(1, paginaActual - rango);
+            let fin = Math.min(totalPaginas, paginaActual + rango);
+
+            if (inicio > 1) {
+                cont.innerHTML += `<button onclick="cambiarPagina(1)">1</button>`;
+                if (inicio > 2) cont.innerHTML += `<span>...</span>`;
+            }
+
+            for (let i = inicio; i <= fin; i++) {
                 cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
             }
+
+            if (fin < totalPaginas) {
+                if (fin < totalPaginas - 1) cont.innerHTML += `<span>...</span>`;
+                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})">${totalPaginas}</button>`;
+            }
+
+            // Botón siguiente
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
         }
+
 
         function cambiarPagina(num) {
             const categoria = document.getElementById('categoria').value;
