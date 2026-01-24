@@ -454,6 +454,117 @@
             updateOutput();
         }
 
+        /* Paginación */
+        function renderPaginacion(totalPaginas) {
+            const cont = document.getElementById("paginacion");
+            cont.innerHTML = "";
+            if (totalPaginas <= 1) return;
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
+            for (let i = 1; i <= totalPaginas; i++) {
+                cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
+            }
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+        }
+
+        function cambiarPagina(num) {
+            const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
+            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            if (num < 1 || num > totalPaginas) return;
+            paginaActual = num;
+            renderCards();
+        }
+        /* Búsquedas relevantes */
+        function renderBusquedas() {
+            const cont = document.getElementById("busquedas-list");
+            cont.innerHTML = "";
+            data.busquedasRelevantes.forEach((b, i) => {
+                cont.innerHTML += `
+        <label>
+          <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+          ${b.categoria}
+        </label><br>`;
+            });
+        }
+        function toggleBusqueda(index, checked) {
+            data.busquedasRelevantes[index].activo = checked;
+            updateOutput();
+        }
+
+        /* Categorías */
+        function renderCategoriasList() {
+            const cont = document.getElementById("categorias-list");
+            cont.innerHTML = "";
+            data.categorias.forEach((cat, i) => {
+                cont.innerHTML += `
+        <div class="cat-row">
+          <span>${cat}</span>
+          <div>
+            <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
+            <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
+          </div>
+        </div>`;
+            });
+        }
+        function addCategoria() {
+            const nuevo = prompt("Nombre de la nueva categoría:");
+            if (nuevo && nuevo.trim()) {
+                data.categorias.push(nuevo.trim());
+                renderCategoriasList();
+                fillCategories();
+                updateOutput();
+            }
+        }
+        function editCategoria(index) {
+            const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
+            if (nuevo && nuevo.trim()) {
+                const oldCat = data.categorias[index];
+                data.categorias[index] = nuevo.trim();
+                data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nuevo.trim(); });
+                data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nuevo.trim(); });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
+        function deleteCategoria(index) {
+            const cat = data.categorias[index];
+            if (confirm("¿Eliminar la categoría '" + cat + "'?")) {
+                data.categorias.splice(index, 1);
+                data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
+                data.trabajadores.forEach(t => { if (t.categoria === cat) t.categoria = "General"; });
+                renderCategoriasList();
+                renderBusquedas();
+                fillCategories();
+                renderCards();
+                updateOutput();
+            }
+        }
+
+        /* Modal CRUD trabajadores */
+        function openModal(id = null) {
+            document.getElementById("modal").style.display = "flex";
+            document.getElementById("modal-title").textContent = id === null ? "Agregar trabajador" : "Editar trabajador";
+            editId = id;
+            fillCategories();
+            if (id !== null) {
+                const t = data.trabajadores.find(x => x.id == id);
+                document.getElementById("nombre").value = t.nombre;
+                document.getElementById("telefono").value = t.telefono;
+                document.getElementById("correo").value = t.correo;
+                document.getElementById("categoria").value = t.categoria;
+                document.getElementById("relevante").checked = t.relevante || false;
+            } else {
+                document.getElementById("nombre").value = "";
+                document.getElementById("telefono").value = "";
+                document.getElementById("correo").value = "";
+                document.getElementById("categoria").value = data.categorias[0];
+                document.getElementById("relevante").checked = false;
+            }
+        }
+
         /* Validación de campos */
         function validarCampos(nombre, telefono, correo) {
             if (!nombre) {
@@ -470,6 +581,7 @@
             }
             return true;
         }
+
         function saveTrabajador() {
             const nombre = document.getElementById("nombre").value.trim();
             const telefono = document.getElementById("telefono").value.trim();
@@ -504,7 +616,6 @@
             closeModal();
             renderCards();
         }
-
         function deleteTrabajador(id) {
             if (confirm("¿Eliminar este trabajador?")) {
                 const idx = data.trabajadores.findIndex(x => x.id == id);
@@ -530,6 +641,7 @@
                 sel.appendChild(opt);
             });
         }
+
         /* Exportar y copiar JSON */
         function updateOutput() {
             const out = document.getElementById("output");
@@ -554,7 +666,6 @@
             document.execCommand("copy");
             alert("Datos copiados al portapapeles");
         }
-
         /* Cargar JSON */
         fetch('directorio.json')
             .then(r => r.json())
@@ -572,6 +683,8 @@
                 updateOutput();
             });
     </script>
+
+
 </body>
 
 </html>
