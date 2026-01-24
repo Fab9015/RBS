@@ -491,27 +491,27 @@
                 const telefonoVisible = formatoTelefono(c.telefono);
                 const whatsapp = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
                 const correo = c.correo ? `
-          <div class="contact-line">
-            <strong>Email:</strong> 
-            <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
-            <button class="copy-btn" onclick="copiarEmail('${c.correo}')">
-              <i class="fa-solid fa-clipboard"></i> Copiar
-            </button>
-          </div>` : "";
+      <div class="contact-line">
+        <strong>Email:</strong> 
+        <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
+        <button class="copy-btn" onclick="copiarEmail('${c.correo}')">
+          <i class="fa-solid fa-clipboard"></i> Copiar
+        </button>
+      </div>` : "";
                 cont.innerHTML += `
-          <div class="contact-card">
-            <img src="${c.imagen}" alt="${c.nombre}">
-            <div class="contact-info">
-              <h3>${c.nombre}</h3>
-              <div class="contact-line">
-                <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
-              </div>
-              <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-              </a>
-              ${correo}
-            </div>
-          </div>`;
+      <div class="contact-card">
+        <img src="${c.imagen}" alt="${c.nombre}">
+        <div class="contact-info">
+          <h3>${c.nombre}</h3>
+          <div class="contact-line">
+            <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
+          </div>
+          <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          ${correo}
+        </div>
+      </div>`;
             });
             updateCarousel();
         }
@@ -600,6 +600,7 @@
                 alert("Correo copiado al portapapeles");
             });
         }
+        /* Filtrar desde tabs */
         function filtrar(cat, btn) {
             document.getElementById('categoria').value = cat;
             paginaActual = 1;
@@ -623,33 +624,41 @@
             const fin = inicio + porPagina;
             const pagina = filtrados.slice(inicio, fin);
 
+            if (pagina.length === 0) {
+                lista.innerHTML = `
+      <div style="text-align:center; margin:2em 0; font-size:1.1em; color:var(--color-title);">
+        No hay resultados, intenta con otra categoría.
+      </div>`;
+                return;
+            }
+
             pagina.forEach(t => {
                 const telefonoLimpio = t.telefono.replace(/\D/g, "");
                 const telefonoVisible = formatoTelefono(t.telefono);
                 const whatsappLink = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
                 const correoLink = t.correo ? `
-          <div class="contact-line">
-            <strong>Email:</strong> 
-            <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
-            <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
-              <i class="fa-solid fa-clipboard"></i> Copiar
-            </button>
-          </div>` : "";
+      <div class="contact-line">
+        <strong>Email:</strong> 
+        <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
+        <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
+          <i class="fa-solid fa-clipboard"></i> Copiar
+        </button>
+      </div>` : "";
                 lista.innerHTML += `
-          <div class="contact-card">
-            <span class="category-tag">${t.categoria}</span>
-            <img src="${t.imagen}" alt="${t.categoria}">
-            <div class="contact-info">
-              <h3>${t.nombre}</h3>
-              <div class="contact-line">
-                <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
-              </div>
-              <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-              </a>
-              ${correoLink}
-            </div>
-          </div>`;
+      <div class="contact-card">
+        <span class="category-tag">${t.categoria}</span>
+        <img src="${t.imagen}" alt="${t.categoria}">
+        <div class="contact-info">
+          <h3>${t.nombre}</h3>
+          <div class="contact-line">
+            <strong>Tel:</strong> <a href="tel:${telefonoLimpio}">${telefonoVisible}</a>
+          </div>
+          <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+          </a>
+          ${correoLink}
+        </div>
+      </div>`;
             });
         }
 
@@ -685,6 +694,7 @@
             renderPaginacion();
         }
 
+        /* Eventos de los drop downs */
         document.getElementById('porPagina').addEventListener('change', e => {
             porPagina = parseInt(e.target.value);
             paginaActual = 1;
@@ -693,9 +703,18 @@
         });
 
         document.getElementById('categoria').addEventListener('change', e => {
+            const categoria = e.target.value;
             paginaActual = 1;
             renderLista();
             renderPaginacion();
+
+            document.querySelectorAll('.tabs button').forEach(b => {
+                if (b.textContent === categoria) {
+                    b.classList.add('active-tab');
+                } else {
+                    b.classList.remove('active-tab');
+                }
+            });
         });
 
         document.getElementById('orden').addEventListener('change', e => {
@@ -709,7 +728,6 @@
             renderLista();
             renderPaginacion();
         });
-
     </script>
 
     <!-- Footer verde -->
