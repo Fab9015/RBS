@@ -71,6 +71,8 @@
             padding: 1em;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             position: relative;
+            min-height: 360px;
+            /* altura fija */
         }
 
         .card img {
@@ -125,7 +127,8 @@
             font-size: 0.8em;
             position: absolute;
             top: 8px;
-            left: 8px;
+            right: 8px;
+            /* ahora a la derecha */
         }
 
         /* Sidebar */
@@ -167,6 +170,21 @@
             color: #fff;
         }
 
+        .sidebar .add-cat-btn {
+            background: #fff;
+            color: #5c4033;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            float: right;
+            margin-bottom: 8px;
+        }
+
+        .sidebar .add-cat-btn:hover {
+            background: #eee;
+        }
+
         /* Paginación */
         #paginacion {
             text-align: center;
@@ -200,18 +218,17 @@
         }
 
         .json-section button {
-            margin-top: 6px;
-            margin-right: 6px;
-            padding: 6px 10px;
-            background: #a1b27a;
-            color: #fff;
+            background: #fff;
+            color: #5c4033;
             border: none;
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
+            margin-right: 6px;
         }
 
         .json-section button:hover {
-            background: #8fa76a;
+            background: #eee;
         }
 
         /* Modal */
@@ -252,6 +269,7 @@
         .modal-content .relevante {
             display: flex;
             align-items: center;
+            justify-content: flex-start;
             margin-top: 0.5em;
         }
 
@@ -329,7 +347,9 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <h2>Categorías</h2>
+        <h2>Categorías
+            <button class="add-cat-btn" onclick="addCategoria()">+ Agregar categoría</button>
+        </h2>
         <div id="categorias-list"></div>
 
         <h2>Búsquedas relevantes</h2>
@@ -340,8 +360,8 @@
     <div class="json-section">
         <h2>JSON generado</h2>
         <textarea id="output" readonly></textarea>
-        <button onclick="downloadJSON()">Descargar JSON</button>
-        <button onclick="copiarJSON()">Copiar JSON</button>
+        <button onclick="downloadJSON()">Descargar archivo</button>
+        <button onclick="copiarJSON()">Copiar datos</button>
     </div>
     <!-- Modal -->
     <div class="modal" id="modal">
@@ -363,25 +383,19 @@
             </div>
         </div>
     </div>
+
+    <!-- Scripts -->
     <script>
-        /* ============================
-           Variables globales
-        ============================ */
         let data = {};
         let paginaActual = 1;
         let porPagina = 6;
         let editIndex = null;
         let orden = "az";
 
-        /* ============================
-           Cargar directorio.json
-        ============================ */
         fetch('directorio.json')
             .then(r => r.json())
             .then(json => {
                 data = json;
-
-                // Fusionar nodo "relevantes" dentro de trabajadores con atributo relevante:true
                 if (data.relevantes) {
                     data.relevantes.forEach(r => {
                         data.trabajadores.push({
@@ -395,107 +409,62 @@
                     });
                     delete data.relevantes;
                 }
-
                 renderCards();
                 renderBusquedas();
                 renderCategoriasList();
                 fillCategories();
                 updateOutput();
-            })
-            .catch(err => console.error("Error al cargar directorio.json:", err));
+            });
 
-        /* ============================
-           Ordenar trabajadores
-        ============================ */
         function ordenarTrabajadores(tipo) {
             orden = tipo;
             paginaActual = 1;
             renderCards();
         }
-        /* ============================
-           Renderizar cards
-        ============================ */
+
+        /* Render cards */
         function renderCards() {
             const cont = document.getElementById("cards-container");
             cont.innerHTML = "";
-
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
             let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
-
-            // Ordenar
-            if (orden === "az") {
-                filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
-            } else {
-                filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre));
-            }
-
+            if (orden === "az") { filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre)); }
+            else { filtrados.sort((a, b) => b.nombre.localeCompare(a.nombre)); }
             const totalPaginas = Math.ceil(filtrados.length / porPagina);
             const inicio = (paginaActual - 1) * porPagina;
             const fin = inicio + porPagina;
             const pagina = filtrados.slice(inicio, fin);
-
-            if (pagina.length === 0) {
-                cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`;
-            }
-
+            if (pagina.length === 0) { cont.innerHTML = `<p style="width:100%;text-align:center;">No hay resultados</p>`; }
             pagina.forEach((t, i) => {
                 cont.innerHTML += `
-      <div class="card">
-        <span class="category-tag">${t.categoria}</span>
-        <img src="${t.imagen}" alt="${t.categoria}">
-        <h3>${t.nombre}</h3>
-        <p>Tel: ${t.telefono}</p>
-        <p>${t.correo || ""}</p>
-        <p>${t.relevante ? "⭐ Contacto relevante" : ""}</p>
-        <div class="actions">
-          <button class="edit-btn" onclick="openModal(${inicio + i})"><i class="fa fa-edit"></i></button>
-          <button class="delete-btn" onclick="deleteTrabajador(${inicio + i})"><i class="fa fa-trash"></i></button>
-        </div>
-      </div>`;
+          <div class="card">
+            <span class="category-tag">${t.categoria}</span>
+            <img src="${t.imagen}" alt="${t.categoria}">
+            <h3>${t.nombre}</h3>
+            <p>Tel: ${t.telefono}</p>
+            <p>${t.correo || ""}</p>
+            <p>${t.relevante ? "⭐ Contacto relevante" : ""}</p>
+            <div class="actions">
+              <button class="edit-btn" onclick="openModal(${inicio + i})"><i class="fa fa-edit"></i></button>
+              <button class="delete-btn" onclick="deleteTrabajador(${inicio + i})"><i class="fa fa-trash"></i></button>
+            </div>
+          </div>`;
             });
-
             renderPaginacion(totalPaginas);
             updateOutput();
         }
 
-        /* ============================
-           Paginador inteligente
-        ============================ */
+        /* Paginación */
         function renderPaginacion(totalPaginas) {
             const cont = document.getElementById("paginacion");
-            if (!cont) return;
             cont.innerHTML = "";
-
             if (totalPaginas <= 1) return;
-
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
-
-            if (totalPaginas <= 7) {
-                for (let i = 1; i <= totalPaginas; i++) {
-                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
-                }
-            } else {
-                cont.innerHTML += `<button onclick="cambiarPagina(1)" ${paginaActual === 1 ? "style='background:#a1b27a;color:#fff;'" : ""}>1</button>`;
-                cont.innerHTML += `<button onclick="cambiarPagina(2)" ${paginaActual === 2 ? "style='background:#a1b27a;color:#fff;'" : ""}>2</button>`;
-
-                let inicio = Math.max(3, paginaActual - 2);
-                let fin = Math.min(totalPaginas - 2, paginaActual + 2);
-
-                if (inicio > 3) cont.innerHTML += "<span>...</span>";
-
-                for (let i = inicio; i <= fin; i++) {
-                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
-                }
-
-                if (fin < totalPaginas - 2) cont.innerHTML += "<span>...</span>";
-
-                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas - 1})" ${paginaActual === totalPaginas - 1 ? "style='background:#a1b27a;color:#fff;'" : ""}>${totalPaginas - 1}</button>`;
-                cont.innerHTML += `<button onclick="cambiarPagina(${totalPaginas})" ${paginaActual === totalPaginas ? "style='background:#a1b27a;color:#fff;'" : ""}>${totalPaginas}</button>`;
+            for (let i = 1; i <= totalPaginas; i++) {
+                cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:#a1b27a;color:#fff;'" : ""}>${i}</button>`;
             }
-
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
         }
-
         function cambiarPagina(num) {
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
             let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
@@ -505,60 +474,54 @@
             renderCards();
         }
 
-        /* ============================
-           Búsquedas relevantes
-        ============================ */
+        /* Búsquedas relevantes */
         function renderBusquedas() {
             const cont = document.getElementById("busquedas-list");
-            if (!cont) return;
             cont.innerHTML = "";
             data.busquedasRelevantes.forEach((b, i) => {
                 cont.innerHTML += `
-      <label>
-        <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
-        ${b.categoria}
-      </label><br>`;
+          <label>
+            <input type="checkbox" ${b.activo ? "checked" : ""} onchange="toggleBusqueda(${i},this.checked)">
+            ${b.categoria}
+          </label><br>`;
             });
         }
-
         function toggleBusqueda(index, checked) {
             data.busquedasRelevantes[index].activo = checked;
             updateOutput();
         }
-        /* ============================
-           Categorías con edición/eliminación
-        ============================ */
+
+        /* Categorías */
         function renderCategoriasList() {
             const cont = document.getElementById("categorias-list");
             cont.innerHTML = "";
             data.categorias.forEach((cat, i) => {
                 cont.innerHTML += `
-      <div class="cat-row">
-        <span>${cat}</span>
-        <div>
-          <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
-          <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
-        </div>
-      </div>`;
+          <div class="cat-row">
+            <span>${cat}</span>
+            <div>
+              <button class="edit-cat" onclick="editCategoria(${i})"><i class="fa fa-edit"></i></button>
+              <button class="delete-cat" onclick="deleteCategoria(${i})"><i class="fa fa-trash"></i></button>
+            </div>
+          </div>`;
             });
         }
-
+        function addCategoria() {
+            const nuevo = prompt("Nombre de la nueva categoría:");
+            if (nuevo && nuevo.trim()) {
+                data.categorias.push(nuevo.trim());
+                renderCategoriasList();
+                fillCategories();
+                updateOutput();
+            }
+        }
         function editCategoria(index) {
             const nuevo = prompt("Nuevo nombre para la categoría:", data.categorias[index]);
             if (nuevo && nuevo.trim()) {
                 const oldCat = data.categorias[index];
                 data.categorias[index] = nuevo.trim();
-
-                // Actualizar búsquedas relevantes
-                data.busquedasRelevantes.forEach(b => {
-                    if (b.categoria === oldCat) b.categoria = nuevo.trim();
-                });
-
-                // Actualizar trabajadores
-                data.trabajadores.forEach(t => {
-                    if (t.categoria === oldCat) t.categoria = nuevo.trim();
-                });
-
+                data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nuevo.trim(); });
+                data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nuevo.trim(); });
                 renderCategoriasList();
                 renderBusquedas();
                 fillCategories();
@@ -566,15 +529,12 @@
                 updateOutput();
             }
         }
-
         function deleteCategoria(index) {
             const cat = data.categorias[index];
             if (confirm("¿Eliminar la categoría '" + cat + "'?")) {
                 data.categorias.splice(index, 1);
                 data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat);
-                data.trabajadores.forEach(t => {
-                    if (t.categoria === cat) t.categoria = "General";
-                });
+                data.trabajadores.forEach(t => { if (t.categoria === cat) t.categoria = "General"; });
                 renderCategoriasList();
                 renderBusquedas();
                 fillCategories();
@@ -583,16 +543,12 @@
             }
         }
 
-        /* ============================
-           Modal CRUD trabajadores
-        ============================ */
+        /* Modal CRUD trabajadores */
         function openModal(index = null) {
             document.getElementById("modal").style.display = "flex";
             document.getElementById("modal-title").textContent = index === null ? "Agregar trabajador" : "Editar trabajador";
             editIndex = index;
-
             fillCategories();
-
             if (index !== null) {
                 const t = data.trabajadores[index];
                 document.getElementById("nombre").value = t.nombre;
@@ -608,25 +564,17 @@
                 document.getElementById("relevante").checked = false;
             }
         }
-
         function saveTrabajador() {
             const nombre = document.getElementById("nombre").value.trim();
             const telefono = document.getElementById("telefono").value.trim();
             const correo = document.getElementById("correo").value.trim();
             const categoria = document.getElementById("categoria").value;
             const relevante = document.getElementById("relevante").checked;
-
             if (!nombre || !telefono) { alert("Nombre y teléfono son obligatorios"); return; }
-
             const imagenesDisponibles = {
-                "Plomero": "img/plomero.png",
-                "Electricista": "img/electricista.png",
-                "Carpintero": "img/carpintero.png",
-                "Servicios de limpieza": "img/limpieza.png",
-                "Jardinero": "img/jardinero.png",
-                "Albañil": "img/trabajador.png",
-                "Administrador": "img/admin.png",
-                "Vigilancia": "img/vigilancia.png"
+                "Plomero": "img/plomero.png", "Electricista": "img/electricista.png", "Carpintero": "img/carpintero.png",
+                "Servicios de limpieza": "img/limpieza.png", "Jardinero": "img/jardinero.png", "Albañil": "img/trabajador.png",
+                "Administrador": "img/admin.png", "Vigilancia": "img/vigilancia.png"
             };
             const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
 
@@ -664,9 +612,8 @@
                 sel.appendChild(opt);
             });
         }
-        /* ============================
-           Exportar y copiar JSON
-        ============================ */
+
+        /* Exportar y copiar JSON */
         function updateOutput() {
             const out = document.getElementById("output");
             if (out) {
@@ -688,10 +635,9 @@
             const out = document.getElementById("output");
             out.select();
             document.execCommand("copy");
-            alert("Contenido copiado al portapapeles");
+            alert("Datos copiados al portapapeles");
         }
     </script>
-
 </body>
 
 </html>
