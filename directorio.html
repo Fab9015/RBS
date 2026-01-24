@@ -3,9 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <!-- ✅ Evitar zoom en móviles -->
     <meta name="viewport"
-        content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
     <title>Directorio – Reserva Bosque Sereno</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -163,7 +162,6 @@
             cursor: pointer;
             justify-content: center;
             width: 90px;
-            /* ancho fijo */
         }
 
         .whatsapp-btn i {
@@ -187,12 +185,37 @@
             cursor: pointer;
             justify-content: center;
             width: 108px;
-            /* ancho fijo */
         }
 
         .copy-btn i {
             font-size: 16px;
             color: var(--color-title);
+        }
+
+        /* Filtros */
+        .filter {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 1em 0;
+        }
+
+        .filter-left,
+        .filter-right {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--color-accent);
+            color: var(--color-white);
+            text-align: center;
+            padding: 1.2em 0;
+            width: 100%;
+            margin: 0;
+            position: relative;
         }
 
         /* Correos truncados */
@@ -380,16 +403,6 @@
             color: var(--color-accent);
             text-decoration: underline;
         }
-
-        footer {
-            background: var(--color-accent);
-            color: var(--color-white);
-            text-align: center;
-            padding: 1.2em 0;
-            width: 100%;
-            margin: 0;
-            position: relative;
-        }
     </style>
 </head>
 
@@ -412,7 +425,7 @@
         <h3 style="text-align:center; margin-top:1em;">Búsquedas frecuentes</h3>
         <div class="tabs" id="tabs"></div>
 
-        <!-- Filtros -->
+        <!-- Filtros superiores -->
         <div class="filter">
             <div class="filter-left">
                 <label for="categoria">Categoría: </label>
@@ -443,41 +456,42 @@
                 <option value="15">15</option>
             </select>
         </div>
-        <script>
-            let datos = {};
-            let paginaActual = 1;
-            let porPagina = 5;
-            let currentSlide = 0;
-            let startX = 0;
-            let isDragging = false;
+    </div>
+    <script>
+        let datos = {};
+        let paginaActual = 1;
+        let porPagina = 5;
+        let currentSlide = 0;
+        let startX = 0;
+        let isDragging = false;
 
-            fetch('directorio.json')
-                .then(r => r.json())
-                .then(json => {
-                    datos = json;
-                    renderRelevantes();
-                    renderIndicators();
-                    renderTabs();
-                    renderCategorias();
-                    renderLista();
-                    renderPaginacion();
-                    initCarouselTouch();
-                });
+        fetch('directorio.json')
+            .then(r => r.json())
+            .then(json => {
+                datos = json;
+                renderRelevantes();
+                renderIndicators();
+                renderTabs();
+                renderCategorias();
+                renderLista();
+                renderPaginacion();
+                initCarouselTouch();
+            });
 
-            /* Función para dar formato visual con guiones */
-            function formatoTelefono(num) {
-                return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
-            }
+        /* Función para dar formato visual con guiones */
+        function formatoTelefono(num) {
+            return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
+        }
 
-            /* Carrusel de contactos importantes */
-            function renderRelevantes() {
-                const cont = document.getElementById('relevantes');
-                cont.innerHTML = "";
-                datos.relevantes.forEach((c) => {
-                    const telefonoLimpio = c.telefono.replace(/\D/g, "");
-                    const telefonoVisible = formatoTelefono(c.telefono);
-                    const whatsapp = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
-                    const correo = c.correo ? `
+        /* Carrusel de contactos importantes */
+        function renderRelevantes() {
+            const cont = document.getElementById('relevantes');
+            cont.innerHTML = "";
+            datos.relevantes.forEach((c) => {
+                const telefonoLimpio = c.telefono.replace(/\D/g, "");
+                const telefonoVisible = formatoTelefono(c.telefono);
+                const whatsapp = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
+                const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
             <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
@@ -485,7 +499,7 @@
               <i class="fa-solid fa-clipboard"></i> Copiar
             </button>
           </div>` : "";
-                    cont.innerHTML += `
+                cont.innerHTML += `
           <div class="contact-card">
             <img src="${c.imagen}" alt="${c.nombre}">
             <div class="contact-info">
@@ -499,122 +513,122 @@
               ${correo}
             </div>
           </div>`;
-                });
-                updateCarousel();
-            }
+            });
+            updateCarousel();
+        }
 
-            function renderIndicators() {
-                const ind = document.getElementById('carousel-indicators');
-                ind.innerHTML = "";
-                datos.relevantes.forEach((_, i) => {
-                    ind.innerHTML += `<span onclick="goToSlide(${i})" id="indicator-${i}"></span>`;
-                });
-                updateIndicators();
-            }
+        function renderIndicators() {
+            const ind = document.getElementById('carousel-indicators');
+            ind.innerHTML = "";
+            datos.relevantes.forEach((_, i) => {
+                ind.innerHTML += `<span onclick="goToSlide(${i})" id="indicator-${i}"></span>`;
+            });
+            updateIndicators();
+        }
 
-            function updateCarousel() {
-                if (window.innerWidth <= 768) {
-                    const card = document.querySelector('#relevantes .contact-card');
-                    if (!card) return;
-                    const cardWidth = card.offsetWidth;
-                    const cont = document.getElementById('relevantes');
-                    cont.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
-                } else {
-                    document.getElementById('relevantes').style.transform = 'none';
-                }
-                updateIndicators();
+        function updateCarousel() {
+            if (window.innerWidth <= 768) {
+                const card = document.querySelector('#relevantes .contact-card');
+                if (!card) return;
+                const cardWidth = card.offsetWidth;
+                const cont = document.getElementById('relevantes');
+                cont.style.transform = `translateX(-${currentSlide * cardWidth}px)`;
+            } else {
+                document.getElementById('relevantes').style.transform = 'none';
             }
+            updateIndicators();
+        }
 
-            function updateIndicators() {
-                datos.relevantes.forEach((_, i) => {
-                    const el = document.getElementById(`indicator-${i}`);
-                    if (el) el.classList.toggle("active", i === currentSlide);
-                });
-            }
+        function updateIndicators() {
+            datos.relevantes.forEach((_, i) => {
+                const el = document.getElementById(`indicator-${i}`);
+                if (el) el.classList.toggle("active", i === currentSlide);
+            });
+        }
 
-            function goToSlide(index) {
-                if (index < 0 || index >= datos.relevantes.length) return;
-                currentSlide = index;
-                updateCarousel();
-            }
+        function goToSlide(index) {
+            if (index < 0 || index >= datos.relevantes.length) return;
+            currentSlide = index;
+            updateCarousel();
+        }
 
-            function initCarouselTouch() {
-                const carousel = document.getElementById('carousel-container');
-                carousel.addEventListener('touchstart', e => {
-                    startX = e.touches[0].clientX;
-                    isDragging = true;
-                });
-                carousel.addEventListener('touchmove', e => {
-                    if (!isDragging) return;
-                    const diff = e.touches[0].clientX - startX;
-                    if (diff > 50) {
-                        goToSlide(currentSlide - 1);
-                        isDragging = false;
-                    } else if (diff < -50) {
-                        goToSlide(currentSlide + 1);
-                        isDragging = false;
-                    }
-                });
-                carousel.addEventListener('touchend', () => {
+        function initCarouselTouch() {
+            const carousel = document.getElementById('carousel-container');
+            carousel.addEventListener('touchstart', e => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            carousel.addEventListener('touchmove', e => {
+                if (!isDragging) return;
+                const diff = e.touches[0].clientX - startX;
+                if (diff > 50) {
+                    goToSlide(currentSlide - 1);
                     isDragging = false;
-                });
-            }
-
-            /* Tabs */
-            function renderTabs() {
-                const cont = document.getElementById('tabs');
-                cont.innerHTML = "";
-                datos.busquedasRelevantes.forEach(b => {
-                    if (b.activo) {
-                        cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
-                    }
-                });
-            }
-
-            function renderCategorias() {
-                const sel = document.getElementById('categoria');
-                datos.categorias.forEach(cat => {
-                    const opt = document.createElement("option");
-                    opt.value = cat;
-                    opt.textContent = cat;
-                    sel.appendChild(opt);
-                });
-            }
-
-            /* Copiar email */
-            function copiarEmail(email) {
-                navigator.clipboard.writeText(email).then(() => {
-                    alert("Correo copiado al portapapeles");
-                });
-            }
-            function filtrar(cat, btn) {
-                document.getElementById('categoria').value = cat;
-                paginaActual = 1;
-                renderLista();
-                renderPaginacion();
-                document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
-                btn.classList.add('active-tab');
-            }
-
-            /* Lista de trabajadores */
-            function renderLista() {
-                const lista = document.getElementById('lista');
-                lista.innerHTML = "";
-                const categoria = document.getElementById('categoria').value;
-                let filtrados = datos.trabajadores;
-                if (categoria !== "todos") {
-                    filtrados = filtrados.filter(t => t.categoria === categoria);
+                } else if (diff < -50) {
+                    goToSlide(currentSlide + 1);
+                    isDragging = false;
                 }
+            });
+            carousel.addEventListener('touchend', () => {
+                isDragging = false;
+            });
+        }
 
-                const inicio = (paginaActual - 1) * porPagina;
-                const fin = inicio + porPagina;
-                const pagina = filtrados.slice(inicio, fin);
+        /* Tabs */
+        function renderTabs() {
+            const cont = document.getElementById('tabs');
+            cont.innerHTML = "";
+            datos.busquedasRelevantes.forEach(b => {
+                if (b.activo) {
+                    cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
+                }
+            });
+        }
 
-                pagina.forEach(t => {
-                    const telefonoLimpio = t.telefono.replace(/\D/g, "");
-                    const telefonoVisible = formatoTelefono(t.telefono);
-                    const whatsappLink = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
-                    const correoLink = t.correo ? `
+        function renderCategorias() {
+            const sel = document.getElementById('categoria');
+            datos.categorias.forEach(cat => {
+                const opt = document.createElement("option");
+                opt.value = cat;
+                opt.textContent = cat;
+                sel.appendChild(opt);
+            });
+        }
+
+        /* Copiar email */
+        function copiarEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                alert("Correo copiado al portapapeles");
+            });
+        }
+        function filtrar(cat, btn) {
+            document.getElementById('categoria').value = cat;
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
+            document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
+            btn.classList.add('active-tab');
+        }
+
+        /* Lista de trabajadores */
+        function renderLista() {
+            const lista = document.getElementById('lista');
+            lista.innerHTML = "";
+            const categoria = document.getElementById('categoria').value;
+            let filtrados = datos.trabajadores;
+            if (categoria !== "todos") {
+                filtrados = filtrados.filter(t => t.categoria === categoria);
+            }
+
+            const inicio = (paginaActual - 1) * porPagina;
+            const fin = inicio + porPagina;
+            const pagina = filtrados.slice(inicio, fin);
+
+            pagina.forEach(t => {
+                const telefonoLimpio = t.telefono.replace(/\D/g, "");
+                const telefonoVisible = formatoTelefono(t.telefono);
+                const whatsappLink = `https://wa.me/52${telefonoLimpio}?text=%E2%9C%89%EF%B8%8F%20Hola,%20te%20contacto%20desde%20el%20directorio`;
+                const correoLink = t.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
             <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
@@ -622,7 +636,7 @@
               <i class="fa-solid fa-clipboard"></i> Copiar
             </button>
           </div>` : "";
-                    lista.innerHTML += `
+                lista.innerHTML += `
           <div class="contact-card">
             <span class="category-tag">${t.categoria}</span>
             <img src="${t.imagen}" alt="${t.categoria}">
@@ -637,49 +651,49 @@
               ${correoLink}
             </div>
           </div>`;
-                });
-            }
-
-            /* Paginación */
-            function renderPaginacion() {
-                const cont = document.getElementById('paginacion');
-                cont.innerHTML = "";
-                const categoria = document.getElementById('categoria').value;
-                let filtrados = datos.trabajadores;
-                if (categoria !== "todos") {
-                    filtrados = filtrados.filter(t => t.categoria === categoria);
-                }
-                const totalPaginas = Math.ceil(filtrados.length / porPagina);
-                if (totalPaginas <= 1) return;
-
-                cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
-                for (let i = 1; i <= totalPaginas; i++) {
-                    cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
-                }
-                cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
-            }
-
-            function cambiarPagina(num) {
-                const categoria = document.getElementById('categoria').value;
-                let filtrados = datos.trabajadores;
-                if (categoria !== "todos") {
-                    filtrados = filtrados.filter(t => t.categoria === categoria);
-                }
-                const totalPaginas = Math.ceil(filtrados.length / porPagina);
-                if (num < 1 || num > totalPaginas) return;
-                paginaActual = num;
-                renderLista();
-                renderPaginacion();
-            }
-
-            document.getElementById('porPagina').addEventListener('change', e => {
-                porPagina = parseInt(e.target.value);
-                paginaActual = 1;
-                renderLista();
-                renderPaginacion();
             });
-        </script>
-    </div>
+        }
+
+        /* Paginación */
+        function renderPaginacion() {
+            const cont = document.getElementById('paginacion');
+            cont.innerHTML = "";
+            const categoria = document.getElementById('categoria').value;
+            let filtrados = datos.trabajadores;
+            if (categoria !== "todos") {
+                filtrados = filtrados.filter(t => t.categoria === categoria);
+            }
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            if (totalPaginas <= 1) return;
+
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
+            for (let i = 1; i <= totalPaginas; i++) {
+                cont.innerHTML += `<button onclick="cambiarPagina(${i})" ${i === paginaActual ? "style='background:var(--color-title);color:white;'" : ""}>${i}</button>`;
+            }
+            cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
+        }
+
+        function cambiarPagina(num) {
+            const categoria = document.getElementById('categoria').value;
+            let filtrados = datos.trabajadores;
+            if (categoria !== "todos") {
+                filtrados = filtrados.filter(t => t.categoria === categoria);
+            }
+            const totalPaginas = Math.ceil(filtrados.length / porPagina);
+            if (num < 1 || num > totalPaginas) return;
+            paginaActual = num;
+            renderLista();
+            renderPaginacion();
+        }
+
+        document.getElementById('porPagina').addEventListener('change', e => {
+            porPagina = parseInt(e.target.value);
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
+        });
+    </script>
+
     <!-- Footer verde -->
     <footer>
         <p>Directorio del Condominio · © 2026</p>
