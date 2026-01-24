@@ -465,8 +465,8 @@
       "nombre": "Policia",
       "telefono": "4499193093",
       "correo": "test@test.com",
-      "categoria": "Oficiales",
-      "imagen": "img/trabajador.png",
+      "categoria": "Vigilancia",
+      "imagen": "img/vigilancia.png",
       "relevante": true
     }
   ]
