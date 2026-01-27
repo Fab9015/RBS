@@ -39,6 +39,10 @@
     {
       "nombre": "Gaseras",
       "visible": true
+    },
+    {
+      "nombre": "Taxi/Uber",
+      "visible": true
     }
   ],
   "busquedasRelevantes": [
@@ -69,6 +73,10 @@
     {
       "categoria": "Gaseras",
       "activo": true
+    },
+    {
+      "categoria": "Taxi/Uber",
+      "activo": true
     }
   ],
   "trabajadores": [
@@ -89,6 +97,195 @@
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
       "relevante": true
+    },
+    {
+      "id": "865c542d-3901-4a91-86b8-4df1d50df0ed",
+      "nombre": "Ramón Gallardo",
+      "telefono": "449-428-3185",
+      "correo": "",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "ce256bf7-c18b-4909-8510-31ebc3344460",
+      "nombre": "Alan",
+      "telefono": "449-243-4468",
+      "correo": "",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "8820c33d-1384-4757-a0b1-66a97966362d",
+      "nombre": "Construcciones Zamora",
+      "telefono": "449-107-5522",
+      "correo": "",
+      "categoria": "Albañil",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "f8662870-a919-466a-802b-0e1eb6715f13",
+      "nombre": "Ernesto Chata",
+      "telefono": "449-168-1108",
+      "correo": "",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": true
+    },
+    {
+      "id": "22f3d383-2f27-4069-a6ae-6e48cbfa3960",
+      "nombre": "Los Encinos",
+      "telefono": "449-186-1561",
+      "correo": "",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": true
+    },
+    {
+      "id": "f1300015-dad0-45c4-90f0-e5970a8b8d00",
+      "nombre": "Mario Galvan",
+      "telefono": "886-136-9187",
+      "correo": "",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": true
+    },
+    {
+      "id": "34c9e1c2-aacb-40d5-acdf-7d311cceb8f7",
+      "nombre": "José Luis",
+      "telefono": "449-980-1019",
+      "correo": "",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": true
+    },
+    {
+      "id": "ce89f0b0-fdf9-48ae-bc72-000f8a82b640",
+      "nombre": "La Sevillana",
+      "telefono": "449-185-7885",
+      "correo": "",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": true
+    },
+    {
+      "id": "39f09f80-7c36-4a9f-8840-f79f3c992f31",
+      "nombre": "Osvaldo Guerra",
+      "telefono": "449-138-3110",
+      "correo": "",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": true
+    },
+    {
+      "id": "360f680a-11b1-4741-8225-d241d8eafc2e",
+      "nombre": "Carlos Hernández",
+      "telefono": "449-553-0538",
+      "correo": "",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": true
+    },
+    {
+      "id": "86210de2-b43b-4fba-9107-6fb9b6ca3b43",
+      "nombre": "Servicios Juarez",
+      "telefono": "449-197-6774",
+      "correo": "",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": true
+    },
+    {
+      "id": "4478d16d-780b-4642-8503-38f5ad714b52",
+      "nombre": "Juan Juarez",
+      "telefono": "449-552-7564",
+      "correo": "",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": true
+    },
+    {
+      "id": "63d23c57-567e-4b82-9e52-3c219a38b503",
+      "nombre": "Jonás",
+      "telefono": "449-263-5454",
+      "correo": "",
+      "categoria": "Plomero",
+      "imagen": "img/plomero.png",
+      "relevante": true
+    },
+    {
+      "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
+      "nombre": "Efrain NTN",
+      "telefono": "449-186-8547",
+      "correo": "",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": true
+    },
+    {
+      "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
+      "nombre": "Manuel Mata",
+      "telefono": "449-277-1260",
+      "correo": "",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": true
+    },
+    {
+      "id": "8bb7af62-af8f-44af-8450-c81bd97806d0",
+      "nombre": "Gas Imperial",
+      "telefono": "449-454-0069",
+      "correo": "",
+      "categoria": "Gaseras",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "876bcffc-2f43-4699-a8e2-a04a75c5151d",
+      "nombre": "Central de Gas",
+      "telefono": "449-912-2222",
+      "correo": "",
+      "categoria": "Gaseras",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "77fc7fae-2263-435b-a2fa-ad01d3a5b59f",
+      "nombre": "Gas Noel",
+      "telefono": "449-910-9010",
+      "correo": "",
+      "categoria": "Gaseras",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "d9f33f82-dc03-44d5-ac9a-c8adab448c36",
+      "nombre": "Gas Rosa",
+      "telefono": "449-158-1600",
+      "correo": "",
+      "categoria": "Gaseras",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "cc552702-90a6-4a1d-85d7-d5c3def63684",
+      "nombre": "Sr. Luis",
+      "telefono": "449-368-8719",
+      "correo": "",
+      "categoria": "Taxi/Uber",
+      "imagen": "img/trabajador.png",
+      "relevante": true
+    },
+    {
+      "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
+      "nombre": "Luis Reyna",
+      "telefono": "449-368-8719",
+      "correo": "",
+      "categoria": "Taxi/Uber",
+      "imagen": "img/trabajador.png",
+      "relevante": true
     }
   ]
-}
+
