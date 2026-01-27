@@ -105,7 +105,7 @@
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "ce256bf7-c18b-4909-8510-31ebc3344460",
@@ -114,7 +114,7 @@
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "8820c33d-1384-4757-a0b1-66a97966362d",
@@ -123,7 +123,7 @@
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "f8662870-a919-466a-802b-0e1eb6715f13",
@@ -132,7 +132,7 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "22f3d383-2f27-4069-a6ae-6e48cbfa3960",
@@ -141,7 +141,7 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "f1300015-dad0-45c4-90f0-e5970a8b8d00",
@@ -150,7 +150,7 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "34c9e1c2-aacb-40d5-acdf-7d311cceb8f7",
@@ -159,7 +159,7 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "ce89f0b0-fdf9-48ae-bc72-000f8a82b640",
@@ -168,7 +168,7 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "39f09f80-7c36-4a9f-8840-f79f3c992f31",
@@ -177,7 +177,7 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "360f680a-11b1-4741-8225-d241d8eafc2e",
@@ -186,7 +186,7 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "86210de2-b43b-4fba-9107-6fb9b6ca3b43",
@@ -195,7 +195,7 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "4478d16d-780b-4642-8503-38f5ad714b52",
@@ -204,7 +204,7 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "63d23c57-567e-4b82-9e52-3c219a38b503",
@@ -213,7 +213,7 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
@@ -222,7 +222,7 @@
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
@@ -231,7 +231,7 @@
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "8bb7af62-af8f-44af-8450-c81bd97806d0",
@@ -240,7 +240,7 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "876bcffc-2f43-4699-a8e2-a04a75c5151d",
@@ -249,7 +249,7 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "77fc7fae-2263-435b-a2fa-ad01d3a5b59f",
@@ -258,7 +258,7 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "d9f33f82-dc03-44d5-ac9a-c8adab448c36",
@@ -267,7 +267,7 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "cc552702-90a6-4a1d-85d7-d5c3def63684",
@@ -276,7 +276,7 @@
       "correo": "",
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     },
     {
       "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
@@ -285,7 +285,7 @@
       "correo": "",
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": false
     }
   ]
 }
