@@ -183,9 +183,7 @@
       <table id="tablaPagos" style="width:100%; border-collapse:collapse;">
         <thead>
           <tr style="background:#a1b27a; color:#fff;">
-            <th style="padding:8px; border:1px solid var(--color-border);">Condómino</th>
             <th style="padding:8px; border:1px solid var(--color-border);">Domicilio</th>
-            <th style="padding:8px; border:1px solid var(--color-border);">Tipo</th>
             <th style="padding:8px; border:1px solid var(--color-border);">Meses</th>
             <th style="padding:8px; border:1px solid var(--color-border);">Monto</th>
           </tr>
@@ -308,9 +306,7 @@
     const tbody = document.querySelector('#tablaPagos tbody');
     pagos.forEach(d=>{
       tbody.innerHTML += `<tr>
-        <td style="padding:6px; border:1px solid var(--color-border);">${d.condomino}</td>
         <td style="padding:6px; border:1px solid var(--color-border);">${d.domicilio}</td>
-        <td style="padding:6px; border:1px solid var(--color-border);">${d.tipo}</td>
         <td style="padding:6px; border:1px solid var(--color-border);">${d.meses}</td>
         <td style="padding:6px; border:1px solid var(--color-border);">$${d.monto}</td>
       </tr>`;
