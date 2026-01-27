@@ -2,7 +2,8 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Información sobre Pagos Adelantados</title>
+  <title>Pagos Adelantados – Condominio RBS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
   <style>
     :root {
@@ -79,11 +80,17 @@
       padding: 1em;
       margin-top: 2em;
     }
+
+    /* Responsive helpers */
+    .row { display:flex; gap:16px; flex-wrap:wrap; }
+    .col { flex:1 1 300px; min-width:260px; }
+    .card { background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.06); text-align:center; }
+    @media(max-width:600px){ .row{flex-direction:column;} }
   </style>
 </head>
 <body>
   <header>
-    <h1>Información sobre Pagos Adelantados</h1>
+    <h1>Pagos Adelantados – Información y Opciones</h1>
   </header>
 
   <div class="container">
@@ -91,50 +98,42 @@
     <div class="section">
       <h2>Contexto</h2>
       <p>
-        Durante la transición administrativa realizada en noviembre, se descubrió que las cuotas de mantenimiento
-        pagadas por adelantado por algunos vecinos no fueron entregadas al nuevo comité. La administración anterior
-        utilizó dichos recursos para cubrir gastos generales del condominio, argumentando que la falta de aprobación
-        de incrementos en cuotas por parte de la asamblea les obligó a recurrir a esos fondos.
+        En la transición administrativa de noviembre constatamos que varias cuotas de mantenimiento pagadas por adelantado por vecinos no fueron entregadas al comité entrante. La administración anterior destinó esos fondos al pago de servicios comunes, justificando su decisión en la falta de aprobación de incrementos por parte de la asamblea.
       </p>
       <p>
-        Es importante aclarar que este dinero nunca llegó a manos de la nueva administración, por lo que la
-        responsabilidad de su manejo corresponde exclusivamente a la administración saliente. Aun así, el comité
-        actual reconoce la difícil situación en la que quedaron los condóminos y, con un enfoque empático y
-        constructivo, presenta alternativas para buscar soluciones conjuntas.
+        Queremos dejar claro que esos recursos nunca llegaron a la nueva administración, por lo que la responsabilidad de su uso corresponde únicamente a la gestión saliente. Reconocemos la preocupación que esta situación genera y, con un enfoque transparente y solidario, presentamos alternativas que permitan atender el problema sin comprometer la estabilidad financiera del condominio.
+      </p>
+      <p>
+        Todas las propuestas se basan en montos comprobados mediante recibos o comprobantes bancarios. Nuestro objetivo es encontrar acuerdos que ofrezcan soluciones equitativas y que preserven el interés colectivo.
       </p>
     </div>
-
-    <!-- Opciones -->
+        <!-- Opciones -->
     <div class="section">
       <h2>Opciones de Solución</h2>
 
       <div class="option">
         <h3>1. Asamblea General y Cuota Extraordinaria</h3>
         <p>
-          Llevar el tema a la asamblea general y solicitar una cuota extraordinaria que permita recuperar los pagos
-          adelantados. El argumento principal es que los recursos fueron utilizados en beneficio de todos los vecinos
-          al cubrir servicios comunes.
+          Presentar el tema en la asamblea general y solicitar una cuota extraordinaria que permita recuperar los pagos adelantados. 
+          El argumento principal es que los recursos fueron utilizados en beneficio de todos los vecinos al cubrir servicios comunes.
         </p>
-        <strong>Ventajas:</strong> Recuperación total de los montos adelantados.<br>
-        <strong>Desventajas:</strong> Incluso quienes ya habían pagado por adelantado tendrían que aportar la cuota.<br>
-        <strong>Riesgos:</strong> Que la asamblea no apruebe la medida y se pierda la oportunidad de recuperar el dinero.
+        <p><strong>Ventajas:</strong> Recuperación total de los montos adelantados.</p>
+        <p><strong>Desventajas:</strong> Incluso quienes ya habían pagado por adelantado tendrían que aportar la cuota.</p>
+        <p><strong>Riesgos:</strong> Que la asamblea no apruebe la medida y se pierda la oportunidad de recuperar el dinero.</p>
       </div>
 
       <div class="option">
-        <h3>2. Acuerdos Individuales con Vecinos</h3>
+        <h3>2. Acuerdos Voluntarios con Vecinos</h3>
         <p>
-          Se propone llegar a acuerdos voluntarios con quienes realizaron pagos adelantados. Estos acuerdos pueden
-          combinarse entre sí, reduciendo progresivamente el número de vecinos pendientes de solución.
+          Se propone llegar a acuerdos voluntarios con quienes realizaron pagos adelantados. Estos acuerdos pueden combinarse entre sí, 
+          reduciendo progresivamente el número de vecinos pendientes de solución.
         </p>
         <ul>
-          <li><strong>Acuerdo 1:</strong> Vecinos que comprendan que el recurso nunca llegó a la nueva administración
-          y decidan, de manera solidaria, no exigir su devolución.</li>
-          <li><strong>Acuerdo 2:</strong> Aplicar el monto adelantado como parte del pago por el uso del salón de eventos.
-          El costo del salón es de $1050; las cuotas adelantadas (de $600 cada una) se descontarían de ese monto.</li>
-          <li><strong>Acuerdo 3:</strong> Organizar una rifa en el condominio con premios equivalentes a cuotas ordinarias.
-          La participación sería abierta y transparente, y lo recaudado se destinaría a cubrir los pagos adelantados.</li>
-          <li><strong>Acuerdo 4:</strong> Para quienes no participen en los acuerdos anteriores, el monto adelantado
-          se aplicaría en cuotas ordinarias de $100 en $100 hasta cubrir el total.</li>
+          <li><strong>Acuerdo 1:</strong> Vecinos que comprendan que el recurso nunca llegó a la nueva administración y decidan, de manera solidaria, no exigir su devolución.</li>
+          <li><strong>Acuerdo 2:</strong> Aplicar el monto adelantado como parte del pago por el uso del salón de eventos. El costo del salón es de $1050; las cuotas adelantadas (de $600 cada una) se descontarían de ese monto.</li>
+          <li><strong>Acuerdo 3:</strong> Organizar una rifa en el condominio con premios equivalentes a cuotas ordinarias. La participación sería abierta y transparente, y lo recaudado se destinaría a cubrir los pagos adelantados.</li>
+          <li><strong>Acuerdo 4:</strong> Para quienes no participen en los acuerdos anteriores, o para quienes aún tengan un resto de dinero pendiente tras optar por acuerdos 2 o 3, el monto adelantado se aplicaría en cuotas ordinarias de $100 en $100 hasta cubrir el total. 
+          Este mecanismo asegura que todo monto quede reconocido sin comprometer los ingresos regulares del condominio.</li>
         </ul>
       </div>
     </div>
@@ -143,14 +142,183 @@
     <div class="section notes">
       <h2>Notas Finales</h2>
       <p>
-        Todos los acuerdos se basarán únicamente en los montos comprobados mediante recibos o comprobantes bancarios.
-        No se hablará de mensualidades específicas, sino de cantidades de dinero verificadas. El objetivo es encontrar
-        soluciones que, sin afectar los intereses del condominio, permitan atender la situación de manera justa y
-        transparente.
+        Todos los acuerdos se basarán únicamente en los montos comprobados mediante recibos o comprobantes bancarios. 
+        No se hablará de mensualidades específicas, sino de cantidades de dinero verificadas. 
+        El objetivo es encontrar soluciones que, sin afectar los intereses del condominio, permitan atender la situación de manera justa y transparente.
       </p>
     </div>
-  </div>
+        <!-- Indicadores resumen -->
+    <div class="section">
+      <h2>Resumen de Pagos Adelantados</h2>
+      <div class="row">
+        <div class="col card">
+          <h3>Total recaudado</h3>
+          <p id="total"></p>
+        </div>
+        <div class="col card">
+          <h3>Condóminos</h3>
+          <p id="count"></p>
+        </div>
+        <div class="col card">
+          <h3>Promedio</h3>
+          <p id="avg"></p>
+        </div>
+      </div>
+    </div>
 
+    <!-- Gráficos -->
+    <div class="section">
+      <h2>Visualización de Datos</h2>
+      <div style="height:300px;">
+        <canvas id="barSector"></canvas>
+      </div>
+      <div style="height:300px; margin-top:2em;">
+        <canvas id="histMontos"></canvas>
+      </div>
+    </div>
+
+    <!-- Tabla -->
+    <div class="section">
+      <h2>Detalle de Pagos Adelantados</h2>
+      <table id="tablaPagos" style="width:100%; border-collapse:collapse;">
+        <thead>
+          <tr style="background:#a1b27a; color:#fff;">
+            <th style="padding:8px; border:1px solid var(--color-border);">Condómino</th>
+            <th style="padding:8px; border:1px solid var(--color-border);">Domicilio</th>
+            <th style="padding:8px; border:1px solid var(--color-border);">Tipo</th>
+            <th style="padding:8px; border:1px solid var(--color-border);">Meses</th>
+            <th style="padding:8px; border:1px solid var(--color-border);">Monto</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+    <!-- JSON embebido -->
+    <script>
+    const pagos = [
+      { "condomino": 120, "domicilio": "SABINO 101", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 15, "domicilio": "SABINO 108", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 113, "domicilio": "SABINO 111", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 95, "domicilio": "SABINO 118", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 46, "domicilio": "SABINO 129", "tipo": "Casa", "meses": "Nov/Dic/Ene/Feb/Mar/Abr/Mayo", "monto": 4200 },
+  { "condomino": 18, "domicilio": "SABINO 132", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 96, "domicilio": "SABINO 133", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 77, "domicilio": "SABINO 135", "tipo": "Casa", "meses": "Nov/Dic", "monto": 885.9 },
+  { "condomino": 131, "domicilio": "SABINO 138", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 62, "domicilio": "SABINO 141", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 22, "domicilio": "SABINO 145", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 76, "domicilio": "SABINO 160", "tipo": "Casa", "meses": "Nov 25-Sep26", "monto": 6600 },
+  { "condomino": 326, "domicilio": "SABINO 211", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 275, "domicilio": "SABINO 219", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 2400 },
+  { "condomino": 402, "domicilio": "SABINO 222", "tipo": "Casa", "meses": "Nov/Dic", "monto": 615.75 },
+  { "condomino": 369, "domicilio": "SABINO 223", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 208, "domicilio": "SABINO 241", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 349, "domicilio": "SABINO 253", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+      { "condomino": 288, "domicilio": "SAKURA 112", "tipo": "Casa", "meses": "Nov", "monto": 564 },
+  { "condomino": 240, "domicilio": "SAKURA 122", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 325, "domicilio": "SAKURA 125", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 298, "domicilio": "SAKURA 131", "tipo": "Casa", "meses": "Nov/Dic/Ene", "monto": 2400 },
+  { "condomino": 276, "domicilio": "SAKURA 140", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1010.1 },
+  { "condomino": 299, "domicilio": "SAKURA 144", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 3000 },
+  { "condomino": 315, "domicilio": "SAKURA 160", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 174, "domicilio": "SAKURA 225", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 210, "domicilio": "SAKURA 227", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 159, "domicilio": "SAKURA 234", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 182, "domicilio": "SAKURA 237", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 230, "domicilio": "SAKURA 243", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 253, "domicilio": "SAKURA 258", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+      { "condomino": 318, "domicilio": "SEQUOIA 117", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 419, "domicilio": "SEQUOIA 118", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 40500, "domicilio": "SEQUOIA 124", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 324, "domicilio": "SEQUOIA 130", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 1100, "domicilio": "SEQUOIA 149", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 335, "domicilio": "SEQUOIA 153", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 300, "domicilio": "SEQUOIA 204", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+  { "condomino": 334, "domicilio": "SEQUOIA 209", "tipo": "Casa", "meses": "Nov25-Mar26", "monto": 2982 },
+  { "condomino": 120, "domicilio": "SEQUOIA 221", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 2400 },
+  { "condomino": 205, "domicilio": "SEQUOIA 238", "tipo": "Terreno", "meses": "Nov/Dic", "monto": 1080 },
+  { "condomino": 30, "domicilio": "SEQUOIA 245", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 116, "domicilio": "SEQUOIA 248", "tipo": "Casa", "meses": "Nov", "monto": 580.9 },
+  { "condomino": 221, "domicilio": "SEQUOIA 303", "tipo": "Casa", "meses": "Nov", "monto": 326.14 },
+  { "condomino": 125, "domicilio": "SEQUOIA 318", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 103, "domicilio": "SEQUOIA 320", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 82, "domicilio": "SEQUOIA 339", "tipo": "Casa", "meses": "Nov", "monto": 587.1 },
+  { "condomino": 104, "domicilio": "SEQUOIA 342", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 13, "domicilio": "SEQUOIA 345", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 57, "domicilio": "SEQUOIA 511", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 36, "domicilio": "SEQUOIA 513", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 415, "domicilio": "SEQUOIA 516", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
+  { "condomino": 413, "domicilio": "SEQUOIA 519", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 408, "domicilio": "SEQUOIA 534", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
+      { "condomino": 221, "domicilio": "SEQUOIA 303", "tipo": "Casa", "meses": "Nov", "monto": 326.14 },
+  { "condomino": 125, "domicilio": "SEQUOIA 318", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 103, "domicilio": "SEQUOIA 320", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 82, "domicilio": "SEQUOIA 339", "tipo": "Casa", "meses": "Nov", "monto": 587.1 },
+  { "condomino": 104, "domicilio": "SEQUOIA 342", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+  { "condomino": 13, "domicilio": "SEQUOIA 345", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 57, "domicilio": "SEQUOIA 511", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 36, "domicilio": "SEQUOIA 513", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 415, "domicilio": "SEQUOIA 516", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
+  { "condomino": 413, "domicilio": "SEQUOIA 519", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+  { "condomino": 408, "domicilio": "SEQUOIA 534", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 }
+    ];
+
+    // indicadores
+    const total = pagos.reduce((sum, d) => sum + d.monto, 0);
+    document.getElementById('total').textContent = "$" + total.toLocaleString();
+    document.getElementById('count').textContent = pagos.length;
+    document.getElementById('avg').textContent = "$" + (total/pagos.length).toFixed(2);
+
+    // agrupar por sector
+    const sectores = {};
+    pagos.forEach(d => {
+      const sector = d.domicilio.split(" ")[0];
+      sectores[sector] = (sectores[sector]||0) + d.monto;
+    });
+
+    // histograma montos
+    const rangos = { "≤600":0, "601-1200":0, "1201-3000":0, ">3000":0 };
+    pagos.forEach(d=>{
+      if(d.monto<=600) rangos["≤600"]++;
+      else if(d.monto<=1200) rangos["601-1200"]++;
+      else if(d.monto<=3000) rangos["1201-3000"]++;
+      else rangos[">3000"]++;
+    });
+    </script>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    new Chart(document.getElementById('barSector'), {
+      type:'bar',
+      data:{ labels:Object.keys(sectores),
+             datasets:[{label:'Total por sector', data:Object.values(sectores), backgroundColor:'#a1b27a'}] },
+      options:{ responsive:true, maintainAspectRatio:false }
+    });
+
+    new Chart(document.getElementById('histMontos'), {
+      type:'bar',
+      data:{ labels:Object.keys(rangos),
+             datasets:[{label:'Vecinos', data:Object.values(rangos), backgroundColor:'#5c4033'}] },
+      options:{ responsive:true, maintainAspectRatio:false }
+    });
+
+    // tabla
+    const tbody = document.querySelector('#tablaPagos tbody');
+    pagos.forEach(d=>{
+      tbody.innerHTML += `<tr>
+        <td style="padding:6px; border:1px solid var(--color-border);">${d.condomino}</td>
+        <td style="padding:6px; border:1px solid var(--color-border);">${d.domicilio}</td>
+        <td style="padding:6px; border:1px solid var(--color-border);">${d.tipo}</td>
+        <td style="padding:6px; border:1px solid var(--color-border);">${d.meses}</td>
+        <td style="padding:6px; border:1px solid var(--color-border);">$${d.monto}</td>
+      </tr>`;
+    });
+    </script>
+      </div> <!-- cierre container -->
+
+  <!-- Footer -->
   <footer>
     <p>Comité de Administración · Condominio Reserva Bosque Sereno</p>
   </footer>
