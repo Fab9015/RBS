@@ -40,6 +40,17 @@
             --color-border: #e6e2dc;
         }
 
+        html, body {
+  height: 100%;              /* ocupa toda la altura */
+  margin: 0;
+  display: flex;
+  flex-direction: column;    /* apila header, contenido y footer */
+}
+
+.container {
+  flex: 1;                   /* empuja el footer hacia abajo */
+}
+
         body {
             font-family: 'Lato', sans-serif;
             background: var(--color-bg);
