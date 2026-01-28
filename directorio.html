@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Directorio – Reserva Bosque Sereno</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
@@ -39,7 +39,6 @@
             --color-text: #5c4033;
             --color-border: #e6e2dc;
             --result-card-height: 195px;
-            /* ✅ altura ajustable para cards de resultados */
         }
 
         body {
@@ -191,6 +190,84 @@
         .copy-btn i {
             font-size: 16px;
             color: var(--color-title);
+        }
+
+        /* Botón Horarios */
+        .schedule-btn {
+            background: var(--color-accent);
+            color: var(--color-white);
+            border: none;
+            padding: 6px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 0.5em;
+        }
+
+        .schedule-btn:hover {
+            background: var(--color-title);
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content {
+            background: #fcfcfa;
+            margin: 10% auto;
+            padding: 1.5em;
+            border-radius: 12px;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .close {
+            color: var(--color-title);
+            float: right;
+            font-size: 1.5em;
+            cursor: pointer;
+        }
+
+        .office-schedule {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            margin-top: 1em;
+        }
+
+        .day-block {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 0.8em;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .day {
+            font-weight: 600;
+            color: var(--color-title);
+        }
+
+        .time {
+            color: var(--color-accent);
+            font-weight: 500;
+        }
+
+        @media (max-width:600px) {
+            .day-block {
+                flex-direction: column;
+                gap: 0.4em;
+            }
         }
 
         /* Filtros */
@@ -360,7 +437,6 @@
         #lista .contact-card {
             flex-direction: row;
             min-height: var(--result-card-height);
-            /* ✅ altura ajustable en resultados */
         }
 
         /* Paginación */
@@ -406,62 +482,6 @@
             color: var(--color-accent);
             text-decoration: underline;
         }
-
-        .office-hours {
-            background: #fcfcfa;
-            border: 1px solid var(--color-border);
-            border-radius: 12px;
-            padding: 1.5em;
-            margin: 2em auto;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            max-width: 600px;
-        }
-
-        .office-hours h2 {
-            color: var(--color-accent);
-            margin-top: 0;
-        }
-
-        .office-text {
-            font-size: 0.95em;
-            color: var(--color-title);
-            margin-bottom: 1em;
-        }
-
-        .office-schedule {
-            display: flex;
-            flex-direction: column;
-            gap: 1em;
-        }
-
-        .day-block {
-            background: var(--color-white);
-            border: 1px solid var(--color-border);
-            border-radius: 8px;
-            padding: 0.8em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .day {
-            font-weight: 600;
-            color: var(--color-title);
-        }
-
-        .time {
-            color: var(--color-accent);
-            font-weight: 500;
-        }
-
-        /* Responsivo */
-        @media (max-width: 600px) {
-            .day-block {
-                flex-direction: column;
-                gap: 0.4em;
-            }
-        }
     </style>
 </head>
 
@@ -475,22 +495,7 @@
     </header>
 
     <div class="container">
-        <div class="office-hours">
-            <h2>Horarios de Oficina</h2>
-            <p class="office-text">Si tienes dudas o necesitas apoyo, puedes acudir en los siguientes horarios:</p>
-            <div class="office-schedule">
-                <div class="day-block">
-                    <span class="day">Lunes a Viernes</span>
-                    <span class="time">9:00 am – 1:00 pm</span>
-                </div>
-                <div class="day-block">
-                    <span class="day">Sábados</span>
-                    <span class="time">10:00 am – 1:00 pm</span>
-                </div>
-            </div>
-        </div>
-        <h2>Directorio</h2>
-        <h3>Contactos importantes</h2>
+        <h2>Contactos importantes</h2>
         <div id="carousel-container">
             <div id="relevantes"></div>
             <div class="carousel-indicators" id="carousel-indicators"></div>
@@ -572,6 +577,12 @@
               <i class="fa-solid fa-clipboard"></i> Copiar
             </button>
           </div>` : "";
+
+                // ✅ Botón de horarios solo para Administración
+                const horarioBtn = (c.categoria === "Administrador" || c.categoria === "Administración")
+                    ? `<button class="schedule-btn" onclick="openModal()">Horarios de atención</button>`
+                    : "";
+
                 cont.innerHTML += `
           <div class="contact-card">
             <img src="${c.imagen}" alt="${c.nombre}">
@@ -584,12 +595,12 @@
                 <i class="fa-brands fa-whatsapp"></i> WhatsApp
               </a>
               ${correo}
+              ${horarioBtn}
             </div>
           </div>`;
             });
             updateCarousel();
         }
-
         function renderIndicators() {
             const ind = document.getElementById('carousel-indicators');
             ind.innerHTML = "";
@@ -649,23 +660,23 @@
                 isDragging = false;
             });
         }
+
         /* Tabs */
         function renderTabs() {
             const cont = document.getElementById('tabs');
             cont.innerHTML = "";
             datos.busquedasRelevantes.forEach(b => {
                 const cat = datos.categorias.find(c => c.nombre === b.categoria);
-                if (b.activo && cat?.visible) { // ✅ solo si la categoría está activa y visible
+                if (b.activo && cat?.visible) {
                     cont.innerHTML += `<button onclick="filtrar('${b.categoria}', this)">${b.categoria}</button>`;
                 }
             });
         }
-
         /* Categorías */
         function renderCategorias() {
             const sel = document.getElementById('categoria');
             datos.categorias.forEach(cat => {
-                if (cat.visible) { // ✅ solo categorías visibles
+                if (cat.visible) {
                     const opt = document.createElement("option");
                     opt.value = cat.nombre;
                     opt.textContent = cat.nombre;
@@ -673,7 +684,6 @@
                 }
             });
         }
-
 
         /* Función para copiar email */
         function copiarEmail(email) {
@@ -700,17 +710,17 @@
 
         // Listener para cambio en orden (A-Z / Z-A)
         document.getElementById('orden').addEventListener('change', e => {
-            paginaActual = 1; // reinicia a la primera página
+            paginaActual = 1;
             renderLista();
             renderPaginacion();
         });
 
         // Listener para cambio en "por página"
         document.getElementById('porPagina').addEventListener('change', e => {
-            porPagina = parseInt(e.target.value);   // actualiza la variable global
-            paginaActual = 1;                       // reinicia a la primera página
-            renderLista();                          // vuelve a renderizar resultados
-            renderPaginacion();                     // vuelve a renderizar paginación
+            porPagina = parseInt(e.target.value);
+            paginaActual = 1;
+            renderLista();
+            renderPaginacion();
         });
 
         function filtrar(cat, btn) {
@@ -746,8 +756,8 @@
             // ✅ Mensaje si no hay resultados
             if (filtrados.length === 0) {
                 lista.innerHTML = `<p style="text-align:center; color:var(--color-text); margin-top:1em;">
-            No se encontraron resultados para la categoría seleccionada.
-        </p>`;
+                    No se encontraron resultados para la categoría seleccionada.
+                </p>`;
                 return;
             }
 
@@ -761,29 +771,35 @@
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
                 const whatsappLink = `https://wa.me/521${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
                 const correoLink = t.correo ? `
-      <div class="contact-line">
-        <strong>Email:</strong> 
-        <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
-        <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
-          <i class="fa-solid fa-clipboard"></i> Copiar
-        </button>
-      </div>` : "";
+                  <div class="contact-line">
+                    <strong>Email:</strong> 
+                    <a href="mailto:${t.correo}" class="contact-email" title="${t.correo}">${t.correo}</a>
+                    <button class="copy-btn" onclick="copiarEmail('${t.correo}')">
+                      <i class="fa-solid fa-clipboard"></i> Copiar
+                    </button>
+                  </div>` : "";
+
+                // ✅ Botón de horarios solo para Administración
+                const horarioBtn = (t.categoria === "Administrador" || t.categoria === "Administración")
+                    ? `<button class="schedule-btn" onclick="openModal()">Horarios de atención</button>`
+                    : "";
 
                 lista.innerHTML += `
-      <div class="contact-card">
-        <span class="category-tag">${t.categoria}</span>
-        <img src="${t.imagen}" alt="${t.categoria}">
-        <div class="contact-info">
-          <h3>${t.nombre}</h3>
-          <div class="contact-line">
-            <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(t.telefono)}</a>
-          </div>
-          <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-          </a>
-          ${correoLink}
-        </div>
-      </div>`;
+                  <div class="contact-card">
+                    <span class="category-tag">${t.categoria}</span>
+                    <img src="${t.imagen}" alt="${t.categoria}">
+                    <div class="contact-info">
+                      <h3>${t.nombre}</h3>
+                      <div class="contact-line">
+                        <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(t.telefono)}</a>
+                      </div>
+                      <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                      </a>
+                      ${correoLink}
+                      ${horarioBtn}
+                    </div>
+                  </div>`;
             });
         }
         /* Paginación */
@@ -813,7 +829,7 @@
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual - 1})" ${paginaActual === 1 ? "disabled" : ""}>&laquo;</button>`;
 
             // Paginador inteligente
-            const rango = 2; // páginas visibles alrededor de la actual
+            const rango = 2;
             let inicio = Math.max(1, paginaActual - rango);
             let fin = Math.min(totalPaginas, paginaActual + rango);
 
@@ -834,6 +850,7 @@
             // Botón siguiente
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
         }
+
         function cambiarPagina(num) {
             const categoria = document.getElementById('categoria').value;
 
@@ -859,7 +876,33 @@
             renderLista();
             renderPaginacion();
         }
+        /* Modal de horarios */
+        function openModal() {
+            document.getElementById("scheduleModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("scheduleModal").style.display = "none";
+        }
     </script>
+
+    <!-- Modal de horarios -->
+    <div id="scheduleModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h2>Horarios de Oficina</h2>
+            <p class="office-text">Si tienes dudas o necesitas apoyo, puedes acudir en los siguientes horarios:</p>
+            <div class="office-schedule">
+                <div class="day-block">
+                    <span class="day">Lunes a Viernes</span>
+                    <span class="time">9:00 am – 1:00 pm</span>
+                </div>
+                <div class="day-block">
+                    <span class="day">Sábados</span>
+                    <span class="time">10:00 am – 1:00 pm</span>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Footer verde -->
     <footer>
         <p>Directorio del Condominio · © 2026</p>
