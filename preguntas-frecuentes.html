@@ -41,21 +41,15 @@
         }
 
         html, body {
-  height: 100%;              /* ocupa toda la altura */
-  margin: 0;
-  display: flex;
-  flex-direction: column;    /* apila header, contenido y footer */
-}
-
-.container {
-  flex: 1;                   /* empuja el footer hacia abajo */
-}
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
 
         body {
             font-family: 'Lato', sans-serif;
             background: var(--color-bg);
-            margin: 0;
-            padding: 0;
             color: var(--color-text);
             overflow-x: hidden;
         }
@@ -98,6 +92,7 @@
         }
 
         .container {
+            flex: 1;
             max-width: 900px;
             margin: auto;
             padding: 1em;
@@ -137,11 +132,18 @@
         }
 
         .accordion-body {
-            display: none;
-            padding: 1em;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            padding: 0 1em;
             background: var(--color-white);
             color: var(--color-text);
             line-height: 1.5em;
+        }
+
+        .accordion-body.open {
+            max-height: 500px; /* Ajusta según contenido */
+            padding: 1em;
         }
 
         /* Footer */
@@ -225,15 +227,15 @@
         headers.forEach(header => {
             header.addEventListener("click", () => {
                 const body = header.nextElementSibling;
-                const isOpen = body.style.display === "block";
+                const isOpen = body.classList.contains("open");
 
                 // Cierra todos
-                document.querySelectorAll(".accordion-body").forEach(b => b.style.display = "none");
+                document.querySelectorAll(".accordion-body").forEach(b => b.classList.remove("open"));
                 document.querySelectorAll(".accordion-header").forEach(h => h.classList.remove("active"));
 
                 // Abre el seleccionado si estaba cerrado
                 if (!isOpen) {
-                    body.style.display = "block";
+                    body.classList.add("open");
                     header.classList.add("active");
                 }
             });
