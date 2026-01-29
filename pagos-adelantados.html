@@ -1,322 +1,229 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
-  <title>Pagos Adelantados – Condominio RBS</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pagos Adelantados – Reserva Bosque Sereno</title>
   <link rel="icon" href="img/favicon.png" type="image/png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Pagos Adelantados – Reserva Bosque Sereno">
+  <meta property="og:description" content="Consulta y visualiza los pagos adelantados realizados por los residentes del condominio.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/pagos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Pagos Adelantados – Reserva Bosque Sereno">
+  <meta name="twitter:description" content="Consulta y visualiza los pagos adelantados realizados por los residentes del condominio.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
   <style>
     :root {
       --color-bg: #fdfaf5;
       --color-title: #5c4033;
       --color-accent: #a1b27a;
       --color-white: #fefefe;
+      --color-text: #5c4033;
       --color-border: #e6e2dc;
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
     }
 
     body {
       font-family: 'Lato', sans-serif;
       background: var(--color-bg);
+      color: var(--color-text);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Montserrat', sans-serif;
       color: var(--color-title);
-      margin: 0;
-      padding: 0;
     }
 
+    /* Header */
     header {
-      background: var(--color-accent);
-      color: var(--color-white);
-      padding: 1.5em;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: var(--color-bg);
+      color: var(--color-title);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5em 1em;
+      border-bottom: 2px solid var(--color-border);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     }
 
-    header h1 {
+    .header-text {
+      max-width: 70%;
+    }
+
+    .header-text h1 {
       margin: 0;
       font-size: 1.8em;
     }
 
+    .header-text p {
+      margin-top: 0.4em;
+      font-size: 1em;
+      color: #6a4f3d;
+    }
+
+    .logo {
+      width: 100px;
+      height: auto;
+    }
+
     .container {
+      flex: 1;
       max-width: 1000px;
       margin: auto;
-      padding: 2em;
+      padding: 1em;
     }
 
-    h2 {
-      color: var(--color-title);
-      border-bottom: 2px solid var(--color-border);
-      padding-bottom: 0.3em;
-    }
-
-    .section {
-      margin-bottom: 2em;
-    }
-
-    .option {
+    .chart-container {
+      margin: 2em 0;
       background: var(--color-white);
       border: 1px solid var(--color-border);
       border-radius: 8px;
       padding: 1em;
-      margin-bottom: 1em;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     }
 
-    .option h3 {
-      margin-top: 0;
-      color: var(--color-accent);
+    canvas {
+      width: 100% !important;
+      height: auto !important;
     }
 
-    .notes {
-      background: #fcfcfa;
-      border-left: 4px solid var(--color-accent);
-      padding: 1em;
-      font-size: 0.95em;
-      color: #444;
-    }
-
+    /* Footer */
     footer {
       background: var(--color-accent);
       color: var(--color-white);
       text-align: center;
-      padding: 1em;
+      padding: 1.2em 0;
+      width: 100%;
       margin-top: 2em;
     }
-
-    /* Responsive helpers */
-    .row { display:flex; gap:16px; flex-wrap:wrap; }
-    .col { flex:1 1 300px; min-width:260px; }
-    .card { background:#fff; border-radius:8px; padding:12px; box-shadow:0 2px 6px rgba(0,0,0,0.06); text-align:center; }
-    @media(max-width:600px){ .row{flex-direction:column;} }
   </style>
 </head>
 <body>
   <header>
-    <h1>Pagos Adelantados – Información y Opciones</h1>
+    <div class="header-text">
+      <h1>Pagos Adelantados</h1>
+      <p>Consulta y visualiza los pagos adelantados realizados por los residentes del condominio</p>
+    </div>
+    <img src="img/logo.png" alt="Logo institucional" class="logo">
   </header>
 
   <div class="container">
-    <!-- Introducción -->
-    <div class="section">
-      <h2>Contexto</h2>
-      <p>
-        En la transición administrativa de noviembre constatamos que varias cuotas de mantenimiento pagadas por adelantado por vecinos no fueron entregadas al comité entrante. La administración anterior destinó esos fondos al pago de servicios comunes, justificando su decisión en la falta de aprobación de incrementos por parte de la asamblea.
-      </p>
-      <p>
-        Queremos dejar claro que esos recursos nunca llegaron a la nueva administración, por lo que la responsabilidad de su uso corresponde únicamente a la gestión saliente. Reconocemos la preocupación que esta situación genera y, con un enfoque transparente y solidario, presentamos alternativas que permitan atender el problema sin comprometer la estabilidad financiera del condominio.
-      </p>
-      <p>
-        Todas las propuestas se basan en montos comprobados mediante recibos o comprobantes bancarios. Nuestro objetivo es encontrar acuerdos que ofrezcan soluciones equitativas y que preserven el interés colectivo.
-      </p>
-    </div>
-        <!-- Opciones -->
-    <div class="section">
-      <h2>Opciones de Solución</h2>
+    <h2>Resumen de Pagos Adelantados</h2>
+    <p>En esta sección se muestran las estadísticas de los pagos adelantados realizados por los residentes. 
+       Puedes visualizar la distribución por domicilios, meses cubiertos y montos condonados.</p>
 
-      <div class="option">
-        <h3>1. Asamblea General y Cuota Extraordinaria</h3>
-        <p>
-          Presentar el tema en la asamblea general y solicitar una cuota extraordinaria que permita recuperar los pagos adelantados. 
-          El argumento principal es que los recursos fueron utilizados en beneficio de todos los vecinos al cubrir servicios comunes.
-        </p>
-        <p><strong>Ventajas:</strong> Recuperación total de los montos adelantados.</p>
-        <p><strong>Desventajas:</strong> Incluso quienes ya habían pagado por adelantado tendrían que aportar la cuota.</p>
-        <p><strong>Riesgos:</strong> Que la asamblea no apruebe la medida y se pierda la oportunidad de recuperar el dinero.</p>
-      </div>
-
-      <div class="option">
-        <h3>2. Acuerdos Voluntarios con Vecinos</h3>
-        <p>
-          Se propone llegar a acuerdos voluntarios con quienes realizaron pagos adelantados. Estos acuerdos pueden combinarse entre sí, 
-          reduciendo progresivamente el número de vecinos pendientes de solución.
-        </p>
-        <ul>
-          <li><strong>Acuerdo 1:</strong> Vecinos que comprendan que el recurso nunca llegó a la nueva administración y decidan, de manera solidaria, no exigir su devolución.</li>
-          <li><strong>Acuerdo 2:</strong> Aplicar el monto adelantado como parte del pago por el uso del salón de eventos. El costo del salón es de $1050; las cuotas adelantadas (de $600 cada una) se descontarían de ese monto.</li>
-          <li><strong>Acuerdo 3:</strong> Organizar una rifa en el condominio con premios equivalentes a cuotas ordinarias. La participación sería abierta y transparente, y lo recaudado se destinaría a cubrir los pagos adelantados.</li>
-          <li><strong>Acuerdo 4:</strong> Para quienes no participen en los acuerdos anteriores, o para quienes aún tengan un resto de dinero pendiente tras optar por acuerdos 2 o 3, el monto adelantado se aplicaría en cuotas ordinarias de $100 en $100 hasta cubrir el total. 
-          Este mecanismo asegura que todo monto quede reconocido sin comprometer los ingresos regulares del condominio.</li>
-        </ul>
-      </div>
+    <!-- Gráfica 1: Distribución por calle -->
+    <div class="chart-container">
+      <h3>Distribución de pagos por calle</h3>
+      <canvas id="chartCalle"></canvas>
     </div>
 
-    <!-- Notas finales -->
-    <div class="section notes">
-      <h2>Notas Finales</h2>
-      <p>
-        Todos los acuerdos se basarán únicamente en los montos comprobados mediante recibos o comprobantes bancarios. 
-        No se hablará de mensualidades específicas, sino de cantidades de dinero verificadas. 
-        El objetivo es encontrar soluciones que, sin afectar los intereses del condominio, permitan atender la situación de manera justa y transparente.
-      </p>
-    </div>
-        <!-- Indicadores resumen -->
-    <div class="section">
-      <h2>Resumen de Pagos Adelantados</h2>
-      <div class="row">
-        <div class="col card">
-          <h3>Total recaudado</h3>
-          <p id="total"></p>
-        </div>
-        <div class="col card">
-          <h3>Condóminos</h3>
-          <p id="count"></p>
-        </div>
-        <div class="col card">
-          <h3>Promedio</h3>
-          <p id="avg"></p>
-        </div>
-      </div>
+    <!-- Gráfica 2: Meses adelantados -->
+    <div class="chart-container">
+      <h3>Meses adelantados</h3>
+      <canvas id="chartMeses"></canvas>
     </div>
 
-    <!-- Gráficos -->
-    <div class="section">
-      <h2>Visualización de Datos</h2>
-      <div style="height:300px;">
-        <canvas id="barSector"></canvas>
-      </div>
-      <div style="height:300px; margin-top:2em;">
-        <canvas id="histMontos"></canvas>
-      </div>
+    <!-- Gráfica 3: Montos condonados -->
+    <div class="chart-container">
+      <h3>Montos condonados</h3>
+      <canvas id="chartCondonacion"></canvas>
     </div>
 
-    <!-- Tabla -->
-    <div class="section">
-      <h2>Detalle de Pagos Adelantados</h2>
-      <table id="tablaPagos" style="width:100%; border-collapse:collapse;">
-        <thead>
-          <tr style="background:#a1b27a; color:#fff;">
-            <th style="padding:8px; border:1px solid var(--color-border);">Domicilio</th>
-            <th style="padding:8px; border:1px solid var(--color-border);">Meses</th>
-            <th style="padding:8px; border:1px solid var(--color-border);">Monto</th>
-          </tr>
-        </thead>
-        <tbody></tbody>
-      </table>
+    <!-- Gráfica 4: Total por tipo de propiedad -->
+    <div class="chart-container">
+      <h3>Total por tipo de propiedad</h3>
+      <canvas id="chartTipo"></canvas>
     </div>
+  </div>
+  <script>
+    fetch('pagos_adelantados.json')
+      .then(r => r.json())
+      .then(data => {
+        // Gráfica 1: Distribución por calle
+        new Chart(document.getElementById('chartCalle'), {
+          type: 'bar',
+          data: {
+            labels: data.calles.labels,
+            datasets: [{
+              label: 'Pagos por calle',
+              data: data.calles.values,
+              backgroundColor: '#a1b27a'
+            }]
+          },
+          options: { responsive: true }
+        });
 
-    <!-- JSON embebido -->
-    <script>
-    const pagos = [
-      { "condomino": 120, "domicilio": "SABINO 101", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 15, "domicilio": "SABINO 108", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 113, "domicilio": "SABINO 111", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 95, "domicilio": "SABINO 118", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 46, "domicilio": "SABINO 129", "tipo": "Casa", "meses": "Nov-Mayo", "monto": 4200 },
-  { "condomino": 18, "domicilio": "SABINO 132", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 96, "domicilio": "SABINO 133", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 77, "domicilio": "SABINO 135", "tipo": "Casa", "meses": "Nov/Dic", "monto": 885.9 },
-  { "condomino": 131, "domicilio": "SABINO 138", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 62, "domicilio": "SABINO 141", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 22, "domicilio": "SABINO 145", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 76, "domicilio": "SABINO 160", "tipo": "Casa", "meses": "Nov 25-Sep26", "monto": 6600 },
-  { "condomino": 326, "domicilio": "SABINO 211", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 275, "domicilio": "SABINO 219", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 2400 },
-  { "condomino": 402, "domicilio": "SABINO 222", "tipo": "Casa", "meses": "Nov/Dic", "monto": 615.75 },
-  { "condomino": 369, "domicilio": "SABINO 223", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 208, "domicilio": "SABINO 241", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 349, "domicilio": "SABINO 253", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-      { "condomino": 288, "domicilio": "SAKURA 112", "tipo": "Casa", "meses": "Nov", "monto": 564 },
-  { "condomino": 240, "domicilio": "SAKURA 122", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 325, "domicilio": "SAKURA 125", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 298, "domicilio": "SAKURA 131", "tipo": "Casa", "meses": "Nov/Dic/Ene", "monto": 2400 },
-  { "condomino": 276, "domicilio": "SAKURA 140", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1010.1 },
-  { "condomino": 299, "domicilio": "SAKURA 144", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 3000 },
-  { "condomino": 315, "domicilio": "SAKURA 160", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 174, "domicilio": "SAKURA 225", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 210, "domicilio": "SAKURA 227", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 159, "domicilio": "SAKURA 234", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 182, "domicilio": "SAKURA 237", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 230, "domicilio": "SAKURA 243", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 253, "domicilio": "SAKURA 258", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-      { "condomino": 318, "domicilio": "SEQUOIA 117", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 419, "domicilio": "SEQUOIA 118", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 40500, "domicilio": "SEQUOIA 124", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 324, "domicilio": "SEQUOIA 130", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 1100, "domicilio": "SEQUOIA 149", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 335, "domicilio": "SEQUOIA 153", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 300, "domicilio": "SEQUOIA 204", "tipo": "Casa", "meses": "Nov", "monto": 600 },
-  { "condomino": 334, "domicilio": "SEQUOIA 209", "tipo": "Casa", "meses": "Nov25-Mar26", "monto": 2982 },
-  { "condomino": 120, "domicilio": "SEQUOIA 221", "tipo": "Casa", "meses": "Nov25-Feb26", "monto": 2400 },
-  { "condomino": 205, "domicilio": "SEQUOIA 238", "tipo": "Terreno", "meses": "Nov/Dic", "monto": 1080 },
-  { "condomino": 30, "domicilio": "SEQUOIA 245", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 116, "domicilio": "SEQUOIA 248", "tipo": "Casa", "meses": "Nov", "monto": 580.9 },
-  { "condomino": 221, "domicilio": "SEQUOIA 303", "tipo": "Casa", "meses": "Nov", "monto": 326.14 },
-  { "condomino": 125, "domicilio": "SEQUOIA 318", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 103, "domicilio": "SEQUOIA 320", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 82, "domicilio": "SEQUOIA 339", "tipo": "Casa", "meses": "Nov", "monto": 587.1 },
-  { "condomino": 104, "domicilio": "SEQUOIA 342", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 13, "domicilio": "SEQUOIA 345", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 57, "domicilio": "SEQUOIA 511", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 36, "domicilio": "SEQUOIA 513", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 415, "domicilio": "SEQUOIA 516", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
-  { "condomino": 413, "domicilio": "SEQUOIA 519", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 408, "domicilio": "SEQUOIA 534", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
-      { "condomino": 221, "domicilio": "SEQUOIA 303", "tipo": "Casa", "meses": "Nov", "monto": 326.14 },
-  { "condomino": 125, "domicilio": "SEQUOIA 318", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 103, "domicilio": "SEQUOIA 320", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 82, "domicilio": "SEQUOIA 339", "tipo": "Casa", "meses": "Nov", "monto": 587.1 },
-  { "condomino": 104, "domicilio": "SEQUOIA 342", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
-  { "condomino": 13, "domicilio": "SEQUOIA 345", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 57, "domicilio": "SEQUOIA 511", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 36, "domicilio": "SEQUOIA 513", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 415, "domicilio": "SEQUOIA 516", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
-  { "condomino": 413, "domicilio": "SEQUOIA 519", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
-  { "condomino": 408, "domicilio": "SEQUOIA 534", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 }
-    ];
+        // Gráfica 2: Meses adelantados
+        new Chart(document.getElementById('chartMeses'), {
+          type: 'pie',
+          data: {
+            labels: data.meses.labels,
+            datasets: [{
+              label: 'Meses adelantados',
+              data: data.meses.values,
+              backgroundColor: ['#5c4033','#a1b27a','#e6e2dc','#6a4f3d','#fdfaf5']
+            }]
+          },
+          options: { responsive: true }
+        });
 
-    // indicadores
-    const total = pagos.reduce((sum, d) => sum + d.monto, 0);
-    document.getElementById('total').textContent = "$" + total.toLocaleString();
-    document.getElementById('count').textContent = pagos.length;
-    document.getElementById('avg').textContent = "$" + (total/pagos.length).toFixed(2);
+        // Gráfica 3: Montos condonados
+        new Chart(document.getElementById('chartCondonacion'), {
+          type: 'doughnut',
+          data: {
+            labels: data.condonacion.labels,
+            datasets: [{
+              label: 'Montos condonados',
+              data: data.condonacion.values,
+              backgroundColor: ['#a1b27a','#5c4033','#e6e2dc','#6a4f3d']
+            }]
+          },
+          options: { responsive: true }
+        });
 
-    // agrupar por sector
-    const sectores = {};
-    pagos.forEach(d => {
-      const sector = d.domicilio.split(" ")[0];
-      sectores[sector] = (sectores[sector]||0) + d.monto;
-    });
+        // Gráfica 4: Total por tipo de propiedad
+        new Chart(document.getElementById('chartTipo'), {
+          type: 'bar',
+          data: {
+            labels: data.tipo.labels,
+            datasets: [{
+              label: 'Total por tipo',
+              data: data.tipo.values,
+              backgroundColor: '#5c4033'
+            }]
+          },
+          options: { responsive: true }
+        });
+      });
+  </script>
 
-    // histograma montos
-    const rangos = { "≤600":0, "601-1200":0, "1201-3000":0, ">3000":0 };
-    pagos.forEach(d=>{
-      if(d.monto<=600) rangos["≤600"]++;
-      else if(d.monto<=1200) rangos["601-1200"]++;
-      else if(d.monto<=3000) rangos["1201-3000"]++;
-      else rangos[">3000"]++;
-    });
-    </script>
-
-    <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    new Chart(document.getElementById('barSector'), {
-      type:'bar',
-      data:{ labels:Object.keys(sectores),
-             datasets:[{label:'Total por sector', data:Object.values(sectores), backgroundColor:'#a1b27a'}] },
-      options:{ responsive:true, maintainAspectRatio:false }
-    });
-
-    new Chart(document.getElementById('histMontos'), {
-      type:'bar',
-      data:{ labels:Object.keys(rangos),
-             datasets:[{label:'Vecinos', data:Object.values(rangos), backgroundColor:'#5c4033'}] },
-      options:{ responsive:true, maintainAspectRatio:false }
-    });
-
-    // tabla
-    const tbody = document.querySelector('#tablaPagos tbody');
-    pagos.forEach(d=>{
-      tbody.innerHTML += `<tr>
-        <td style="padding:6px; border:1px solid var(--color-border);">${d.domicilio}</td>
-        <td style="padding:6px; border:1px solid var(--color-border);">${d.meses}</td>
-        <td style="padding:6px; border:1px solid var(--color-border);">$${d.monto}</td>
-      </tr>`;
-    });
-    </script>
-      </div> <!-- cierre container -->
-
-  <!-- Footer -->
+  <!-- Footer verde -->
   <footer>
-    <p>Comité de Administración · Condominio Reserva Bosque Sereno</p>
+    <p>Reserva Bosque Sereno · © 2026</p>
   </footer>
 </body>
 </html>
