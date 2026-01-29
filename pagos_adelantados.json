@@ -1,62 +1,18 @@
 {
   "calles": {
-    "labels": [
-      "SABINO",
-      "SAKURA",
-      "SEQUOIA"
-    ],
-    "values": [
-      19,
-      15,
-      23
-    ]
+    "labels": ["SABINO", "SAKURA", "SEQUOIA"],
+    "values": [18, 14, 25]
   },
   "meses": {
-    "labels": [
-      "Noviembre",
-      "Diciembre",
-      "Enero",
-      "Febrero",
-      "Marzo",
-      "Abril",
-      "Mayo",
-      "Junio",
-      "Julio",
-      "Agosto",
-      "Septiembre"
-    ],
-    "values": [
-      35,
-      28,
-      2,
-      4,
-      2,
-      1,
-      1,
-      0,
-      0,
-      0,
-      1
-    ]
+    "labels": ["Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Septiembre"],
+    "values": [57, 41, 1, 2, 1, 1, 1, 1]
   },
-    "condonacion": {
-    "labels": [
-      "Sin condonación",
-      "Con condonación"
-    ],
-    "values": [
-      55,
-      2
-    ]
+  "montos": {
+    "labels": ["0-1000", "1001-2000", "2001-4000", "4001-7000"],
+    "values": [20, 25, 8, 4]
   },
   "tipo": {
-    "labels": [
-      "Casa",
-      "Terreno"
-    ],
-    "values": [
-      56,
-      1
-    ]
+    "labels": ["Casa", "Terreno"],
+    "values": [56, 1]
   }
 }
