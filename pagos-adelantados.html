@@ -212,7 +212,6 @@
       // indicadores resumen
       document.getElementById('total').textContent = "$" + data.resumen.total.toLocaleString();
       document.getElementById('count').textContent = data.resumen.count;
-      document.getElementById('avg').textContent = "$" + data.resumen.avg.toFixed(2);
 
       // Gráfica 1: Total por sector
       new Chart(document.getElementById('barSector'), {
