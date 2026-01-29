@@ -1,18 +1,85 @@
 {
-  "calles": {
+  "resumen": {
+    "total": 49700.99,
+    "count": 57,
+    "avg": 872.83
+  },
+  "sectores": {
     "labels": ["SABINO", "SAKURA", "SEQUOIA"],
     "values": [18, 14, 25]
   },
-  "meses": {
-    "labels": ["Noviembre", "Diciembre", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Septiembre"],
-    "values": [57, 41, 1, 2, 1, 1, 1, 1]
-  },
-  "montos": {
-    "labels": ["0-1000", "1001-2000", "2001-4000", "4001-7000"],
+  "rangos": {
+    "labels": ["≤600", "601-1200", "1201-3000", ">3000"],
     "values": [20, 25, 8, 4]
   },
-  "tipo": {
-    "labels": ["Casa", "Terreno"],
-    "values": [56, 1]
-  }
+  "montos": {
+    "labels": [
+      "SABINO 101","SABINO 108","SABINO 111","SABINO 118","SABINO 129","SABINO 132","SABINO 133","SABINO 135","SABINO 138","SABINO 141","SABINO 145","SABINO 160","SABINO 211","SABINO 219","SABINO 222","SABINO 223","SABINO 241","SABINO 253",
+      "SAKURA 112","SAKURA 122","SAKURA 125","SAKURA 131","SAKURA 140","SAKURA 144","SAKURA 160","SAKURA 225","SAKURA 227","SAKURA 234","SAKURA 237","SAKURA 243","SAKURA 258",
+      "SEQUOIA 117","SEQUOIA 118","SEQUOIA 124","SEQUOIA 130","SEQUOIA 149","SEQUOIA 153","SEQUOIA 204","SEQUOIA 209","SEQUOIA 221","SEQUOIA 238","SEQUOIA 245","SEQUOIA 248","SEQUOIA 303","SEQUOIA 318","SEQUOIA 320","SEQUOIA 339","SEQUOIA 342","SEQUOIA 345","SEQUOIA 511","SEQUOIA 513","SEQUOIA 516","SEQUOIA 519","SEQUOIA 534"
+    ],
+    "values": [
+      1200,1200,600,1200,4200,1200,600,885.9,1200,1200,1200,6600,600,2400,615.75,600,1200,1200,
+      564,600,600,2400,1010.1,3000,1200,1200,600,1200,1200,600,1200,
+      600,600,600,1200,600,600,600,2982,2400,1080,1200,580.9,326.14,1200,1200,587.1,600,1200,1200,1200,1020,1200,1020
+    ]
+  },
+  "detalle": [
+    { "domicilio": "SABINO 101", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 108", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 111", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SABINO 118", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 129", "tipo": "Casa", "meses": "Nov-Mayo", "monto": 4200 },
+    { "domicilio": "SABINO 132", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 133", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SABINO 135", "tipo": "Casa", "meses": "Nov/Dic", "monto": 885.9 },
+    { "domicilio": "SABINO 138", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 141", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 145", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 160", "tipo": "Casa", "meses": "Nov-Sep", "monto": 6600 },
+    { "domicilio": "SABINO 211", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SABINO 219", "tipo": "Casa", "meses": "Nov-Feb", "monto": 2400 },
+    { "domicilio": "SABINO 222", "tipo": "Casa", "meses": "Nov/Dic", "monto": 615.75 },
+    { "domicilio": "SABINO 223", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SABINO 241", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SABINO 253", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+
+    { "domicilio": "SAKURA 112", "tipo": "Casa", "meses": "Nov", "monto": 564 },
+    { "domicilio": "SAKURA 122", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SAKURA 125", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SAKURA 131", "tipo": "Casa", "meses": "Nov/Dic/Ene", "monto": 2400 },
+    { "domicilio": "SAKURA 140", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1010.1 },
+    { "domicilio": "SAKURA 144", "tipo": "Casa", "meses": "Nov-Feb", "monto": 3000 },
+    { "domicilio": "SAKURA 160", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SAKURA 225", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SAKURA 227", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SAKURA 234", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SAKURA 237", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SAKURA 243", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SAKURA 258", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+
+    { "domicilio": "SEQUOIA 117", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SEQUOIA 118", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SEQUOIA 124", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SEQUOIA 130", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+        { "domicilio": "SEQUOIA 149", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SEQUOIA 153", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SEQUOIA 204", "tipo": "Casa", "meses": "Nov", "monto": 600 },
+    { "domicilio": "SEQUOIA 209", "tipo": "Casa", "meses": "Nov-Mar", "monto": 2982 },
+    { "domicilio": "SEQUOIA 221", "tipo": "Casa", "meses": "Nov-Feb", "monto": 2400 },
+    { "domicilio": "SEQUOIA 238", "tipo": "Terreno", "meses": "Nov/Dic", "monto": 1080 },
+    { "domicilio": "SEQUOIA 245", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 248", "tipo": "Casa", "meses": "Nov", "monto": 580.9 },
+    { "domicilio": "SEQUOIA 303", "tipo": "Casa", "meses": "Nov", "monto": 326.14 },
+    { "domicilio": "SEQUOIA 318", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 320", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 339", "tipo": "Casa", "meses": "Nov", "monto": 587.1 },
+    { "domicilio": "SEQUOIA 342", "tipo": "Casa", "meses": "Noviembre", "monto": 600 },
+    { "domicilio": "SEQUOIA 345", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 511", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 513", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 516", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 },
+    { "domicilio": "SEQUOIA 519", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1200 },
+    { "domicilio": "SEQUOIA 534", "tipo": "Casa", "meses": "Nov/Dic", "monto": 1020 }
+  ]
 }
