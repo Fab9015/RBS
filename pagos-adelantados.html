@@ -173,11 +173,11 @@
       </div>
       <div style="height:300px; margin-top:2em;">
         <canvas id="barMontos"></canvas>
-        <div style="margin-top:1em; display:flex; gap:1em;">
-  <span style="color:#4CAF50;">■ SABINO</span>
-  <span style="color:#FF9800;">■ SAKURA</span>
-  <span style="color:#2196F3;">■ SEQUOIA</span>
-</div>
+        <div style="margin-top:2em; display:flex; gap:1em;">
+          <span style="color:#a1b27a;">■ SABINO</span>
+          <span style="color:#5c4033;">■ SAKURA</span>
+          <span style="color:#d4c4a8;">■ SEQUOIA</span>
+        </div>
       </div>
     </div>
 
@@ -199,10 +199,11 @@
 <script>
   // Definir colores por calle (paleta más contrastante)
   const coloresCalles = {
-    "SABINO": "#4CAF50",   // verde
-    "SAKURA": "#FF9800",   // naranja
-    "SEQUOIA": "#2196F3"   // azul
-  };
+  "SABINO": "#a1b27a",
+  "SAKURA": "#5c4033",
+  "SEQUOIA": "#d4c4a8"
+};
+
 
   fetch('pagos_adelantados.json')
     .then(r => r.json())
@@ -266,7 +267,7 @@
                 maxRotation:90, // etiquetas verticales
                 minRotation:90,
                 font: {
-                  size: window.innerWidth < 600 ? 8 : 12
+                  size: window.innerWidth < 600 ? 6 : 10
                 }
               }
             }
