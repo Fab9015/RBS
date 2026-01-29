@@ -174,10 +174,10 @@
       <div style="height:300px; margin-top:2em;">
         <canvas id="barMontos"></canvas>
         <div style="margin-top:1em; display:flex; gap:1em;">
-          <span style="color:#a1b27a;">■ SABINO</span>
-          <span style="color:#5c4033;">■ SAKURA</span>
-          <span style="color:#6a4f3d;">■ SEQUOIA</span>
-        </div>
+  <span style="color:#4CAF50;">■ SABINO</span>
+  <span style="color:#FF9800;">■ SAKURA</span>
+  <span style="color:#2196F3;">■ SEQUOIA</span>
+</div>
       </div>
     </div>
 
@@ -195,30 +195,29 @@
         <tbody></tbody>
       </table>
     </div>
-        <!-- Chart.js -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-  // Definir colores por calle
+  // Definir colores por calle (paleta más contrastante)
   const coloresCalles = {
-    "SABINO": "#a1b27a",
-    "SAKURA": "#5c4033",
-    "SEQUOIA": "#6a4f3d"
+    "SABINO": "#4CAF50",   // verde
+    "SAKURA": "#FF9800",   // naranja
+    "SEQUOIA": "#2196F3"   // azul
   };
 
-  // Cargar datos desde archivo JSON externo
   fetch('pagos_adelantados.json')
     .then(r => r.json())
     .then(data => {
       // indicadores resumen
       document.getElementById('total').textContent = "$" + data.resumen.total.toLocaleString();
       document.getElementById('count').textContent = data.resumen.count;
+      document.getElementById('avg').textContent = "$" + data.resumen.avg.toFixed(2);
 
       // Gráfica 1: Total por sector
       new Chart(document.getElementById('barSector'), {
         type:'bar',
         data:{ 
           labels:data.sectores.labels,
-          datasets:[{label:'Total por sector', data:data.sectores.values, backgroundColor:'#a1b27a'}] 
+          datasets:[{label:'Total por sector', data:data.sectores.values, backgroundColor:'#4CAF50'}] 
         },
         options:{ responsive:true, maintainAspectRatio:false }
       });
@@ -228,7 +227,7 @@
         type:'bar',
         data:{ 
           labels:data.rangos.labels,
-          datasets:[{label:'Vecinos', data:data.rangos.values, backgroundColor:'#5c4033'}] 
+          datasets:[{label:'Vecinos', data:data.rangos.values, backgroundColor:'#FF9800'}] 
         },
         options:{ responsive:true, maintainAspectRatio:false }
       });
@@ -256,7 +255,6 @@
             tooltip: {
               callbacks: {
                 label: function(context) {
-                  // Mostrar domicilio completo y monto en tooltip
                   return data.montos.labels[context.dataIndex] + ": $" + context.formattedValue;
                 }
               }
@@ -267,10 +265,10 @@
             x: {
               ticks: {
                 autoSkip:false,
-                maxRotation:0,
-                minRotation:0,
+                maxRotation:90, // etiquetas verticales
+                minRotation:90,
                 font: {
-                  size: window.innerWidth < 600 ? 8 : 12 // fuente más pequeña en móvil
+                  size: window.innerWidth < 600 ? 8 : 12
                 }
               }
             }
@@ -289,6 +287,8 @@
       });
     });
 </script>
+
+    
 
   </div> <!-- cierre container -->
 
