@@ -173,6 +173,11 @@
       </div>
       <div style="height:300px; margin-top:2em;">
         <canvas id="barMontos"></canvas>
+        <div style="margin-top:1em; display:flex; gap:1em;">
+          <span style="color:#a1b27a;">■ SABINO</span>
+          <span style="color:#5c4033;">■ SAKURA</span>
+          <span style="color:#6a4f3d;">■ SEQUOIA</span>
+        </div>
       </div>
     </div>
 
@@ -192,51 +197,100 @@
     </div>
         <!-- Chart.js -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-      // Cargar datos desde archivo JSON externo
-      fetch('pagos_adelantados.json')
-        .then(r => r.json())
-        .then(data => {
-          // indicadores resumen
-          document.getElementById('total').textContent = "$" + data.resumen.total.toLocaleString();
-          document.getElementById('count').textContent = data.resumen.count;
+<script>
+  // Definir colores por calle
+  const coloresCalles = {
+    "SABINO": "#a1b27a",
+    "SAKURA": "#5c4033",
+    "SEQUOIA": "#6a4f3d"
+  };
 
-          // Gráfica 1: Total por sector
-          new Chart(document.getElementById('barSector'), {
-            type:'bar',
-            data:{ labels:data.sectores.labels,
-                   datasets:[{label:'Total por sector', data:data.sectores.values, backgroundColor:'#a1b27a'}] },
-            options:{ responsive:true, maintainAspectRatio:false }
-          });
+  // Cargar datos desde archivo JSON externo
+  fetch('pagos_adelantados.json')
+    .then(r => r.json())
+    .then(data => {
+      // indicadores resumen
+      document.getElementById('total').textContent = "$" + data.resumen.total.toLocaleString();
+      document.getElementById('count').textContent = data.resumen.count;
+      document.getElementById('avg').textContent = "$" + data.resumen.avg.toFixed(2);
 
-          // Gráfica 2: Histograma de montos
-          new Chart(document.getElementById('histMontos'), {
-            type:'bar',
-            data:{ labels:data.rangos.labels,
-                   datasets:[{label:'Vecinos', data:data.rangos.values, backgroundColor:'#5c4033'}] },
-            options:{ responsive:true, maintainAspectRatio:false }
-          });
+      // Gráfica 1: Total por sector
+      new Chart(document.getElementById('barSector'), {
+        type:'bar',
+        data:{ 
+          labels:data.sectores.labels,
+          datasets:[{label:'Total por sector', data:data.sectores.values, backgroundColor:'#a1b27a'}] 
+        },
+        options:{ responsive:true, maintainAspectRatio:false }
+      });
 
-          // Gráfica 3: Montos por domicilio
-          new Chart(document.getElementById('barMontos'), {
-            type:'bar',
-            data:{ labels:data.montos.labels,
-                   datasets:[{label:'Monto por domicilio', data:data.montos.values, backgroundColor:'#6a4f3d'}] },
-            options:{ responsive:true, maintainAspectRatio:false,
-                      scales:{ x:{ ticks:{ autoSkip:false } } } }
-          });
+      // Gráfica 2: Histograma de montos
+      new Chart(document.getElementById('histMontos'), {
+        type:'bar',
+        data:{ 
+          labels:data.rangos.labels,
+          datasets:[{label:'Vecinos', data:data.rangos.values, backgroundColor:'#5c4033'}] 
+        },
+        options:{ responsive:true, maintainAspectRatio:false }
+      });
 
-          // tabla detalle
-          const tbody = document.querySelector('#tablaPagos tbody');
-          data.detalle.forEach(d=>{
-            tbody.innerHTML += `<tr>
-              <td style="padding:6px; border:1px solid var(--color-border);">${d.domicilio}</td>
-              <td style="padding:6px; border:1px solid var(--color-border);">${d.meses}</td>
-              <td style="padding:6px; border:1px solid var(--color-border);">$${d.monto}</td>
-            </tr>`;
-          });
-        });
-    </script>
+      // Gráfica 3: Montos por domicilio con colores por calle
+      const colores = data.montos.labels.map(l => {
+        const calle = l.split(" ")[0];
+        return coloresCalles[calle];
+      });
+
+      new Chart(document.getElementById('barMontos'), {
+        type:'bar',
+        data:{ 
+          labels:data.montos.labels.map(l => l.split(" ")[1]), // solo número
+          datasets:[{
+            label:'Monto por domicilio',
+            data:data.montos.values,
+            backgroundColor:colores
+          }] 
+        },
+        options:{ 
+          responsive:true, 
+          maintainAspectRatio:false,
+          plugins: {
+            tooltip: {
+              callbacks: {
+                label: function(context) {
+                  // Mostrar domicilio completo y monto en tooltip
+                  return data.montos.labels[context.dataIndex] + ": $" + context.formattedValue;
+                }
+              }
+            },
+            legend: { display:false }
+          },
+          scales: {
+            x: {
+              ticks: {
+                autoSkip:false,
+                maxRotation:0,
+                minRotation:0,
+                font: {
+                  size: window.innerWidth < 600 ? 8 : 12 // fuente más pequeña en móvil
+                }
+              }
+            }
+          }
+        }
+      });
+
+      // tabla detalle
+      const tbody = document.querySelector('#tablaPagos tbody');
+      data.detalle.forEach(d=>{
+        tbody.innerHTML += `<tr>
+          <td style="padding:6px; border:1px solid var(--color-border);">${d.domicilio}</td>
+          <td style="padding:6px; border:1px solid var(--color-border);">${d.meses}</td>
+          <td style="padding:6px; border:1px solid var(--color-border);">$${d.monto}</td>
+        </tr>`;
+      });
+    });
+</script>
+
   </div> <!-- cierre container -->
 
   <!-- Footer -->
