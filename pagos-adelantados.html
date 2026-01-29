@@ -121,6 +121,7 @@
     }
   </style>
 </head>
+
 <body>
   <header>
     <div class="header-text">
@@ -133,7 +134,7 @@
   <div class="container">
     <h2>Resumen de Pagos Adelantados</h2>
     <p>En esta sección se muestran las estadísticas de los pagos adelantados realizados por los residentes. 
-       Puedes visualizar la distribución por domicilios, meses cubiertos y montos condonados.</p>
+       Puedes visualizar la distribución por domicilios, meses cubiertos y montos.</p>
 
     <!-- Gráfica 1: Distribución por calle -->
     <div class="chart-container">
@@ -147,10 +148,10 @@
       <canvas id="chartMeses"></canvas>
     </div>
 
-    <!-- Gráfica 3: Montos condonados -->
+    <!-- Gráfica 3: Montos totales -->
     <div class="chart-container">
-      <h3>Montos condonados</h3>
-      <canvas id="chartCondonacion"></canvas>
+      <h3>Montos totales</h3>
+      <canvas id="chartMontos"></canvas>
     </div>
 
     <!-- Gráfica 4: Total por tipo de propiedad -->
@@ -159,7 +160,9 @@
       <canvas id="chartTipo"></canvas>
     </div>
   </div>
+
   <script>
+    // Cargar datos desde JSON (lo construiremos después)
     fetch('pagos_adelantados.json')
       .then(r => r.json())
       .then(data => {
@@ -191,14 +194,14 @@
           options: { responsive: true }
         });
 
-        // Gráfica 3: Montos condonados
-        new Chart(document.getElementById('chartCondonacion'), {
+        // Gráfica 3: Montos totales
+        new Chart(document.getElementById('chartMontos'), {
           type: 'doughnut',
           data: {
-            labels: data.condonacion.labels,
+            labels: data.montos.labels,
             datasets: [{
-              label: 'Montos condonados',
-              data: data.condonacion.values,
+              label: 'Montos totales',
+              data: data.montos.values,
               backgroundColor: ['#a1b27a','#5c4033','#e6e2dc','#6a4f3d']
             }]
           },
