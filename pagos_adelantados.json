@@ -1,0 +1,62 @@
+{
+  "calles": {
+    "labels": [
+      "SABINO",
+      "SAKURA",
+      "SEQUOIA"
+    ],
+    "values": [
+      19,
+      15,
+      23
+    ]
+  },
+  "meses": {
+    "labels": [
+      "Noviembre",
+      "Diciembre",
+      "Enero",
+      "Febrero",
+      "Marzo",
+      "Abril",
+      "Mayo",
+      "Junio",
+      "Julio",
+      "Agosto",
+      "Septiembre"
+    ],
+    "values": [
+      35,
+      28,
+      2,
+      4,
+      2,
+      1,
+      1,
+      0,
+      0,
+      0,
+      1
+    ]
+  },
+    "condonacion": {
+    "labels": [
+      "Sin condonación",
+      "Con condonación"
+    ],
+    "values": [
+      55,
+      2
+    ]
+  },
+  "tipo": {
+    "labels": [
+      "Casa",
+      "Terreno"
+    ],
+    "values": [
+      56,
+      1
+    ]
+  }
+}
