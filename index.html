@@ -59,7 +59,7 @@
       background: var(--color-accent);
       padding: 0.3em 0.8em;
       display: flex;
-      justify-content: flex-end;
+      justify-content: flex-start; /* ✅ icono al lado izquierdo */
     }
     .hamburger {
       display: none;
@@ -103,10 +103,10 @@
     /* Menú lateral izquierdo */
     .mobile-menu {
       position: fixed;
-      top: 100px; /* ✅ debajo del header + row */
+      top: 140px; /* ✅ debajo del header + row */
       left: -100%; /* ✅ oculto a la izquierda */
       width: 220px;
-      height: calc(100% - 100px);
+      height: calc(100% - 140px);
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
@@ -124,7 +124,7 @@
     .mobile-menu ul li {
       width: 100%;
       border-bottom: 1px solid var(--color-contrast);
-      text-align: right; /* ✅ alineados de derecha a izquierda */
+      text-align: left; /* ✅ alineados a la izquierda */
     }
     .mobile-menu ul li a {
       display: block;
@@ -280,7 +280,6 @@
     const toggle = document.getElementById('menuToggle');
     if(menu.classList.contains('active') && !menu.contains(e.target) && !e.target.closest('#menuToggle')){
       menu.classList.remove('active');
-      // Volver a hamburguesa
       toggle.innerHTML = "<span></span><span></span><span></span>";
     }
   });
