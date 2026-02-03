@@ -1,181 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="img/favicon.png" type="image/png">
-    <meta property="og:title" content="Guía informativa sobre la transición operativa">
-    <meta property="og:description"
-        content="Elementos clave para comprender esta etapa y su impacto futuro en el condominio Reserva Bosque Sereno.">
-    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="600">
-    <meta property="og:image:height" content="400">
-    <meta property="og:url" content="https://fab9015.github.io/RBS/informe-mesa-trabajo.html">
-    <meta property="og:type" content="website">
-    <meta property="og:locale" content="es_MX">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
-        rel="stylesheet">
-    <title>Accesos rápidos – Mesa de trabajo</title>
-    <style>
-        :root {
-            --color-bg: #fdfaf5;
-            --color-title: #5c4033;
-            --color-footer: #5c4033;
-            --color-accent: #a1b27a;
-            --color-highlight: #a1b27a;
-            --color-white: #fefefe;
-            --color-text: #5c4033;
-            --color-border: #e6e2dc;
-        }
+  <meta charset="UTF-8">
+  <title>Inicio – Condominio RBS</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <style>
+    :root {
+      --color-bg: #fdfaf5;
+      --color-title: #5c4033;
+      --color-accent: #a1b27a;
+      --color-white: #fefefe;
+      --color-border: #e6e2dc;
+    }
 
-        body {
-            font-family: 'Lato', sans-serif;
-            background: var(--color-bg);
-            margin: 0;
-            padding: 0;
-            color: var(--color-text);
-        }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--color-bg);
+      color: var(--color-title);
+      margin: 0;
+      padding: 0;
+    }
 
-        h1,
-        h2,
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color-title);
-        }
+    header {
+      background: var(--color-accent);
+      color: var(--color-white);
+      padding: 1.2em;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
 
-        header {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 2em 1em;
-            background: var(--color-bg);
-            color: var(--color-title);
-            border-bottom: 1px solid var(--color-border);
-        }
+    header h1 {
+      margin: 0;
+      font-size: 1.5em;
+    }
 
-        .header-text {
-            flex-grow: 1;
-            padding-right: 180px;
-            color: var(--color-title);
-        }
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1em;
+    }
 
-        .header-text h1 {
-            margin: 0;
-            font-size: clamp(1.4em, 4vw, 2em);
-            text-transform: uppercase;
-        }
+    nav ul li a {
+      color: var(--color-white);
+      text-decoration: none;
+      font-weight: bold;
+    }
 
-        .header-text p {
-            margin-top: 0.5em;
-            font-size: clamp(0.9em, 2.5vw, 1em);
-            font-style: italic;
-        }
+    /* Hamburguesa */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+    .hamburger span {
+      height: 3px;
+      width: 25px;
+      background: var(--color-white);
+      margin: 4px 0;
+      border-radius: 2px;
+    }
 
-        .logo {
-            position: absolute;
-            top: 2em;
-            right: 1em;
-            max-width: 160px;
-            height: auto;
-            object-fit: contain;
-        }
+    /* Menú lateral móvil */
+    .mobile-menu {
+      position: fixed;
+      top: 0; right: -250px;
+      width: 250px;
+      height: 100%;
+      background: var(--color-accent);
+      color: var(--color-white);
+      transition: right 0.3s ease;
+      padding: 2em 1em;
+    }
+    .mobile-menu.active { right: 0; }
+    .mobile-menu ul { flex-direction: column; gap: 1em; }
 
-        main {
-            padding: 2em 1em;
-        }
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 2em;
+    }
 
-        .card-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2em;
-            margin: 2em auto;
-            max-width: 1080px;
-            padding: 0 1em;
-        }
+    .blog-entry {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1em;
+      margin-bottom: 1.5em;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    }
 
-        .card {
-            background: var(--color-white);
-            border: 2px solid var(--color-accent);
-            border-radius: 10px;
-            padding: 1.2em;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-            transition: box-shadow 0.2s ease, transform 0.2s ease;
-            text-decoration: none;
-            color: var(--color-text);
-        }
+    .blog-entry h3 {
+      margin-top: 0;
+      color: var(--color-accent);
+    }
 
-        .card:hover {
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
-        }
+    footer {
+      background: var(--color-accent);
+      color: var(--color-white);
+      text-align: center;
+      padding: 1.5em;
+      margin-top: 2em;
+    }
 
-        .card h3 {
-            margin-top: 0;
-            font-size: 1.15em;
-            color: var(--color-title);
-        }
+    .footer-links {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+    }
+    .footer-links a {
+      color: var(--color-white);
+      text-decoration: none;
+    }
 
-        .card p {
-            font-size: 0.95em;
-            margin-bottom: 0;
-        }
-
-        @media (max-width: 900px) {
-            .card-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 600px) {
-            .card-grid {
-                grid-template-columns: 1fr;
-                gap: 1.5em;
-            }
-        }
-    </style>
+    @media(max-width:768px){
+      nav ul { display:none; }
+      .hamburger { display:flex; }
+    }
+  </style>
 </head>
-
 <body>
-    <header>
-        <div class="header-text">
-            <h1>Accesos rápidos</h1>
-            <p>Mesa de trabajo y recursos compartidos</p>
-        </div>
-        <img src="img/logo.png" alt="Logo institucional" class="logo" />
-    </header>
+  <header>
+    <h1>Condominio RBS</h1>
+    <nav>
+      <ul id="menu">
+        <!-- Menú cargado desde JSON -->
+      </ul>
+    </nav>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </header>
 
-    <main>
-        <div class="card-grid">
-            <a href="resolucion-asamblea.html" class="card" target="_self">
-                <h3>Resoluciones de la Asamblea</h3>
-                <p>¿Qué se acordó en la asamblea?</p>
-            </a>
-            <a href="reglas-del-juego.html" class="card" target="_self">
-                <h3>Reglas del juego</h3>
-                <p>No corro, no empujo, no grito.</p>
-            </a>
-            <a href="informe-mesa-trabajo.html" class="card" target="_self">
-                <h3>Mesa de trabajo</h3>
-                <p>Guía informativa sobre la transición operativa.</p>
-            </a>
-            <a href="encuesta-aceptacion.html" class="card" target="_self">
-                <h3>Encuesta de aceptación</h3>
-                <p>¿Qué opina el condominio?</p>
-            </a>
-            <a href="que-cubre-mi-cuota.html" class="card" target="_self">
-                <h3>¿Qué cubre mi cuota?</h3>
-                <p>Prorrateo de la proyección de la cuota.</p>
-            </a>
-            <a href="condovive.html" class="card" target="_self">
-                <h3>Condovive</h3>
-                <p>La próxima aplicación del condominio.</p>
-            </a>
-        </div>
-    </main>
+  <!-- Menú lateral móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul id="mobileMenuList"></ul>
+  </div>
+
+  <div class="container">
+    <h2>Próximos Eventos</h2>
+    <div id="blog"></div>
+  </div>
+
+  <footer>
+    <p>Comité de Administración · Condominio Reserva Bosque Sereno</p>
+    <div class="footer-links" id="footerLinks"></div>
+  </footer>
+
+  <script>
+    function toggleMenu(){
+      document.getElementById('mobileMenu').classList.toggle('active');
+    }
+
+    // Cargar datos desde home.json
+    fetch('home.json')
+      .then(r=>r.json())
+      .then(data=>{
+        // Menú
+        const menu = document.getElementById('menu');
+        const mobileMenuList = document.getElementById('mobileMenuList');
+        const footerLinks = document.getElementById('footerLinks');
+        data.menu.forEach(item=>{
+          menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
+          mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
+          footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
+        });
+
+        // Blog
+        const blog = document.getElementById('blog');
+        data.blog.forEach(entry=>{
+          blog.innerHTML += `
+            <div class="blog-entry">
+              <h3>${entry.title}</h3>
+              <p>${entry.description}</p>
+              <p><strong>Fecha:</strong> ${entry.date}</p>
+              <p><strong>Hora:</strong> ${entry.time}</p>
+              <p><strong>Lugar:</strong> ${entry.place}</p>
+            </div>
+          `;
+        });
+      });
+  </script>
 </body>
-
 </html>
