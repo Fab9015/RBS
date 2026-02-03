@@ -1,16 +1,16 @@
 {
   "menu": [
-    { "title": "Directorio", "url": "directorio.html" },
-    { "title": "Preguntas Frecuentes", "url": "faq.html" },
-    { "title": "Pagos Adelantados", "url": "pagos.html" },
-    { "title": "Dashboard del Directorio", "url": "dashboard.html" },
-    { "title": "Menú X", "url": "menux.html" }
+    { "title": "Directorio", "url": "test.html" },
+    { "title": "Preguntas Frecuentes", "url": "test.html" },
+    { "title": "Pagos Adelantados", "url": "test.html" },
+    { "title": "Dashboard del Directorio", "url": "test.html" },
+    { "title": "Menú N", "url": "menuN.html" }
   ],
   "blog": [
     {
       "title": "Presentación de nuevas herramientas digitales",
       "description": "Se dará a conocer la página web y las herramientas desarrolladas para mejorar la transparencia y la gestión del condominio.",
-      "date": "11 de febrero de 2026",
+      "date": "30 de febrero de 2030",
       "time": "20:00 horas",
       "place": "Salón de eventos del condominio"
     },
