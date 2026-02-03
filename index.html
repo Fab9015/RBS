@@ -13,6 +13,7 @@
       --color-accent: #a1b27a;
       --color-white: #fefefe;
       --color-border: #e6e2dc;
+      --color-contrast: #6a4f3d; /* franja contrastante menú lateral */
     }
 
     body {
@@ -32,7 +33,9 @@
       border-bottom: 2px solid var(--color-border);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       padding: 1.5em 1em;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
     header h1 {
       margin: 0;
@@ -40,13 +43,13 @@
       color: var(--color-title);
     }
     header p {
-      margin: 0.5em 0;
+      margin: 0.5em 0 0;
       color: #6a4f3d;
     }
     header img {
       width: 120px;
       height: auto;
-      margin-top: 0.5em;
+      margin-left: 1em;
     }
 
     /* Menú horizontal */
@@ -64,18 +67,18 @@
       color: var(--color-white);
       text-decoration: none;
       font-weight: bold;
-      transition: color 0.3s;
+      padding: 0.4em 0.8em;
+      border-radius: 4px;
+      transition: background 0.3s;
     }
     nav ul li a:hover {
-      color: #333;
+      background: var(--color-contrast);
     }
 
     /* Hamburguesa */
     .hamburger {
       display: none;
-      position: absolute;
-      top: 1.2em;
-      right: 1em;
+      flex-direction: column;
       cursor: pointer;
     }
     .hamburger span {
@@ -98,27 +101,34 @@
       transition: right 0.3s ease;
       padding: 2em 1em;
       z-index: 1000;
+      box-shadow: -4px 0 12px rgba(0,0,0,0.2);
     }
     .mobile-menu.active { right: 0; }
     .mobile-menu ul {
       list-style: none;
       padding: 0;
-      margin: 0;
+      margin: 2em 0 0;
       display: flex;
       flex-direction: column;
       gap: 1em;
     }
     .mobile-menu ul li a {
-      color: var(--color-white);
+      display: block;
+      background: var(--color-contrast);
+      padding: 0.8em;
+      border-radius: 6px;
       text-decoration: none;
+      color: var(--color-white);
       font-weight: bold;
+      text-align: center;
     }
     .close-btn {
       position: absolute;
       top: 1em;
-      right: 1em;
+      left: 1em; /* ✅ ahora en la izquierda */
       font-size: 1.5em;
       cursor: pointer;
+      color: var(--color-white);
     }
 
     /* Contenido */
@@ -147,6 +157,7 @@
       justify-content: center;
       gap: 0.5em;
       margin-top: 1em;
+      flex-wrap: wrap;
     }
     .pagination button {
       background: var(--color-accent);
@@ -181,15 +192,17 @@
     }
     @media(max-width:768px){
       nav ul { display:none; }
-      .hamburger { display:block; }
+      .hamburger { display:flex; }
       .footer-links { display:none; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Reserva Bosque Sereno</h1>
-    <p>Bienvenido al portal oficial del condominio</p>
+    <div>
+      <h1>Reserva Bosque Sereno</h1>
+      <p>Bienvenido al portal oficial del condominio</p>
+    </div>
     <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
@@ -217,6 +230,7 @@
     <p>Reserva Bosque Sereno · © 2026</p>
     <div class="footer-links" id="footerLinks"></div>
   </footer>
+
   <script>
   function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('active');
@@ -259,29 +273,34 @@
     const pagination = document.getElementById('pagination');
     pagination.innerHTML = "";
     const totalPages = Math.ceil(blogData.length/perPage);
+    if(totalPages <= 1) return;
 
+    // Botón anterior
     const prevBtn = document.createElement('button');
-    prevBtn.textContent = "Anterior";
+    prevBtn.textContent = "«";
     prevBtn.disabled = currentPage===1;
     if(prevBtn.disabled) prevBtn.classList.add("disabled");
-    prevBtn.onclick = ()=>{ 
-      if(currentPage>1){ 
-        currentPage--; 
-        renderBlog(); 
-      } 
-    };
+    prevBtn.onclick = ()=>{ if(currentPage>1){ currentPage--; renderBlog(); } };
     pagination.appendChild(prevBtn);
 
+    // Números de página
+    for(let i=1;i<=totalPages;i++){
+      const pageBtn = document.createElement('button');
+      pageBtn.textContent = i;
+      if(i===currentPage){
+        pageBtn.style.background = "var(--color-title)";
+        pageBtn.style.color = "white";
+      }
+      pageBtn.onclick = ()=>{ currentPage=i; renderBlog(); };
+      pagination.appendChild(pageBtn);
+    }
+
+    // Botón siguiente
     const nextBtn = document.createElement('button');
-    nextBtn.textContent = "Siguiente";
+    nextBtn.textContent = "»";
     nextBtn.disabled = currentPage===totalPages;
     if(nextBtn.disabled) nextBtn.classList.add("disabled");
-    nextBtn.onclick = ()=>{ 
-      if(currentPage<totalPages){ 
-        currentPage++; 
-        renderBlog(); 
-      } 
-    };
+    nextBtn.onclick = ()=>{ if(currentPage<totalPages){ currentPage++; renderBlog(); } };
     pagination.appendChild(nextBtn);
   }
 
