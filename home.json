@@ -13,7 +13,7 @@
       "date": "11 de febrero de 2026",
       "time": "20:00 horas",
       "place": "Salón de eventos del condominio",
-      "activo": false
+      "activo": true
     },
     {
       "title": "Reunión de seguridad vecinal",
