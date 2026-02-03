@@ -2,9 +2,10 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Inicio – Condominio RBS</title>
+  <title>Inicio – Reserva Bosque Sereno</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
+
   <style>
     :root {
       --color-bg: #fdfaf5;
@@ -20,71 +21,113 @@
       color: var(--color-title);
       margin: 0;
       padding: 0;
-    }
-
-    header {
-      background: var(--color-accent);
-      color: var(--color-white);
-      padding: 1.2em;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      flex-direction: column;
+      min-height: 100vh;
     }
 
+    /* Header institucional */
+    header {
+      background: var(--color-bg);
+      border-bottom: 2px solid var(--color-border);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      padding: 1.5em 1em;
+      text-align: center;
+    }
     header h1 {
       margin: 0;
-      font-size: 1.5em;
+      font-size: 1.8em;
+      color: var(--color-title);
+    }
+    header p {
+      margin: 0.5em 0;
+      color: #6a4f3d;
+    }
+    header img {
+      width: 120px;
+      height: auto;
+      margin-top: 0.5em;
     }
 
+    /* Menú horizontal */
+    nav {
+      background: var(--color-accent);
+    }
     nav ul {
       list-style: none;
       margin: 0;
-      padding: 0;
+      padding: 0.5em 1em;
       display: flex;
       gap: 1em;
     }
-
     nav ul li a {
       color: var(--color-white);
       text-decoration: none;
       font-weight: bold;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover {
+      color: #333;
     }
 
     /* Hamburguesa */
     .hamburger {
       display: none;
-      flex-direction: column;
+      position: absolute;
+      top: 1.2em;
+      right: 1em;
       cursor: pointer;
     }
     .hamburger span {
+      display: block;
       height: 3px;
       width: 25px;
-      background: var(--color-white);
-      margin: 4px 0;
+      background: var(--color-title);
+      margin: 5px 0;
       border-radius: 2px;
     }
 
     /* Menú lateral móvil */
     .mobile-menu {
       position: fixed;
-      top: 0; right: -250px;
-      width: 250px;
+      top: 0; right: -260px;
+      width: 260px;
       height: 100%;
       background: var(--color-accent);
       color: var(--color-white);
       transition: right 0.3s ease;
       padding: 2em 1em;
+      z-index: 1000;
     }
     .mobile-menu.active { right: 0; }
-    .mobile-menu ul { flex-direction: column; gap: 1em; }
-
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2em;
+    .mobile-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+    }
+    .mobile-menu ul li a {
+      color: var(--color-white);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .close-btn {
+      position: absolute;
+      top: 1em;
+      right: 1em;
+      font-size: 1.5em;
+      cursor: pointer;
     }
 
+    /* Contenido */
+    .container {
+      flex: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 2em 1em;
+    }
     .blog-entry {
       background: var(--color-white);
       border: 1px solid var(--color-border);
@@ -93,20 +136,39 @@
       margin-bottom: 1.5em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
-
     .blog-entry h3 {
       margin-top: 0;
       color: var(--color-accent);
     }
 
+    /* Paginador */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-top: 1em;
+    }
+    .pagination button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 0.5em 1em;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .pagination button.disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    /* Footer */
     footer {
       background: var(--color-accent);
       color: var(--color-white);
       text-align: center;
-      padding: 1.5em;
-      margin-top: 2em;
+      padding: 1.2em 0;
+      margin-top: auto;
     }
-
     .footer-links {
       margin-top: 1em;
       display: flex;
@@ -117,74 +179,130 @@
       color: var(--color-white);
       text-decoration: none;
     }
-
     @media(max-width:768px){
       nav ul { display:none; }
-      .hamburger { display:flex; }
+      .hamburger { display:block; }
+      .footer-links { display:none; }
     }
   </style>
 </head>
 <body>
   <header>
-    <h1>Condominio RBS</h1>
-    <nav>
-      <ul id="menu">
-        <!-- Menú cargado desde JSON -->
-      </ul>
-    </nav>
+    <h1>Reserva Bosque Sereno</h1>
+    <p>Bienvenido al portal oficial del condominio</p>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
   </header>
 
+  <!-- Menú horizontal -->
+  <nav>
+    <ul id="menu"></ul>
+  </nav>
+
   <!-- Menú lateral móvil -->
   <div class="mobile-menu" id="mobileMenu">
+    <span class="close-btn" onclick="toggleMenu()">×</span>
     <ul id="mobileMenuList"></ul>
   </div>
 
   <div class="container">
     <h2>Próximos Eventos</h2>
     <div id="blog"></div>
+    <div class="pagination" id="pagination"></div>
   </div>
 
   <footer>
-    <p>Comité de Administración · Condominio Reserva Bosque Sereno</p>
+    <p>Reserva Bosque Sereno · © 2026</p>
     <div class="footer-links" id="footerLinks"></div>
   </footer>
-
   <script>
-    function toggleMenu(){
-      document.getElementById('mobileMenu').classList.toggle('active');
+  function toggleMenu(){
+    document.getElementById('mobileMenu').classList.toggle('active');
+  }
+
+  // cerrar menú si se hace clic fuera
+  window.addEventListener('click', function(e){
+    const menu = document.getElementById('mobileMenu');
+    if(menu.classList.contains('active') && !menu.contains(e.target) && !e.target.closest('.hamburger')){
+      menu.classList.remove('active');
     }
+  });
 
-    // Cargar datos desde home.json
-    fetch('home.json')
-      .then(r=>r.json())
-      .then(data=>{
-        // Menú
-        const menu = document.getElementById('menu');
-        const mobileMenuList = document.getElementById('mobileMenuList');
-        const footerLinks = document.getElementById('footerLinks');
-        data.menu.forEach(item=>{
-          menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-          mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-          footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
-        });
+  // Paginación
+  let currentPage = 1;
+  const perPage = 3;
+  let blogData = [];
 
-        // Blog
-        const blog = document.getElementById('blog');
-        data.blog.forEach(entry=>{
-          blog.innerHTML += `
-            <div class="blog-entry">
-              <h3>${entry.title}</h3>
-              <p>${entry.description}</p>
-              <p><strong>Fecha:</strong> ${entry.date}</p>
-              <p><strong>Hora:</strong> ${entry.time}</p>
-              <p><strong>Lugar:</strong> ${entry.place}</p>
-            </div>
-          `;
-        });
+  function renderBlog(){
+    const blog = document.getElementById('blog');
+    blog.innerHTML = "";
+    const start = (currentPage-1)*perPage;
+    const end = start+perPage;
+    const pageEntries = blogData.slice(start,end);
+    pageEntries.forEach(entry=>{
+      blog.innerHTML += `
+        <div class="blog-entry">
+          <h3>${entry.title}</h3>
+          <p>${entry.description}</p>
+          <p><strong>Fecha:</strong> ${entry.date}</p>
+          <p><strong>Hora:</strong> ${entry.time}</p>
+          <p><strong>Lugar:</strong> ${entry.place}</p>
+        </div>
+      `;
+    });
+    renderPagination();
+  }
+
+  function renderPagination(){
+    const pagination = document.getElementById('pagination');
+    pagination.innerHTML = "";
+    const totalPages = Math.ceil(blogData.length/perPage);
+
+    const prevBtn = document.createElement('button');
+    prevBtn.textContent = "Anterior";
+    prevBtn.disabled = currentPage===1;
+    if(prevBtn.disabled) prevBtn.classList.add("disabled");
+    prevBtn.onclick = ()=>{ 
+      if(currentPage>1){ 
+        currentPage--; 
+        renderBlog(); 
+      } 
+    };
+    pagination.appendChild(prevBtn);
+
+    const nextBtn = document.createElement('button');
+    nextBtn.textContent = "Siguiente";
+    nextBtn.disabled = currentPage===totalPages;
+    if(nextBtn.disabled) nextBtn.classList.add("disabled");
+    nextBtn.onclick = ()=>{ 
+      if(currentPage<totalPages){ 
+        currentPage++; 
+        renderBlog(); 
+      } 
+    };
+    pagination.appendChild(nextBtn);
+  }
+
+  // Cargar datos desde home.json
+  fetch('home.json')
+    .then(r=>r.json())
+    .then(data=>{
+      // Menú
+      const menu = document.getElementById('menu');
+      const mobileMenuList = document.getElementById('mobileMenuList');
+      const footerLinks = document.getElementById('footerLinks');
+      data.menu.forEach(item=>{
+        menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
+        mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
+        footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
       });
-  </script>
+
+      // Blog
+      blogData = data.blog;
+      renderBlog();
+    });
+</script>
 </body>
 </html>
