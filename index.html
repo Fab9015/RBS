@@ -14,6 +14,7 @@
       --color-white: #fefefe;
       --color-border: #e6e2dc;
       --color-contrast: #6a4f3d;
+      --color-inactive: #999999; /* color para eventos pasados */
     }
 
     body {
@@ -32,22 +33,23 @@
       background: var(--color-bg);
       border-bottom: 2px solid var(--color-border);
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      padding: 1.5em 1em;
+      padding: 1.2em 1em;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
     header h1 {
       margin: 0;
-      font-size: 1.8em;
+      font-size: 1.6em;
       color: var(--color-title);
     }
     header p {
-      margin: 0.5em 0 0;
+      margin: 0.4em 0 0;
       color: #6a4f3d;
+      font-size: 0.95em;
     }
     header img {
-      width: 120px;
+      width: 100px;
       height: auto;
       margin-left: 1em;
     }
@@ -55,7 +57,9 @@
     /* Row con hamburguesa */
     .menu-row {
       background: var(--color-accent);
-      padding: 0.5em 1em;
+      padding: 0.3em 0.8em;
+      display: flex;
+      justify-content: flex-end; /* ✅ icono al lado derecho */
     }
     .hamburger {
       display: none;
@@ -65,9 +69,9 @@
     .hamburger span {
       display: block;
       height: 3px;
-      width: 25px;
+      width: 22px;
       background: var(--color-white);
-      margin: 5px 0;
+      margin: 4px 0;
       border-radius: 2px;
     }
 
@@ -98,7 +102,7 @@
     .mobile-menu {
       position: fixed;
       top: 0; right: -100%;
-      width: 260px;
+      width: 220px; /* ✅ más pequeño */
       height: 100%;
       background: var(--color-accent);
       color: var(--color-white);
@@ -120,7 +124,7 @@
     .mobile-menu ul li a {
       display: block;
       width: 100%;
-      padding: 1em;
+      padding: 0.9em;
       text-decoration: none;
       color: var(--color-white);
       text-align: center;
@@ -149,10 +153,29 @@
       padding: 1em;
       margin-bottom: 1.5em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+      position: relative;
     }
     .blog-entry h3 {
       margin-top: 0;
       color: var(--color-accent);
+    }
+
+    /* Tag de estado */
+    .status-tag {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 0.4em 0.8em;
+      font-size: 0.85em;
+      font-weight: bold;
+      border-top-left-radius: 8px;
+      color: var(--color-white);
+    }
+    .status-active {
+      background: var(--color-accent);
+    }
+    .status-inactive {
+      background: var(--color-inactive);
     }
 
     /* Paginador */
@@ -239,7 +262,7 @@
     <div class="footer-links" id="footerLinks"></div>
   </footer>
 
-  <script>
+ <script>
   function toggleMenu(){
     document.getElementById('mobileMenu').classList.toggle('active');
   }
@@ -265,6 +288,8 @@
     const end = start+perPage;
     const pageEntries = blogData.slice(start,end);
     pageEntries.forEach(entry=>{
+      const statusClass = entry.activo ? "status-active" : "status-inactive";
+      const statusText = entry.activo ? "Próximo evento" : "Evento realizado";
       blog.innerHTML += `
         <div class="blog-entry">
           <h3>${entry.title}</h3>
@@ -272,6 +297,7 @@
           <p><strong>Fecha:</strong> ${entry.date}</p>
           <p><strong>Hora:</strong> ${entry.time}</p>
           <p><strong>Lugar:</strong> ${entry.place}</p>
+          <div class="status-tag ${statusClass}">${statusText}</div>
         </div>
       `;
     });
@@ -333,4 +359,5 @@
       renderBlog();
     });
 </script>
+</body>
 </html>
