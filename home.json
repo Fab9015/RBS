@@ -27,14 +27,6 @@
     ],
     "blog": [
         {
-            "title": "Revisión mensual",
-            "description": "Cosas a revisar<ul class='custom-list'><li>Cosa 1</li><li>Cosa 2</li><li>Cosa 3</li></ul><p>Más texto aquí abajo</p>",
-            "date": "2026-02-10",
-            "time": "18:00",
-            "place": "Sala de juntas",
-            "activo": true
-        },
-        {
             "title": "Presentación de nuevas herramientas digitales",
             "description": "<p>Se dará a conocer la página web y las herramientas desarrolladas para mejorar la transparencia y la gestión del condominio.</p> Presentaremos:<ul class='custom-list'><li>Cosa 1</li><li>Cosa 2</li><li>Cosa 3</li></ul><p>Más texto aquí abajo</p>",
             "date": "11 de febrero de 2026",
