@@ -15,7 +15,6 @@
       --color-border: #e6e2dc;
       --color-contrast: #6a4f3d;
       --color-inactive: #999999;
-      --menu-offset: 0px; /* se ajusta dinámicamente con JS */
     }
 
     body {
@@ -29,13 +28,11 @@
       min-height: 100vh;
     }
 
-    /* Overlay fijo que cubre toda la pantalla */
+    /* Overlay fijo debajo del row */
     .overlay {
       position: fixed;
-      top: 0;
       left: 0;
       width: 100%;
-      height: 100%;
       background: rgba(0,0,0,0.3);
       display: none;
       z-index: 900;
@@ -124,17 +121,14 @@
     /* Menú lateral fijo con scroll interno */
     .mobile-menu {
       position: fixed;
-      top: 0;
       left: -100%;
       width: 220px;
-      height: 100%;
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
       z-index: 1000;
       box-shadow: 4px 0 12px rgba(0,0,0,0.2);
       overflow-y: auto; /* ✅ scroll interno automático */
-      padding-top: var(--menu-offset); /* ✅ espacio debajo del header+row */
     }
     .mobile-menu.active { left: 0; }
 
@@ -228,22 +222,28 @@
     <div class="footer-links" id="footerLinks"></div>
   </footer>
 
-  <script>
-  // Ajustar el offset dinámico del menú
-  function adjustMenuOffset(){
+ <script>
+  // Ajustar posición del menú y overlay según la altura del header+row
+  function adjustMenuPosition(){
     const header = document.querySelector('header');
     const row = document.querySelector('.menu-row');
     const offset = header.offsetHeight + row.offsetHeight;
 
-    // Guardamos el valor en una variable CSS
-    document.documentElement.style.setProperty('--menu-offset', offset + "px");
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    // Posicionar menú y overlay justo debajo del row
+    menu.style.top = offset + "px";
+    menu.style.height = `calc(100% - ${offset}px)`;
+    overlay.style.top = offset + "px";
+    overlay.style.height = `calc(100% - ${offset}px)`;
   }
 
-  window.addEventListener('resize', adjustMenuOffset);
-  window.addEventListener('load', adjustMenuOffset);
+  window.addEventListener('resize', adjustMenuPosition);
+  window.addEventListener('load', adjustMenuPosition);
 
   function toggleMenu(){
-    adjustMenuOffset(); // recalcular antes de abrir
+    adjustMenuPosition(); // recalcular antes de abrir
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('menuOverlay');
@@ -253,11 +253,7 @@
     toggle.classList.toggle('close');
 
     // Bloquear scroll del fondo cuando el menú está abierto
-    if(menu.classList.contains('active')){
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
+    document.body.style.overflow = menu.classList.contains('active') ? "hidden" : "";
   }
 
   function closeMenu(){
