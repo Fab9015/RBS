@@ -15,7 +15,7 @@
       --color-border: #e6e2dc;
       --color-contrast: #6a4f3d;
       --color-inactive: #999999;
-      --menu-offset: 0px; /* se ajusta dinámicamente */
+      --menu-offset: 0px; /* se ajusta dinámicamente con JS */
     }
 
     body {
@@ -29,20 +29,20 @@
       min-height: 100vh;
     }
 
-    /* Overlay fijo debajo del row */
+    /* Overlay fijo que cubre toda la pantalla */
     .overlay {
       position: fixed;
-      top: var(--menu-offset);
+      top: 0;
       left: 0;
       width: 100%;
-      height: calc(100% - var(--menu-offset));
+      height: 100%;
       background: rgba(0,0,0,0.3);
       display: none;
       z-index: 900;
     }
     .overlay.active { display: block; }
 
-    /* Header */
+    /* Header institucional */
     header {
       background: var(--color-bg);
       border-bottom: 2px solid var(--color-border);
@@ -51,6 +51,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6em;
+      color: var(--color-title);
+    }
+    header p {
+      margin: 0.4em 0 0;
+      color: #6a4f3d;
+      font-size: 0.95em;
+    }
+    header img {
+      width: 100px;
+      height: auto;
+      margin-left: 1em;
     }
 
     /* Row con hamburguesa */
@@ -106,19 +121,20 @@
     }
     nav ul li a:hover { background: var(--color-contrast); }
 
-    /* Menú lateral fijo debajo del row con scroll interno */
+    /* Menú lateral fijo con scroll interno */
     .mobile-menu {
       position: fixed;
-      top: var(--menu-offset);
+      top: 0;
       left: -100%;
       width: 220px;
-      height: calc(100% - var(--menu-offset));
+      height: 100%;
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
       z-index: 1000;
       box-shadow: 4px 0 12px rgba(0,0,0,0.2);
       overflow-y: auto; /* ✅ scroll interno automático */
+      padding-top: var(--menu-offset); /* ✅ espacio debajo del header+row */
     }
     .mobile-menu.active { left: 0; }
 
@@ -211,9 +227,10 @@
     <p>Reserva Bosque Sereno · © 2026</p>
     <div class="footer-links" id="footerLinks"></div>
   </footer>
+
   <script>
-  // Ajustar posición dinámica del menú y overlay
-  function adjustMenuPosition(){
+  // Ajustar el offset dinámico del menú
+  function adjustMenuOffset(){
     const header = document.querySelector('header');
     const row = document.querySelector('.menu-row');
     const offset = header.offsetHeight + row.offsetHeight;
@@ -222,11 +239,11 @@
     document.documentElement.style.setProperty('--menu-offset', offset + "px");
   }
 
-  window.addEventListener('resize', adjustMenuPosition);
-  window.addEventListener('load', adjustMenuPosition);
+  window.addEventListener('resize', adjustMenuOffset);
+  window.addEventListener('load', adjustMenuOffset);
 
   function toggleMenu(){
-    adjustMenuPosition(); // recalcular antes de abrir
+    adjustMenuOffset(); // recalcular antes de abrir
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('menuOverlay');
