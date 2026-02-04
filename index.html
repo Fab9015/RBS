@@ -28,13 +28,18 @@
       min-height: 100vh;
     }
 
-    /* Overlay dinámico */
+    /* Contenedor relativo para header + row + nav + menú */
+    .header-wrapper {
+      position: relative;
+    }
+
+    /* Overlay */
     .overlay {
       position: fixed;
-      top: 0; /* se ajusta dinámicamente */
+      top: 0;
       left: 0;
       width: 100%;
-      height: 100%; /* se ajusta dinámicamente */
+      height: 100%;
       background: rgba(0,0,0,0.3);
       display: none;
       z-index: 900;
@@ -50,21 +55,6 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 1.6em;
-      color: var(--color-title);
-    }
-    header p {
-      margin: 0.4em 0 0;
-      color: #6a4f3d;
-      font-size: 0.95em;
-    }
-    header img {
-      width: 100px;
-      height: auto;
-      margin-left: 1em;
     }
 
     /* Row con hamburguesa */
@@ -92,9 +82,7 @@
       margin: 3px 0;
       border-radius: 2px;
     }
-    .hamburger.close span {
-      display: none;
-    }
+    .hamburger.close span { display: none; }
     .hamburger.close::before {
       content: "×";
       color: var(--color-white);
@@ -120,17 +108,14 @@
       border-radius: 4px;
       transition: background 0.3s;
     }
-    nav ul li a:hover {
-      background: var(--color-contrast);
-    }
+    nav ul li a:hover { background: var(--color-contrast); }
 
-    /* Menú lateral fijo debajo del row */
+    /* Menú lateral absoluto debajo del row */
     .mobile-menu {
-      position: fixed;
-      top: 0; /* se ajusta dinámicamente */
+      position: absolute;
+      top: 100%; /* ✅ justo debajo del row */
       left: -100%;
       width: 220px;
-      height: 100%; /* se ajusta dinámicamente */
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
@@ -145,13 +130,11 @@
       margin: 0.5em;
     }
     .mobile-menu ul li {
-      width: 100%;
       border-bottom: 1px solid var(--color-contrast);
       text-align: left;
     }
     .mobile-menu ul li a {
       display: block;
-      width: 100%;
       padding: 0.9em;
       text-decoration: none;
       color: var(--color-white);
@@ -164,58 +147,6 @@
       max-width: 900px;
       margin: auto;
       padding: 2em 1em;
-    }
-    .blog-entry {
-      background: var(--color-white);
-      border: 1px solid var(--color-border);
-      border-radius: 8px;
-      padding: 1em;
-      margin-bottom: 1.5em;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      position: relative;
-    }
-    .blog-entry h3 {
-      margin-top: 0;
-      color: var(--color-accent);
-    }
-
-    /* Tag de estado */
-    .status-tag {
-      position: absolute;
-      bottom: 0;
-      right: 0;
-      padding: 0.4em 0.8em;
-      font-size: 0.85em;
-      font-weight: bold;
-      border-top-left-radius: 8px;
-      color: var(--color-white);
-    }
-    .status-active {
-      background: var(--color-accent);
-    }
-    .status-inactive {
-      background: var(--color-inactive);
-    }
-
-    /* Paginador */
-    .pagination {
-      display: flex;
-      justify-content: center;
-      gap: 0.5em;
-      margin-top: 1em;
-      flex-wrap: wrap;
-    }
-    .pagination button {
-      background: var(--color-accent);
-      color: var(--color-white);
-      border: none;
-      padding: 0.5em 1em;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    .pagination button.disabled {
-      background: #ccc;
-      cursor: not-allowed;
     }
 
     /* Footer */
@@ -236,6 +167,7 @@
       color: var(--color-white);
       text-decoration: none;
     }
+
     @media(max-width:768px){
       nav ul { display:none; }
       .hamburger { display:flex; }
@@ -244,32 +176,34 @@
   </style>
 </head>
 <body>
-  <!-- Overlay dinámico -->
+  <!-- Overlay -->
   <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
-  <header>
-    <div>
-      <h1>Reserva Bosque Sereno</h1>
-      <p>Bienvenido al portal oficial del condominio</p>
+  <div class="header-wrapper">
+    <header>
+      <div>
+        <h1>Reserva Bosque Sereno</h1>
+        <p>Bienvenido al portal oficial del condominio</p>
+      </div>
+      <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <!-- Row con hamburguesa -->
+    <div class="menu-row">
+      <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
-  </header>
 
-  <!-- Row con hamburguesa -->
-  <div class="menu-row">
-    <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+    <!-- Menú horizontal -->
+    <nav>
+      <ul id="menu"></ul>
+    </nav>
+
+    <!-- Menú lateral móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul id="mobileMenuList"></ul>
     </div>
-  </div>
-
-  <!-- Menú horizontal -->
-  <nav>
-    <ul id="menu"></ul>
-  </nav>
-
-  <!-- Menú lateral móvil -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul id="mobileMenuList"></ul>
   </div>
 
   <div class="container">
@@ -284,26 +218,7 @@
   </footer>
 
   <script>
-  // Ajustar posición dinámica del menú y overlay
-  function adjustMenuPosition(){
-    const header = document.querySelector('header');
-    const row = document.querySelector('.menu-row');
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('menuOverlay');
-
-    const offset = header.offsetHeight + row.offsetHeight;
-
-    menu.style.top = offset + "px";
-    menu.style.height = "calc(100% - " + offset + "px)";
-    overlay.style.top = offset + "px";
-    overlay.style.height = "calc(100% - " + offset + "px)";
-  }
-
-  window.addEventListener('resize', adjustMenuPosition);
-  window.addEventListener('load', adjustMenuPosition);
-
   function toggleMenu(){
-    adjustMenuPosition(); // recalcular antes de abrir
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('menuOverlay');
