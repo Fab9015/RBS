@@ -282,24 +282,26 @@ footer {
     <div class="footer-links" id="footerLinks"></div>
   </footer>
 
- <script>
-  // Ajustar posición del menú y overlay según la altura del header+row
+<script>
+  // Ajustar posición del menú y overlay según la posición visible del row
   function adjustMenuPosition(){
-    const header = document.querySelector('header');
     const row = document.querySelector('.menu-row');
-    const offset = header.offsetHeight + row.offsetHeight;
+    const rect = row.getBoundingClientRect();
 
     const menu = document.getElementById('mobileMenu');
     const overlay = document.getElementById('menuOverlay');
 
-    // Posicionar menú y overlay justo debajo del row
-    menu.style.top = offset + "px";
-    menu.style.height = `calc(100% - ${offset}px)`;
-    overlay.style.top = offset + "px";
-    overlay.style.height = `calc(100% - ${offset}px)`;
+    // Posición actual del borde inferior del row en la ventana
+    const topOffset = rect.bottom;
+
+    menu.style.top = topOffset + "px";
+    menu.style.height = `calc(100% - ${topOffset}px)`;
+    overlay.style.top = topOffset + "px";
+    overlay.style.height = `calc(100% - ${topOffset}px)`;
   }
 
   window.addEventListener('resize', adjustMenuPosition);
+  window.addEventListener('scroll', adjustMenuPosition);
   window.addEventListener('load', adjustMenuPosition);
 
   function toggleMenu(){
