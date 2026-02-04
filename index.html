@@ -28,6 +28,11 @@
       min-height: 100vh;
     }
 
+    /* Contenedor para header + row + nav + menú lateral */
+    .header-wrapper {
+      position: relative; /* ✅ permite posicionar el menú relativo */
+    }
+
     /* Header institucional */
     header {
       background: var(--color-bg);
@@ -62,19 +67,30 @@
       justify-content: flex-start; /* ✅ icono al lado izquierdo */
     }
     .hamburger {
-      display: none;
+      width: 32px; /* ✅ tamaño fijo */
+      height: 32px;
+      display: flex;
       flex-direction: column;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
       color: var(--color-white);
       font-size: 1.6em;
     }
     .hamburger span {
-      display: block;
       height: 3px;
       width: 22px;
       background: var(--color-white);
-      margin: 4px 0;
+      margin: 3px 0;
       border-radius: 2px;
+    }
+    .hamburger.close span {
+      display: none; /* ocultamos las barras */
+    }
+    .hamburger.close::before {
+      content: "×"; /* mostramos la X */
+      color: var(--color-white);
+      font-size: 1.6em;
     }
 
     /* Menú horizontal */
@@ -102,11 +118,10 @@
 
     /* Menú lateral izquierdo */
     .mobile-menu {
-      position: fixed;
-      top: 190px; /* ✅ debajo del header + row */
-      left: -100%; /* ✅ oculto a la izquierda */
+      position: absolute; /* ✅ relativo al header-wrapper */
+      top: 100%; /* ✅ justo debajo del row */
+      left: -100%; /* oculto a la izquierda */
       width: 220px;
-      height: calc(100% - 140px);
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
@@ -221,29 +236,31 @@
   </style>
 </head>
 <body>
-  <header>
-    <div>
-      <h1>Reserva Bosque Sereno</h1>
-      <p>Bienvenido al portal oficial del condominio</p>
+  <div class="header-wrapper">
+    <header>
+      <div>
+        <h1>Reserva Bosque Sereno</h1>
+        <p>Bienvenido al portal oficial del condominio</p>
+      </div>
+      <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <!-- Row con hamburguesa -->
+    <div class="menu-row">
+      <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
     </div>
-    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
-  </header>
 
-  <!-- Row con hamburguesa -->
-  <div class="menu-row">
-    <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
+    <!-- Menú horizontal -->
+    <nav>
+      <ul id="menu"></ul>
+    </nav>
+
+    <!-- Menú lateral móvil -->
+    <div class="mobile-menu" id="mobileMenu">
+      <ul id="mobileMenuList"></ul>
     </div>
-  </div>
-
-  <!-- Menú horizontal -->
-  <nav>
-    <ul id="menu"></ul>
-  </nav>
-
-  <!-- Menú lateral móvil -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul id="mobileMenuList"></ul>
   </div>
 
   <div class="container">
@@ -257,21 +274,12 @@
     <div class="footer-links" id="footerLinks"></div>
   </footer>
 
-  <script>
+ <script>
   function toggleMenu(){
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     menu.classList.toggle('active');
-
-    if(menu.classList.contains('active')){
-      // Cambiar a X
-      toggle.innerHTML = "×";
-      toggle.style.fontSize = "1.8em";
-      toggle.style.color = "white";
-    } else {
-      // Volver a hamburguesa
-      toggle.innerHTML = "<span></span><span></span><span></span>";
-    }
+    toggle.classList.toggle('close'); // alterna entre hamburguesa y X
   }
 
   // cerrar menú si se hace clic fuera
@@ -280,7 +288,7 @@
     const toggle = document.getElementById('menuToggle');
     if(menu.classList.contains('active') && !menu.contains(e.target) && !e.target.closest('#menuToggle')){
       menu.classList.remove('active');
-      toggle.innerHTML = "<span></span><span></span><span></span>";
+      toggle.classList.remove('close');
     }
   });
 
