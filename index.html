@@ -28,10 +28,16 @@
       min-height: 100vh;
     }
 
-    /* Contenedor para header + row + nav + menú lateral */
-    .header-wrapper {
-      position: relative; /* ✅ permite posicionar el menú relativo */
+    /* Overlay para cerrar menú */
+    .overlay {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.3);
+      display: none;
+      z-index: 900;
     }
+    .overlay.active { display: block; }
 
     /* Header institucional */
     header {
@@ -64,10 +70,10 @@
       background: var(--color-accent);
       padding: 0.3em 0.8em;
       display: flex;
-      justify-content: flex-start; /* ✅ icono al lado izquierdo */
+      justify-content: flex-start;
     }
     .hamburger {
-      width: 32px; /* ✅ tamaño fijo */
+      width: 32px;
       height: 32px;
       display: flex;
       flex-direction: column;
@@ -85,10 +91,10 @@
       border-radius: 2px;
     }
     .hamburger.close span {
-      display: none; /* ocultamos las barras */
+      display: none;
     }
     .hamburger.close::before {
-      content: "×"; /* mostramos la X */
+      content: "×";
       color: var(--color-white);
       font-size: 1.6em;
     }
@@ -116,18 +122,19 @@
       background: var(--color-contrast);
     }
 
-    /* Menú lateral izquierdo */
+    /* Menú lateral fijo */
     .mobile-menu {
-      position: absolute; /* ✅ relativo al header-wrapper */
-      top: 100%; /* ✅ justo debajo del row */
-      left: -100%; /* oculto a la izquierda */
+      position: fixed;
+      top: 0;
+      left: -100%;
       width: 220px;
+      height: 100%; /* ✅ ocupa todo el alto */
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
-      padding-top: 1em;
       z-index: 1000;
       box-shadow: 4px 0 12px rgba(0,0,0,0.2);
+      padding-top: 140px; /* espacio para header+row */
     }
     .mobile-menu.active { left: 0; }
 
@@ -139,7 +146,7 @@
     .mobile-menu ul li {
       width: 100%;
       border-bottom: 1px solid var(--color-contrast);
-      text-align: left; /* ✅ alineados a la izquierda */
+      text-align: left;
     }
     .mobile-menu ul li a {
       display: block;
@@ -236,31 +243,32 @@
   </style>
 </head>
 <body>
-  <div class="header-wrapper">
-    <header>
-      <div>
-        <h1>Reserva Bosque Sereno</h1>
-        <p>Bienvenido al portal oficial del condominio</p>
-      </div>
-      <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
-    </header>
+  <!-- Overlay -->
+  <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
-    <!-- Row con hamburguesa -->
-    <div class="menu-row">
-      <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
+  <header>
+    <div>
+      <h1>Reserva Bosque Sereno</h1>
+      <p>Bienvenido al portal oficial del condominio</p>
     </div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+  </header>
 
-    <!-- Menú horizontal -->
-    <nav>
-      <ul id="menu"></ul>
-    </nav>
-
-    <!-- Menú lateral móvil -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul id="mobileMenuList"></ul>
+  <!-- Row con hamburguesa -->
+  <div class="menu-row">
+    <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
+  </div>
+
+  <!-- Menú horizontal -->
+  <nav>
+    <ul id="menu"></ul>
+  </nav>
+
+  <!-- Menú lateral móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul id="mobileMenuList"></ul>
   </div>
 
   <div class="container">
@@ -274,23 +282,24 @@
     <div class="footer-links" id="footerLinks"></div>
   </footer>
 
- <script>
+  <script>
   function toggleMenu(){
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
+    const overlay = document.getElementById('menuOverlay');
     menu.classList.toggle('active');
-    toggle.classList.toggle('close'); // alterna entre hamburguesa y X
+    overlay.classList.toggle('active');
+    toggle.classList.toggle('close');
   }
 
-  // cerrar menú si se hace clic fuera
-  window.addEventListener('click', function(e){
+  function closeMenu(){
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
-    if(menu.classList.contains('active') && !menu.contains(e.target) && !e.target.closest('#menuToggle')){
-      menu.classList.remove('active');
-      toggle.classList.remove('close');
-    }
-  });
+    const overlay = document.getElementById('menuOverlay');
+    menu.classList.remove('active');
+    overlay.classList.remove('active');
+    toggle.classList.remove('close');
+  }
 
   // Variables de paginación
   let currentPage = 1;
