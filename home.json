@@ -1,6 +1,10 @@
 {
     "menu": [
         {
+            "title": "Home",
+            "url": "index.html"
+        },
+        {
             "title": "Directorio",
             "url": "directorio.html"
         },
