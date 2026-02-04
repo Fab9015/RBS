@@ -28,13 +28,13 @@
       min-height: 100vh;
     }
 
-    /* Overlay debajo del row */
+    /* Overlay dinámico */
     .overlay {
       position: fixed;
-      top: 140px; /* ✅ ajusta según altura header+row */
+      top: 0; /* se ajusta dinámicamente */
       left: 0;
       width: 100%;
-      height: calc(100% - 140px); /* ✅ ocupa todo el alto restante */
+      height: 100%; /* se ajusta dinámicamente */
       background: rgba(0,0,0,0.3);
       display: none;
       z-index: 900;
@@ -127,10 +127,10 @@
     /* Menú lateral fijo debajo del row */
     .mobile-menu {
       position: fixed;
-      top: 140px; /* ✅ debajo del row */
+      top: 0; /* se ajusta dinámicamente */
       left: -100%;
       width: 220px;
-      height: calc(100% - 140px); /* ✅ ocupa todo el alto restante */
+      height: 100%; /* se ajusta dinámicamente */
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
@@ -244,7 +244,7 @@
   </style>
 </head>
 <body>
-  <!-- Overlay debajo del row -->
+  <!-- Overlay dinámico -->
   <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
   <header>
@@ -284,7 +284,26 @@
   </footer>
 
   <script>
+  // Ajustar posición dinámica del menú y overlay
+  function adjustMenuPosition(){
+    const header = document.querySelector('header');
+    const row = document.querySelector('.menu-row');
+    const menu = document.getElementById('mobileMenu');
+    const overlay = document.getElementById('menuOverlay');
+
+    const offset = header.offsetHeight + row.offsetHeight;
+
+    menu.style.top = offset + "px";
+    menu.style.height = "calc(100% - " + offset + "px)";
+    overlay.style.top = offset + "px";
+    overlay.style.height = "calc(100% - " + offset + "px)";
+  }
+
+  window.addEventListener('resize', adjustMenuPosition);
+  window.addEventListener('load', adjustMenuPosition);
+
   function toggleMenu(){
+    adjustMenuPosition(); // recalcular antes de abrir
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('menuOverlay');
