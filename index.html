@@ -246,6 +246,40 @@ footer {
   color: var(--color-white);
   text-decoration: none;
 }
+    /* Hover básico: cambio de color de fondo */
+nav ul li a:hover,
+.mobile-menu ul li a:hover {
+  background: var(--color-contrast);
+  color: var(--color-white);
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Hover con subrayado animado */
+nav ul li a,
+.mobile-menu ul li a {
+  position: relative;
+}
+nav ul li a::after,
+.mobile-menu ul li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0%;
+  height: 2px;
+  background: var(--color-white);
+  transition: width 0.3s ease;
+}
+nav ul li a:hover::after,
+.mobile-menu ul li a:hover::after {
+  width: 100%;
+}
+
+/* Hover con leve desplazamiento */
+nav ul li a:hover,
+.mobile-menu ul li a:hover {
+  transform: translateX(4px);
+}
 
 @media(max-width:768px){
   nav ul { display:none; }
