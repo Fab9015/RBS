@@ -2,33 +2,33 @@
     "menu": [
         {
             "title": "Directorio",
-            "url": "test.html"
+            "url": "directorio.html"
         },
         {
             "title": "Condovive",
-            "url": "faq.html"
+            "url": "https://app.condovive.com/"
         },
         {
             "title": "Preguntas Frecuentes",
-            "url": "faq.html"
+            "url": "preguntas-frecuentes.html"
         },
         {
             "title": "Asamblea 2025",
-            "url": "pagos.html"
+            "url": "informe-mesa-trabajo.html"
         },
         {
             "title": "Pagos Adelantados",
-            "url": "dashboard.html"
+            "url": "pagos-adelantados.html"
         },
         {
             "title": "Dashboard del Directorio",
-            "url": "menux.html"
+            "url": "generador-directorio.html"
         }
     ],
     "blog": [
         {
-            "title": "Presentación de nuevas herramientas digitales",
-            "description": "<p>Se dará a conocer la página web y las herramientas desarrolladas para mejorar la transparencia y la gestión del condominio.</p> Presentaremos:<ul class='custom-list'><li>Cosa 1</li><li>Cosa 2</li><li>Cosa 3</li></ul><p>Más texto aquí abajo</p>",
+            "title": "Presentación de avances y novedades",
+            "description": "<p>La nueva administración y el comité invitan a una reunión especial donde compartiremos logros y presentaremos innovaciones que marcarán una nueva etapa en nuestro condominio.</p><p>Entre las sorpresas que se darán a conocer:</p><ul class='custom-list'><li>Una plataforma digital que reunirá información y accesos clave.</li><li>Mejoras en la seguridad peatonal con tecnología de última generación.</li><li>Nuevas formas de gestionar visitas y proveedores de manera práctica.</li></ul><p>Será la oportunidad de descubrir estas iniciativas y participar en su lanzamiento.</p>",
             "date": "11 de febrero de 2026",
             "time": "20:00 horas",
             "place": "Salón de eventos del condominio",
