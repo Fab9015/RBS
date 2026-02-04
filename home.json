@@ -1,67 +1,94 @@
 {
-  "menu": [
-    { "title": "Directorio", "url": "test.html" },
-    { "title": "Preguntas Frecuentes", "url": "faq.html" },
-    { "title": "Pagos Adelantados", "url": "pagos.html" },
-    { "title": "Dashboard del Directorio", "url": "dashboard.html" },
-    { "title": "Menú X", "url": "menux.html" }
-  ],
-  "blog": [
-    {
-      "title": "Presentación de nuevas herramientas digitales",
-      "description": "Se dará a conocer la página web y las herramientas desarrolladas para mejorar la transparencia y la gestión del condominio.",
-      "date": "11 de febrero de 2026",
-      "time": "20:00 horas",
-      "place": "Salón de eventos del condominio",
-      "activo": true
-    },
-    {
-      "title": "Reunión de seguridad vecinal",
-      "description": "Se discutirán medidas de seguridad y protocolos de emergencia para reforzar la tranquilidad en el condominio.",
-      "date": "25 de febrero de 2026",
-      "time": "19:00 horas",
-      "place": "Área común de la caseta",
-      "activo": false
-    },
-    {
-      "title": "Jornada de limpieza comunitaria",
-      "description": "Convocatoria para vecinos interesados en participar en la limpieza de áreas verdes y comunes.",
-      "date": "1 de marzo de 2026",
-      "time": "09:00 horas",
-      "place": "Parque central del condominio",
-      "activo": false
-    },
-    {
-      "title": "Taller de reciclaje y sustentabilidad",
-      "description": "Se impartirá un taller práctico sobre separación de residuos y proyectos sustentables.",
-      "date": "15 de marzo de 2026",
-      "time": "17:00 horas",
-      "place": "Salón de eventos",
-      "activo": false
-    },
-    {
-      "title": "Asamblea general ordinaria",
-      "description": "Revisión de cuentas, acuerdos de mantenimiento y propuestas de mejora para el condominio.",
-      "date": "30 de marzo de 2026",
-      "time": "18:00 horas",
-      "place": "Salón de eventos",
-      "activo": false
-    },
-    {
-      "title": "Fiesta de convivencia vecinal",
-      "description": "Evento social para fortalecer la comunidad con música, comida y actividades para todas las edades.",
-      "date": "10 de abril de 2026",
-      "time": "16:00 horas",
-      "place": "Área de alberca",
-      "activo": false
-    },
-    {
-      "title": "Taller de primeros auxilios",
-      "description": "Capacitación básica en primeros auxilios impartida por personal especializado.",
-      "date": "20 de abril de 2026",
-      "time": "10:00 horas",
-      "place": "Salón de eventos",
-      "activo": false
-    }
-  ]
+    "menu": [
+        {
+            "title": "Directorio",
+            "url": "test.html"
+        },
+        {
+            "title": "Condovive",
+            "url": "faq.html"
+        },
+        {
+            "title": "Preguntas Frecuentes",
+            "url": "faq.html"
+        },
+        {
+            "title": "Asamblea 2025",
+            "url": "pagos.html"
+        },
+        {
+            "title": "Pagos Adelantados",
+            "url": "dashboard.html"
+        },
+        {
+            "title": "Dashboard del Directorio",
+            "url": "menux.html"
+        }
+    ],
+    "blog": [
+        {
+            "title": "Revisión mensual",
+            "description": "Cosas a revisar<ul class='custom-list'><li>Cosa 1</li><li>Cosa 2</li><li>Cosa 3</li></ul><p>Más texto aquí abajo</p>",
+            "date": "2026-02-10",
+            "time": "18:00",
+            "place": "Sala de juntas",
+            "activo": true
+        },
+        {
+            "title": "Presentación de nuevas herramientas digitales",
+            "description": "<p>Se dará a conocer la página web y las herramientas desarrolladas para mejorar la transparencia y la gestión del condominio.</p> Presentaremos:<ul class='custom-list'><li>Cosa 1</li><li>Cosa 2</li><li>Cosa 3</li></ul><p>Más texto aquí abajo</p>",
+            "date": "11 de febrero de 2026",
+            "time": "20:00 horas",
+            "place": "Salón de eventos del condominio",
+            "activo": true
+        },
+        {
+            "title": "Reunion 6",
+            "description": "Se discutirán medidas de seguridad y protocolos de emergencia para reforzar la tranquilidad en el condominio.",
+            "date": "25 de febrero de 2026",
+            "time": "19:00 horas",
+            "place": "Área común de la caseta",
+            "activo": false
+        },
+        {
+            "title": "Reunion 5",
+            "description": "Convocatoria para vecinos interesados en participar en la limpieza de áreas verdes y comunes.",
+            "date": "1 de marzo de 2026",
+            "time": "09:00 horas",
+            "place": "Parque central del condominio",
+            "activo": false
+        },
+        {
+            "title": "Reunion 4",
+            "description": "Se impartirá un taller práctico sobre separación de residuos y proyectos sustentables.",
+            "date": "15 de marzo de 2026",
+            "time": "17:00 horas",
+            "place": "Salón de eventos",
+            "activo": false
+        },
+        {
+            "title": "Reunion 3",
+            "description": "Revisión de cuentas, acuerdos de mantenimiento y propuestas de mejora para el condominio.",
+            "date": "30 de marzo de 2026",
+            "time": "18:00 horas",
+            "place": "Salón de eventos",
+            "activo": false
+        },
+        {
+            "title": "Reunion 2",
+            "description": "Evento social para fortalecer la comunidad con música, comida y actividades para todas las edades.",
+            "date": "10 de abril de 2026",
+            "time": "16:00 horas",
+            "place": "Área de alberca",
+            "activo": false
+        },
+        {
+            "title": "Reunion 1",
+            "description": "Capacitación básica en primeros auxilios impartida por personal especializado.",
+            "date": "20 de abril de 2026",
+            "time": "10:00 horas",
+            "place": "Salón de eventos",
+            "activo": false
+        }
+    ]
 }
