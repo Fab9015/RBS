@@ -15,6 +15,7 @@
       --color-border: #e6e2dc;
       --color-contrast: #6a4f3d;
       --color-inactive: #999999;
+      --menu-offset: 0px; /* se ajusta dinámicamente con JS */
     }
 
     body {
@@ -28,18 +29,13 @@
       min-height: 100vh;
     }
 
-    /* Contenedor relativo para header + row + nav + menú */
-    .header-wrapper {
-      position: relative;
-    }
-
-    /* Overlay */
+    /* Overlay fijo debajo del row */
     .overlay {
       position: fixed;
-      top: 0;
+      top: var(--menu-offset);
       left: 0;
       width: 100%;
-      height: 100%;
+      height: calc(100% - var(--menu-offset));
       background: rgba(0,0,0,0.3);
       display: none;
       z-index: 900;
@@ -55,6 +51,21 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.6em;
+      color: var(--color-title);
+    }
+    header p {
+      margin: 0.4em 0 0;
+      color: #6a4f3d;
+      font-size: 0.95em;
+    }
+    header img {
+      width: 100px;
+      height: auto;
+      margin-left: 1em;
     }
 
     /* Row con hamburguesa */
@@ -110,12 +121,13 @@
     }
     nav ul li a:hover { background: var(--color-contrast); }
 
-    /* Menú lateral absoluto debajo del row */
+    /* Menú lateral fijo debajo del row */
     .mobile-menu {
-      position: absolute;
-      top: 100%; /* ✅ justo debajo del row */
+      position: fixed;
+      top: var(--menu-offset);
       left: -100%;
       width: 220px;
+      height: calc(100% - var(--menu-offset));
       background: var(--color-accent);
       color: var(--color-white);
       transition: left 0.3s ease;
@@ -176,34 +188,32 @@
   </style>
 </head>
 <body>
-  <!-- Overlay -->
+  <!-- Overlay dinámico -->
   <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
-  <div class="header-wrapper">
-    <header>
-      <div>
-        <h1>Reserva Bosque Sereno</h1>
-        <p>Bienvenido al portal oficial del condominio</p>
-      </div>
-      <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
-    </header>
-
-    <!-- Row con hamburguesa -->
-    <div class="menu-row">
-      <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-        <span></span><span></span><span></span>
-      </div>
+  <header>
+    <div>
+      <h1>Reserva Bosque Sereno</h1>
+      <p>Bienvenido al portal oficial del condominio</p>
     </div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+  </header>
 
-    <!-- Menú horizontal -->
-    <nav>
-      <ul id="menu"></ul>
-    </nav>
-
-    <!-- Menú lateral móvil -->
-    <div class="mobile-menu" id="mobileMenu">
-      <ul id="mobileMenuList"></ul>
+  <!-- Row con hamburguesa -->
+  <div class="menu-row">
+    <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
     </div>
+  </div>
+
+  <!-- Menú horizontal -->
+  <nav>
+    <ul id="menu"></ul>
+  </nav>
+
+  <!-- Menú lateral móvil -->
+  <div class="mobile-menu" id="mobileMenu">
+    <ul id="mobileMenuList"></ul>
   </div>
 
   <div class="container">
@@ -218,7 +228,21 @@
   </footer>
 
   <script>
+  // Ajustar posición dinámica del menú y overlay
+  function adjustMenuPosition(){
+    const header = document.querySelector('header');
+    const row = document.querySelector('.menu-row');
+    const offset = header.offsetHeight + row.offsetHeight;
+
+    // Guardamos el valor en una variable CSS
+    document.documentElement.style.setProperty('--menu-offset', offset + "px");
+  }
+
+  window.addEventListener('resize', adjustMenuPosition);
+  window.addEventListener('load', adjustMenuPosition);
+
   function toggleMenu(){
+    adjustMenuPosition(); // recalcular antes de abrir
     const menu = document.getElementById('mobileMenu');
     const toggle = document.getElementById('menuToggle');
     const overlay = document.getElementById('menuOverlay');
