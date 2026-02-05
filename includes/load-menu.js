@@ -9,9 +9,10 @@
         if (menu) menu.innerHTML = '';
         if (mobileMenuList) mobileMenuList.innerHTML = '';
         data.menu.forEach(item => {
-            if (menu) menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-            if (mobileMenuList) mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-            if (footerLinks) footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
+            const targetAttr = item.target ? ` target="${item.target}" rel="${item.target === '_blank' ? 'noopener noreferrer' : ''}"` : '';
+            if (menu) menu.innerHTML += `<li><a href="${item.url}"${targetAttr}>${item.title}</a></li>`;
+            if (mobileMenuList) mobileMenuList.innerHTML += `<li><a href="${item.url}"${targetAttr}>${item.title}</a></li>`;
+            if (footerLinks) footerLinks.innerHTML += `<a href="${item.url}"${targetAttr}>${item.title}</a>`;
         });
     }
 

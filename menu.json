@@ -2,31 +2,38 @@
     "menu": [
         {
             "title": "Home",
-            "url": "index.html"
+            "url": "index.html",
+            "target": "_self"
         },
         {
             "title": "Directorio",
-            "url": "directorio.html"
+            "url": "directorio.html",
+            "target": "_self"
         },
         {
             "title": "Condovive",
-            "url": "https://app.condovive.com/"
+            "url": "https://app.condovive.com/",
+            "target": "_blank"
         },
         {
             "title": "Preguntas Frecuentes",
-            "url": "preguntas-frecuentes.html"
+            "url": "preguntas-frecuentes.html",
+            "target": "_self"
         },
         {
             "title": "Asamblea 2025",
-            "url": "menu-accesos-rapidos.html"
+            "url": "menu-accesos-rapidos.html",
+            "target": "_self"
         },
         {
             "title": "Pagos Adelantados",
-            "url": "pagos-adelantados.html"
+            "url": "pagos-adelantados.html",
+            "target": "_self"
         },
         {
             "title": "Dashboard del Directorio",
-            "url": "generador-directorio.html"
+            "url": "generador-directorio.html",
+            "target": "_self"
         }
     ]
 }
