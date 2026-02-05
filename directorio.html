@@ -574,7 +574,8 @@
                     if (Date.now() - start > 1200) {
                         clearInterval(id);
                         // fallback to network (may fail under file://)
-                        fetch('directorio.json').then(r => r.json()).then(applyData).catch(err => console.warn('Could not load directorio.json nor embedded fallback', err));
+                        const fallbackUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+                        fetch(fallbackUrl).then(r => r.json()).then(applyData).catch(err => console.warn('Could not load directorio.json nor embedded fallback', err));
                     }
                 }, 100);
 
@@ -582,7 +583,8 @@
             }
 
             // Normal web flow: try network first, fall back to embedded if fetch fails
-            fetch('directorio.json')
+            const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+            fetch(dirUrl)
                 .then(r => { if (!r.ok) throw new Error('no-data'); return r.json(); })
                 .then(applyData)
                 .catch(err => {

@@ -916,13 +916,15 @@
                 if (embedded) {
                     apply(embedded);
                     if (location.protocol !== 'file:') {
-                        fetch('directorio.json').then(r => r.json()).then(json => apply(json)).catch(() => { });
+                        const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+                        fetch(dirUrl).then(r => r.json()).then(json => apply(json)).catch(() => { });
                     }
                     return;
                 }
 
                 // No embedded fallback after waiting — try network and warn on failure
-                fetch('directorio.json')
+                const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+                fetch(dirUrl)
                     .then(r => r.json())
                     .then(json => apply(json))
                     .catch(err => {

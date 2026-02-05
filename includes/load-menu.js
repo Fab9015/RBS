@@ -35,10 +35,20 @@
             console.warn('Running from file:// - deferring to embedded menu fallback');
             useEmbeddedWhenReady();
         } else {
-            fetch('menu.json')
+            const menuUrl = (typeof location !== 'undefined') ? new URL('menu.json', location.href).toString() : 'menu.json';
+            console.log('load-menu: fetching', menuUrl);
+            fetch(menuUrl)
                 .then(r => { if (!r.ok) throw new Error('no-menu'); return r.json(); })
                 .then(populateMenu)
-                .catch(() => { console.warn('menu.json not available, using embedded fallback'); useEmbeddedWhenReady(); });
+                .catch((err) => {
+                    console.warn('load-menu: menu.json not available at', menuUrl, err);
+                    if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+                        console.warn('load-menu: using embedded fallback for local preview');
+                        useEmbeddedWhenReady();
+                    } else {
+                        console.error('load-menu: fetch failed in production; not applying embedded fallback');
+                    }
+                });
         }
     } catch (e) {
         if (window && window.EMBEDDED_MENU) populateMenu(window.EMBEDDED_MENU);

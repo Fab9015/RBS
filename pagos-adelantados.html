@@ -198,7 +198,9 @@
       async function loadPagos() {
         let data = null;
         try {
-          const resp = await fetch('pagos_adelantados.json', { cache: 'no-store' });
+          const pagosUrl = (typeof location !== 'undefined') ? new URL('pagos_adelantados.json', location.href).toString() : 'pagos_adelantados.json';
+          console.log('load-pagos: fetching', pagosUrl);
+          const resp = await fetch(pagosUrl, { cache: 'no-store' });
           if (!resp.ok) throw new Error('No se pudo cargar pagos_adelantados.json');
           data = await resp.json();
         } catch (err) {

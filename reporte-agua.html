@@ -155,7 +155,9 @@
       const statusEl = document.getElementById('status');
       let data = null;
       try {
-        const resp = await fetch('data.json', { cache: 'no-store' });
+        const dataUrl = (typeof location !== 'undefined') ? new URL('data.json', location.href).toString() : 'data.json';
+        console.log('reporte-agua: fetching', dataUrl);
+        const resp = await fetch(dataUrl, { cache: 'no-store' });
         if (!resp.ok) throw new Error('No se pudo cargar data.json');
         data = await resp.json();
         statusEl.textContent = 'Datos cargados correctamente.';

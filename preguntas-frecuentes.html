@@ -110,7 +110,9 @@
         async function loadFaq() {
             let faqs = null;
             try {
-                const resp = await fetch('faq.json', { cache: 'no-store' });
+                const faqUrl = (typeof location !== 'undefined') ? new URL('faq.json', location.href).toString() : 'faq.json';
+                console.log('load-faq: fetching', faqUrl);
+                const resp = await fetch(faqUrl, { cache: 'no-store' });
                 if (!resp.ok) throw new Error('faq.json no disponible');
                 const json = await resp.json();
                 faqs = Array.isArray(json.faqs) ? json.faqs : [];
