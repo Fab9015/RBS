@@ -33,7 +33,7 @@
             insertHTML(selector, fallbackHtml);
             return Promise.resolve();
         }
-        return fetch(url).then(r => { if (!r.ok) throw new Error('no-frag'); return r.text(); }).then(t => insertHTML(selector, t)).catch(() => insertHTML(selector, fallbackHtml));
+        return fetch(url, { cache: 'no-store' }).then(r => { if (!r.ok) throw new Error('no-frag'); return r.text(); }).then(t => insertHTML(selector, t)).catch(() => insertHTML(selector, fallbackHtml));
     }
 
     // Placeholders must exist in the page

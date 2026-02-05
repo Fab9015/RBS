@@ -917,14 +917,14 @@
                     apply(embedded);
                     if (location.protocol !== 'file:') {
                         const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
-                        fetch(dirUrl).then(r => r.json()).then(json => apply(json)).catch(() => { });
+                        fetch(dirUrl, { cache: 'no-store' }).then(r => r.json()).then(json => apply(json)).catch(() => { });
                     }
                     return;
                 }
 
                 // No embedded fallback after waiting — try network and warn on failure
                 const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
-                fetch(dirUrl)
+                fetch(dirUrl, { cache: 'no-store' })
                     .then(r => r.json())
                     .then(json => apply(json))
                     .catch(err => {

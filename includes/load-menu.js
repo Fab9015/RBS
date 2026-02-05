@@ -37,7 +37,7 @@
         } else {
             const menuUrl = (typeof location !== 'undefined') ? new URL('menu.json', location.href).toString() : 'menu.json';
             console.log('load-menu: fetching', menuUrl);
-            fetch(menuUrl)
+            fetch(menuUrl, { cache: 'no-store' })
                 .then(r => { if (!r.ok) throw new Error('no-menu'); return r.json(); })
                 .then(populateMenu)
                 .catch((err) => {

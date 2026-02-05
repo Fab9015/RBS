@@ -277,6 +277,15 @@
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
       "relevante": false
+    },
+    {
+      "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
+      "nombre": "Luis Reyna",
+      "telefono": "449-368-8719",
+      "correo": "",
+      "categoria": "Taxi/Uber",
+      "imagen": "img/trabajador.png",
+      "relevante": false
     }
   ]
 }

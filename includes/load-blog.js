@@ -58,7 +58,7 @@
             // Fetch blog.json relative to the current page URL (not the script file).
             const blogUrl = (typeof location !== 'undefined') ? new URL('blog.json', location.href).toString() : 'blog.json';
             console.log('load-blog: fetching', blogUrl);
-            fetch(blogUrl)
+            fetch(blogUrl, { cache: 'no-store' })
                 .then(r => { if (!r.ok) throw new Error('no-blog'); return r.json(); })
                 .then(applyBlog)
                 .catch((err) => {

@@ -318,7 +318,7 @@
 
             const datosUrl = (typeof location !== 'undefined') ? new URL('datos.json', location.href).toString() : 'datos.json';
             console.log('encuesta-aceptacion: fetching', datosUrl);
-            fetch(datosUrl)
+            fetch(datosUrl, { cache: 'no-store' })
                 .then(response => response.json())
                 .then(processData)
                 .catch(err => {
