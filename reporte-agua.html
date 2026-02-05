@@ -1,69 +1,125 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gestión Hídrica RBS</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <meta name="description" content="Gestión hídrica y reportes de consumo de agua — Reserva Bosque Sereno.">
+  <meta property="og:title" content="Gestión Hídrica RBS">
+  <meta property="og:description" content="Gestión hídrica y reportes de consumo de agua — Reserva Bosque Sereno.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/reporte-agua.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Gestión Hídrica RBS">
+  <meta name="twitter:description" content="Gestión hídrica y reportes de consumo de agua — Reserva Bosque Sereno.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <link rel="canonical" href="https://fab9015.github.io/RBS/reporte-agua.html">
+
   <style>
-    :root {
-      --color-azul: #003366;
-      --color-verde: #2e8b57;
-      --color-gris: #f4f4f4;
-      --color-naranja: #f39c12;
-      --color-rojo: #c0392b;
-      --color-texto: #2c3e50;
-    }
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: var(--color-gris);
-      color: var(--color-texto);
-    }
-    header {
-      background: var(--color-azul);
-      color: white;
-      padding: 16px;
-      text-align: center;
-    }
-    h1, h2 { margin: 0 0 12px; }
     .container {
       padding: 20px;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 24px;
     }
+
     .card {
       border-radius: 8px;
       padding: 16px;
       background: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-    .chart-container { width: 100%; height: 420px; }
-    .bar-container { width: 100%; height: 600px; }
-    .legend { font-size: 12px; color: #606c76; margin-top: 6px; }
-    .search-box { margin: 12px 0; }
+
+    .chart-container {
+      width: 100%;
+      height: 420px;
+    }
+
+    .bar-container {
+      width: 100%;
+      height: 600px;
+    }
+
+    .legend {
+      font-size: 12px;
+      color: #606c76;
+      margin-top: 6px;
+    }
+
+    .search-box {
+      margin: 12px 0;
+    }
+
     .search-box input {
-      width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 6px;
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
     }
+
     table {
-      width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px;
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 14px;
     }
-    th, td { border: 1px solid #e6e6e6; padding: 8px; text-align: left; }
-    th { background-color: var(--color-azul); color: white; }
-    .calle { background-color: var(--color-verde); color: white; font-weight: bold; }
-    .excedente { background-color: var(--color-naranja); color: white; }
+
+    th,
+    td {
+      border: 1px solid #e6e6e6;
+      padding: 8px;
+      text-align: left;
+    }
+
+    th {
+      background-color: var(--color-azul);
+      color: white;
+    }
+
+    .calle {
+      background-color: var(--color-verde);
+      color: white;
+      font-weight: bold;
+    }
+
+    .excedente {
+      background-color: var(--color-naranja);
+      color: white;
+    }
+
     @media (max-width: 900px) {
-      .container { grid-template-columns: 1fr; }
-      .bar-container { height: 400px; }
+      .container {
+        grid-template-columns: 1fr;
+      }
+
+      .bar-container {
+        height: 400px;
+      }
     }
   </style>
 </head>
-<body>
+
+<body class="reporte-agua">
   <header>
-    <h1>Gestión Hídrica RBS</h1>
+    <div class="header-text">
+      <h1>Gestión Hídrica RBS</h1>
+      <p>Datos y reportes del consumo de agua</p>
+    </div>
     <div id="status">Cargando datos de data.json…</div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
   </header>
+
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
 
   <div class="container">
     <div class="card">
@@ -86,63 +142,72 @@
     <div id="listaVecinos"></div>
   </div>
 
+  <script src="includes/embedded-data.js"></script>
   <script>
     let personas = [];
 
+    /* Centralized EMBEDDED_DATA from includes/embedded-data.js will be used when needed.
+       Large per-page JSON removed in favor of the centralized include (local previews only).
+    */
+
+
     async function cargarDatos() {
       const statusEl = document.getElementById('status');
+      let data = null;
       try {
         const resp = await fetch('data.json', { cache: 'no-store' });
         if (!resp.ok) throw new Error('No se pudo cargar data.json');
-        const data = await resp.json();
-        personas = Array.isArray(data.personas) ? data.personas : [];
+        data = await resp.json();
         statusEl.textContent = 'Datos cargados correctamente.';
-
-        // Pastel
-        const conExcedente = personas.filter(p => Number(p.excedente) > 0).length;
-        const sinExcedente = personas.length - conExcedente;
-        new Chart(document.getElementById('graficaPastel'), {
-          type: 'pie',
-          data: {
-            labels: ['Con excedente', 'Sin excedente'],
-            datasets: [{
-              data: [conExcedente, sinExcedente],
-              backgroundColor: [getColor('--color-naranja'), getColor('--color-verde')]
-            }]
-          },
-          options: { responsive: true, maintainAspectRatio: false }
-        });
-
-        // Barras
-        const excedentes = personas.filter(p => Number(p.excedente) > 0);
-        new Chart(document.getElementById('graficaBarras'), {
-          type: 'bar',
-          data: {
-            labels: excedentes.map(p => p.direccion),
-            datasets: [{
-              label: 'Litros excedentes',
-              data: excedentes.map(p => p.excedente),
-              backgroundColor: getColor('--color-azul')
-            }]
-          },
-          options: {
-            indexAxis: 'y',
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: { title: { display: true, text: 'Litros excedentes' }, ticks: { precision: 0 } },
-              y: { title: { display: true, text: 'Dirección' } }
-            },
-            plugins: { legend: { display: false } }
-          }
-        });
-
-        renderLista(personas);
-        document.getElementById('busqueda').addEventListener('input', filtrarLista);
       } catch (err) {
-        console.error(err);
-        statusEl.textContent = 'Error al cargar data.json.';
+        console.warn('Fetch data.json failed, using embedded fallback.', err);
+        data = typeof EMBEDDED_DATA !== 'undefined' ? EMBEDDED_DATA : { personas: [] };
+        statusEl.textContent = 'Usando datos embebidos (vista local).';
       }
+
+      personas = Array.isArray(data.personas) ? data.personas : [];
+
+      // Pastel
+      const conExcedente = personas.filter(p => Number(p.excedente) > 0).length;
+      const sinExcedente = personas.length - conExcedente;
+      new Chart(document.getElementById('graficaPastel'), {
+        type: 'pie',
+        data: {
+          labels: ['Con excedente', 'Sin excedente'],
+          datasets: [{
+            data: [conExcedente, sinExcedente],
+            backgroundColor: [getColor('--color-naranja'), getColor('--color-verde')]
+          }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+      });
+
+      // Barras
+      const excedentes = personas.filter(p => Number(p.excedente) > 0);
+      new Chart(document.getElementById('graficaBarras'), {
+        type: 'bar',
+        data: {
+          labels: excedentes.map(p => p.direccion),
+          datasets: [{
+            label: 'Litros excedentes',
+            data: excedentes.map(p => p.excedente),
+            backgroundColor: getColor('--color-azul')
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: { title: { display: true, text: 'Litros excedentes' }, ticks: { precision: 0 } },
+            y: { title: { display: true, text: 'Dirección' } }
+          },
+          plugins: { legend: { display: false } }
+        }
+      });
+
+      renderLista(personas);
+      document.getElementById('busqueda').addEventListener('input', filtrarLista);
     }
 
     function getColor(name) {
@@ -184,5 +249,8 @@
 
     cargarDatos();
   </script>
+  <div id="footerInclude"></div>
+  <script src="includes/load-fragments.js"></script>
 </body>
+
 </html>

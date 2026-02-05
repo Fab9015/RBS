@@ -7,7 +7,6 @@
 
     <title>Directorio – Reserva Bosque Sereno</title>
     <link rel="icon" href="img/favicon.png" type="image/png">
-
     <!-- Open Graph -->
     <meta property="og:title" content="Directorio – Reserva Bosque Sereno">
     <meta property="og:description"
@@ -29,7 +28,7 @@
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-
+    <link rel="stylesheet" href="styles/main.css">
     <style>
         :root {
             --color-bg: #fdfaf5;
@@ -48,19 +47,6 @@
             padding: 0;
             color: var(--color-text);
             overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Montserrat', sans-serif;
-        }
-
-        h2,
-        h3,
-        h4 {
-            color: var(--color-title);
         }
 
         /* Header */
@@ -386,6 +372,10 @@
                 text-align: center;
                 margin: 0.5em 0 1em;
             }
+
+            .container {
+                margin: inherit;
+            }
         }
 
         /* Desktop */
@@ -475,7 +465,7 @@
         }
 
         a:visited {
-            color: #004c4f;
+            color: var(--color-white);
         }
 
         a:hover {
@@ -493,7 +483,7 @@
         </div>
         <img src="img/logo.png" alt="Logo institucional" class="logo">
     </header>
-
+    <div id="menuInclude"></div>
     <div class="container">
         <h3 style="text-align:center; margin-top:1em;">Contactos importantes</h3>
         <div id="carousel-container">
@@ -543,9 +533,9 @@
         let startX = 0;
         let isDragging = false;
 
-        fetch('directorio.json')
-            .then(r => r.json())
-            .then(json => {
+        // Prefer embedded fallback when available (useful for file:// previews)
+        (function loadData() {
+            function applyData(json) {
                 datos = json;
                 renderRelevantes();
                 renderIndicators();
@@ -554,7 +544,55 @@
                 renderLista();
                 renderPaginacion();
                 initCarouselTouch();
-            });
+            }
+
+            // If embedded data already present, use it immediately
+            if (window && window.EMBEDDED_DIRECTORIO) {
+                applyData(window.EMBEDDED_DIRECTORIO);
+                return;
+            }
+
+            // If opened via file:// try to inject the embedded-data script and wait briefly
+            if (location.protocol === 'file:') {
+                try {
+                    if (!document.querySelector('script[src="includes/embedded-data.js"]')) {
+                        const s = document.createElement('script');
+                        s.src = 'includes/embedded-data.js';
+                        s.async = true;
+                        document.head.appendChild(s);
+                    }
+                } catch (e) { /* ignore */ }
+
+                // wait up to 1200ms for embedded global
+                const start = Date.now();
+                const id = setInterval(() => {
+                    if (window && window.EMBEDDED_DIRECTORIO) {
+                        clearInterval(id);
+                        applyData(window.EMBEDDED_DIRECTORIO);
+                        return;
+                    }
+                    if (Date.now() - start > 1200) {
+                        clearInterval(id);
+                        // fallback to network (may fail under file://)
+                        fetch('directorio.json').then(r => r.json()).then(applyData).catch(err => console.warn('Could not load directorio.json nor embedded fallback', err));
+                    }
+                }, 100);
+
+                return;
+            }
+
+            // Normal web flow: try network first, fall back to embedded if fetch fails
+            fetch('directorio.json')
+                .then(r => { if (!r.ok) throw new Error('no-data'); return r.json(); })
+                .then(applyData)
+                .catch(err => {
+                    if (window && window.EMBEDDED_DIRECTORIO) {
+                        applyData(window.EMBEDDED_DIRECTORIO);
+                    } else {
+                        console.warn('Failed to load directorio.json and no embedded fallback available', err);
+                    }
+                });
+        })();
 
         /* Función para dar formato visual al teléfono */
         function formatoTelefono(num) {
@@ -903,10 +941,8 @@
             </div>
         </div>
     </div>
-    <!-- Footer verde -->
-    <footer>
-        <p>Directorio del Condominio · © 2026</p>
-    </footer>
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
 </body>
 
 </html>

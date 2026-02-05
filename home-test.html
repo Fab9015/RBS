@@ -1,311 +1,173 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Inicio – Reserva Bosque Sereno</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="img/favicon.png" type="image/png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+
+  <meta property="og:title" content="Inicio – Reserva Bosque Sereno">
+  <meta property="og:description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/home-test.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Inicio – Reserva Bosque Sereno">
+  <meta name="twitter:description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+
+  <link rel="canonical" href="https://fab9015.github.io/RBS/home-test.html">
 
   <style>
-    :root {
-  --color-bg: #fdfaf5;
-  --color-title: #5c4033;
-  --color-accent: #a1b27a;
-  --color-white: #fefefe;
-  --color-border: #e6e2dc;
-  --color-contrast: #6a4f3d;
-  --color-inactive: #999999;
-}
+    /* Global variables and base body moved to styles/main.css */
 
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--color-bg);
-  color: var(--color-title);
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
+    /* Cards del blog */
+    .blog-entry {
+      background: var(--color-white);
+      border: 1px solid var(--color-border);
+      border-radius: 8px;
+      padding: 1.2em;
+      margin-bottom: 1.5em;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      /* necesario para el status-tag */
+    }
 
-/* Overlay fijo debajo del row */
-.overlay {
-  position: fixed;
-  left: 0;
-  width: 100%;
-  background: rgba(0,0,0,0.3);
-  display: none;
-  z-index: 900;
-}
-.overlay.active { display: block; }
+    .blog-entry:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    }
 
-/* Header institucional */
-header {
-  background: var(--color-bg);
-  border-bottom: 2px solid var(--color-border);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 1.2em 1em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-header h1 {
-  margin: 0;
-  font-size: 1.6em;
-  color: var(--color-title);
-}
-header p {
-  margin: 0.4em 0 0;
-  color: #6a4f3d;
-  font-size: 0.95em;
-}
-header img {
-  width: 100px;
-  height: auto;
-  margin-left: 1em;
-}
+    .blog-entry h3 {
+      margin-top: 0;
+      color: var(--color-title);
+    }
 
-/* Row con hamburguesa */
-.menu-row {
-  background: var(--color-accent);
-  padding: 0.3em 0.8em;
-  display: flex;
-  justify-content: flex-start;
-}
-.hamburger {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  color: var(--color-white);
-  font-size: 1.6em;
-}
-.hamburger span {
-  height: 3px;
-  width: 22px;
-  background: var(--color-white);
-  margin: 3px 0;
-  border-radius: 2px;
-}
-.hamburger.close span { display: none; }
-.hamburger.close::before {
-  content: "×";
-  color: var(--color-white);
-  font-size: 1.6em;
-}
+    /* Listas dentro de las cards */
+    .blog-entry ul.custom-list {
+      margin: 0.8em 0;
+      padding-left: 1.2em;
+      list-style-type: disc;
+    }
 
-/* Menú horizontal */
-nav {
-  background: var(--color-accent);
-}
-nav ul {
-  list-style: none;
-  margin: 0;
-  padding: 0.5em 1em;
-  display: flex;
-  gap: 1em;
-}
-nav ul li a {
-  color: var(--color-white);
-  text-decoration: none;
-  font-weight: bold;
-  padding: 0.4em 0.8em;
-  border-radius: 4px;
-  transition: background 0.3s, color 0.3s, transform 0.3s;
-  position: relative;
-}
-nav ul li a:hover {
-  background: var(--color-contrast);
-  transform: translateX(4px);
-}
-nav ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: var(--color-white);
-  transition: width 0.3s ease;
-}
-nav ul li a:hover::after {
-  width: 100%;
-}
+    .blog-entry ul.custom-list li {
+      margin-bottom: 0.4em;
+      color: var(--color-title);
+      font-size: 0.95em;
+    }
 
-/* Menú lateral fijo con scroll interno */
-.mobile-menu {
-  position: fixed;
-  left: -100%;
-  width: 220px;
-  background: var(--color-accent);
-  color: var(--color-white);
-  transition: left 0.3s ease;
-  z-index: 1000;
-  box-shadow: 4px 0 12px rgba(0,0,0,0.2);
-  overflow-y: auto; /* scroll interno automático */
-}
-.mobile-menu.active { left: 0; }
+    /* Status tag en esquina inferior derecha */
+    .status-tag {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      display: inline-block;
+      padding: 0.3em 0.6em;
+      border-radius: 4px;
+      font-size: 0.85em;
+      font-weight: bold;
+    }
 
-.mobile-menu ul {
-  list-style: none;
-  padding: 0.5em;
-  margin: 0.5em;
-}
-.mobile-menu ul li {
-  border-bottom: 1px solid var(--color-contrast);
-}
-.mobile-menu ul li a {
-  display: block;
-  padding: 0.9em;
-  text-decoration: none;
-  color: var(--color-white);
-  font-weight: bold;
-  transition: background 0.3s, transform 0.3s;
-  position: relative;
-}
-.mobile-menu ul li a:hover {
-  background: var(--color-contrast);
-  transform: translateX(4px);
-}
-.mobile-menu ul li a::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  width: 0%;
-  height: 2px;
-  background: var(--color-white);
-  transition: width 0.3s ease;
-}
-.mobile-menu ul li a:hover::after {
-  width: 100%;
-}
+    .status-active {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
 
-/* Cards del blog */
-.blog-entry {
-  background: var(--color-white);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  padding: 1.2em;
-  margin-bottom: 1.5em;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  position: relative; /* necesario para el status-tag */
-}
-.blog-entry:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-}
-.blog-entry h3 {
-  margin-top: 0;
-  color: var(--color-title);
-}
+    .status-inactive {
+      background: var(--color-inactive);
+      color: var(--color-white);
+    }
 
-/* Listas dentro de las cards */
-.blog-entry ul.custom-list {
-  margin: 0.8em 0;
-  padding-left: 1.2em;
-  list-style-type: disc;
-}
-.blog-entry ul.custom-list li {
-  margin-bottom: 0.4em;
-  color: var(--color-title);
-  font-size: 0.95em;
-}
+    /* Paginador */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 0.5em;
+      margin-top: 2em;
+    }
 
-/* Status tag en esquina inferior derecha */
-.status-tag {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  display: inline-block;
-  padding: 0.3em 0.6em;
-  border-radius: 4px;
-  font-size: 0.85em;
-  font-weight: bold;
-}
-.status-active {
-  background: var(--color-accent);
-  color: var(--color-white);
-}
-.status-inactive {
-  background: var(--color-inactive);
-  color: var(--color-white);
-}
+    .pagination button {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 0.5em 0.9em;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
 
-/* Paginador */
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0.5em;
-  margin-top: 2em;
-}
-.pagination button {
-  background: var(--color-accent);
-  color: var(--color-white);
-  border: none;
-  padding: 0.5em 0.9em;
-  border-radius: 4px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background 0.3s;
-}
-.pagination button:hover:not(.disabled) {
-  background: var(--color-contrast);
-}
-.pagination button.disabled {
-  background: var(--color-inactive);
-  cursor: not-allowed;
-}
+    .pagination button:hover:not(.disabled) {
+      background: var(--color-contrast);
+    }
 
-/* Contenido */
-.container {
-  flex: 1;
-  max-width: 900px;
-  margin: auto;
-  padding: 2em 1em;
-}
+    .pagination button.disabled {
+      background: var(--color-inactive);
+      cursor: not-allowed;
+    }
 
-/* Footer */
-footer {
-  background: var(--color-accent);
-  color: var(--color-white);
-  text-align: center;
-  padding: 1.2em 0;
-  margin-top: auto;
-}
-.footer-links {
-  margin-top: 1em;
-  display: flex;
-  justify-content: center;
-  gap: 1.5em;
-}
-.footer-links a {
-  color: var(--color-white);
-  text-decoration: none;
-}
+    /* Contenido */
+    .container {
+      flex: 1;
+      max-width: 900px;
+      margin: auto;
+      padding: 2em 1em;
+    }
 
-@media(max-width:768px){
-  nav ul { display:none; }
-  .hamburger { display:flex; }
-  .footer-links { display:none; }
-}
+    /* Footer */
+    footer {
+      background: var(--color-accent);
+      color: var(--color-white);
+      text-align: center;
+      padding: 1.2em 0;
+      margin-top: auto;
+    }
+
+    .footer-links {
+      margin-top: 1em;
+      display: flex;
+      justify-content: center;
+      gap: 1.5em;
+    }
+
+    .footer-links a {
+      color: var(--color-white);
+      text-decoration: none;
+    }
+
+    @media(max-width:768px) {
+      nav ul {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .footer-links {
+        display: none;
+      }
+    }
+
     /* Ocultar el row del menú en desktop */
-@media(min-width:769px){
-  .menu-row {
-    display: none;
-  }
-}
-
+    @media(min-width:769px) {
+      .menu-row {
+        display: none;
+      }
+    }
   </style>
 </head>
-<body>
-  <!-- Overlay dinámico -->
-  <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
 
+<body>
   <header>
     <div>
       <h1>Reserva Bosque Sereno</h1>
@@ -314,22 +176,8 @@ footer {
     <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
   </header>
 
-  <!-- Row con hamburguesa -->
-  <div class="menu-row">
-    <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-  </div>
-
-  <!-- Menú horizontal -->
-  <nav>
-    <ul id="menu"></ul>
-  </nav>
-
-  <!-- Menú lateral móvil -->
-  <div class="mobile-menu" id="mobileMenu">
-    <ul id="mobileMenuList"></ul>
-  </div>
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
 
   <div class="container">
     <h2>Próximos Eventos</h2>
@@ -337,76 +185,73 @@ footer {
     <div class="pagination" id="pagination"></div>
   </div>
 
-  <footer>
-    <p>Reserva Bosque Sereno · © 2026</p>
-    <div class="footer-links" id="footerLinks"></div>
-  </footer>
+  <div id="footerInclude"></div>
 
-<script>
-  // Ajustar posición del menú y overlay según la posición visible del row
-  function adjustMenuPosition(){
-    const row = document.querySelector('.menu-row');
-    const rect = row.getBoundingClientRect();
+  <script>
+    // Ajustar posición del menú y overlay según la posición visible del row
+    function adjustMenuPosition() {
+      const row = document.querySelector('.menu-row');
+      const rect = row.getBoundingClientRect();
 
-    const menu = document.getElementById('mobileMenu');
-    const overlay = document.getElementById('menuOverlay');
+      const menu = document.getElementById('mobileMenu');
+      const overlay = document.getElementById('menuOverlay');
 
-    // Posición actual del borde inferior del row en la ventana
-    const topOffset = rect.bottom;
+      // Posición actual del borde inferior del row en la ventana
+      const topOffset = rect.bottom;
 
-    menu.style.top = topOffset + "px";
-    menu.style.height = `calc(100% - ${topOffset}px)`;
-    overlay.style.top = topOffset + "px";
-    overlay.style.height = `calc(100% - ${topOffset}px)`;
-  }
+      menu.style.top = topOffset + "px";
+      menu.style.height = `calc(100% - ${topOffset}px)`;
+      overlay.style.top = topOffset + "px";
+      overlay.style.height = `calc(100% - ${topOffset}px)`;
+    }
 
-  window.addEventListener('resize', adjustMenuPosition);
-  window.addEventListener('scroll', adjustMenuPosition);
-  window.addEventListener('load', adjustMenuPosition);
+    window.addEventListener('resize', adjustMenuPosition);
+    window.addEventListener('scroll', adjustMenuPosition);
+    window.addEventListener('load', adjustMenuPosition);
 
-  function toggleMenu(){
-    adjustMenuPosition(); // recalcular antes de abrir
-    const menu = document.getElementById('mobileMenu');
-    const toggle = document.getElementById('menuToggle');
-    const overlay = document.getElementById('menuOverlay');
+    function toggleMenu() {
+      adjustMenuPosition(); // recalcular antes de abrir
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('menuToggle');
+      const overlay = document.getElementById('menuOverlay');
 
-    menu.classList.toggle('active');
-    overlay.classList.toggle('active');
-    toggle.classList.toggle('close');
+      menu.classList.toggle('active');
+      overlay.classList.toggle('active');
+      toggle.classList.toggle('close');
 
-    // Bloquear scroll del fondo cuando el menú está abierto
-    document.body.style.overflow = menu.classList.contains('active') ? "hidden" : "";
-  }
+      // Bloquear scroll del fondo cuando el menú está abierto
+      document.body.style.overflow = menu.classList.contains('active') ? "hidden" : "";
+    }
 
-  function closeMenu(){
-    const menu = document.getElementById('mobileMenu');
-    const toggle = document.getElementById('menuToggle');
-    const overlay = document.getElementById('menuOverlay');
+    function closeMenu() {
+      const menu = document.getElementById('mobileMenu');
+      const toggle = document.getElementById('menuToggle');
+      const overlay = document.getElementById('menuOverlay');
 
-    menu.classList.remove('active');
-    overlay.classList.remove('active');
-    toggle.classList.remove('close');
+      menu.classList.remove('active');
+      overlay.classList.remove('active');
+      toggle.classList.remove('close');
 
-    // Restaurar scroll del fondo
-    document.body.style.overflow = "";
-  }
+      // Restaurar scroll del fondo
+      document.body.style.overflow = "";
+    }
 
-  // Variables de paginación
-  let currentPage = 1;
-  const perPage = 3;
-  let blogData = [];
+    // Variables de paginación
+    let currentPage = 1;
+    const perPage = 3;
+    let blogData = [];
 
-  // Renderizar entradas del blog
-  function renderBlog(){
-    const blog = document.getElementById('blog');
-    blog.innerHTML = "";
-    const start = (currentPage-1)*perPage;
-    const end = start+perPage;
-    const pageEntries = blogData.slice(start,end);
-    pageEntries.forEach(entry=>{
-      const statusClass = entry.activo ? "status-active" : "status-inactive";
-      const statusText = entry.activo ? "Próximo evento" : "Evento realizado";
-      blog.innerHTML += `
+    // Renderizar entradas del blog
+    function renderBlog() {
+      const blog = document.getElementById('blog');
+      blog.innerHTML = "";
+      const start = (currentPage - 1) * perPage;
+      const end = start + perPage;
+      const pageEntries = blogData.slice(start, end);
+      pageEntries.forEach(entry => {
+        const statusClass = entry.activo ? "status-active" : "status-inactive";
+        const statusText = entry.activo ? "Próximo evento" : "Evento realizado";
+        blog.innerHTML += `
         <div class="blog-entry">
           <h3>${entry.title}</h3>
           <p>${entry.description}</p>
@@ -416,65 +261,48 @@ footer {
           <div class="status-tag ${statusClass}">${statusText}</div>
         </div>
       `;
-    });
-    renderPagination();
-  }
-
-  // Renderizar paginador
-  function renderPagination(){
-    const pagination = document.getElementById('pagination');
-    pagination.innerHTML = "";
-    const totalPages = Math.ceil(blogData.length/perPage);
-    if(totalPages <= 1) return;
-
-    // Botón anterior
-    const prevBtn = document.createElement('button');
-    prevBtn.textContent = "«";
-    prevBtn.disabled = currentPage===1;
-    if(prevBtn.disabled) prevBtn.classList.add("disabled");
-    prevBtn.onclick = ()=>{ if(currentPage>1){ currentPage--; renderBlog(); } };
-    pagination.appendChild(prevBtn);
-
-    // Números de página
-    for(let i=1;i<=totalPages;i++){
-      const pageBtn = document.createElement('button');
-      pageBtn.textContent = i;
-      if(i===currentPage){
-        pageBtn.style.background = "var(--color-title)";
-        pageBtn.style.color = "white";
-      }
-      pageBtn.onclick = ()=>{ currentPage=i; renderBlog(); };
-      pagination.appendChild(pageBtn);
+      });
+      renderPagination();
     }
 
-    // Botón siguiente
-    const nextBtn = document.createElement('button');
-    nextBtn.textContent = "»";
-    nextBtn.disabled = currentPage===totalPages;
-    if(nextBtn.disabled) nextBtn.classList.add("disabled");
-    nextBtn.onclick = ()=>{ if(currentPage<totalPages){ currentPage++; renderBlog(); } };
-    pagination.appendChild(nextBtn);
-  }
+    // Renderizar paginador
+    function renderPagination() {
+      const pagination = document.getElementById('pagination');
+      pagination.innerHTML = "";
+      const totalPages = Math.ceil(blogData.length / perPage);
+      if (totalPages <= 1) return;
 
-  // Cargar datos desde home.json
-  fetch('home.json')
-    .then(r=>r.json())
-    .then(data=>{
-      // Menú horizontal y lateral
-      const menu = document.getElementById('menu');
-      const mobileMenuList = document.getElementById('mobileMenuList');
-      const footerLinks = document.getElementById('footerLinks');
-      data.menu.forEach(item=>{
-        menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-        mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-        footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
-      });
+      // Botón anterior
+      const prevBtn = document.createElement('button');
+      prevBtn.textContent = "«";
+      prevBtn.disabled = currentPage === 1;
+      if (prevBtn.disabled) prevBtn.classList.add("disabled");
+      prevBtn.onclick = () => { if (currentPage > 1) { currentPage--; renderBlog(); } };
+      pagination.appendChild(prevBtn);
 
-      // Blog
-      blogData = data.blog;
-      renderBlog();
-    })
-    .catch(err => console.error("Error cargando home.json:", err));
-</script>
+      // Números de página
+      for (let i = 1; i <= totalPages; i++) {
+        const pageBtn = document.createElement('button');
+        pageBtn.textContent = i;
+        if (i === currentPage) {
+          pageBtn.style.background = "var(--color-title)";
+          pageBtn.style.color = "white";
+        }
+        pageBtn.onclick = () => { currentPage = i; renderBlog(); };
+        pagination.appendChild(pageBtn);
+      }
+
+      // Botón siguiente
+      const nextBtn = document.createElement('button');
+      nextBtn.textContent = "»";
+      nextBtn.disabled = currentPage === totalPages;
+      if (nextBtn.disabled) nextBtn.classList.add("disabled");
+      nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderBlog(); } };
+      pagination.appendChild(nextBtn);
+    }
+  </script>
+  <script src="includes/load-fragments.js"></script>
+  <script src="includes/load-blog.js"></script>
 </body>
+
 </html>

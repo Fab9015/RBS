@@ -1,66 +1,70 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Agradecimiento a vecinos</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description"
+    content="Agradecimiento a vecinos y registro de despensas y adornos — Reserva Bosque Sereno.">
+  <meta property="og:title" content="Agradecimiento a vecinos">
+  <meta property="og:description"
+    content="Agradecimiento a vecinos y registro de despensas y adornos — Reserva Bosque Sereno.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/despensas-y-adornos.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Agradecimiento a vecinos">
+  <meta name="twitter:description"
+    content="Agradecimiento a vecinos y registro de despensas y adornos — Reserva Bosque Sereno.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <link rel="canonical" href="https://fab9015.github.io/RBS/despensas-y-adornos.html">
   <style>
-    :root {
-      --color-bg: #fdfaf5;
-      --color-title: #5c4033;
-      --color-footer: #5c4033;
-      --color-accent: #a1b27a;
-      --color-highlight: #a1b27a;
-      --color-white: #fefefe;
-      --color-text: #5c4033;
-      --color-border: #e6e2dc;
-    }
-    body {
-      font-family: 'Lato', sans-serif;
-      background: var(--color-bg);
-      margin: 0;
-      padding: 0;
-      color: var(--color-text);
-    }
-    h1,h2,h3 { font-family: 'Montserrat', sans-serif; }
-    h2,h3,h4 { color: var(--color-title); }
-    header {
-      background: var(--color-bg);
-      color: var(--color-title);
-      text-align: center;
-      padding: 2em 1em;
-    }
     .container {
       padding: 2em 1em;
       max-width: 1000px;
       margin: auto;
     }
+
     .card {
       background: var(--color-bg);
       border: 2px solid var(--color-accent);
       border-radius: 10px;
       padding: 1.2em;
       margin-bottom: 2em;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       margin-top: 1em;
     }
-    th, td {
+
+    th,
+    td {
       border: 1px solid var(--color-border);
       padding: 8px;
       text-align: left;
     }
+
     th {
       background-color: var(--color-accent);
       color: var(--color-white);
     }
+
     .calle {
       background-color: var(--color-highlight);
       color: var(--color-text);
       font-weight: bold;
     }
+
     /* Carrusel */
     .carousel {
       position: relative;
@@ -70,30 +74,38 @@
       border-radius: 8px;
       background: var(--color-border);
     }
+
     .carousel .slide {
       display: none;
       width: 100%;
       height: 0;
-      padding-top: 56.25%; /* relación 16:9 */
+      padding-top: 56.25%;
+      /* relación 16:9 */
       position: relative;
     }
+
     .carousel .slide.active {
       display: block;
     }
+
     .carousel img,
     .carousel video {
       position: absolute;
-      top: 0; left: 0;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: scale-down; /* ahora scale-down */
+      object-fit: scale-down;
+      /* ahora scale-down */
       border-radius: 8px;
       background: var(--color-bg);
     }
+
     .carousel-controls {
       text-align: center;
       margin-top: 8px;
     }
+
     .carousel-controls button {
       background: var(--color-accent);
       color: var(--color-white);
@@ -103,73 +115,144 @@
       border-radius: 6px;
       cursor: pointer;
     }
+
     .carousel-controls button:hover {
       background-color: #8fa76a;
     }
+
     /* Responsive */
     @media (max-width: 768px) {
-      .card { padding: 1em; }
-      table { font-size: 13px; }
+      .card {
+        padding: 1em;
+      }
+
+      table {
+        font-size: 13px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header>
-    <h1>Agradecimiento a vecinos</h1>
-    <p>Gracias a su apoyo logramos reconocer la labor de quienes cuidan nuestro condominio</p>
+    <div class="header-text">
+      <h1>Agradecimiento a vecinos</h1>
+      <p>Gracias a su apoyo logramos reconocer la labor de quienes cuidan nuestro condominio</p>
+    </div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
   </header>
+
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
 
   <div class="container">
     <div class="card">
-  <h2>Gracias vecinos, ¡la magia de la Navidad se comparte!</h2>
-  <p>Muchas gracias a todos los vecinos que con su apoyo y generosidad hicieron posible adornar la entrada del condominio y compartir una despensa con quienes trabajan día a día por nuestro bienestar. Su solidaridad es el mejor regalo de esta temporada.</p>
-  <h3>Trabajadores beneficiados</h3>
-  <p>En total contamos con <strong>10 trabajadores</strong> que recibieron una despensa como muestra de agradecimiento por su esfuerzo diario:</p>
-  <ul>
-    <li>4 vigilantes</li>
-    <li>2 jardineros</li>
-    <li>1 persona de limpieza de áreas comunes</li>
-    <li>3 personas del servicio de recolección de basura</li>
-  </ul>
-</div>
+      <h2>Gracias vecinos, ¡la magia de la Navidad se comparte!</h2>
+      <p>Muchas gracias a todos los vecinos que con su apoyo y generosidad hicieron posible adornar la entrada del
+        condominio y compartir una despensa con quienes trabajan día a día por nuestro bienestar. Su solidaridad es el
+        mejor regalo de esta temporada.</p>
+      <h3>Trabajadores beneficiados</h3>
+      <p>En total contamos con <strong>10 trabajadores</strong> que recibieron una despensa como muestra de
+        agradecimiento por su esfuerzo diario:</p>
+      <ul>
+        <li>4 vigilantes</li>
+        <li>2 jardineros</li>
+        <li>1 persona de limpieza de áreas comunes</li>
+        <li>3 personas del servicio de recolección de basura</li>
+      </ul>
+    </div>
 
-<div class="card">
-  <h2>Lista de vecinos que aportaron</h2>
-  <table>
-    <thead><tr><th>Dirección</th></tr></thead>
-    <tbody>
-      <tr class="calle"><td>Sabino</td></tr>
-      <tr><td>Sabino 144</td></tr>
-      <tr><td>Sabino 146</td></tr>
-      <tr><td>Sabino 156</td></tr>
-      <tr><td>Sabino 203</td></tr>
-      <tr><td>Sabino 209</td></tr>
-      <tr><td>Sabino 210</td></tr>
-      <tr><td>Sabino 216</td></tr>
-      <tr><td>Sabino 219</td></tr>      
+    <div class="card">
+      <h2>Lista de vecinos que aportaron</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Dirección</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="calle">
+            <td>Sabino</td>
+          </tr>
+          <tr>
+            <td>Sabino 144</td>
+          </tr>
+          <tr>
+            <td>Sabino 146</td>
+          </tr>
+          <tr>
+            <td>Sabino 156</td>
+          </tr>
+          <tr>
+            <td>Sabino 203</td>
+          </tr>
+          <tr>
+            <td>Sabino 209</td>
+          </tr>
+          <tr>
+            <td>Sabino 210</td>
+          </tr>
+          <tr>
+            <td>Sabino 216</td>
+          </tr>
+          <tr>
+            <td>Sabino 219</td>
+          </tr>
 
-      <tr class="calle"><td>Sakura</td></tr>
-      <tr><td>Sakura 120</td></tr>
-      <tr><td>Sakura 130</td></tr>
-      <tr><td>Sakura 207</td></tr>
-      <tr><td>Sakura 212</td></tr>
-      <tr><td>Sakura 241</td></tr>
+          <tr class="calle">
+            <td>Sakura</td>
+          </tr>
+          <tr>
+            <td>Sakura 120</td>
+          </tr>
+          <tr>
+            <td>Sakura 130</td>
+          </tr>
+          <tr>
+            <td>Sakura 207</td>
+          </tr>
+          <tr>
+            <td>Sakura 212</td>
+          </tr>
+          <tr>
+            <td>Sakura 241</td>
+          </tr>
 
-      <tr class="calle"><td>Sequoia</td></tr>
-      <tr><td>Sequoia 141</td></tr>
-      <tr><td>Sequoia 152</td></tr>
-      <tr><td>Sequoia 153</td></tr>
-      <tr><td>Sequoia 162</td></tr>
-      <tr><td>Sequoia 214</td></tr>
-      <tr><td>Sequoia 309</td></tr>
-      <tr><td>Sequoia 503</td></tr>
-      <tr><td>Sequoia 525</td></tr>
+          <tr class="calle">
+            <td>Sequoia</td>
+          </tr>
+          <tr>
+            <td>Sequoia 141</td>
+          </tr>
+          <tr>
+            <td>Sequoia 152</td>
+          </tr>
+          <tr>
+            <td>Sequoia 153</td>
+          </tr>
+          <tr>
+            <td>Sequoia 162</td>
+          </tr>
+          <tr>
+            <td>Sequoia 214</td>
+          </tr>
+          <tr>
+            <td>Sequoia 309</td>
+          </tr>
+          <tr>
+            <td>Sequoia 503</td>
+          </tr>
+          <tr>
+            <td>Sequoia 525</td>
+          </tr>
 
-      <!-- Sumatoria -->
-      <tr class="calle"><td>Total de aportaciones: 21</td></tr>
-    </tbody>
-  </table>
-</div>
+          <!-- Sumatoria -->
+          <tr class="calle">
+            <td>Total de aportaciones: 21</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
 
     <div class="card">
@@ -184,8 +267,12 @@
         <div class="slide"><img src="img/6.jpg" alt="Evidencia 6"></div>
         <div class="slide"><img src="img/7.jpg" alt="Evidencia 7"></div>
         <!-- Videos -->
-        <div class="slide"><video muted playsinline><source src="media/v1.mp4" type="video/mp4"></video></div>
-        <div class="slide"><video muted playsinline><source src="media/v2.mp4" type="video/mp4"></video></div>
+        <div class="slide"><video muted playsinline>
+            <source src="media/v1.mp4" type="video/mp4">
+          </video></div>
+        <div class="slide"><video muted playsinline>
+            <source src="media/v2.mp4" type="video/mp4">
+          </video></div>
       </div>
       <div class="carousel-controls">
         <button onclick="prevSlide()">Anterior</button>
@@ -231,6 +318,8 @@
     // Inicializar primer slide
     showSlide(currentSlide);
   </script>
+  <div id="footerInclude"></div>
+  <script src="includes/load-fragments.js"></script>
 </body>
-</html>
 
+</html>

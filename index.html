@@ -4,213 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Inicio – Reserva Bosque Sereno</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+
+    <meta property="og:title" content="Inicio – Reserva Bosque Sereno">
+    <meta property="og:description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="600">
+    <meta property="og:image:height" content="400">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/index.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Inicio – Reserva Bosque Sereno">
+    <meta name="twitter:description" content="Inicio — Reserva Bosque Sereno. Información y noticias del condominio.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+
+    <link rel="canonical" href="https://fab9015.github.io/RBS/index.html">
 
     <style>
-        :root {
-            --color-bg: #fdfaf5;
-            --color-title: #5c4033;
-            --color-accent: #a1b27a;
-            --color-white: #fefefe;
-            --color-border: #e6e2dc;
-            --color-contrast: #6a4f3d;
-            --color-inactive: #999999;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background: var(--color-bg);
-            color: var(--color-title);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Overlay fijo debajo del row */
-        .overlay {
-            position: fixed;
-            left: 0;
-            width: 100%;
-            background: rgba(0, 0, 0, 0.3);
-            display: none;
-            z-index: 900;
-        }
-
-        .overlay.active {
-            display: block;
-        }
-
-        /* Header institucional */
-        header {
-            background: var(--color-bg);
-            border-bottom: 2px solid var(--color-border);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-            padding: 1.2em 1em;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: 1.6em;
-            color: var(--color-title);
-        }
-
-        header p {
-            margin: 0.4em 0 0;
-            color: #6a4f3d;
-            font-size: 0.95em;
-        }
-
-        header img {
-            width: 100px;
-            height: auto;
-            margin-left: 1em;
-        }
-
-        /* Row con hamburguesa */
-        .menu-row {
-            background: var(--color-accent);
-            padding: 0.3em 0.8em;
-            display: flex;
-            justify-content: flex-start;
-        }
-
-        .hamburger {
-            width: 32px;
-            height: 32px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            color: var(--color-white);
-            font-size: 1.6em;
-        }
-
-        .hamburger span {
-            height: 3px;
-            width: 22px;
-            background: var(--color-white);
-            margin: 3px 0;
-            border-radius: 2px;
-        }
-
-        .hamburger.close span {
-            display: none;
-        }
-
-        .hamburger.close::before {
-            content: "×";
-            color: var(--color-white);
-            font-size: 1.6em;
-        }
-
-        /* Menú horizontal */
-        nav {
-            background: var(--color-accent);
-        }
-
-        nav ul {
-            list-style: none;
-            margin: 0;
-            padding: 0.5em 1em;
-            display: flex;
-            gap: 1em;
-        }
-
-        nav ul li a {
-            color: var(--color-white);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.4em 0.8em;
-            border-radius: 4px;
-            transition: background 0.3s, color 0.3s, transform 0.3s;
-            position: relative;
-        }
-
-        nav ul li a:hover {
-            background: var(--color-contrast);
-            transform: translateX(4px);
-        }
-
-        nav ul li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0%;
-            height: 2px;
-            background: var(--color-white);
-            transition: width 0.3s ease;
-        }
-
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-
-        /* Menú lateral fijo con scroll interno */
-        .mobile-menu {
-            position: fixed;
-            left: -100%;
-            width: 220px;
-            background: var(--color-accent);
-            color: var(--color-white);
-            transition: left 0.3s ease;
-            z-index: 1000;
-            box-shadow: 4px 0 12px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-            /* scroll interno automático */
-        }
-
-        .mobile-menu.active {
-            left: 0;
-        }
-
-        .mobile-menu ul {
-            list-style: none;
-            padding: 0.5em;
-            margin: 0.5em;
-        }
-
-        .mobile-menu ul li {
-            border-bottom: 1px solid var(--color-contrast);
-        }
-
-        .mobile-menu ul li a {
-            display: block;
-            padding: 0.9em;
-            text-decoration: none;
-            color: var(--color-white);
-            font-weight: bold;
-            transition: background 0.3s, transform 0.3s;
-            position: relative;
-        }
-
-        .mobile-menu ul li a:hover {
-            background: var(--color-contrast);
-            transform: translateX(4px);
-        }
-
-        .mobile-menu ul li a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -2px;
-            width: 0%;
-            height: 2px;
-            background: var(--color-white);
-            transition: width 0.3s ease;
-        }
-
-        .mobile-menu ul li a:hover::after {
-            width: 100%;
-        }
-
         /* Cards del blog */
         .blog-entry {
             background: var(--color-white);
@@ -426,17 +242,15 @@
 </head>
 
 <body>
-    <div class="coming-soon-overlay">
+    <!-- <div class="coming-soon-overlay">
         <div class="coming-soon-content">
             <h1>✨ ¡Próximamente! ✨</h1>
             <p class="subtitle">Una nueva etapa para nuestro condominio</p>
             <p class="date">Presentación oficial<br><strong>11 de febrero de 2026</strong></p>
             <p class="teaser">Mantente atento... lo que viene marcará la diferencia...</p>
         </div>
-    </div>
-
-    <!-- Overlay dinámico -->
-    <div class="overlay" id="menuOverlay" onclick="closeMenu()"></div>
+    </div> -->
+    <!-- Overlay dinámico: moved to includes/menu.html -->
 
     <header>
         <div>
@@ -446,22 +260,8 @@
         <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
     </header>
 
-    <!-- Row con hamburguesa -->
-    <div class="menu-row">
-        <div class="hamburger" id="menuToggle" onclick="toggleMenu()">
-            <span></span><span></span><span></span>
-        </div>
-    </div>
-
-    <!-- Menú horizontal -->
-    <nav>
-        <ul id="menu"></ul>
-    </nav>
-
-    <!-- Menú lateral móvil -->
-    <div class="mobile-menu" id="mobileMenu">
-        <ul id="mobileMenuList"></ul>
-    </div>
+    <!-- Menu fragment (injected) -->
+    <div id="menuInclude"></div>
 
     <div class="container">
         <h2>Próximos Eventos</h2>
@@ -469,15 +269,13 @@
         <div class="pagination" id="pagination"></div>
     </div>
 
-    <footer>
-        <p>Reserva Bosque Sereno · © 2026</p>
-        <div class="footer-links" id="footerLinks"></div>
-    </footer>
+    <div id="footerInclude"></div>
 
     <script>
         // Ajustar posición del menú y overlay según la posición visible del row
         function adjustMenuPosition() {
             const row = document.querySelector('.menu-row');
+            if (!row) return; // menú aún no inyectado
             const rect = row.getBoundingClientRect();
 
             const menu = document.getElementById('mobileMenu');
@@ -486,10 +284,8 @@
             // Posición actual del borde inferior del row en la ventana
             const topOffset = rect.bottom;
 
-            menu.style.top = topOffset + "px";
-            menu.style.height = `calc(100% - ${topOffset}px)`;
-            overlay.style.top = topOffset + "px";
-            overlay.style.height = `calc(100% - ${topOffset}px)`;
+            if (menu) { menu.style.top = topOffset + "px"; menu.style.height = `calc(100% - ${topOffset}px)`; }
+            if (overlay) { overlay.style.top = topOffset + "px"; overlay.style.height = `calc(100% - ${topOffset}px)`; }
         }
 
         window.addEventListener('resize', adjustMenuPosition);
@@ -587,27 +383,10 @@
             nextBtn.onclick = () => { if (currentPage < totalPages) { currentPage++; renderBlog(); } };
             pagination.appendChild(nextBtn);
         }
-
-        // Cargar datos desde home.json
-        fetch('home.json')
-            .then(r => r.json())
-            .then(data => {
-                // Menú horizontal y lateral
-                const menu = document.getElementById('menu');
-                const mobileMenuList = document.getElementById('mobileMenuList');
-                const footerLinks = document.getElementById('footerLinks');
-                data.menu.forEach(item => {
-                    menu.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-                    mobileMenuList.innerHTML += `<li><a href="${item.url}">${item.title}</a></li>`;
-                    footerLinks.innerHTML += `<a href="${item.url}">${item.title}</a>`;
-                });
-
-                // Blog
-                blogData = data.blog;
-                renderBlog();
-            })
-            .catch(err => console.error("Error cargando home.json:", err));
     </script>
+
+    <script src="includes/load-fragments.js"></script>
+    <script src="includes/load-blog.js"></script>
 </body>
 
 </html>

@@ -1,23 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <title>Generador de Datos Comunitarios</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description"
+    content="Generador de datos comunitarios — utilidades para el condominio Reserva Bosque Sereno.">
+  <meta property="og:title" content="Generador de Datos Comunitarios">
+  <meta property="og:description"
+    content="Generador de datos comunitarios — utilidades para el condominio Reserva Bosque Sereno.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/Generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generador de Datos Comunitarios">
+  <meta name="twitter:description"
+    content="Generador de datos comunitarios — utilidades para el condominio Reserva Bosque Sereno.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <link rel="canonical" href="https://fab9015.github.io/RBS/Generator.html">
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background: #f2f2f2;
-      padding: 20px;
-      color: #333;
-      max-width: 600px;
-      margin: auto;
-    }
-    h1 {
-      text-align: center;
-      font-size: 24px;
-      margin-bottom: 30px;
-    }
     fieldset {
       border: 1px solid #ccc;
       padding: 20px;
@@ -25,12 +33,15 @@
       border-radius: 8px;
       background: white;
     }
+
     label {
       display: block;
       margin: 12px 0 4px;
       font-weight: bold;
     }
-    input, select {
+
+    input,
+    select {
       width: 100%;
       padding: 12px;
       font-size: 16px;
@@ -38,20 +49,23 @@
       border: 1px solid #bbb;
       box-sizing: border-box;
     }
+
     button {
       margin-top: 15px;
       padding: 12px;
       font-size: 16px;
       border: none;
       border-radius: 6px;
-      background: #0078d4;
+      background: var(--color-accent);
       color: white;
       cursor: pointer;
       width: 100%;
     }
+
     button:hover {
-      background: #005fa1;
+      background: var(--color-accent)
     }
+
     textarea {
       width: 100%;
       height: 240px;
@@ -63,142 +77,192 @@
       resize: vertical;
       box-sizing: border-box;
     }
+
+    /* Page content container to keep form centered and within readable width */
+    .content-wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 1rem;
+      box-sizing: border-box;
+    }
+
     .acciones {
       margin-top: 10px;
       display: flex;
-      flex-direction: column;
+      flex-direction: row;
       gap: 10px;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+
+    /* Make action buttons use natural width here (override global full-width button rule) */
+    .acciones button {
+      width: auto;
+      min-width: 160px;
+      padding: 12px 18px;
+    }
+
+    /* Ensure textarea respects container width */
+    #jsonOutput {
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Make the primary form button inside the content area use natural width */
+    .content-wrap fieldset>button {
+      width: auto;
+      display: inline-block;
+      min-width: 160px;
+      padding: 12px 18px;
     }
   </style>
 </head>
+
 <body>
 
-<h1>Generador de datos comunitarios</h1>
+  <header>
+    <div class="header-text">
+      <h1>Generador de Datos Comunitarios</h1>
+      <p>Herramienta para crear y gestionar datos comunitarios</p>
+    </div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+  </header>
 
-<fieldset>
-  <h1><strong>Agregar entrada</strong></h1>
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
 
-  <label for="calle">Calle</label>
-  <select id="calle">
-    <option value="">--Selecciona calle--</option>
-    <option value="Sakura">Sakura</option>
-    <option value="Sabino">Sabino</option>
-    <option value="Sequoia">Sequoia</option>
-  </select>
+  <div class="content-wrap">
+    <fieldset>
+      <h1><strong>Agregar entrada</strong></h1>
 
-  <label for="domicilio">Domicilio</label>
-  <input type="number" id="domicilio" placeholder="Ejemplo: 101">
+      <label for="calle">Calle</label>
+      <select id="calle">
+        <option value="">--Selecciona calle--</option>
+        <option value="Sakura">Sakura</option>
+        <option value="Sabino">Sabino</option>
+        <option value="Sequoia">Sequoia</option>
+      </select>
 
-  <label for="p1">P1 ¿Qué tan deacuerdo estás con la administración de Agendum/Parametro?  (0–5)</label>
-  <select id="p1">
-    <option value="">--Selecciona--</option>
-    <option value="0">0 - Desagrado total</option>
-    <option value="1">1 - Molestia leve</option>
-    <option value="2">2 - Insatisfacción</option>
-    <option value="3">3 - Neutral</option>
-    <option value="4">4 - Aprobación</option>
-    <option value="5">5 - Agrado total</option>
-  </select>
+      <label for="domicilio">Domicilio</label>
+      <input type="number" id="domicilio" placeholder="Ejemplo: 101">
 
-  <label for="p2">P2 ¿Qué tan deacuerdo estás en cambiar la administración actual? (0–5)</label>
-  <select id="p2">
-    <option value="">--Selecciona--</option>
-    <option value="0">0 - Desagrado total</option>
-    <option value="1">1 - Molestia leve</option>
-    <option value="2">2 - Insatisfacción</option>
-    <option value="3">3 - Neutral</option>
-    <option value="4">4 - Aprobación</option>
-    <option value="5">5 - Agrado total</option>
-  </select>
+      <label for="p1">P1 ¿Qué tan deacuerdo estás con la administración de Agendum/Parametro? (0–5)</label>
+      <select id="p1">
+        <option value="">--Selecciona--</option>
+        <option value="0">0 - Desagrado total</option>
+        <option value="1">1 - Molestia leve</option>
+        <option value="2">2 - Insatisfacción</option>
+        <option value="3">3 - Neutral</option>
+        <option value="4">4 - Aprobación</option>
+        <option value="5">5 - Agrado total</option>
+      </select>
 
-  <label for="p3">P3 ¿Qué tan deacuerdo estás con aumentar la cuota si es necesario? (0–5)</label>
-  <select id="p3">
-    <option value="">--Selecciona--</option>
-    <option value="0">0 - Desagrado total</option>
-    <option value="1">1 - Molestia leve</option>
-    <option value="2">2 - Insatisfacción</option>
-    <option value="3">3 - Neutral</option>
-    <option value="4">4 - Aprobación</option>
-    <option value="5">5 - Agrado total</option>
-  </select>
+      <label for="p2">P2 ¿Qué tan deacuerdo estás en cambiar la administración actual? (0–5)</label>
+      <select id="p2">
+        <option value="">--Selecciona--</option>
+        <option value="0">0 - Desagrado total</option>
+        <option value="1">1 - Molestia leve</option>
+        <option value="2">2 - Insatisfacción</option>
+        <option value="3">3 - Neutral</option>
+        <option value="4">4 - Aprobación</option>
+        <option value="5">5 - Agrado total</option>
+      </select>
 
-  <label for="p4">P4 ¿Sabías que si la cuota no es adecuada, la cantidad y/o calidad de los servicios puede verse afectada? (Sí / No)</label>
-  <select id="p4">
-    <option value="">--Selecciona--</option>
-    <option value="Sí">Sí</option>
-    <option value="No">No</option>
-  </select>
+      <label for="p3">P3 ¿Qué tan deacuerdo estás con aumentar la cuota si es necesario? (0–5)</label>
+      <select id="p3">
+        <option value="">--Selecciona--</option>
+        <option value="0">0 - Desagrado total</option>
+        <option value="1">1 - Molestia leve</option>
+        <option value="2">2 - Insatisfacción</option>
+        <option value="3">3 - Neutral</option>
+        <option value="4">4 - Aprobación</option>
+        <option value="5">5 - Agrado total</option>
+      </select>
 
-  <label for="p5">P5 ¿Qué tan disponible te consideras para participar en actividades del condominio? (0–5)</label>
-  <select id="p5">
-    <option value="">--Selecciona--</option>
-    <option value="0">0 - Desagrado total</option>
-    <option value="1">1 - Molestia leve</option>
-    <option value="2">2 - Insatisfacción</option>
-    <option value="3">3 - Neutral</option>
-    <option value="4">4 - Aprobación</option>
-    <option value="5">5 - Agrado total</option>
-  </select>
+      <label for="p4">P4 ¿Sabías que si la cuota no es adecuada, la cantidad y/o calidad de los servicios puede verse
+        afectada? (Sí / No)</label>
+      <select id="p4">
+        <option value="">--Selecciona--</option>
+        <option value="Sí">Sí</option>
+        <option value="No">No</option>
+      </select>
 
-  <button onclick="agregarEntrada()">➕ Agregar entrada</button>
-</fieldset>
+      <label for="p5">P5 ¿Qué tan disponible te consideras para participar en actividades del condominio? (0–5)</label>
+      <select id="p5">
+        <option value="">--Selecciona--</option>
+        <option value="0">0 - Desagrado total</option>
+        <option value="1">1 - Molestia leve</option>
+        <option value="2">2 - Insatisfacción</option>
+        <option value="3">3 - Neutral</option>
+        <option value="4">4 - Aprobación</option>
+        <option value="5">5 - Agrado total</option>
+      </select>
 
-<h3>Registros agregados</h3>
-<textarea id="jsonOutput" readonly></textarea>
+      <button onclick="agregarEntrada()">➕ Agregar entrada</button>
+    </fieldset>
 
-<div class="acciones">
-  <button onclick="copiarJSON()">📋 Copiar al portapapeles</button>
-  <button onclick="descargarJSON()">📥 Descargar datos.json</button>
-</div>
+    <h3>Registros agregados</h3>
+    <textarea id="jsonOutput" readonly></textarea>
 
-<script>
-  let datos = [];
+    <div class="acciones">
+      <button onclick="copiarJSON()">📋 Copiar al portapapeles</button>
+      <button onclick="descargarJSON()">📥 Descargar datos.json</button>
+    </div>
 
-  function agregarEntrada() {
-    const calle = document.getElementById("calle").value;
-    const domicilio = parseInt(document.getElementById("domicilio").value);
-    const p1 = parseInt(document.getElementById("p1").value);
-    const p2 = parseInt(document.getElementById("p2").value);
-    const p3 = parseInt(document.getElementById("p3").value);
-    const p4 = document.getElementById("p4").value;
-    const p5 = parseInt(document.getElementById("p5").value);
+  </div><!-- /.content-wrap -->
 
-    if (!calle || isNaN(domicilio) || isNaN(p1) || isNaN(p2) || isNaN(p3) || !p4 || isNaN(p5)) {
-      alert("Por favor, completa todos los campos correctamente.");
-      return;
+  <script>
+    let datos = [];
+
+    function agregarEntrada() {
+      const calle = document.getElementById("calle").value;
+      const domicilio = parseInt(document.getElementById("domicilio").value);
+      const p1 = parseInt(document.getElementById("p1").value);
+      const p2 = parseInt(document.getElementById("p2").value);
+      const p3 = parseInt(document.getElementById("p3").value);
+      const p4 = document.getElementById("p4").value;
+      const p5 = parseInt(document.getElementById("p5").value);
+
+      if (!calle || isNaN(domicilio) || isNaN(p1) || isNaN(p2) || isNaN(p3) || !p4 || isNaN(p5)) {
+        alert("Por favor, completa todos los campos correctamente.");
+        return;
+      }
+
+      datos.push({ calle, domicilio, p1, p2, p3, p4, p5 });
+      document.getElementById("jsonOutput").value = JSON.stringify(datos, null, 2);
+      limpiarFormulario();
     }
 
-    datos.push({ calle, domicilio, p1, p2, p3, p4, p5 });
-    document.getElementById("jsonOutput").value = JSON.stringify(datos, null, 2);
-    limpiarFormulario();
-  }
+    function limpiarFormulario() {
+      document.getElementById("calle").value = "";
+      document.getElementById("domicilio").value = "";
+      ["p1", "p2", "p3", "p4", "p5"].forEach(id => {
+        document.getElementById(id).value = "";
+      });
+    }
 
-  function limpiarFormulario() {
-    document.getElementById("calle").value = "";
-    document.getElementById("domicilio").value = "";
-    ["p1", "p2", "p3", "p4", "p5"].forEach(id => {
-      document.getElementById(id).value = "";
-    });
-  }
+    function copiarJSON() {
+      const textArea = document.getElementById("jsonOutput");
+      textArea.select();
+      document.execCommand("copy");
+      alert("Contenido copiado al portapapeles.");
+    }
 
-  function copiarJSON() {
-    const textArea = document.getElementById("jsonOutput");
-    textArea.select();
-    document.execCommand("copy");
-    alert("Contenido copiado al portapapeles.");
-  }
-
-  function descargarJSON() {
-    const blob = new Blob([JSON.stringify(datos, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = "datos.json";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  }
-</script>
+    function descargarJSON() {
+      const blob = new Blob([JSON.stringify(datos, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = "datos.json";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+  <div id="footerInclude"></div>
+  <script src="includes/load-fragments.js"></script>
 </body>
+
 </html>

@@ -1,0 +1,32 @@
+{
+    "menu": [
+        {
+            "title": "Home",
+            "url": "index.html"
+        },
+        {
+            "title": "Directorio",
+            "url": "directorio.html"
+        },
+        {
+            "title": "Condovive",
+            "url": "https://app.condovive.com/"
+        },
+        {
+            "title": "Preguntas Frecuentes",
+            "url": "preguntas-frecuentes.html"
+        },
+        {
+            "title": "Asamblea 2025",
+            "url": "menu-accesos-rapidos.html"
+        },
+        {
+            "title": "Pagos Adelantados",
+            "url": "pagos-adelantados.html"
+        },
+        {
+            "title": "Dashboard del Directorio",
+            "url": "generador-directorio.html"
+        }
+    ]
+}

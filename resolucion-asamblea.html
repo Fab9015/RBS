@@ -1,170 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <title>Resoluciones Asamblea – Reserva Bosque Sereno</title>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" href="img/favicon.png" type="image/png">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description" content="Resoluciones y acuerdos de la asamblea — Reserva Bosque Sereno.">
+  <meta property="og:title" content="Resoluciones Asamblea – Reserva Bosque Sereno">
+  <meta property="og:description" content="Resoluciones y acuerdos de la asamblea — Reserva Bosque Sereno.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/resolucion-asamblea.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Resoluciones Asamblea – Reserva Bosque Sereno">
+  <meta name="twitter:description" content="Resoluciones y acuerdos de la asamblea — Reserva Bosque Sereno.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <link rel="canonical" href="https://fab9015.github.io/RBS/resolucion-asamblea.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
+    rel="stylesheet">
   <style>
-    :root {
-  --color-bg: #fdfaf5;
-  --color-title: #5c4033;
-  --color-accent: #a1b27a;
-  --color-border: #e6e2dc;
-  --color-text: #5c4033;
-  --color-favor: #8b6f4e;
-  --color-contra: #c3d1a1;
-}
+    /* Page-specific styles (shared header/logo/typography moved to styles/main.css) */
 
-body {
-  font-family: 'Lato', sans-serif;
-  background: var(--color-bg);
-  margin: 0;
-  padding: 0;
-  color: var(--color-text);
-}
+    main {
+      padding: 2em 1em;
+      max-width: 1080px;
+      margin: 0 auto;
+    }
 
-h1, h2, h3 {
-  font-family: 'Montserrat', sans-serif;
-  color: var(--color-title);
-}
+    .section {
+      margin-bottom: 3em;
+    }
 
-header {
-  position: static;
-  top: 0;
-  z-index: 1000;
-  background: var(--color-bg);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 1.5em 1em;
-  border-bottom: 1px solid var(--color-border);
-}
+    .section h2 {
+      font-size: 1.5em;
+      margin-bottom: 1em;
+      border-bottom: 2px solid var(--color-accent);
+      padding-bottom: 0.5em;
+    }
 
-.header-text {
-  flex-grow: 1;
-  padding-right: 1em;
-}
+    .chart {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-.header-text h1 {
-  margin: 0;
-  font-size: clamp(1.4em, 4vw, 2em);
-  text-transform: uppercase;
-}
+    .chart img {
+      max-width: 100%;
+      height: auto;
+      border: 2px solid var(--color-accent);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    }
 
-.header-text p {
-  margin-top: 0.5em;
-  font-size: clamp(0.9em, 2.5vw, 1em);
-  font-style: italic;
-}
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
 
-.logo {
-  max-width: 140px;
-  height: auto;
-  object-fit: contain;
-}
+    li h3 {
+      margin-bottom: 0.5em;
+    }
 
-main {
-  padding: 2em 1em;
-  max-width: 1080px;
-  margin: 0 auto;
-}
+    .vote-bar {
+      display: flex;
+      flex-direction: column;
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--color-border);
+      margin: 0.5em 0;
+      max-width: 600px;
+      font-size: 0.9em;
+    }
 
-.section {
-  margin-bottom: 3em;
-}
+    .vote-favor,
+    .vote-contra {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.5em;
+      white-space: nowrap;
+      width: 100%;
+    }
 
-.section h2 {
-  font-size: 1.5em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid var(--color-accent);
-  padding-bottom: 0.5em;
-}
+    .vote-favor {
+      background: var(--color-accent);
+      color: var(--color-white);
+    }
 
-.chart {
-  width: 100%;
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
+    .vote-contra {
+      background: var(--color-contrast);
+      color: var(--color-white);
+    }
 
-.chart img {
-  max-width: 100%;
-  height: auto;
-  border: 2px solid var(--color-accent);
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-li {
-  margin-bottom: 2em;
-}
-
-li h3 {
-  margin-bottom: 0.5em;
-}
-
-.vote-bar {
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  overflow: hidden;
-  background: var(--color-border);
-  margin: 0.5em 0;
-  max-width: 600px;
-  font-size: 0.9em;
-}
-
-.vote-favor, .vote-contra {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 0.5em;
-  white-space: nowrap;
-  width: 100%;
-}
-
-.vote-favor {
-  background: var(--color-favor);
-  color: #fff;
-}
-
-.vote-contra {
-  background: var(--color-contra);
-  color: #333;
-}
     .return-button {
-            display: inline-block;
-            background-color: var(--color-accent);
-            color: var(--color-white);
-            padding: 0.8em 1.2em;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-            transition: background-color 0.2s ease, transform 0.2s ease;
-        }
-     .return-button:hover {
-            background-color: #8fa76a;
-            transform: translateY(-2px);
-        }
+      display: inline-block;
+      background-color: var(--color-accent);
+      color: var(--color-white);
+      padding: 0.8em 1.2em;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+      transition: background-color 0.2s ease, transform 0.2s ease;
+    }
+
+    .return-button:hover {
+      background-color: #8fa76a;
+      transform: translateY(-2px);
+    }
   </style>
 </head>
+
 <body>
   <header>
     <div class="header-text">
       <h1>Resoluciones de la Asamblea</h1>
       <p>Resumen visual de asistencia y votaciones del 6 de noviembre de 2025</p>
     </div>
-    <img src="img/logo.png" alt="Logo institucional" class="logo" />
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
   </header>
+
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
 
   <main>
     <section class="section">
@@ -178,8 +143,11 @@ li h3 {
     <section class="section">
       <h2>Resultados de votación por punto del orden del día</h2>
       <ul>
-                <li>
-          <h3>I. Designación de Presidente, Secretario y Escrutador; Verificación del quórum para dar inicio a la Asamblea General Extraordinaria de Condóminos, así como la declaración de estar legalmente instalada la Asamblea y de la validez y obligatoriedad de las resoluciones y acuerdos que en la misma se tomen.<br><br>¿Están de acuerdo en los integrantes de Presidente, Secretario y Escrutador?</h3>
+        <li>
+          <p>I. Designación de Presidente, Secretario y Escrutador; Verificación del quórum para dar inicio a la
+            Asamblea General Extraordinaria de Condóminos, así como la declaración de estar legalmente instalada la
+            Asamblea y de la validez y obligatoriedad de las resoluciones y acuerdos que en la misma se
+            tomen.<br><br>¿Están de acuerdo en los integrantes de Presidente, Secretario y Escrutador?</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -187,7 +155,9 @@ li h3 {
         </li>
 
         <li>
-          <h3>II. Se hace del conocimiento en este momento que por cuestiones de logística interna entre administración y comité se repitió el I y II punto del orden del día, por lo que se somete a votación para que el II punto del orden del día quede sin efectos.</h3>
+          <p>II. Se hace del conocimiento en este momento que por cuestiones de logística interna entre administración
+            y comité se repitió el I y II punto del orden del día, por lo que se somete a votación para que el II punto
+            del orden del día quede sin efectos.</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -195,7 +165,10 @@ li h3 {
         </li>
 
         <li>
-          <h3>III. Discusión y, en su caso, aprobación sobre la revocación y/o terminación de la prestación de servicios de administración condominal de la persona moral AGENDUM S.A. de C.V.<br><br>¿Están de acuerdo por dar por terminada la prestación de servicios de administración condominal de la persona moral AGENDUM S.A. de C.V.?</h3>
+          <p>III. Discusión y, en su caso, aprobación sobre la revocación y/o terminación de la prestación de servicios
+            de administración condominal de la persona moral AGENDUM S.A. de C.V.<br><br>¿Están de acuerdo por dar por
+            terminada la prestación de servicios de administración condominal de la persona moral AGENDUM S.A. de C.V.?
+          </p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:98.9%">94 votos a favor</div>
             <div class="vote-contra" style="width:1.1%">1 voto en contra</div>
@@ -204,7 +177,9 @@ li h3 {
         </li>
 
         <li>
-          <h3>IV. Presentación y, en su caso, aprobación del acto formal de entrega-recepción de la primera administración del condominio, conforme al Título Primero, fracción V, inciso h) del Reglamento Interno.</h3>
+          <p>IV. Presentación y, en su caso, aprobación del acto formal de entrega-recepción de la primera
+            administración del condominio, conforme al Título Primero, fracción V, inciso h) del Reglamento Interno.
+          </p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -212,7 +187,9 @@ li h3 {
         </li>
 
         <li>
-          <h3>V. Propuesta, y en su caso, aprobación para designación y contratación de la Persona Moral que quedará a cargo de la Administración del Condominio.<br><br>¿Están de acuerdo con el cambio de la empresa a cargo de la Administración del Condominio sea DEFAST DEFENSA Y ASESORÍA TRIBUTARIA S.C.?</h3>
+          <p>V. Propuesta, y en su caso, aprobación para designación y contratación de la Persona Moral que quedará a
+            cargo de la Administración del Condominio.<br><br>¿Están de acuerdo con el cambio de la empresa a cargo de
+            la Administración del Condominio sea DEFAST DEFENSA Y ASESORÍA TRIBUTARIA S.C.?</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:97.9%">93 votos a favor</div>
             <div class="vote-contra" style="width:2.1%">2 votos en contra</div>
@@ -221,7 +198,10 @@ li h3 {
         </li>
 
         <li>
-          <h3>VI. Propuesta, y en su caso, aprobación para otorgar facultades legales de cobro judicial a la nueva empresa contratada en calidad de Administrador; exclusivamente durante la vigencia de su contrato, para proceder contra condóminos morosos conforme al artículo 525 del Código Urbano para el Estado de Aguascalientes.</h3>
+          <p>VI. Propuesta, y en su caso, aprobación para otorgar facultades legales de cobro judicial a la nueva
+            empresa contratada en calidad de Administrador; exclusivamente durante la vigencia de su contrato, para
+            proceder contra condóminos morosos conforme al artículo 525 del Código Urbano para el Estado de
+            Aguascalientes.</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -229,7 +209,9 @@ li h3 {
         </li>
 
         <li>
-          <h3>VII. Propuesta, y en su caso, aprobación de una cuota extraordinaria para mejorar los servicios y fortalecer el fondo de reserva.<br><br>¿Están de acuerdo con realizar una aportación extraordinaria de $350.00 (trescientos cincuenta pesos 00/100 M.N.) en el mes de Noviembre 2025?</h3>
+          <p>VII. Propuesta, y en su caso, aprobación de una cuota extraordinaria para mejorar los servicios y
+            fortalecer el fondo de reserva.<br><br>¿Están de acuerdo con realizar una aportación extraordinaria de
+            $350.00 (trescientos cincuenta pesos 00/100 M.N.) en el mes de Noviembre 2025?</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -237,7 +219,10 @@ li h3 {
         </li>
 
         <li>
-          <h3>VIII. Propuesta y, en su caso aprobación para el ajuste de la cuota mensual de mantenimiento, con base en la proyección financiera presentada por el Comité de Administración.<br><br>¿Están de acuerdo con realizar el aumento de la cuota mensual del condómino a $1,050.00 (un mil cincuenta pesos 00/100 M.N.) a partir del mes de Noviembre 2025?</h3>
+          <p>VIII. Propuesta y, en su caso aprobación para el ajuste de la cuota mensual de mantenimiento, con base en
+            la proyección financiera presentada por el Comité de Administración.<br><br>¿Están de acuerdo con realizar
+            el aumento de la cuota mensual del condómino a $1,050.00 (un mil cincuenta pesos 00/100 M.N.) a partir del
+            mes de Noviembre 2025?</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -245,7 +230,9 @@ li h3 {
         </li>
 
         <li>
-          <h3>IX. Designación del delegado especial para la protocolización del acta de Asamblea ante Notario Público.<br><br>¿Están de acuerdo con que el C. Aries Jiménez Esparza en su calidad de Secretario de la presente asamblea acuda ante el notario público para realizar la protocolización correspondiente?</h3>
+          <p>IX. Designación del delegado especial para la protocolización del acta de Asamblea ante Notario
+            Público.<br><br>¿Están de acuerdo con que el C. Aries Jiménez Esparza en su calidad de Secretario de la
+            presente asamblea acuda ante el notario público para realizar la protocolización correspondiente?</p>
           <div class="vote-bar">
             <div class="vote-favor" style="width:100%">95 votos a favor (100%)</div>
           </div>
@@ -254,13 +241,12 @@ li h3 {
       </ul>
     </section>
     <div style="text-align: center; margin-top: 3em;">
-        <a href="index.html" class="return-button">← Regresar</a>
+      <a href="menu-accesos-rapidos.html" class="return-button">← Regresar</a>
     </div>
   </main>
+
+  <div id="footerInclude"></div>
+  <script src="includes/load-fragments.js"></script>
 </body>
-</html>
-      </ul>
-    </section>
-  </main>
-</body>
+
 </html>

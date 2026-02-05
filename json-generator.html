@@ -1,272 +1,333 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Generador de data.json desde Excel</title>
+  <link rel="icon" href="img/favicon.png" type="image/png">
   <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <link rel="stylesheet" href="styles/main.css">
+  <meta name="description" content="Generador de JSON desde Excel — herramienta de utilidades para el proyecto RBS.">
+  <meta property="og:title" content="Generador de data.json desde Excel">
+  <meta property="og:description"
+    content="Generador de JSON desde Excel — herramienta de utilidades para el proyecto RBS.">
+  <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="600">
+  <meta property="og:image:height" content="400">
+  <meta property="og:url" content="https://fab9015.github.io/RBS/json-generator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Generador de data.json desde Excel">
+  <meta name="twitter:description"
+    content="Generador de JSON desde Excel — herramienta de utilidades para el proyecto RBS.">
+  <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+  <link rel="canonical" href="https://fab9015.github.io/RBS/json-generator.html">
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; color: #2c3e50; }
-    h1 { margin-bottom: 8px; }
-    .controls { margin: 12px 0; display: flex; gap: 8px; flex-wrap: wrap; }
-    button { padding: 8px 12px; }
-    .status { margin-top: 8px; font-size: 14px; color: #606c76; }
-    pre { background: #f7f7f7; padding: 12px; border: 1px solid #e6e6e6; max-height: 50vh; overflow: auto; }
-    .error { color: #c0392b; }
-    .ok { color: #2e7d32; }
+    .controls {
+      margin: 12px 0;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    button {
+      padding: 8px 12px;
+    }
+
+    .status {
+      margin-top: 8px;
+      font-size: 14px;
+      color: #606c76;
+    }
+
+    pre {
+      background: #f7f7f7;
+      padding: 12px;
+      border: 1px solid #e6e6e6;
+      max-height: 50vh;
+      overflow: auto;
+    }
+
+    .error {
+      color: #c0392b;
+    }
+
+    .ok {
+      color: #2e7d32;
+    }
   </style>
 </head>
+
 <body>
-  <h1>Generar data.json desde Excel</h1>
-  <div class="controls">
-    <input type="file" id="inputExcel" accept=".xlsx,.xls" />
-    <button id="procesarBtn">Procesar Excel</button>
-    <button id="descargarBtn" style="display:none;">Descargar JSON</button>
-    <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
-  </div>
-  <div id="status" class="status"></div>
-  <pre id="output"></pre>
+  <header>
+    <div class="header-text">
+      <h1>Generar data.json desde Excel</h1>
+      <p>Herramienta para convertir hojas de cálculo en JSON</p>
+    </div>
+    <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+  </header>
+  <!-- Menu fragment (injected) -->
+  <div id="menuInclude"></div>
+  <main>
 
-  <script>
-    let dataJson = null;
+    <div class="controls">
+      <input type="file" id="inputExcel" accept=".xlsx,.xls" />
+      <button id="procesarBtn">Procesar Excel</button>
+      <button id="descargarBtn" style="display:none;">Descargar JSON</button>
+      <button id="copiarBtn" style="display:none;">Copiar JSON al portapapeles</button>
+    </div>
+    <div id="status" class="status"></div>
+    <pre id="output"></pre>
 
-    function norm(v) {
-      return String(v ?? '')
-        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-        .trim().toLowerCase();
-    }
+    <script>
+      let dataJson = null;
 
-    function isNumericLike(v) {
-      if (v === null || v === undefined) return false;
-      const s = String(v).trim();
-      if (s === '') return false;
-      return !isNaN(Number(s));
-    }
-
-    // Detecta la fila de encabezados por palabras clave (flexible)
-    function detectarEncabezados(matrix) {
-      for (let r = 0; r < matrix.length; r++) {
-        const fila = matrix[r].map(norm);
-        const ok =
-          fila.some(c => c.includes('nombre')) &&
-          fila.some(c => c.includes('consumo')) &&
-          fila.some(c => c.includes('excedente')) &&
-          (fila.some(c => c.includes('calle')) || fila.some(c => c.includes('no.ext')) || fila.some(c => c.includes('ext')));
-        if (ok) return { rowIndex: r, headers: matrix[r] };
+      function norm(v) {
+        return String(v ?? '')
+          .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .trim().toLowerCase();
       }
-      return null;
-    }
 
-    // Mapea índices por encabezado, si existen; si no, devuelve -1
-    function mapearIndices(headers) {
-      const H = headers.map(norm);
-      function find(...cands) {
-        for (const c of cands) {
-          const i = H.findIndex(h => h.includes(c));
-          if (i !== -1) return i;
+      function isNumericLike(v) {
+        if (v === null || v === undefined) return false;
+        const s = String(v).trim();
+        if (s === '') return false;
+        return !isNaN(Number(s));
+      }
+
+      // Detecta la fila de encabezados por palabras clave (flexible)
+      function detectarEncabezados(matrix) {
+        for (let r = 0; r < matrix.length; r++) {
+          const fila = matrix[r].map(norm);
+          const ok =
+            fila.some(c => c.includes('nombre')) &&
+            fila.some(c => c.includes('consumo')) &&
+            fila.some(c => c.includes('excedente')) &&
+            (fila.some(c => c.includes('calle')) || fila.some(c => c.includes('no.ext')) || fila.some(c => c.includes('ext')));
+          if (ok) return { rowIndex: r, headers: matrix[r] };
         }
-        return -1;
+        return null;
       }
-      return {
-        ncond: find('n.cond'),
-        nombre: find('nombre'),
-        consumo: find('consumo'),
-        excedente: find('excedente'),
-        calle: find('calle'),
-        noext: find('no.ext', 'no exterior', 'ext')
-      };
-    }
 
-    // Heurística: si no encontramos 'calle' o 'noext' por encabezado, los buscamos relativos al índice de nombre
-    function extraerCalleYNoExtPorPosicion(row, idxNombre) {
-      let calle = null;
-      let noext = null;
-
-      // Buscamos desde nombre+1 hacia la derecha:
-      for (let c = idxNombre + 1; c < row.length; c++) {
-        const val = row[c];
-        const n = norm(val);
-
-        // Primera candidata de calle: texto no numérico, con pista "reserva" o que no sea vacío y no sea número
-        const esTextoNoNumero = !isNumericLike(val) && n.length > 0;
-        const pareceCalle = esTextoNoNumero && (n.includes('reserva') || n.includes('sakura') || n.includes('sequoia') || n.includes('sabino'));
-
-        if (pareceCalle && calle === null) {
-          calle = String(val).trim();
-
-          // El siguiente valor numérico a la derecha lo tomamos como No.Ext
-          for (let k = c + 1; k < row.length; k++) {
-            if (isNumericLike(row[k])) {
-              noext = String(row[k]).trim();
-              break;
-            }
+      // Mapea índices por encabezado, si existen; si no, devuelve -1
+      function mapearIndices(headers) {
+        const H = headers.map(norm);
+        function find(...cands) {
+          for (const c of cands) {
+            const i = H.findIndex(h => h.includes(c));
+            if (i !== -1) return i;
           }
-          break;
+          return -1;
         }
+        return {
+          ncond: find('n.cond'),
+          nombre: find('nombre'),
+          consumo: find('consumo'),
+          excedente: find('excedente'),
+          calle: find('calle'),
+          noext: find('no.ext', 'no exterior', 'ext')
+        };
       }
 
-      // Si no lo logramos con pistas, como fallback: primera celda de texto a la derecha + siguiente numérica
-      if (!calle) {
+      // Heurística: si no encontramos 'calle' o 'noext' por encabezado, los buscamos relativos al índice de nombre
+      function extraerCalleYNoExtPorPosicion(row, idxNombre) {
+        let calle = null;
+        let noext = null;
+
+        // Buscamos desde nombre+1 hacia la derecha:
         for (let c = idxNombre + 1; c < row.length; c++) {
           const val = row[c];
-          if (!isNumericLike(val) && String(val).trim() !== '') {
+          const n = norm(val);
+
+          // Primera candidata de calle: texto no numérico, con pista "reserva" o que no sea vacío y no sea número
+          const esTextoNoNumero = !isNumericLike(val) && n.length > 0;
+          const pareceCalle = esTextoNoNumero && (n.includes('reserva') || n.includes('sakura') || n.includes('sequoia') || n.includes('sabino'));
+
+          if (pareceCalle && calle === null) {
             calle = String(val).trim();
+
+            // El siguiente valor numérico a la derecha lo tomamos como No.Ext
             for (let k = c + 1; k < row.length; k++) {
-              if (isNumericLike(row[k])) { noext = String(row[k]).trim(); break; }
+              if (isNumericLike(row[k])) {
+                noext = String(row[k]).trim();
+                break;
+              }
             }
             break;
           }
         }
-      }
 
-      return { calle, noext };
-    }
-
-    function procesarMatriz(matrix, headerInfo) {
-      const idx = mapearIndices(headerInfo.headers);
-      const personas = [];
-      const startRow = headerInfo.rowIndex + 1;
-
-      for (let r = startRow; r < matrix.length; r++) {
-        const row = matrix[r];
-
-        // Criterio de fin
-        const joined = row.map(norm).join(' ');
-        if (joined.includes('total condominos') || joined.includes('domicilios')) break;
-
-        // Nombre
-        let nombre = null;
-        if (idx.nombre !== -1) {
-          nombre = row[idx.nombre];
-        } else {
-          // Si no tenemos índice de nombre, buscamos la primera celda de texto "larga" en la fila
-          for (let c = 0; c < row.length; c++) {
-            const v = row[c];
-            if (!isNumericLike(v) && String(v).trim().length >= 3) {
-              nombre = String(v).trim();
-              idx.nombre = c; // fijamos este índice para heurística
+        // Si no lo logramos con pistas, como fallback: primera celda de texto a la derecha + siguiente numérica
+        if (!calle) {
+          for (let c = idxNombre + 1; c < row.length; c++) {
+            const val = row[c];
+            if (!isNumericLike(val) && String(val).trim() !== '') {
+              calle = String(val).trim();
+              for (let k = c + 1; k < row.length; k++) {
+                if (isNumericLike(row[k])) { noext = String(row[k]).trim(); break; }
+              }
               break;
             }
           }
         }
-        if (!nombre || norm(nombre) === '') continue;
 
-        // Consumo y excedente por encabezado si existen
-        const consumo = (idx.consumo !== -1 && row[idx.consumo] !== undefined) ? Number(row[idx.consumo]) : 0;
-        const excedente = (idx.excedente !== -1 && row[idx.excedente] !== undefined) ? Number(row[idx.excedente]) : 0;
+        return { calle, noext };
+      }
 
-        // Calle y No.Ext por encabezado si existen
-        let calle = (idx.calle !== -1 && row[idx.calle] !== undefined && String(row[idx.calle]).trim() !== '')
-          ? String(row[idx.calle]).trim()
-          : null;
+      function procesarMatriz(matrix, headerInfo) {
+        const idx = mapearIndices(headerInfo.headers);
+        const personas = [];
+        const startRow = headerInfo.rowIndex + 1;
 
-        let noext = (idx.noext !== -1 && row[idx.noext] !== undefined && String(row[idx.noext]).trim() !== '')
-          ? String(row[idx.noext]).trim()
-          : null;
+        for (let r = startRow; r < matrix.length; r++) {
+          const row = matrix[r];
 
-        // Si falta calle o noext, usar heurística relativa al nombre
-        if (!calle || !noext) {
-          const idxNombre = idx.nombre;
-          if (idxNombre !== -1) {
-            const rel = extraerCalleYNoExtPorPosicion(row, idxNombre);
-            if (!calle && rel.calle) calle = rel.calle;
-            if (!noext && rel.noext) noext = rel.noext;
+          // Criterio de fin
+          const joined = row.map(norm).join(' ');
+          if (joined.includes('total condominos') || joined.includes('domicilios')) break;
+
+          // Nombre
+          let nombre = null;
+          if (idx.nombre !== -1) {
+            nombre = row[idx.nombre];
+          } else {
+            // Si no tenemos índice de nombre, buscamos la primera celda de texto "larga" en la fila
+            for (let c = 0; c < row.length; c++) {
+              const v = row[c];
+              if (!isNumericLike(v) && String(v).trim().length >= 3) {
+                nombre = String(v).trim();
+                idx.nombre = c; // fijamos este índice para heurística
+                break;
+              }
+            }
           }
+          if (!nombre || norm(nombre) === '') continue;
+
+          // Consumo y excedente por encabezado si existen
+          const consumo = (idx.consumo !== -1 && row[idx.consumo] !== undefined) ? Number(row[idx.consumo]) : 0;
+          const excedente = (idx.excedente !== -1 && row[idx.excedente] !== undefined) ? Number(row[idx.excedente]) : 0;
+
+          // Calle y No.Ext por encabezado si existen
+          let calle = (idx.calle !== -1 && row[idx.calle] !== undefined && String(row[idx.calle]).trim() !== '')
+            ? String(row[idx.calle]).trim()
+            : null;
+
+          let noext = (idx.noext !== -1 && row[idx.noext] !== undefined && String(row[idx.noext]).trim() !== '')
+            ? String(row[idx.noext]).trim()
+            : null;
+
+          // Si falta calle o noext, usar heurística relativa al nombre
+          if (!calle || !noext) {
+            const idxNombre = idx.nombre;
+            if (idxNombre !== -1) {
+              const rel = extraerCalleYNoExtPorPosicion(row, idxNombre);
+              if (!calle && rel.calle) calle = rel.calle;
+              if (!noext && rel.noext) noext = rel.noext;
+            }
+          }
+
+          // Limpieza final
+          calle = calle && calle.trim() !== '' ? calle.trim() : 'Sin calle';
+          noext = noext && noext.trim() !== '' ? noext.trim() : '';
+
+          const direccion = `${calle}${noext ? ' #' + noext : ''}`;
+
+          // Filtrar algunos administrativos si lo deseas
+          const nd = norm(nombre);
+          const esAdmin = ['banos alberca', 'banos casa club', 'cuarto de bombas', 'oficina de administracion'].some(t => nd.includes(t));
+          if (esAdmin) continue;
+
+          personas.push({
+            nombre: String(nombre).trim(),
+            consumo: isFinite(consumo) ? consumo : 0,
+            excedente: isFinite(excedente) ? excedente : 0,
+            calle,
+            numero_exterior: noext,
+            direccion
+          });
         }
 
-        // Limpieza final
-        calle = calle && calle.trim() !== '' ? calle.trim() : 'Sin calle';
-        noext = noext && noext.trim() !== '' ? noext.trim() : '';
-
-        const direccion = `${calle}${noext ? ' #' + noext : ''}`;
-
-        // Filtrar algunos administrativos si lo deseas
-        const nd = norm(nombre);
-        const esAdmin = ['banos alberca', 'banos casa club', 'cuarto de bombas', 'oficina de administracion'].some(t => nd.includes(t));
-        if (esAdmin) continue;
-
-        personas.push({
-          nombre: String(nombre).trim(),
-          consumo: isFinite(consumo) ? consumo : 0,
-          excedente: isFinite(excedente) ? excedente : 0,
-          calle,
-          numero_exterior: noext,
-          direccion
-        });
+        return { pactados: 15, personas };
       }
 
-      return { pactados: 15, personas };
-    }
+      async function procesarExcel() {
+        const statusEl = document.getElementById('status');
+        const outputEl = document.getElementById('output');
+        outputEl.textContent = '';
+        statusEl.textContent = 'Leyendo Excel…';
 
-    async function procesarExcel() {
-      const statusEl = document.getElementById('status');
-      const outputEl = document.getElementById('output');
-      outputEl.textContent = '';
-      statusEl.textContent = 'Leyendo Excel…';
+        const fileInput = document.getElementById('inputExcel');
+        if (!fileInput.files.length) {
+          alert("Por favor selecciona un archivo Excel.");
+          statusEl.textContent = '';
+          return;
+        }
 
-      const fileInput = document.getElementById('inputExcel');
-      if (!fileInput.files.length) {
-        alert("Por favor selecciona un archivo Excel.");
-        statusEl.textContent = '';
-        return;
-      }
+        try {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const data = new Uint8Array(e.target.result);
+            const workbook = XLSX.read(data, { type: 'array' });
+            const sheetName = workbook.SheetNames[0];
+            const sheet = workbook.Sheets[sheetName];
 
-      try {
-        const reader = new FileReader();
-        reader.onload = function(e) {
-          const data = new Uint8Array(e.target.result);
-          const workbook = XLSX.read(data, { type: 'array' });
-          const sheetName = workbook.SheetNames[0];
-          const sheet = workbook.Sheets[sheetName];
+            const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
 
-          const matrix = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+            const headerInfo = detectarEncabezados(matrix);
+            if (!headerInfo) {
+              statusEl.innerHTML = '<span class="error">No se pudo detectar la fila de encabezados. Intentaré procesar con heurística relativa.</span>';
+              // Si no hay encabezados claros, aún así intenta desde el inicio
+              const fallbackHeader = { rowIndex: 0, headers: matrix[0] ?? [] };
+              const resultadoFallback = procesarMatriz(matrix, fallbackHeader);
+              dataJson = resultadoFallback;
+            } else {
+              const resultado = procesarMatriz(matrix, headerInfo);
+              dataJson = resultado;
+            }
 
-          const headerInfo = detectarEncabezados(matrix);
-          if (!headerInfo) {
-            statusEl.innerHTML = '<span class="error">No se pudo detectar la fila de encabezados. Intentaré procesar con heurística relativa.</span>';
-            // Si no hay encabezados claros, aún así intenta desde el inicio
-            const fallbackHeader = { rowIndex: 0, headers: matrix[0] ?? [] };
-            const resultadoFallback = procesarMatriz(matrix, fallbackHeader);
-            dataJson = resultadoFallback;
-          } else {
-            const resultado = procesarMatriz(matrix, headerInfo);
-            dataJson = resultado;
-          }
+            const total = dataJson.personas.length;
+            const conExc = dataJson.personas.filter(p => p.excedente > 0).length;
+            const sinExc = total - conExc;
+            statusEl.innerHTML = `<span class="ok">Procesado:</span> ${total} registros. Con excedente: ${conExc}. Sin excedente: ${sinExc}.`;
 
-          const total = dataJson.personas.length;
-          const conExc = dataJson.personas.filter(p => p.excedente > 0).length;
-          const sinExc = total - conExc;
-          statusEl.innerHTML = `<span class="ok">Procesado:</span> ${total} registros. Con excedente: ${conExc}. Sin excedente: ${sinExc}.`;
+            outputEl.textContent = JSON.stringify(dataJson, null, 2);
 
-          outputEl.textContent = JSON.stringify(dataJson, null, 2);
+            const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const descargarBtn = document.getElementById('descargarBtn');
+            descargarBtn.style.display = "inline";
+            descargarBtn.onclick = () => {
+              const a = document.createElement("a");
+              a.href = url;
+              a.download = "data.json";
+              a.click();
+            };
 
-          const blob = new Blob([JSON.stringify(dataJson, null, 2)], { type: "application/json" });
-          const url = URL.createObjectURL(blob);
-          const descargarBtn = document.getElementById('descargarBtn');
-          descargarBtn.style.display = "inline";
-          descargarBtn.onclick = () => {
-            const a = document.createElement("a");
-            a.href = url;
-            a.download = "data.json";
-            a.click();
+            const copiarBtn = document.getElementById('copiarBtn');
+            copiarBtn.style.display = "inline";
+            copiarBtn.onclick = () => {
+              navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
+                .then(() => alert("JSON copiado al portapapeles"))
+                .catch(err => alert("Error al copiar: " + err));
+            };
           };
 
-          const copiarBtn = document.getElementById('copiarBtn');
-          copiarBtn.style.display = "inline";
-          copiarBtn.onclick = () => {
-            navigator.clipboard.writeText(JSON.stringify(dataJson, null, 2))
-              .then(() => alert("JSON copiado al portapapeles"))
-              .catch(err => alert("Error al copiar: " + err));
-          };
-        };
-
-        reader.readAsArrayBuffer(fileInput.files[0]);
-      } catch (err) {
-        console.error(err);
-        statusEl.innerHTML = '<span class="error">Error al procesar el Excel.</span>';
+          reader.readAsArrayBuffer(fileInput.files[0]);
+        } catch (err) {
+          console.error(err);
+          statusEl.innerHTML = '<span class="error">Error al procesar el Excel.</span>';
+        }
       }
-    }
 
-    document.getElementById('procesarBtn').addEventListener('click', procesarExcel);
-  </script>
+      document.getElementById('procesarBtn').addEventListener('click', procesarExcel);
+    </script>
+  </main>
+
+  <div id="footerInclude"></div>
+  <script src="includes/load-fragments.js"></script>
 </body>
+
 </html>

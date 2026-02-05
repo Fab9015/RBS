@@ -1,0 +1,24 @@
+{
+    "faqs": [
+        {
+            "question": "¿Cómo puedo pagar mis cuotas de mantenimiento?",
+            "answer": "Puedes realizar tu pago en la oficina de administración o mediante transferencia bancaria."
+        },
+        {
+            "question": "¿Dónde encuentro el reglamento del condominio?",
+            "answer": "El reglamento está disponible en la oficina de administración y en la página oficial del condominio."
+        },
+        {
+            "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",
+            "answer": "Contacta inmediatamente a seguridad interna o llama a los números de emergencia locales."
+        },
+        {
+            "question": "¿Cómo puedo registrar a un visitante?",
+            "answer": "Debes notificar a la caseta de vigilancia con anticipación y proporcionar los datos del visitante."
+        },
+        {
+            "question": "¿Cuáles son los horarios de uso de las áreas comunes?",
+            "answer": "Las áreas comunes están disponibles de 8:00 am a 10:00 pm todos los días."
+        }
+    ]
+}

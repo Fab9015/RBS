@@ -6,6 +6,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description"
+        content="Conozca los elementos que su cuota mensual ayuda a sostener dentro del condominio.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="¿Qué cubre mi cuota? – Reserva Bosque Sereno">
+    <meta name="twitter:description"
+        content="Conozca los elementos que su cuota mensual ayuda a sostener dentro del condominio.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/que-cubre-mi-cuota.html">
     <meta property="og:title" content="¿Qué cubre mi cuota? – Reserva Bosque Sereno">
     <meta property="og:description"
         content="Conozca los elementos que su cuota mensual ayuda a sostener dentro del condominio.">
@@ -19,71 +28,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
     <style>
-        :root {
-            --color-bg: #fdfaf5;
-            --color-title: #5c4033;
-            --color-footer: #5c4033;
-            --color-accent: #a1b27a;
-            --color-highlight: #a1b27a;
-            --color-white: #fefefe;
-            --color-text: #5c4033;
-            --color-border: #e6e2dc;
-        }
-
-        body {
-            font-family: 'Lato', sans-serif;
-            background: var(--color-bg);
-            margin: 0;
-            padding: 0;
-            color: var(--color-text);
-        }
-
-        h1,
-        h2,
-        h3 {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--color-title);
-        }
-
-        header {
-            position: relative;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            justify-content: space-between;
-            padding: 2em 1em;
-            background: var(--color-bg);
-            color: var(--color-title);
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        .header-text {
-            flex-grow: 1;
-            padding-right: 180px;
-            color: var(--color-title);
-        }
-
-        .header-text h1 {
-            margin: 0;
-            font-size: clamp(1.4em, 4vw, 2em);
-            text-transform: uppercase;
-        }
-
-        .header-text p {
-            margin-top: 0.5em;
-            font-size: clamp(0.9em, 2.5vw, 1em);
-            font-style: italic;
-        }
-
-        .logo {
-            position: absolute;
-            top: 2em;
-            right: 1em;
-            max-width: 160px;
-            height: auto;
-            object-fit: contain;
-        }
-
+        /* Page-specific styles. Shared header, typography and logo moved to styles/main.css */
         main {
             padding: 2em 1em;
         }
@@ -151,8 +96,11 @@
             <h1>¿Qué cubre mi cuota?</h1>
             <p>Conozca los elementos que su aportación mensual ayuda a sostener</p>
         </div>
-        <img src="img/logo.png" alt="Logo institucional" class="logo" />
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
     </header>
+
+    <!-- Menu fragment (injected) -->
+    <div id="menuInclude"></div>
 
     <main>
         <div class="image-grid">
@@ -166,9 +114,12 @@
             </div>
         </div>
         <div style="margin-top: 3em;">
-            <a href="index.html" class="return-button">← Regresar</a>
+            <a href="menu-accesos-rapidos.html" class="return-button">← Regresar</a>
         </div>
     </main>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
 </body>
 
 </html>
