@@ -55,12 +55,27 @@
                 }, 100);
             }
         } else {
-            fetch('blog.json')
+            // Fetch blog.json relative to the current page URL (not the script file).
+            const blogUrl = (typeof location !== 'undefined') ? new URL('blog.json', location.href).toString() : 'blog.json';
+            console.log('load-blog: fetching', blogUrl);
+            fetch(blogUrl)
                 .then(r => { if (!r.ok) throw new Error('no-blog'); return r.json(); })
                 .then(applyBlog)
-                .catch(() => { console.warn('blog.json not available, using embedded fallback'); applyBlog(window.EMBEDDED_BLOG); });
+                .catch((err) => {
+                    console.warn('load-blog: blog.json not available at', blogUrl, err);
+                    if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+                        console.warn('load-blog: using embedded fallback for local preview');
+                        try { applyBlog(window.EMBEDDED_BLOG); } catch (e) { console.error('load-blog: apply embedded failed', e); }
+                    } else {
+                        console.error('load-blog: fetch failed in production; embedded fallback not applied');
+                    }
+                });
         }
     } catch (e) {
-        applyBlog(EMBEDDED_BLOG);
+        if (typeof location !== 'undefined' && (location.protocol === 'file:' || location.hostname === 'localhost' || location.hostname === '127.0.0.1')) {
+            try { applyBlog(window.EMBEDDED_BLOG); } catch (err) { console.error('load-blog: final fallback failed', err); }
+        } else {
+            console.error('load-blog: unexpected error and not using embedded fallback', e);
+        }
     }
 })();
