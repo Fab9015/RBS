@@ -1,0 +1,237 @@
+{
+    "categories": [
+        {
+            "name": "Administración",
+            "color": "#8fa76a"
+        },
+        {
+            "name": "Infraestructura",
+            "color": "#6f5846"
+        },
+        {
+            "name": "Servicios",
+            "color": "#7AA98F"
+        }
+    ],
+    "statuses": [
+        {
+            "name": "Completado"
+        },
+        {
+            "name": "En progreso"
+        },
+        {
+            "name": "Planificado"
+        }
+    ],
+    "logros": [
+        {
+            "title": "Transición administrativa completada",
+            "desc": "Estabilización y entrega formal a la nueva administración con protocolos documentados.",
+            "details": "Se documentaron y entregaron los protocolos operativos, cuentas y activos a la nueva administración; se realizó capacitación interna.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Constitución de la nueva administración",
+            "desc": "Elección e instalación de la nueva mesa directiva del condominio.",
+            "details": "Proceso de convocatoria, votación y toma de posesión completado con acta y firmas registradas.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Actualización de cuotas",
+            "desc": "Ajuste de la cuota mensual a niveles sostenibles y aprobados por asamblea.",
+            "details": "Se presentó diagnóstico financiero y se aprobó el ajuste en asamblea extraordinaria; cambios aplicados en el sistema de cobros.",
+            "category": "Administración",
+            "status": "En progreso",
+            "progress": 60
+        },
+        {
+            "title": "Base de datos de condóminos actualizada",
+            "desc": "Contacto y datos fiscalizados para comunicación y trámites.",
+            "details": "Se completó la verificación del 95% de condominios y se integró a la plataforma de comunicación interna.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Registro fiscal del condominio (RFC)",
+            "desc": "Obtención del RFC para trámites administrativos y bancarios.",
+            "details": "Trámites ante la autoridad fiscal concluidos; documentación en archivo administrativo.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Creación de la Asociación Civil",
+            "desc": "Avance en trámites para constituir la AC del condominio.",
+            "details": "Se presentó ante notaría el borrador de estatutos y se avanzó en la obtención de firmas asociadas.",
+            "category": "Administración",
+            "status": "En progreso",
+            "progress": 45
+        },
+        {
+            "title": "Cuenta bancaria del condominio",
+            "desc": "Apertura de cuenta dedicada para gestión transparente de fondos.",
+            "details": "Cuenta activa con conciliaciones mensuales y acceso restringido para administradores autorizados.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Contratos con proveedores clave",
+            "desc": "Servicios de jardinería, limpieza y mantenimiento de alberca contratados.",
+            "details": "Se negociaron y firmaron contratos anuales con cláusulas de rendimiento y penalizaciones por incumplimiento.",
+            "category": "Servicios",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Servicio de agua: contrato firmado",
+            "desc": "Acuerdo formal para suministro y facturación del servicio de agua.",
+            "details": "Contrato con nuevo proveedor con tarifas y calendario de mantenimiento; coordinación con administración.",
+            "category": "Servicios",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Organización por calles",
+            "desc": "Grupo de representantes por calle creado para coordinación local.",
+            "details": "Se eligieron delegados por calle y se definieron canales de comunicación directa con la administración.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Nuevo servicio de vigilancia",
+            "desc": "Contratación de empresa de seguridad y renovación de procesos.",
+            "details": "Empresa adjudicada tras licitación; nuevo protocolo de rondines y reporte digital implementado.",
+            "category": "Infraestructura",
+            "status": "En progreso",
+            "progress": 70
+        },
+        {
+            "title": "Mejoras en control de accesos",
+            "desc": "Instalación de cámaras, mantenimiento de barreras y registro actualizado de tags.",
+            "details": "Se instalaron cámaras en puntos críticos y se renovó el sistema de registro de accesos; quedan pruebas finales por completar.",
+            "category": "Infraestructura",
+            "status": "En progreso",
+            "progress": 65
+        },
+        {
+            "title": "Renovación de luminarias",
+            "desc": "Sustitución y mejora del alumbrado en áreas comunes y puntos críticos.",
+            "details": "Cambio por luminarias LED con ahorro energético estimado; zonas priorizadas completadas.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Equipamiento operativo",
+            "desc": "Compra de dispositivos móviles para uso administrativo y rondines.",
+            "details": "Equipos entregados a personal operativo con apps de reporte y localización.",
+            "category": "Servicios",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Conectividad en oficina",
+            "desc": "Instalación de antenas para acceso a internet en la oficina de administración.",
+            "details": "Enlace redundante instalado y prueba de rendimiento completada; servicio contratado.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Mejoras en riego y áreas verdes",
+            "desc": "Puesta en marcha del sistema de riego y rehabilitación de jardinería.",
+            "details": "Zonas verdes rehabilitadas y sistema automatizado en funcionamiento; mantenimiento programado.",
+            "category": "Servicios",
+            "status": "En progreso",
+            "progress": 55
+        },
+        {
+            "title": "Rehabilitación de infraestructura",
+            "desc": "Trabajos en cerco eléctrico y reparaciones puntuales (bomba, sistema eléctrico).",
+            "details": "Reparaciones críticas atendidas y cronograma de obras preventivas establecido.",
+            "category": "Infraestructura",
+            "status": "En progreso",
+            "progress": 60
+        },
+        {
+            "title": "Directorio interno de proveedores",
+            "desc": "Listado de recomendados y contratos para facilitar la gestión.",
+            "details": "Directorio publicado en la web y actualizado con contactos verificados.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "FAQs del condominio publicadas",
+            "desc": "Página de preguntas frecuentes para vecinos publicada y mantenida.",
+            "details": "Se consolidaron las dudas recurrentes y se publicó una sección accesible en la web.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Solución parcial a pagos adelantados",
+            "desc": "Acuerdos y procedimientos para resolver casos de pagos adelantados.",
+            "details": "Se implementó un procedimiento para aplicar saldos y documentar acuerdos especiales con condóminos.",
+            "category": "Administración",
+            "status": "En progreso",
+            "progress": 40
+        },
+        {
+            "title": "Sensores peatonales instalados",
+            "desc": "Mejoras en accesos peatonales para seguridad y control de paso.",
+            "details": "Sensores y señalización instalados en pasos peatonales; calibración en curso.",
+            "category": "Infraestructura",
+            "status": "En progreso",
+            "progress": 50
+        },
+        {
+            "title": "Reja en entrada oriente",
+            "desc": "Instalación de barrera física adicional en acceso oriente.",
+            "details": "Reja instalada con sistema de bloqueo; pruebas de seguridad realizadas.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Mantenimiento de alberca",
+            "desc": "Reparación de motobomba y cambio de carga filtrante.",
+            "details": "Motobomba reparada y sistema de filtración renovado; protocolo de mantenimiento establecido.",
+            "category": "Servicios",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Gestión de desazolve",
+            "desc": "Limpieza y mantenimiento en sistema pluvial (Sakura 200).",
+            "details": "Operación de desazolve completada en las zonas críticas con reporte de trabajos.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Gestión de presión de agua",
+            "desc": "Intervenciones para estabilizar la presión y servicio por zonas.",
+            "details": "Ajustes y válvulas instaladas para equilibrar presión por sectores; monitoreo activo.",
+            "category": "Infraestructura",
+            "status": "En progreso",
+            "progress": 45
+        },
+        {
+            "title": "Planeación de reglamento",
+            "desc": "Iniciativa para revisión y actualización del reglamento interno.",
+            "details": "Borrador en revisión con aportes de vecinos y comité legal; próximo trámite en asamblea.",
+            "category": "Administración",
+            "status": "Planificado",
+            "progress": 12
+        }
+    ]
+}

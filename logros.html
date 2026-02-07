@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logros – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <meta name="description" content="Logros y avances del condominio Reserva Bosque Sereno.">
+    <meta name="keywords" content="Reserva Bosque Sereno, logros, avances, condominio">
+    <meta name="author" content="Reserva Bosque Sereno">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Logros – Reserva Bosque Sereno">
+    <meta property="og:description" content="Logros y avances del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/logors.html">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Logros – Reserva Bosque Sereno">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Page-scoped styles for an elegant, responsive achievements page */
+        :root {
+            --hero-bg-1: #f3f6f1;
+            --hero-bg-2: #e6efe0;
+            --accent: #8fa76a;
+            --muted: #6b6b6b;
+            --card-bg: #ffffff;
+            --glass: rgba(255, 255, 255, 0.6);
+            --progress-color: #d97706;
+            /* default: orange (user choice) */
+        }
+
+        main {
+            padding: 2.5rem 1rem 4rem;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, var(--hero-bg-1), var(--hero-bg-2));
+            border-radius: 14px;
+            padding: 2.2rem 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto 1.6rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            box-shadow: 0 6px 18px rgba(40, 40, 40, 0.06);
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+
+            margin: 0.4rem 0 0;
+            color: var(--muted);
+        }
+
+        .hero .logo {
+            width: 84px;
+            height: 84px;
+            border-radius: 12px;
+            object-fit: contain;
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 1rem auto 0;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* Desktop: place filters inline and keep the clear button to the right */
+        .controls-inner {
+            width: auto;
+            max-width: 900px;
+            margin-left: auto;
+            /* push controls to the right */
+            display: flex;
+            justify-content: flex-end;
+            gap: .6rem;
+            padding: 0 1rem;
+            align-items: center;
+        }
+
+        .controls-inner .filters-row {
+            display: flex;
+            gap: 0.6rem;
+            align-items: center;
+        }
+
+        /* back body: top spacing to clear the media, plus lateral margins */
+        .flip-back .card-body {
+            margin: 48px 25px 1.05rem;
+            /* top, left/right, bottom */
+            padding-top: 0;
+        }
+
+        .btn {
+            background: var(--accent);
+            color: #fff;
+            padding: 0.55rem 0.9rem;
+            border-radius: 8px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(143, 167, 106, 0.18);
+        }
+
+        .grid {
+            max-width: 1200px;
+            margin: 1.2rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.1rem;
+            padding: 0 1rem;
+        }
+
+        .card {
+            position: relative;
+            overflow: hidden;
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 0;
+            min-height: 300px;
+            /* increased so card content doesn't appear cut off */
+            box-shadow: 0 6px 18px rgba(30, 30, 30, 0.04);
+            transition: transform .18s ease, box-shadow .18s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(30, 30, 30, 0.08);
+        }
+
+        .card .title {
+            font-weight: 700;
+            color: #233;
+            margin: 0;
+            font-size: 1.05rem;
+        }
+
+        .card .desc {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin: 0;
+        }
+
+        /* Control vertical spacing between the title and its following block on the front face */
+        .card .card-body>div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            /* increased spacing as requested (option 1) */
+        }
+
+        .tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-top: auto;
+        }
+
+        .tag {
+            background: var(--glass);
+            padding: 0.25rem 0.5rem;
+            border-radius: 999px;
+            font-size: 0.82rem;
+            color: var(--muted);
+            border: 1px solid rgba(0, 0, 0, 0.03);
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .hero {
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+            }
+
+            .card {
+                min-height: 220px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .controls {
+                justify-content: center;
+            }
+
+            .hero .logo {
+                margin: 0 auto;
+            }
+        }
+
+        /* Small helpers */
+        .kicker {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .filter-label {
+            display: flex;
+            align-items: center;
+            gap: .4rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+        }
+
+        .filter-label select {
+            padding: .35rem .5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #fff;
+            font-size: .95rem;
+        }
+
+        /* Palette chooser removed (testing only) */
+
+        /* Card media, progress and accordion details */
+        .media {
+            height: 48px;
+            min-height: 48px;
+            max-height: 48px;
+            border-radius: 12px 12px 0 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: inset 0 -8px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            text-align: center;
+            padding: 0.5rem;
+            width: 100%;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .media .cat-label {
+            font-size: 0.95rem;
+            line-height: 1.1;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 8px;
+            background: #f1f3f1;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            height: 100%;
+            /* use a solid tone so 100% visibly reaches the end */
+            background: linear-gradient(90deg, var(--progress-color), var(--progress-color));
+            border-radius: 999px;
+            transition: width .45s ease;
+        }
+
+        /* ghost button to avoid color collision with category chips */
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--muted);
+            padding: .45rem .7rem;
+            border-radius: 6px;
+            font-size: .95rem;
+            cursor: pointer;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(0, 0, 0, 0.02);
+        }
+
+        /* details/accordion removed (not used) */
+
+        /* Flip card styles */
+        .flip-card {
+            perspective: 1200px;
+        }
+
+
+        /* make the flip surface fill the entire card (no inset) */
+        .flip-inner {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform .6s cubic-bezier(.2, .9, .2, 1);
+            z-index: 1;
+        }
+
+        .flip-inner .flip-face {
+            backface-visibility: hidden;
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .card-body {
+            padding: 1.05rem;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            box-sizing: border-box;
+        }
+
+
+
+        .flip-front {
+            transform: rotateY(0);
+        }
+
+        .flip-back {
+            transform: rotateY(180deg);
+            background: var(--card-bg);
+            color: var(--muted);
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        /* use margin on the back card-body to align with the front media */
+        .flip-back .card-body {
+            margin-top: 48px;
+            /* reserve same height as .media */
+            padding-top: 0;
+            gap: 0.5rem;
+            /* spacing between heading and following block on the back face (matched to front) */
+        }
+
+        /* Ensure paragraphs inside the back face have no extra default margins */
+        .flip-back .card-body p {
+            margin: 0;
+        }
+
+        .flipped .flip-inner {
+            transform: rotateY(180deg);
+        }
+
+        /* Mobile pager styles */
+        .mobile-pager {
+            display: flex;
+            gap: .6rem;
+            justify-content: center;
+            padding: .9rem 0 1.2rem;
+            align-items: center;
+        }
+
+        .m-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: var(--accent);
+            color: #fff;
+            box-shadow: 0 6px 18px rgba(20, 20, 20, 0.08);
+            cursor: pointer;
+            height: 44px;
+            min-height: 44px;
+            max-height: 44px;
+            background: #fff;
+            color: var(--accent);
+            border: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        /* hide pager and sticky controls on desktop */
+        @media (min-width: 641px) {
+
+            .mobile-pager,
+            .mobile-sticky-controls {
+                display: none !important;
+            }
+        }
+
+        /* sticky controls on mobile (right-bottom) */
+        .mobile-sticky-controls {
+            position: fixed;
+            right: 12px;
+            left: auto;
+            bottom: 12px;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+            z-index: 80;
+            /* reduced so menu overlay can sit above these buttons (overlay z-index is 900 in main.css) */
+            align-items: center;
+            pointer-events: auto;
+            margin: 44px 25px 1.05rem;
+            transition: transform .18s ease, opacity .18s ease;
+        }
+
+        /* Sticky buttons: white background, accent border and accent-colored icons */
+        .mobile-sticky-controls .m-btn {
+            margin-top: 44px;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            box-shadow: 0 6px 14px rgba(20, 20, 20, 0.06);
+        }
+
+        .mobile-sticky-controls .m-btn svg {
+            stroke: currentColor;
+        }
+
+        /* removed focus outline — we use smooth scroll to top instead of focusing the heading */
+
+        /* modal styles removed (not used) */
+
+        /* Responsive filters: stack controls on narrow viewports */
+        @media (max-width: 640px) {
+            .controls-inner {
+                flex-direction: column !important;
+                align-items: stretch;
+                gap: .5rem;
+                padding: 0 1rem;
+            }
+
+            .controls-inner .filters-row {
+                display: flex;
+                gap: .5rem;
+                width: 100%;
+            }
+
+            .controls-inner .filters-row .filter-label {
+                width: 50%;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .controls-inner .filters-row .filter-label select {
+                width: 100%;
+            }
+
+            /* place clear button below selects and align to right */
+            #btn-clear {
+                width: auto;
+                align-self: flex-end;
+                margin-top: .5rem;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="page-title">Logros y Avances</h1>
+
+            <p class="subtitle">Resumen de acciones y mejoras realizadas en Reserva Bosque Sereno</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <!-- Menu fragment (injected) -->
+    <div id="menuInclude"></div>
+
+    <main>
+        <div class="hero">
+            <div>
+                <div class="kicker">Resultados & Avances</div>
+                <h1>Logros recientes</h1>
+                <p class="subtitle">Compromisos cumplidos y proyectos en marcha para mejorar la convivencia y los
+                    servicios del condominio.</p>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="controls-inner">
+                <div class="filters-row">
+                    <label class="filter-label">Categoría
+                        <select id="filterCategory">
+                            <option value="">Todas</option>
+                        </select>
+                    </label>
+                    <label class="filter-label">Estatus
+                        <select id="filterStatus">
+                            <option value="">Todos</option>
+                        </select>
+                    </label>
+                </div>
+                <button class="btn-ghost" id="btn-clear" aria-label="Limpiar filtros">Limpiar</button>
+            </div>
+        </div>
+
+        <section id="gallery" class="section-view active" style="display:block;">
+            <div class="grid" id="galleryGrid"></div>
+        </section>
+    </main>
+    <script>
+        // Data and palette
+        let achievements = [];
+        const _palette = {
+            'Administración': ['#8fa76a', '#ffffff'],
+            'Infraestructura': ['#6f5846', '#ffffff'],
+            'Servicios': ['#7AA98F', '#ffffff']
+        };
+
+        /* progress swatches removed — not used in production */
+
+        // Filters
+        let currentCategory = '';
+        let currentStatus = '';
+        // Mobile pagination parameters (configurable)
+        let mobileInitial = 5; // number of cards shown by default on mobile
+        let mobileBatch = 5; // number of cards to reveal on each "show more"
+        let mobileVisibleCount = mobileInitial; // runtime state
+
+        // Render gallery as flip-cards (click/tap to flip). The colored category header sits above the flip faces.
+        function renderGallery() {
+            const g = document.getElementById('galleryGrid'); g.innerHTML = '';
+            const filtered = achievements.filter(a => {
+                if (currentCategory && a.category !== currentCategory) return false;
+                if (currentStatus && a.status !== currentStatus) return false;
+                return true;
+            });
+            const isMobile = window.matchMedia('(max-width:640px)').matches;
+            const total = filtered.length;
+            // On desktop always show all items; mobile uses the paged slice.
+            if (!isMobile) mobileVisibleCount = total;
+            // when on mobile, render only the currently visible slice
+            const toRender = isMobile ? filtered.slice(0, mobileVisibleCount) : filtered;
+            // ensure mobileVisibleCount is within bounds when on mobile
+            if (isMobile) mobileVisibleCount = Math.max(mobileInitial, Math.min(mobileVisibleCount, total));
+            toRender.forEach((a) => {
+                const card = document.createElement('article');
+                card.className = 'card flip-card';
+                card.setAttribute('tabindex', '0');
+                card.innerHTML = `
+                        <div class="flip-inner">
+                            <div class="flip-face flip-front">
+                                <div class="media card-media"><div class="cat-label">${a.category}</div></div>
+                                <div class="card-body" style="display:flex;flex-direction:column;gap:.5rem;">
+                                    <div>
+                                        <h3 class="title">${a.title}</h3>
+                                        <p class="desc">${a.desc}</p>
+                                    </div>
+                                    <div style="margin-top:auto;display:flex;flex-direction:column;gap:.5rem;">
+                                        <div class="progress" aria-hidden="true"><div class="progress-bar" style="width:${a.progress}%"></div></div>
+                                        <div class="tags"><span class="tag">${a.category}</span><span class="tag" style="margin-left:auto">${a.status}</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flip-face flip-back">
+                                <div class="card-body">
+                                    <h3 class="title">${a.title}</h3>
+                                    <div style="color:var(--muted); font-size:.96rem"><p>${a.details || a.desc}</p></div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                g.appendChild(card);
+                // style media as colored block with category label (part of front face so whole card flips)
+                const mediaEl = card.querySelector('.card-media');
+                const pal = _palette[a.category] || ['#d4e6d0', '#233'];
+                mediaEl.style.backgroundColor = pal[0];
+                mediaEl.style.color = pal[1];
+                mediaEl.innerHTML = `<div class="cat-label">${a.category}</div>`;
+            });
+            // update mobile pager (create if needed)
+            updateMobilePager(total);
+            // ensure sticky handlers exist (buttons are static in DOM)
+            attachMobileStickyHandlers();
+        }
+
+        // Attach flip handlers: click/tap or Enter/Space to flip. Only one flipped at a time.
+        function attachFlipHandlers() {
+            const cards = document.querySelectorAll('.card.flip-card');
+            cards.forEach(card => {
+                // click/tap
+                card.addEventListener('click', (e) => {
+                    const target = e.target;
+                    if (target && (target.closest('a') || target.closest('button'))) return;
+                    const already = card.classList.contains('flipped');
+                    document.querySelectorAll('.card.flipped').forEach(c => { if (c !== card) c.classList.remove('flipped'); });
+                    if (already) card.classList.remove('flipped'); else card.classList.add('flipped');
+                });
+                // keyboard
+                card.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault(); card.click();
+                    }
+                });
+            });
+        }
+
+        // Mobile pager controls
+        function makeIcon(svg) { return svg; }
+
+        function updateMobilePager(total) {
+            const isMobile = window.matchMedia('(max-width:640px)').matches;
+            let pager = document.getElementById('mobilePager');
+            if (!isMobile) {
+                if (pager) pager.remove();
+                return;
+            }
+            if (!pager) {
+                pager = document.createElement('div');
+                pager.id = 'mobilePager';
+                pager.className = 'mobile-pager';
+                const grid = document.getElementById('galleryGrid');
+                grid.parentNode.insertBefore(pager, grid.nextSibling);
+            }
+
+            pager.innerHTML = '';
+            // determine state
+            const atEnd = mobileVisibleCount >= total;
+
+            // If we've reached the end, hide the pager entirely (sticky controls remain available)
+            if (atEnd) {
+                pager.style.display = 'none';
+                return;
+            }
+
+            // main button (only shown when not at end)
+            const main = document.createElement('button');
+            main.className = 'm-btn';
+            main.title = 'Mostrar más';
+            main.innerHTML = makeIcon('<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>');
+            main.onclick = () => {
+                mobileVisibleCount = Math.min(total, mobileVisibleCount + mobileBatch);
+                renderGallery(); attachFlipHandlers();
+            };
+            pager.appendChild(main);
+
+            // (Removed pager extra buttons: sticky controls handle show all/default now)
+
+            // hide pager if no items or total <= mobileInitial
+            if (total <= mobileInitial) pager.style.display = 'none';
+            else pager.style.display = 'flex';
+        }
+
+        // helper: compute filtered total respecting current filters
+        function getFilteredTotal() {
+            return achievements.filter(a => {
+                if (currentCategory && a.category !== currentCategory) return false;
+                if (currentStatus && a.status !== currentStatus) return false;
+                return true;
+            }).length;
+        }
+
+        // attach handlers to persistent sticky mobile buttons
+        function attachMobileStickyHandlers() {
+            const btnAll = document.getElementById('mobileShowAll');
+            const btnDefault = document.getElementById('mobileShowDefault');
+            if (!btnAll || !btnDefault) return;
+            btnAll.onclick = () => {
+                const total = getFilteredTotal();
+                mobileVisibleCount = total;
+                renderGallery(); attachFlipHandlers();
+            };
+            btnDefault.onclick = () => {
+                mobileVisibleCount = mobileInitial;
+                renderGallery(); attachFlipHandlers();
+                // after collapsing, perform a smooth scroll to the top of the page
+                setTimeout(() => {
+                    try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) { window.scrollTo(0, 0); }
+                }, 60);
+            };
+        }
+
+        // Apply loaded data and render
+        function applyData(payload) {
+            const items = payload && payload.logros ? payload.logros : (Array.isArray(payload) ? payload : []);
+            achievements = items.map(x => Object.assign({}, x));
+            achievements.forEach((a, i) => {
+                if (!a.category) a.category = (i % 3 === 0) ? 'Administración' : (i % 3 === 1) ? 'Infraestructura' : 'Servicios';
+                if (!a.status) a.status = (i % 4 === 0) ? 'Completado' : (i % 4 === 1) ? 'En progreso' : 'Planificado';
+                if (!a.progress) a.progress = (a.status === 'Completado') ? 100 : (a.status === 'En progreso') ? 52 : 12;
+            });
+            renderFilterOptions();
+            renderGallery();
+            attachFlipHandlers();
+        }
+
+        function renderFilterOptions() {
+            const catSel = document.getElementById('filterCategory');
+            const statSel = document.getElementById('filterStatus');
+            if (!catSel || !statSel) return;
+            // gather unique
+            const cats = Array.from(new Set(achievements.map(a => a.category))).sort();
+            const stats = Array.from(new Set(achievements.map(a => a.status))).sort();
+            // reset
+            catSel.innerHTML = '<option value="">Todas</option>';
+            statSel.innerHTML = '<option value="">Todos</option>';
+            cats.forEach(c => {
+                const o = document.createElement('option'); o.value = c; o.textContent = c; catSel.appendChild(o);
+            });
+            stats.forEach(s => {
+                const o = document.createElement('option'); o.value = s; o.textContent = s; statSel.appendChild(o);
+            });
+            // attach events
+            catSel.onchange = () => { currentCategory = catSel.value; renderGallery(); attachFlipHandlers(); };
+            statSel.onchange = () => { currentStatus = statSel.value; renderGallery(); attachFlipHandlers(); };
+            const clearBtn = document.getElementById('btn-clear');
+            if (clearBtn) clearBtn.onclick = () => { currentCategory = ''; currentStatus = ''; catSel.value = ''; statSel.value = ''; renderGallery(); attachFlipHandlers(); };
+        }
+
+        // Load JSON similarly to other pages: prefer network, fallback to embedded, support file:// previews
+        (function loadLogros() {
+            if (window && window.EMBEDDED_LOGROS) {
+                applyData(window.EMBEDDED_LOGROS);
+                return;
+            }
+
+            if (location.protocol === 'file:') {
+                try {
+                    if (!document.querySelector('script[src="includes/embedded-data.js"]')) {
+                        const s = document.createElement('script');
+                        s.src = 'includes/embedded-data.js';
+                        s.async = true;
+                        document.head.appendChild(s);
+                    }
+                } catch (e) { }
+
+                const start = Date.now();
+                const id = setInterval(() => {
+                    if (window && window.EMBEDDED_LOGROS) {
+                        clearInterval(id);
+                        applyData(window.EMBEDDED_LOGROS);
+                        return;
+                    }
+                    if (Date.now() - start > 1200) {
+                        clearInterval(id);
+                        const fallbackUrl = (typeof location !== 'undefined') ? new URL('logros.json', location.href).toString() : 'logros.json';
+                        fetch(fallbackUrl, { cache: 'no-store' }).then(r => r.json()).then(applyData).catch(err => console.warn('Could not load logros.json nor embedded fallback', err));
+                    }
+                }, 100);
+
+                return;
+            }
+
+            const dataUrl = (typeof location !== 'undefined') ? new URL('logros.json', location.href).toString() : 'logros.json';
+            fetch(dataUrl, { cache: 'no-store' })
+                .then(r => { if (!r.ok) throw new Error('no-data'); return r.json(); })
+                .then(applyData)
+                .catch(err => {
+                    if (window && window.EMBEDDED_LOGROS) {
+                        applyData(window.EMBEDDED_LOGROS);
+                    } else {
+                        console.warn('Failed to load logros.json and no embedded fallback available', err);
+                    }
+                });
+
+        })();
+
+        /* Palette testing helpers removed */
+    </script>
+
+    <!-- Footer fragment (injected) -->
+
+    <div id="footerInclude"></div>
+
+
+
+    <script src="includes/load-fragments.js"></script>
+
+    <!-- Mobile sticky controls: moved here to ensure they are fixed to the viewport and
+         not positioned relative to injected footer or other fragments. -->
+    <div class="mobile-sticky-controls" aria-hidden="false">
+        <button id="mobileShowDefault" class="m-btn secondary" title="Colapsar lista" aria-label="Colapsar lista">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 15 12 9 18 15"></polyline>
+            </svg>
+        </button>
+        <button id="mobileShowAll" class="m-btn secondary" title="Expandir lista" aria-label="Expandir lista">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+        </button>
+    </div>
+</body>
+
+</html>
