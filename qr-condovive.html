@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Condovive – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <meta name="description"
+        content="Tutorial: cómo generar códigos QR con la aplicación Condovive para acceso y gestión de visitantes.">
+    <meta name="keywords" content="Condovive, QR, acceso, tutorial, Reserva Bosque Sereno">
+    <meta name="author" content="Reserva Bosque Sereno">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="QR Condovive – Reserva Bosque Sereno">
+    <meta property="og:description"
+        content="Tutorial: cómo generar códigos QR con la aplicación Condovive para acceso y gestión de visitantes.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/qr-condovive.html">
+    <meta property="og:locale" content="es_MX">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="QR Condovive – Reserva Bosque Sereno">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        /* Minimal page-scoped tweaks (reuses styles/main.css globally) */
+        :root {
+            --accent: #8fa76a;
+            --muted: #6b6b6b;
+            --card-bg: #ffffff;
+        }
+
+        main {
+            padding: 2.5rem 1rem 4rem;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            background: linear-gradient(120deg, #f3f6f1, #e6efe0);
+            border-radius: 12px;
+            padding: 1.8rem;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            justify-content: space-between
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 1.9rem
+        }
+
+        .hero p {
+            margin: .4rem 0 0;
+            color: var(--muted)
+        }
+
+        .video-wrap {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
+        }
+
+        .video-placeholder {
+            height: 360px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111014;
+            color: #fff;
+            border-radius: 8px
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1 class="page-title">Generar QR en Condovive</h1>
+            <p class="subtitle">Guía rápida para crear códigos QR desde la aplicación Condovive</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <!-- Menu fragment (injected) -->
+    <div id="menuInclude"></div>
+
+    <main>
+        <div class="hero">
+            <div>
+                <div class="kicker">Tutorial</div>
+                <h1>Cómo generar códigos QR con Condovive</h1>
+                <p class="subtitle">Sigue los pasos del video para crear y compartir códigos QR para visitas y
+                    proveedores.</p>
+            </div>
+            <img src="img/logo.png" alt="Logo" style="width:72px; height:72px; object-fit:contain; border-radius:10px;">
+        </div>
+
+        <section style="margin-top:1rem;">
+            <h2>Descripción</h2>
+            <p>En este video te mostramos, paso a paso, cómo usar la aplicación Condovive para generar códigos QR que
+                permiten el acceso temporal a visitantes y proveedores. También cubrimos opciones de expiración,
+                permisos y cómo compartir el código de forma segura.</p>
+
+            <h3>Explicación</h3>
+            <p>Antes de cargar el video, revisa que tengas la última versión de Condovive instalada y acceso a generar
+                códigos desde tu rol (propietario o administrador). El video incluye ejemplos prácticos y
+                recomendaciones de seguridad.</p>
+
+            <div class="video-wrap" aria-hidden="false">
+                <div id="videoContainer">
+                    <!-- Upload the training video to the repository and then I'll embed it here. -->
+                    <div class="video-placeholder">Aquí se mostrará el video (sube el archivo y avísame)</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer fragment (injected) -->
+    <div id="footerInclude"></div>
+
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>
