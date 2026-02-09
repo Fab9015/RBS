@@ -2,15 +2,28 @@
     "categories": [
         {
             "name": "Administración",
-            "color": "#8fa76a"
+            "color": "#8fa76a",
+            "textColor": "#ffffff"
         },
         {
             "name": "Infraestructura",
-            "color": "#6f5846"
+            "color": "#6f5846",
+            "textColor": "#ffffff"
         },
         {
-            "name": "Servicios",
-            "color": "#7AA98F"
+            "name": "Seguridad",
+            "color": "#C94A44",
+            "textColor": "#ffffff"
+        },
+        {
+            "name": "Finanzas",
+            "color": "#0E76A8",
+            "textColor": "#ffffff"
+        },
+        {
+            "name": "Comunicación",
+            "color": "#9B59B6",
+            "textColor": "#ffffff"
         }
     ],
     "statuses": [
@@ -26,212 +39,319 @@
     ],
     "logros": [
         {
-            "title": "Transición administrativa completada",
-            "desc": "Estabilización y entrega formal a la nueva administración con protocolos documentados.",
-            "details": "Se documentaron y entregaron los protocolos operativos, cuentas y activos a la nueva administración; se realizó capacitación interna.",
+            "title": "Independencia administrativa",
+            "frontSummary": "Con unidad vecinal recuperamos el control administrativo, dejando atrás la gestión impuesta por la constructora y abriendo paso a una nueva etapa.",
+            "backSummary": "Durante años la administración estuvo en manos de Agendum/Parámetro, marcada por ineficiencia. La asamblea del 6 de noviembre recuperó el control.",
+            "fullSummary": "Desde la creación del condominio, la administración estuvo en manos de Agendum/Parámetro, empresa del grupo constructor GSC. Durante años se caracterizó por la ineficiencia, falta de transparencia y decisiones que afectaban directamente a los vecinos, como cuotas mal calculadas y servicios castigados. Tras múltiples intentos de diálogo y conciliación, y con el respaldo de la asamblea del 6 de noviembre, se logró recuperar el control administrativo. Este paso representa el primer gran logro de nuestra comunidad: liberarnos de un modelo que limitaba nuestro desarrollo y abrir la puerta a una gestión cercana, honesta y orientada al bienestar de todos.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Constitución de la nueva administración",
-            "desc": "Elección e instalación de la nueva mesa directiva del condominio.",
-            "details": "Proceso de convocatoria, votación y toma de posesión completado con acta y firmas registradas.",
+            "title": "Estabilización de la administración",
+            "frontSummary": "Se resolvieron problemas heredados y se ordenó la gestión interna, logrando confianza vecinal y continuidad en los servicios.",
+            "backSummary": "Gracias al aumento de cuota y a una extraordinaria, se contrataron proveedores confiables y se atendieron mantenimientos urgentes.",
+            "fullSummary": "El mayor reto tras recuperar la administración fue estabilizar el condominio. Se heredaron múltiples problemas: falta de mantenimientos, ausencia de proveedores y conductas negativas de vecinos que la administración anterior permitía sin control. Gracias al aumento de la cuota mensual y la aprobación de una cuota extraordinaria, se contrataron proveedores que cumplen con su trabajo y se resolvieron problemas cuyo costo no estaba contemplado en el presupuesto ordinario. Estos cambios devolvieron confianza a los vecinos y sentaron las bases para una gestión ordenada y transparente.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Actualización de cuotas",
-            "desc": "Ajuste de la cuota mensual a niveles sostenibles y aprobados por asamblea.",
-            "details": "Se presentó diagnóstico financiero y se aprobó el ajuste en asamblea extraordinaria; cambios aplicados en el sistema de cobros.",
-            "category": "Administración",
-            "status": "En progreso",
-            "progress": 60
-        },
-        {
-            "title": "Base de datos de condóminos actualizada",
-            "desc": "Contacto y datos fiscalizados para comunicación y trámites.",
-            "details": "Se completó la verificación del 95% de condominios y se integró a la plataforma de comunicación interna.",
+            "title": "Consolidación de una nueva administración",
+            "frontSummary": "La comunidad eligió a DEFAST como nueva administración, logrando organización, transparencia y acceso digital con la app CONDOVIVE.",
+            "backSummary": "DEFAST aporta gestión integral, asesoría legal y herramientas digitales, trabajando junto al comité para fortalecer la confianza vecinal.",
+            "fullSummary": "El comité realizó un análisis de opciones y decidió contratar a DEFAST como nueva administración del condominio. Además de gestionar la cobranza de morosidad con respaldo judicial, DEFAST ofrece servicios de administración, contaduría, marketing y asesoría legal. Con la aplicación CONDOVIVE, los vecinos pueden consultar el estado financiero, levantar tickets de atención y revisar la transparencia de la gestión. Este cambio consolidó una administración organizada que trabaja hombro a hombro con el comité para defender los intereses del condominio y garantizar confianza, eficiencia y cercanía con la comunidad.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Registro fiscal del condominio (RFC)",
-            "desc": "Obtención del RFC para trámites administrativos y bancarios.",
-            "details": "Trámites ante la autoridad fiscal concluidos; documentación en archivo administrativo.",
+            "title": "Cuota mensual justa y sostenible",
+            "frontSummary": "La comunidad aprobó ajustar la cuota mensual a un nivel realista, asegurando recursos suficientes para servicios y mantenimientos.",
+            "backSummary": "El aumento permitió contratar proveedores confiables y atender necesidades urgentes, garantizando estabilidad y calidad en la gestión.",
+            "fullSummary": "Durante años, la cuota mensual fue calculada por debajo de lo necesario como estrategia comercial de la constructora, lo que generó carencias en servicios y mantenimientos. Con el cambio de administración y la organización vecinal, se aprobó ajustar la cuota a un nivel realista. Este aumento permitió contratar proveedores que cumplen con su trabajo, atender mantenimientos urgentes y garantizar recursos suficientes para la operación del condominio. La decisión marcó un paso clave hacia la estabilidad financiera y la mejora continua de nuestra comunidad.",
+            "category": "Finanzas",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Base de datos vecinal actualizada",
+            "frontSummary": "Se renovó la base de datos de contacto, asegurando registros confiables y mejorando la comunicación entre vecinos y administración.",
+            "backSummary": "La actualización permitió contar con información precisa, facilitando avisos, gestiones y la participación activa de toda la comunidad.",
+            "fullSummary": "Uno de los retos iniciales fue la falta de información confiable sobre los vecinos, lo que dificultaba la comunicación y la gestión comunitaria. Se trabajó en la actualización completa de la base de datos de contacto, asegurando que cada registro fuera preciso y vigente. Gracias a este esfuerzo, ahora la administración y el comité cuentan con un canal directo para avisos, gestiones y convocatorias, fortaleciendo la participación vecinal y la transparencia en la toma de decisiones.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
             "title": "Creación de la Asociación Civil",
-            "desc": "Avance en trámites para constituir la AC del condominio.",
-            "details": "Se presentó ante notaría el borrador de estatutos y se avanzó en la obtención de firmas asociadas.",
-            "category": "Administración",
-            "status": "En progreso",
-            "progress": 45
-        },
-        {
-            "title": "Cuenta bancaria del condominio",
-            "desc": "Apertura de cuenta dedicada para gestión transparente de fondos.",
-            "details": "Cuenta activa con conciliaciones mensuales y acceso restringido para administradores autorizados.",
+            "frontSummary": "Se constituyó la Asociación Civil ‘Administración Condominio Reserva Bosque Sereno AC’, otorgando personalidad jurídica al condominio.",
+            "backSummary": "La AC brinda certeza legal, permite firmar contratos y fortalece la representación vecinal en beneficio de toda la comunidad.",
+            "fullSummary": "La comunidad decidió constituir la Asociación Civil bajo el nombre ‘Administración Condominio Reserva Bosque Sereno AC'. Este paso otorgó al condominio personalidad jurídica y representación formal, permitiendo firmar contratos, gestionar recursos y dar certeza legal a las decisiones tomadas en asamblea. La creación de la AC consolidó la organización institucional y fortaleció la transparencia, asegurando que los intereses del condominio estén protegidos y respaldados por un marco legal sólido.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Contratos con proveedores clave",
-            "desc": "Servicios de jardinería, limpieza y mantenimiento de alberca contratados.",
-            "details": "Se negociaron y firmaron contratos anuales con cláusulas de rendimiento y penalizaciones por incumplimiento.",
-            "category": "Servicios",
-            "status": "Completado",
-            "progress": 100
-        },
-        {
-            "title": "Servicio de agua: contrato firmado",
-            "desc": "Acuerdo formal para suministro y facturación del servicio de agua.",
-            "details": "Contrato con nuevo proveedor con tarifas y calendario de mantenimiento; coordinación con administración.",
-            "category": "Servicios",
-            "status": "Completado",
-            "progress": 100
-        },
-        {
-            "title": "Organización por calles",
-            "desc": "Grupo de representantes por calle creado para coordinación local.",
-            "details": "Se eligieron delegados por calle y se definieron canales de comunicación directa con la administración.",
+            "title": "RFC del condominio obtenido",
+            "frontSummary": "Se gestionó y obtuvo el RFC del condominio, abriendo la posibilidad de emitir facturas y cumplir con obligaciones fiscales.",
+            "backSummary": "Con el RFC, los vecinos pueden facturar sus cuotas y el condominio asegura transparencia y cumplimiento ante la autoridad fiscal.",
+            "fullSummary": "La obtención del RFC del condominio fue un paso decisivo para consolidar la formalidad administrativa. Este registro permite que los vecinos que lo requieran puedan facturar sus pagos de cuotas y, al mismo tiempo, garantiza que el condominio cumpla con sus obligaciones fiscales. Con ello se fortaleció la transparencia financiera y se dio certeza jurídica a la gestión comunitaria, alineando la administración con las mejores prácticas de responsabilidad institucional.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Nuevo servicio de vigilancia",
-            "desc": "Contratación de empresa de seguridad y renovación de procesos.",
-            "details": "Empresa adjudicada tras licitación; nuevo protocolo de rondines y reporte digital implementado.",
-            "category": "Infraestructura",
-            "status": "En progreso",
-            "progress": 70
-        },
-        {
-            "title": "Mejoras en control de accesos",
-            "desc": "Instalación de cámaras, mantenimiento de barreras y registro actualizado de tags.",
-            "details": "Se instalaron cámaras en puntos críticos y se renovó el sistema de registro de accesos; quedan pruebas finales por completar.",
-            "category": "Infraestructura",
-            "status": "En progreso",
-            "progress": 65
-        },
-        {
-            "title": "Renovación de luminarias",
-            "desc": "Sustitución y mejora del alumbrado en áreas comunes y puntos críticos.",
-            "details": "Cambio por luminarias LED con ahorro energético estimado; zonas priorizadas completadas.",
-            "category": "Infraestructura",
+            "title": "Cuenta bancaria institucional",
+            "frontSummary": "Se abrió la cuenta bancaria del condominio, dejando atrás el manejo en efectivo y garantizando transparencia en los ingresos y egresos.",
+            "backSummary": "Ahora los pagos pueden realizarse por transferencia o tarjeta en la oficina, evitando malas interpretaciones y fortaleciendo la confianza vecinal.",
+            "fullSummary": "La apertura de la cuenta bancaria del condominio fue un paso clave para profesionalizar la gestión financiera. Gracias a que se cumplió en el lapso proyectado por el comité, se dejó atrás el cobro en efectivo, evitando malas interpretaciones y la resistencia de algunos vecinos que no querían pagar por falta de una cuenta institucional. Hoy los pagos pueden realizarse mediante transferencia electrónica o directamente con tarjeta en la terminal instalada en la oficina, con todos los beneficios que esto implica: seguridad, transparencia y confianza en el manejo de los recursos comunitarios.",
+            "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Equipamiento operativo",
-            "desc": "Compra de dispositivos móviles para uso administrativo y rondines.",
-            "details": "Equipos entregados a personal operativo con apps de reporte y localización.",
-            "category": "Servicios",
+            "title": "Contratación de proveedores confiables",
+            "frontSummary": "Se contrataron proveedores de jardinería, limpieza, mantenimiento de alberca, etc., garantizando calidad y continuidad en los servicios.",
+            "backSummary": "La selección de proveedores confiables permitió atender necesidades clave del condominio y asegurar un mantenimiento constante y responsable.",
+            "fullSummary": "Uno de los pasos más importantes para estabilizar la operación del condominio fue la contratación de proveedores confiables. Se incorporaron servicios de jardinería, limpieza, mantenimiento de la alberca, entre otros, garantizando que cada área crítica recibiera atención profesional y constante. Este cambio aseguró calidad en los trabajos, continuidad en los servicios y la tranquilidad de los vecinos al saber que las necesidades del condominio están cubiertas por especialistas responsables.",
+            "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Conectividad en oficina",
-            "desc": "Instalación de antenas para acceso a internet en la oficina de administración.",
-            "details": "Enlace redundante instalado y prueba de rendimiento completada; servicio contratado.",
-            "category": "Infraestructura",
+            "title": "Contrato de proveeduría del agua",
+            "frontSummary": "Se firmó el contrato con GSC/Parámetro, asegurando suministro continuo de agua y mantenimiento integral del sistema hidráulico.",
+            "backSummary": "El acuerdo garantiza presión constante, saneamiento, análisis de calidad, mantenimiento de drenaje y rehabilitación del sistema de riego.",
+            "fullSummary": "La firma del contrato de proveeduría del servicio de agua representó un paso decisivo para la seguridad y estabilidad del condominio. Gracias a este acuerdo con GSC, quien asignó a Parámetro para la administración del tema, se aseguró el suministro continuo de agua, el mantenimiento del sistema de presión, el saneamiento y análisis de calidad, así como el mantenimiento del drenaje y la rehabilitación del sistema de riego. Además, se estableció un precio justo, con la claridad de que podrían existir ajustes al tratarse de un servicio externo. Este contrato dio certeza a los vecinos de que el recurso más vital está garantizado bajo condiciones profesionales y transparentes.",
+            "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Mejoras en riego y áreas verdes",
-            "desc": "Puesta en marcha del sistema de riego y rehabilitación de jardinería.",
-            "details": "Zonas verdes rehabilitadas y sistema automatizado en funcionamiento; mantenimiento programado.",
-            "category": "Servicios",
-            "status": "En progreso",
-            "progress": 55
-        },
-        {
-            "title": "Rehabilitación de infraestructura",
-            "desc": "Trabajos en cerco eléctrico y reparaciones puntuales (bomba, sistema eléctrico).",
-            "details": "Reparaciones críticas atendidas y cronograma de obras preventivas establecido.",
-            "category": "Infraestructura",
+            "title": "Representación vecinal por calle",
+            "frontSummary": "Se impulsó la organización por calles, con reuniones que informan avances y designan representantes como enlace con el comité.",
+            "backSummary": "Ya contamos con representantes en varias calles, fortaleciendo la comunicación directa con vecinos y la participación comunitaria.",
+            "fullSummary": "Desde diciembre, el presidente del comité inició reuniones por cada calle con un doble propósito: informar sobre los avances de la administración y escuchar directamente las inquietudes de los vecinos. Estas reuniones también han servido para designar representantes vecinales que actúan como enlace con el comité. Aunque la participación ha sido moderada, se logró establecer representantes en las calles donde se realizaron encuentros, alcanzando cerca del 60% de cobertura. Este esfuerzo fortalece la comunicación, fomenta la participación y sigue avanzando hacia una representación completa en todo el condominio.",
+            "category": "Administración",
             "status": "En progreso",
             "progress": 60
         },
         {
-            "title": "Directorio interno de proveedores",
-            "desc": "Listado de recomendados y contratos para facilitar la gestión.",
-            "details": "Directorio publicado en la web y actualizado con contactos verificados.",
+            "title": "Nueva empresa de vigilancia y acuerdo estratégico",
+            "frontSummary": "Se contrató una nueva empresa de vigilancia, logrando seguridad reforzada y un acuerdo que incluye tecnología avanzada de control de accesos.",
+            "backSummary": "El contrato anual garantiza protocolos claros y que cámaras, sensores y biometría facial pasen a ser propiedad del condominio.",
+            "fullSummary": "La seguridad del condominio se fortaleció con la contratación de una nueva empresa de vigilancia. Como parte de las negociaciones, se alcanzó un acuerdo estratégico que incluyó la instalación de cámaras de seguridad, sensores de alerta peatonal y un dispositivo biométrico facial para el acceso peatonal. Se estableció que, al cumplir con el contrato anual, todos estos equipos pasarán a ser propiedad del condominio, asegurando beneficios permanentes. Este cambio no solo modernizó el control de accesos, sino que también consolidó un esquema de seguridad transparente y confiable, alineado con las necesidades reales de la comunidad.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "FAQs del condominio publicadas",
-            "desc": "Página de preguntas frecuentes para vecinos publicada y mantenida.",
-            "details": "Se consolidaron las dudas recurrentes y se publicó una sección accesible en la web.",
-            "category": "Administración",
-            "status": "Completado",
-            "progress": 100
-        },
-        {
-            "title": "Solución parcial a pagos adelantados",
-            "desc": "Acuerdos y procedimientos para resolver casos de pagos adelantados.",
-            "details": "Se implementó un procedimiento para aplicar saldos y documentar acuerdos especiales con condóminos.",
+            "title": "Sistema biométrico facial en acceso peatonal",
+            "frontSummary": "Se instaló el primer sensor biométrico facial en el acceso peatonal, modernizando el control de entradas y salidas.",
+            "backSummary": "El sistema permite registro remoto, almacenamiento en la nube y conexión futura con más dispositivos, aunque aún falta el sensor de salida.",
+            "fullSummary": "Como parte del acuerdo con la nueva empresa de vigilancia, se instaló el primer sensor biométrico facial en el acceso peatonal. Durante la revisión con el proveedor se identificó que un solo sensor no era suficiente, ya que no registra las salidas. Aunque el segundo dispositivo no está incluido en el contrato, se preparó la instalación para una futura compra.\nAdemás, se utilizó el ingreso obtenido por la venta de tags de acceso para cubrir la licencia de la aplicación que potencia el sistema: permite realizar registros biométricos a distancia desde la oficina, almacena todos los datos en la nube y admite enlazar múltiples dispositivos bajo la misma plataforma. Esto abre la posibilidad de controlar tanto entradas como salidas de manera integrada.\nEl sistema tiene un límite de usuarios registrables, que será distribuido equitativamente entre todas las unidades. Actualmente, el trabajo está terminado para el primer sensor de entrada y un botón de salida; para alcanzar el 100% de funcionalidad será necesario aprobar la compra del segundo dispositivo.",
             "category": "Administración",
             "status": "En progreso",
-            "progress": 40
+            "progress": 70
         },
         {
-            "title": "Sensores peatonales instalados",
-            "desc": "Mejoras en accesos peatonales para seguridad y control de paso.",
-            "details": "Sensores y señalización instalados en pasos peatonales; calibración en curso.",
-            "category": "Infraestructura",
+            "title": "Instalación de 6 cámaras en accesos",
+            "frontSummary": "Se instalaron 6 cámaras en los accesos, ampliando la cobertura de seguridad y garantizando monitoreo constante.",
+            "backSummary": "La compra incluyó dos cámaras adicionales y un grabador con capacidad para 8, asegurando visión a futuro en seguridad.",
+            "fullSummary": "Inicialmente, la empresa de vigilancia facilitó cuatro cámaras de seguridad en los accesos. Con recursos de la cuota extraordinaria se adquirieron dos cámaras adicionales y se cubrió la diferencia para ampliar el sistema de grabación de 4 a 8 canales, pensando en la expansión futura. Este trabajo ya está concluido y garantiza una cobertura más amplia, mejor monitoreo y un sistema preparado para crecer conforme a las necesidades del condominio.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Acuerdo para cámaras de reconocimiento de placas",
+            "frontSummary": "Se pactó la instalación de 2 cámaras adicionales para registrar placas de vehículos que ingresen y salgan del condominio.",
+            "backSummary": "El acuerdo con el proveedor de antenas e infraestructura está en marcha; las cámaras aún están pendientes de instalación.",
+            "fullSummary": "Como parte de las negociaciones con el proveedor que instaló las antenas de internet y trabaja en el cerco eléctrico, se acordó la instalación de dos cámaras adicionales enfocadas en el registro de placas de vehículos. Este proyecto complementará el sistema actual de 6 cámaras y permitirá un control más preciso de entradas y salidas. El acuerdo está vigente, pero la instalación aún no se ha concretado, por lo que el avance se estima en un 20–30%. Una vez completado, el condominio contará con un sistema de vigilancia más robusto y con capacidad de identificación vehicular.",
+            "category": "Administración",
+            "status": "En progreso",
+            "progress": 30
+        },
+        {
+            "title": "Actualización del sistema de tags de acceso",
+            "frontSummary": "Se rehabilitó el sistema de tags y se reactivó su venta, asegurando un control ordenado de vehículos dentro del condominio.",
+            "backSummary": "La nueva administración corrigió el descontrol heredado y estableció un manejo transparente y equitativo de los tags de acceso.",
+            "fullSummary": "La administración anterior había dejado de vender tags de acceso y no mantenía ningún control sobre su distribución, lo que generó un serio problema con el manejo de vehículos dentro del condominio. La nueva administración gestionó la rehabilitación del sistema y reactivó la venta de tags, ahora bajo un esquema transparente y ordenado. Con este cambio se garantiza que cada unidad cuente con un registro claro y equitativo, evitando abusos y fortaleciendo la seguridad en los accesos. Este logro representa la recuperación de un sistema clave para la organización y confianza de la comunidad.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Renovación de luminarias en áreas comunes",
+            "frontSummary": "Se renovaron las luminarias de las áreas comunes, mejorando la iluminación y la seguridad en espacios compartidos del condominio.",
+            "backSummary": "La actualización garantiza mayor visibilidad nocturna, eficiencia energética y un entorno más seguro y agradable para los vecinos.",
+            "fullSummary": "La administración anterior había dejado sin atención el sistema de iluminación en áreas comunes, lo que afectaba la seguridad y la comodidad de los vecinos. La nueva administración gestionó la renovación de las luminarias, sustituyendo equipos obsoletos y asegurando un funcionamiento eficiente. Con esta acción se mejoró la visibilidad nocturna en espacios como la alberca, la cancha, los juegos infantiles, la trotapista, el salón y los jardines, incrementando la seguridad y el disfrute de las áreas comunes. Además, la modernización del sistema permite un uso más eficiente de la energía, contribuyendo a la sostenibilidad del condominio.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Reemplazo de luminaria en Sequoia 500",
+            "frontSummary": "Se reemplazó la luminaria dañada en Sequoia 500, atendiendo un punto crítico de seguridad en una esquina muy transitada.",
+            "backSummary": "El trabajo se financió con la cuota extraordinaria, priorizando la rehabilitación de necesidades urgentes del condominio.",
+            "fullSummary": "En la calle Sequoia 500 se encontraba una luminaria estropeada que representaba un riesgo, especialmente por tratarse de una esquina utilizada frecuentemente para salir del condominio. La nueva administración consideró este punto como una prioridad dentro del plan de rehabilitación y destinó parte de los recursos de la cuota extraordinaria para financiar el reemplazo. Con esta acción se eliminó un foco de inseguridad y se reforzó la iluminación en un área clave, demostrando que los recursos extraordinarios se aplican en atender lo más urgente y necesario para la comunidad.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Sistema de QR para control de accesos",
+            "frontSummary": "Se habilitó el sistema de acceso por QR, agilizando el registro de visitas y proveedores mediante la aplicación Condovive.",
+            "backSummary": "El nuevo sistema moderniza el control de accesos y requiere que todos los condóminos utilicen la aplicación de manera habitual.",
+            "fullSummary": "El registro de visitas y proveedores era un proceso lento y poco eficiente. Para solucionarlo, se puso en marcha un sistema de control de accesos mediante códigos QR, integrado en la aplicación Condovive. Con esta herramienta, los condóminos podrán generar y compartir accesos de forma rápida y segura, reduciendo tiempos de espera y mejorando la organización. La implementación implica que todos los vecinos deberán utilizar la aplicación de manera constante, lo que fortalece la digitalización y el control transparente de entradas al condominio.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Compra y redistribución de celulares",
+            "frontSummary": "Se adquirió un nuevo celular para la caseta y el anterior se destinó al rondinero para reportes de rondines e incidentes.",
+            "backSummary": "La redistribución optimiza recursos: un equipo exclusivo para el sistema QR y otro para evidencias de seguridad en rondines.",
+            "fullSummary": "Para operar el nuevo sistema de acceso por QR fue necesario adquirir un teléfono celular exclusivo para la caseta. El dispositivo que antes se utilizaba en la caseta se reasignó al rondinero, quien ahora lo emplea para enviar evidencias de rondines y reportar incidentes en tiempo real. Esta redistribución asegura que cada área cuente con las herramientas adecuadas: la caseta con un equipo dedicado al control de accesos y el personal de vigilancia con un dispositivo para fortalecer la supervisión y la comunicación interna.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Donación de celular para la caseta",
+            "frontSummary": "Un integrante del comité donó un celular a la caseta, asegurando comunicación inmediata con los domicilios en un momento crítico.",
+            "backSummary": "La donación permitió gestionar accesos y mantener la seguridad tras la salida de la administración anterior.",
+            "fullSummary": "El mismo fin de semana en que la administración anterior dejó el condominio, surgió la necesidad urgente de contar con un teléfono en la caseta para comunicarse con los domicilios y solicitar accesos. Ante esa situación crítica, un integrante del comité donó un celular, lo que permitió mantener la comunicación y garantizar la continuidad del servicio. Este gesto se convirtió en un logro fundamental, pues evitó un vacío en la seguridad y aseguró que la caseta pudiera seguir operando de manera efectiva desde el primer día.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Instalación de antenas para internet en la oficina",
+            "frontSummary": "Se instalaron antenas para llevar internet desde la caseta a la oficina, garantizando conectividad para la gestión administrativa.",
+            "backSummary": "La instalación respondió a la necesidad urgente de dotar a la oficina de internet para el trabajo cotidiano de la administración.",
+            "fullSummary": "La oficina de administración aún no cuenta con obra civil que permita contratar internet directamente, lo que dificultaba las labores diarias. Para resolverlo, se destinó parte de la cuota extraordinaria a la compra de antenas que llevan la señal desde la caseta de vigilancia hasta la oficina por vía aérea. Actualmente, el servicio de internet no representa un gasto para el condominio, ya que la administración anterior acordó con Megacable un año de servicio gratuito a cambio de permitir su promoción dentro del fraccionamiento. La estrategia es que el ahorro generado por este acuerdo se utilice para recuperar la inversión en antenas, asegurando que el gasto extraordinario se compense en el tiempo. Con esta acción se garantizó la conectividad inmediata y se fortaleció la operación administrativa.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Puesta en marcha del sistema de riego",
+            "frontSummary": "Se reactivó el sistema de riego en áreas verdes, garantizando mantenimiento básico con apoyo administrativo y técnico.",
+            "backSummary": "La solución es provisional; se requiere inversión mayor para renovar aspersores y boquillas en mal estado.",
+            "fullSummary": "El contrato de agua cubre la planta tratadora, la bomba y las líneas de riego, pero no incluye la operación ni el mantenimiento de aspersores y boquillas, ni el riego en zonas sin cobertura, donde se depende de pipas de agua. Ante esta limitación, el comité, la administración y el jardinero coordinaron esfuerzos para poner en marcha el sistema de riego de las áreas verdes. La medida funciona como un arreglo temporal, pues gran parte de los aspersores y boquillas requieren reemplazo. Se evaluó destinar recursos de la cuota extraordinaria para una renovación completa, pero el costo-beneficio no resultaba favorable, ya que consumiría gran parte del fondo. Se optó por mantener el sistema activo de manera provisional, mientras se atienden otras necesidades prioritarias y se planifica una inversión definitiva.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Rehabilitación de zonas verdes",
+            "frontSummary": "Se inició la recuperación de jardines y áreas verdes, atendiendo poda, riego y mantenimiento tras años de abandono.",
+            "backSummary": "La rehabilitación previene gastos mayores a futuro y devuelve seguridad y estética a los espacios comunes del condominio.",
+            "fullSummary": "La administración anterior dejó en completo abandono las zonas verdes: jardines, áreas frente a domicilios, poda de árboles y mantenimiento general. La nueva administración y el comité identificaron que prolongar ese descuido representaría un gasto monumental en el futuro y que la recuperación debía ser una prioridad inmediata. Durante las primeras semanas se concentraron los esfuerzos de jardinería en revisar la salud de las áreas verdes y comenzar trabajos esenciales, como la poda de árboles por motivos de seguridad y estética. Además, se recurrió al riego con pipas de agua antes de que el sistema de riego pudiera ponerse en marcha. Estas acciones iniciales marcaron el inicio de la rehabilitación integral de las zonas verdes, asegurando que el condominio recupere su imagen y funcionalidad sin comprometer recursos en el largo plazo.",
+            "category": "Administración",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Rehabilitación del cerco eléctrico",
+            "frontSummary": "Se inició la rehabilitación del cerco eléctrico con apoyo de la cuota extraordinaria, tras años de fallas y falta de funcionamiento.",
+            "backSummary": "El proyecto avanza con nuevos equipos y ajustes técnicos, aunque enfrenta retos por daños previos y situaciones externas.",
+            "fullSummary": "El cerco eléctrico, instalado originalmente por la constructora, nunca llegó a funcionar de manera adecuada, ya que el generador colocado no tenía la capacidad suficiente para alimentar todo el perímetro. Con recursos de la cuota extraordinaria se inició su rehabilitación, incluyendo la compra de un nuevo generador y la intervención de un proveedor especializado. El proyecto está en marcha y ha enfrentado retos adicionales: secciones del cerco fueron inhabilitadas por vecinos durante construcciones en sus domicilios, lo que obliga a identificar responsabilidades y que dichos propietarios cubran el costo de reparación. Además, un incidente con un tocón que cayó sobre el muro perimetral dañó parte de la instalación, aunque ya se propuso una solución temporal para mantener el cerco operativo mientras se atiende el muro. Es importante señalar que la puesta en marcha del cerco eléctrico impactará directamente en el consumo y costo de energía eléctrica, aspecto que los condóminos deben considerar como parte de la seguridad integral del fraccionamiento.",
+            "category": "Seguridad",
             "status": "En progreso",
             "progress": 50
         },
         {
-            "title": "Reja en entrada oriente",
-            "desc": "Instalación de barrera física adicional en acceso oriente.",
-            "details": "Reja instalada con sistema de bloqueo; pruebas de seguridad realizadas.",
+            "title": "Creación del sitio web del condominio",
+            "frontSummary": "Se desarrolló un sitio web oficial para centralizar información, servicios y herramientas de apoyo a la comunidad.",
+            "backSummary": "El portal ofrece eventos, acceso a Condovive, preguntas frecuentes, acuerdos de asamblea y páginas temáticas de interés vecinal.",
+            "fullSummary": "Con el propósito de fortalecer la comunicación y brindar acceso rápido a información relevante, se creó un sitio web oficial del condominio. La página principal funciona como bitácora comunitaria, mostrando próximos eventos y registrando actividades pasadas organizadas por la administración y el comité. El portal integra secciones clave: acceso directo a la aplicación Condovive, un directorio de contactos relevantes, una página de preguntas frecuentes para resolver dudas de manera ágil, y enlaces a documentos de interés como acuerdos de asamblea, resultados de mesas de trabajo y datos del año anterior. También se incluyó una sección dedicada a la problemática de los pagos adelantados realizados a la administración anterior, así como un acceso directo a la página de logros que documenta los avances actuales. Este sitio, desarrollado íntegramente por el presidente del comité, representa un valor agregado significativo, al facilitar transparencia, eficiencia y participación comunitaria.",
+            "category": "Comunicación",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Directorio comunitario de contactos y proveedores confiables",
+            "frontSummary": "Se lanzó un directorio interno que reúne contactos clave y proveedores recomendados, pensado para fortalecer la vida comunitaria.",
+            "backSummary": "La herramienta facilita comunicación con la administración y ofrece un espacio confiable para compartir proveedores avalados por vecinos.",
+            "fullSummary": "Dentro del nuevo sitio web del condominio se habilitó un directorio comunitario diseñado para concentrar información práctica y confiable. La primera sección reúne contactos esenciales como administración y caseta, con espacio para agregar hasta cuatro números clave de atención inmediata. La segunda sección funciona como un repositorio de proveedores recomendados por los propios vecinos, lo que garantiza referencias seguras y accesibles en un solo lugar. La primera versión fue desarrollada por el presidente del comité con apoyo del vicepresidente, y se irá enriqueciendo con nuevas aportaciones de la comunidad. Este directorio no solo simplifica la búsqueda de servicios, sino que también fomenta la colaboración vecinal y la confianza entre residentes, convirtiéndose en una herramienta de apoyo cotidiano para todos.",
+            "category": "Comunicación",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Página de preguntas frecuentes del condominio",
+            "frontSummary": "Se habilitó una sección de preguntas frecuentes para resolver dudas comunes de manera rápida y accesible.",
+            "backSummary": "La página ofrece respuestas claras sobre procesos, acuerdos y servicios, evitando confusiones y consultas repetitivas.",
+            "fullSummary": "Dentro del nuevo sitio web del condominio se creó una página dedicada a preguntas frecuentes, diseñada para dar respuestas inmediatas a las dudas más comunes de los residentes. Esta sección concentra información práctica sobre procesos administrativos, acuerdos de asamblea, uso de la aplicación Condovive y servicios comunitarios, lo que permite a los vecinos encontrar soluciones sin necesidad de acudir directamente a la administración. Al centralizar las respuestas en un solo lugar, se reduce la repetición de consultas y se agiliza la comunicación, generando eficiencia y transparencia. La página de preguntas frecuentes se convierte así en una herramienta clave para fortalecer la organización interna y brindar confianza a los condóminos.",
+            "category": "Comunicación",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Reparación urgente del alumbrado público en Sequoia 200 y 300",
+            "frontSummary": "Se atendió de forma inmediata la falla total del alumbrado público en Sequoia 200 y 300, garantizando seguridad nocturna.",
+            "backSummary": "La reparación se financió con la cuota extraordinaria, respondiendo a un imprevisto crítico derivado del abandono previo.",
+            "fullSummary": "Semanas después de que la nueva administración asumiera funciones, el alumbrado público de las calles Sequoia 200 y 300 dejó de operar por completo. Este hecho, inesperado y de alto impacto en la seguridad nocturna, obligó a una intervención urgente. Tal como se informó en la asamblea del 6 de noviembre, situaciones de este tipo eran previsibles debido a la falta de mantenimiento acumulada por la administración anterior. Para resolverlo de inmediato y evitar riesgos a los residentes, se decidió utilizar recursos de la cuota extraordinaria, lo que permitió financiar la reparación sin demoras. Con esta acción se restableció la iluminación en las calles afectadas, reforzando la seguridad y demostrando capacidad de respuesta ante contingencias críticas.",
             "category": "Infraestructura",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Mantenimiento de alberca",
-            "desc": "Reparación de motobomba y cambio de carga filtrante.",
-            "details": "Motobomba reparada y sistema de filtración renovado; protocolo de mantenimiento establecido.",
-            "category": "Servicios",
+            "title": "Instalación de sensores peatonales en el acceso principal",
+            "frontSummary": "Se instalaron sensores en la entrada del condominio que alertan a los vigilantes sobre el paso de personas o vehículos en horarios definidos.",
+            "backSummary": "La medida refuerza la labor de vigilancia, brindando herramientas que facilitan su trabajo y mejoran la seguridad comunitaria.",
+            "fullSummary": "El trabajo de los vigilantes, aunque pueda parecer sencillo, es altamente demandante y requiere apoyo constante para garantizar la seguridad de todos. Con este objetivo se instalaron sensores en la entrada principal del condominio, programados para funcionar en horarios específicos. Estos dispositivos detectan el paso de personas o vehículos y activan una alarma que alerta de inmediato a los vigilantes, permitiéndoles reaccionar con rapidez ante cualquier evento. La implementación de esta herramienta no solo facilita su labor diaria, sino que también beneficia directamente a la comunidad al reforzar la seguridad en el acceso principal. Con esta acción se demuestra el compromiso de la administración en dotar al personal de vigilancia de recursos prácticos y efectivos.",
+            "category": "Seguridad",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Gestión de desazolve",
-            "desc": "Limpieza y mantenimiento en sistema pluvial (Sakura 200).",
-            "details": "Operación de desazolve completada en las zonas críticas con reporte de trabajos.",
-            "category": "Infraestructura",
+            "title": "Solución al problema de pagos adelantados",
+            "frontSummary": "Se atendió la problemática de vecinos que realizaron pagos adelantados a la administración anterior y cuyos recursos no fueron entregados.",
+            "backSummary": "La nueva administración identificó los casos, generó un registro transparente y estableció un plan para dar seguimiento y resolver la situación.",
+            "fullSummary": "Uno de los retos más delicados que enfrentó la nueva administración fue la problemática de los pagos adelantados realizados por algunos vecinos a la administración anterior, recursos que nunca llegaron a ser transferidos. Para atender esta situación se creó un registro claro y transparente de los casos, con el fin de dar certeza a los afectados y evitar confusiones. Además, se habilitó una página específica dentro del sitio web del condominio, donde los residentes pueden consultar la información y el estado de seguimiento de este tema. La administración y el comité se comprometieron a dar continuidad a la resolución de cada caso, garantizando que la comunidad esté informada y que se mantenga la confianza en los procesos financieros. Este esfuerzo representa un paso importante hacia la transparencia y la recuperación de credibilidad institucional.",
+            "category": "Finanzas",
+            "status": "En progreso",
+            "progress": 70
+        },
+        {
+            "title": "Instalación de reja en el acceso norte",
+            "frontSummary": "Se instaló una reja en el lado norte del condominio para cerrar una brecha estructural y complementar el sistema de sensores peatonales.",
+            "backSummary": "La medida asegura que los sensores cubran toda el área de acceso, eliminando puntos vulnerables y reforzando la seguridad comunitaria.",
+            "fullSummary": "Durante la instalación de los sensores peatonales se detectó una vulnerabilidad en el acceso norte del condominio: una zona sin cerca que permitía el paso de personas sin ser detectadas por el sistema. Para garantizar que los sensores cumplieran su función de manera efectiva, se decidió instalar una reja que cerrara esa brecha estructural. La inversión se realizó con recursos de la cuota extraordinaria, priorizando la seguridad de los residentes y la correcta operación del sistema de vigilancia. Con esta acción se eliminó un punto de acceso no controlado y se fortaleció la cobertura de los sensores, asegurando que las medidas tecnológicas y físicas trabajen de forma integrada para proteger al condominio.",
+            "category": "Seguridad",
             "status": "Completado",
             "progress": 100
         },
         {
-            "title": "Gestión de presión de agua",
-            "desc": "Intervenciones para estabilizar la presión y servicio por zonas.",
-            "details": "Ajustes y válvulas instaladas para equilibrar presión por sectores; monitoreo activo.",
+            "title": "Reparación y puesta en marcha de la alberca del condominio",
+            "frontSummary": "Se rehabilitó la alberca tras años de abandono y vandalismo, permitiendo su uso básico aunque sin sistema de calefacción.",
+            "backSummary": "Ante el grave deterioro, se optó por reparaciones básicas que permitieran usar la alberca, reservando recursos para prioridades más urgentes.",
+            "fullSummary": "La alberca del condominio fue uno de los espacios más afectados por el abandono y la falta de responsabilidad de la administración anterior. Al iniciar la revisión se encontraron daños severos: la carga filtrante nunca había sido reemplazada y tuvo que retirarse con cincel y marro; las válvulas estaban deterioradas; la motobomba estaba quemada y se envió a reparación; el flotador presentaba fallas que provocaban fugas y excedentes de agua; las luces no funcionaban; y las bombas de calor estaban descompuestas, una de ellas vandalizada con piezas genéricas y cables robados, además de refacciones abandonadas en el techo del cuarto de bombas. Ante este panorama y el alto costo de una rehabilitación integral, el comité decidió utilizar recursos de la cuota extraordinaria únicamente para reparaciones esenciales que permitieran poner la alberca en funcionamiento básico, sin sistema de calefacción. La decisión respondió a un criterio de costo-beneficio, priorizando otras necesidades urgentes del condominio. Actualmente el avance de este proyecto es de aproximadamente un 30%, lo que permite a los residentes disfrutar de la alberca mientras se planifica su recuperación completa a futuro.",
             "category": "Infraestructura",
             "status": "En progreso",
-            "progress": 45
+            "progress": 30
         },
         {
-            "title": "Planeación de reglamento",
-            "desc": "Iniciativa para revisión y actualización del reglamento interno.",
-            "details": "Borrador en revisión con aportes de vecinos y comité legal; próximo trámite en asamblea.",
-            "category": "Administración",
-            "status": "Planificado",
-            "progress": 12
+            "title": "Gestión de desazolve en Sakura 200",
+            "frontSummary": "Se coordinó y ejecutó el desazolve del drenaje en Sakura 200, previniendo inundaciones y daños en domicilios.",
+            "backSummary": "Trabajo con contratista y limpieza preventiva que mejoró el flujo de aguas pluviales y redujo riesgos de afectación a las viviendas.",
+            "fullSummary": "Ante reportes de encharcamientos y obstrucciones en el sistema de drenaje en Sakura 200, el comité gestionó la contratación de un servicio especializado para desazolve y limpieza. Se programó la intervención en coordinación con vecinos afectados, se retiraron sedimentos y residuos acumulados, y se verificó el correcto funcionamiento de las coladeras y canales. La acción redujo el riesgo de inundaciones en temporada de lluvias y mejoró la higiene y circulación del agua en la zona, demostrando una gestión preventiva y eficaz.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Gestión de mantenimiento y solución de problemas con la presión de agua",
+            "frontSummary": "Se atendieron fallas en la presión de agua mediante coordinación con Parámetro, logrando estabilizar el suministro en el condominio.",
+            "backSummary": "La administración implementó un plan de registro de fallas y solicitó medidores de presión, lo que permitió detectar y resolver el problema raíz.",
+            "fullSummary": "La infraestructura hidráulica del condominio se encontraba al borde del colapso debido a años de abandono y falta de mantenimiento. En noviembre se gestionó el primer pago a Parámetro, proveedor del suministro de agua, para que tomara acciones inmediatas. A pesar de ello, en diciembre se presentaron fallas recurrentes de baja presión, tanto en fines de semana como entre semana. Ante esta situación, la administración junto con el presidente del comité diseñaron un plan de registro de eventualidades: se creó una bitácora en la que se anotaban las fallas con fecha, hora y naturaleza del problema. Paralelamente, se solicitó a la cuadrilla de Parámetro la instalación de medidores de presión alrededor del condominio para facilitar el diagnóstico. Gracias a estas medidas se logró identificar el problema raíz y resolverlo, estabilizando el suministro de agua y asegurando un servicio confiable para los residentes.",
+            "category": "Infraestructura",
+            "status": "Completado",
+            "progress": 100
         }
     ]
 }

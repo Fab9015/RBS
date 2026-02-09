@@ -37,6 +37,8 @@
             --card-bg: #ffffff;
             --glass: rgba(255, 255, 255, 0.6);
             --progress-color: #d97706;
+            --cta: var(--progress-color);
+            --cta-dark: #b65a1f;
             /* default: orange (user choice) */
         }
 
@@ -96,6 +98,8 @@
             align-items: center;
         }
 
+        /* CTA styles (follows --progress-color) */
+
         .controls-inner .filters-row {
             display: flex;
             gap: 0.6rem;
@@ -104,7 +108,7 @@
 
         /* back body: top spacing to clear the media, plus lateral margins */
         .flip-back .card-body {
-            margin: 48px 25px 1.05rem;
+            margin: 48px 0 1.05rem;
             /* top, left/right, bottom */
             padding-top: 0;
         }
@@ -118,6 +122,24 @@
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(143, 167, 106, 0.18);
+        }
+
+        /* 'Leer más' CTA: distinct from category tag colors but harmonizes with palette */
+        .btn-open-details {
+            background: var(--cta);
+            color: #fff;
+            padding: .45rem .75rem;
+            border-radius: 8px;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 16px rgba(59, 130, 246, 0.12);
+            transition: background .12s ease, transform .06s ease;
+        }
+
+        .btn-open-details:hover {
+            background: var(--cta-dark);
+            transform: translateY(-1px);
         }
 
         .grid {
@@ -135,7 +157,8 @@
             background: var(--card-bg);
             border-radius: 12px;
             padding: 0;
-            min-height: 300px;
+            /* increased so 4 text lines fit without clipping progress/tags */
+            min-height: 380px;
             /* increased so card content doesn't appear cut off */
             box-shadow: 0 6px 18px rgba(30, 30, 30, 0.04);
             transition: transform .18s ease, box-shadow .18s ease;
@@ -200,7 +223,8 @@
             }
 
             .card {
-                min-height: 220px;
+                /* make slightly taller on small screens to avoid clipping */
+                min-height: 260px;
             }
 
             .hero {
@@ -343,6 +367,37 @@
             box-sizing: border-box;
         }
 
+        /* Left-align descriptive text inside cards (modal will be justified separately) */
+        .card .card-body p,
+        .card .desc,
+        .flip-back .card-body p {
+            text-align: left;
+        }
+
+        /* Justify modal body text for easier long-form reading */
+        .detail-dialog .modal-body {
+            text-align: justify;
+        }
+
+        /* Ensure front-face footer (progress + tags) stays pinned to card bottom */
+        .flip-face .card-body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flip-front .card-body {
+            /* allow the body to grow to fill the face so .card-foot can push to bottom */
+            flex: 1 1 auto;
+        }
+
+        .card-foot {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+        }
+
 
 
         .flip-front {
@@ -364,7 +419,7 @@
             margin-top: 48px;
             /* reserve same height as .media */
             padding-top: 0;
-            gap: 0.5rem;
+            gap: 1.2rem;
             /* spacing between heading and following block on the back face (matched to front) */
         }
 
@@ -418,30 +473,176 @@
         /* sticky controls on mobile (right-bottom) */
         .mobile-sticky-controls {
             position: fixed;
-            right: 12px;
+            right: 6px;
             left: auto;
-            bottom: 12px;
+            bottom: 72px;
             display: flex;
             flex-direction: column;
-            gap: .5rem;
+            gap: .6rem;
             z-index: 80;
             /* reduced so menu overlay can sit above these buttons (overlay z-index is 900 in main.css) */
             align-items: center;
             pointer-events: auto;
             margin: 44px 25px 1.05rem;
             transition: transform .18s ease, opacity .18s ease;
+            transform: translateX(25px);
         }
 
-        /* Sticky buttons: white background, accent border and accent-colored icons */
+        /* Sticky buttons: vertical pills (preserve height, reduce width) */
         .mobile-sticky-controls .m-btn {
-            margin-top: 44px;
+            margin-top: 0;
             color: var(--accent);
             border: 1px solid var(--accent);
-            box-shadow: 0 6px 14px rgba(20, 20, 20, 0.06);
+            box-shadow: 0 6px 10px rgba(20, 20, 20, 0.06);
+            /* keep a taller, circular-cap height */
+            height: 44px;
+            min-height: 44px;
+            /* reduce width explicitly instead of scaling (prevents icon distortion) */
+            width: 36px;
+            min-width: 36px;
+            padding: 0;
+            border-radius: 22px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #fff;
+            transition: box-shadow .12s ease, background .12s ease;
         }
 
-        .mobile-sticky-controls .m-btn svg {
+        .mobile-sticky-controls .m-btn svg,
+        .mobile-pager .m-btn svg {
+            width: 16px;
+            height: 16px;
             stroke: currentColor;
+        }
+
+        /* Mobile pager: filled accent button with white icon */
+        .mobile-pager .m-btn {
+            background: var(--accent);
+            color: #ffffff;
+            border: none;
+            box-shadow: 0 6px 16px rgba(20, 20, 20, 0.12);
+            width: 44px;
+            height: 44px;
+            min-width: 44px;
+            min-height: 44px;
+            padding: 0;
+            border-radius: 999px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-pager .m-btn svg {
+            stroke: #ffffff;
+            fill: none;
+            width: 18px;
+            height: 18px;
+        }
+
+        /* Modal for full details (responsive) */
+        .detail-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 0, 0, 0.45);
+            z-index: 11050;
+            padding: 1rem;
+            overflow-x: hidden;
+        }
+
+        .detail-modal.active {
+            display: flex;
+        }
+
+        .detail-dialog {
+            background: var(--card-bg);
+            /* use flex-column so footer can be anchored to the dialog bottom */
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            max-width: 1040px;
+            /* let the dialog grow to its content, but never exceed the viewport height */
+            height: auto;
+            max-height: calc(100vh - 48px);
+            /* keep the rounded corners visible by hiding overflow on the container
+               and delegating scrolling to the inner .modal-body */
+            overflow: hidden;
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(20, 20, 20, 0.2);
+            /* unified inner padding applied to the dialog so title and body align */
+            padding: 1.25rem;
+            box-sizing: border-box;
+            position: relative;
+            min-width: 0;
+            margin: 0 auto;
+        }
+
+        /* stronger selector to prevent stretching inside the overlay */
+        .detail-modal .detail-dialog {
+            align-self: center;
+            display: flex !important;
+            flex-direction: column !important;
+            width: auto;
+            /* never exceed the viewport width minus some gutter */
+            /* use a single, explicit max-width expression */
+            height: auto;
+            min-height: 0;
+            /* enforce corner rounding and prevent outer overflow from negating radius */
+            border-radius: 16px !important;
+            overflow: hidden !important;
+        }
+
+        .detail-dialog .modal-title {
+            margin: .6rem 0 1rem 0;
+            /* add extra top margin so the title sits clearly below the close button */
+            padding-top: 0;
+            font-size: 1.15rem;
+            text-align: center;
+        }
+
+        .detail-dialog .modal-body {
+            color: var(--muted);
+            line-height: 1.45;
+            overflow: auto;
+            max-height: calc(100vh - 160px);
+            /* allow the body to take available space so footer stays at bottom */
+            flex: 1 1 auto;
+        }
+
+        /* top-close removed by request */
+
+        .detail-dialog .modal-footer {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: .6rem;
+        }
+
+        .detail-dialog .modal-close-footer {
+            background: var(--cta);
+            color: #fff;
+            border: none;
+            padding: .6rem .9rem;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        /* mobile: full-screen dialog */
+        @media (max-width: 640px) {
+            .detail-dialog {
+                display: block;
+                width: 100%;
+                height: 100%;
+                max-width: none;
+                max-height: none;
+                border-radius: 0;
+                padding: 1.5rem;
+            }
+
+            /* top-close removed */
         }
 
         /* removed focus outline — we use smooth scroll to top instead of focusing the heading */
@@ -518,6 +719,7 @@
                             <option value="">Todas</option>
                         </select>
                     </label>
+
                     <label class="filter-label">Estatus
                         <select id="filterStatus">
                             <option value="">Todos</option>
@@ -533,13 +735,10 @@
         </section>
     </main>
     <script>
-        // Data and palette
+        // Data and palette (palette will be built from payload.categories at runtime)
         let achievements = [];
-        const _palette = {
-            'Administración': ['#8fa76a', '#ffffff'],
-            'Infraestructura': ['#6f5846', '#ffffff'],
-            'Servicios': ['#7AA98F', '#ffffff']
-        };
+        let _palette = {};
+        let categoriesList = [];
 
         /* progress swatches removed — not used in production */
 
@@ -575,12 +774,12 @@
                         <div class="flip-inner">
                             <div class="flip-face flip-front">
                                 <div class="media card-media"><div class="cat-label">${a.category}</div></div>
-                                <div class="card-body" style="display:flex;flex-direction:column;gap:.5rem;">
+                                <div class="card-body">
                                     <div>
                                         <h3 class="title">${a.title}</h3>
-                                        <p class="desc">${a.desc}</p>
+                                        <p class="desc">${a.frontSummary || a.fullSummary}</p>
                                     </div>
-                                    <div style="margin-top:auto;display:flex;flex-direction:column;gap:.5rem;">
+                                    <div class="card-foot">
                                         <div class="progress" aria-hidden="true"><div class="progress-bar" style="width:${a.progress}%"></div></div>
                                         <div class="tags"><span class="tag">${a.category}</span><span class="tag" style="margin-left:auto">${a.status}</span></div>
                                     </div>
@@ -589,12 +788,20 @@
                             <div class="flip-face flip-back">
                                 <div class="card-body">
                                     <h3 class="title">${a.title}</h3>
-                                    <div style="color:var(--muted); font-size:.96rem"><p>${a.details || a.desc}</p></div>
+                                    <div style="color:var(--muted); font-size:.96rem">
+                                        <p>${a.backSummary || a.fullSummary}</p>
+                                    </div>
+                                    <div class="card-foot"><button class="btn btn-open-details" data-idx="${achievements.indexOf(a)}">Leer más</button></div>
                                 </div>
                             </div>
                         </div>
                     `;
                 g.appendChild(card);
+                // attach direct handler to the 'Leer más' button to avoid relying on index lookups
+                const detailBtn = card.querySelector('.btn-open-details');
+                if (detailBtn) {
+                    detailBtn.onclick = (e) => { openDetailsModalItem(a); };
+                }
                 // style media as colored block with category label (part of front face so whole card flips)
                 const mediaEl = card.querySelector('.card-media');
                 const pal = _palette[a.category] || ['#d4e6d0', '#233'];
@@ -606,6 +813,21 @@
             updateMobilePager(total);
             // ensure sticky handlers exist (buttons are static in DOM)
             attachMobileStickyHandlers();
+            // attach detail modal handlers for any new buttons
+            attachDetailHandlers();
+        }
+
+        // Open modal using an achievement object — always prefer `fullSummary` for modal content
+        function openDetailsModalItem(item) {
+            const modal = document.getElementById('detailModal');
+            const titleEl = document.getElementById('detailModalTitle');
+            const bodyEl = document.getElementById('detailModalBody');
+            if (!modal || !item) return;
+            titleEl.textContent = item.title || '';
+            // force use of fullSummary in modal
+            bodyEl.innerHTML = (item.fullSummary || '');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
         // Attach flip handlers: click/tap or Enter/Space to flip. Only one flipped at a time.
@@ -704,15 +926,70 @@
             };
         }
 
+        // Details modal: open/close and attach handlers for 'Leer más' buttons
+        function openDetailsModal(idx) {
+            const modal = document.getElementById('detailModal');
+            const titleEl = document.getElementById('detailModalTitle');
+            const bodyEl = document.getElementById('detailModalBody');
+            const item = achievements[idx];
+            if (!modal || !item) return;
+            titleEl.textContent = item.title || '';
+            bodyEl.innerHTML = (item.fullSummary || '');
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetailsModal() {
+            const modal = document.getElementById('detailModal');
+            if (!modal) return;
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function attachDetailHandlers() {
+            document.querySelectorAll('.btn-open-details').forEach(btn => {
+                // Only bind by index if a data-idx attribute is present (preserve direct bindings)
+                if (btn.dataset && btn.dataset.idx) {
+                    btn.onclick = (e) => { const idx = parseInt(btn.dataset.idx, 10); openDetailsModal(idx); };
+                }
+            });
+            const modal = document.getElementById('detailModal');
+            if (modal) {
+                modal.addEventListener('click', (e) => { if (e.target === modal) closeDetailsModal(); });
+                // attach close handler to footer button only (top X removed)
+                modal.querySelectorAll('.modal-close-footer').forEach(b => { b.onclick = closeDetailsModal; });
+                document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDetailsModal(); });
+            }
+        }
+
         // Apply loaded data and render
         function applyData(payload) {
             const items = payload && payload.logros ? payload.logros : (Array.isArray(payload) ? payload : []);
             achievements = items.map(x => Object.assign({}, x));
             achievements.forEach((a, i) => {
+                // Ensure canonical fields exist; derive short previews from fullSummary when needed
+                if (!a.fullSummary) a.fullSummary = a.fullSummary || '';
+                if (!a.frontSummary) a.frontSummary = (a.fullSummary && a.fullSummary.length) ? ((a.fullSummary.length > 180) ? a.fullSummary.slice(0, 177) + '...' : a.fullSummary) : '';
+                if (!a.backSummary) a.backSummary = (a.fullSummary && a.fullSummary.length) ? ((a.fullSummary.length > 140) ? a.fullSummary.slice(0, 137) + '...' : a.fullSummary) : '';
                 if (!a.category) a.category = (i % 3 === 0) ? 'Administración' : (i % 3 === 1) ? 'Infraestructura' : 'Servicios';
                 if (!a.status) a.status = (i % 4 === 0) ? 'Completado' : (i % 4 === 1) ? 'En progreso' : 'Planificado';
                 if (!a.progress) a.progress = (a.status === 'Completado') ? 100 : (a.status === 'En progreso') ? 52 : 12;
             });
+            // Build palette from payload categories when provided so JSON is the single source of truth
+            try {
+                if (payload && Array.isArray(payload.categories)) {
+                    _palette = {};
+                    categoriesList = [];
+                    payload.categories.forEach(c => {
+                        const name = c.name || c.nombre;
+                        if (!name) return;
+                        const bg = c.color || c.bg || '#d4e6d0';
+                        const fg = c.textColor || c.fg || '#233';
+                        _palette[name] = [bg, fg];
+                        categoriesList.push(name);
+                    });
+                }
+            } catch (e) { /* ignore palette build errors */ }
             renderFilterOptions();
             renderGallery();
             attachFlipHandlers();
@@ -722,8 +999,8 @@
             const catSel = document.getElementById('filterCategory');
             const statSel = document.getElementById('filterStatus');
             if (!catSel || !statSel) return;
-            // gather unique
-            const cats = Array.from(new Set(achievements.map(a => a.category))).sort();
+            // gather unique: include categories defined in data even if they have no items
+            const cats = Array.from(new Set([...(categoriesList || []), ...achievements.map(a => a.category)])).sort();
             const stats = Array.from(new Set(achievements.map(a => a.status))).sort();
             // reset
             catSel.innerHTML = '<option value="">Todas</option>';
@@ -740,6 +1017,8 @@
             const clearBtn = document.getElementById('btn-clear');
             if (clearBtn) clearBtn.onclick = () => { currentCategory = ''; currentStatus = ''; catSel.value = ''; statSel.value = ''; renderGallery(); attachFlipHandlers(); };
         }
+
+        /* CTA watchers removed - CTA now follows --progress-color */
 
         // Load JSON similarly to other pages: prefer network, fallback to embedded, support file:// previews
         (function loadLogros() {
@@ -815,6 +1094,15 @@
                 <polyline points="6 9 12 15 18 9"></polyline>
             </svg>
         </button>
+    </div>
+
+    <!-- Detail modal (hidden) -->
+    <div id="detailModal" class="detail-modal" role="dialog" aria-hidden="true">
+        <div class="detail-dialog" role="document">
+            <h3 id="detailModalTitle" class="modal-title"></h3>
+            <div id="detailModalBody" class="modal-body"></div>
+            <div class="modal-footer"><button class="modal-close-footer">Cerrar</button></div>
+        </div>
     </div>
 </body>
 
