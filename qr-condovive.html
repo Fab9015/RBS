@@ -26,42 +26,58 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="QR Condovive – Reserva Bosque Sereno">
-
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
         rel="stylesheet">
 
     <style>
-        /* Minimal page-scoped tweaks (reuses styles/main.css globally) */
+        /* Page-scoped styles for an elegant, responsive achievements page */
         :root {
+            --hero-bg-1: #f3f6f1;
+            --hero-bg-2: #e6efe0;
             --accent: #8fa76a;
             --muted: #6b6b6b;
             --card-bg: #ffffff;
+            --glass: rgba(255, 255, 255, 0.6);
+            --progress-color: #d97706;
+            --cta: var(--progress-color);
+            --cta-dark: #b65a1f;
+            /* default: orange (user choice) */
         }
 
         main {
             padding: 2.5rem 1rem 4rem;
-            max-width: 1100px;
-            margin: 0 auto;
         }
 
         .hero {
-            background: linear-gradient(120deg, #f3f6f1, #e6efe0);
-            border-radius: 12px;
-            padding: 1.8rem;
-            display: flex;
+            background: linear-gradient(120deg, var(--hero-bg-1), var(--hero-bg-2));
+            border-radius: 14px;
+            padding: 2.2rem 1.2rem;
+            max-width: 1200px;
+            margin: 0 auto 1.6rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
             gap: 1rem;
             align-items: center;
-            justify-content: space-between
+            box-shadow: 0 6px 18px rgba(40, 40, 40, 0.06);
         }
 
         .hero h1 {
             margin: 0;
-            font-size: 1.9rem
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
         }
 
         .hero p {
-            margin: .4rem 0 0;
-            color: var(--muted)
+
+            margin: 0.4rem 0 0;
+            color: var(--muted);
+        }
+
+        .hero .logo {
+            width: 84px;
+            height: 84px;
+            border-radius: 12px;
+            object-fit: contain;
         }
 
         .video-wrap {
@@ -71,14 +87,60 @@
             box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
         }
 
-        .video-placeholder {
-            height: 360px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #111014;
-            color: #fff;
-            border-radius: 8px
+        /* Ensure video element scales nicely */
+        #videoContainer video {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: 100%;
+            border-radius: 8px;
+        }
+
+        .kicker {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 0.02em;
+        }
+
+        .notice {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-left: 4px solid #f39c12;
+        }
+
+        .notice h3 {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #856404;
+            font-weight: 700;
+        }
+
+        .notice p {
+            margin: 0;
+            font-size: 0.85rem;
+            color: #856404;
+            line-height: 1.4;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero {
+                grid-template-columns: 1fr auto;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero .logo {
+                margin: 0 auto;
+            }
         }
     </style>
 </head>
@@ -87,6 +149,7 @@
     <header>
         <div>
             <h1 class="page-title">Generar QR en Condovive</h1>
+
             <p class="subtitle">Guía rápida para crear códigos QR desde la aplicación Condovive</p>
         </div>
         <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
@@ -103,32 +166,32 @@
                 <p class="subtitle">Sigue los pasos del video para crear y compartir códigos QR para visitas y
                     proveedores.</p>
             </div>
-            <img src="img/logo.png" alt="Logo" style="width:72px; height:72px; object-fit:contain; border-radius:10px;">
         </div>
-
-        <section style="margin-top:1rem;">
-            <h2>Descripción</h2>
+        <section id="qr-tutorial-garden" style="margin-top:1rem;">
+            <h2>Video paso a paso</h2>
             <p>En este video te mostramos, paso a paso, cómo usar la aplicación Condovive para generar códigos QR que
-                permiten el acceso temporal a visitantes y proveedores. También cubrimos opciones de expiración,
-                permisos y cómo compartir el código de forma segura.</p>
+                permiten el acceso temporal a visitantes y proveedores. El video incluye ejemplos prácticos.</p>
 
-            <h3>Explicación</h3>
-            <p>Antes de cargar el video, revisa que tengas la última versión de Condovive instalada y acceso a generar
-                códigos desde tu rol (propietario o administrador). El video incluye ejemplos prácticos y
-                recomendaciones de seguridad.</p>
+            <div class="notice">
+                <h3>Importante.</h3>
+                <p>Antes de ver el video, revisa que tengas la última versión de Condovive instalada y acceso a la
+                    opción "Visitas".</p>
+            </div>
 
             <div class="video-wrap" aria-hidden="false">
                 <div id="videoContainer">
-                    <!-- Upload the training video to the repository and then I'll embed it here. -->
-                    <div class="video-placeholder">Aquí se mostrará el video (sube el archivo y avísame)</div>
+                    <video controls playsinline controlsList="nodownload"
+                        style="width:100%;height:auto;max-width:100%;border-radius:8px;">
+                        <source src="media/condovive_qr.mp4" type="video/mp4">
+                        Tu navegador no soporta video HTML5. Puedes descargarlo <a
+                            href="media/condovive_qr.mp4">aquí</a>.
+                    </video>
                 </div>
             </div>
         </section>
     </main>
-
     <!-- Footer fragment (injected) -->
     <div id="footerInclude"></div>
-
     <script src="includes/load-fragments.js"></script>
 </body>
 
