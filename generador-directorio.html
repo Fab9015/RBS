@@ -266,7 +266,7 @@
             background: var(--color-accent);
         }
 
-        /* Paginación */
+        /* Pagination */
         #paginacion {
             display: flex;
             flex-wrap: wrap;
@@ -289,7 +289,7 @@
             margin: 0 4px;
         }
 
-        /* ✅ Contenedor para el filtro "Mostrar" en el paginador */
+        /* ✅ Container for the "Show" filter in the paginator */
         #mostrar-wrapper {
             position: absolute;
             right: 0;
@@ -495,7 +495,7 @@
         </div>
     </div>
 
-    <!-- ✅ Nuevo Modal Categorías -->
+    <!-- ✅ New Categories Modal -->
     <div class="modal" id="modal-categoria">
         <div class="modal-content">
             <h2 id="modal-cat-title">Agregar categoría</h2>
@@ -517,7 +517,7 @@
         let editId = null;
         let orden = "az";
 
-        /* Generador de UUID v4 */
+        /* UUID v4 generator */
         function generarUUID() {
             return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
                 const r = Math.random() * 16 | 0;
@@ -570,7 +570,7 @@
             updateOutput();
         }
 
-        /* Función para ordenar A-Z / Z-A / Relevantes */
+        /* Function to sort A-Z / Z-A / Relevant */
         function ordenarTrabajadores(value) {
             orden = value;
             paginaActual = 1;
@@ -588,7 +588,7 @@
             }
             cont.innerHTML += `<button onclick="cambiarPagina(${paginaActual + 1})" ${paginaActual === totalPaginas ? "disabled" : ""}>&raquo;</button>`;
 
-            /* ✅ Filtro "Mostrar" movido aquí */
+            /* ✅ "Show" filter moved here */
             cont.innerHTML += `
             <div id="mostrar-wrapper">
                 Mostrar:
@@ -618,7 +618,7 @@
             renderCards();
         }
 
-        /* Búsquedas relevantes */
+        /* Relevant searches */
         function renderBusquedas() {
             const cont = document.getElementById("busquedas-list");
             cont.innerHTML = "";
@@ -635,7 +635,7 @@
             data.busquedasRelevantes[index].activo = checked;
             updateOutput();
         }
-        /* Categorías */
+        /* Categories */
         function renderCategoriasList() {
             const cont = document.getElementById("categorias-list");
             cont.innerHTML = "";
@@ -651,7 +651,7 @@
             });
         }
 
-        /* Abrir modal de categoría */
+        /* Open category modal */
         function openCategoryModal(index = null) {
             document.getElementById("modal-categoria").style.display = "flex";
             document.getElementById("modal-cat-title").textContent = index === null ? "Agregar categoría" : "Editar categoría";
@@ -665,7 +665,7 @@
             editId = null;
         }
 
-        /* Guardar categoría con validación de duplicados */
+        /* Save category with duplicate validation */
         function saveCategoria() {
             const nombreCat = document.getElementById("cat-nombre").value.trim();
             const visibleCat = document.getElementById("cat-visible").checked;
@@ -675,7 +675,7 @@
                 return;
             }
 
-            // ✅ Validación de duplicados
+            // ✅ Duplicate validation
             const existe = data.categorias.some((c, i) => c.nombre.toLowerCase() === nombreCat.toLowerCase() && i !== editId);
             if (existe) {
                 alert("La categoría ya existe");
@@ -697,7 +697,7 @@
                 data.busquedasRelevantes.forEach(b => { if (b.categoria === oldCat) b.categoria = nombreCat; });
                 data.trabajadores.forEach(t => { if (t.categoria === oldCat) t.categoria = nombreCat; });
 
-                // Ajustar visibilidad en búsquedas relevantes
+                // Adjust visibility in relevant searches
                 if (!visibleCat) {
                     data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== nombreCat);
                 } else {
@@ -733,7 +733,7 @@
                 updateOutput();
             }
         }
-        /* Modal CRUD trabajadores */
+        /* Workers CRUD modal */
         function openModal(id = null) {
             document.getElementById("modal").style.display = "flex";
             document.getElementById("modal-title").textContent = id === null ? "Agregar trabajador" : "Editar trabajador";
@@ -755,7 +755,7 @@
             }
         }
 
-        /* Validación de campos */
+        /* Field validation */
         function validarCampos(nombre, telefono, correo) {
             if (!nombre) {
                 alert("El nombre es obligatorio");
@@ -779,7 +779,7 @@
             const categoria = document.getElementById("categoria").value;
             const relevante = document.getElementById("relevante").checked;
 
-            // Validación de campos
+            // Field validation
             if (!validarCampos(nombre, telefono, correo)) {
                 return;
             }

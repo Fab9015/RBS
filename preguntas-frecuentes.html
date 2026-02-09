@@ -99,13 +99,13 @@
 
     <div class="container">
         <h2>FAQ – Reserva Bosque Sereno</h2>
-        <div id="faqAccordion" class="accordion"> <!-- dinámico: cargado desde faq.json -->
+        <div id="faqAccordion" class="accordion"> <!-- dynamic: loaded from faq.json -->
         </div>
     </div>
 
     <script src="includes/embedded-data.js"></script>
     <script>
-        /* FAQ dinámico: intenta cargar faq.json y cae a window.EMBEDDED_FAQ para previews file:// */
+        /* Dynamic FAQ: tries to load faq.json and falls back to window.EMBEDDED_FAQ for file:// previews */
 
         async function loadFaq() {
             let faqs = null;
@@ -140,7 +140,7 @@
 
                 header.addEventListener('click', () => {
                     const isOpen = body.classList.contains('open');
-                    // Cerrar todos
+                    // Close all
                     container.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
                     container.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
                     if (!isOpen) {

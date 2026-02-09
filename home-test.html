@@ -29,7 +29,7 @@
   <style>
     /* Global variables and base body moved to styles/main.css */
 
-    /* Cards del blog */
+    /* Blog cards */
     .blog-entry {
       background: var(--color-white);
       border: 1px solid var(--color-border);
@@ -39,7 +39,7 @@
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
-      /* necesario para el status-tag */
+      /* needed for the status-tag */
     }
 
     .blog-entry:hover {
@@ -52,7 +52,7 @@
       color: var(--color-title);
     }
 
-    /* Listas dentro de las cards */
+    /* Lists inside cards */
     .blog-entry ul.custom-list {
       margin: 0.8em 0;
       padding-left: 1.2em;
@@ -65,7 +65,7 @@
       font-size: 0.95em;
     }
 
-    /* Status tag en esquina inferior derecha */
+    /* Status tag in bottom-right corner */
     .status-tag {
       position: absolute;
       bottom: 0;
@@ -87,7 +87,7 @@
       color: var(--color-white);
     }
 
-    /* Paginador */
+    /* Paginator */
     .pagination {
       display: flex;
       justify-content: center;
@@ -115,7 +115,7 @@
       cursor: not-allowed;
     }
 
-    /* Contenido */
+    /* Content */
     .container {
       flex: 1;
       max-width: 900px;
@@ -158,7 +158,7 @@
       }
     }
 
-    /* Ocultar el row del menú en desktop */
+    /* Hide the menu row on desktop */
     @media(min-width:769px) {
       .menu-row {
         display: none;
@@ -188,7 +188,7 @@
   <div id="footerInclude"></div>
 
   <script>
-    // Ajustar posición del menú y overlay según la posición visible del row
+    // Adjust menu and overlay position based on the visible row position
     function adjustMenuPosition() {
       const row = document.querySelector('.menu-row');
       const rect = row.getBoundingClientRect();
@@ -196,7 +196,7 @@
       const menu = document.getElementById('mobileMenu');
       const overlay = document.getElementById('menuOverlay');
 
-      // Posición actual del borde inferior del row en la ventana
+      // Current bottom edge position of the row in the viewport
       const topOffset = rect.bottom;
 
       menu.style.top = topOffset + "px";
@@ -210,7 +210,7 @@
     window.addEventListener('load', adjustMenuPosition);
 
     function toggleMenu() {
-      adjustMenuPosition(); // recalcular antes de abrir
+      adjustMenuPosition(); // recalculate before opening
       const menu = document.getElementById('mobileMenu');
       const toggle = document.getElementById('menuToggle');
       const overlay = document.getElementById('menuOverlay');
@@ -236,7 +236,7 @@
       document.body.style.overflow = "";
     }
 
-    // Variables de paginación
+    // Pagination variables
     let currentPage = 1;
     const perPage = 3;
     let blogData = [];

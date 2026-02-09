@@ -114,7 +114,7 @@
             font-weight: 600;
         }
 
-        /* Etiqueta de categoría */
+        /* Category tag */
         .category-tag {
             position: absolute;
             top: 12px;
@@ -132,7 +132,7 @@
             margin-bottom: 0.3em;
         }
 
-        /* Botón WhatsApp */
+        /* WhatsApp button */
         .whatsapp-btn {
             display: inline-flex;
             align-items: center;
@@ -155,7 +155,7 @@
             color: green;
         }
 
-        /* Botón Copiar */
+        /* Copy button */
         .copy-btn {
             display: inline-flex;
             align-items: center;
@@ -178,7 +178,7 @@
             color: var(--color-title);
         }
 
-        /* Botón Horarios */
+        /* Schedule button */
         .schedule-btn {
             background: var(--color-accent);
             color: var(--color-white);
@@ -256,7 +256,7 @@
             }
         }
 
-        /* Filtros */
+        /* Filters */
         .filter {
             display: flex;
             justify-content: space-between;
@@ -282,7 +282,7 @@
             position: relative;
         }
 
-        /* Correos truncados */
+        /* Truncated emails */
         @media (max-width: 768px) {
             .contact-email {
                 display: inline-block;
@@ -339,7 +339,7 @@
             margin-bottom: 1em;
         }
 
-        /* Carrusel móvil */
+        /* Mobile carousel */
         @media (max-width: 768px) {
             #carousel-container {
                 overflow: hidden;
@@ -429,7 +429,7 @@
             min-height: var(--result-card-height);
         }
 
-        /* Paginación */
+        /* Pagination */
         .pagination {
             display: flex;
             justify-content: center;
@@ -596,12 +596,12 @@
                 });
         })();
 
-        /* Función para dar formato visual al teléfono */
+        /* Function to format phone visually */
         function formatoTelefono(num) {
             return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
         }
 
-        /* Carrusel de contactos importantes (usa imagen del JSON) */
+        /* Carousel of important contacts (uses image from JSON) */
         function renderRelevantes() {
             const cont = document.getElementById('relevantes');
             cont.innerHTML = "";
@@ -712,7 +712,7 @@
                 }
             });
         }
-        /* Categorías */
+        /* Categories */
         function renderCategorias() {
             const sel = document.getElementById('categoria');
             datos.categorias.forEach(cat => {
@@ -725,7 +725,7 @@
             });
         }
 
-        /* Función para copiar email */
+        /* Function to copy email */
         function copiarEmail(email) {
             navigator.clipboard.writeText(email).then(() => {
                 alert("Correo copiado al portapapeles");
@@ -771,21 +771,21 @@
             document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active-tab'));
             btn.classList.add('active-tab');
         }
-        /* Lista de trabajadores (usa imagen del JSON) */
+        /* Workers list (uses image from JSON) */
         function renderLista() {
             const lista = document.getElementById('lista');
             lista.innerHTML = "";
             const categoria = document.getElementById('categoria').value;
 
-            // ✅ Excluir relevantes
+            // Exclude relevant items
             let filtrados = datos.trabajadores.filter(t => !t.relevante);
 
-            // ✅ Filtrar por categoría
+            // Filter by category
             if (categoria !== "todos") {
                 filtrados = filtrados.filter(t => t.categoria === categoria);
             }
 
-            // ✅ Orden alfabético según drop‑down
+            // Sort alphabetically according to dropdown
             const orden = document.getElementById('orden').value;
             filtrados.sort((a, b) => {
                 return orden === "az"
@@ -793,7 +793,7 @@
                     : b.nombre.localeCompare(a.nombre);
             });
 
-            // ✅ Mensaje si no hay resultados
+            // Show message if no results
             if (filtrados.length === 0) {
                 lista.innerHTML = `<p style="text-align:center; color:var(--color-text); margin-top:1em;">
                     No se encontraron resultados para la categoría seleccionada.
@@ -801,12 +801,12 @@
                 return;
             }
 
-            // Paginación
+            // Pagination
             const inicio = (paginaActual - 1) * porPagina;
             const fin = inicio + porPagina;
             const pagina = filtrados.slice(inicio, fin);
 
-            // Render de cada card
+            // Render each card
             pagina.forEach(t => {
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
                 const whatsappLink = `https://wa.me/521${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
@@ -842,7 +842,7 @@
                   </div>`;
             });
         }
-        /* Paginación */
+        /* Pagination */
         function renderPaginacion() {
             const cont = document.getElementById('paginacion');
             cont.innerHTML = "";
@@ -916,7 +916,7 @@
             renderLista();
             renderPaginacion();
         }
-        /* Modal de horarios */
+        /* Schedule modal */
         function openModal() {
             document.getElementById("scheduleModal").style.display = "block";
         }

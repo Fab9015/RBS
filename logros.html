@@ -516,6 +516,28 @@
             stroke: currentColor;
         }
 
+        /* No-results placeholder shown when filters return nothing */
+        .no-results {
+            padding: 28px 18px;
+            text-align: center;
+            color: var(--muted);
+            background: var(--card-bg);
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(20, 20, 20, 0.04);
+            margin: 8px 0;
+        }
+
+        .no-results h3 {
+            margin: 0 0 6px;
+            font-size: 1.05rem;
+            color: var(--accent);
+        }
+
+        .no-results p {
+            margin: 0 0 10px;
+            font-size: .95rem;
+        }
+
         /* Mobile pager: filled accent button with white icon */
         .mobile-pager .m-btn {
             background: var(--accent);
@@ -766,6 +788,33 @@
             const toRender = isMobile ? filtered.slice(0, mobileVisibleCount) : filtered;
             // ensure mobileVisibleCount is within bounds when on mobile
             if (isMobile) mobileVisibleCount = Math.max(mobileInitial, Math.min(mobileVisibleCount, total));
+
+            // If no items match the current filters, render a helpful placeholder
+            if (total === 0) {
+                g.innerHTML = `
+                    <div class="no-results" role="status" aria-live="polite">
+                        <h3>No hay resultados</h3>
+                        <p>No se encontraron logros que coincidan con los filtros aplicados.</p>
+                        <button id="noResultsClear" class="btn-ghost">Limpiar filtros</button>
+                    </div>
+                `;
+                updateMobilePager(total);
+                attachMobileStickyHandlers();
+                attachDetailHandlers();
+                // wire up the clear button to reset filters and re-render
+                const clr = document.getElementById('noResultsClear');
+                if (clr) clr.onclick = () => {
+                    currentCategory = ''; currentStatus = '';
+                    const catSel = document.getElementById('filterCategory');
+                    const statSel = document.getElementById('filterStatus');
+                    if (catSel) catSel.value = '';
+                    if (statSel) statSel.value = '';
+                    mobileVisibleCount = mobileInitial;
+                    renderGallery(); attachFlipHandlers();
+                };
+                return;
+            }
+
             toRender.forEach((a) => {
                 const card = document.createElement('article');
                 card.className = 'card flip-card';
