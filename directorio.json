@@ -56,11 +56,11 @@
     },
     {
       "categoria": "Carpintero",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Servicios de limpieza",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Jardinero",
