@@ -105,7 +105,7 @@
             "title": "Cuenta bancaria institucional",
             "frontSummary": "Se abrió la cuenta bancaria del condominio, dejando atrás el manejo en efectivo y garantizando transparencia en los ingresos y egresos.",
             "backSummary": "Ahora los pagos pueden realizarse por transferencia o tarjeta en la oficina, evitando malas interpretaciones y fortaleciendo la confianza vecinal.",
-            "fullSummary": "La apertura de la cuenta bancaria del condominio fue un paso clave para profesionalizar la gestión financiera. Gracias a que se cumplió en el lapso proyectado por el comité, se dejó atrás el cobro en efectivo, evitando malas interpretaciones y la resistencia de algunos vecinos que no querían pagar por falta de una cuenta institucional. Hoy los pagos pueden realizarse mediante transferencia electrónica o directamente con tarjeta en la terminal instalada en la oficina, con todos los beneficios que esto implica: seguridad, transparencia y confianza en el manejo de los recursos comunitarios.",
+            "fullSummary": "La apertura de la cuenta bancaria del condominio fue un paso clave para profesionalizar la gestión financiera. Gracias a que se cumplió en el lapso proyectado por el comité, se dejó atrás el cobro en efectivo, evitando malas interpretaciones y la resistencia de algunos vecinos que no querían pagar por falta de una cuenta institucional. Cabe mencionar que el comité es quien tiene el acceso y control de la cuenta bancaria, asegurando la supervisión vecinal sobre los recursos. Hoy los pagos pueden realizarse mediante transferencia electrónica o directamente con tarjeta en la terminal instalada en la oficina, con todos los beneficios que esto implica: seguridad, transparencia y confianza en el manejo de los recursos comunitarios",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
@@ -174,6 +174,24 @@
             "progress": 30
         },
         {
+            "title": "Instalación de sensores peatonales en el acceso principal",
+            "frontSummary": "Se instalaron sensores en la entrada del condominio que alertan a los vigilantes sobre el paso de personas o vehículos en horarios definidos.",
+            "backSummary": "La medida refuerza la labor de vigilancia, brindando herramientas que facilitan su trabajo y mejoran la seguridad comunitaria.",
+            "fullSummary": "El trabajo de los vigilantes, aunque pueda parecer sencillo, es altamente demandante y requiere apoyo constante para garantizar la seguridad de todos. Con este objetivo se instalaron sensores en la entrada principal del condominio, programados para funcionar entre las 12:00 a.m. y las 5:00 a.m.. Estos dispositivos detectan el paso de personas o vehículos y activan una alarma que alerta de inmediato a los vigilantes, permitiéndoles reaccionar con rapidez ante cualquier evento. La implementación de esta herramienta no solo facilita su labor diaria, sino que también beneficia directamente a la comunidad al reforzar la seguridad en el acceso principal. Con esta acción se demuestra el compromiso de la administración en dotar al personal de vigilancia de recursos prácticos y efectivos.",
+            "category": "Seguridad",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
+            "title": "Instalación de reja en el acceso norte",
+            "frontSummary": "Se instaló una reja en el lado norte del condominio para cerrar una brecha estructural y complementar el sistema de sensores peatonales.",
+            "backSummary": "La medida asegura que los sensores cubran toda el área de acceso, eliminando puntos vulnerables y reforzando la seguridad comunitaria.",
+            "fullSummary": "Durante la instalación de los sensores peatonales se detectó una vulnerabilidad en el acceso norte del condominio: una zona sin cerca que permitía el paso de personas sin ser detectadas por el sistema. Para garantizar que los sensores cumplieran su función de manera efectiva, se decidió instalar una reja que cerrara esa brecha estructural. La inversión se realizó con recursos de la cuota extraordinaria, priorizando la seguridad de los residentes y la correcta operación del sistema de vigilancia. Con esta acción se eliminó un punto de acceso no controlado y se fortaleció la cobertura de los sensores, asegurando que las medidas tecnológicas y físicas trabajen de forma integrada para proteger al condominio.",
+            "category": "Seguridad",
+            "status": "Completado",
+            "progress": 100
+        },
+        {
             "title": "Actualización del sistema de tags de acceso",
             "frontSummary": "Se rehabilitó el sistema de tags y se reactivó su venta, asegurando un control ordenado de vehículos dentro del condominio.",
             "backSummary": "La nueva administración corrigió el descontrol heredado y estableció un manejo transparente y equitativo de los tags de acceso.",
@@ -201,10 +219,10 @@
             "progress": 100
         },
         {
-            "title": "Sistema de QR para control de accesos",
-            "frontSummary": "Se habilitó el sistema de acceso por QR, agilizando el registro de visitas y proveedores mediante la aplicación Condovive.",
-            "backSummary": "El nuevo sistema moderniza el control de accesos y requiere que todos los condóminos utilicen la aplicación de manera habitual.",
-            "fullSummary": "El registro de visitas y proveedores era un proceso lento y poco eficiente. Para solucionarlo, se puso en marcha un sistema de control de accesos mediante códigos QR, integrado en la aplicación Condovive. Con esta herramienta, los condóminos podrán generar y compartir accesos de forma rápida y segura, reduciendo tiempos de espera y mejorando la organización. La implementación implica que todos los vecinos deberán utilizar la aplicación de manera constante, lo que fortalece la digitalización y el control transparente de entradas al condominio.",
+            "title": "Donación de celular para la caseta",
+            "frontSummary": "Un integrante del comité donó un celular a la caseta, asegurando comunicación inmediata con los domicilios en un momento crítico.",
+            "backSummary": "La donación permitió gestionar accesos y mantener la seguridad tras la salida de la administración anterior.",
+            "fullSummary": "El mismo fin de semana en que la administración anterior dejó el condominio, surgió la necesidad urgente de contar con un teléfono en la caseta para comunicarse con los domicilios y solicitar accesos. Ante esa situación crítica, un integrante del comité donó un celular, lo que permitió mantener la comunicación y garantizar la continuidad del servicio. Este gesto se convirtió en un logro fundamental, pues evitó un vacío en la seguridad y aseguró que la caseta pudiera seguir operando de manera efectiva desde el primer día.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
@@ -219,10 +237,10 @@
             "progress": 100
         },
         {
-            "title": "Donación de celular para la caseta",
-            "frontSummary": "Un integrante del comité donó un celular a la caseta, asegurando comunicación inmediata con los domicilios en un momento crítico.",
-            "backSummary": "La donación permitió gestionar accesos y mantener la seguridad tras la salida de la administración anterior.",
-            "fullSummary": "El mismo fin de semana en que la administración anterior dejó el condominio, surgió la necesidad urgente de contar con un teléfono en la caseta para comunicarse con los domicilios y solicitar accesos. Ante esa situación crítica, un integrante del comité donó un celular, lo que permitió mantener la comunicación y garantizar la continuidad del servicio. Este gesto se convirtió en un logro fundamental, pues evitó un vacío en la seguridad y aseguró que la caseta pudiera seguir operando de manera efectiva desde el primer día.",
+            "title": "Sistema de QR para control de accesos",
+            "frontSummary": "Se habilitó el sistema de acceso por QR, agilizando el registro de visitas y proveedores mediante la aplicación Condovive.",
+            "backSummary": "El nuevo sistema moderniza el control de accesos y requiere que todos los condóminos utilicen la aplicación de manera habitual.",
+            "fullSummary": "El registro de visitas y proveedores era un proceso lento y poco eficiente. Para solucionarlo, se puso en marcha un sistema de control de accesos mediante códigos QR, integrado en la aplicación Condovive. Con esta herramienta, los condóminos podrán generar y compartir accesos de forma rápida y segura, reduciendo tiempos de espera y mejorando la organización. La implementación implica que todos los vecinos deberán utilizar la aplicación de manera constante, lo que fortalece la digitalización y el control transparente de entradas al condominio.",
             "category": "Administración",
             "status": "Completado",
             "progress": 100
@@ -266,7 +284,7 @@
         {
             "title": "Creación del sitio web del condominio",
             "frontSummary": "Se desarrolló un sitio web oficial para centralizar información, servicios y herramientas de apoyo a la comunidad.",
-            "backSummary": "El portal ofrece eventos, acceso a Condovive, preguntas frecuentes, acuerdos de asamblea y páginas temáticas de interés vecinal.",
+            "backSummary": "El portal ofrece un tablero de eventos del condominio, acceso a Condovive, preguntas frecuentes, acuerdos de asamblea y páginas temáticas de interés vecinal.",
             "fullSummary": "Con el propósito de fortalecer la comunicación y brindar acceso rápido a información relevante, se creó un sitio web oficial del condominio. La página principal funciona como bitácora comunitaria, mostrando próximos eventos y registrando actividades pasadas organizadas por la administración y el comité. El portal integra secciones clave: acceso directo a la aplicación Condovive, un directorio de contactos relevantes, una página de preguntas frecuentes para resolver dudas de manera ágil, y enlaces a documentos de interés como acuerdos de asamblea, resultados de mesas de trabajo y datos del año anterior. También se incluyó una sección dedicada a la problemática de los pagos adelantados realizados a la administración anterior, así como un acceso directo a la página de logros que documenta los avances actuales. Este sitio, desarrollado íntegramente por el presidente del comité, representa un valor agregado significativo, al facilitar transparencia, eficiencia y participación comunitaria.",
             "category": "Comunicación",
             "status": "Completado",
@@ -300,15 +318,6 @@
             "progress": 100
         },
         {
-            "title": "Instalación de sensores peatonales en el acceso principal",
-            "frontSummary": "Se instalaron sensores en la entrada del condominio que alertan a los vigilantes sobre el paso de personas o vehículos en horarios definidos.",
-            "backSummary": "La medida refuerza la labor de vigilancia, brindando herramientas que facilitan su trabajo y mejoran la seguridad comunitaria.",
-            "fullSummary": "El trabajo de los vigilantes, aunque pueda parecer sencillo, es altamente demandante y requiere apoyo constante para garantizar la seguridad de todos. Con este objetivo se instalaron sensores en la entrada principal del condominio, programados para funcionar en horarios específicos. Estos dispositivos detectan el paso de personas o vehículos y activan una alarma que alerta de inmediato a los vigilantes, permitiéndoles reaccionar con rapidez ante cualquier evento. La implementación de esta herramienta no solo facilita su labor diaria, sino que también beneficia directamente a la comunidad al reforzar la seguridad en el acceso principal. Con esta acción se demuestra el compromiso de la administración en dotar al personal de vigilancia de recursos prácticos y efectivos.",
-            "category": "Seguridad",
-            "status": "Completado",
-            "progress": 100
-        },
-        {
             "title": "Solución al problema de pagos adelantados",
             "frontSummary": "Se atendió la problemática de vecinos que realizaron pagos adelantados a la administración anterior y cuyos recursos no fueron entregados.",
             "backSummary": "La nueva administración identificó los casos, generó un registro transparente y estableció un plan para dar seguimiento y resolver la situación.",
@@ -316,15 +325,6 @@
             "category": "Finanzas",
             "status": "En progreso",
             "progress": 70
-        },
-        {
-            "title": "Instalación de reja en el acceso norte",
-            "frontSummary": "Se instaló una reja en el lado norte del condominio para cerrar una brecha estructural y complementar el sistema de sensores peatonales.",
-            "backSummary": "La medida asegura que los sensores cubran toda el área de acceso, eliminando puntos vulnerables y reforzando la seguridad comunitaria.",
-            "fullSummary": "Durante la instalación de los sensores peatonales se detectó una vulnerabilidad en el acceso norte del condominio: una zona sin cerca que permitía el paso de personas sin ser detectadas por el sistema. Para garantizar que los sensores cumplieran su función de manera efectiva, se decidió instalar una reja que cerrara esa brecha estructural. La inversión se realizó con recursos de la cuota extraordinaria, priorizando la seguridad de los residentes y la correcta operación del sistema de vigilancia. Con esta acción se eliminó un punto de acceso no controlado y se fortaleció la cobertura de los sensores, asegurando que las medidas tecnológicas y físicas trabajen de forma integrada para proteger al condominio.",
-            "category": "Seguridad",
-            "status": "Completado",
-            "progress": 100
         },
         {
             "title": "Reparación y puesta en marcha de la alberca del condominio",
