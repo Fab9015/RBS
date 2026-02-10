@@ -191,6 +191,7 @@
     // Adjust menu and overlay position based on the visible row position
     function adjustMenuPosition() {
       const row = document.querySelector('.menu-row');
+      if (!row) return;
       const rect = row.getBoundingClientRect();
 
       const menu = document.getElementById('mobileMenu');
@@ -199,10 +200,14 @@
       // Current bottom edge position of the row in the viewport
       const topOffset = rect.bottom;
 
-      menu.style.top = topOffset + "px";
-      menu.style.height = `calc(100% - ${topOffset}px)`;
-      overlay.style.top = topOffset + "px";
-      overlay.style.height = `calc(100% - ${topOffset}px)`;
+      if (menu) {
+        menu.style.top = topOffset + "px";
+        menu.style.height = `calc(100% - ${topOffset}px)`;
+      }
+      if (overlay) {
+        overlay.style.top = topOffset + "px";
+        overlay.style.height = `calc(100% - ${topOffset}px)`;
+      }
     }
 
     window.addEventListener('resize', adjustMenuPosition);
