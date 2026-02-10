@@ -5,39 +5,72 @@
             "answer": "Puedes realizar tu pago en la oficina de administración o mediante transferencia bancaria."
         },
         {
-            "question": "¿Dónde encuentro el reglamento del condominio?",
-            "answer": "El reglamento está disponible en la oficina de administración y en la página oficial del condominio."
+            "question": "¿Cuáles son las formas de pago?",
+            "answer": "Información pendiente de actualizar."
         },
         {
-            "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",
-            "answer": "Contacta inmediatamente a seguridad interna o llama a los números de emergencia locales."
+            "question": "¿Cuáles son los datos de la cuenta bancaria?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿A dónde debo enviar mi comprobante de pago?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cómo identifican mi pago?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cómo me hacen llegar mi recibo de pago?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cuál es el horario de Administración?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cuáles son los horarios de uso de las áreas comunes?",
+            "answer": "Las áreas comunes están disponibles de 8:00 am a 10:00 pm todos los días."
+        },
+        {
+            "question": "¿Cuáles son los días y horario en que puedo hacer uso de la alberca?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cómo puedo reservar el salón de usos múltiples, tiene costo?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Cómo puedo reservar un asador, tiene costo?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Puedo hacer uso de los asadores sin reservación?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿Es posible apartar el salón y un asador o la alberca para el mismo evento?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿La renta del salón incluye mobiliario?",
+            "answer": "Información pendiente de actualizar."
+        },
+        {
+            "question": "¿En dónde puedo realizar aclaraciones sobre excedentes de agua?",
+            "answer": "Información pendiente de actualizar."
         },
         {
             "question": "¿Cómo puedo registrar a un visitante?",
             "answer": "Debes notificar a la caseta de vigilancia con anticipación y proporcionar los datos del visitante."
         },
         {
-            "question": "¿Cuáles son los horarios de uso de las áreas comunes?",
-            "answer": "Las áreas comunes están disponibles de 8:00 am a 10:00 pm todos los días."
-        },  {
-            "question": "¿Cómo puedo pagar mis cuotas de mantenimiento?",
-            "answer": "Puedes realizar tu pago en la oficina de administración o mediante transferencia bancaria."
-        },
-        {
-            "question": "¿Dónde encuentro el reglamento del condominio?",
-            "answer": "El reglamento está disponible en la oficina de administración y en la página oficial del condominio."
-        },
-        {
             "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",
             "answer": "Contacta inmediatamente a seguridad interna o llama a los números de emergencia locales."
         },
         {
-            "question": "¿Cómo puedo registrar a un visitante?",
-            "answer": "Debes notificar a la caseta de vigilancia con anticipación y proporcionar los datos del visitante."
-        },
-        {
-            "question": "¿Cuáles son los horarios de uso de las áreas comunes?",
-            "answer": "Las áreas comunes están disponibles de 8:00 am a 10:00 pm todos los días."
+            "question": "¿Dónde encuentro el reglamento del condominio?",
+            "answer": "El reglamento está disponible en la oficina de administración y en la página oficial del condominio."
         }
     ]
 }
