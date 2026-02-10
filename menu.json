@@ -6,6 +6,11 @@
             "target": "_self"
         },
         {
+            "title": "Logros y Avances",
+            "url": "logros.html",
+            "target": "_self"
+        },
+        {
             "title": "Directorio",
             "url": "directorio.html",
             "target": "_self"
