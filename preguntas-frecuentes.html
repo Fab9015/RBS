@@ -82,6 +82,105 @@
             max-height: 500px;
             padding: 1em;
         }
+
+        /* Improved answer styling */
+        .accordion-body {
+            font-size: 0.98rem;
+            color: var(--color-texto);
+        }
+
+        .accordion-body.open {
+            background: #fbfff5;
+            border-left: 4px solid var(--color-accent);
+            box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
+            border-radius: 0 8px 8px 0;
+        }
+
+        .accordion-body p {
+            margin: 0 0 0.6em 0;
+        }
+
+        .accordion-body ul,
+        .accordion-body ol {
+            margin: 0.4em 0 0.6em 1.2em;
+        }
+
+        /* Links inside answers use accent color (visited/unvisited) */
+        .accordion-body a {
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .accordion-body a:visited {
+            color: var(--color-accent);
+        }
+
+        .accordion-body a:hover {
+            text-decoration: underline;
+            color: var(--color-contrast);
+        }
+    </style>
+    <style>
+        /* Copy button inside answers */
+        .copy-btn {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-weight: 700;
+            border-radius: 4px;
+            padding: 0 6px;
+        }
+
+        .copy-btn:hover {
+            color: var(--color-contrast);
+        }
+
+        .copy-feedback {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 0.5em 0.8em;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 1200;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+    <style>
+        /* FAQ search sizing to match accordion width */
+        .faq-search-wrapper {
+            width: 100%;
+            margin: 0.6em 0 0.8em 0;
+        }
+
+        .faq-search {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0.8em 0.9em;
+            font-size: 1rem;
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            background: var(--color-white);
+            color: var(--color-texto);
+        }
+
+        @media (min-width: 960px) {
+            .faq-search {
+                max-width: 900px;
+            }
+        }
     </style>
 </head>
 
@@ -99,6 +198,9 @@
 
     <div class="container">
         <h2>FAQ – Reserva Bosque Sereno</h2>
+        <div class="faq-search-wrapper">
+            <input id="faqSearch" class="faq-search" type="search" placeholder="Buscar" aria-label="Buscar FAQ">
+        </div>
         <div id="faqAccordion" class="accordion"> <!-- dynamic: loaded from faq.json -->
         </div>
     </div>
@@ -136,7 +238,7 @@
 
                 const body = document.createElement('div');
                 body.className = 'accordion-body';
-                body.innerHTML = `<div>${escapeHtml(it.answer)}</div>`;
+                body.innerHTML = `<div>${sanitizeHtml(it.answer)}</div>`;
 
                 header.addEventListener('click', () => {
                     const isOpen = body.classList.contains('open');
@@ -159,8 +261,117 @@
             if (!s) return '';
             return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
         }
+        const allowedTags = new Set(['A', 'UL', 'OL', 'LI', 'STRONG', 'EM', 'BR', 'P', 'PRE', 'SPAN', 'BUTTON', 'I']);
+        const allowedAttrs = {
+            'A': ['href', 'target', 'rel', 'aria-label', 'class', 'data-copy'],
+            'BUTTON': ['type', 'aria-label', 'class', 'data-copy'],
+            'SPAN': ['aria-label', 'class', 'data-copy'],
+            'I': ['class', 'aria-hidden'],
+            'P': ['class']
+        };
+        function sanitizeHtml(str) {
+            if (!str) return '';
+            const template = document.createElement('template');
+            template.innerHTML = String(str);
+
+            function clean(node) {
+                if (node.nodeType === Node.TEXT_NODE) return;
+                const tag = node.tagName;
+                if (!allowedTags.has(tag)) {
+                    const parent = node.parentNode;
+                    while (node.firstChild) parent.insertBefore(node.firstChild, node);
+                    parent.removeChild(node);
+                    return;
+                }
+                // filter attributes (allow data-* attributes)
+                Array.from(node.attributes || []).forEach(attr => {
+                    const name = attr.name.toLowerCase();
+                    const isData = name.startsWith('data-');
+                    if (!(isData || (allowedAttrs[tag] && allowedAttrs[tag].includes(name)))) {
+                        node.removeAttribute(attr.name);
+                    } else if (name === 'href') {
+                        // block javascript: URIs
+                        if (/^\s*javascript:/i.test(attr.value)) node.removeAttribute(attr.name);
+                    }
+                });
+                Array.from(node.childNodes).forEach(clean);
+            }
+
+            Array.from(template.content.childNodes).forEach(clean);
+            return template.innerHTML;
+        }
 
         loadFaq();
+
+        // Clipboard copy handler for elements with data-copy
+        document.addEventListener('click', async (ev) => {
+            const el = ev.target.closest('[data-copy]');
+            if (!el) return;
+            ev.preventDefault();
+            const value = el.getAttribute('data-copy') || '';
+            try {
+                await navigator.clipboard.writeText(value);
+                showCopyFeedback('Copiado al portapapeles');
+            } catch (err) {
+                showCopyFeedback('No se pudo copiar');
+            }
+        });
+
+        // small visual feedback
+        function showCopyFeedback(text) {
+            let fb = document.querySelector('.copy-feedback');
+            if (!fb) {
+                fb = document.createElement('div');
+                fb.className = 'copy-feedback';
+                document.body.appendChild(fb);
+            }
+            fb.textContent = text;
+            fb.classList.add('show');
+            clearTimeout(window._copyFeedbackTimeout);
+            window._copyFeedbackTimeout = setTimeout(() => fb.classList.remove('show'), 1600);
+        }
+
+        // FAQ search: dispatch change after 4 characters and filter DOM on change
+        (function setupFaqSearch() {
+            const input = document.getElementById('faqSearch');
+            if (!input) return;
+            input.addEventListener('input', (e) => {
+                const v = e.target.value || '';
+                if (v.trim().length >= 4) {
+                    // trigger change programmatically so behavior matches user's request
+                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                } else if (v.trim().length === 0) {
+                    // clear filter when empty
+                    applyFaqFilter('');
+                }
+            });
+
+            input.addEventListener('change', (e) => {
+                const q = (e.target.value || '').trim();
+                if (q.length >= 4) applyFaqFilter(q);
+            });
+
+            function applyFaqFilter(query) {
+                const q = String(query || '').toLowerCase();
+                const container = document.getElementById('faqAccordion');
+                if (!container) return;
+                const items = Array.from(container.querySelectorAll('.accordion-item'));
+                items.forEach(it => {
+                    if (!q) {
+                        it.style.display = '';
+                        return;
+                    }
+                    const header = it.querySelector('.accordion-header');
+                    const body = it.querySelector('.accordion-body');
+                    const text = ((header && header.innerText) || '') + ' ' + ((body && body.innerText) || '');
+                    if (text.toLowerCase().indexOf(q) !== -1) {
+                        it.style.display = '';
+                    } else {
+                        it.style.display = 'none';
+                    }
+                });
+            }
+        })();
     </script>
 
     <div id="footerInclude"></div>
