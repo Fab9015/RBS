@@ -47,6 +47,8 @@
             margin-bottom: 1em;
             overflow: hidden;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid transparent;
+            transition: border-color 0.18s ease;
         }
 
         .accordion-header {
@@ -91,9 +93,12 @@
 
         .accordion-body.open {
             background: #fbfff5;
-            border-left: 4px solid var(--color-accent);
             box-shadow: inset 0 1px 0 rgba(0, 0, 0, 0.02);
             border-radius: 0 8px 8px 0;
+        }
+
+        .accordion-item.open {
+            border-left-color: var(--color-accent);
         }
 
         .accordion-body p {
@@ -245,9 +250,11 @@
                     // Close all
                     container.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
                     container.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+                    container.querySelectorAll('.accordion-item').forEach(it => it.classList.remove('open'));
                     if (!isOpen) {
                         body.classList.add('open');
                         header.classList.add('active');
+                        item.classList.add('open');
                     }
                 });
 

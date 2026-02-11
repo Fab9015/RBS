@@ -66,7 +66,7 @@
         },
         {
             "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",
-            "answer": "Se pone a su disposición números de emergencia:<ul><li>Emergencias – 911</li><li>Guardia Nacional – 088</li><li>Denuncia Anónima – 089</li><li>Fiscalía FGE – <a href=\"tel:+524494782800\">449 478 2800</a></li><li>SSPM Ags C4 – <a href=\"tel:+524499946640\">449 994 6640</a></li><li>SSPE Ags C5 – <a href=\"tel:+524499102055\">449 910 2055</a></li></ul>"
+            "answer": "Se pone a su disposición números de emergencia:<ul><li>Emergencias – <a href=\"tel:911\">911</a></li><li>Guardia Nacional – <a href=\"tel:088\">088</a></li><li>Denuncia Anónima – <a href=\"tel:089\">089</a></li><li>Fiscalía FGE – <a href=\"tel:+524494782800\">449 478 2800</a></li><li>SSPM Ags C4 – <a href=\"tel:+524499946640\">449 994 6640</a></li><li>SSPE Ags C5 – <a href=\"tel:+524499102055\">449 910 2055</a></li></ul>"
         },
         {
             "question": "¿Dónde puedo realizar un reporte o queja?",
