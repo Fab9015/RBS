@@ -39,11 +39,6 @@
             "title": "Pagos Adelantados",
             "url": "pagos-adelantados.html",
             "target": "_self"
-        },
-        {
-            "title": "Dashboard del Directorio",
-            "url": "generador-directorio.html",
-            "target": "_self"
         }
     ]
 }
