@@ -6,7 +6,7 @@
             "date": "11 de febrero de 2026",
             "time": "20:00 horas",
             "place": "Salón de eventos del condominio",
-            "activo": true
+            "activo": false
         }
     ]
 }
