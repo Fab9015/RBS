@@ -89,7 +89,8 @@
       "imagen": "img/admin.png",
       "relevante": true,
       "mensajeWhatsapp": "Hola, soy vecino del Condominio Reserva Bosque Sereno y tengo una duda.",
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "horarios": "Lunes a Viernes: 9:00 am – 1:00 pm\nSábados: 10:00 am – 1:00 pm"
     },
     {
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",

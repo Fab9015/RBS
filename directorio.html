@@ -249,6 +249,12 @@
             font-weight: 500;
         }
 
+        .day-time {
+            font-weight: 500;
+            color: var(--color-title);
+            text-align: center;
+        }
+
         @media (max-width:600px) {
             .day-block {
                 flex-direction: column;
@@ -629,13 +635,13 @@
             <strong>Email:</strong> 
             <a href="mailto:${c.correo}" class="contact-email" title="${c.correo}">${c.correo}</a>
             <button class="copy-btn" onclick="copiarEmail('${c.correo}')">
-              <i class="fa-solid fa-clipboard"></i> Copiar
+              <i class="fa-solid fa-clipboard"></i> Copiar Correo
             </button>
           </div>` : "";
 
-                // ✅ Botón de horarios solo para Administración
-                const horarioBtn = (c.categoria === "Administrador" || c.categoria === "Administración")
-                    ? `<button class="schedule-btn" onclick="openModal()">Horarios de atención</button>`
+                // Botón de horarios solo si tiene horarios definidos
+                const horarioBtn = (c.horarios)
+                    ? `<button class="schedule-btn" onclick="openModal('${c.horarios.replace(/'/g, "\\'")}', '${c.nombre}')"> de atención</button>`
                     : "";
 
                 cont.innerHTML += `
@@ -839,9 +845,9 @@
                     </button>
                   </div>` : "";
 
-                // ✅ Botón de horarios solo para Administración
-                const horarioBtn = (t.categoria === "Administrador" || t.categoria === "Administración")
-                    ? `<button class="schedule-btn" onclick="openModal()">Horarios de atención</button>`
+                // Botón de horarios solo si tiene horarios definidos
+                const horarioBtn = (t.horarios)
+                    ? `<button class="schedule-btn" onclick="openModal('${t.horarios.replace(/'/g, "\\'")}', '${t.nombre}')">Horarios de atención</button>`
                     : "";
 
                 lista.innerHTML += `
@@ -935,8 +941,35 @@
             renderPaginacion();
         }
         /* Schedule modal */
-        function openModal() {
+        function openModal(horarios = null, nombre = "Oficina") {
             document.getElementById("scheduleModal").style.display = "block";
+
+            // Actualizar título del modal
+            document.querySelector("#scheduleModal h2").textContent = `Horarios de ${nombre}`;
+
+            // Actualizar contenido de horarios
+            const horarioContainer = document.querySelector(".office-schedule");
+            if (horarios) {
+                // Convertir texto de horarios a HTML
+                const horarioLines = horarios.split('\n').filter(line => line.trim());
+                horarioContainer.innerHTML = horarioLines.map(line => `
+                    <div class="day-block">
+                        <span class="day-time">${line}</span>
+                    </div>
+                `).join('');
+            } else {
+                // Horarios por defecto (para compatibilidad)
+                horarioContainer.innerHTML = `
+                    <div class="day-block">
+                        <span class="day">Lunes a Viernes</span>
+                        <span class="time">9:00 am – 1:00 pm</span>
+                    </div>
+                    <div class="day-block">
+                        <span class="day">Sábados</span>
+                        <span class="time">10:00 am – 1:00 pm</span>
+                    </div>
+                `;
+            }
         }
         function closeModal() {
             document.getElementById("scheduleModal").style.display = "none";

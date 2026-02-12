@@ -488,6 +488,11 @@
                 <textarea id="mensaje-whatsapp" placeholder="Mensaje personalizado para WhatsApp (opcional)" rows="3"
                     style="width: 100%; resize: vertical; padding: 8px; font-family: inherit;"></textarea>
             </label>
+            <label>Horarios de atención:
+                <textarea id="horarios"
+                    placeholder="Horarios de atención (opcional). Ejemplo: Lunes a Viernes: 9:00 am - 5:00 pm" rows="3"
+                    style="width: 100%; resize: vertical; padding: 8px; font-family: inherit;"></textarea>
+            </label>
             <div class="relevante">
                 <label for="relevante">Contacto relevante</label>
                 <input type="checkbox" id="relevante">
@@ -755,6 +760,7 @@
                 document.getElementById("categoria").value = t.categoria;
                 document.getElementById("relevante").checked = t.relevante || false;
                 document.getElementById("mensaje-whatsapp").value = t.mensajeWhatsapp || "";
+                document.getElementById("horarios").value = t.horarios || "";
                 document.getElementById("tiene-whatsapp").checked = (t.tieneWhatsapp !== undefined) ? t.tieneWhatsapp : true;
             } else {
                 document.getElementById("nombre").value = "";
@@ -763,6 +769,7 @@
                 document.getElementById("categoria").value = data.categorias[0]?.nombre || "";
                 document.getElementById("relevante").checked = false;
                 document.getElementById("mensaje-whatsapp").value = "";
+                document.getElementById("horarios").value = "";
                 document.getElementById("tiene-whatsapp").checked = true;
             }
         }
@@ -791,6 +798,7 @@
             const categoria = document.getElementById("categoria").value;
             const relevante = document.getElementById("relevante").checked;
             const mensajeWhatsapp = document.getElementById("mensaje-whatsapp").value.trim();
+            const horarios = document.getElementById("horarios").value.trim();
             const tieneWhatsapp = document.getElementById("tiene-whatsapp").checked;
 
             // Field validation
@@ -813,6 +821,11 @@
             // Solo agregar mensajeWhatsapp si no está vacío
             if (mensajeWhatsapp) {
                 nuevo.mensajeWhatsapp = mensajeWhatsapp;
+            }
+
+            // Solo agregar horarios si no está vacío
+            if (horarios) {
+                nuevo.horarios = horarios;
             }
 
             if (editId === null) {
