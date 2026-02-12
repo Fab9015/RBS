@@ -268,6 +268,15 @@
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
       "relevante": false
+    },
+    {
+      "id": "92aa03cd-58f2-45d6-be9f-e60b1ad1e135",
+      "nombre": "Aclaraciones Consumo de Agua - Parametro",
+      "telefono": "449-153-9085",
+      "correo": "cuotas@parametro.mx",
+      "categoria": "Administración",
+      "imagen": "img/trabajador.png",
+      "relevante": true
     }
   ]
 }
