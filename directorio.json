@@ -88,7 +88,8 @@
       "categoria": "Administración",
       "imagen": "img/admin.png",
       "relevante": true,
-      "mensajeWhatsapp": "Hola, me comunico desde el condominio Reserva Bosque Sereno para consultar sobre un trámite administrativo."
+      "mensajeWhatsapp": "Hola, me comunico desde el condominio Reserva Bosque Sereno para consultar sobre un trámite administrativo.",
+      "tieneWhatsapp": true
     },
     {
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
@@ -97,7 +98,8 @@
       "correo": "",
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
-      "relevante": true
+      "relevante": true,
+      "tieneWhatsapp": true
     },
     {
       "id": "865c542d-3901-4a91-86b8-4df1d50df0ed",
@@ -106,7 +108,8 @@
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "8820c33d-1384-4757-a0b1-66a97966362d",
@@ -115,7 +118,8 @@
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "f8662870-a919-466a-802b-0e1eb6715f13",
@@ -124,7 +128,8 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "22f3d383-2f27-4069-a6ae-6e48cbfa3960",
@@ -133,7 +138,8 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "f1300015-dad0-45c4-90f0-e5970a8b8d00",
@@ -142,7 +148,8 @@
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "34c9e1c2-aacb-40d5-acdf-7d311cceb8f7",
@@ -151,7 +158,8 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "ce89f0b0-fdf9-48ae-bc72-000f8a82b640",
@@ -160,7 +168,8 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "39f09f80-7c36-4a9f-8840-f79f3c992f31",
@@ -169,7 +178,8 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "360f680a-11b1-4741-8225-d241d8eafc2e",
@@ -178,7 +188,8 @@
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "86210de2-b43b-4fba-9107-6fb9b6ca3b43",
@@ -187,7 +198,8 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "4478d16d-780b-4642-8503-38f5ad714b52",
@@ -196,7 +208,8 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "63d23c57-567e-4b82-9e52-3c219a38b503",
@@ -206,7 +219,8 @@
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
       "relevante": false,
-      "mensajeWhatsapp": "Hola Jonás, me contacto desde Reserva Bosque Sereno porque necesito servicios de plomería. ¿Podrías ayudarme?"
+      "mensajeWhatsapp": "Hola Jonás, me contacto desde Reserva Bosque Sereno porque necesito servicios de plomería. ¿Podrías ayudarme?",
+      "tieneWhatsapp": true
     },
     {
       "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
@@ -216,7 +230,8 @@
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
       "relevante": false,
-      "mensajeWhatsapp": "Buenos días Efrain, soy vecino de Reserva Bosque Sereno y requiero una cotización para trabajos eléctricos."
+      "mensajeWhatsapp": "Buenos días Efrain, soy vecino de Reserva Bosque Sereno y requiero una cotización para trabajos eléctricos.",
+      "tieneWhatsapp": true
     },
     {
       "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
@@ -225,7 +240,8 @@
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "8bb7af62-af8f-44af-8450-c81bd97806d0",
@@ -234,7 +250,8 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "876bcffc-2f43-4699-a8e2-a04a75c5151d",
@@ -243,7 +260,8 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "77fc7fae-2263-435b-a2fa-ad01d3a5b59f",
@@ -252,7 +270,8 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "d9f33f82-dc03-44d5-ac9a-c8adab448c36",
@@ -261,7 +280,8 @@
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
@@ -270,7 +290,8 @@
       "correo": "",
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "tieneWhatsapp": true
     },
     {
       "id": "92aa03cd-58f2-45d6-be9f-e60b1ad1e135",
@@ -280,7 +301,8 @@
       "categoria": "Administración",
       "imagen": "img/trabajador.png",
       "relevante": true,
-      "mensajeWhatsapp": "Buen día, me comunico desde Reserva Bosque Sereno para solicitar aclaración sobre mi consumo de agua."
+      "mensajeWhatsapp": "Buen día, me comunico desde Reserva Bosque Sereno para solicitar aclaración sobre mi consumo de agua.",
+      "tieneWhatsapp": false
     }
   ]
 }

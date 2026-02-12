@@ -617,6 +617,13 @@
             relevantes.forEach((c) => {
                 const telefonoPlano = c.telefono.replace(/\D/g, "");
                 const whatsapp = generarWhatsappUrl(c.telefono, c.mensajeWhatsapp);
+
+                // Botón de WhatsApp solo si tieneWhatsapp es true (o undefined para compatibilidad)
+                const whatsappBtn = (c.tieneWhatsapp !== false) ?
+                    `<a class="whatsapp-btn" href="${whatsapp}" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>` : "";
+
                 const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
@@ -639,9 +646,7 @@
               <div class="contact-line">
                 <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(c.telefono)}</a>
               </div>
-              <a class="whatsapp-btn" href="${whatsapp}" target="_blank">
-                <i class="fa-brands fa-whatsapp"></i> WhatsApp
-              </a>
+              ${whatsappBtn}
               ${correo}
               ${horarioBtn}
             </div>
@@ -818,6 +823,13 @@
             pagina.forEach(t => {
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
                 const whatsappLink = generarWhatsappUrl(t.telefono, t.mensajeWhatsapp, true);
+
+                // Botón de WhatsApp solo si tieneWhatsapp es true (o undefined para compatibilidad)
+                const whatsappBtn = (t.tieneWhatsapp !== false) ?
+                    `<a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                    </a>` : "";
+
                 const correoLink = t.correo ? `
                   <div class="contact-line">
                     <strong>Email:</strong> 
@@ -841,9 +853,7 @@
                       <div class="contact-line">
                         <strong>Tel:</strong> <a href="tel:${telefonoPlano}">${formatoTelefono(t.telefono)}</a>
                       </div>
-                      <a class="whatsapp-btn" href="${whatsappLink}" target="_blank">
-                        <i class="fa-brands fa-whatsapp"></i> WhatsApp
-                      </a>
+                      ${whatsappBtn}
                       ${correoLink}
                       ${horarioBtn}
                     </div>
