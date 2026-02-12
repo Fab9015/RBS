@@ -87,7 +87,8 @@
       "correo": "admonreservabosquesereno@gmail.com",
       "categoria": "Administración",
       "imagen": "img/admin.png",
-      "relevante": true
+      "relevante": true,
+      "mensajeWhatsapp": "Hola, me comunico desde el condominio Reserva Bosque Sereno para consultar sobre un trámite administrativo."
     },
     {
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
@@ -204,7 +205,8 @@
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false
+      "relevante": false,
+      "mensajeWhatsapp": "Hola Jonás, me contacto desde Reserva Bosque Sereno porque necesito servicios de plomería. ¿Podrías ayudarme?"
     },
     {
       "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
@@ -213,7 +215,8 @@
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": false
+      "relevante": false,
+      "mensajeWhatsapp": "Buenos días Efrain, soy vecino de Reserva Bosque Sereno y requiero una cotización para trabajos eléctricos."
     },
     {
       "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
@@ -276,7 +279,8 @@
       "correo": "cuotas@parametro.mx",
       "categoria": "Administración",
       "imagen": "img/trabajador.png",
-      "relevante": true
+      "relevante": true,
+      "mensajeWhatsapp": "Buen día, me comunico desde Reserva Bosque Sereno para solicitar aclaración sobre mi consumo de agua."
     }
   ]
 }

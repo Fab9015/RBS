@@ -601,6 +601,14 @@
             return num.replace(/\D/g, "").replace(/(\d{3})(\d{3})(\d{4})/, "$1-$2-$3");
         }
 
+        /* Generar enlace de WhatsApp con mensaje personalizado */
+        function generarWhatsappUrl(telefono, mensajePersonalizado = null, esInternacional = false) {
+            const telefonoPlano = telefono.replace(/\D/g, "");
+            const prefijo = esInternacional ? "521" : "";
+            const mensaje = mensajePersonalizado || "Hola, me comunico desde el directorio del condominio Reserva Bosque Sereno";
+            return `https://wa.me/${prefijo}${telefonoPlano}?text=${encodeURIComponent(mensaje)}`;
+        }
+
         /* Carousel of important contacts (uses image from JSON) */
         function renderRelevantes() {
             const cont = document.getElementById('relevantes');
@@ -608,7 +616,7 @@
             const relevantes = datos.trabajadores.filter(t => t.relevante); // ✅ filtra por atributo relevante
             relevantes.forEach((c) => {
                 const telefonoPlano = c.telefono.replace(/\D/g, "");
-                const whatsapp = `https://wa.me/${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                const whatsapp = generarWhatsappUrl(c.telefono, c.mensajeWhatsapp);
                 const correo = c.correo ? `
           <div class="contact-line">
             <strong>Email:</strong> 
@@ -809,7 +817,7 @@
             // Render each card
             pagina.forEach(t => {
                 const telefonoPlano = t.telefono.replace(/\D/g, "");
-                const whatsappLink = `https://wa.me/521${telefonoPlano}?text=Hola,%20me%20comunico%20desde%20el%20directorio%20del%20condominio`;
+                const whatsappLink = generarWhatsappUrl(t.telefono, t.mensajeWhatsapp, true);
                 const correoLink = t.correo ? `
                   <div class="contact-line">
                     <strong>Email:</strong> 
