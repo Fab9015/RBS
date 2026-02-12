@@ -442,6 +442,10 @@
             <button onclick="openModal()">+ Crear trabajador</button>
             <button onclick="downloadJSON()">Descargar archivo</button>
             <button onclick="copiarJSON()">Copiar datos</button>
+            <select id="categoria-filter" onchange="renderCards()"
+                style="padding: 6px; border: 1px solid #ccc; border-radius: 4px; min-width: 180px;">
+                <option value="todas">Todas las categorías</option>
+            </select>
             <div class="orden-wrapper">
                 <select id="orden-select" onchange="ordenarTrabajadores(this.value)">
                     <option value="az">Ordenar A-Z</option>
@@ -496,6 +500,14 @@
                 <label for="tiene-whatsapp">Tiene WhatsApp</label>
                 <input type="checkbox" id="tiene-whatsapp" checked>
             </div>
+            <div style="margin: 15px 0;">
+                <label style="font-weight: bold; margin-bottom: 8px; display: block;">Horarios de atención:</label>
+                <div id="horarios-list" style="margin-bottom: 10px;"></div>
+                <button type="button" onclick="agregarHorario()"
+                    style="background: var(--color-accent); color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.9em;">
+                    <i class="fa fa-plus"></i> Agregar horario
+                </button>
+            </div>
             <div class="modal-actions">
                 <button class="save-btn" onclick="saveTrabajador()">Guardar</button>
                 <button class="cancel-btn" onclick="closeModal()">Cancelar</button>
@@ -518,9 +530,24 @@
             </div>
         </div>
     </div>
+
+    <!-- Mini modal para agregar/editar horario -->
+    <div class="modal" id="horario-modal" style="display: none;">
+        <div class="modal-content" style="max-width: 400px;">
+            <h3 id="horario-modal-title">Agregar horario</h3>
+            <label>Días: <input id="horario-dias" placeholder="Ej: Lunes a Viernes"></label>
+            <label>Horas: <input id="horario-horas" placeholder="Ej: 9:00 AM - 5:00 PM"></label>
+            <div class="modal-actions">
+                <button class="save-btn" onclick="guardarHorario()">Guardar</button>
+                <button class="cancel-btn" onclick="cerrarHorarioModal()">Cancelar</button>
+            </div>
+        </div>
+    </div>
     <script>
         let data = {};
         let paginaActual = 1;
+        let horariosTemp = []; // Array temporal para manejar horarios
+        let editandoHorarioIndex = -1; // -1 = nuevo, >=0 = editando
         let porPagina = 6;
         let editId = null;
         let orden = "az";
@@ -539,7 +566,13 @@
             const cont = document.getElementById("cards-container");
             cont.innerHTML = "";
             const search = document.getElementById("search-input")?.value?.toLowerCase() || "";
-            let filtrados = data.trabajadores.filter(t => t.nombre.toLowerCase().includes(search));
+            const categoriaFiltro = document.getElementById("categoria-filter")?.value || "todas";
+
+            let filtrados = data.trabajadores.filter(t => {
+                const cumpleBusqueda = t.nombre.toLowerCase().includes(search);
+                const cumpleCategoria = categoriaFiltro === "todas" || t.categoria === categoriaFiltro;
+                return cumpleBusqueda && cumpleCategoria;
+            });
 
             if (orden === "az") {
                 filtrados.sort((a, b) => a.nombre.localeCompare(b.nombre));
@@ -673,6 +706,36 @@
             editId = null;
         }
 
+        /* Función para poblar el filtro de categorías */
+        function renderFiltrosCategorias() {
+            const select = document.getElementById("categoria-filter");
+            if (!select) return; // Por si no se ha renderizado aún
+
+            const valorActual = select.value; // Preservar selección actual
+
+            // Limpiar opciones excepto "Todas"
+            select.innerHTML = '<option value="todas">Todas las categorías</option>';
+
+            // Agregar categorías activas
+            if (data.categorias) {
+                data.categorias
+                    .sort((a, b) => a.nombre.localeCompare(b.nombre)) // Ordenadas alfabéticamente
+                    .forEach(cat => {
+                        const option = document.createElement('option');
+                        option.value = cat.nombre;
+                        option.textContent = cat.nombre;
+                        select.appendChild(option);
+                    });
+            }
+
+            // Restaurar selección si aún existe
+            if (valorActual && [...select.options].some(opt => opt.value === valorActual)) {
+                select.value = valorActual;
+            } else {
+                select.value = "todas";
+            }
+        }
+
         /* Save category with duplicate validation */
         function saveCategoria() {
             const nombreCat = document.getElementById("cat-nombre").value.trim();
@@ -718,6 +781,7 @@
 
             closeCategoryModal();
             renderCategoriasList();
+            renderFiltrosCategorias(); // Actualizar filtro de categorías
             renderBusquedas();
             fillCategories();
             renderCards();
@@ -735,6 +799,7 @@
                 data.busquedasRelevantes = data.busquedasRelevantes.filter(b => b.categoria !== cat.nombre);
                 data.trabajadores.forEach(t => { if (t.categoria === cat.nombre) t.categoria = "General"; });
                 renderCategoriasList();
+                renderFiltrosCategorias(); // Actualizar filtro de categorías
                 renderBusquedas();
                 fillCategories();
                 renderCards();
@@ -756,6 +821,10 @@
                 document.getElementById("relevante").checked = t.relevante || false;
                 document.getElementById("mensaje-whatsapp").value = t.mensajeWhatsapp || "";
                 document.getElementById("tiene-whatsapp").checked = (t.tieneWhatsapp !== undefined) ? t.tieneWhatsapp : true;
+
+                // Cargar horarios
+                horariosTemp = t.horarios ? [...t.horarios] : [];
+                renderHorarios();
             } else {
                 document.getElementById("nombre").value = "";
                 document.getElementById("telefono").value = "";
@@ -764,6 +833,10 @@
                 document.getElementById("relevante").checked = false;
                 document.getElementById("mensaje-whatsapp").value = "";
                 document.getElementById("tiene-whatsapp").checked = true;
+
+                // Limpiar horarios
+                horariosTemp = [];
+                renderHorarios();
             }
         }
 
@@ -801,7 +874,7 @@
             const imagenesDisponibles = {
                 "Plomero": "img/plomero.png", "Electricista": "img/electricista.png", "Carpintero": "img/carpintero.png",
                 "Servicios de limpieza": "img/limpieza.png", "Jardinero": "img/jardinero.png", "Albañil": "img/trabajador.png",
-                "Administrador": "img/admin.png", "Vigilancia": "img/vigilancia.png", "Oficiales": "img/trabajador.png"
+                "Administración": "img/admin.png", "Vigilancia": "img/vigilancia.png", "Oficiales": "img/trabajador.png"
             };
             const imagen = imagenesDisponibles[categoria] || "img/trabajador.png";
 
@@ -813,6 +886,11 @@
             // Solo agregar mensajeWhatsapp si no está vacío
             if (mensajeWhatsapp) {
                 nuevo.mensajeWhatsapp = mensajeWhatsapp;
+            }
+
+            // Solo agregar horarios si hay horarios definidos
+            if (horariosTemp && horariosTemp.length > 0) {
+                nuevo.horarios = [...horariosTemp];
             }
 
             if (editId === null) {
@@ -895,6 +973,7 @@
                 renderCards();
                 renderBusquedas();
                 renderCategoriasList();
+                renderFiltrosCategorias(); // Poblar el filtro de categorías
                 fillCategories();
                 updateOutput();
             }
@@ -951,6 +1030,86 @@
                     });
             });
         })();
+
+        /* Funciones para manejo de horarios */
+        function renderHorarios() {
+            const container = document.getElementById('horarios-list');
+            if (!horariosTemp || horariosTemp.length === 0) {
+                container.innerHTML = '<em style="color: #666; font-size: 0.9em;">Sin horarios definidos</em>';
+                return;
+            }
+
+            container.innerHTML = horariosTemp.map((horario, index) => `
+                <div style="display: flex; align-items: center; justify-content: space-between; padding: 6px; background: #f5f5f5; margin-bottom: 4px; border-radius: 4px;">
+                    <span style="font-size: 0.9em;"><strong>${horario.dias}:</strong> ${horario.horas}</span>
+                    <div>
+                        <button type="button" onclick="editarHorario(${index})" style="background: #007bff; color: white; border: none; padding: 2px 6px; margin-right: 4px; border-radius: 3px; cursor: pointer; font-size: 0.8em;">
+                            <i class="fa fa-edit"></i>
+                        </button>
+                        <button type="button" onclick="eliminarHorario(${index})" style="background: #dc3545; color: white; border: none; padding: 2px 6px; border-radius: 3px; cursor: pointer; font-size: 0.8em;">
+                            <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function agregarHorario() {
+            editandoHorarioIndex = -1;
+            document.getElementById('horario-modal-title').textContent = 'Agregar horario';
+            document.getElementById('horario-dias').value = '';
+            document.getElementById('horario-horas').value = '';
+            document.getElementById('horario-modal').style.display = 'block';
+        }
+
+        function editarHorario(index) {
+            editandoHorarioIndex = index;
+            const horario = horariosTemp[index];
+            document.getElementById('horario-modal-title').textContent = 'Editar horario';
+            document.getElementById('horario-dias').value = horario.dias;
+            document.getElementById('horario-horas').value = horario.horas;
+            document.getElementById('horario-modal').style.display = 'block';
+        }
+
+        function eliminarHorario(index) {
+            if (confirm('¿éstás seguro de que quieres eliminar este horario?')) {
+                horariosTemp.splice(index, 1);
+                renderHorarios();
+            }
+        }
+
+        function guardarHorario() {
+            const dias = document.getElementById('horario-dias').value.trim();
+            const horas = document.getElementById('horario-horas').value.trim();
+
+            if (!dias || !horas) {
+                alert('Por favor completa todos los campos');
+                return;
+            }
+
+            const horario = { dias, horas };
+
+            if (editandoHorarioIndex === -1) {
+                horariosTemp.push(horario);
+            } else {
+                horariosTemp[editandoHorarioIndex] = horario;
+            }
+
+            renderHorarios();
+            cerrarHorarioModal();
+        }
+
+        function cerrarHorarioModal() {
+            document.getElementById('horario-modal').style.display = 'none';
+            editandoHorarioIndex = -1;
+        }
+
+        // Cerrar modal de horarios al hacer clic fuera
+        document.getElementById('horario-modal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                cerrarHorarioModal();
+            }
+        });
     </script>
 
     <div id="footerInclude"></div>
