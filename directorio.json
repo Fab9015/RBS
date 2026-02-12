@@ -84,7 +84,7 @@
       "id": "a6666666-ffff-4aaa-8bbb-000000000006",
       "nombre": "Administración",
       "telefono": "449-213-3944",
-      "correo": "admin@condominio.com",
+      "correo": "admonreservabosquesereno@gmail.com",
       "categoria": "Administración",
       "imagen": "img/admin.png",
       "relevante": true
@@ -93,7 +93,7 @@
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
       "nombre": "Caseta de vigilancia",
       "telefono": "314-378-5941",
-      "correo": "caseta@condominio.com",
+      "correo": "",
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
       "relevante": true
