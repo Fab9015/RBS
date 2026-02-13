@@ -147,7 +147,7 @@
             border: 1px solid var(--color-border);
             cursor: pointer;
             justify-content: center;
-            width: 90px;
+            width: 112px;
         }
 
         .whatsapp-btn i {
@@ -170,7 +170,7 @@
             border: 1px solid var(--color-border);
             cursor: pointer;
             justify-content: center;
-            width: 108px;
+            width: 130px;
         }
 
         .copy-btn i {
@@ -617,7 +617,7 @@
         function generarWhatsappUrl(telefono, mensajePersonalizado = null, esInternacional = false) {
             const telefonoPlano = telefono.replace(/\D/g, "");
             const prefijo = esInternacional ? "521" : "";
-            const mensaje = mensajePersonalizado || "Hola, me comunico desde el directorio del condominio Reserva Bosque Sereno";
+            const mensaje = mensajePersonalizado || "Hola, vecinos de Reserva Bosque Sereno me recomendaron contactarte. ¿Podrías ayudarme con una consulta?";
             return `https://wa.me/${prefijo}${telefonoPlano}?text=${encodeURIComponent(mensaje)}`;
         }
 
