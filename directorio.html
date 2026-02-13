@@ -713,6 +713,8 @@
 
                 document.querySelector('.office-schedule').innerHTML = horariosHTML;
                 document.getElementById('scheduleModal').style.display = 'block';
+                // Bloquear scroll del fondo
+                document.body.style.overflow = 'hidden';
             }
         }
 
@@ -971,12 +973,19 @@
         }
         function closeModal() {
             document.getElementById("scheduleModal").style.display = "none";
+            // Restaurar scroll del fondo
+            document.body.style.overflow = '';
         }
 
         // Cerrar modal al hacer clic fuera del contenido
-        document.getElementById('scheduleModal').addEventListener('click', function (e) {
-            if (e.target === this) {
-                closeModal();
+        document.addEventListener('DOMContentLoaded', function () {
+            const modal = document.getElementById('scheduleModal');
+            if (modal) {
+                modal.addEventListener('click', function (e) {
+                    if (e.target === this) {
+                        closeModal();
+                    }
+                });
             }
         });
     </script>
