@@ -105,7 +105,7 @@
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
       "nombre": "Caseta de vigilancia",
       "telefono": "314-378-5941",
-      "correo": "caseta@condominio.com",
+      "correo": "",
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
       "relevante": true,
