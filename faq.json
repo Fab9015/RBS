@@ -62,7 +62,7 @@
         },
         {
             "question": "¿Cómo puedo registrar a un visitante?",
-            "answer": "Con la generación de QR directo de la Plataforma Condovive ya no será necesario proporcionar información en Caseta de Vigilancia. Es importante presentar identificación oficial para el registro."
+            "answer": "Con la generación de QR directo de la Plataforma Condovive ya no será necesario proporcionar información en Caseta de Vigilancia. Es importante presentar identificación oficial para el registro. <a href=\"qr-condovive.html\" target=\"_self\" rel=\"noopener\">Tutorial</a>."
         },
         {
             "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",

@@ -21,6 +21,11 @@
             "target": "_blank"
         },
         {
+            "title": "Tutorial - Generar QR para visitas desde Condovive",
+            "url": "qr-condovive.html",
+            "target": "_self"
+        },
+        {
             "title": "Preguntas Frecuentes",
             "url": "preguntas-frecuentes.html",
             "target": "_self"
