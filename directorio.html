@@ -972,6 +972,13 @@
         function closeModal() {
             document.getElementById("scheduleModal").style.display = "none";
         }
+
+        // Cerrar modal al hacer clic fuera del contenido
+        document.getElementById('scheduleModal').addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
     </script>
 
     <!-- Modal de horarios -->
