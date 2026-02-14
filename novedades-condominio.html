@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎉 ¡Revolucionamos tu condominio! – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+
+    <!-- Open Graph para compartir en redes sociales -->
+    <meta property="og:title" content="🎉 ¡3 Grandes Novedades en el Condominio!">
+    <meta property="og:description"
+        content="Sitio web oficial, invitaciones por QR y acceso facial. ¡El futuro llegó a Reserva Bosque Sereno!">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/novedades-condominio.html">
+    <meta property="og:type" content="website">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="🎉 ¡3 Grandes Novedades en el Condominio!">
+    <meta name="twitter:description" content="Sitio web oficial, invitaciones por QR y acceso facial">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: var(--color-bg);
+            color: var(--color-title);
+            line-height: 1.6;
+        }
+
+        /* Ocultar footer si está vacío */
+        footer:empty {
+            display: none;
+        }
+
+        /* Hero Section - elegante y espacioso */
+        .hero {
+            padding: 5rem 2rem;
+            text-align: center;
+            position: relative;
+            margin: 0 0 4rem 0;
+            background: linear-gradient(135deg,
+                    #5c4033 0%,
+                    #8b6f47 30%,
+                    var(--color-accent) 70%,
+                    #a1b27a 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
+            top: -300px;
+            right: -150px;
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+            bottom: -200px;
+            left: -100px;
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.2rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: white;
+            line-height: 1.15;
+            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 1;
+            letter-spacing: -0.5px;
+        }
+
+        .hero p {
+            font-size: 1.35rem;
+            color: rgba(255, 255, 255, 0.96);
+            line-height: 1.65;
+            max-width: 750px;
+            margin: 0 auto;
+            font-weight: 300;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Contenedor principal */
+        main {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 2rem;
+        }
+
+        /* Cards modernas con diseño integrado */
+        .feature-card {
+            background: white;
+            border-radius: 24px;
+            padding: 0;
+            margin-bottom: 3rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Banner superior colorido con icono integrado */
+        .card-header {
+            padding: 2.5rem 3rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            background: linear-gradient(135deg, var(--color-accent) 0%, #8fa76a 100%);
+        }
+
+        .feature-card.orange .card-header {
+            background: linear-gradient(135deg, #d97706 0%, #f59e0b 100%);
+        }
+
+        .feature-card.green .card-header {
+            background: linear-gradient(135deg, #7d9159 0%, #a1b27a 100%);
+        }
+
+        .card-icon {
+            font-size: 5rem;
+            line-height: 1;
+            flex-shrink: 0;
+        }
+
+        .card-title {
+            flex: 1;
+        }
+
+        .card-title h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            margin: 0;
+            color: white;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        /* Contenido de la card */
+        .card-content {
+            padding: 2.5rem 3rem 3rem;
+        }
+
+        .card-content p {
+            color: #4a4a4a;
+            margin-bottom: 1.5rem;
+            font-size: 1.12rem;
+            line-height: 1.8;
+        }
+
+        .card-content p a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .card-content p a:hover {
+            color: #7d9159;
+        }
+
+        /* Highlight boxes para mensajes importantes */
+        .highlight-box {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-left: 5px solid #f59e0b;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(245, 158, 11, 0.15);
+        }
+
+        .highlight-box strong {
+            color: #92400e;
+            font-size: 1.08rem;
+        }
+
+        .highlight-box p {
+            margin: 0;
+            color: #78350f;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        .info-box {
+            background: linear-gradient(135deg, #e0f2fe 0%, #bae6fd 100%);
+            border-left: 5px solid #0284c7;
+            padding: 1.5rem 1.8rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.15);
+        }
+
+        .info-box strong {
+            color: #075985;
+            font-size: 1.08rem;
+        }
+
+        .info-box p {
+            margin: 0;
+            color: #0c4a6e;
+            font-size: 1.05rem;
+            line-height: 1.7;
+        }
+
+        /* Subtítulos dentro de cards */
+        .section-subtitle {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--color-title);
+            margin-top: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Listas espaciadas y legibles */
+        .benefits-list {
+            list-style: none;
+            margin: 1.5rem 0 0;
+        }
+
+        .benefits-list li {
+            padding: 1rem 0;
+            padding-left: 2.2rem;
+            position: relative;
+            color: #4a4a4a;
+            font-size: 1.08rem;
+            line-height: 1.8;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+        }
+
+        .benefits-list li:last-child {
+            border-bottom: none;
+        }
+
+        .benefits-list li::before {
+            content: '●';
+            position: absolute;
+            left: 0;
+            font-size: 0.8em;
+            color: var(--color-accent);
+            top: 1.2rem;
+        }
+
+        .benefits-list li a {
+            color: var(--color-accent);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        .benefits-list li a:hover {
+            color: #7d9159;
+        }
+
+        /* Sección de logros - diseño impactante */
+        .achievements {
+            background: linear-gradient(135deg, #f8f9f5 0%, white 100%);
+            border-radius: 24px;
+            padding: 3.5rem 2.5rem;
+            margin: 4rem 0;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            border: 2px solid rgba(161, 178, 122, 0.2);
+        }
+
+        .achievements h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+            color: var(--color-title);
+            font-weight: 800;
+        }
+
+        .achievements p {
+            font-size: 1.15rem;
+            color: #4a4a4a;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .achievements ul {
+            list-style: none;
+            padding: 0;
+            margin: 2rem auto 0;
+            max-width: 600px;
+            text-align: left;
+        }
+
+        .achievements ul li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #4a4a4a;
+        }
+
+        .achievements ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* CTA Final con gradiente vibrante */
+        .final-cta {
+            background: linear-gradient(135deg, var(--color-accent) 0%, #7d9159 100%);
+            color: white;
+            border-radius: 24px;
+            padding: 4rem 3rem;
+            text-align: left;
+            margin: 4rem 0 5rem;
+            box-shadow: 0 12px 40px rgba(161, 178, 122, 0.4);
+        }
+
+        .final-cta h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .final-cta p {
+            font-size: 1.18rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.97;
+            line-height: 1.8;
+        }
+
+        .final-cta ul {
+            list-style: none;
+            padding: 0;
+            margin: 1.5rem auto;
+            text-align: left;
+            max-width: 650px;
+        }
+
+        .final-cta ul li {
+            padding: 0.6rem 0;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3.5rem 1.5rem;
+                margin: 0 0 2rem 0;
+            }
+
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
+            }
+
+            main {
+                padding: 0 1.5rem;
+            }
+
+            .card-header {
+                flex-direction: column;
+                text-align: center;
+                padding: 2rem 1.5rem;
+            }
+
+            .card-icon {
+                font-size: 4rem;
+            }
+
+            .card-title h2 {
+                font-size: 1.8rem;
+            }
+
+            .card-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .final-cta {
+                padding: 3rem 2rem;
+            }
+
+            .final-cta h3 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>¡Revolucionamos tu condominio!</h1>
+            <p>Descubre las increíbles novedades que transformarán tu día a día en Reserva Bosque Sereno</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Card 1: Sitio Web -->
+        <article class="feature-card green">
+            <div class="card-header">
+                <span class="card-icon">🖥️</span>
+                <div class="card-title">
+                    <h2>Nuevo Sitio Web del Condominio</h2>
+                </div>
+            </div>
+            <div class="card-content">
+                <p>Ya está disponible <a href="https://fab9015.github.io/RBS/index.html" target="_blank">nuestro sitio
+                        web oficial</a>, tu portal digital completo con información útil y práctica.</p>
+
+                <h3 class="section-subtitle">📋 ¿Qué encontrarás?</h3>
+                <ul class="benefits-list">
+                    <li>Tablero con <a href="logros.html" target="_blank">eventos realizados</a> y <strong>logros
+                            alcanzados</strong> hasta la
+                        fecha</li>
+                    <li><a href="https://fab9015.github.io/RBS/directorio.html" target="_blank">Directorio de
+                            proveedores y servicios</a> recomendados por vecinos y contactos relevantes para todos</li>
+                    <li>Acceso directo a Condovive (recomendamos <strong>descargar la app móvil</strong> para una mejor
+                        experiencia)</li>
+                    <li><a href="https://fab9015.github.io/RBS/qr-condovive.html" target="_blank">Tutorial de uso del
+                            QR</a> para generar y compartir invitaciones digitales</li>
+                    <li><a href="https://fab9015.github.io/RBS/preguntas-frecuentes.html" target="_blank">Preguntas
+                            frecuentes</a> para resolver dudas comunes</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>💡 ¿Quieres agregar un proveedor?</strong>
+                    <p>Envía tu recomendación al vicepresidente <strong>Ubaldo Bugarín</strong>, quien se encargará de
+                        mantenerlo actualizado.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Card 2: Sistema QR (Naranja) -->
+        <article class="feature-card orange">
+            <div class="card-header">
+                <span class="card-icon">📲</span>
+                <div class="card-title">
+                    <h2>Invitaciones vía QR en Condovive</h2>
+                </div>
+            </div>
+            <div class="card-content">
+                <h3 class="section-subtitle">✨ ¿Qué es?</h3>
+                <p>Por <strong>petición constante de los vecinos</strong>, ahora las visitas frecuentes, invitados,
+                    trabajadores y servicios de entrega ingresan presentando un <strong>código QR</strong> generado por
+                    cada condómino. Esto sustituye el proceso tradicional de llamadas telefónicas y registros manuales.
+                </p>
+
+                <h3 class="section-subtitle">🔄 ¿Qué cambia?</h3>
+                <ul class="benefits-list">
+                    <li>La <strong>responsabilidad de autorizar el acceso recae en cada condómino</strong>, quien decide
+                        a quién comparte un código QR</li>
+                    <li>Cada vecino es responsable de saber a quién le está otorgando acceso al condominio</li>
+                    <li>Implementado <strong>sin costo adicional</strong> gracias al trabajo de comité y administración
+                    </li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>⚠️ Procedimiento tradicional disponible</strong>
+                    <p>Quienes no utilicen QR seguirán con el procedimiento habitual: la caseta llamará para confirmar
+                        la autorización.</p>
+                </div>
+
+                <p style="margin-top:1.5rem;">📖 Aprende a usar esta función en el <a
+                        href="https://fab9015.github.io/RBS/qr-condovive.html" target="_blank">tutorial de uso del
+                        QR</a> disponible en el sitio web.</p>
+            </div>
+        </article>
+
+        <!-- Card 3: Reconocimiento Facial (Verde) -->
+        <article class="feature-card green">
+            <div class="card-header">
+                <span class="card-icon">🚶</span>
+                <div class="card-title">
+                    <h2>Acceso Peatonal con Reconocimiento Facial</h2>
+                </div>
+            </div>
+            <div class="card-content">
+                <p>Sistema de <strong>acceso peatonal mediante
+                        reconocimiento facial</strong> ya listo para su uso.</p>
+
+                <h3 class="section-subtitle">📝 Proceso de registro</h3>
+                <ul class="benefits-list">
+                    <li>Registro disponible en <strong>oficina de administración</strong> en horarios habituales</li>
+                    <li>Cada casa puede registrar hasta <strong>6 personas como máximo</strong> (límite fijo, no
+                        ampliable)</li>
+                    <li>La <strong>responsabilidad del acceso recae en cada condómino</strong>: ustedes deciden quiénes
+                        forman parte de sus registros biométricos</li>
+                </ul>
+
+                <div class="highlight-box">
+                    <strong>📞 ¿Cómo registrarse?</strong>
+                    <p>Comunícate directamente con la administradora para conocer los documentos necesarios y completar
+                        tu registro.</p>
+                </div>
+            </div>
+        </article>
+
+        <!-- Sección de Logros -->
+        <section class="achievements">
+            <h3>🏆 Logrado Sin Costo Adicional</h3>
+            <p>Los tres avances fueron implementados gracias al trabajo conjunto del comité y la administración, siempre
+                buscando soluciones que beneficien a la comunidad sin generar costos adicionales.</p>
+            <ul>
+                <li>💰 <strong>$0 Costo Adicional</strong></li>
+                <li>🤝 <strong>Trabajo en Equipo</strong></li>
+                <li>🎯 <strong>Por Petición de Vecinos</strong></li>
+            </ul>
+        </section>
+
+        <!-- CTA Final -->
+        <section class="final-cta">
+            <h3>🙌 El Futuro de Nuestro Condominio</h3>
+            <p>Todos estos avances fueron presentados en la reunión del pasado <strong>miércoles 11 de febrero</strong>
+                y representan un paso importante hacia la modernización, la seguridad y la organización de nuestro
+                condominio.</p>
+
+            <p style="margin-top:1.5rem; font-size:1.18rem;"><strong>Hoy contamos con:</strong></p>
+            <ul
+                style="list-style:none; padding:0; margin:1rem 0; text-align:left; max-width:700px; margin-left:auto; margin-right:auto;">
+                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>sitio web</strong> que concentra
+                    información útil y práctica para todos</li>
+                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>sistema de invitaciones QR</strong> que
+                    agiliza el acceso y coloca la responsabilidad en manos de cada condómino</li>
+                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>acceso peatonal con reconocimiento
+                        facial</strong> que refuerza la seguridad y da mayor control a cada vecino</li>
+            </ul>
+
+            <p style="margin-top:2rem; font-size:1.12rem;">Estos logros son fruto del <strong>trabajo conjunto del
+                    comité y la administración</strong>,
+                siempre buscando soluciones que beneficien a la comunidad sin generar costos adicionales.</p>
+
+            <!-- Mensaje Final Importante -->
+            <div
+                style="background: rgba(255, 255, 255, 0.95); border: 3px solid white; border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2.5rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
+                <strong
+                    style="display: block; margin-bottom: 0.8rem; font-size: 1.25rem; color: var(--color-title); font-family: 'Montserrat', sans-serif;">🎯
+                    Invitación a la Comunidad</strong>
+                <p style="color: #4a4a4a; margin: 0; font-size: 1.1rem; line-height: 1.7;">Los invitamos a aprovechar
+                    estas herramientas, hacer un uso
+                    responsable de ellas y seguir
+                    construyendo juntos un condominio más seguro, ordenado y moderno. 🏡</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>Reserva Bosque Sereno · © 2026</p>
+        <div class="footer-links" id="footerLinks"></div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>
