@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redimensionador de Imágenes - Logo para WhatsApp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c5530;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .step {
+            margin-bottom: 25px;
+            padding: 20px;
+            border: 2px dashed #ddd;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .step h3 {
+            margin-top: 0;
+            color: #2c5530;
+        }
+
+        input[type="file"] {
+            margin: 10px 0;
+        }
+
+        canvas {
+            max-width: 100%;
+            border: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #2c5530;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+
+        button:hover {
+            background-color: #1e3d22;
+        }
+
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        .info {
+            background: #e8f4f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .dimensions {
+            font-weight: bold;
+            color: #2c5530;
+            margin: 10px 0;
+        }
+
+        .preview {
+            display: none;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>🖼️ Redimensionador de Logo para WhatsApp</h1>
+
+        <div class="info">
+            <strong>📱 Dimensiones óptimas para WhatsApp:</strong> 1200 x 630 píxeles<br>
+            <strong>📐 Proporción:</strong> 1.9:1 (recomendada por Facebook/WhatsApp)
+        </div>
+
+        <div class="step">
+            <h3>Paso 1: Selecciona la imagen actual</h3>
+            <input type="file" id="imageInput" accept="image/*">
+            <div class="dimensions" id="originalDimensions"></div>
+        </div>
+
+        <div class="step preview" id="previewStep">
+            <h3>Paso 2: Vista previa</h3>
+            <div>Imagen original:</div>
+            <canvas id="originalCanvas"></canvas>
+            <div>Imagen redimensionada (1200x630):</div>
+            <canvas id="resizedCanvas" width="1200" height="630"></canvas>
+        </div>
+
+        <div class="step">
+            <h3>Paso 3: Descargar imagen redimensionada</h3>
+            <button id="downloadBtn" disabled>📥 Descargar logo-1200x630.png</button>
+            <button id="loadCurrentBtn">📂 Cargar logo actual del proyecto</button>
+        </div>
+
+        <div class="info">
+            <strong>💡 Instrucciones:</strong><br>
+            1. Selecciona la imagen actual del logo<br>
+            2. La herramienta la redimensionará automáticamente a 1200x630<br>
+            3. Descarga la nueva imagen<br>
+            4. Reemplaza el archivo <code>img/logo.png</code> con la nueva imagen<br>
+            5. Los meta tags ya están configurados para las nuevas dimensiones
+        </div>
+    </div>
+
+    <script>
+        const imageInput = document.getElementById('imageInput');
+        const originalCanvas = document.getElementById('originalCanvas');
+        const resizedCanvas = document.getElementById('resizedCanvas');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const loadCurrentBtn = document.getElementById('loadCurrentBtn');
+        const previewStep = document.getElementById('previewStep');
+        const originalDimensions = document.getElementById('originalDimensions');
+
+        let currentImage = null;
+
+        // Cargar logo actual del proyecto
+        loadCurrentBtn.addEventListener('click', function () {
+            const img = new Image();
+            img.crossOrigin = 'anonymous';
+            img.onload = function () {
+                currentImage = img;
+                processImage(img);
+                originalDimensions.textContent = `Dimensiones originales: ${img.width} x ${img.height} píxeles`;
+            };
+            img.onerror = function () {
+                alert('No se pudo cargar la imagen. Asegúrate de que el servidor local esté ejecutándose.');
+            };
+            img.src = './img/logo.png';
+        });
+
+        imageInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    const img = new Image();
+                    img.onload = function () {
+                        currentImage = img;
+                        processImage(img);
+                        originalDimensions.textContent = `Dimensiones originales: ${img.width} x ${img.height} píxeles`;
+                    };
+                    img.src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        function processImage(img) {
+            // Mostrar imagen original
+            const originalCtx = originalCanvas.getContext('2d');
+            const maxDisplayWidth = 400;
+            const displayRatio = Math.min(maxDisplayWidth / img.width, 200 / img.height);
+            originalCanvas.width = img.width * displayRatio;
+            originalCanvas.height = img.height * displayRatio;
+            originalCtx.drawImage(img, 0, 0, originalCanvas.width, originalCanvas.height);
+
+            // Crear imagen redimensionada
+            const resizedCtx = resizedCanvas.getContext('2d');
+
+            // Calcular cómo centrar la imagen manteniendo proporción
+            const targetWidth = 1200;
+            const targetHeight = 630;
+
+            // Calcular la escala para llenar el canvas manteniendo proporción
+            const scale = Math.max(targetWidth / img.width, targetHeight / img.height);
+            const scaledWidth = img.width * scale;
+            const scaledHeight = img.height * scale;
+
+            // Calcular offset para centrar
+            const offsetX = (targetWidth - scaledWidth) / 2;
+            const offsetY = (targetHeight - scaledHeight) / 2;
+
+            // Llenar con color de fondo blanco
+            resizedCtx.fillStyle = '#ffffff';
+            resizedCtx.fillRect(0, 0, targetWidth, targetHeight);
+
+            // Dibujar imagen centrada
+            resizedCtx.drawImage(img, offsetX, offsetY, scaledWidth, scaledHeight);
+
+            // Mostrar vista previa
+            previewStep.style.display = 'block';
+            downloadBtn.disabled = false;
+        }
+
+        downloadBtn.addEventListener('click', function () {
+            if (!currentImage) return;
+
+            // Crear canvas temporal con calidad alta
+            const canvas = document.createElement('canvas');
+            canvas.width = 1200;
+            canvas.height = 630;
+            const ctx = canvas.getContext('2d');
+
+            // Calcular escalado y posicionamiento
+            const scale = Math.max(1200 / currentImage.width, 630 / currentImage.height);
+            const scaledWidth = currentImage.width * scale;
+            const scaledHeight = currentImage.height * scale;
+            const offsetX = (1200 - scaledWidth) / 2;
+            const offsetY = (630 - scaledHeight) / 2;
+
+            // Fondo blanco
+            ctx.fillStyle = '#ffffff';
+            ctx.fillRect(0, 0, 1200, 630);
+
+            // Dibujar imagen
+            ctx.drawImage(currentImage, offsetX, offsetY, scaledWidth, scaledHeight);
+
+            // Descargar
+            canvas.toBlob(function (blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'logo-1200x630.png';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/png', 1.0);
+        });
+    </script>
+</body>
+
+</html>
