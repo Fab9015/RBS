@@ -190,7 +190,7 @@
         .card-content p {
             color: #4a4a4a;
             margin-bottom: 1.5rem;
-            font-size: 1.12rem;
+            font-size: 1.05rem;
             line-height: 1.8;
         }
 
@@ -217,7 +217,7 @@
 
         .highlight-box strong {
             color: #92400e;
-            font-size: 1.08rem;
+            font-size: 1.1rem;
         }
 
         .highlight-box p {
@@ -238,7 +238,7 @@
 
         .info-box strong {
             color: #075985;
-            font-size: 1.08rem;
+            font-size: 1.1rem;
         }
 
         .info-box p {
@@ -251,7 +251,7 @@
         /* Subtítulos dentro de cards */
         .section-subtitle {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--color-title);
             margin-top: 1.8rem;
@@ -269,7 +269,7 @@
             padding-left: 2.2rem;
             position: relative;
             color: #4a4a4a;
-            font-size: 1.08rem;
+            font-size: 1.05rem;
             line-height: 1.8;
             border-bottom: 1px solid rgba(0, 0, 0, 0.06);
         }
@@ -391,6 +391,58 @@
             line-height: 1.6;
         }
 
+        /* Estilos adicionales para sección final-cta */
+        .cta-intro {
+            margin-top: 1.5rem;
+            font-size: 1.18rem;
+        }
+
+        .cta-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem auto;
+            text-align: left;
+            max-width: 700px;
+        }
+
+        .cta-list li {
+            padding: 0.5rem 0;
+            font-size: 1.08rem;
+        }
+
+        .cta-closing {
+            margin-top: 2rem;
+            font-size: 1.12rem;
+        }
+
+        .community-invitation {
+            background: rgba(255, 255, 255, 0.95);
+            border: 3px solid white;
+            border-radius: 16px;
+            padding: 2rem 2.5rem;
+            margin-top: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .community-invitation strong {
+            display: block;
+            margin-bottom: 0.8rem;
+            font-size: 1.25rem;
+            color: var(--color-title);
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .community-invitation p {
+            color: #4a4a4a;
+            margin: 0;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .tutorial-link {
+            margin-top: 1.5rem;
+        }
+
         /* Responsive */
         @media (max-width: 768px) {
             .hero {
@@ -464,21 +516,22 @@
                 </div>
             </div>
             <div class="card-content">
-                <p>Ya está disponible <a href="https://fab9015.github.io/RBS/index.html" target="_blank">nuestro sitio
+                <p>Ya está disponible <a href="index.html" target="_blank">nuestro sitio
                         web oficial</a>, tu portal digital completo con información útil y práctica.</p>
 
                 <h3 class="section-subtitle">📋 ¿Qué encontrarás?</h3>
                 <ul class="benefits-list">
-                    <li>Tablero con <a href="logros.html" target="_blank">eventos realizados</a> y <strong>logros
-                            alcanzados</strong> hasta la
+                    <li>Tablero con <a href="index.html" target="_blank">eventos realizados</a> y <strong><a
+                                href="logros.html" target="_blank"></a>logros
+                            alcanzados</a> </strong> hasta la
                         fecha</li>
-                    <li><a href="https://fab9015.github.io/RBS/directorio.html" target="_blank">Directorio de
+                    <li><a href="directorio.html" target="_blank">Directorio de
                             proveedores y servicios</a> recomendados por vecinos y contactos relevantes para todos</li>
                     <li>Acceso directo a Condovive (recomendamos <strong>descargar la app móvil</strong> para una mejor
                         experiencia)</li>
-                    <li><a href="https://fab9015.github.io/RBS/qr-condovive.html" target="_blank">Tutorial de uso del
+                    <li><a href="qr-condovive.html" target="_blank">Tutorial de uso del
                             QR</a> para generar y compartir invitaciones digitales</li>
-                    <li><a href="https://fab9015.github.io/RBS/preguntas-frecuentes.html" target="_blank">Preguntas
+                    <li><a href="preguntas-frecuentes.html" target="_blank">Preguntas
                             frecuentes</a> para resolver dudas comunes</li>
                 </ul>
 
@@ -520,8 +573,8 @@
                         la autorización.</p>
                 </div>
 
-                <p style="margin-top:1.5rem;">📖 Aprende a usar esta función en el <a
-                        href="https://fab9015.github.io/RBS/qr-condovive.html" target="_blank">tutorial de uso del
+                <p class="tutorial-link">📖 Aprende a usar esta función en el <a href="qr-condovive.html"
+                        target="_blank">tutorial de uso del
                         QR</a> disponible en el sitio web.</p>
             </div>
         </article>
@@ -574,28 +627,25 @@
                 y representan un paso importante hacia la modernización, la seguridad y la organización de nuestro
                 condominio.</p>
 
-            <p style="margin-top:1.5rem; font-size:1.18rem;"><strong>Hoy contamos con:</strong></p>
-            <ul
-                style="list-style:none; padding:0; margin:1rem 0; text-align:left; max-width:700px; margin-left:auto; margin-right:auto;">
-                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>sitio web</strong> que concentra
+            <p class="cta-intro"><strong>Hoy contamos con:</strong></p>
+            <ul class="cta-list">
+                <li>✨ Un <strong>sitio web</strong> que concentra
                     información útil y práctica para todos</li>
-                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>sistema de invitaciones QR</strong> que
+                <li>✨ Un <strong>sistema de invitaciones QR</strong> que
                     agiliza el acceso y coloca la responsabilidad en manos de cada condómino</li>
-                <li style="padding:0.5rem 0; font-size:1.08rem;">✨ Un <strong>acceso peatonal con reconocimiento
+                <li>✨ Un <strong>acceso peatonal con reconocimiento
                         facial</strong> que refuerza la seguridad y da mayor control a cada vecino</li>
             </ul>
 
-            <p style="margin-top:2rem; font-size:1.12rem;">Estos logros son fruto del <strong>trabajo conjunto del
+            <p class="cta-closing">Estos logros son fruto del <strong>trabajo conjunto del
                     comité y la administración</strong>,
                 siempre buscando soluciones que beneficien a la comunidad sin generar costos adicionales.</p>
 
             <!-- Mensaje Final Importante -->
-            <div
-                style="background: rgba(255, 255, 255, 0.95); border: 3px solid white; border-radius: 16px; padding: 2rem 2.5rem; margin-top: 2.5rem; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);">
-                <strong
-                    style="display: block; margin-bottom: 0.8rem; font-size: 1.25rem; color: var(--color-title); font-family: 'Montserrat', sans-serif;">🎯
+            <div class="community-invitation">
+                <strong>🎯
                     Invitación a la Comunidad</strong>
-                <p style="color: #4a4a4a; margin: 0; font-size: 1.1rem; line-height: 1.7;">Los invitamos a aprovechar
+                <p>Los invitamos a aprovechar
                     estas herramientas, hacer un uso
                     responsable de ellas y seguir
                     construyendo juntos un condominio más seguro, ordenado y moderno. 🏡</p>
