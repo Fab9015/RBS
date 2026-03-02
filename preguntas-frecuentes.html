@@ -160,6 +160,33 @@
             color: var(--color-contrast);
         }
 
+        /* Share button inside answers */
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            float: right;
+            margin-top: 0.6em;
+            padding: 0.4em 0.9em;
+            font-size: 0.88rem;
+            font-weight: 600;
+            color: var(--color-white);
+            background: var(--color-contrast);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s;
+        }
+
+        .share-btn:hover {
+            background: var(--color-accent);
+            transform: scale(1.04);
+        }
+
+        .share-btn i {
+            font-size: 0.95em;
+        }
+
         .copy-feedback {
             position: fixed;
             right: 18px;
@@ -264,7 +291,11 @@
 
                 const body = document.createElement('div');
                 body.className = 'accordion-body';
-                body.innerHTML = `<div>${sanitizeHtml(it.answer)}</div>`;
+                const shareUrl = window.location.origin + window.location.pathname + (it.id ? '#' + it.id : '');
+                body.innerHTML = `<div>${sanitizeHtml(it.answer)}</div>
+                    <button class="share-btn" data-share-url="${shareUrl}" data-share-title="${escapeHtml(it.question)}">
+                        <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Compartir
+                    </button>`;
 
                 header.addEventListener('click', () => {
                     const isOpen = body.classList.contains('open');
@@ -371,6 +402,30 @@
         }
 
         loadFaq();
+
+        // Share handler using Web Share API with clipboard fallback
+        document.addEventListener('click', async (ev) => {
+            const btn = ev.target.closest('.share-btn');
+            if (!btn) return;
+            ev.preventDefault();
+            const url = btn.getAttribute('data-share-url') || window.location.href;
+            const title = btn.getAttribute('data-share-title') || 'Preguntas Frecuentes';
+            const text = title + ' — Reserva Bosque Sereno';
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title: title, text: text, url: url });
+                } catch (err) {
+                    if (err.name !== 'AbortError') console.warn('Share failed', err);
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    showCopyFeedback('Enlace copiado al portapapeles');
+                } catch (err) {
+                    showCopyFeedback('No se pudo copiar el enlace');
+                }
+            }
+        });
 
         // Clipboard copy handler for elements with data-copy
         document.addEventListener('click', async (ev) => {
