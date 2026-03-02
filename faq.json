@@ -1,78 +1,97 @@
 {
     "faqs": [
         {
+            "id": "pago-cuotas",
             "question": "¿Cómo puedo pagar mis cuotas de mantenimiento?",
             "answer": "<ul><li>Transferencia, depósito en banco o cajero multipago</li><li>En oficina de administración: terminal bancaria (tarjeta débito/crédito)</li></ul>"
         },
         {
+            "id": "datos-bancarios",
             "question": "¿Cuáles son los datos de la cuenta bancaria?",
             "answer": "<p><strong>ADMINISTRACIÓN CONDOMINIO RESERVA BOSQUE SERENO</strong><br>RFC: ACR 251107 182 <a href=\"#\" class=\"copy-btn\" data-copy=\"ACR251107182\" aria-label=\"Copiar RFC\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a><br>BANCO: BANCOMER<br>CUENTA: 012 649 7268 <a href=\"#\" class=\"copy-btn\" data-copy=\"0126497268\" aria-label=\"Copiar número de cuenta\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a><br>CLABE: 012 010 0012 6497 2689 <a href=\"#\" class=\"copy-btn\" data-copy=\"012010001264972689\" aria-label=\"Copiar CLABE\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a><br>Nombre en banca en línea: Administracion Condo M <a href=\"#\" class=\"copy-btn\" data-copy=\"Administracion Condo M\" aria-label=\"Copiar nombre de cuenta\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a></p>"
         },
         {
+            "id": "enviar-comprobante",
             "question": "¿A dónde debo enviar mi comprobante de pago?",
             "answer": "Vía WhatsApp a Administración (<a href=\"tel:+524492133944\">449 213 3944</a>) o al correo electrónico <a href=\"mailto:admonreservabosquesereno@gmail.com\">admonreservabosquesereno@gmail.com</a>."
         },
         {
+            "id": "identificar-pago",
             "question": "¿Cómo identifican mi pago?",
-            "answer": "<p>Es necesario colocar su domicilio en el concepto de la transferencia y en caso de depósito en efectivo, colocar su domicilio en el voucher; en ambos casos enviar comprobante a Administración.</p><p>Favor de omitir “Reserva de”, por ejemplo:</p><ul><li>Sequoia 402</li><li>Sakura 402</li><li>Sabino 402</li></ul>"
+            "answer": "<p>Es necesario colocar su domicilio en el concepto de la transferencia y en caso de depósito en efectivo, colocar su domicilio en el voucher; en ambos casos enviar comprobante a Administración.</p><p>Favor de omitir \"Reserva de\", por ejemplo:</p><ul><li>Sequoia 402</li><li>Sakura 402</li><li>Sabino 402</li></ul>"
         },
         {
+            "id": "tipos-pago",
             "question": "¿En la cuenta sólo se paga la cuota de mantenimiento?",
-            "answer": "<p>No, la cuenta está destinada para recaudar el 100% de los pagos: cuotas de mantenimiento, cuotas extraordinarias, apartado de salón, tag’s, sanciones, etc. Identifique el destino del pago:</p><ul><li>Sequoia 402 Salón</li><li>Sequoia 402 Tag</li><li>Sequoia 402 Cuota Extra</li><li>Sequoia 402 Sanción</li></ul>"
+            "answer": "<p>No, la cuenta está destinada para recaudar el 100% de los pagos: cuotas de mantenimiento, cuotas extraordinarias, apartado de salón, tag's, sanciones, etc. Identifique el destino del pago:</p><ul><li>Sequoia 402 Salón</li><li>Sequoia 402 Tag</li><li>Sequoia 402 Cuota Extra</li><li>Sequoia 402 Sanción</li></ul>"
         },
         {
+            "id": "recibo-pago",
             "question": "¿Cómo me hacen llegar mi recibo de pago?",
             "answer": "El pago se aplicará a las 72 hrs de haber cotejado contra movimientos bancarios; posteriormente se envía comprobante de pago por medio de la Plataforma Condovive."
         },
         {
+            "id": "horario-administracion",
             "question": "¿Cuál es el horario de Atención de Administración?",
             "answer": "Lunes a Viernes de 9:00 a 17:00 hrs.<br>Sábado de 10:00 a 13:00 hrs."
         },
         {
+            "id": "horario-asadores",
             "question": "¿Cuáles son los horarios de uso de asadores?",
             "answer": "Lunes a Domingo de 9:00 am a 9:00 pm"
         },
         {
+            "id": "horario-alberca",
             "question": "¿Cuáles son los días y horario en que puedo hacer uso de la alberca?",
             "answer": "Lunes: no hay servicio<br>Martes: 12:00 pm a 8:00 pm<br>Miércoles a Domingo: 8:00 am a 8:00 pm"
         },
         {
+            "id": "reservar-salon",
             "question": "¿Cómo puedo reservar el salón de usos múltiples, tiene costo?",
             "answer": "Es necesario contactar a Administración para revisar disponibilidad. Para el uso de salón se aportará una cuota de recuperación equivalente a una cuota de mantenimiento vigente ($1,050). El apartado se realiza con el pago del mismo y es requisito estar al corriente en sus cuotas."
         },
         {
+            "id": "renta-salon-incluye",
             "question": "¿Qué incluye la renta del salón?",
             "answer": "Incluye 6 mesas redondas (sin mantelería) y 34 sillas; el baño se entrega abastecido con papel higiénico, sanitas y jabón líquido para manos. El salón se entrega limpio, en caso de no ser así, favor de reportar a Administración para su atención. No está permitido el uso de confeti, cañones de polvo, bengalas, bombas de humo ni cualquier elemento que pueda dañar las instalaciones."
         },
         {
+            "id": "reservar-asador",
             "question": "¿Cómo puedo reservar un asador, tiene costo?",
             "answer": "Contactar a Administración para revisar disponibilidad; el uso de asadores no tiene costo. Es requisito estar al corriente en sus cuotas y notificar en caso de no uso."
         },
         {
+            "id": "asador-sin-reservacion",
             "question": "¿Puedo hacer uso de los asadores sin reservación?",
             "answer": "No es posible realizar uso sin previa reservación; la misma debe realizarse en horario de oficina y se requiere un responsable registrado."
         },
         {
+            "id": "reservar-multiple",
             "question": "¿Es posible apartar el salón y un asador o la alberca para el mismo evento?",
             "answer": "No es posible reservar el salón y una amenidad adicional, sin embargo, el uso de asador no limita el uso de la alberca."
         },
         {
+            "id": "excedentes-agua",
             "question": "¿En dónde puedo realizar aclaraciones sobre excedentes de agua?",
             "answer": "Para consultas sobre consumo de agua comuníquese con Administración Parámetro:<br>Tel. <a href=\"tel:+524491539085\">(449) 153 9085</a><br>Correo: <a href=\"mailto:cuotas@parametro.mx\">cuotas@parametro.mx</a>"
         },
         {
+            "id": "registrar-visitante",
             "question": "¿Cómo puedo registrar a un visitante?",
             "answer": "Con la generación de QR directo de la Plataforma Condovive ya no será necesario proporcionar información en Caseta de Vigilancia. Es importante presentar identificación oficial para el registro. <a href=\"qr-condovive.html\" target=\"_self\" rel=\"noopener\">Tutorial</a>."
         },
         {
+            "id": "emergencias",
             "question": "¿Qué hacer en caso de una emergencia dentro del condominio?",
             "answer": "Se pone a su disposición números de emergencia:<ul><li>Emergencias – <a href=\"tel:911\">911</a></li><li>Guardia Nacional – <a href=\"tel:088\">088</a></li><li>Denuncia Anónima – <a href=\"tel:089\">089</a></li><li>Fiscalía FGE – <a href=\"tel:+524494782800\">449 478 2800</a></li><li>SSPM Ags C4 – <a href=\"tel:+524499946640\">449 994 6640</a></li><li>SSPE Ags C5 – <a href=\"tel:+524499102055\">449 910 2055</a></li></ul>"
         },
         {
+            "id": "reporte-queja",
             "question": "¿Dónde puedo realizar un reporte o queja?",
             "answer": "En la Plataforma Condovive, sección Tickets, genere un folio y adjunte evidencia. También puede acudir a Administración o enviar WhatsApp en horario de oficina."
         },
         {
+            "id": "reglamento",
             "question": "¿Dónde encuentro el reglamento del condominio?",
             "answer": "Si necesita revisar las normas internas puede acceder al <a href=\"files/reglamento_protocolizado.pdf\" target=\"_blank\" rel=\"noopener\">Reglamento Protocolizado</a>."
         }

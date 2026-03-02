@@ -125,6 +125,23 @@
             text-decoration: underline;
             color: var(--color-contrast);
         }
+
+        /* Highlight targeted question when accessed via hash */
+        .accordion-item:target {
+            animation: highlight-target 2s ease-out;
+        }
+
+        @keyframes highlight-target {
+            0% {
+                background-color: #fffacd;
+                box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+            }
+
+            100% {
+                background-color: transparent;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+        }
     </style>
     <style>
         /* Copy button inside answers */
@@ -236,6 +253,10 @@
             items.forEach((it, idx) => {
                 const item = document.createElement('div');
                 item.className = 'accordion-item';
+                // Add ID to accordion item for deep linking
+                if (it.id) {
+                    item.id = it.id;
+                }
 
                 const header = document.createElement('div');
                 header.className = 'accordion-header';
@@ -255,6 +276,13 @@
                         body.classList.add('open');
                         header.classList.add('active');
                         item.classList.add('open');
+                        // Update URL hash when opening a question
+                        if (it.id) {
+                            history.pushState(null, null, '#' + it.id);
+                        }
+                    } else {
+                        // Remove hash when closing
+                        history.pushState(null, null, window.location.pathname);
                     }
                 });
 
@@ -262,7 +290,41 @@
                 item.appendChild(body);
                 container.appendChild(item);
             });
+
+            // Handle hash navigation after rendering
+            handleHashNavigation();
         }
+
+        function handleHashNavigation() {
+            const hash = window.location.hash.substring(1); // Remove the '#'
+            if (!hash) return;
+
+            const targetItem = document.getElementById(hash);
+            if (!targetItem) return;
+
+            // Close all items first
+            const container = document.getElementById('faqAccordion');
+            container.querySelectorAll('.accordion-body').forEach(b => b.classList.remove('open'));
+            container.querySelectorAll('.accordion-header').forEach(h => h.classList.remove('active'));
+            container.querySelectorAll('.accordion-item').forEach(it => it.classList.remove('open'));
+
+            // Open the target item
+            const header = targetItem.querySelector('.accordion-header');
+            const body = targetItem.querySelector('.accordion-body');
+            if (header && body) {
+                body.classList.add('open');
+                header.classList.add('active');
+                targetItem.classList.add('open');
+
+                // Scroll to the item with a small delay to ensure rendering is complete
+                setTimeout(() => {
+                    targetItem.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
+            }
+        }
+
+        // Listen for hash changes
+        window.addEventListener('hashchange', handleHashNavigation);
 
         function escapeHtml(s) {
             if (!s) return '';
