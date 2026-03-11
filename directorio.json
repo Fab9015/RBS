@@ -60,7 +60,7 @@
     },
     {
       "categoria": "Servicios de limpieza",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Jardinero",
@@ -72,7 +72,7 @@
     },
     {
       "categoria": "Gaseras",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Taxi/Uber",
