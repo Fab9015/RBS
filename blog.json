@@ -7,6 +7,13 @@
             "time": "20:00 horas",
             "place": "Salón de eventos del condominio",
             "activo": false
-        }
+        },{
+              "title": "Primer mesa de trabajo",
+              "description": "<p>El Comité de Administración invita cordialmente a todos los condóminos a participar en la primera mesa de trabajo.</p><p>Será un espacio de diálogo y colaboración, donde podremos proponer ideas, escuchar distintas perspectivas y tomar decisiones conjuntas que fortalezcan nuestra comunidad.</p><p>Su participación es fundamental para la buena gestión y el desarrollo de nuestro condominio.</p>",
+              "date": "18 de marzo de 2026",
+              "time": "19:00 horas",
+              "place": "Salón de Usos Múltiples",
+              "activo": true
+            }
     ]
 }
