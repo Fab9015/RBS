@@ -9,6 +9,10 @@
       "visible": true
     },
     {
+      "nombre": "Aluminero",
+      "visible": true
+    },
+    {
       "nombre": "Carpintero",
       "visible": true
     },
@@ -25,8 +29,20 @@
       "visible": true
     },
     {
+      "nombre": "Lavado de autos",
+      "visible": true
+    },
+    {
+      "nombre": "Lavado de muebles",
+      "visible": true
+    },
+    {
       "nombre": "Oficiales",
       "visible": false
+    },
+    {
+      "nombre": "Persianas",
+      "visible": true
     },
     {
       "nombre": "Plomero",
@@ -38,6 +54,10 @@
     },
     {
       "nombre": "Taxi/Uber",
+      "visible": true
+    },
+    {
+      "nombre": "Tiendas de abarrotes",
       "visible": true
     },
     {
@@ -77,6 +97,26 @@
     {
       "categoria": "Taxi/Uber",
       "activo": true
+    },
+    {
+      "categoria": "Aluminero",
+      "activo": true
+    },
+    {
+      "categoria": "Persianas",
+      "activo": true
+    },
+    {
+      "categoria": "Lavado de muebles",
+      "activo": false
+    },
+    {
+      "categoria": "Lavado de autos",
+      "activo": false
+    },
+    {
+      "categoria": "Tiendas de abarrotes",
+      "activo": false
     }
   ],
   "trabajadores": [
@@ -316,6 +356,126 @@
           "horas": "9:00 am – 1:00 pm"
         }
       ]
+    },
+    {
+      "id": "45c6b8a3-8abe-4f2b-92db-636f42198309",
+      "nombre": "Home Alum",
+      "telefono": "449-186-0993",
+      "correo": "",
+      "categoria": "Aluminero",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "69b8179c-d163-484d-b009-b911889aaf90",
+      "nombre": "Majestic Persianas",
+      "telefono": "449-476-4493",
+      "correo": "",
+      "categoria": "Persianas",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "cb592857-4afe-47e7-823d-c842ca5342d5",
+      "nombre": "Persianas del Centro",
+      "telefono": "449-291-8046",
+      "correo": "",
+      "categoria": "Persianas",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "cb750428-cea5-4085-bdcc-59595b1bd2bb",
+      "nombre": "Closets Carlos",
+      "telefono": "449-198-3331",
+      "correo": "",
+      "categoria": "Carpintero",
+      "imagen": "img/carpintero.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "8c7747d0-9204-4b3b-a2f4-7bf3d8572aad",
+      "nombre": "Everclean",
+      "telefono": "449-118-0933",
+      "correo": "",
+      "categoria": "Lavado de muebles",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "f42c3448-2948-444f-8949-aa0e6db77615",
+      "nombre": "Edgar",
+      "telefono": "449-156-8233",
+      "correo": "",
+      "categoria": "Lavado de autos",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "cb232194-11e1-4b36-8f68-4e12e8c6f246",
+      "nombre": "Bosques Market",
+      "telefono": "449-253-5768",
+      "correo": "",
+      "categoria": "Tiendas de abarrotes",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "99eb13ee-526f-43e0-b4ab-1f5ae8c262d6",
+      "nombre": "La Fortuna",
+      "telefono": "449-140-9761",
+      "correo": "",
+      "categoria": "Tiendas de abarrotes",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "1ac6cccd-c19d-417a-b42d-76aaf2a44f6f",
+      "nombre": "Mercadito",
+      "telefono": "449-311-9459",
+      "correo": "",
+      "categoria": "Tiendas de abarrotes",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "6d870b9f-aca0-4845-bf8b-2f4d0002e6f6",
+      "nombre": "Hector Rodales",
+      "telefono": "449-155-7385",
+      "correo": "",
+      "categoria": "Electricista",
+      "imagen": "img/electricista.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "29571c67-93c8-485a-8994-5a009e0361f2",
+      "nombre": "Gabriel",
+      "telefono": "449-280-2373",
+      "correo": "",
+      "categoria": "Lavado de autos",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "aa448017-bde4-4176-88f5-f21190210526",
+      "nombre": "Ramon Lomeli",
+      "telefono": "449-805-2255",
+      "correo": "",
+      "categoria": "Aluminero",
+      "imagen": "img/trabajador.png",
+      "relevante": false,
+      "tieneWhatsapp": true
     }
   ]
 }
