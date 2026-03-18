@@ -1,0 +1,268 @@
+{
+    "resumen": {
+        "proyeccion_cuota_extra": 147700,
+        "cuotas_extra_acumuladas": 141050,
+        "cuotas_extra_pendiente_pago": 6650,
+        "gasto_acumulado": 136390,
+        "disponible": 4660
+    },
+    "gastos": [
+        {
+            "fecha": "19-nov",
+            "concepto": "Reparación de sistema de válvulas de aspirado de alberca",
+            "monto": 4900,
+            "categoria": "Alberca"
+        },
+        {
+            "fecha": "19-nov",
+            "concepto": "Anticipo cambio de focos, conversión a LED y reparación",
+            "monto": 4700,
+            "categoria": "Iluminación"
+        },
+        {
+            "fecha": "21-nov",
+            "concepto": "Recuperación base de datos, configuración software acceso, adaptador USB",
+            "monto": 800,
+            "categoria": "Tecnología y Conectividad"
+        },
+        {
+            "fecha": "24-nov",
+            "concepto": "Reparación energía eléctrica calle Sequoia",
+            "monto": 5000,
+            "categoria": "Infraestructura"
+        },
+        {
+            "fecha": "28-nov",
+            "concepto": "Finiquito cambio de focos, conversión a LED y reparación",
+            "monto": 4650,
+            "categoria": "Iluminación"
+        },
+        {
+            "fecha": "02-dic",
+            "concepto": "Cambio carga filtrante filtro 36” + reparación motobomba No.1",
+            "monto": 10000,
+            "categoria": "Alberca"
+        },
+        {
+            "fecha": "05-dic",
+            "concepto": "Colocación de 2 contactos inflables Navidad + timer luminarias",
+            "monto": 750,
+            "categoria": "Infraestructura"
+        },
+        {
+            "fecha": "05-dic",
+            "concepto": "2 cámaras 5MP + DVR 8 canales (caseta vigilancia)",
+            "monto": 4750,
+            "categoria": "Seguridad y Videovigilancia"
+        },
+        {
+            "fecha": "18-dic",
+            "concepto": "Auto fill + manómetro filtro arenas alberca",
+            "monto": 2680,
+            "categoria": "Alberca"
+        },
+        {
+            "fecha": "18-dic",
+            "concepto": "Abrazadera + manómetro glicerina (riego)",
+            "monto": 640,
+            "categoria": "Infraestructura"
+        },
+        {
+            "fecha": "20-dic",
+            "concepto": "2 anaqueles metálicos seminuevos",
+            "monto": 1300,
+            "categoria": "Equipamiento"
+        },
+        {
+            "fecha": "29-dic",
+            "concepto": "Licencia app Hik-Connect 1 año",
+            "monto": 1245,
+            "categoria": "Tecnología y Conectividad"
+        },
+        {
+            "fecha": "29-dic",
+            "concepto": "Enrolador USB de huella Hikvision",
+            "monto": 1823,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "14-ene",
+            "concepto": "Reja de acero acceso principal ala poniente",
+            "monto": 4500,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "19-ene",
+            "concepto": "Anticipo mantenimiento e instalación cerco eléctrico",
+            "monto": 17500,
+            "categoria": "Cerco Eléctrico"
+        },
+        {
+            "fecha": "19-ene",
+            "concepto": "Anticipo instalación 2 antenas enlace punto a punto",
+            "monto": 3500,
+            "categoria": "Tecnología y Conectividad"
+        },
+        {
+            "fecha": "26-ene",
+            "concepto": "Teléfono Xiaomi HyperOS Android 15 (caseta QR)",
+            "monto": 2200,
+            "categoria": "Equipamiento"
+        },
+        {
+            "fecha": "30-ene",
+            "concepto": "Gabinete metálico para biométrico facial",
+            "monto": 1000,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "30-ene",
+            "concepto": "Puerta metálica resguardo equipo videovigilancia",
+            "monto": 1200,
+            "categoria": "Seguridad y Videovigilancia"
+        },
+        {
+            "fecha": "30-ene",
+            "concepto": "4 llaves y cerraduras barrera vehicular Wejoin",
+            "monto": 800,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "30-ene",
+            "concepto": "Brazo LED 4mts Wejoin (barrera ingreso residentes)",
+            "monto": 4200,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "10-feb",
+            "concepto": "4 servicios mantenimiento preventivo barrera vehicular Wejoin",
+            "monto": 2400,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "18-feb",
+            "concepto": "Motor barrera vehicular acceso visitas",
+            "monto": 7424,
+            "categoria": "Control de Accesos"
+        },
+        {
+            "fecha": "20-feb",
+            "concepto": "Sistema CCTV, 10 cámaras (videovigilancia condominio)",
+            "monto": 19615,
+            "categoria": "Seguridad y Videovigilancia"
+        },
+        {
+            "fecha": "03-mar",
+            "concepto": "Laptop Core i7, 12GB RAM, HDD 500GB (oficina administración)",
+            "monto": 5500,
+            "categoria": "Equipamiento"
+        },
+        {
+            "fecha": "06-mar",
+            "concepto": "Finiquito instalación 2 antenas enlace punto a punto",
+            "monto": 2543,
+            "categoria": "Tecnología y Conectividad"
+        },
+        {
+            "fecha": "Programado",
+            "concepto": "Finiquito mantenimiento e instalación cerco eléctrico",
+            "monto": 11620,
+            "categoria": "Cerco Eléctrico"
+        },
+        {
+            "fecha": "Programado",
+            "concepto": "Aspersores Rain Bird 3/4\" y 1/2\"",
+            "monto": 9150,
+            "categoria": "Infraestructura"
+        }
+    ],
+    "propuestas_alberca": [
+        {
+            "proveedor": "SHARK SOLUTIONS",
+            "fecha": "26-ene-2026",
+            "cotizacion": "19.01.26",
+            "archivo": "img/propuesta1.jpeg",
+            "descripcion_general": "Remplazo de bombas de calor",
+            "conceptos": [
+                {
+                    "descripcion": "Bombas de calor HAX de 66 mil BTUs",
+                    "cantidad": 2,
+                    "precio_unitario": 81690.00,
+                    "total": 163380.00
+                }
+            ],
+            "gran_total": 163380.00,
+            "valido_hasta": "28-feb-2026"
+        },
+        {
+            "proveedor": "SHARK SOLUTIONS",
+            "fecha": "26-ene-2026",
+            "cotizacion": "20.01.26",
+            "archivo": "img/propuesta2.jpeg",
+            "descripcion_general": "Paneles solares para alberca",
+            "conceptos": [
+                {
+                    "descripcion": "Paneles solares marca Interwatter de 3.7 m²",
+                    "cantidad": 20,
+                    "precio_unitario": 3640.00,
+                    "total": 72800.00
+                },
+                {
+                    "descripcion": "Reconexión hidráulica + mano de obra",
+                    "cantidad": 1,
+                    "precio_unitario": 14600.00,
+                    "total": 14600.00
+                }
+            ],
+            "gran_total": 87400.00,
+            "valido_hasta": "28-feb-2026"
+        },
+        {
+            "proveedor": "Alberclean",
+            "fecha": "16-feb-2026",
+            "cotizacion": null,
+            "archivo": "files/propuesta3.pdf",
+            "descripcion_general": "Bomba de calor + reparaciones y mantenimiento",
+            "conceptos": [
+                {
+                    "descripcion": "Bomba de calor EKX 145,000 BTUs inverter con WiFi",
+                    "cantidad": 1,
+                    "precio_unitario": 79850.00,
+                    "total": 79850.00
+                },
+                {
+                    "descripcion": "Instalación y desinstalación bomba averiada",
+                    "cantidad": 1,
+                    "precio_unitario": 5800.00,
+                    "total": 5800.00
+                },
+                {
+                    "descripcion": "Reparación bomba de calor número 2",
+                    "cantidad": 1,
+                    "precio_unitario": 3850.00,
+                    "total": 3850.00
+                },
+                {
+                    "descripcion": "Suministro sensor de alto límite",
+                    "cantidad": 1,
+                    "precio_unitario": 2850.00,
+                    "total": 2850.00
+                },
+                {
+                    "descripcion": "Suministro interfase de usuario tarjeta de control",
+                    "cantidad": 1,
+                    "precio_unitario": 8950.00,
+                    "total": 8950.00
+                },
+                {
+                    "descripcion": "Mantenimiento preventivo paneles solares alberca",
+                    "cantidad": 1,
+                    "precio_unitario": 6800.00,
+                    "total": 6800.00
+                }
+            ],
+            "gran_total": 108100.00,
+            "valido_hasta": "16-feb-2026"
+        }
+    ]
+}

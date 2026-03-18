@@ -1,0 +1,9 @@
+# Datos embebidos para pruebas locales (file://)
+# Se genera con: node scripts/build-embedded.js
+# No se sube al repo porque duplica los JSON que ya son públicos
+# y evita exponer datos sensibles innecesariamente.
+includes/embedded-data.js
+
+# Dependencias Node (usadas solo para herramientas locales)
+node_modules/
+package-lock.json

@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Control de Gasto – Cuotas Extraordinarias · Condominio RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description"
+        content="Seguimiento del gasto ejercido con fondos de cuotas extraordinarias — Reserva Bosque Sereno.">
+    <meta property="og:title" content="Control de Gasto – Cuotas Extraordinarias · Condominio RBS">
+    <meta property="og:description"
+        content="Seguimiento del gasto ejercido con fondos de cuotas extraordinarias — Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/control-gastos-cuotas-extraordinarias.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Control de Gasto – Cuotas Extraordinarias · Condominio RBS">
+    <meta name="twitter:description"
+        content="Seguimiento del gasto ejercido con fondos de cuotas extraordinarias — Reserva Bosque Sereno.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/control-gastos-cuotas-extraordinarias.html">
+    <style>
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1em;
+            margin-bottom: 1.5em;
+        }
+
+        .kpi-card {
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            padding: 1em 1.2em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+        }
+
+        .kpi-card h3 {
+            font-size: 0.85em;
+            color: var(--color-muted, #666);
+            margin: 0 0 0.4em;
+            text-transform: uppercase;
+            letter-spacing: 0.03em;
+        }
+
+        .kpi-card .kpi-value {
+            font-size: 1.5em;
+            font-weight: 700;
+            color: var(--color-dark, #1a1a1a);
+        }
+
+        .kpi-card.highlight .kpi-value {
+            color: #5a8a3a;
+        }
+
+        .kpi-card.warning .kpi-value {
+            color: #b85c00;
+        }
+
+        .progress-bar-wrap {
+            background: #e8e8e8;
+            border-radius: 8px;
+            height: 18px;
+            overflow: hidden;
+            margin: 0.5em 0 0.3em;
+        }
+
+        .progress-bar {
+            height: 100%;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #a1b27a, #5a8a3a);
+            transition: width 0.6s ease;
+        }
+
+        .progress-label {
+            font-size: 0.82em;
+            color: var(--color-muted, #555);
+            text-align: right;
+        }
+
+        table.gastos-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.93em;
+        }
+
+        table.gastos-table th {
+            background: #a1b27a;
+            color: #fff;
+            padding: 10px 12px;
+            text-align: left;
+            border: 1px solid var(--color-border, #d0d0d0);
+        }
+
+        table.gastos-table td {
+            padding: 8px 12px;
+            border: 1px solid var(--color-border, #d0d0d0);
+            vertical-align: top;
+        }
+
+        table.gastos-table tr:nth-child(even) td {
+            background: #f7f7f2;
+        }
+
+        table.gastos-table tr.programado td {
+            background: #fff8e6;
+            font-style: italic;
+            color: #7a5500;
+        }
+
+        table.gastos-table td.monto {
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .chart-wrap {
+            position: relative;
+            height: 340px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: inherit;
+            }
+
+            .chart-wrap {
+                height: 260px;
+            }
+
+            table.gastos-table {
+                font-size: 0.82em;
+            }
+        }
+
+        .section {
+            margin-bottom: 2.5em;
+            padding-bottom: 2em;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            margin-bottom: 0.8em;
+            padding-bottom: 0.4em;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        /* --- Cotizaciones de Alberca --- */
+        .propuestas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5em;
+            margin-bottom: 1em;
+        }
+
+        .propuesta-card {
+            background: var(--color-white);
+            border: 2px solid var(--color-border, #d0d0d0);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .propuesta-card.mejor-precio {
+            border-color: #5a8a3a;
+        }
+
+        .propuesta-card.deficit {
+            border-color: #C94A44;
+        }
+
+        .propuesta-card-header {
+            padding: 1em 1.2em;
+            background: #f5f5f0;
+            border-bottom: 1px solid var(--color-border, #d0d0d0);
+        }
+
+        .propuesta-card.mejor-precio .propuesta-card-header {
+            background: #edf4e3;
+            border-bottom-color: #5a8a3a;
+        }
+
+        .propuesta-card.deficit .propuesta-card-header {
+            background: #fff0f0;
+            border-bottom-color: #C94A44;
+        }
+
+        .propuesta-card-proveedor {
+            font-weight: 700;
+            font-size: 0.95em;
+            color: var(--color-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            flex-wrap: wrap;
+            margin-bottom: 0.3em;
+        }
+
+        .badge-mejor-precio,
+        .badge-deficit {
+            font-size: 0.72em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .badge-mejor-precio {
+            background: #5a8a3a;
+        }
+
+        .badge-deficit {
+            background: #C94A44;
+        }
+
+        .propuesta-card-total {
+            font-size: 1.5em;
+            font-weight: 700;
+            margin-bottom: 0.2em;
+        }
+
+        .propuesta-card.mejor-precio .propuesta-card-total {
+            color: #5a8a3a;
+        }
+
+        .propuesta-card.deficit .propuesta-card-total {
+            color: #C94A44;
+        }
+
+        .propuesta-card-meta {
+            font-size: 0.8em;
+            color: var(--color-muted, #666);
+        }
+
+        .propuesta-card-body {
+            padding: 1em 1.2em;
+            flex: 1;
+        }
+
+        .propuesta-conceptos {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+
+        .propuesta-conceptos td {
+            padding: 5px 6px;
+            vertical-align: top;
+            border-bottom: 1px solid #eee;
+        }
+
+        .propuesta-conceptos tr:last-child td {
+            border-bottom: none;
+        }
+
+        .propuesta-conceptos td.concepto-monto {
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 600;
+            padding-left: 1em;
+        }
+
+        .propuesta-card-footer {
+            padding: 0.7em 1.2em;
+            background: #fafaf8;
+            border-top: 1px solid var(--color-border, #d0d0d0);
+            font-size: 0.82em;
+            color: var(--color-muted, #666);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* --- Insights comparativa --- */
+        .insight-card {
+            padding: 0.8em 1.1em;
+            border-radius: 8px;
+            margin-bottom: 0.7em;
+            font-size: 0.9em;
+            border-left: 4px solid;
+            line-height: 1.5;
+        }
+
+        .insight-card.insight-warning {
+            background: #fff3f0;
+            border-color: #C94A44;
+            color: #6b1a1a;
+        }
+
+        .insight-card.insight-info {
+            background: #f0f4fa;
+            border-color: #2980B9;
+            color: #1a3a52;
+        }
+
+        .insight-card.insight-success {
+            background: #f0f4ea;
+            border-color: #5a8a3a;
+            color: #2d4a1a;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Control de Gasto – Cuotas Extraordinarias</h1>
+            <p>Seguimiento del gasto ejercido con fondos de cuotas extraordinarias</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <!-- Menu fragment (injected) -->
+    <div id="menuInclude"></div>
+
+    <div class="container">
+
+        <!-- KPIs -->
+        <div class="section">
+            <h2>Resumen Financiero</h2>
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <h3>Proyección cuota extra</h3>
+                    <div class="kpi-value" id="kpi-proyeccion">–</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Cuotas acumuladas</h3>
+                    <div class="kpi-value" id="kpi-acumuladas">–</div>
+                </div>
+                <div class="kpi-card warning">
+                    <h3>Pendiente de pago</h3>
+                    <div class="kpi-value" id="kpi-pendiente">–</div>
+                </div>
+                <div class="kpi-card">
+                    <h3>Gasto acumulado</h3>
+                    <div class="kpi-value" id="kpi-gasto">–</div>
+                </div>
+                <div class="kpi-card highlight">
+                    <h3>Disponible</h3>
+                    <div class="kpi-value" id="kpi-disponible">–</div>
+                </div>
+            </div>
+
+            <!-- Barra de avance gasto vs acumulado -->
+            <p style="margin:0.3em 0 0.2em; font-size:0.9em; font-weight:600;">Gasto ejercido vs. cuotas acumuladas</p>
+            <div class="progress-bar-wrap">
+                <div class="progress-bar" id="progressBar" style="width:0%"></div>
+            </div>
+            <div class="progress-label" id="progressLabel"></div>
+        </div>
+
+        <!-- Gráfica de pastel por categoría -->
+        <div class="section">
+            <h2>Gasto por Categoría</h2>
+            <div style="display:flex; flex-wrap:wrap; gap:1.5em; align-items:center; justify-content:center;">
+                <div style="position:relative; width:280px; height:280px; flex-shrink:0;">
+                    <canvas id="chartDonut"></canvas>
+                </div>
+                <div id="chartLeyenda" style="flex:1; min-width:200px;"></div>
+            </div>
+        </div>
+
+        <!-- Cotizaciones alberca -->
+        <div class="section">
+            <h2>Cotizaciones – Reparación de Alberca</h2>
+            <p style="font-size:0.9em;color:var(--color-muted);margin-bottom:1.2em;">Propuestas recibidas para
+                reparación y mejora del sistema de calentamiento. Se evaluó su viabilidad dentro del presupuesto de
+                cuotas extraordinarias.</p>
+            <div class="propuestas-grid" id="propuestasGrid"></div>
+        </div>
+
+        <!-- Comparativa ¿Qué habría pasado? -->
+        <div class="section">
+            <h2>¿Qué habría pasado?</h2>
+            <p style="font-size:0.9em;color:var(--color-muted);margin-bottom:1.2em;">Si el presupuesto se hubiera
+                destinado únicamente a una cotización de alberca, ¿cuánto habría quedado disponible — y qué mejoras no
+                se habrían realizado?</p>
+            <div style="position:relative;height:280px;">
+                <canvas id="chartComparativa"></canvas>
+            </div>
+            <div id="comparativaInsights" style="margin-top:1.2em;"></div>
+        </div>
+
+        <!-- Tabla de gastos -->
+        <div class="section">
+            <h2>Detalle de Gastos</h2>
+            <table class="gastos-table" id="tablaGastos">
+                <thead>
+                    <tr>
+                        <th style="width:90px">Fecha</th>
+                        <th>Concepto</th>
+                        <th style="width:110px; text-align:right;">Monto</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+                <tfoot>
+                    <tr>
+                        <td colspan="2"
+                            style="text-align:right; font-weight:700; padding:10px 12px; border:1px solid var(--color-border,#d0d0d0);">
+                            Total ejecutado
+                        </td>
+                        <td class="monto" id="totalEjecutado" style="border:1px solid var(--color-border,#d0d0d0);">–
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+            async function loadData() {
+                let data = null;
+
+                try {
+                    const url = new URL('control-gastos-cuotas-extraordinarias.json', location.href).toString();
+                    const resp = await fetch(url, { cache: 'no-store' });
+                    if (!resp.ok) throw new Error('fetch failed');
+                    data = await resp.json();
+                } catch (err) {
+                    console.warn('Fetch JSON falló, intentando fallback embebido.', err);
+
+                    if (window.EMBEDDED_GASTOS_EXTRAORDINARIAS) {
+                        data = window.EMBEDDED_GASTOS_EXTRAORDINARIAS;
+                    } else if (location.protocol === 'file:') {
+                        // Esperar a que load-fragments inyecte embedded-data.js
+                        const start = Date.now();
+                        while (!window.EMBEDDED_GASTOS_EXTRAORDINARIAS && Date.now() - start < 1500) {
+                            await new Promise(r => setTimeout(r, 100));
+                        }
+                        data = window.EMBEDDED_GASTOS_EXTRAORDINARIAS || null;
+                    }
+
+                    if (!data) {
+                        console.warn('No hay fallback disponible para los datos.');
+                        return;
+                    }
+                }
+
+                const fmt = v => '$' + v.toLocaleString('es-MX', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+                // KPIs
+                document.getElementById('kpi-proyeccion').textContent = fmt(data.resumen.proyeccion_cuota_extra);
+                document.getElementById('kpi-acumuladas').textContent = fmt(data.resumen.cuotas_extra_acumuladas);
+                document.getElementById('kpi-pendiente').textContent = fmt(data.resumen.cuotas_extra_pendiente_pago);
+                document.getElementById('kpi-gasto').textContent = fmt(data.resumen.gasto_acumulado);
+                document.getElementById('kpi-disponible').textContent = fmt(data.resumen.disponible);
+
+                // Barra de progreso
+                const pct = Math.min(100, (data.resumen.gasto_acumulado / data.resumen.cuotas_extra_acumuladas) * 100);
+                document.getElementById('progressBar').style.width = pct.toFixed(1) + '%';
+                document.getElementById('progressLabel').textContent =
+                    fmt(data.resumen.gasto_acumulado) + ' de ' + fmt(data.resumen.cuotas_extra_acumuladas) +
+                    ' (' + pct.toFixed(1) + '%)';
+
+                // Tabla
+                const tbody = document.querySelector('#tablaGastos tbody');
+                let totalEjecutado = 0;
+                data.gastos.forEach(g => {
+                    const tr = document.createElement('tr');
+                    if (g.fecha === 'Programado') tr.classList.add('programado');
+                    tr.innerHTML = `
+            <td>${g.fecha}</td>
+            <td>${g.concepto}</td>
+            <td class="monto">${fmt(g.monto)}</td>`;
+                    tbody.appendChild(tr);
+                    if (g.fecha !== 'Programado') {
+                        totalEjecutado += g.monto;
+                    }
+                });
+                document.getElementById('totalEjecutado').textContent = fmt(totalEjecutado);
+
+                // --- Gráfica donut por categoría ---
+                const paletaCat = {
+                    'Cerco Eléctrico': '#E67E22',
+                    'Seguridad y Videovigilancia': '#C94A44',
+                    'Control de Accesos': '#5c4033',
+                    'Alberca': '#2980B9',
+                    'Infraestructura': '#a1b27a',
+                    'Iluminación': '#F1C40F',
+                    'Equipamiento': '#7F8C8D',
+                    'Tecnología y Conectividad': '#9B59B6',
+                    'Otros': '#bbb',
+                };
+
+                const totalesCat = {};
+                data.gastos.forEach(g => {
+                    const cat = g.categoria || 'Otros';
+                    totalesCat[cat] = (totalesCat[cat] || 0) + g.monto;
+                });
+                const catEntries = Object.entries(totalesCat).sort((a, b) => b[1] - a[1]);
+                const catLabels = catEntries.map(e => e[0]);
+                const catValores = catEntries.map(e => e[1]);
+                const catColores = catLabels.map(c => paletaCat[c] || '#bbb');
+                const totalGasto = catValores.reduce((s, v) => s + v, 0);
+
+                new Chart(document.getElementById('chartDonut'), {
+                    type: 'doughnut',
+                    data: {
+                        labels: catLabels,
+                        datasets: [{ data: catValores, backgroundColor: catColores, borderWidth: 2, borderColor: '#fff' }]
+                    },
+                    options: {
+                        responsive: false,
+                        plugins: {
+                            legend: { display: false },
+                            tooltip: {
+                                callbacks: {
+                                    label: ctx => {
+                                        const pct = ((ctx.parsed / totalGasto) * 100).toFixed(1);
+                                        return ' ' + fmt(ctx.parsed) + '  (' + pct + '%)';
+                                    }
+                                }
+                            }
+                        },
+                        cutout: '62%'
+                    }
+                });
+
+                // Leyenda personalizada con montos y porcentajes
+                const leyenda = document.getElementById('chartLeyenda');
+                leyenda.innerHTML = catEntries.map(([cat, val]) => {
+                    const pct = ((val / totalGasto) * 100).toFixed(1);
+                    const color = paletaCat[cat] || '#bbb';
+                    return `<div style="display:flex;align-items:center;gap:0.5em;margin-bottom:0.6em;">
+                        <span style="display:inline-block;width:14px;height:14px;border-radius:3px;background:${color};flex-shrink:0;"></span>
+                        <span style="font-size:0.88em;flex:1;">${cat}</span>
+                        <span style="font-size:0.88em;font-weight:700;white-space:nowrap;">${fmt(val)}</span>
+                        <span style="font-size:0.82em;color:#888;width:42px;text-align:right;">${pct}%</span>
+                    </div>`;
+                }).join('');
+
+                // --- Cotizaciones y comparativa ---
+                if (data.propuestas_alberca && data.propuestas_alberca.length) {
+                    renderPropuestas(data.propuestas_alberca, data.resumen.cuotas_extra_acumuladas, fmt);
+                    renderComparativa(data.propuestas_alberca, data.resumen, fmt);
+                }
+            }
+
+            function renderPropuestas(propuestas, budget, fmt) {
+                const minTotal = Math.min(...propuestas.map(p => p.gran_total));
+                const grid = document.getElementById('propuestasGrid');
+                grid.innerHTML = propuestas.map(p => {
+                    const esMejor = p.gran_total === minTotal;
+                    const esDeficit = p.gran_total > budget;
+                    const sobrante = budget - p.gran_total;
+                    const conceptosHTML = p.conceptos.map(c =>
+                        `<tr>
+                            <td>${c.cantidad > 1 ? c.cantidad + '&times; ' : ''}${c.descripcion}</td>
+                            <td class="concepto-monto">${fmt(c.total)}</td>
+                        </tr>`
+                    ).join('');
+                    return `
+                    <div class="propuesta-card${esMejor ? ' mejor-precio' : ''}${esDeficit ? ' deficit' : ''}">
+                        <div class="propuesta-card-header">
+                            <div class="propuesta-card-proveedor">
+                                ${p.proveedor}
+                                ${esMejor ? '<span class="badge-mejor-precio">Más económica</span>' : ''}
+                                ${esDeficit ? '<span class="badge-deficit">Excede presupuesto</span>' : ''}
+                            </div>
+                            <div class="propuesta-card-total">${fmt(p.gran_total)}</div>
+                            <div class="propuesta-card-meta">${p.descripcion_general} &middot; ${p.fecha}${p.cotizacion ? ' &middot; Cot. ' + p.cotizacion : ''}</div>
+                        </div>
+                        <div class="propuesta-card-body">
+                            <table class="propuesta-conceptos"><tbody>${conceptosHTML}</tbody></table>
+                        </div>
+                        <div class="propuesta-card-footer">
+                            <span>V&aacute;lida hasta: <strong>${p.valido_hasta}</strong></span>
+                            <div style="display:flex;align-items:center;gap:1em;">
+                                ${p.archivo ? `<a href="${p.archivo}" target="_blank" rel="noopener" style="font-size:0.82em;font-weight:600;color:var(--color-accent);text-decoration:none;">Ver cotizaci&oacute;n ↗</a>` : ''}
+                                <span style="font-weight:700;color:${esDeficit ? '#C94A44' : '#5a8a3a'}">
+                                    ${esDeficit ? 'D&eacute;ficit: ' + fmt(-sobrante) : 'Saldo: ' + fmt(sobrante)}
+                                </span>
+                            </div>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+
+            function renderComparativa(propuestas, resumen, fmt) {
+                const budget = resumen.cuotas_extra_acumuladas;
+                const scenarios = [
+                    ...propuestas.map(p => ({ label: p.proveedor + ' – ' + p.descripcion_general, amount: p.gran_total })),
+                    { label: 'Realidad: 27 mejoras realizadas', amount: resumen.gasto_acumulado }
+                ];
+                const usedAmounts = scenarios.map(s => Math.min(s.amount, budget));
+                const remainAmounts = scenarios.map(s => Math.max(0, budget - s.amount));
+                const barColors = scenarios.map((s, i) => {
+                    if (i === scenarios.length - 1) return 'rgba(161,178,122,0.9)';
+                    return s.amount > budget ? 'rgba(201,74,68,0.85)' : 'rgba(41,128,185,0.8)';
+                });
+
+                new Chart(document.getElementById('chartComparativa'), {
+                    type: 'bar',
+                    data: {
+                        labels: scenarios.map(s => s.label),
+                        datasets: [
+                            {
+                                label: 'Cotización / Gasto',
+                                data: usedAmounts,
+                                backgroundColor: barColors,
+                                stack: 'ppto'
+                            },
+                            {
+                                label: 'Saldo disponible',
+                                data: remainAmounts,
+                                backgroundColor: 'rgba(90,138,58,0.25)',
+                                borderColor: 'rgba(90,138,58,0.5)',
+                                borderWidth: 1,
+                                stack: 'ppto'
+                            }
+                        ]
+                    },
+                    options: {
+                        indexAxis: 'y',
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        scales: {
+                            x: {
+                                stacked: true,
+                                max: Math.ceil(Math.max(budget, ...scenarios.map(s => s.amount)) / 10000) * 10000,
+                                ticks: { callback: v => '$' + (v / 1000).toFixed(0) + 'k' },
+                                grid: { color: '#e8e8e8' }
+                            },
+                            y: { stacked: true }
+                        },
+                        plugins: {
+                            legend: { display: true, position: 'bottom', labels: { boxWidth: 14, font: { size: 12 } } },
+                            tooltip: {
+                                callbacks: {
+                                    title: ctx => scenarios[ctx[0].dataIndex].label,
+                                    afterBody: ctx => {
+                                        const s = scenarios[ctx[0].dataIndex];
+                                        if (s.amount > budget) {
+                                            return ['Presupuesto: ' + fmt(budget), '⚠ Excede en: ' + fmt(s.amount - budget)];
+                                        }
+                                        return ['Presupuesto: ' + fmt(budget), 'Saldo: ' + fmt(budget - s.amount)];
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+
+                // Insights
+                const insights = [];
+                propuestas.forEach(p => {
+                    if (p.gran_total > budget) {
+                        const link = p.archivo ? ` <a href="${p.archivo}" target="_blank" rel="noopener" style="color:inherit;font-weight:700;">Ver cotización ↗</a>` : '';
+                        insights.push(`<div class="insight-card insight-warning"><strong>⚠ ${p.proveedor} – ${p.descripcion_general}</strong> excede el presupuesto por <strong>${fmt(p.gran_total - budget)}</strong> — no sería viable sin cuotas adicionales.${link}</div>`);
+                    }
+                });
+                const cheapest = propuestas.reduce((a, b) => a.gran_total < b.gran_total ? a : b);
+                const cheapLink = cheapest.archivo ? ` <a href="${cheapest.archivo}" target="_blank" rel="noopener" style="color:inherit;font-weight:700;">Ver cotización ↗</a>` : '';
+                insights.push(`<div class="insight-card insight-info"><strong>Con la cotización más económica</strong> (${cheapest.proveedor} – ${cheapest.descripcion_general}, <strong>${fmt(cheapest.gran_total)}</strong>${cheapLink}), el saldo habría sido <strong>${fmt(budget - cheapest.gran_total)}</strong> — pero sin ninguna de las mejoras de seguridad, iluminación, accesos e infraestructura realizadas.</div>`);
+                insights.push(`<div class="insight-card insight-success"><strong>La decisión tomada</strong> asignó los recursos a <strong>27 mejoras colectivas</strong> por <strong>${fmt(resumen.gasto_acumulado)}</strong>, con un saldo de <strong>${fmt(resumen.disponible)}</strong>.</div>`);
+                document.getElementById('comparativaInsights').innerHTML = insights.join('');
+            }
+
+            loadData();
+        </script>
+
+    </div> <!-- cierre container -->
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>
