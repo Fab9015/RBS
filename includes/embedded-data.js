@@ -5202,6 +5202,11 @@ window.EMBEDDED_MENU = {
       "title": "Pagos Adelantados",
       "url": "pagos-adelantados.html",
       "target": "_self"
+    },
+    {
+      "title": "Mesa de Trabajo 1 – Orden del Día",
+      "url": "orden-del-dia-mesa-trabajo-1.html",
+      "target": "_self"
     }
   ]
 };
