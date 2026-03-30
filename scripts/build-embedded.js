@@ -22,6 +22,7 @@ const sources = {
     EMBEDDED_PAGOS: 'pagos_adelantados.json',
     EMBEDDED_FAQ: 'faq.json',
     EMBEDDED_GASTOS_EXTRAORDINARIAS: 'control-gastos-cuotas-extraordinarias.json',
+    EMBEDDED_MASCOTAS: 'padron-mascotas.json',
 };
 
 const lines = [

@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Padrón de Mascotas – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Registro de mascotas del condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Padrón de Mascotas – Reserva Bosque Sereno">
+    <meta property="og:description" content="Registro de mascotas del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/padron-mascotas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Padrón de Mascotas – Reserva Bosque Sereno">
+    <meta name="twitter:description" content="Registro de mascotas del condominio Reserva Bosque Sereno.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/padron-mascotas.html">
+    <style>
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6em;
+            align-items: center;
+            padding: 1em;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+            background: var(--color-white);
+        }
+
+        .toolbar input[type="text"] {
+            flex: 1;
+            min-width: 180px;
+            padding: 8px 12px;
+            border: 1px solid var(--color-border, #ccc);
+            border-radius: 6px;
+            font-size: 0.93em;
+        }
+
+        .toolbar select {
+            padding: 8px 10px;
+            border: 1px solid var(--color-border, #ccc);
+            border-radius: 6px;
+            font-size: 0.93em;
+            background: var(--color-white);
+        }
+
+        .stats-bar {
+            padding: 0.6em 1em;
+            font-size: 0.85em;
+            color: var(--color-muted, #666);
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        /* Grid de cards */
+        .mascotas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2em;
+            padding: 1.2em 1em;
+        }
+
+        .mascota-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border, #e6e2dc);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .mascota-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .mascota-foto-wrap {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #f0f0e8;
+            overflow: hidden;
+        }
+
+        .mascota-foto-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .mascota-foto-wrap .sin-foto {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5em;
+            color: #c0bdb0;
+        }
+
+        .especie-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 0.72em;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .mascota-info {
+            padding: 0.8em 0.9em;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25em;
+        }
+
+        .mascota-nombre {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.05em;
+            color: var(--color-title);
+            margin: 0;
+        }
+
+        .mascota-raza {
+            font-size: 0.82em;
+            color: var(--color-muted, #888);
+            margin: 0;
+        }
+
+        .mascota-dir {
+            font-size: 0.82em;
+            color: var(--color-text, #5c4033);
+            margin: 0;
+            margin-top: 0.2em;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.3em;
+        }
+
+        .mascota-dir::before {
+            content: '📍';
+            font-size: 0.9em;
+            flex-shrink: 0;
+        }
+
+        .mascota-propietario {
+            font-size: 0.8em;
+            color: var(--color-muted, #888);
+            margin: 0;
+        }
+
+        /* Vacío */
+        .empty-state {
+            text-align: center;
+            padding: 4em 1em;
+            color: var(--color-muted, #888);
+        }
+
+        .empty-state .empty-icon {
+            font-size: 3.5em;
+            margin-bottom: 0.3em;
+        }
+
+        /* Paginación */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.3em;
+            padding: 1em;
+        }
+
+        .pagination button {
+            background: var(--color-accent);
+            color: #fff;
+            border: none;
+            padding: 6px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9em;
+        }
+
+        .pagination button:hover {
+            background: var(--color-title);
+        }
+
+        .pagination button.active {
+            background: var(--color-title);
+            font-weight: 700;
+        }
+
+        .pagination button:disabled {
+            opacity: 0.4;
+            cursor: default;
+        }
+
+        @media (max-width: 600px) {
+            .mascotas-grid {
+                grid-template-columns: 1fr;
+                gap: 0.8em;
+                padding: 0.8em;
+            }
+
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .toolbar input[type="text"],
+            .toolbar select {
+                width: 100%;
+                box-sizing: border-box;
+            }
+        }
+
+        /* Prevent horizontal scroll on all viewports */
+        body,
+        html {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Padrón de Mascotas</h1>
+            <p>Registro de mascotas del condominio Reserva Bosque Sereno</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <div id="menuInclude"></div>
+
+    <!-- Barra de filtros -->
+    <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre, raza o dirección..." oninput="renderGrid()">
+        <select id="especieFilter" onchange="renderGrid()">
+            <option value="todas">Todas las especies</option>
+            <option value="Perro">Perros</option>
+            <option value="Gato">Gatos</option>
+            <option value="Ave">Aves</option>
+            <option value="Reptil">Reptiles</option>
+            <option value="Otro">Otros</option>
+        </select>
+        <select id="ordenSelect" onchange="renderGrid()">
+            <option value="az">A–Z</option>
+            <option value="za">Z–A</option>
+        </select>
+    </div>
+
+    <div class="stats-bar" id="statsBar"></div>
+
+    <div class="mascotas-grid" id="mascotasGrid"></div>
+    <div class="pagination" id="paginacion"></div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        let datos = { mascotas: [] };
+        let paginaActual = 1;
+        const POR_PAGINA = 20;
+
+        const EMOJI_ESPECIE = {
+            'Perro': '🐶', 'Gato': '🐱', 'Ave': '🐦',
+            'Reptil': '🦎', 'Otro': '🐾'
+        };
+
+        function applyData(json) {
+            datos = json;
+            renderGrid();
+        }
+
+        (function loadData() {
+            if (window.EMBEDDED_MASCOTAS) { applyData(window.EMBEDDED_MASCOTAS); return; }
+
+            if (location.protocol === 'file:') {
+                if (!document.querySelector('script[src="includes/embedded-data.js"]')) {
+                    const s = document.createElement('script');
+                    s.src = 'includes/embedded-data.js';
+                    document.head.appendChild(s);
+                }
+                const t0 = Date.now();
+                const id = setInterval(() => {
+                    if (window.EMBEDDED_MASCOTAS) { clearInterval(id); applyData(window.EMBEDDED_MASCOTAS); return; }
+                    if (Date.now() - t0 > 1500) {
+                        clearInterval(id);
+                        fetchJSON();
+                    }
+                }, 100);
+                return;
+            }
+            fetchJSON();
+        })();
+
+        function fetchJSON() {
+            fetch(new URL('padron-mascotas.json', location.href).toString(), { cache: 'no-store' })
+                .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+                .then(applyData)
+                .catch(() => {
+                    if (window.EMBEDDED_MASCOTAS) applyData(window.EMBEDDED_MASCOTAS);
+                    else renderGrid();
+                });
+        }
+
+        function renderGrid() {
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+            const especie = document.getElementById('especieFilter').value;
+            const orden = document.getElementById('ordenSelect').value;
+
+            let lista = (datos.mascotas || []).filter(m => {
+                const matchSearch = !search ||
+                    m.nombre.toLowerCase().includes(search) ||
+                    (m.raza || '').toLowerCase().includes(search) ||
+                    (m.direccion || '').toLowerCase().includes(search);
+                const matchEspecie = especie === 'todas' || m.especie === especie;
+                return matchSearch && matchEspecie;
+            });
+
+            if (orden === 'az') lista.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+            else lista.sort((a, b) => b.nombre.localeCompare(a.nombre, 'es'));
+
+            const total = lista.length;
+            const totalPags = Math.max(1, Math.ceil(total / POR_PAGINA));
+            if (paginaActual > totalPags) paginaActual = 1;
+
+            const inicio = (paginaActual - 1) * POR_PAGINA;
+            const pagina = lista.slice(inicio, inicio + POR_PAGINA);
+
+            document.getElementById('statsBar').textContent =
+                total === 0 ? 'Sin resultados'
+                    : total === 1 ? '1 mascota registrada'
+                        : total + ' mascotas' + (search || especie !== 'todas' ? ' (filtradas de ' + datos.mascotas.length + ' registros)' : ' registradas');
+
+            const grid = document.getElementById('mascotasGrid');
+            if (total === 0) {
+                grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1;">
+                    <div class="empty-icon">🐾</div>
+                    <p>No se encontraron mascotas.</p>
+                </div>`;
+                document.getElementById('paginacion').innerHTML = '';
+                return;
+            }
+
+            grid.innerHTML = pagina.map(m => {
+                const emoji = EMOJI_ESPECIE[m.especie] || '🐾';
+                const foto = m.imagen
+                    ? `<img src="${escHtml(m.imagen)}" alt="${escHtml(m.nombre)}" loading="lazy">`
+                    : `<div class="sin-foto">${emoji}</div>`;
+                const raza = m.raza ? `<p class="mascota-raza">${escHtml(m.raza)}${m.color ? ' · ' + escHtml(m.color) : ''}</p>` : '';
+                const propietario = m.propietario ? `<p class="mascota-propietario">🏠 ${escHtml(m.propietario)}</p>` : '';
+                return `<div class="mascota-card">
+                    <div class="mascota-foto-wrap">
+                        ${foto}
+                        <span class="especie-badge">${escHtml(m.especie || 'Otro')}</span>
+                    </div>
+                    <div class="mascota-info">
+                        <p class="mascota-nombre">${escHtml(m.nombre)}</p>
+                        ${raza}
+                        <p class="mascota-dir">${escHtml(m.direccion || '—')}</p>
+                        ${propietario}
+                    </div>
+                </div>`;
+            }).join('');
+
+            renderPaginacion(totalPags);
+        }
+
+        function renderPaginacion(totalPags) {
+            const cont = document.getElementById('paginacion');
+            if (totalPags <= 1) { cont.innerHTML = ''; return; }
+            let html = `<button onclick="irPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>&laquo;</button>`;
+            for (let i = 1; i <= totalPags; i++) {
+                html += `<button onclick="irPagina(${i})" class="${i === paginaActual ? 'active' : ''}">${i}</button>`;
+            }
+            html += `<button onclick="irPagina(${paginaActual + 1})" ${paginaActual === totalPags ? 'disabled' : ''}>&raquo;</button>`;
+            cont.innerHTML = html;
+        }
+
+        function irPagina(n) {
+            paginaActual = n;
+            renderGrid();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function escHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+
+</html>

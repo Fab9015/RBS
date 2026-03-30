@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador – Padrón de Mascotas</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Herramienta para administrar el padrón de mascotas del condominio.">
+    <meta property="og:title" content="Generador – Padrón de Mascotas">
+    <meta property="og:description" content="Herramienta para administrar el padrón de mascotas del condominio.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/generador-padron-mascotas.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Generador – Padrón de Mascotas">
+    <meta name="twitter:description" content="Herramienta para administrar el padrón de mascotas del condominio.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/generador-padron-mascotas.html">
+    <style>
+        /* ── Toolbar ── */
+        .toolbar {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 0.6em;
+            padding: 1em;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .toolbar input[type="text"] {
+            flex: 1;
+            min-width: 180px;
+            padding: 7px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.93em;
+        }
+
+        .toolbar-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5em;
+            margin-left: auto;
+        }
+
+        .toolbar-buttons button,
+        .toolbar-buttons select {
+            height: 32px;
+            padding: 0 12px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.88em;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .toolbar-buttons button {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .toolbar-buttons button:hover {
+            opacity: 0.9;
+        }
+
+        .toolbar-buttons select {
+            background: var(--color-white);
+            border: 1px solid #ccc;
+            color: var(--color-title);
+        }
+
+        @media (max-width: 768px) {
+            .toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .toolbar input[type="text"] {
+                width: 100%;
+            }
+
+            .toolbar-buttons {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                width: 100%;
+            }
+
+            .toolbar-buttons button,
+            .toolbar-buttons select {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ── Cards grid ── */
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 1.2em;
+            padding: 1.2em 1em;
+        }
+
+        .card {
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card-foto {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background: #f0f0e8;
+            display: block;
+        }
+
+        .card-foto-placeholder {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: #f0f0e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3em;
+            color: #c0bdb0;
+        }
+
+        .especie-badge {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 0.72em;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 10px;
+        }
+
+        .card-body {
+            padding: 0.7em 0.9em;
+            flex: 1;
+        }
+
+        .card-body h3 {
+            margin: 0 0 0.2em;
+            font-size: 0.97em;
+            color: var(--color-title);
+        }
+
+        .card-body p {
+            margin: 0.15em 0;
+            font-size: 0.82em;
+            color: var(--color-muted, #666);
+        }
+
+        .card-actions {
+            display: flex;
+            border-top: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .card-actions button {
+            flex: 1;
+            padding: 7px;
+            border: none;
+            cursor: pointer;
+            font-size: 0.88em;
+            transition: opacity 0.15s;
+        }
+
+        .card-actions button:hover {
+            opacity: 0.85;
+        }
+
+        .btn-edit {
+            background: #8fa76a;
+            color: #fff;
+        }
+
+        .btn-delete {
+            background: #d9534f;
+            color: #fff;
+            border-left: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* ── Pagination ── */
+        #paginacion {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 0.3em;
+            padding: 0.8em 1em;
+            position: relative;
+        }
+
+        #paginacion button {
+            padding: 5px 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 0.88em;
+        }
+
+        #paginacion button.active {
+            background: var(--color-title);
+            font-weight: 700;
+        }
+
+        #paginacion button:disabled {
+            opacity: 0.35;
+            cursor: default;
+        }
+
+        #mostrar-wrapper {
+            position: absolute;
+            right: 1em;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 0.85em;
+            display: flex;
+            align-items: center;
+            gap: 0.3em;
+        }
+
+        #mostrar-wrapper select {
+            padding: 4px 6px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+        @media (max-width: 768px) {
+            #mostrar-wrapper {
+                position: static;
+                transform: none;
+                width: 100%;
+                justify-content: flex-end;
+                margin-top: 0.4em;
+            }
+        }
+
+        /* ── JSON section ── */
+        .json-section {
+            padding: 1em;
+            background: var(--color-white);
+            border-top: 2px solid var(--color-accent);
+        }
+
+        .json-section h2 {
+            margin-top: 0;
+        }
+
+        .json-section textarea {
+            width: 100%;
+            height: 240px;
+            font-family: monospace;
+            font-size: 0.82em;
+            margin-top: 0.8em;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            padding: 8px;
+            box-sizing: border-box;
+            resize: vertical;
+        }
+
+        .json-section .json-buttons {
+            display: flex;
+            gap: 0.5em;
+            flex-wrap: wrap;
+            margin-top: 0.6em;
+        }
+
+        .json-section .json-buttons button {
+            background: var(--color-white);
+            color: var(--color-title);
+            border: 1px solid var(--color-border, #ccc);
+            padding: 7px 14px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.88em;
+        }
+
+        .json-section .json-buttons button:hover {
+            background: #eee;
+        }
+
+        /* ── Modal ── */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 1em;
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-content {
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 1.5em;
+            width: 100%;
+            max-width: 480px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .form-group {
+            margin-top: 0.8em;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.88em;
+            font-weight: 600;
+            color: var(--color-title);
+            margin-bottom: 3px;
+        }
+
+        .form-group label .required {
+            color: #c94a44;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="url"],
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 7px 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 0.91em;
+            font-family: inherit;
+            box-sizing: border-box;
+        }
+
+        .form-group input.invalid,
+        .form-group select.invalid {
+            border-color: #c94a44;
+        }
+
+        .form-group .error-msg {
+            font-size: 0.78em;
+            color: #c94a44;
+            margin-top: 2px;
+            display: none;
+        }
+
+        .form-group .error-msg.visible {
+            display: block;
+        }
+
+        /* Foto preview */
+        .foto-preview-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .foto-tabs {
+            display: flex;
+            gap: 0.4em;
+            margin-bottom: 0.3em;
+        }
+
+        .foto-tabs button {
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 6px 6px 0 0;
+            padding: 5px 12px;
+            cursor: pointer;
+            font-size: 0.85em;
+            color: var(--color-title);
+        }
+
+        .foto-tabs button.active-tab {
+            background: var(--color-accent);
+            color: #fff;
+            border-color: var(--color-accent);
+        }
+
+        .foto-tab-panel {
+            display: none;
+        }
+
+        .foto-tab-panel.active {
+            display: block;
+        }
+
+        #fotoPreview {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            background: #f0f0e8;
+            display: block;
+        }
+
+        .empty-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            border: 1px dashed #ccc;
+            background: #f0f0e8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2em;
+            color: #c0bdb0;
+        }
+
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 0.6em;
+            margin-top: 1.2em;
+        }
+
+        .modal-actions button {
+            padding: 8px 18px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92em;
+        }
+
+        .btn-save {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .btn-save:hover {
+            background: #8fa76a;
+        }
+
+        .btn-cancel {
+            background: #ccc;
+            color: #333;
+        }
+
+        .btn-cancel:hover {
+            background: #bbb;
+        }
+
+        /* Confirm dialog */
+        .confirm-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .confirm-overlay.open {
+            display: flex;
+        }
+
+        .confirm-box {
+            background: var(--color-white);
+            border-radius: 10px;
+            padding: 1.5em;
+            max-width: 340px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .confirm-box p {
+            margin: 0 0 1em;
+            font-size: 0.95em;
+        }
+
+        .confirm-box strong {
+            color: var(--color-title);
+        }
+
+        .confirm-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1em;
+        }
+
+        .confirm-actions button {
+            padding: 8px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.92em;
+        }
+
+        .btn-confirm-yes {
+            background: #d9534f;
+            color: #fff;
+        }
+
+        .btn-confirm-no {
+            background: #ccc;
+            color: #333;
+        }
+
+        @media (max-width: 600px) {
+            .cards-container {
+                grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+                gap: 0.8em;
+                padding: 0.8em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Padrón de Mascotas – Administrador</h1>
+            <p>Crear, editar y exportar el padrón de mascotas del condominio</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <div id="menuInclude"></div>
+
+    <!-- Toolbar -->
+    <div class="toolbar">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre, raza o dirección..."
+            oninput="renderCards()">
+        <div class="toolbar-buttons">
+            <button onclick="abrirModal()"><i class="fa fa-plus"></i> Nueva mascota</button>
+            <button onclick="descargarJSON()"><i class="fa fa-download"></i> Descargar JSON</button>
+            <button onclick="copiarJSON()"><i class="fa fa-copy"></i> Copiar JSON</button>
+            <select id="especieFilter" onchange="renderCards()">
+                <option value="todas">Todas las especies</option>
+                <option value="Perro">Perros</option>
+                <option value="Gato">Gatos</option>
+                <option value="Ave">Aves</option>
+                <option value="Reptil">Reptiles</option>
+                <option value="Otro">Otros</option>
+            </select>
+            <select id="ordenSelect" onchange="renderCards()">
+                <option value="az">Ordenar A–Z</option>
+                <option value="za">Ordenar Z–A</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Cards -->
+    <div class="cards-container" id="cardsContainer"></div>
+
+    <!-- Paginación -->
+    <div id="paginacion"></div>
+
+    <!-- JSON export -->
+    <div class="json-section">
+        <h2>JSON generado</h2>
+        <p style="font-size:0.87em;color:var(--color-muted);">Copia o descarga este JSON y súbelo al repositorio como
+            <code>padron-mascotas.json</code>.</p>
+        <div class="json-buttons">
+            <button onclick="copiarJSON()"><i class="fa fa-copy"></i> Copiar</button>
+            <button onclick="descargarJSON()"><i class="fa fa-download"></i> Descargar</button>
+            <button onclick="cargarDesdeTextarea()"><i class="fa fa-upload"></i> Cargar desde JSON</button>
+        </div>
+        <textarea id="jsonOutput" readonly></textarea>
+    </div>
+
+    <!-- Modal agregar/editar -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Nueva mascota</h2>
+
+            <div class="form-group">
+                <label>Nombre <span class="required">*</span></label>
+                <input type="text" id="fNombre" placeholder="Ej: Luna">
+                <span class="error-msg" id="errNombre">El nombre es obligatorio.</span>
+            </div>
+
+            <div class="form-group">
+                <label>Especie <span class="required">*</span></label>
+                <select id="fEspecie">
+                    <option value="Perro">Perro</option>
+                    <option value="Gato">Gato</option>
+                    <option value="Ave">Ave</option>
+                    <option value="Reptil">Reptil</option>
+                    <option value="Otro">Otro</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Raza</label>
+                <input type="text" id="fRaza" placeholder="Ej: Labrador Retriever">
+            </div>
+
+            <div class="form-group">
+                <label>Color / características</label>
+                <input type="text" id="fColor" placeholder="Ej: Dorado, manchas blancas">
+            </div>
+
+            <div class="form-group">
+                <label>Dirección dentro del condominio <span class="required">*</span></label>
+                <input type="text" id="fDireccion" placeholder="Ej: Jacarandas 12">
+                <span class="error-msg" id="errDireccion">La dirección es obligatoria.</span>
+            </div>
+
+            <div class="form-group">
+                <label>Nombre del propietario</label>
+                <input type="text" id="fPropietario" placeholder="Ej: Juan García">
+            </div>
+
+            <div class="form-group">
+                <label>Foto</label>
+                <div class="foto-preview-wrap">
+                    <div class="foto-tabs">
+                        <button type="button" class="active-tab" onclick="cambiarFotoTab('url')">URL</button>
+                        <button type="button" onclick="cambiarFotoTab('archivo')">Subir archivo</button>
+                    </div>
+                    <div class="foto-tab-panel active" id="tabUrl">
+                        <input type="url" id="fImagenUrl" placeholder="https://... o img/mascotas/foto.jpg"
+                            oninput="previewDesdeUrl()">
+                    </div>
+                    <div class="foto-tab-panel" id="tabArchivo">
+                        <input type="file" id="fImagenFile" accept="image/*" onchange="previewDesdeArchivo()">
+                        <p style="font-size:0.78em;color:#999;margin:4px 0 0;">La imagen se convierte a base64 y queda
+                            embebida en el JSON.</p>
+                    </div>
+                    <div id="fotoPreviewContainer">
+                        <div class="empty-preview" id="emptyPreview">🐾</div>
+                        <img id="fotoPreview" src="" alt="Vista previa" style="display:none;">
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" onclick="cerrarModal()">Cancelar</button>
+                <button class="btn-save" onclick="guardarMascota()">Guardar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Confirm dialog -->
+    <div class="confirm-overlay" id="confirmOverlay">
+        <div class="confirm-box">
+            <p id="confirmMsg">¿Eliminar esta mascota?</p>
+            <div class="confirm-actions">
+                <button class="btn-confirm-yes" onclick="confirmarEliminar()">Sí, eliminar</button>
+                <button class="btn-confirm-no" onclick="cerrarConfirm()">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        let datos = { mascotas: [] };
+        let paginaActual = 1;
+        let porPagina = 12;
+        let editId = null;
+        let pendingDeleteId = null;
+        let fotoBase64 = null;
+        let fotoTabActiva = 'url';
+
+        const EMOJI_ESPECIE = {
+            'Perro': '🐶', 'Gato': '🐱', 'Ave': '🐦',
+            'Reptil': '🦎', 'Otro': '🐾'
+        };
+
+        /* ── UUID ── */
+        function uuid() {
+            return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, c => {
+                const r = Math.random() * 16 | 0;
+                return (c === 'x' ? r : (r & 0x3 | 0x8)).toString(16);
+            });
+        }
+
+        /* ── Load data ── */
+        function applyData(json) {
+            if (!json || !Array.isArray(json.mascotas)) json = { mascotas: [] };
+            datos = json;
+            renderCards();
+            updateOutput();
+        }
+
+        (function loadData() {
+            if (window.EMBEDDED_MASCOTAS) { applyData(window.EMBEDDED_MASCOTAS); return; }
+
+            if (location.protocol === 'file:') {
+                if (!document.querySelector('script[src="includes/embedded-data.js"]')) {
+                    const s = document.createElement('script');
+                    s.src = 'includes/embedded-data.js';
+                    document.head.appendChild(s);
+                }
+                const t0 = Date.now();
+                const id = setInterval(() => {
+                    if (window.EMBEDDED_MASCOTAS) { clearInterval(id); applyData(window.EMBEDDED_MASCOTAS); return; }
+                    if (Date.now() - t0 > 1500) { clearInterval(id); fetchJSON(); }
+                }, 100);
+                return;
+            }
+            fetchJSON();
+        })();
+
+        function fetchJSON() {
+            fetch(new URL('padron-mascotas.json', location.href).toString(), { cache: 'no-store' })
+                .then(r => { if (!r.ok) throw new Error(); return r.json(); })
+                .then(applyData)
+                .catch(() => {
+                    if (window.EMBEDDED_MASCOTAS) applyData(window.EMBEDDED_MASCOTAS);
+                    else applyData({ mascotas: [] });
+                });
+        }
+
+        /* ── Render cards ── */
+        function renderCards() {
+            const search = document.getElementById('searchInput').value.toLowerCase().trim();
+            const especie = document.getElementById('especieFilter').value;
+            const orden = document.getElementById('ordenSelect').value;
+
+            let lista = datos.mascotas.filter(m => {
+                const ms = !search ||
+                    m.nombre.toLowerCase().includes(search) ||
+                    (m.raza || '').toLowerCase().includes(search) ||
+                    (m.direccion || '').toLowerCase().includes(search) ||
+                    (m.propietario || '').toLowerCase().includes(search);
+                const me = especie === 'todas' || m.especie === especie;
+                return ms && me;
+            });
+
+            if (orden === 'az') lista.sort((a, b) => a.nombre.localeCompare(b.nombre, 'es'));
+            else lista.sort((a, b) => b.nombre.localeCompare(a.nombre, 'es'));
+
+            const total = lista.length;
+            const totalPags = Math.max(1, Math.ceil(total / porPagina));
+            if (paginaActual > totalPags) paginaActual = 1;
+            const inicio = (paginaActual - 1) * porPagina;
+            const pagina = lista.slice(inicio, inicio + porPagina);
+
+            const cont = document.getElementById('cardsContainer');
+            if (total === 0) {
+                cont.innerHTML = `<div style="grid-column:1/-1;text-align:center;padding:3em;color:var(--color-muted);">
+                    <div style="font-size:3em;">🐾</div>
+                    <p>${datos.mascotas.length === 0
+                        ? 'No hay mascotas registradas. Haz clic en <strong>Nueva mascota</strong> para comenzar.'
+                        : 'Sin resultados para esta búsqueda.'}</p>
+                </div>`;
+                document.getElementById('paginacion').innerHTML = '';
+                return;
+            }
+
+            cont.innerHTML = pagina.map(m => {
+                const emoji = EMOJI_ESPECIE[m.especie] || '🐾';
+                const fotoHtml = m.imagen
+                    ? `<img class="card-foto" src="${escHtml(m.imagen)}" alt="${escHtml(m.nombre)}" loading="lazy">`
+                    : `<div class="card-foto-placeholder">${emoji}</div>`;
+                return `<div class="card">
+                    ${fotoHtml}
+                    <span class="especie-badge">${escHtml(m.especie || 'Otro')}</span>
+                    <div class="card-body">
+                        <h3>${escHtml(m.nombre)}</h3>
+                        ${m.raza ? `<p>${escHtml(m.raza)}${m.color ? ' · ' + escHtml(m.color) : ''}</p>` : ''}
+                        <p>📍 ${escHtml(m.direccion || '—')}</p>
+                        ${m.propietario ? `<p>👤 ${escHtml(m.propietario)}</p>` : ''}
+                    </div>
+                    <div class="card-actions">
+                        <button class="btn-edit" onclick="abrirModal('${m.id}')"><i class="fa fa-edit"></i> Editar</button>
+                        <button class="btn-delete" onclick="pedirEliminar('${m.id}')"><i class="fa fa-trash"></i> Eliminar</button>
+                    </div>
+                </div>`;
+            }).join('');
+
+            renderPaginacion(totalPags);
+            updateOutput();
+        }
+
+        function renderPaginacion(totalPags) {
+            const cont = document.getElementById('paginacion');
+            if (totalPags <= 1) { cont.innerHTML = ''; return; }
+            let html = `<button onclick="irPagina(${paginaActual - 1})" ${paginaActual === 1 ? 'disabled' : ''}>&laquo;</button>`;
+            for (let i = 1; i <= totalPags; i++) {
+                html += `<button onclick="irPagina(${i})" class="${i === paginaActual ? 'active' : ''}">${i}</button>`;
+            }
+            html += `<button onclick="irPagina(${paginaActual + 1})" ${paginaActual === totalPags ? 'disabled' : ''}>&raquo;</button>`;
+            html += `<div id="mostrar-wrapper">Mostrar:
+                <select onchange="porPagina=parseInt(this.value);paginaActual=1;renderCards()">
+                    <option value="12" ${porPagina === 12 ? 'selected' : ''}>12</option>
+                    <option value="24" ${porPagina === 24 ? 'selected' : ''}>24</option>
+                    <option value="48" ${porPagina === 48 ? 'selected' : ''}>48</option>
+                </select>
+            </div>`;
+            cont.innerHTML = html;
+        }
+
+        function irPagina(n) {
+            paginaActual = n;
+            renderCards();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        /* ── Modal ── */
+        function abrirModal(id = null) {
+            editId = id;
+            fotoBase64 = null;
+            document.getElementById('modalTitle').textContent = id ? 'Editar mascota' : 'Nueva mascota';
+            const m = id ? datos.mascotas.find(x => x.id === id) : null;
+
+            // Reset form
+            document.getElementById('fNombre').value = m ? m.nombre : '';
+            document.getElementById('fEspecie').value = m ? m.especie : 'Perro';
+            document.getElementById('fRaza').value = m ? (m.raza || '') : '';
+            document.getElementById('fColor').value = m ? (m.color || '') : '';
+            document.getElementById('fDireccion').value = m ? (m.direccion || '') : '';
+            document.getElementById('fPropietario').value = m ? (m.propietario || '') : '';
+            document.getElementById('fImagenUrl').value = m ? (m.imagen || '') : '';
+            document.getElementById('fImagenFile').value = '';
+
+            // Errors
+            ['errNombre', 'errDireccion'].forEach(id => {
+                document.getElementById(id).classList.remove('visible');
+            });
+            ['fNombre', 'fDireccion'].forEach(id => {
+                document.getElementById(id).classList.remove('invalid');
+            });
+
+            // Preview
+            cambiarFotoTab('url');
+            actualizarPreview(m ? m.imagen : '');
+
+            document.getElementById('modal').classList.add('open');
+            document.getElementById('fNombre').focus();
+        }
+
+        function cerrarModal() {
+            document.getElementById('modal').classList.remove('open');
+            editId = null;
+            fotoBase64 = null;
+        }
+
+        function cambiarFotoTab(tab) {
+            fotoTabActiva = tab;
+            document.querySelectorAll('.foto-tabs button').forEach((b, i) => {
+                b.classList.toggle('active-tab', (i === 0 && tab === 'url') || (i === 1 && tab === 'archivo'));
+            });
+            document.getElementById('tabUrl').classList.toggle('active', tab === 'url');
+            document.getElementById('tabArchivo').classList.toggle('active', tab === 'archivo');
+        }
+
+        function previewDesdeUrl() {
+            fotoBase64 = null;
+            const url = document.getElementById('fImagenUrl').value.trim();
+            actualizarPreview(url);
+        }
+
+        function previewDesdeArchivo() {
+            const file = document.getElementById('fImagenFile').files[0];
+            if (!file) return;
+            if (file.size > 2 * 1024 * 1024) {
+                alert('La imagen es muy grande (máximo 2 MB). Usa una URL en su lugar.');
+                document.getElementById('fImagenFile').value = '';
+                return;
+            }
+            const reader = new FileReader();
+            reader.onload = e => {
+                fotoBase64 = e.target.result;
+                actualizarPreview(fotoBase64);
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function actualizarPreview(src) {
+            const img = document.getElementById('fotoPreview');
+            const empty = document.getElementById('emptyPreview');
+            if (src) {
+                img.src = src;
+                img.style.display = 'block';
+                empty.style.display = 'none';
+            } else {
+                img.style.display = 'none';
+                img.src = '';
+                empty.style.display = 'flex';
+            }
+        }
+
+        /* ── Save ── */
+        function guardarMascota() {
+            const nombre = document.getElementById('fNombre').value.trim();
+            const direccion = document.getElementById('fDireccion').value.trim();
+            let valid = true;
+
+            // Validate nombre
+            if (!nombre) {
+                document.getElementById('fNombre').classList.add('invalid');
+                document.getElementById('errNombre').classList.add('visible');
+                valid = false;
+            } else {
+                document.getElementById('fNombre').classList.remove('invalid');
+                document.getElementById('errNombre').classList.remove('visible');
+            }
+
+            // Validate direccion
+            if (!direccion) {
+                document.getElementById('fDireccion').classList.add('invalid');
+                document.getElementById('errDireccion').classList.add('visible');
+                valid = false;
+            } else {
+                document.getElementById('fDireccion').classList.remove('invalid');
+                document.getElementById('errDireccion').classList.remove('visible');
+            }
+
+            if (!valid) return;
+
+            const imagen = fotoBase64
+                || document.getElementById('fImagenUrl').value.trim()
+                || '';
+
+            const m = {
+                id: editId || uuid(),
+                nombre,
+                especie: document.getElementById('fEspecie').value,
+                raza: document.getElementById('fRaza').value.trim() || undefined,
+                color: document.getElementById('fColor').value.trim() || undefined,
+                direccion,
+                propietario: document.getElementById('fPropietario').value.trim() || undefined,
+                imagen: imagen || undefined,
+            };
+
+            // Remove undefined keys
+            Object.keys(m).forEach(k => m[k] === undefined && delete m[k]);
+
+            if (editId) {
+                const idx = datos.mascotas.findIndex(x => x.id === editId);
+                if (idx !== -1) datos.mascotas[idx] = m;
+            } else {
+                datos.mascotas.push(m);
+            }
+
+            cerrarModal();
+            renderCards();
+        }
+
+        /* ── Delete ── */
+        function pedirEliminar(id) {
+            pendingDeleteId = id;
+            const m = datos.mascotas.find(x => x.id === id);
+            document.getElementById('confirmMsg').innerHTML =
+                `¿Eliminar a <strong>${escHtml(m ? m.nombre : 'esta mascota')}</strong>? Esta acción no se puede deshacer.`;
+            document.getElementById('confirmOverlay').classList.add('open');
+        }
+
+        function confirmarEliminar() {
+            if (pendingDeleteId) {
+                datos.mascotas = datos.mascotas.filter(x => x.id !== pendingDeleteId);
+                pendingDeleteId = null;
+            }
+            cerrarConfirm();
+            renderCards();
+        }
+
+        function cerrarConfirm() {
+            pendingDeleteId = null;
+            document.getElementById('confirmOverlay').classList.remove('open');
+        }
+
+        /* ── JSON output ── */
+        function updateOutput() {
+            document.getElementById('jsonOutput').value = JSON.stringify(datos, null, 2);
+        }
+
+        function copiarJSON() {
+            updateOutput();
+            const ta = document.getElementById('jsonOutput');
+            navigator.clipboard.writeText(ta.value)
+                .then(() => { ta.style.background = '#edf4e3'; setTimeout(() => ta.style.background = '', 800); })
+                .catch(() => { ta.select(); document.execCommand('copy'); });
+        }
+
+        function descargarJSON() {
+            updateOutput();
+            const blob = new Blob([document.getElementById('jsonOutput').value], { type: 'application/json' });
+            const a = document.createElement('a');
+            a.href = URL.createObjectURL(blob);
+            a.download = 'padron-mascotas.json';
+            a.click();
+            URL.revokeObjectURL(a.href);
+        }
+
+        function cargarDesdeTextarea() {
+            const txt = document.getElementById('jsonOutput').value.trim();
+            if (!txt) return;
+            try {
+                const parsed = JSON.parse(txt);
+                if (!Array.isArray(parsed.mascotas)) throw new Error('Formato inválido');
+                applyData(parsed);
+                alert('✅ Datos cargados correctamente (' + parsed.mascotas.length + ' mascotas).');
+            } catch (e) {
+                alert('❌ JSON inválido: ' + e.message);
+            }
+        }
+
+        /* ── Keyboard: close modals with Escape ── */
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') {
+                cerrarModal();
+                cerrarConfirm();
+            }
+        });
+
+        /* ── Close modal by clicking backdrop ── */
+        document.getElementById('modal').addEventListener('click', e => {
+            if (e.target === document.getElementById('modal')) cerrarModal();
+        });
+        document.getElementById('confirmOverlay').addEventListener('click', e => {
+            if (e.target === document.getElementById('confirmOverlay')) cerrarConfirm();
+        });
+
+        /* ── Utilities ── */
+        function escHtml(str) {
+            return String(str)
+                .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+    </script>
+</body>
+
+</html>
