@@ -22,6 +22,7 @@
     <meta name="twitter:description" content="Registro de mascotas del condominio Reserva Bosque Sereno.">
     <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
     <link rel="canonical" href="https://fab9015.github.io/RBS/padron-mascotas.html">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         .toolbar {
             display: flex;
@@ -233,6 +234,74 @@
             overflow-x: hidden;
             max-width: 100%;
         }
+
+        /* Share button */
+        .card-footer {
+            padding: 0.5em 0.9em 0.75em;
+            border-top: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.35em;
+            width: 100%;
+            padding: 0.4em 0;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--color-white, #fff);
+            background: var(--color-accent, #a1b27a);
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .share-btn:hover {
+            background: var(--color-title, #5c4033);
+        }
+
+        /* Highlight animation when deep-linked */
+        @keyframes destacar {
+            0% {
+                box-shadow: 0 0 0 4px var(--color-accent, #a1b27a), 0 0 24px rgba(161, 178, 122, 0.7);
+            }
+
+            65% {
+                box-shadow: 0 0 0 4px var(--color-accent, #a1b27a), 0 0 24px rgba(161, 178, 122, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.07);
+            }
+        }
+
+        .mascota-card.destacada {
+            animation: destacar 2.8s ease forwards;
+        }
+
+        /* Toast feedback */
+        .copy-feedback {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            background: rgba(0, 0, 0, 0.82);
+            color: #fff;
+            padding: 0.5em 1em;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            opacity: 0;
+            transform: translateY(8px);
+            transition: opacity 0.18s ease, transform 0.18s ease;
+            z-index: 1200;
+            pointer-events: none;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -283,7 +352,7 @@
 
         function applyData(json) {
             datos = json;
-            renderGrid();
+            handleMascotaParam();
         }
 
         (function loadData() {
@@ -364,7 +433,7 @@
                     : `<div class="sin-foto">${emoji}</div>`;
                 const raza = m.raza ? `<p class="mascota-raza">${escHtml(m.raza)}${m.color ? ' · ' + escHtml(m.color) : ''}</p>` : '';
                 const propietario = m.propietario ? `<p class="mascota-propietario">🏠 ${escHtml(m.propietario)}</p>` : '';
-                return `<div class="mascota-card">
+                return `<div class="mascota-card" id="mascota-${escHtml(m.id)}">
                     <div class="mascota-foto-wrap">
                         ${foto}
                         <span class="especie-badge">${escHtml(m.especie || 'Otro')}</span>
@@ -375,8 +444,20 @@
                         <p class="mascota-dir">${escHtml(m.direccion || '—')}</p>
                         ${propietario}
                     </div>
+                    <div class="card-footer">
+                        <button class="share-btn" data-id="${escHtml(m.id)}" title="Compartir enlace de esta mascota">
+                            <i class="fa-solid fa-share-nodes" aria-hidden="true"></i> Compartir
+                        </button>
+                    </div>
                 </div>`;
             }).join('');
+
+            // Highlight if this render contains the deep-linked card
+            const params = new URLSearchParams(window.location.search);
+            const targetId = params.get('mascota');
+            if (targetId) {
+                setTimeout(() => highlightCard(targetId), 80);
+            }
 
             renderPaginacion(totalPags);
         }
@@ -402,6 +483,73 @@
             return String(str)
                 .replace(/&/g, '&amp;').replace(/</g, '&lt;')
                 .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        }
+
+        // --- Deep-link: ?mascota=<id> ---
+        function handleMascotaParam() {
+            const params = new URLSearchParams(window.location.search);
+            const targetId = params.get('mascota');
+            if (targetId) {
+                // Find position in default A-Z list (no filters applied)
+                const listaAZ = [...(datos.mascotas || [])].sort((a, b) =>
+                    a.nombre.localeCompare(b.nombre, 'es'));
+                const idx = listaAZ.findIndex(m => m.id === targetId);
+                if (idx >= 0) {
+                    paginaActual = Math.ceil((idx + 1) / POR_PAGINA);
+                }
+            }
+            renderGrid();
+        }
+
+        function highlightCard(id) {
+            const card = document.getElementById('mascota-' + id);
+            if (!card) return;
+            card.classList.add('destacada');
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => card.classList.remove('destacada'), 3000);
+        }
+
+        // --- Share handler ---
+        document.addEventListener('click', async (ev) => {
+            const btn = ev.target.closest('.share-btn');
+            if (!btn) return;
+            ev.preventDefault();
+            const id = btn.getAttribute('data-id');
+            const mascota = (datos.mascotas || []).find(m => m.id === id);
+            const base = window.location.origin + window.location.pathname;
+            const url = base + '?mascota=' + encodeURIComponent(id);
+            const title = mascota
+                ? mascota.nombre + ' – Padrón de Mascotas'
+                : 'Padrón de Mascotas';
+            const text = mascota
+                ? '¿Has visto a ' + mascota.nombre + '? Vive en ' + mascota.direccion + ' – Reserva Bosque Sereno'
+                : 'Padrón de Mascotas – Reserva Bosque Sereno';
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title, text, url });
+                } catch (err) {
+                    if (err.name !== 'AbortError') console.warn('Share failed', err);
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    showCopyFeedback('Enlace copiado al portapapeles ✓');
+                } catch {
+                    showCopyFeedback('No se pudo copiar el enlace');
+                }
+            }
+        });
+
+        function showCopyFeedback(text) {
+            let fb = document.querySelector('.copy-feedback');
+            if (!fb) {
+                fb = document.createElement('div');
+                fb.className = 'copy-feedback';
+                document.body.appendChild(fb);
+            }
+            fb.textContent = text;
+            fb.classList.add('show');
+            setTimeout(() => fb.classList.remove('show'), 2500);
         }
     </script>
 </body>
