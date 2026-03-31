@@ -48,7 +48,7 @@
             "color": "Verde y amarillo",
             "direccion": "Sakura 9",
             "propietario": "Marco Antonio Vega",
-            "imagen": "https://picsum.photos/seed/periquito1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Budgerigar-_Mount_Hope.jpg/500px-Budgerigar-_Mount_Hope.jpg"
         },
         {
             "id": "uid-006",
@@ -78,7 +78,7 @@
             "color": "Naranja atigrado",
             "direccion": "Sequoia 201",
             "propietario": "Diana López",
-            "imagen": "https://picsum.photos/seed/gato8/400/400"
+            "imagen": "https://cdn2.thecatapi.com/images/3vv.jpg"
         },
         {
             "id": "uid-009",
@@ -98,7 +98,7 @@
             "color": "Verde",
             "direccion": "Sakura 20",
             "propietario": "Gabriela Soto",
-            "imagen": "https://picsum.photos/seed/tortuga1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Red-eared_sliders_and_Mallard_in_Golden_Gate_Park_1.jpg/500px-Red-eared_sliders_and_Mallard_in_Golden_Gate_Park_1.jpg"
         },
         {
             "id": "uid-011",
@@ -128,7 +128,7 @@
             "color": "Verde con rojo",
             "direccion": "Sakura 4",
             "propietario": "Héctor Navarro",
-            "imagen": "https://picsum.photos/seed/loro2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Amazon_parrot_and_gray_parrot_in_Indonesia.jpg/500px-Amazon_parrot_and_gray_parrot_in_Indonesia.jpg"
         },
         {
             "id": "uid-014",
@@ -168,7 +168,7 @@
             "color": "Verde brillante",
             "direccion": "Sakura 7",
             "propietario": "Manuel Vidal",
-            "imagen": "https://picsum.photos/seed/iguana1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Iguana_V.jpg/500px-Iguana_V.jpg"
         },
         {
             "id": "uid-018",
@@ -198,7 +198,7 @@
             "color": "Blanco y gris",
             "direccion": "Sakura 8",
             "propietario": "Andrea Leal",
-            "imagen": "https://picsum.photos/seed/conejo1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/A_grey_holland_lop_rabbit.jpg/500px-A_grey_holland_lop_rabbit.jpg"
         },
         {
             "id": "uid-021",
@@ -218,7 +218,7 @@
             "color": "Verde",
             "direccion": "Sakura 15",
             "propietario": "Carmen Bravo",
-            "imagen": "https://picsum.photos/seed/cotorra1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Monk_parakeet_%28Myiopsitta_monachus%29_Santiago.jpg/500px-Monk_parakeet_%28Myiopsitta_monachus%29_Santiago.jpg"
         },
         {
             "id": "uid-023",
@@ -238,7 +238,7 @@
             "color": "Dorado",
             "direccion": "Sequoia 5",
             "propietario": "Valeria Mendoza",
-            "imagen": "https://picsum.photos/seed/hamster1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Baby_Hamster_-_2_Weeks_Old.jpg/500px-Baby_Hamster_-_2_Weeks_Old.jpg"
         },
         {
             "id": "uid-025",
@@ -248,7 +248,7 @@
             "color": "Crema y negro",
             "direccion": "Sequoia 10",
             "propietario": "Roberto León",
-            "imagen": "https://picsum.photos/seed/akita25/400/400"
+            "imagen": "https://images.dog.ceo/breeds/akita/Japaneseakita.jpg"
         },
         {
             "id": "uid-026",
@@ -278,7 +278,7 @@
             "color": "Amarillo con manchas",
             "direccion": "Sakura 33",
             "propietario": "Luis Márquez",
-            "imagen": "https://picsum.photos/seed/gecko1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Eublepharis_macularius_2009_G6.jpg/500px-Eublepharis_macularius_2009_G6.jpg"
         },
         {
             "id": "uid-029",
@@ -298,7 +298,7 @@
             "color": "Marrón",
             "direccion": "Sabino 20",
             "propietario": "Francisco Peña",
-            "imagen": "https://picsum.photos/seed/conejo2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Dwarf_rabbit_on_a_leash.jpg/500px-Dwarf_rabbit_on_a_leash.jpg"
         },
         {
             "id": "uid-031",
@@ -318,7 +318,7 @@
             "color": "Blanco y amarillo",
             "direccion": "Sequoia 30",
             "propietario": "Alejandra Ríos",
-            "imagen": "https://picsum.photos/seed/cacatua1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cockatiel_bird_in_the_cage.jpg/500px-Cockatiel_bird_in_the_cage.jpg"
         },
         {
             "id": "uid-033",
@@ -358,7 +358,7 @@
             "color": "Rojizo",
             "direccion": "Sakura 5",
             "propietario": "Carmen Vega",
-            "imagen": "https://picsum.photos/seed/iguana2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Iguana_iguana%2C_with_blue_and_red_coloration.jpg/500px-Iguana_iguana%2C_with_blue_and_red_coloration.jpg"
         },
         {
             "id": "uid-037",
@@ -378,7 +378,7 @@
             "color": "Blanco y negro",
             "direccion": "Sabino 9",
             "propietario": "Héctor Alvarado",
-            "imagen": "https://picsum.photos/seed/cobaya1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Cochon_d%27Inde_%28Cavia_porcellus%29_%282%29.jpg/500px-Cochon_d%27Inde_%28Cavia_porcellus%29_%282%29.jpg"
         },
         {
             "id": "uid-039",
@@ -398,7 +398,7 @@
             "color": "Amarillo",
             "direccion": "Sabino 22",
             "propietario": "Pablo Guerrero",
-            "imagen": "https://picsum.photos/seed/canario1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Yellow-fronted_canary_%28Crithagra_mozambica_tando%29.jpg/500px-Yellow-fronted_canary_%28Crithagra_mozambica_tando%29.jpg"
         },
         {
             "id": "uid-041",
@@ -448,7 +448,7 @@
             "color": "Marrón y blanco",
             "direccion": "Sakura 16",
             "propietario": "Olga Jiménez",
-            "imagen": "https://picsum.photos/seed/cobaya2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Brown_and_White_Guinea_Pig.jpg/500px-Brown_and_White_Guinea_Pig.jpg"
         },
         {
             "id": "uid-046",
@@ -478,7 +478,7 @@
             "color": "Verde y amarillo",
             "direccion": "Sabino 6",
             "propietario": "Emilio Castillo",
-            "imagen": "https://picsum.photos/seed/loro3/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Portrait_of_Yellow-headed_Amazon_Parrot.jpg/500px-Portrait_of_Yellow-headed_Amazon_Parrot.jpg"
         },
         {
             "id": "uid-049",
@@ -498,7 +498,7 @@
             "color": "Café oscuro",
             "direccion": "Sakura 12",
             "propietario": "Bruno Medina",
-            "imagen": "https://picsum.photos/seed/tortuga2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tortoise_portrait.JPG/500px-Tortoise_portrait.JPG"
         },
         {
             "id": "uid-051",
@@ -518,7 +518,7 @@
             "color": "Blanco perla",
             "direccion": "Sequoia 8",
             "propietario": "Lourdes Ramírez",
-            "imagen": "https://picsum.photos/seed/gato52/400/400"
+            "imagen": "https://cdn2.thecatapi.com/images/78n.jpg"
         },
         {
             "id": "uid-053",
@@ -538,7 +538,7 @@
             "color": "Gris",
             "direccion": "Sakura 28",
             "propietario": "Sofía Carrillo",
-            "imagen": "https://picsum.photos/seed/hamster2/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Phodopus_sungorus_2_-_Colour_corrected.jpg/500px-Phodopus_sungorus_2_-_Colour_corrected.jpg"
         },
         {
             "id": "uid-055",
@@ -548,7 +548,7 @@
             "color": "Tricolor",
             "direccion": "Sequoia 18",
             "propietario": "Víctor Hugo Mora",
-            "imagen": "https://picsum.photos/seed/perro55/400/400"
+            "imagen": "https://images.dog.ceo/breeds/mix/Layla_Mix.jpg"
         },
         {
             "id": "uid-056",
@@ -558,7 +558,7 @@
             "color": "Gris arena",
             "direccion": "Sabino 3",
             "propietario": "Raúl Estrada",
-            "imagen": "https://picsum.photos/seed/lagartija1/400/400"
+            "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Dipsosaurus_dorsalis_ssp._dorsalis.jpg/500px-Dipsosaurus_dorsalis_ssp._dorsalis.jpg"
         },
         {
             "id": "uid-057",
@@ -578,7 +578,7 @@
             "color": "Café tabbby",
             "direccion": "Sequoia 208",
             "propietario": "Óscar Pedraza",
-            "imagen": "https://picsum.photos/seed/gato58/400/400"
+            "imagen": "https://cdn2.thecatapi.com/images/dg4.jpg"
         },
         {
             "id": "uid-059",
