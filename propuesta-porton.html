@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Propuesta Portón de Acceso – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description"
+        content="Propuesta técnico-comercial para el suministro e instalación de portón manual en el acceso al condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Propuesta Portón de Acceso – Reserva Bosque Sereno">
+    <meta property="og:description"
+        content="Cotización para el suministro e instalación de portón manual en el acceso al condominio.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/propuesta-porton.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Propuesta Portón de Acceso – Reserva Bosque Sereno">
+    <meta name="twitter:description"
+        content="Cotización para el suministro e instalación de portón manual en el acceso al condominio.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/propuesta-porton.html">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick facts */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .fact-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .fact-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.3em;
+        }
+
+        .fact-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3em;
+            color: var(--color-title);
+        }
+
+        .fact-label {
+            font-size: 0.8em;
+            color: var(--color-muted, #888);
+            margin-top: 0.2em;
+        }
+
+        /* Summary box */
+        .summary-box {
+            background: #f7f5f0;
+            border-radius: 12px;
+            padding: 1.2em 1.5em;
+            margin: 1.5em 0;
+            font-size: 0.93em;
+            line-height: 1.65;
+        }
+
+        .summary-box h3 {
+            margin: 0 0 0.5em;
+            font-size: 1em;
+        }
+
+        /* Image gallery */
+        .img-gallery {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .img-gallery img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--color-border);
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        /* Alcance list */
+        .alcance-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .alcance-list li {
+            padding: 0.55em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9em;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5em;
+        }
+
+        .alcance-list li>span:first-child {
+            flex-shrink: 0;
+        }
+
+        .alcance-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Collapsible sections */
+        .section-block {
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            margin-bottom: 1em;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--color-white);
+            padding: 0.9em 1.2em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.95em;
+            color: var(--color-title);
+            user-select: none;
+        }
+
+        .section-header::after {
+            content: '\f078';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            font-size: 0.75em;
+            transition: transform 0.25s;
+            color: var(--color-accent);
+        }
+
+        .section-header.open::after {
+            transform: rotate(180deg);
+        }
+
+        .section-body {
+            display: none;
+            padding: 0 1.2em 1em;
+        }
+
+        .section-body.open {
+            display: block;
+        }
+
+        .section-content {
+            font-size: 0.9em;
+            line-height: 1.6;
+        }
+
+        .section-content ul {
+            padding-left: 1.2em;
+            margin: 0.5em 0;
+        }
+
+        .section-content li {
+            padding: 0.3em 0;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* CTA button */
+        .cta-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--color-accent);
+            color: #fff;
+            padding: 0.75em 1.5em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95em;
+            margin: 1.5em 0;
+            transition: opacity 0.2s;
+        }
+
+        .cta-link:hover {
+            opacity: 0.88;
+        }
+
+        /* Conditions */
+        .conditions {
+            background: #f7f5f0;
+            border-radius: 12px;
+            padding: 1.2em 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .conditions h3 {
+            margin: 0 0 0.7em;
+            font-size: 1em;
+        }
+
+        .conditions ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+
+        .conditions li {
+            padding: 0.3em 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 600px) {
+            .img-gallery {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🚧 Portón de Acceso</h1>
+            <p>Propuesta técnico-comercial</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <!-- Resumen -->
+        <div class="summary-box">
+            <h3>📋 Resumen de la propuesta</h3>
+            Suministro e instalación de un <strong>portón manual</strong> para el acceso vehicular al condominio.
+            El portón será fabricado en <strong>metal A36</strong> con postes de sujeción en calibre 3/16 y puertas
+            abatibles a dos hojas en PTR calibre 14, con lámina en la parte baja como vista. Se incluye la colocación
+            de fijos en la caseta para evitar la filtración de personal ajeno, el bloqueo del acceso izquierdo
+            (dejando únicamente un acceso peatonal), la fabricación de las puertas de acceso peatonal y el
+            acondicionamiento para el sistema <strong>FACE ID</strong>. Todo en <strong>color negro</strong>.
+        </div>
+
+        <!-- Datos rápidos -->
+        <div class="quick-facts">
+            <div class="fact-card">
+                <div class="fact-icon">💰</div>
+                <div class="fact-value">$350,560</div>
+                <div class="fact-label">Subtotal (sin IVA)</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🧾</div>
+                <div class="fact-value">$406,649.60</div>
+                <div class="fact-label">Total con IVA (16%)</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🗓️</div>
+                <div class="fact-value">5 semanas</div>
+                <div class="fact-label">3 fabricación + 2 instalación</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">📄</div>
+                <div class="fact-value">30 días</div>
+                <div class="fact-label">Validez de la oferta</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🏭</div>
+                <div class="fact-value">LUZA SA de CV</div>
+                <div class="fact-label">Proveedor</div>
+            </div>
+        </div>
+
+        <!-- Imágenes de referencia -->
+        <h2 style="font-size:1.15em;margin:1.5em 0 0.5em;">Imágenes de referencia</h2>
+        <div class="img-gallery">
+            <img src="img/porton1.jpeg" alt="Imagen de referencia del portón – vista 1">
+            <img src="img/porton2.jpeg" alt="Imagen de referencia del portón – vista 2">
+        </div>
+
+        <!-- Link a propuesta PDF -->
+        <a href="files/PROPUESTA-COMERCIAL.PORTON.pdf" target="_blank" rel="noopener noreferrer" class="cta-link">
+            <i class="fa-solid fa-file-pdf"></i> Ver propuesta económica completa (PDF)
+        </a>
+
+        <!-- Alcance de la propuesta -->
+        <h2 style="font-size:1.15em;margin:1.5em 0 0.5em;">Alcance de la propuesta</h2>
+        <ul class="alcance-list">
+            <li><span>✅</span><span>Material completo (metal A36, PTR cal. 14, lámina)</span></li>
+            <li><span>✅</span><span>Mano de obra para la instalación</span></li>
+            <li><span>✅</span><span>Anclajes a piso</span></li>
+            <li><span>✅</span><span>Reubicación del equipo de FACE ID</span></li>
+            <li><span>✅</span><span>Envíos y acarreos</span></li>
+            <li><span>✅</span><span>Puesta en marcha y supervisión</span></li>
+            <li><span>⚠️</span><span><strong>No incluye:</strong> permiso de instalación (a cargo del condominio)</span>
+            </li>
+            <li><span>⚠️</span><span>Cualquier adicional requerido se cotiza por separado</span></li>
+        </ul>
+
+        <!-- Secciones colapsables -->
+        <h2 style="font-size:1.15em;margin:1.5em 0 0.5em;">Detalles</h2>
+
+        <div class="section-block">
+            <div class="section-header"
+                onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                Condiciones de pago
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul>
+                        <li><strong>50% anticipo</strong> al confirmar la orden de compra</li>
+                        <li><strong>40% contra avance</strong> de la fabricación e instalación</li>
+                        <li><strong>10% contra entrega</strong> del portón terminado</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-header"
+                onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                Servicios de instalación en campo
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Coordinación de proyecto:</strong> un coordinador competente para todas las
+                            actividades</li>
+                        <li><strong>Montaje mecánico:</strong> mano de obra, estructura de acero, lámina metálica y
+                            equipo de soporte</li>
+                        <li><strong>Instalación eléctrica:</strong> cableado de campo, cajas de conexiones NEMA,
+                            terminales numeradas y cumplimiento de normas eléctricas nacionales</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-header"
+                onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                Servicios técnicos de campo
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul>
+                        <li><strong>Supervisión de instalación:</strong> supervisor de campo durante todo el periodo
+                        </li>
+                        <li><strong>Puesta en marcha:</strong> arranque y depuración del sistema</li>
+                        <li><strong>Capacitación:</strong> programación y entrenamiento para operar el sistema</li>
+                        <li><strong>Acompañamiento:</strong> personal mecánico y eléctrico por 1 semana posterior a la
+                            instalación</li>
+                        <li><strong>Manuales:</strong> un juego de manual de operación, mantenimiento y refacciones en
+                            español</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-block">
+            <div class="section-header"
+                onclick="this.classList.toggle('open');this.nextElementSibling.classList.toggle('open')">
+                Responsabilidades del condominio
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul>
+                        <li>Solicitar y asegurar permisos de construcción o instalación requeridos</li>
+                        <li>Coordinación de acceso al área con otros proveedores</li>
+                        <li>Servicios de agua y electricidad durante el proyecto</li>
+                        <li>Área segura de almacenamiento para equipo y herramienta</li>
+                        <li>Permitir la entrada al personal y herramienta de trabajo durante la instalación</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Condiciones generales -->
+        <div class="conditions">
+            <h3>📝 Condiciones generales</h3>
+            <ul>
+                <li>Precios en pesos mexicanos, <strong>no incluyen IVA</strong></li>
+                <li>Oferta válida por <strong>30 días</strong> a partir del 31 de marzo de 2026</li>
+                <li>Tiempo de entrega: <strong>3 semanas de fabricación + 2 semanas de instalación</strong> después de
+                    confirmada la orden de compra</li>
+                <li>La instalación se considera entregada una vez completada la prueba de eficiencia</li>
+                <li>Cambios solicitados por el comprador pueden implicar ajuste de precio</li>
+            </ul>
+        </div>
+
+        <div class="alert-box" style="margin-top:1.5em;">
+            <strong>💡 Nota importante</strong>
+            Esta propuesta será presentada en la próxima Mesa de Trabajo para su discusión y evaluación por parte
+            de los condóminos. La decisión final estará sujeta a votación.
+        </div>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>
