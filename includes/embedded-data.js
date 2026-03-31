@@ -5220,11 +5220,6 @@ window.EMBEDDED_MENU = {
       "title": "Pagos Adelantados",
       "url": "pagos-adelantados.html",
       "target": "_self"
-    },
-    {
-      "title": "Padrón de Mascotas",
-      "url": "padron-mascotas.html",
-      "target": "_self"
     }
   ]
 };

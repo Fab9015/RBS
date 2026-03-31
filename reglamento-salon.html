@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento del Salón de Usos Múltiples – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Reglamento del salón de usos múltiples del condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Reglamento del Salón – Reserva Bosque Sereno">
+    <meta property="og:description"
+        content="Reglamento del salón de usos múltiples del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/reglamento-salon.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/reglamento-salon.html">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick facts */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .fact-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .fact-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.3em;
+        }
+
+        .fact-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3em;
+            color: var(--color-title);
+        }
+
+        .fact-label {
+            font-size: 0.8em;
+            color: var(--color-muted, #888);
+            margin-top: 0.2em;
+        }
+
+        /* Summary box */
+        .summary-box {
+            background: linear-gradient(135deg, #f7f5f0 0%, #ede4f5 100%);
+            border: 2px solid #9333ea;
+            border-radius: 14px;
+            padding: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .summary-box h2 {
+            margin: 0 0 0.6em;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            padding: 0.6em 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.94em;
+            line-height: 1.6;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Schedule table */
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88em;
+            margin: 1em 0;
+        }
+
+        .schedule-table th {
+            text-align: left;
+            padding: 0.6em 0.8em;
+            background: #ede4f5;
+            color: var(--color-title);
+            font-size: 0.9em;
+        }
+
+        .schedule-table td {
+            padding: 0.6em 0.8em;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .schedule-table tr:nth-child(even) td {
+            background: #faf9fc;
+        }
+
+        .event-type {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.82em;
+            font-weight: 600;
+        }
+
+        .event-type.privado {
+            background: #ede4f5;
+            color: #7c3aed;
+        }
+
+        .event-type.deportivo {
+            background: #e8f5e0;
+            color: #4d7c0f;
+        }
+
+        /* Section blocks (accordion) */
+        .section-block {
+            margin: 1.5em 0;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--color-white);
+            padding: 1em 1.2em;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-header:hover {
+            background: #f9f8f5;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .section-header .chevron {
+            transition: transform 0.25s;
+            color: var(--color-accent);
+            font-size: 0.85em;
+        }
+
+        .section-header.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .section-body.open {
+            max-height: 5000px;
+        }
+
+        .section-content {
+            padding: 1.2em;
+        }
+
+        /* Two-column rules */
+        .rules-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+            margin: 1em 0;
+        }
+
+        .rules-col h3 {
+            font-size: 0.95em;
+            margin: 0 0 0.6em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid;
+        }
+
+        .rules-col.allowed h3 {
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+
+        .rules-col.forbidden h3 {
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        .rules-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rules-col li {
+            padding: 0.4em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.88em;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4em;
+        }
+
+        .rules-col li:last-child {
+            border-bottom: none;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box.danger {
+            background: #fde8e8;
+            border-left-color: #e74c3c;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* Checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist li {
+            padding: 0.5em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9em;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5em;
+        }
+
+        @media (max-width: 600px) {
+            .rules-duo {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .schedule-table {
+                font-size: 0.82em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🎉 Salón de Usos Múltiples</h1>
+            <p>Reglamento de uso y reservación</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <!-- Quick facts -->
+        <div class="quick-facts">
+            <div class="fact-card">
+                <div class="fact-icon">👥</div>
+                <div class="fact-value">70 personas</div>
+                <div class="fact-label">Aforo máximo</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🚗</div>
+                <div class="fact-value">22 cajones</div>
+                <div class="fact-label">Estacionamiento durante eventos (13 en batería + 9 en arroyo vehicular)</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🎪</div>
+                <div class="fact-value">2 máximo</div>
+                <div class="fact-label">Brincolines permitidos</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">⏰</div>
+                <div class="fact-value">Hasta 11 PM</div>
+                <div class="fact-label">Vie–Sáb más tarde</div>
+            </div>
+        </div>
+
+        <!-- Resumen ejecutivo -->
+        <div class="summary-box">
+            <h2>📋 Lo que todo vecino debe saber</h2>
+            <ul class="summary-list">
+                <li><span>🔑</span> Solo pueden reservar condóminos u ocupantes <strong>al corriente en todas sus
+                        cuotas</strong>
+                    (ordinarias, extraordinarias y de reserva). En caso de adeudos, el acceso al área común será negado.
+                </li>
+                <li><span>👤</span> El propietario o representante legal <strong>debe estar presente durante todo el
+                        evento</strong> y es el responsable absoluto de lo que suceda en el mismo. Se prohíbe que hijos,
+                    primos u otros familiares organicen eventos de forma independiente.</li>
+                <li><span>🔊</span> Música permitida (DJ, karaoke, en vivo), pero si la casa más cercana reporta
+                    molestias el volumen se baja o hay multa.</li>
+                <li><span>💰</span> Todos los costos del evento corren por cuenta del solicitante.</li>
+                <li><span>🧹</span> El propietario debe entregar el salón limpio y sin daños en un recorrido con
+                    administración.</li>
+            </ul>
+        </div>
+
+        <!-- Horarios -->
+        <div class="section-block">
+            <div class="section-header open" onclick="toggleSection(this)">
+                <h2>📅 Horarios por Tipo de Evento</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body open">
+                <div class="section-content">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Tipo</th>
+                                <th>Días</th>
+                                <th>Horario</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="event-type privado">Evento privado</span></td>
+                                <td>Domingo a Jueves</td>
+                                <td>12:00 PM – 9:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td><span class="event-type privado">Evento privado</span></td>
+                                <td>Viernes y Sábado</td>
+                                <td>12:00 PM – 11:00 PM</td>
+                            </tr>
+                            <tr>
+                                <td><span class="event-type deportivo">Deportivo / Cultural</span></td>
+                                <td>Miércoles a Lunes</td>
+                                <td>Mañanas hasta 11:00 AM</td>
+                            </tr>
+                            <tr>
+                                <td><span class="event-type deportivo">Deportivo / Cultural</span></td>
+                                <td>Martes</td>
+                                <td>Todo el día (hasta 9:00 PM)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="alert-box" style="margin-top:1em;">
+                        <strong>🔊 Sobre la música</strong>
+                        Se permite DJ, karaoke o música en vivo con volumen controlado. Si la casa más cercana reporta
+                        molestias, se debe bajar inmediatamente o se aplica multa de <strong>2× la cuota
+                            vigente</strong>.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Eventos deportivos -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🏃 Eventos Deportivos y Culturales</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <p style="font-size:0.92em;line-height:1.6;">Con el fin de mejorar la convivencia y promover un
+                        estilo de vida saludable, se habilitan espacios para actividades de integración comunitaria:</p>
+                    <ul style="font-size:0.9em;line-height:1.8;padding-left:1.2em;">
+                        <li>Estas sesiones están diseñadas <strong>exclusivamente para el consumo y participación de los
+                                condóminos</strong>, buscando crear vínculos vecinales fuertes.</li>
+                        <li><strong>No se permite</strong> la invitación de personas ajenas al condominio para estas
+                            actividades comunitarias.</li>
+                        <li>Se rigen bajo las mismas reglas de cuidado, limpieza y comportamiento que los eventos
+                            privados (ver secciones de Instalaciones y Entrega).</li>
+                        <li>La <strong>limpieza y recogida de basura al terminar la actividad</strong> corre a cargo del
+                            <strong>condómino organizador</strong> del evento.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instalaciones -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🏗️ Uso de Instalaciones</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="rules-duo">
+                        <div class="rules-col allowed">
+                            <h3>✅ Permitido</h3>
+                            <ul>
+                                <li><span>✅</span> Máximo 2 brincolines inflables, instalados solo en explanadas de
+                                    concreto (nunca en pasto o dentro del salón)</li>
+                                <li><span>✅</span> Consumo moderado de alcohol en envases de <strong>lata</strong></li>
+                            </ul>
+                        </div>
+                        <div class="rules-col forbidden">
+                            <h3>🚫 Prohibido</h3>
+                            <ul>
+                                <li><span>🚫</span> Espuma, pintura o materiales que dañen paredes y pisos</li>
+                                <li><span>🚫</span> Armas de fuego, fogatas y globos de cantoya</li>
+                                <li><span>🚫</span> Envases de vidrio (solo se permiten latas)</li>
+                                <li><span>🚫</span> Brincolines sobre pasto o dentro del salón</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Entrega y limpieza -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🧹 Entrega, Limpieza y Sanciones</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <h3 style="font-size:0.95em;margin:0 0 0.5em;">Checklist de entrega</h3>
+                    <ul class="checklist">
+                        <li><span>☑️</span> Recorrido inicial y final con administración o vigilancia para documentar el
+                            estado de las instalaciones</li>
+                        <li><span>☑️</span> Recolectar la basura en bolsas negras cerradas y dejarlas en el lugar
+                            asignado</li>
+                        <li><span>☑️</span> Cualquier desperfecto debe repararse en un máximo de <strong>24
+                                horas</strong>; de lo contrario, la administración realizará el arreglo con cargo al
+                            responsable</li>
+                    </ul>
+
+                    <div class="alert-box danger" style="margin-top:1.2em;">
+                        <strong>🚨 Sanciones</strong>
+                        <ul style="margin:0.3em 0 0;padding-left:1.2em;font-size:0.92em;line-height:1.7;">
+                            <li>Generar disturbios → <strong>suspensión de 2 meses</strong> del derecho a reservar</li>
+                            <li>Exceso de tiempo en el evento → <strong>multa</strong></li>
+                            <li>Daños no reparados en 24h → administración repara <strong>con cargo al
+                                    responsable</strong></li>
+                            <li>Ruido excesivo reportado → <strong>2× la cuota vigente</strong></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        function toggleSection(header) {
+            const body = header.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            header.classList.toggle('open', !isOpen);
+            body.classList.toggle('open', !isOpen);
+        }
+    </script>
+</body>
+
+</html>

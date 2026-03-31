@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento de Asadores – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Reglamento del área de asadores del condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Reglamento de Asadores – Reserva Bosque Sereno">
+    <meta property="og:description" content="Reglamento del área de asadores del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/reglamento-asadores.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/reglamento-asadores.html">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick facts */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .fact-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .fact-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.3em;
+        }
+
+        .fact-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.3em;
+            color: var(--color-title);
+        }
+
+        .fact-label {
+            font-size: 0.8em;
+            color: var(--color-muted, #888);
+            margin-top: 0.2em;
+        }
+
+        /* Two-column rules */
+        .rules-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+            margin: 2em 0;
+        }
+
+        .rules-col h3 {
+            font-size: 1em;
+            margin: 0 0 0.7em;
+            padding-bottom: 0.4em;
+            border-bottom: 2px solid;
+        }
+
+        .rules-col.allowed h3 {
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+
+        .rules-col.forbidden h3 {
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        .rules-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rules-col li {
+            padding: 0.5em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9em;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5em;
+        }
+
+        .rules-col li:last-child {
+            border-bottom: none;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box.danger {
+            background: #fde8e8;
+            border-left-color: #e74c3c;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* Conditions section */
+        .conditions {
+            background: #f7f5f0;
+            border-radius: 12px;
+            padding: 1.2em 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .conditions h3 {
+            margin: 0 0 0.7em;
+            font-size: 1em;
+        }
+
+        .conditions ul {
+            padding-left: 1.2em;
+            margin: 0;
+        }
+
+        .conditions li {
+            padding: 0.3em 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        /* Delivery checklist */
+        .checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .checklist li {
+            padding: 0.5em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.9em;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5em;
+        }
+
+        @media (max-width: 600px) {
+            .rules-duo {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🔥 Área de Asadores</h1>
+            <p>Reglamento de uso</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <!-- Datos rápidos -->
+        <div class="quick-facts">
+            <div class="fact-card">
+                <div class="fact-icon">🕘</div>
+                <div class="fact-value">9:00 – 21:00</div>
+                <div class="fact-label">Horario (entrega a seguridad al finalizar)</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">👥</div>
+                <div class="fact-value">10 personas</div>
+                <div class="fact-label">Máximo por asador</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">💵</div>
+                <div class="fact-value">$300</div>
+                <div class="fact-label">Fianza (devuelta al entregar en las mismas condiciones)</div>
+            </div>
+        </div>
+
+        <!-- Permitido / Prohibido -->
+        <div class="rules-duo">
+            <div class="rules-col allowed">
+                <h3>✅ Permitido</h3>
+                <ul>
+                    <li><span>✅</span> Consumo moderado de bebidas alcohólicas</li>
+                    <li><span>✅</span> Música a volumen moderado</li>
+                    <li><span>✅</span> Una carpa de máximo 3×3 metros en las inmediaciones del asador a utilizar</li>
+                    <li><span>✅</span> Comenzar a utilizar el asador en cualquier momento dentro del horario</li>
+                </ul>
+            </div>
+            <div class="rules-col forbidden">
+                <h3>🚫 Prohibido</h3>
+                <ul>
+                    <li><span>🚫</span> Envases o contenedores de <strong>vidrio</strong></li>
+                    <li><span>🚫</span> Confeti, espumas, cañones de polvo</li>
+                    <li><span>🚫</span> Asadores extras, parrillas o cualquier otro artefacto de cocción adicional</li>
+                    <li><span>🚫</span> Tanques de gas o cualquier mobiliario para cocinar o calentar</li>
+                    <li><span>🚫</span> Prender fuego fuera del asador o del área asignada</li>
+                    <li><span>🚫</span> Estupefacientes o narcóticos</li>
+                    <li><span>🚫</span> Tirar basura fuera de áreas designadas</li>
+                    <li><span>🚫</span> Conductas en contra del orden público, buenas costumbres, o que originen daños a
+                        las instalaciones o a terceros</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Condiciones de uso -->
+        <div class="conditions">
+            <h3>📋 Condiciones de uso</h3>
+            <ul>
+                <li>Se debe dejar una <strong>fianza de $300</strong>, devuelta al entregar el asador en buenas
+                    condiciones.</li>
+                <li>Es necesario estar <strong>al corriente en cuotas de mantenimiento y multas</strong>.</li>
+                <li>Un asador <strong>no puede ser usado por dos condóminos el mismo día</strong>.</li>
+                <li>Puedes comenzar a usar el asador en cualquier momento dentro del horario.</li>
+            </ul>
+        </div>
+
+        <!-- Entrega -->
+        <h3 style="font-size:1.05em;margin-top:2em;">🧹 Al terminar — Checklist de entrega</h3>
+        <ul class="checklist">
+            <li><span>☑️</span> Asador limpio, sin residuos de carbón</li>
+            <li><span>☑️</span> Parrilla limpia</li>
+            <li><span>☑️</span> Retirar la basura generada</li>
+            <li><span>☑️</span> Entregar a personal de seguridad</li>
+        </ul>
+
+        <!-- Multa -->
+        <div class="alert-box danger" style="margin-top:1.5em;">
+            <strong>🚨 Multa por incumplimiento</strong>
+            Si el asador no se entrega limpio: multa de <strong>4 veces la cuota vigente ($4,200)</strong><br>
+            <span style="font-size:0.85em;color:#888;">Conforme a CAP. III, ART. 105, FRACC. II, INCISO L</span>
+        </div>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>

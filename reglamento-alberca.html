@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento de la Alberca – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Reglamento del uso de la alberca del condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Reglamento de la Alberca – Reserva Bosque Sereno">
+    <meta property="og:description" content="Reglamento del uso de la alberca del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/reglamento-alberca.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/reglamento-alberca.html">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Quick facts */
+        .quick-facts {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+            gap: 1em;
+            margin: 1.5em 0;
+        }
+
+        .fact-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            padding: 1em;
+            text-align: center;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .fact-icon {
+            font-size: 1.8em;
+            margin-bottom: 0.3em;
+        }
+
+        .fact-value {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.2em;
+            color: var(--color-title);
+        }
+
+        .fact-label {
+            font-size: 0.8em;
+            color: var(--color-muted, #888);
+            margin-top: 0.2em;
+        }
+
+        /* Summary box */
+        .summary-box {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #0891b2;
+            border-radius: 14px;
+            padding: 1.5em;
+            margin: 1.5em 0;
+        }
+
+        .summary-box h2 {
+            margin: 0 0 0.6em;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            padding: 0.6em 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.94em;
+            line-height: 1.6;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Section accordion */
+        .section-block {
+            margin: 1.5em 0;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--color-white);
+            padding: 1em 1.2em;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-header:hover {
+            background: #f9f8f5;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.05em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .section-header .chevron {
+            transition: transform 0.25s;
+            color: var(--color-accent);
+            font-size: 0.85em;
+        }
+
+        .section-header.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .section-body.open {
+            max-height: 5000px;
+        }
+
+        .section-content {
+            padding: 1.2em;
+        }
+
+        /* Two-column rules */
+        .rules-duo {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+            margin: 1em 0;
+        }
+
+        .rules-col h3 {
+            font-size: 0.95em;
+            margin: 0 0 0.6em;
+            padding-bottom: 0.3em;
+            border-bottom: 2px solid;
+        }
+
+        .rules-col.allowed h3 {
+            border-color: #16a34a;
+            color: #16a34a;
+        }
+
+        .rules-col.forbidden h3 {
+            border-color: #dc2626;
+            color: #dc2626;
+        }
+
+        .rules-col ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .rules-col li {
+            padding: 0.4em 0;
+            border-bottom: 1px solid var(--color-border);
+            font-size: 0.88em;
+            line-height: 1.5;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.4em;
+        }
+
+        .rules-col li:last-child {
+            border-bottom: none;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box.danger {
+            background: #fde8e8;
+            border-left-color: #e74c3c;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        @media (max-width: 600px) {
+            .rules-duo {
+                grid-template-columns: 1fr;
+            }
+
+            .quick-facts {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🏊 Alberca</h1>
+            <p>Reglamento de uso y acceso</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <!-- Quick facts -->
+        <div class="quick-facts">
+            <div class="fact-card">
+                <div class="fact-icon">👥</div>
+                <div class="fact-value">50 personas</div>
+                <div class="fact-label">Aforo máximo</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">🔗</div>
+                <div class="fact-value">6 pulseras</div>
+                <div class="fact-label">Por unidad privativa</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">📅</div>
+                <div class="fact-value">Mar – Dom</div>
+                <div class="fact-label">Días de operación</div>
+            </div>
+            <div class="fact-card">
+                <div class="fact-icon">⏰</div>
+                <div class="fact-value">9 AM – 9 PM</div>
+                <div class="fact-label">Horario</div>
+            </div>
+        </div>
+
+        <!-- Resumen ejecutivo -->
+        <div class="summary-box">
+            <h2>📋 Lo que todo vecino debe saber</h2>
+            <ul class="summary-list">
+                <li><span>🔑</span> El condómino debe estar <strong>al corriente en el pago de cuotas</strong> para
+                    acceder a la alberca.</li>
+                <li><span>🔗</span> Existirán un máximo de <strong>50 pulseras</strong>. Cada unidad puede solicitar
+                    hasta <strong>6 pulseras</strong>, dejando identificación oficial vigente y registrándose.</li>
+                <li><span>📅</span> <strong>Lunes cerrado</strong> por mantenimiento (salvo disposición de la
+                    administración). Operación de Martes a Domingo, 9:00 a 21:00 hrs.</li>
+                <li><span>👶</span> Menores de 12 años <strong>siempre supervisados</strong> por un adulto dentro del
+                    área de la alberca.</li>
+                <li><span>🐾</span> <strong>No se permiten mascotas</strong> en la alberca ni en su área perimetral.
+                </li>
+                <li><span>🚬</span> <strong>Prohibido fumar</strong>, consumir bebidas embriagantes y estupefacientes en
+                    el área de la alberca.</li>
+                <li><span>🏠</span> Inquilinos o huéspedes temporales <strong>no podrán usar la alberca</strong> sin la
+                    presencia del propietario o titular del contrato.</li>
+            </ul>
+        </div>
+
+        <!-- Acceso y pulseras -->
+        <div class="section-block">
+            <div class="section-header open" onclick="toggleSection(this)">
+                <h2>🔗 Acceso y Sistema de Pulseras</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body open">
+                <div class="section-content">
+                    <ul style="font-size:0.9em;line-height:1.8;padding-left:1.2em;">
+                        <li>El condómino deberá estar <strong>al corriente en el pago de cuotas</strong> y cumplir con
+                            los mecanismos de control establecidos (pulsera, registro, tarjeta o equivalente).</li>
+                        <li>El acceso es <strong>exclusivo para condóminos y sus invitados</strong>. Los visitantes
+                            deberán estar siempre acompañados por el condómino responsable, quien será responsable de su
+                            comportamiento.</li>
+                        <li>Todo usuario deberá identificarse o portar el medio de acceso correspondiente. El
+                            <strong>personal de vigilancia podrá negar el acceso</strong> o solicitar el retiro a quien
+                            no cumpla con este requisito.
+                        </li>
+                        <li>La capacidad máxima es de <strong>50 personas</strong>. El acceso será autorizado por los
+                            vigilantes en turno.</li>
+                        <li>Cada unidad privativa podrá solicitar hasta <strong>6 pulseras</strong>. Para obtenerlas, se
+                            debe dejar una <strong>identificación oficial vigente</strong> y registrarse.</li>
+                        <li>Las pulseras son para <strong>mayores de 5 años</strong>. Los menores de 5 años
+                            <strong>también cuentan</strong> dentro de la capacidad máxima de la alberca.
+                        </li>
+                        <li>Los menores de <strong>5 años o menos</strong> deben estar acompañados por el adulto
+                            responsable, quien <strong>deberá registrarse</strong> para ingresar.</li>
+                        <li>La alberca <strong>no podrá apartarse ni reservarse para uso exclusivo</strong> de ningún
+                            condómino.</li>
+                    </ul>
+                    <div class="alert-box">
+                        <strong>🏠 Arrendamiento y hospedaje temporal</strong>
+                        Los ocupantes de viviendas bajo esquemas de arrendamiento u hospedaje temporal <strong>no podrán
+                            usar la alberca</strong> sin la presencia del propietario, titular del contrato de
+                        arrendamiento o titular del hospedaje. Es responsabilidad del propietario informar esta
+                        restricción. Incumplimiento: <strong>sanción equivalente a 2 cuotas de mantenimiento
+                            vigente</strong>, de manera directa.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vestimenta -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>👙 Vestimenta</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="rules-duo">
+                        <div class="rules-col allowed">
+                            <h3>✅ Permitido</h3>
+                            <ul>
+                                <li><span>✅</span> Traje de baño adecuado (lycra, spandex, nylon)</li>
+                                <li><span>✅</span> Pañal especial para agua (obligatorio para bebés)</li>
+                            </ul>
+                        </div>
+                        <div class="rules-col forbidden">
+                            <h3>🚫 No permitido</h3>
+                            <ul>
+                                <li><span>🚫</span> Ropa de algodón (camisetas, shorts)</li>
+                                <li><span>🚫</span> Mezclilla (jeans, bermudas)</li>
+                                <li><span>🚫</span> Ropa interior como traje de baño</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Higiene y comportamiento -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🚿 Higiene y Comportamiento</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul style="font-size:0.9em;line-height:1.8;padding-left:1.2em;">
+                        <li><strong>Ducharse antes</strong> de ingresar a la alberca.</li>
+                        <li>No se permitirá el acceso a personas con <strong>heridas, vendajes o enfermedades
+                                visibles</strong>.</li>
+                        <li>Pañales acuáticos <strong>obligatorios</strong> para bebés que no controlan esfínteres.</li>
+                        <li>Prohibido <strong>orinar, defecar, escupir</strong> o sonarse la nariz en el agua.</li>
+                        <li>Se deberá mantener <strong>respeto en todo momento</strong> y evitar conductas que falten al
+                            decoro.</li>
+                        <li>Prohibido el <strong>lenguaje ofensivo</strong>, conductas agresivas y bocinas a alto
+                            volumen.</li>
+                        <li>Prohibidos los <strong>juegos bruscos</strong> y actividades peligrosas.</li>
+                        <li>Prohibido introducir <strong>objetos no aptos</strong> para su uso en alberca, como
+                            mobiliario externo.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alimentos y bebidas -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🍔 Alimentos y Bebidas</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul style="font-size:0.9em;line-height:1.8;padding-left:1.2em;">
+                        <li>Prohibido consumir alimentos y bebidas <strong>en la zona de la alberca</strong> (dentro del
+                            agua y la zona perimetral).</li>
+                        <li>Utilizar las mesas y áreas designadas para comer.</li>
+                        <li>Envases de <strong>vidrio prohibidos</strong> en toda el área de la alberca.</li>
+                        <li>Recoger toda la basura al terminar; dejar el área limpia.</li>
+                        <li>Se evitará cualquier consumo que afecte la convivencia.</li>
+                    </ul>
+                </div>
+                <Sustancias prohibidas -->
+                    <div class="section-block">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h2>🚭 Sustancias Prohibidas</h2>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="section-body">
+                            <div class="section-content">
+                                <div class="alert-box danger">
+                                    <strong>🚫 Queda estrictamente prohibido en el área de la alberca:</strong>
+                                    <ul style="margin:0.5em 0 0;padding-left:1.2em;font-size:0.95em;line-height:1.7;">
+                                        <li><strong>Fumar</strong> en el área de la alberca y su perímetro</li>
+                                        <li>Consumir <strong>bebidas embriagantes</strong> (alcohólicas)</li>
+                                        <li>Consumir <strong>estupefacientes</strong> de cualquier tipo</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- /div>
+        </div>
+
+        <!-- Menores y responsables -->
+                    <div class="section-block">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h2>👶 Menores de Edad</h2>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="section-body">
+                            <div class="section-content">
+                                <ul style="font-size:0.9em;line-height:1.8;padding-left:1.2em;">
+                                    <li>Menores de <strong>12 años</strong> deben estar acompañados y supervisados por
+                                        un adulto
+                                        <strong>dentro del área de la alberca</strong> en todo momento.
+                                    </li>
+                                    <li>El uso de la alberca es <strong>bajo responsabilidad del usuario</strong>. El
+                                        condominio no se hace responsable por accidentes o pérdida de objetos.</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sanciones -->
+                    <div class="section-block">
+                        <div class="section-header" onclick="toggleSection(this)">
+                            <h2>⚖️ Sanciones</h2>
+                            <i class="fa-solid fa-chevron-down chevron"></i>
+                        </div>
+                        <div class="section-body">
+                            <div class="section-content">
+                                <div class="alert-box danger">
+                                    <strong>🚨 Sanciones por incumplimiento</strong>
+                                    El incumplimiento del reglamento podrá derivar en:
+                                    <ul style="margin:0.5em 0 0;padding-left:1.2em;font-size:0.95em;line-height:1.7;">
+                                        <li><strong>Amonestación</strong></li>
+                                        <li><strong>Suspensión</strong> del uso de la alberca</li>
+                                        <li><strong>Multa de 2 a 5 veces la cuota mensual vigente</strong>, dependiendo
+                                            de la
+                                            gravedad</li>
+                                    </ul>
+                                </div>
+                                <div class="alert-box">
+                                    <strong>🚫 Uso restringido para servicios externos</strong>
+                                    La alberca está destinada exclusivamente al uso recreativo de condóminos y sus
+                                    invitados. No se
+                                    permitirá el acceso recurrente de personas externas cuya presencia tenga como
+                                    finalidad la
+                                    prestación de servicios o actividades organizadas, cuando esto genere sobrecupo,
+                                    afecte la
+                                    convivencia o implique uso intensivo.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+
+            <div id="footerInclude"></div>
+            <script src="includes/load-fragments.js"></script>
+            <script>
+                function toggleSection(header) {
+                    const body = header.nextElementSibling;
+                    const isOpen = body.classList.contains('open');
+                    header.classList.toggle('open', !isOpen);
+                    body.classList.toggle('open', !isOpen);
+                }
+            </script>
+</body>
+
+</html>

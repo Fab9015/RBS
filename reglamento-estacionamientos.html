@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reglamento de Estacionamientos – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description" content="Reglamento de estacionamientos del condominio Reserva Bosque Sereno.">
+    <meta property="og:title" content="Reglamento de Estacionamientos – Reserva Bosque Sereno">
+    <meta property="og:description" content="Reglamento de estacionamientos del condominio Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/reglamento-estacionamientos.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/reglamento-estacionamientos.html">
+    <style>
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        /* Quick summary */
+        .summary-box {
+            background: linear-gradient(135deg, #f7f5f0 0%, #eef3e6 100%);
+            border: 2px solid var(--color-accent);
+            border-radius: 14px;
+            padding: 1.5em;
+            margin: 1.5em 0 2em;
+        }
+
+        .summary-box h2 {
+            margin: 0 0 0.6em;
+            font-size: 1.15em;
+        }
+
+        .summary-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .summary-list li {
+            padding: 0.6em 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            font-size: 0.94em;
+            line-height: 1.6;
+        }
+
+        .summary-list li:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        /* Back link */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Section blocks */
+        .section-block {
+            margin: 2em 0;
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .section-header {
+            background: var(--color-white);
+            padding: 1em 1.2em;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .section-header:hover {
+            background: #f9f8f5;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            font-size: 1.08em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        .section-header .chevron {
+            transition: transform 0.25s;
+            color: var(--color-accent);
+            font-size: 0.85em;
+        }
+
+        .section-header.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .section-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.35s ease;
+        }
+
+        .section-body.open {
+            max-height: 5000px;
+        }
+
+        .section-content {
+            padding: 1.2em;
+        }
+
+        /* Color table */
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .color-table th {
+            text-align: left;
+            padding: 0.6em 0.8em;
+            background: #f4f3ef;
+            font-size: 0.85em;
+            color: var(--color-title);
+        }
+
+        .color-table td {
+            padding: 0.6em 0.8em;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        /* Curb colors */
+        .curb-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-top: 1em;
+        }
+
+        .curb-table td {
+            padding: 0.5em 0.8em;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .curb-swatch {
+            display: inline-block;
+            width: 60px;
+            height: 12px;
+            border-radius: 6px;
+            vertical-align: middle;
+            margin-right: 0.5em;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+
+        /* Inventory */
+        .inv-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .inv-table th {
+            text-align: left;
+            padding: 0.5em 0.8em;
+            background: #f4f3ef;
+        }
+
+        .inv-table td {
+            padding: 0.5em 0.8em;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .inv-table tr:last-child td {
+            font-weight: 700;
+            background: #f7f5f0;
+        }
+
+        /* Rules grid */
+        .rules-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8em;
+        }
+
+        .rule-item {
+            background: #f9f8f5;
+            padding: 0.8em;
+            border-radius: 8px;
+            font-size: 0.88em;
+            line-height: 1.5;
+        }
+
+        .rule-item .label {
+            font-weight: 700;
+            color: var(--color-title);
+            display: block;
+            margin-bottom: 0.2em;
+        }
+
+        /* Alert box */
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1em 0;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .alert-box.danger {
+            background: #fde8e8;
+            border-left-color: #e74c3c;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* Risk table */
+        .risk-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.85em;
+        }
+
+        .risk-table th {
+            text-align: left;
+            padding: 0.5em;
+            background: #fde8e8;
+            color: var(--color-title);
+        }
+
+        .risk-table td {
+            padding: 0.5em;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+        }
+
+        .risk-table tr:nth-child(even) td {
+            background: #fafafa;
+        }
+
+        /* Stripe diagonal */
+        .stripe-sample {
+            display: inline-block;
+            width: 80px;
+            height: 30px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 0.4em;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: repeating-linear-gradient(135deg,
+                    transparent, transparent 7px,
+                    #c0c0c0 7px, #c0c0c0 10px);
+        }
+
+        @media (max-width: 600px) {
+            .rules-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .color-table,
+            .inv-table,
+            .risk-table {
+                font-size: 0.82em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🚗 Estacionamientos</h1>
+            <p>Reglamento interno de estacionamientos</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <div style="margin:0.8em 0 1.5em;">
+            <a href="mapa-estacionamientos.html"
+                style="display:inline-flex;align-items:center;gap:0.5em;background:var(--color-accent);color:var(--color-white);padding:0.65em 1.4em;border-radius:10px;text-decoration:none;font-weight:700;font-size:0.95em;">
+                <i class="fa-solid fa-map"></i> Ver Plano de Estacionamientos
+            </a>
+        </div>
+
+        <!-- ====== RESUMEN EJECUTIVO ====== -->
+        <div class="summary-box">
+            <h2>📋 Lo que todo vecino debe saber</h2>
+            <ul class="summary-list">
+                <li><span class="icon">🏷️</span> Cada vehículo debe portar su <strong>tarjetón visible</strong> en el
+                    retrovisor, con el número de tu casa.</li>
+                <li><span class="icon">4️⃣</span> Máximo <strong>4 tarjetones</strong> por unidad: 2 cochera + 2 zona
+                    libre.</li>
+                <li><span class="icon">🎨</span> El color del tarjetón indica el <strong>tipo de permiso</strong>.
+                    Revisa la tabla de colores abajo.</li>
+                <li><span class="icon">💰</span> Cajones de cuota: <strong>$400–$450/mes</strong>, pago adelantado.</li>
+                <li><span class="icon">⚠️</span> Las sanciones son <strong>directas</strong>: no hay advertencias
+                    previas.</li>
+                <li><span class="icon">🚫</span> <strong>Prohibido</strong> doble fila, estacionarse en arroyo vehicular
+                    (excepto Sequoia 200/300).</li>
+            </ul>
+        </div>
+
+        <!-- ====== 1. CÓDIGO DE COLORES DE TARJETONES ====== -->
+        <div class="section-block">
+            <div class="section-header open" onclick="toggleSection(this)">
+                <h2>🎨 Código de Colores — Tarjetones</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body open">
+                <div class="section-content">
+                    <p style="font-size:0.9em;color:var(--color-text);margin:0 0 1em;">Cada tarjetón tiene un color que
+                        identifica el tipo de vehículo y su permiso de estacionamiento:</p>
+                    <table class="color-table">
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                                <th>Tipo de espacio</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#1a1a1a;"></span> Negro</td>
+                                <td>Cajones de <strong>cuota</strong> (arrendados)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#2563eb;"></span> Azul</td>
+                                <td>Condóminos libres <strong>(zona azul)</strong></td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#eab308;"></span> Amarillo</td>
+                                <td>Proveedores y servicios</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#16a34a;"></span> Verde</td>
+                                <td>Visitas</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#dc2626;"></span> Rojo</td>
+                                <td>Salón de usos múltiples</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#9333ea;"></span> Morado</td>
+                                <td>Mobiliario urbano antiestacionamiento</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size:1em;margin:1.5em 0 0.5em;">🛣️ Identificación por calle</h3>
+                    <table class="color-table">
+                        <thead>
+                            <tr>
+                                <th>Color</th>
+                                <th>Calle</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#ea580c;"></span> Naranja intenso</td>
+                                <td>Sakura</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#06b6d4;"></span> Turquesa brillante
+                                </td>
+                                <td>Sabino</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-swatch" style="background:#d946ef;"></span> Fucsia vivo</td>
+                                <td>Sequoia</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 style="font-size:1em;margin:1.5em 0 0.5em;">🏷️ Terrenos excedentes</h3>
+                    <p style="font-size:0.88em;line-height:1.6;margin:0 0 0.5em;">Los vehículos de terrenos excedentes
+                        conservan el <strong>color sólido de su calle</strong>, con una <strong>franja plateada en la
+                            parte inferior</strong> del tarjetón:</p>
+                    <div style="display:flex;align-items:center;gap:1em;flex-wrap:wrap;margin:0.5em 0;">
+                        <div style="display:flex;align-items:center;gap:0.4em;">
+                            <span class="stripe-sample"
+                                style="background: linear-gradient(to bottom, #ea580c 65%, #c0c0c0 65%);"></span>
+                            <span style="font-size:0.85em;">Sakura excedente</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4em;">
+                            <span class="stripe-sample"
+                                style="background: linear-gradient(to bottom, #06b6d4 65%, #c0c0c0 65%);"></span>
+                            <span style="font-size:0.85em;">Sabino excedente</span>
+                        </div>
+                        <div style="display:flex;align-items:center;gap:0.4em;">
+                            <span class="stripe-sample"
+                                style="background: linear-gradient(to bottom, #d946ef 65%, #c0c0c0 65%);"></span>
+                            <span style="font-size:0.85em;">Sequoia excedente</span>
+                        </div>
+                    </div>
+                    <p style="font-size:0.83em;color:var(--color-muted);margin-top:0.5em;">⚠️ Vehículos con tarjetón de
+                        excedente <strong>no</strong> podrán usar cajones de visitas ni de condóminos libres.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 2. COLORES DE GUARNICIONES ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🚧 Colores de Guarniciones (Código oficial)</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <p style="font-size:0.88em;margin:0 0 0.8em;color:var(--color-text);">Estos colores son
+                        <strong>independientes</strong> de los tarjetones internos. Corresponden al código oficial
+                        estatal:
+                    </p>
+                    <table class="curb-table">
+                        <tr>
+                            <td><span class="curb-swatch" style="background:#dc2626;"></span> <strong>Rojo</strong></td>
+                            <td>Prohibido estacionar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="curb-swatch" style="background:#ffffff;border:2px solid #ccc;"></span>
+                                <strong>Blanco</strong>
+                            </td>
+                            <td>Permitido estacionar</td>
+                        </tr>
+                        <tr>
+                            <td><span class="curb-swatch" style="background:#eab308;"></span> <strong>Amarillo</strong>
+                            </td>
+                            <td>Carga/descarga y maniobras (máx. 15 min)</td>
+                        </tr>
+                    </table>
+                    <div class="alert-box" style="margin-top:1em;">
+                        <strong>⚠️ No confundir</strong>
+                        El rojo de la guarnición (prohibido estacionar) es diferente al rojo del tarjetón (salón de
+                        eventos). Son sistemas distintos.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 3. INVENTARIO DE CAJONES ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>📊 Inventario de Cajones</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <table class="inv-table">
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Cajones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Cocheras privadas (444 × 2)</td>
+                                <td>888</td>
+                            </tr>
+                            <tr>
+                                <td>Condóminos libres</td>
+                                <td>46</td>
+                            </tr>
+                            <tr>
+                                <td>Visitas</td>
+                                <td>24</td>
+                            </tr>
+                            <tr>
+                                <td>Salón de usos múltiples (13 en batería + 9 en arroyo vehicular)</td>
+                                <td>22</td>
+                            </tr>
+                            <tr>
+                                <td>Proveedores de administración</td>
+                                <td>3</td>
+                            </tr>
+                            <tr>
+                                <td>Cuota (arrendados)</td>
+                                <td>44</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TOTAL</strong></td>
+                                <td><strong>1,025</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 4. NORMAS DE USO ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>📐 Normas de Uso</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="rules-grid">
+                        <div class="rule-item">
+                            <span class="label">🏠 Condóminos</span>
+                            Máximo <strong>4 tarjetones corbatines</strong> por unidad privativa: 2 correspondientes a
+                            la cochera propia + 2 adicionales para la zona de condóminos libres.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">📐 Terrenos excedentes</span>
+                            Las unidades con espacio adicional podrán solicitar más tarjetones corbatines, previa
+                            <strong>inspección visual</strong> de la administración. Llevarán una franja plateada en la
+                            parte inferior del tarjetón. <strong>No podrán</strong> ocupar cajones de visitas ni cajones
+                            libres de
+                            condóminos.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">👥 Visitas</span>
+                            Exclusivamente para personas externas al condominio, con un tiempo máximo de estancia (por
+                            definir). Los vehículos con tarjetón de visita podrán estacionarse tanto en los cajones de
+                            visitas como en la cochera de la unidad que los recibe, sin restricción.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">🔧 Proveedores de condóminos</span>
+                            Solo para operaciones de carga y descarga. Se les asigna tarjetón amarillo temporal con
+                            domicilio y vigencia.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">💰 Cuota</span>
+                            Pago mensual adelantado de <strong>$400 o $450</strong>, según determine la administración.
+                            Sin pago = pérdida automática del derecho. Máximo 2 cajones por propietario. No se pueden
+                            subarrendar ni transferir a terceros ajenos al condominio. El pago corresponde al derecho de
+                            uso del espacio; <strong>no constituye pensión, estacionamiento público ni servicio
+                                similar</strong>.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">🚛 Vehículos con remolque</span>
+                            Únicamente en los cajones de cuota estará permitido estacionar vehículos con remolque o
+                            similares que requieran espacio adicional.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">🎪 Cajones del salón (22 total: 13 en batería + 9 en arroyo)</span>
+                            Una vez concluido el horario del evento, los cajones asignados al salón (excepto los 9 del
+                            arroyo vehicular) se convierten en cajones de condóminos libres para pernocta, hasta el día
+                            siguiente. En días sin evento, todos los cajones del salón — excepto los 9 del arroyo
+                            vehicular — se integran como cajones de condóminos libres.
+                        </div>
+                        <div class="rule-item">
+                            <span class="label">🛣️ Arroyo vehicular</span>
+                            <strong>Prohibido estacionarse</strong> en el arroyo vehicular de todas las calles, bajo
+                            cualquier concepto. <strong>Excepción:</strong> los vecinos de calle Sequoia números 200 y
+                            300 podrán estacionarse en el arroyo vehicular conforme a reglamento, con la condición de
+                            <strong>no</strong> hacer uso de los cajones de condóminos libres.
+                        </div>
+                        <div class="rule-item" style="grid-column: 1/-1;">
+                            <span class="label">♻️ Cajones libres</span>
+                            Los cajones de condóminos libres son de uso <strong>compartido y continuo</strong>. No
+                            podrán destinarse como cajones de cuota sin pago, ni reservarse de manera exclusiva por un
+                            solo vecino bajo el argumento de cercanía a su domicilio.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 5. FECHAS ESPECIALES ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🎄 Fechas Especiales</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <p style="font-size:0.92em;line-height:1.6;">En temporadas como diciembre se podrá flexibilizar el
+                        uso de zonas.</p>
+                    <div class="alert-box">
+                        <strong>⚠️ Condición inamovible</strong>
+                        Nunca se podrá superar el límite total de <strong>1,025 autos</strong> que caben en el
+                        condominio.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 6. SANCIONES ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🚨 Sanciones</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <div class="alert-box danger">
+                        <strong>🚨 Las sanciones son DIRECTAS — no existen apercibimientos ni llamadas de atención
+                            previas</strong>
+                    </div>
+                    <ul style="font-size:0.92em;line-height:1.8;padding-left:1.2em;">
+                        <li>Multa automática por estacionarse en zona incorrecta</li>
+                        <li>Multa al organizador de eventos si sus invitados ocupan zonas indebidas</li>
+                        <li>Retiro de vehículo con grúa en caso de reincidencia</li>
+                        <li>Multa por no portar tarjetón visible en el retrovisor</li>
+                        <li>Multa por exceder tiempo máximo en zonas de carga y descarga</li>
+                        <li>Estacionamiento en doble fila = <strong>infracción grave</strong> por obstruir la
+                            circulación y la seguridad vial interna</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 7. SEGURIDAD Y ZONAS RESTRINGIDAS ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🔒 Seguridad y Zonas Restringidas</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <ul style="font-size:0.92em;line-height:1.8;padding-left:1.2em;">
+                        <li>Instalación de macetas, bolardos o arbustos en zonas peligrosas para impedir estacionamiento
+                            indebido</li>
+                        <li>Señalización clara de "zona no destinada a estacionamiento"</li>
+                        <li>Caseta de entrada como centro de distribución y control de tarjetones para no condóminos
+                        </li>
+                        <li>Calendario oficial de eventos del salón para activar o liberar cajones según corresponda
+                        </li>
+                        <li>Los tarjetones deberán portar el <strong>número de la unidad (casa)</strong> para poder
+                            identificarlos; por lo tanto, no será necesario un registro adicional en administración</li>
+                        <li>Inspección visual de la administración para validar terrenos excedentes</li>
+                        <li><strong>Prohibición de doble fila:</strong> en ningún caso se permitirá el estacionamiento
+                            en doble fila dentro del condominio, ya sea en vialidades principales, secundarias o frente
+                            a cocheras. Se considera infracción grave por obstruir la circulación y la seguridad vial
+                            interna</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== 8. RIESGOS Y BLINDAJES ====== -->
+        <div class="section-block">
+            <div class="section-header" onclick="toggleSection(this)">
+                <h2>🛡️ Riesgos y Blindajes</h2>
+                <i class="fa-solid fa-chevron-down chevron"></i>
+            </div>
+            <div class="section-body">
+                <div class="section-content">
+                    <div style="overflow-x:auto;">
+                        <table class="risk-table">
+                            <thead>
+                                <tr>
+                                    <th style="width:40%;">Riesgo</th>
+                                    <th>Blindaje</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Autos sin tarjetón visible</td>
+                                    <td>Multa automática; obligación de portar siempre en retrovisor</td>
+                                </tr>
+                                <tr>
+                                    <td>Falsificación de tarjetones</td>
+                                    <td>Numeración oficial + holograma + ID por número de unidad</td>
+                                </tr>
+                                <tr>
+                                    <td>Vecinos con más de 4 autos</td>
+                                    <td>Límite estricto; opción de cuota; excedentes solo con inspección</td>
+                                </tr>
+                                <tr>
+                                    <td>Uso indebido de tarjetón de visitas</td>
+                                    <td>Multa si se detecta tarjetón de condómino en zona de visitas</td>
+                                </tr>
+                                <tr>
+                                    <td>Proveedores usados como "invitados"</td>
+                                    <td>Tarjetón amarillo temporal con domicilio y vigencia; multa al responsable</td>
+                                </tr>
+                                <tr>
+                                    <td>Morosidad en cuota</td>
+                                    <td>Pago adelantado obligatorio; pérdida inmediata del derecho</td>
+                                </tr>
+                                <tr>
+                                    <td>Invitados del salón en otras zonas</td>
+                                    <td>Multa al organizador; tarjetones exclusivos para salón</td>
+                                </tr>
+                                <tr>
+                                    <td>Saturación en fechas festivas</td>
+                                    <td>Flexibilidad limitada; nunca superar el total permitido</td>
+                                </tr>
+                                <tr>
+                                    <td>Estacionamiento en zonas peligrosas</td>
+                                    <td>Macetas/bolardos + señalización + sanción</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ====== DISPOSICIONES COMPLEMENTARIAS ====== -->
+        <div class="alert-box" style="margin-top:2em;">
+            <strong>📋 Disposiciones complementarias</strong>
+            Todo aquello que no esté expresamente regulado será revisado y resuelto por el Comité de Vigilancia y la
+            Administración del condominio. Las decisiones tomadas en este marco tendrán carácter vinculante.
+        </div>
+
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        function toggleSection(header) {
+            const body = header.nextElementSibling;
+            const isOpen = body.classList.contains('open');
+            header.classList.toggle('open', !isOpen);
+            body.classList.toggle('open', !isOpen);
+        }
+    </script>
+</body>
+
+</html>
