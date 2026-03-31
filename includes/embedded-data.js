@@ -6076,7 +6076,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Labrador Retriever",
       "color": "Dorado",
       "direccion": "Sakura 12",
-      "propietario": "Carlos Mendoza",
       "imagen": "https://images.dog.ceo/breeds/labrador/n02099712_3502.jpg"
     },
     {
@@ -6086,7 +6085,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Siamés",
       "color": "Blanco con puntos",
       "direccion": "Sequoia 7",
-      "propietario": "Ana Ramírez",
       "imagen": "https://cdn2.thecatapi.com/images/kjKxmn3Ob.jpg"
     },
     {
@@ -6096,7 +6094,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Bulldog Francés",
       "color": "Atigrado",
       "direccion": "Sequoia 215",
-      "propietario": "Luis Torres",
       "imagen": "https://images.dog.ceo/breeds/bulldog-french/n02108915_4500.jpg"
     },
     {
@@ -6106,7 +6103,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Persa",
       "color": "Blanco",
       "direccion": "Sabino 3",
-      "propietario": "Sofía Herrera",
       "imagen": "https://cdn2.thecatapi.com/images/RhBsBQg6y.jpg"
     },
     {
@@ -6116,7 +6112,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Periquito australiano",
       "color": "Verde y amarillo",
       "direccion": "Sakura 9",
-      "propietario": "Marco Antonio Vega",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Budgerigar-_Mount_Hope.jpg/500px-Budgerigar-_Mount_Hope.jpg"
     },
     {
@@ -6126,7 +6121,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Golden Retriever",
       "color": "Dorado claro",
       "direccion": "Sequoia 18",
-      "propietario": "Patricia Guzmán",
       "imagen": "https://images.dog.ceo/breeds/retriever-golden/n02099601_5160.jpg"
     },
     {
@@ -6136,7 +6130,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Beagle",
       "color": "Tricolor",
       "direccion": "Sabino 5",
-      "propietario": "Roberto Castillo",
       "imagen": "https://images.dog.ceo/breeds/beagle/n02088364_9825.jpg"
     },
     {
@@ -6146,7 +6139,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Mestizo",
       "color": "Naranja atigrado",
       "direccion": "Sequoia 201",
-      "propietario": "Diana López",
       "imagen": "https://cdn2.thecatapi.com/images/3vv.jpg"
     },
     {
@@ -6156,7 +6148,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Husky Siberiano",
       "color": "Gris y blanco",
       "direccion": "Sequoia 14",
-      "propietario": "Fernando Ríos",
       "imagen": "https://images.dog.ceo/breeds/husky/n02110185_9177.jpg"
     },
     {
@@ -6166,7 +6157,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Tortuga de orejas rojas",
       "color": "Verde",
       "direccion": "Sakura 20",
-      "propietario": "Gabriela Soto",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Red-eared_sliders_and_Mallard_in_Golden_Gate_Park_1.jpg/500px-Red-eared_sliders_and_Mallard_in_Golden_Gate_Park_1.jpg"
     },
     {
@@ -6176,7 +6166,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Rottweiler",
       "color": "Negro con café",
       "direccion": "Sakura 2",
-      "propietario": "Alejandro Mora",
       "imagen": "https://images.dog.ceo/breeds/rottweiler/n02106550_13034.jpg"
     },
     {
@@ -6186,7 +6175,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Mestiza",
       "color": "Café canela",
       "direccion": "Sequoia 6",
-      "propietario": "Valentina Cruz",
       "imagen": "https://images.dog.ceo/breeds/mix/Blaze_03.jpg"
     },
     {
@@ -6196,7 +6184,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Loro verde",
       "color": "Verde con rojo",
       "direccion": "Sakura 4",
-      "propietario": "Héctor Navarro",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Amazon_parrot_and_gray_parrot_in_Indonesia.jpg/500px-Amazon_parrot_and_gray_parrot_in_Indonesia.jpg"
     },
     {
@@ -6206,7 +6193,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Chihuahua",
       "color": "Café y blanco",
       "direccion": "Sabino 11",
-      "propietario": "Irán Morales",
       "imagen": "https://images.dog.ceo/breeds/chihuahua/n02085620_2973.jpg"
     },
     {
@@ -6216,7 +6202,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Maine Coon",
       "color": "Gris atigrado",
       "direccion": "Sequoia 3",
-      "propietario": "Claudia Rivas",
       "imagen": "https://cdn2.thecatapi.com/images/MmiojCuKC.jpg"
     },
     {
@@ -6226,7 +6211,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Poodle",
       "color": "Blanco",
       "direccion": "Sequoia 22",
-      "propietario": "Jorge Saldaña",
       "imagen": "https://images.dog.ceo/breeds/poodle-miniature/n02113712_4526.jpg"
     },
     {
@@ -6236,7 +6220,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Iguana verde",
       "color": "Verde brillante",
       "direccion": "Sakura 7",
-      "propietario": "Manuel Vidal",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Iguana_V.jpg/500px-Iguana_V.jpg"
     },
     {
@@ -6246,7 +6229,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Dálmata",
       "color": "Blanco con manchas negrass",
       "direccion": "Sequoia 25",
-      "propietario": "Laura Reyes",
       "imagen": "https://images.dog.ceo/breeds/dalmatian/cooper1.jpg"
     },
     {
@@ -6256,7 +6238,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Russian Blue",
       "color": "Gris azulado",
       "direccion": "Sabino 14",
-      "propietario": "Paula Estrada",
       "imagen": "https://cdn2.thecatapi.com/images/xZysIjSqa.jpg"
     },
     {
@@ -6266,7 +6247,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Coneja Holland Lop",
       "color": "Blanco y gris",
       "direccion": "Sakura 8",
-      "propietario": "Andrea Leal",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/A_grey_holland_lop_rabbit.jpg/500px-A_grey_holland_lop_rabbit.jpg"
     },
     {
@@ -6276,7 +6256,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Shiba Inu",
       "color": "Naranja y blanco",
       "direccion": "Sequoia 9",
-      "propietario": "Miguel Ángel Paz",
       "imagen": "https://images.dog.ceo/breeds/shiba/kurosuke01.jpg"
     },
     {
@@ -6286,7 +6265,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Cotorra argentina",
       "color": "Verde",
       "direccion": "Sakura 15",
-      "propietario": "Carmen Bravo",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Monk_parakeet_%28Myiopsitta_monachus%29_Santiago.jpg/500px-Monk_parakeet_%28Myiopsitta_monachus%29_Santiago.jpg"
     },
     {
@@ -6296,7 +6274,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Boxer",
       "color": "Atigrado con blanco",
       "direccion": "Sabino 6",
-      "propietario": "Eduardo Sánchez",
       "imagen": "https://images.dog.ceo/breeds/boxer/n02108089_5266.jpg"
     },
     {
@@ -6306,7 +6283,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Hámster dorado",
       "color": "Dorado",
       "direccion": "Sequoia 5",
-      "propietario": "Valeria Mendoza",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Baby_Hamster_-_2_Weeks_Old.jpg/500px-Baby_Hamster_-_2_Weeks_Old.jpg"
     },
     {
@@ -6316,7 +6292,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Akita Inu",
       "color": "Crema y negro",
       "direccion": "Sequoia 10",
-      "propietario": "Roberto León",
       "imagen": "https://images.dog.ceo/breeds/akita/Japaneseakita.jpg"
     },
     {
@@ -6326,7 +6301,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Persa",
       "color": "Naranja",
       "direccion": "Sakura 18",
-      "propietario": "Montserrat Gil",
       "imagen": "https://cdn2.thecatapi.com/images/d_RzH-Zft.jpg"
     },
     {
@@ -6336,7 +6310,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Doberman",
       "color": "Negro con fuego",
       "direccion": "Sabino 12",
-      "propietario": "Santiago Cruz",
       "imagen": "https://images.dog.ceo/breeds/doberman/n02107142_3033.jpg"
     },
     {
@@ -6346,7 +6319,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Gecko leopardo",
       "color": "Amarillo con manchas",
       "direccion": "Sakura 33",
-      "propietario": "Luis Márquez",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Eublepharis_macularius_2009_G6.jpg/500px-Eublepharis_macularius_2009_G6.jpg"
     },
     {
@@ -6356,7 +6328,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Schnauzer",
       "color": "Gris sal y pimienta",
       "direccion": "Sequoia 14",
-      "propietario": "Elisa Torres",
       "imagen": "https://images.dog.ceo/breeds/schnauzer/n02097209_3997.jpg"
     },
     {
@@ -6366,7 +6337,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Conejo enano",
       "color": "Marrón",
       "direccion": "Sabino 20",
-      "propietario": "Francisco Peña",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c9/Dwarf_rabbit_on_a_leash.jpg/500px-Dwarf_rabbit_on_a_leash.jpg"
     },
     {
@@ -6376,7 +6346,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Corgi",
       "color": "Dorado y blanco",
       "direccion": "Sabino 7",
-      "propietario": "Renata Vargas",
       "imagen": "https://images.dog.ceo/breeds/corgi-cardigan/n02113186_7215.jpg"
     },
     {
@@ -6386,7 +6355,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Cacatúa",
       "color": "Blanco y amarillo",
       "direccion": "Sequoia 30",
-      "propietario": "Alejandra Ríos",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Cockatiel_bird_in_the_cage.jpg/500px-Cockatiel_bird_in_the_cage.jpg"
     },
     {
@@ -6396,7 +6364,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Pit Bull Terrier",
       "color": "Café y blanco",
       "direccion": "Sakura 24",
-      "propietario": "Mauricio Romero",
       "imagen": "https://images.dog.ceo/breeds/pitbull/20190710_143021.jpg"
     },
     {
@@ -6406,7 +6373,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Maine Coon",
       "color": "Marrón atigrado",
       "direccion": "Sakura 3",
-      "propietario": "Tania Gutiérrez",
       "imagen": "https://cdn2.thecatapi.com/images/PoZIVJ124.jpg"
     },
     {
@@ -6416,7 +6382,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Pomerania",
       "color": "Naranja",
       "direccion": "Sequoia 33",
-      "propietario": "Mario Espinoza",
       "imagen": "https://images.dog.ceo/breeds/pomeranian/n02112018_1348.jpg"
     },
     {
@@ -6426,7 +6391,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Iguana roja",
       "color": "Rojizo",
       "direccion": "Sakura 5",
-      "propietario": "Carmen Vega",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Iguana_iguana%2C_with_blue_and_red_coloration.jpg/500px-Iguana_iguana%2C_with_blue_and_red_coloration.jpg"
     },
     {
@@ -6436,7 +6400,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Salchicha",
       "color": "Marrón oscuro",
       "direccion": "Sequoia 21",
-      "propietario": "Daniela Fuentes",
       "imagen": "https://images.dog.ceo/breeds/dachshund/dog-1083690_640.jpg"
     },
     {
@@ -6446,7 +6409,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Cobaya",
       "color": "Blanco y negro",
       "direccion": "Sabino 9",
-      "propietario": "Héctor Alvarado",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Cochon_d%27Inde_%28Cavia_porcellus%29_%282%29.jpg/500px-Cochon_d%27Inde_%28Cavia_porcellus%29_%282%29.jpg"
     },
     {
@@ -6456,7 +6418,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Samoyedo",
       "color": "Blanco",
       "direccion": "Sabino 18",
-      "propietario": "Ivonne Mendez",
       "imagen": "https://images.dog.ceo/breeds/samoyed/n02111889_5489.jpg"
     },
     {
@@ -6466,7 +6427,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Canario",
       "color": "Amarillo",
       "direccion": "Sabino 22",
-      "propietario": "Pablo Guerrero",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Yellow-fronted_canary_%28Crithagra_mozambica_tando%29.jpg/500px-Yellow-fronted_canary_%28Crithagra_mozambica_tando%29.jpg"
     },
     {
@@ -6476,7 +6436,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Labrador Retriever",
       "color": "Negro",
       "direccion": "Sakura 31",
-      "propietario": "Fernanda Ruiz",
       "imagen": "https://images.dog.ceo/breeds/labrador/n02099712_4323.jpg"
     },
     {
@@ -6486,7 +6445,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Siamés",
       "color": "Seal point",
       "direccion": "Sakura 8",
-      "propietario": "Gerardo Sánchez",
       "imagen": "https://cdn2.thecatapi.com/images/DFHMMPNcD.jpg"
     },
     {
@@ -6496,7 +6454,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Border Collie",
       "color": "Negro y blanco",
       "direccion": "Sequoia 17",
-      "propietario": "Natalia Herrera",
       "imagen": "https://images.dog.ceo/breeds/collie-border/n02106166_355.jpg"
     },
     {
@@ -6506,7 +6463,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Russian Blue",
       "color": "Gris pizarra",
       "direccion": "Sequoia 40",
-      "propietario": "Kenji Nakamura",
       "imagen": "https://cdn2.thecatapi.com/images/ErPMMvcv2.jpg"
     },
     {
@@ -6516,7 +6472,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Cobaya",
       "color": "Marrón y blanco",
       "direccion": "Sakura 16",
-      "propietario": "Olga Jiménez",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/Brown_and_White_Guinea_Pig.jpg/500px-Brown_and_White_Guinea_Pig.jpg"
     },
     {
@@ -6526,7 +6481,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Rottweiler",
       "color": "Negro y fuego",
       "direccion": "Sequoia 5",
-      "propietario": "Roberto Díaz",
       "imagen": "https://images.dog.ceo/breeds/rottweiler/n02106550_8995.jpg"
     },
     {
@@ -6536,7 +6490,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Mestizo",
       "color": "Naranja",
       "direccion": "Sabino 14",
-      "propietario": "Claudia Moreno",
       "imagen": "https://cdn2.thecatapi.com/images/dvt.jpg"
     },
     {
@@ -6546,7 +6499,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Loro cabeza amarilla",
       "color": "Verde y amarillo",
       "direccion": "Sabino 6",
-      "propietario": "Emilio Castillo",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Portrait_of_Yellow-headed_Amazon_Parrot.jpg/500px-Portrait_of_Yellow-headed_Amazon_Parrot.jpg"
     },
     {
@@ -6556,7 +6508,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Husky Siberiano",
       "color": "Negro y blanco",
       "direccion": "Sabino 17",
-      "propietario": "Irina Sokolova",
       "imagen": "https://images.dog.ceo/breeds/husky/n02110185_11171.jpg"
     },
     {
@@ -6566,7 +6517,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Tortuga terrestre",
       "color": "Café oscuro",
       "direccion": "Sakura 12",
-      "propietario": "Bruno Medina",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tortoise_portrait.JPG/500px-Tortoise_portrait.JPG"
     },
     {
@@ -6576,7 +6526,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Golden Retriever",
       "color": "Crema",
       "direccion": "Sakura 20",
-      "propietario": "Andrea Rojas",
       "imagen": "https://images.dog.ceo/breeds/retriever-golden/n02099601_3006.jpg"
     },
     {
@@ -6586,7 +6535,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Persa",
       "color": "Blanco perla",
       "direccion": "Sequoia 8",
-      "propietario": "Lourdes Ramírez",
       "imagen": "https://cdn2.thecatapi.com/images/78n.jpg"
     },
     {
@@ -6596,7 +6544,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Bulldog Francés",
       "color": "Blanco",
       "direccion": "Sequoia 15",
-      "propietario": "Erick Vega",
       "imagen": "https://images.dog.ceo/breeds/bulldog-french/n02108915_3598.jpg"
     },
     {
@@ -6606,7 +6553,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Hámster ruso",
       "color": "Gris",
       "direccion": "Sakura 28",
-      "propietario": "Sofía Carrillo",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Phodopus_sungorus_2_-_Colour_corrected.jpg/500px-Phodopus_sungorus_2_-_Colour_corrected.jpg"
     },
     {
@@ -6616,7 +6562,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Mestiza",
       "color": "Tricolor",
       "direccion": "Sequoia 18",
-      "propietario": "Víctor Hugo Mora",
       "imagen": "https://images.dog.ceo/breeds/mix/Layla_Mix.jpg"
     },
     {
@@ -6626,7 +6571,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Iguana del desierto",
       "color": "Gris arena",
       "direccion": "Sabino 3",
-      "propietario": "Raúl Estrada",
       "imagen": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/41/Dipsosaurus_dorsalis_ssp._dorsalis.jpg/500px-Dipsosaurus_dorsalis_ssp._dorsalis.jpg"
     },
     {
@@ -6636,7 +6580,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Chihuahua",
       "color": "Café",
       "direccion": "Sabino 24",
-      "propietario": "Ana Luisa Montes",
       "imagen": "https://images.dog.ceo/breeds/chihuahua/n02085620_7032.jpg"
     },
     {
@@ -6646,7 +6589,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Maine Coon",
       "color": "Café tabbby",
       "direccion": "Sequoia 208",
-      "propietario": "Óscar Pedraza",
       "imagen": "https://cdn2.thecatapi.com/images/dg4.jpg"
     },
     {
@@ -6656,7 +6598,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Boxer",
       "color": "Leonado",
       "direccion": "Sabino 29",
-      "propietario": "Lília dos Santos",
       "imagen": "https://images.dog.ceo/breeds/boxer/n02108089_13344.jpg"
     },
     {
@@ -6666,7 +6607,6 @@ window.EMBEDDED_MASCOTAS = {
       "raza": "Poodle",
       "color": "Plateado",
       "direccion": "Sakura 5",
-      "propietario": "Gabriela Flores",
       "imagen": "https://images.dog.ceo/breeds/poodle-standard/n02113799_4190.jpg"
     }
   ]

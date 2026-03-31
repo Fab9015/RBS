@@ -157,11 +157,7 @@
             flex-shrink: 0;
         }
 
-        .mascota-propietario {
-            font-size: 0.8em;
-            color: var(--color-muted, #888);
-            margin: 0;
-        }
+
 
         /* Vacío */
         .empty-state {
@@ -432,7 +428,7 @@
                     ? `<img src="${escHtml(m.imagen)}" alt="${escHtml(m.nombre)}" loading="lazy">`
                     : `<div class="sin-foto">${emoji}</div>`;
                 const raza = m.raza ? `<p class="mascota-raza">${escHtml(m.raza)}${m.color ? ' · ' + escHtml(m.color) : ''}</p>` : '';
-                const propietario = m.propietario ? `<p class="mascota-propietario">🏠 ${escHtml(m.propietario)}</p>` : '';
+
                 return `<div class="mascota-card" id="mascota-${escHtml(m.id)}">
                     <div class="mascota-foto-wrap">
                         ${foto}
@@ -442,7 +438,6 @@
                         <p class="mascota-nombre">${escHtml(m.nombre)}</p>
                         ${raza}
                         <p class="mascota-dir">${escHtml(m.direccion || '—')}</p>
-                        ${propietario}
                     </div>
                     <div class="card-footer">
                         <button class="share-btn" data-id="${escHtml(m.id)}" title="Compartir enlace de esta mascota">

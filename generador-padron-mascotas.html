@@ -583,7 +583,8 @@
     <div class="json-section">
         <h2>JSON generado</h2>
         <p style="font-size:0.87em;color:var(--color-muted);">Copia o descarga este JSON y súbelo al repositorio como
-            <code>padron-mascotas.json</code>.</p>
+            <code>padron-mascotas.json</code>.
+        </p>
         <div class="json-buttons">
             <button onclick="copiarJSON()"><i class="fa fa-copy"></i> Copiar</button>
             <button onclick="descargarJSON()"><i class="fa fa-download"></i> Descargar</button>
@@ -630,10 +631,7 @@
                 <span class="error-msg" id="errDireccion">La dirección es obligatoria.</span>
             </div>
 
-            <div class="form-group">
-                <label>Nombre del propietario</label>
-                <input type="text" id="fPropietario" placeholder="Ej: Juan García">
-            </div>
+
 
             <div class="form-group">
                 <label>Foto</label>
@@ -748,7 +746,7 @@
                     m.nombre.toLowerCase().includes(search) ||
                     (m.raza || '').toLowerCase().includes(search) ||
                     (m.direccion || '').toLowerCase().includes(search) ||
-                    (m.propietario || '').toLowerCase().includes(search);
+                    (m.direccion || '').toLowerCase().includes(search);
                 const me = especie === 'todas' || m.especie === especie;
                 return ms && me;
             });
@@ -786,7 +784,7 @@
                         <h3>${escHtml(m.nombre)}</h3>
                         ${m.raza ? `<p>${escHtml(m.raza)}${m.color ? ' · ' + escHtml(m.color) : ''}</p>` : ''}
                         <p>📍 ${escHtml(m.direccion || '—')}</p>
-                        ${m.propietario ? `<p>👤 ${escHtml(m.propietario)}</p>` : ''}
+
                     </div>
                     <div class="card-actions">
                         <button class="btn-edit" onclick="abrirModal('${m.id}')"><i class="fa fa-edit"></i> Editar</button>
@@ -836,7 +834,7 @@
             document.getElementById('fRaza').value = m ? (m.raza || '') : '';
             document.getElementById('fColor').value = m ? (m.color || '') : '';
             document.getElementById('fDireccion').value = m ? (m.direccion || '') : '';
-            document.getElementById('fPropietario').value = m ? (m.propietario || '') : '';
+
             document.getElementById('fImagenUrl').value = m ? (m.imagen || '') : '';
             document.getElementById('fImagenFile').value = '';
 
@@ -946,7 +944,7 @@
                 raza: document.getElementById('fRaza').value.trim() || undefined,
                 color: document.getElementById('fColor').value.trim() || undefined,
                 direccion,
-                propietario: document.getElementById('fPropietario').value.trim() || undefined,
+
                 imagen: imagen || undefined,
             };
 
