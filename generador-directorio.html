@@ -561,6 +561,17 @@
             });
         }
 
+        /* Slug generator for share links */
+        function generarSlug(nombre) {
+            const base = nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+            const usados = new Set((data.trabajadores || []).map(t => t.slug).filter(Boolean));
+            let slug = base;
+            let counter = 2;
+            while (usados.has(slug)) { slug = base + '-' + counter; counter++; }
+            return slug;
+        }
+
         /* Render cards */
         function renderCards() {
             const cont = document.getElementById("cards-container");
@@ -880,6 +891,9 @@
 
             const nuevo = {
                 id: editId || generarUUID(),
+                slug: editId
+                    ? (data.trabajadores.find(x => x.id == editId)?.slug || generarSlug(nombre))
+                    : generarSlug(nombre),
                 nombre, telefono, correo, categoria, imagen, relevante, tieneWhatsapp
             };
 
@@ -968,7 +982,20 @@
                     return cat;
                 });
 
-                data.trabajadores = (data.trabajadores || []).map(t => ({ id: t.id || generarUUID(), ...t }));
+                data.trabajadores = (data.trabajadores || []).map(t => ({ id: t.id || generarUUID(), slug: t.slug || '', ...t }));
+
+                // Ensure all workers have a slug
+                const usedSlugs = new Set();
+                data.trabajadores.forEach(t => {
+                    if (!t.slug) {
+                        const base = t.nombre.normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+                            .toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                        let slug = base; let c = 2;
+                        while (usedSlugs.has(slug)) { slug = base + '-' + c; c++; }
+                        t.slug = slug;
+                    }
+                    usedSlugs.add(t.slug);
+                });
 
                 renderCards();
                 renderBusquedas();

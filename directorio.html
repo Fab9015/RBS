@@ -104,7 +104,6 @@
             width: 100px;
             height: 100px;
             object-fit: contain;
-            margin-right: 1em;
         }
 
         .contact-info h3 {
@@ -462,6 +461,85 @@
             color: var(--color-text);
         }
 
+        /* Share button */
+        .card-left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+            gap: 0.4em;
+            margin-right: 1em;
+        }
+
+        .card-left img {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+        }
+
+        .share-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            background: var(--color-accent);
+            color: var(--color-white);
+            padding: 4px 0;
+            border-radius: 6px;
+            font-size: 0.72em;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100px;
+        }
+
+        .share-btn:hover {
+            background: var(--color-title);
+        }
+
+        /* Highlight animation when deep-linked */
+        @keyframes destacar {
+            0% {
+                box-shadow: 0 0 0 4px var(--color-accent), 0 0 24px rgba(161, 178, 122, 0.7);
+            }
+
+            65% {
+                box-shadow: 0 0 0 4px var(--color-accent), 0 0 24px rgba(161, 178, 122, 0.7);
+            }
+
+            100% {
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+        }
+
+        .contact-card.destacada {
+            animation: destacar 2.8s ease forwards;
+        }
+
+        /* Toast feedback */
+        .copy-feedback {
+            position: fixed;
+            bottom: 1.5em;
+            left: 50%;
+            transform: translateX(-50%) translateY(80px);
+            background: var(--color-title);
+            color: #fff;
+            padding: 0.6em 1.4em;
+            border-radius: 8px;
+            font-size: 0.88em;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            z-index: 9999;
+            pointer-events: none;
+        }
+
+        .copy-feedback.show {
+            opacity: 1;
+            transform: translateX(-50%) translateY(0);
+        }
+
         /* Links */
         a {
             color: #006d77;
@@ -568,6 +646,7 @@
                 renderLista();
                 renderPaginacion();
                 initCarouselTouch();
+                handleProveedorParam();
             }
 
             // If embedded data already present, use it immediately
@@ -663,8 +742,13 @@
                     : "";
 
                 cont.innerHTML += `
-          <div class="contact-card">
-            <img src="${c.imagen}" alt="${c.nombre}">
+          <div class="contact-card" id="proveedor-${c.slug || c.id}">
+            <div class="card-left">
+              <img src="${c.imagen}" alt="${c.nombre}">
+              <button class="share-btn" data-slug="${c.slug || c.id}" title="Compartir contacto">
+                  <i class="fa-solid fa-share-nodes"></i> Compartir
+              </button>
+            </div>
             <div class="contact-info">
               <h3>${c.nombre}</h3>
               <div class="contact-line">
@@ -890,9 +974,14 @@
                     : "";
 
                 lista.innerHTML += `
-                  <div class="contact-card">
+                  <div class="contact-card" id="proveedor-${t.slug || t.id}">
                     <span class="category-tag">${t.categoria}</span>
-                    <img src="${t.imagen}" alt="${t.categoria}">
+                    <div class="card-left">
+                      <img src="${t.imagen}" alt="${t.categoria}">
+                      <button class="share-btn" data-slug="${t.slug || t.id}" title="Compartir contacto">
+                          <i class="fa-solid fa-share-nodes"></i> Compartir
+                      </button>
+                    </div>
                     <div class="contact-info">
                       <h3>${t.nombre}</h3>
                       <div class="contact-line">
@@ -987,6 +1076,82 @@
             document.getElementById("scheduleModal").style.display = "none";
             // Restaurar scroll del fondo
             document.body.style.overflow = '';
+        }
+
+        // --- Deep-link: ?proveedor=<slug> ---
+        function handleProveedorParam() {
+            const params = new URLSearchParams(window.location.search);
+            const targetSlug = params.get('proveedor');
+            if (!targetSlug) return;
+            // Find worker by slug (fallback to id for legacy links)
+            const findBySlug = t => t.slug === targetSlug || t.id === targetSlug;
+            // Check relevantes first
+            const relevantes = datos.trabajadores.filter(t => t.relevante);
+            const relMatch = relevantes.find(findBySlug);
+            if (relMatch) {
+                setTimeout(() => highlightContact(relMatch.slug || relMatch.id), 300);
+                return;
+            }
+            // Find in non-relevant list (default A-Z)
+            const lista = datos.trabajadores.filter(t => !t.relevante)
+                .sort((a, b) => a.nombre.localeCompare(b.nombre));
+            const idx = lista.findIndex(findBySlug);
+            if (idx >= 0) {
+                paginaActual = Math.ceil((idx + 1) / porPagina);
+                renderLista();
+                renderPaginacion();
+                const match = lista[idx];
+                setTimeout(() => highlightContact(match.slug || match.id), 300);
+            }
+        }
+
+        function highlightContact(id) {
+            const card = document.getElementById('proveedor-' + id);
+            if (!card) return;
+            card.classList.add('destacada');
+            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(() => card.classList.remove('destacada'), 3000);
+        }
+
+        // --- Share handler ---
+        document.addEventListener('click', async (ev) => {
+            const btn = ev.target.closest('.share-btn');
+            if (!btn) return;
+            ev.preventDefault();
+            const slug = btn.getAttribute('data-slug');
+            const trab = (datos.trabajadores || []).find(t => (t.slug || t.id) === slug);
+            const base = window.location.origin + window.location.pathname;
+            const url = base + '?proveedor=' + encodeURIComponent(slug);
+            const title = trab ? trab.nombre + ' – Directorio RBS' : 'Directorio RBS';
+            const text = trab
+                ? 'Te comparto el contacto de ' + trab.nombre + ' (' + trab.categoria + ') del directorio de Reserva Bosque Sereno'
+                : 'Directorio – Reserva Bosque Sereno';
+            if (navigator.share) {
+                try {
+                    await navigator.share({ title, text, url });
+                } catch (err) {
+                    if (err.name !== 'AbortError') console.warn('Share failed', err);
+                }
+            } else {
+                try {
+                    await navigator.clipboard.writeText(url);
+                    showShareToast('Enlace copiado al portapapeles ✓');
+                } catch {
+                    showShareToast('No se pudo copiar el enlace');
+                }
+            }
+        });
+
+        function showShareToast(text) {
+            let fb = document.querySelector('.copy-feedback');
+            if (!fb) {
+                fb = document.createElement('div');
+                fb.className = 'copy-feedback';
+                document.body.appendChild(fb);
+            }
+            fb.textContent = text;
+            fb.classList.add('show');
+            setTimeout(() => fb.classList.remove('show'), 2500);
         }
 
         // Cerrar modal al hacer clic fuera del contenido

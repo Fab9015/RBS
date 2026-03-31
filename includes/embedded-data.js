@@ -143,7 +143,8 @@ window.EMBEDDED_DIRECTORIO = {
           "dias": "Sábados",
           "horas": "10:00 am – 1:00 pm"
         }
-      ]
+      ],
+      "slug": "administracion"
     },
     {
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
@@ -153,7 +154,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
       "relevante": true,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "caseta-de-vigilancia"
     },
     {
       "id": "865c542d-3901-4a91-86b8-4df1d50df0ed",
@@ -162,7 +164,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "ramon-gallardo"
     },
     {
       "id": "8820c33d-1384-4757-a0b1-66a97966362d",
@@ -171,7 +174,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "construcciones-zamora"
     },
     {
       "id": "f8662870-a919-466a-802b-0e1eb6715f13",
@@ -181,7 +185,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "ernesto-chata"
     },
     {
       "id": "22f3d383-2f27-4069-a6ae-6e48cbfa3960",
@@ -191,7 +196,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "los-encinos"
     },
     {
       "id": "f1300015-dad0-45c4-90f0-e5970a8b8d00",
@@ -201,7 +207,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "mario-galvan"
     },
     {
       "id": "34c9e1c2-aacb-40d5-acdf-7d311cceb8f7",
@@ -210,7 +217,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "jose-luis"
     },
     {
       "id": "ce89f0b0-fdf9-48ae-bc72-000f8a82b640",
@@ -220,7 +228,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "la-sevillana"
     },
     {
       "id": "39f09f80-7c36-4a9f-8840-f79f3c992f31",
@@ -230,7 +239,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "osvaldo-guerra"
     },
     {
       "id": "360f680a-11b1-4741-8225-d241d8eafc2e",
@@ -239,7 +249,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "carlos-hernandez"
     },
     {
       "id": "86210de2-b43b-4fba-9107-6fb9b6ca3b43",
@@ -248,7 +259,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "servicios-juarez"
     },
     {
       "id": "4478d16d-780b-4642-8503-38f5ad714b52",
@@ -257,7 +269,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "juan-juarez"
     },
     {
       "id": "63d23c57-567e-4b82-9e52-3c219a38b503",
@@ -268,7 +281,8 @@ window.EMBEDDED_DIRECTORIO = {
       "imagen": "img/plomero.png",
       "relevante": false,
       "mensajeWhatsapp": "Hola Jonás, me contacto desde Reserva Bosque Sereno porque necesito servicios de plomería. ¿Podrías ayudarme?",
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "jonas"
     },
     {
       "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
@@ -279,7 +293,8 @@ window.EMBEDDED_DIRECTORIO = {
       "imagen": "img/electricista.png",
       "relevante": false,
       "mensajeWhatsapp": "Buenos días Efrain, soy vecino de Reserva Bosque Sereno y requiero una cotización para trabajos eléctricos.",
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "efrain-ntn"
     },
     {
       "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
@@ -288,7 +303,8 @@ window.EMBEDDED_DIRECTORIO = {
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": false
+      "relevante": false,
+      "slug": "manuel-mata"
     },
     {
       "id": "8bb7af62-af8f-44af-8450-c81bd97806d0",
@@ -298,7 +314,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false
+      "tieneWhatsapp": false,
+      "slug": "gas-imperial"
     },
     {
       "id": "876bcffc-2f43-4699-a8e2-a04a75c5151d",
@@ -308,7 +325,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false
+      "tieneWhatsapp": false,
+      "slug": "central-de-gas"
     },
     {
       "id": "77fc7fae-2263-435b-a2fa-ad01d3a5b59f",
@@ -318,7 +336,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false
+      "tieneWhatsapp": false,
+      "slug": "gas-noel"
     },
     {
       "id": "d9f33f82-dc03-44d5-ac9a-c8adab448c36",
@@ -328,7 +347,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false
+      "tieneWhatsapp": false,
+      "slug": "gas-rosa"
     },
     {
       "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
@@ -338,7 +358,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "luis-reyna"
     },
     {
       "id": "92aa03cd-58f2-45d6-be9f-e60b1ad1e135",
@@ -359,7 +380,8 @@ window.EMBEDDED_DIRECTORIO = {
           "dias": "Sabados",
           "horas": "9:00 am – 1:00 pm"
         }
-      ]
+      ],
+      "slug": "aclaraciones-de-consumo-de-agua-parametro"
     },
     {
       "id": "45c6b8a3-8abe-4f2b-92db-636f42198309",
@@ -369,7 +391,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Aluminero",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "home-alum"
     },
     {
       "id": "69b8179c-d163-484d-b009-b911889aaf90",
@@ -379,7 +402,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Persianas",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "majestic-persianas"
     },
     {
       "id": "cb592857-4afe-47e7-823d-c842ca5342d5",
@@ -389,7 +413,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Persianas",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "persianas-del-centro"
     },
     {
       "id": "cb750428-cea5-4085-bdcc-59595b1bd2bb",
@@ -399,7 +424,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "closets-carlos"
     },
     {
       "id": "8c7747d0-9204-4b3b-a2f4-7bf3d8572aad",
@@ -409,7 +435,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Lavado de muebles",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "everclean"
     },
     {
       "id": "f42c3448-2948-444f-8949-aa0e6db77615",
@@ -419,7 +446,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Lavado de autos",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "edgar"
     },
     {
       "id": "cb232194-11e1-4b36-8f68-4e12e8c6f246",
@@ -429,7 +457,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "bosques-market"
     },
     {
       "id": "99eb13ee-526f-43e0-b4ab-1f5ae8c262d6",
@@ -439,7 +468,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "la-fortuna"
     },
     {
       "id": "1ac6cccd-c19d-417a-b42d-76aaf2a44f6f",
@@ -449,7 +479,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "mercadito"
     },
     {
       "id": "6d870b9f-aca0-4845-bf8b-2f4d0002e6f6",
@@ -459,7 +490,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "hector-rodales"
     },
     {
       "id": "29571c67-93c8-485a-8994-5a009e0361f2",
@@ -469,7 +501,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Lavado de autos",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "gabriel"
     },
     {
       "id": "aa448017-bde4-4176-88f5-f21190210526",
@@ -479,7 +512,8 @@ window.EMBEDDED_DIRECTORIO = {
       "categoria": "Aluminero",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true
+      "tieneWhatsapp": true,
+      "slug": "ramon-lomeli"
     }
   ]
 };
