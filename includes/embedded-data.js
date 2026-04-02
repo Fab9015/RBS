@@ -5206,6 +5206,11 @@ window.EMBEDDED_MENU = {
       "target": "_self"
     },
     {
+      "title": "Mesa de Trabajo 2 – Orden del Día",
+      "url": "orden-del-dia-mesa-trabajo-2.html",
+      "target": "_self"
+    },
+    {
       "title": "Mesa de Trabajo 1 – Orden del Día",
       "url": "orden-del-dia-mesa-trabajo-1.html",
       "target": "_self"
