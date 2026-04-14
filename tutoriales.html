@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Tutoriales y documentos — Reserva Bosque Sereno.">
+    <meta property="og:title" content="Tutoriales y Documentos – Reserva Bosque Sereno">
+    <meta property="og:description" content="Tutoriales y documentos — Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/tutoriales.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tutoriales y Documentos – Reserva Bosque Sereno">
+    <meta name="twitter:description" content="Tutoriales y documentos — Reserva Bosque Sereno.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/tutoriales.html">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Lato:wght@400;700&display=swap"
+        rel="stylesheet">
+    <title>Tutoriales y Documentos – Reserva Bosque Sereno</title>
+    <style>
+        main {
+            padding: 2.5em 1em 3em;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+
+        /* ── Section ── */
+        .section {
+            margin-bottom: 2.8em;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.65em;
+            margin-bottom: 1.2em;
+        }
+
+        .section-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.15em;
+            flex-shrink: 0;
+        }
+
+        .section-icon.tutorials {
+            background: #edf7f1;
+        }
+
+        .section-icon.docs {
+            background: #f5f0e6;
+        }
+
+        .section-header h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1.1em;
+            color: var(--color-title);
+            margin: 0;
+        }
+
+        .section-header p {
+            font-size: 0.82em;
+            color: #999;
+            margin: 0.05em 0 0;
+        }
+
+        /* ── Tutorial cards: 2-col grid ── */
+        .tut-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.2em;
+        }
+
+        .tut-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s, transform 0.15s;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .tut-card:hover {
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .tut-top {
+            background: linear-gradient(135deg, #f0f5e8 0%, #e4ecd8 100%);
+            padding: 1.6em 1.3em 1.3em;
+            text-align: center;
+        }
+
+        .tut-top .tut-emoji {
+            font-size: 2.4em;
+            line-height: 1;
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        .tut-top .tut-type {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.62em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent);
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.2em 0.7em;
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .tut-body {
+            padding: 1.1em 1.2em 1em;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tut-body h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1em;
+            color: var(--color-title);
+            margin: 0 0 0.35em;
+        }
+
+        .tut-body p {
+            font-size: 0.85em;
+            color: #6a5a52;
+            line-height: 1.55;
+            margin: 0;
+            flex: 1;
+        }
+
+        .tut-body .tut-cta {
+            margin-top: 0.8em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            color: var(--color-accent);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3em;
+        }
+
+        .tut-card:hover .tut-cta {
+            color: #5a7e3a;
+        }
+
+        /* ── Document cards: horizontal list ── */
+        .doc-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 10px;
+            padding: 1.1em 1.3em;
+            margin-bottom: 0.9em;
+            text-decoration: none;
+            color: var(--color-text);
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            transition: box-shadow 0.2s, transform 0.15s, border-color 0.2s;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .doc-card:hover {
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+            transform: translateY(-1px);
+            border-color: var(--color-accent);
+        }
+
+        .doc-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 8px;
+            background: #fdf2f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 0.72em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #c0392b;
+            letter-spacing: -0.02em;
+        }
+
+        .doc-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .doc-info h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95em;
+            color: var(--color-title);
+            margin: 0 0 0.15em;
+        }
+
+        .doc-info p {
+            font-size: 0.82em;
+            color: #999;
+            margin: 0;
+        }
+
+        .doc-arrow {
+            font-size: 1.2em;
+            color: #ccc;
+            flex-shrink: 0;
+            transition: color 0.15s, transform 0.15s;
+        }
+
+        .doc-card:hover .doc-arrow {
+            color: var(--color-accent);
+            transform: translateX(2px);
+        }
+
+        /* ── Divider ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--color-border);
+            margin: 0 0 2.8em;
+        }
+
+        @media (max-width: 600px) {
+            .tut-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Tutoriales y Documentos</h1>
+            <p>Guías y documentos oficiales para vecinos</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <div id="menuInclude"></div>
+
+    <main id="hubContent">
+    </main>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script src="includes/load-hubs.js"></script>
+    <script>loadHub('tutoriales');</script>
+</body>
+
+</html>

@@ -6,23 +6,13 @@
             "target": "_self"
         },
         {
-            "title": "Mesa de Trabajo 2 – Orden del Día",
-            "url": "orden-del-dia-mesa-trabajo-2.html",
+            "title": "Asambleas",
+            "url": "asambleas.html",
             "target": "_self"
         },
         {
-            "title": "Mesa de Trabajo 1 – Orden del Día",
-            "url": "orden-del-dia-mesa-trabajo-1.html",
-            "target": "_self"
-        },
-        {
-            "title": "Control de Gastos - Cuotas Extraordinarias",
-            "url": "control-gastos-cuotas-extraordinarias.html",
-            "target": "_self"
-        },
-        {
-            "title": "Logros y Avances",
-            "url": "logros.html",
+            "title": "Transparencia",
+            "url": "transparencia.html",
             "target": "_self"
         },
         {
@@ -36,8 +26,8 @@
             "target": "_blank"
         },
         {
-            "title": "Tutorial - Generar QR para visitas desde Condovive",
-            "url": "qr-condovive.html",
+            "title": "Tutoriales y Documentos",
+            "url": "tutoriales.html",
             "target": "_self"
         },
         {
@@ -49,16 +39,6 @@
             "title": "Reglamento Interno",
             "url": "files/reglamento_protocolizado.pdf",
             "target": "_blank"
-        },
-        {
-            "title": "Asamblea 2025",
-            "url": "menu-accesos-rapidos.html",
-            "target": "_self"
-        },
-        {
-            "title": "Pagos Adelantados",
-            "url": "pagos-adelantados.html",
-            "target": "_self"
         }
     ]
 }

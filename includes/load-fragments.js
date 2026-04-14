@@ -16,7 +16,7 @@
 </div>
 `;
 
-    const EMBEDDED_FOOTER = `<footer>\n  <p>Reserva Bosque Sereno · © 2026</p>\n  <div class="footer-links" id="footerLinks"></div>\n</footer>`;
+    const EMBEDDED_FOOTER = `<footer>\n  <p>Reserva Bosque Sereno · © 2026</p>\n</footer>`;
 
     function insertHTML(selector, html) {
         const container = document.querySelector(selector);

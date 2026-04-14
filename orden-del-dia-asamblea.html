@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Orden del Día – Próxima Asamblea · Condominio RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description" content="Orden del día para la próxima asamblea de condóminos — Reserva Bosque Sereno.">
+    <meta property="og:title" content="Orden del Día – Próxima Asamblea · Condominio RBS">
+    <meta property="og:description"
+        content="Orden del día para la próxima asamblea de condóminos — Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/orden-del-dia-asamblea.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Orden del Día – Próxima Asamblea · Condominio RBS">
+    <meta name="twitter:description"
+        content="Orden del día para la próxima asamblea de condóminos — Reserva Bosque Sereno.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/orden-del-dia-asamblea.html">
+    <style>
+        .section {
+            margin-bottom: 2.5em;
+            padding-bottom: 2em;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            margin-bottom: 0.8em;
+            padding-bottom: 0.4em;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        .meta-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em 2em;
+            background: var(--color-white);
+            border: 1px solid var(--color-border, #e6e2dc);
+            border-left: 4px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 1em 1.2em;
+            font-size: 0.92em;
+            margin-bottom: 1.5em;
+        }
+
+        .meta-info span {
+            color: var(--color-muted, #666);
+        }
+
+        .meta-info strong {
+            color: var(--color-dark, #1a1a1a);
+        }
+
+        /* ── Group headings ───────────────────────────────────── */
+        .group-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            padding: 0.3em 0.8em;
+            background: #f0f4e8;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.7em;
+        }
+
+        /* ── Agenda list ──────────────────────────────────────── */
+        .agenda-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.85em;
+            counter-reset: agenda-counter;
+        }
+
+        .agenda-item {
+            background: var(--color-white);
+            border: 1px solid var(--color-border, #e6e2dc);
+            border-radius: 10px;
+            padding: 1em 1.2em 1em 1.4em;
+            display: flex;
+            gap: 1em;
+            align-items: flex-start;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            counter-increment: agenda-counter;
+        }
+
+        .agenda-num {
+            background: var(--color-accent);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            min-width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.1em;
+        }
+
+        .agenda-content {
+            flex: 1;
+        }
+
+        .agenda-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.97em;
+            color: var(--color-title);
+            margin: 0 0 0.3em;
+        }
+
+        .agenda-desc {
+            font-size: 0.88em;
+            color: var(--color-muted, #666);
+            margin: 0 0 0.5em;
+            line-height: 1.5;
+        }
+
+        .agenda-subitems {
+            list-style: none;
+            margin: 0.5em 0 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.35em;
+        }
+
+        .agenda-subitems li {
+            font-size: 0.87em;
+            color: var(--color-text, #5c4033);
+            padding: 0.4em 0.7em;
+            background: #f7f7f2;
+            border-left: 3px solid var(--color-accent);
+            border-radius: 0 5px 5px 0;
+            line-height: 1.4;
+        }
+
+        .tag-decision {
+            display: inline-block;
+            font-size: 0.72em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-weight: 600;
+            background: #e8f0d8;
+            color: #3a5c1a;
+            margin-left: 0.5em;
+            vertical-align: middle;
+        }
+
+        /* ── Source badge ─────────────────────────────────────── */
+        .tag-source {
+            display: inline-block;
+            font-size: 0.68em;
+            padding: 2px 7px;
+            border-radius: 10px;
+            font-weight: 600;
+            background: #ede4f5;
+            color: #6b21a8;
+            margin-left: 0.4em;
+            vertical-align: middle;
+        }
+
+        /* ── Fused / linked items ─────────────────────────────── */
+        .agenda-item.is-link {
+            text-decoration: none;
+            color: inherit;
+            transition: border-color 0.18s, box-shadow 0.18s, transform 0.15s;
+            cursor: pointer;
+        }
+
+        .agenda-item.is-link:hover,
+        .agenda-item.is-link:focus {
+            border-color: var(--color-accent);
+            box-shadow: 0 3px 12px rgba(0, 0, 0, 0.10);
+            transform: translateY(-2px);
+            outline: none;
+        }
+
+        .agenda-item.is-link .agenda-title::after {
+            content: ' \2192';
+            font-size: 0.85em;
+            color: var(--color-accent);
+            margin-left: 0.3em;
+        }
+
+        .agenda-item.fused .agenda-title::after {
+            content: none;
+        }
+
+        .reg-header {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            margin-bottom: 0.5em;
+        }
+
+        .reg-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4em;
+            flex-shrink: 0;
+        }
+
+        .chip-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.4em;
+            margin: 0.5em 0 0.7em;
+        }
+
+        .chip {
+            font-size: 0.72em;
+            font-weight: 600;
+            padding: 3px 9px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        .fused-footer {
+            margin-top: 0.7em;
+            padding-top: 0.55em;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.82em;
+            font-weight: 600;
+            color: var(--color-accent);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .fused-footer::after {
+            content: '→';
+            font-size: 1.1em;
+        }
+
+        /* ── Color themes ─────────────────────────────────────── */
+        .theme-parking .reg-icon {
+            background: #e3ecf7;
+            color: #2563eb;
+        }
+
+        .theme-parking .chip {
+            background: #e3ecf7;
+            color: #2563eb;
+        }
+
+        .theme-grill .reg-icon {
+            background: #fde8d0;
+            color: #e67e22;
+        }
+
+        .theme-grill .chip {
+            background: #fde8d0;
+            color: #e67e22;
+        }
+
+        .theme-salon .reg-icon {
+            background: #ede4f5;
+            color: #7c3aed;
+        }
+
+        .theme-salon .chip {
+            background: #ede4f5;
+            color: #7c3aed;
+        }
+
+        .theme-pool .reg-icon {
+            background: #d6f2f8;
+            color: #0891b2;
+        }
+
+        .theme-pool .chip {
+            background: #d6f2f8;
+            color: #0891b2;
+        }
+
+        .theme-pets .reg-icon {
+            background: #e8f5e0;
+            color: #4d7c0f;
+        }
+
+        .theme-pets .chip {
+            background: #e8f5e0;
+            color: #4d7c0f;
+        }
+
+        .theme-gate .reg-icon {
+            background: #fce4ec;
+            color: #c62828;
+        }
+
+        .theme-gate .chip {
+            background: #fce4ec;
+            color: #c62828;
+        }
+
+        /* ── Summary counter ──────────────────────────────────── */
+        .summary-banner {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 0.9em 1.2em;
+            font-size: 0.9em;
+            margin-bottom: 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+        }
+
+        .summary-banner .count {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.8em;
+            font-weight: 700;
+            color: var(--color-accent);
+            line-height: 1;
+        }
+
+        .summary-banner p {
+            margin: 0;
+            color: var(--color-muted, #666);
+            line-height: 1.4;
+        }
+
+        @media (max-width: 600px) {
+            .agenda-item {
+                gap: 0.7em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Próxima Asamblea</h1>
+            <p>Orden del día · Reserva Bosque Sereno</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <div id="menuInclude"></div>
+
+    <div class="container">
+
+        <!-- ── Información de la sesión ─────────────────────── -->
+        <div class="section">
+            <h2>Información de la Sesión</h2>
+            <div class="meta-info">
+                <div><span>Fecha&nbsp;</span><strong>Por confirmar</strong></div>
+                <div><span>Tipo&nbsp;</span><strong>Asamblea Ordinaria de Condóminos</strong></div>
+                <div><span>Basada en&nbsp;</span><strong>Mesas de Trabajo 1 y 2</strong></div>
+            </div>
+            <p style="font-size:0.9em;color:var(--color-muted);line-height:1.6;">
+                El orden del día fue construido a partir de los puntos de <strong>votación</strong> aprobados durante
+                las Mesas de Trabajo 1 (18 de marzo) y 2 (1 de abril de 2026). Todos los puntos listados requieren
+                acuerdo formal de la asamblea. <span class="tag-decision">Votación</span>
+            </p>
+
+            <div class="summary-banner">
+                <span class="count">19</span>
+                <p><strong>puntos a votar</strong><br>distribuidos en 5 bloques temáticos</p>
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 1 · ADMINISTRACIÓN
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 1 · Administración</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">1</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Ratificación de la AC<span class="tag-decision">Votación</span><span
+                                class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Votación formal para ratificar la Asociación Civil ADMINISTRACIÓN
+                            CONDOMINIO RESERVA BOSQUE SERENO como administradora del condominio.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">2</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Conformación y plan de trabajo del Comité Técnico<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Definición de los integrantes del Comité Técnico de condóminos, sus
+                            responsabilidades y calendario de actividades para dar seguimiento a los proyectos del
+                            condominio.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 2 · SEGURIDAD Y ACCESO
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 2 · Seguridad y Acceso</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">3</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Credenciales de identificación para personal y trabajadores<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Propuesta para implementar tarjetas de identificación para trabajadores,
+                            personal de servicio y visitas recurrentes, similar al sistema de conos de visita. Objetivo:
+                            reforzar el control de acceso y la seguridad.</p>
+                    </div>
+                </div>
+
+                <a href="propuesta-porton.html" class="agenda-item is-link fused theme-gate">
+                    <div class="agenda-num">4</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🚧</div>
+                            <p class="agenda-title">Cotización de Portón de Acceso Vehicular<span
+                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Propuesta técnico-comercial para el suministro e instalación de un portón
+                            manual en el acceso vehicular del condominio.</p>
+                        <div class="chip-row">
+                            <span class="chip">$350,560 MXN</span>
+                            <span class="chip">5 semanas</span>
+                            <span class="chip">LUZA SA de CV</span>
+                        </div>
+                        <div class="fused-footer">Ver propuesta completa</div>
+                    </div>
+                </a>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">5</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Autorizar acceso a Telmex<span class="tag-decision">Votación</span><span
+                                class="tag-source">Mesa 2</span></p>
+                        <p class="agenda-desc">Votación para permitir el acceso de Telmex al condominio con el fin de
+                            instalar infraestructura de telecomunicaciones y ampliar las opciones de conectividad
+                            disponibles para los condóminos interesados.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">6</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Autorización de acceso a Onfiber (internet por fibra óptica)<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Se solicita aprobación para permitir el acceso de Onfiber al condominio
+                            con el fin de instalar infraestructura de internet por fibra óptica. Esto ampliaría las
+                            opciones de conectividad disponibles para los condóminos interesados.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 3 · REGLAMENTOS DE ÁREAS COMUNES
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 3 · Reglamentos de Áreas Comunes</span>
+            <div class="agenda-list">
+
+                <a href="reglamento-asadores.html" class="agenda-item is-link fused theme-grill">
+                    <div class="agenda-num">7</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🔥</div>
+                            <p class="agenda-title">Área de Asadores<span class="tag-decision">Votación</span><span
+                                    class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Horarios, fianza, reglas de uso, limpieza y entrega del área de asadores
+                            del condominio.</p>
+                        <div class="chip-row">
+                            <span class="chip">Fianza $300</span>
+                            <span class="chip">Horario 9–21h</span>
+                            <span class="chip">Máx. 10 personas</span>
+                        </div>
+                        <div class="fused-footer">Ver reglamento completo</div>
+                    </div>
+                </a>
+
+                <a href="reglamento-mascotas.html" class="agenda-item is-link fused theme-pets">
+                    <div class="agenda-num">8</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🐾</div>
+                            <p class="agenda-title">Convivencia con Mascotas<span
+                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Reglas y sugerencias para la tenencia responsable de mascotas dentro del
+                            condominio.</p>
+                        <div class="chip-row">
+                            <span class="chip">Correa obligatoria</span>
+                            <span class="chip">Placa de ID</span>
+                            <span class="chip">Padrón voluntario</span>
+                        </div>
+                        <div class="fused-footer">Ver reglamento completo</div>
+                    </div>
+                </a>
+
+                <a href="reglamento-alberca.html" class="agenda-item is-link fused theme-pool">
+                    <div class="agenda-num">9</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🏊</div>
+                            <p class="agenda-title">Alberca y Áreas Perimetrales<span
+                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Acceso con pulseras, higiene, vestimenta, capacidad máxima, visitantes y
+                            restricciones de uso.</p>
+                        <div class="chip-row">
+                            <span class="chip">50 pulseras</span>
+                            <span class="chip">Mié–Dom 9–21h · Mar 12–21h</span>
+                            <span class="chip">6 max/casa</span>
+                        </div>
+                        <div class="fused-footer">Ver reglamento completo</div>
+                    </div>
+                </a>
+
+                <a href="reglamento-salon.html" class="agenda-item is-link fused theme-salon">
+                    <div class="agenda-num">10</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🎉</div>
+                            <p class="agenda-title">Salón de Usos Múltiples<span
+                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Reservaciones, horarios por tipo de evento, aforo, reglas de música,
+                            limpieza y sanciones. Incluye propuesta de uso matutino para actividades culturales y
+                            deportivas.</p>
+                        <div class="chip-row">
+                            <span class="chip">Aforo 70</span>
+                            <span class="chip">Horarios por día</span>
+                            <span class="chip">Uso matutino</span>
+                        </div>
+                        <div class="fused-footer">Ver reglamento completo</div>
+                    </div>
+                </a>
+
+                <a href="reglamento-estacionamientos.html" class="agenda-item is-link fused theme-parking">
+                    <div class="agenda-num">11</div>
+                    <div class="agenda-content">
+                        <div class="reg-header">
+                            <div class="reg-icon">🚗</div>
+                            <p class="agenda-title">Estacionamientos<span class="tag-decision">Votación</span><span
+                                    class="tag-source">Mesa 2</span></p>
+                        </div>
+                        <p class="agenda-desc">Sistema de tarjetones por color, asignación de cajones, cuotas y normas
+                            de uso de la vialidad interna.</p>
+                        <div class="chip-row">
+                            <span class="chip">Tarjetones</span>
+                            <span class="chip">Código de colores</span>
+                            <span class="chip">Sanciones</span>
+                        </div>
+                        <div class="fused-footer">Ver reglamento completo</div>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 4 · NORMAS DE CONVIVENCIA
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 4 · Normas de Convivencia</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">12</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Reubicación de medidores de agua a espacios visibles desde el
+                            exterior<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Se somete a votación la obligatoriedad de que todos los medidores de agua
+                            individuales estén accesibles y visibles desde el exterior de cada domicilio, facilitando
+                            lecturas periódicas y el control del consumo colectivo.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">13</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Aviso obligatorio de arrendamientos en plataformas digitales (Airbnb y
+                            similares)<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span>
+                        </p>
+                        <p class="agenda-desc">Propuesta para establecer como requisito que los condóminos que renten su
+                            propiedad a través de plataformas digitales notifiquen previamente a la administración,
+                            indicando fechas y número de huéspedes, a fin de mantener el control de acceso y la
+                            seguridad del condominio.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">14</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Protocolo de autorización para eventos en propiedades colindantes<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Propuesta de reglamentación para que quien desee organizar una fiesta o
+                            evento en horarios extendidos deba recabar la aprobación previa de los domicilios
+                            colindantes, promoviendo el respeto y la convivencia entre vecinos.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">15</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Uso correcto de los cajones de cochera para evitar invasión de
+                            banqueta<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Cada cochera cuenta con dos cajones de diferente tamaño. Se ha observado
+                            que frecuentemente los vehículos más grandes se estacionan en el cajón más pequeño, lo que
+                            provoca que sobresalgan hacia la banqueta y obstaculicen el paso. Se solicita a los
+                            condóminos respetar la distribución de los cajones estacionando el vehículo de mayor tamaño
+                            en el cajón correspondiente.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 5 · MULTAS Y SANCIONES
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 5 · Multas y Sanciones</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">16</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Multa para personas que se hagan pasar por integrantes del comité<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        <p class="agenda-desc">Propuesta para establecer una sanción directa a quien se identifique
+                            falsamente como integrante del comité de condóminos o de la administración.</p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">17</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Multa directa para personas que se hagan pasar por residentes<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        <p class="agenda-desc">Propuesta de sanción aplicable cuando se detecte que alguien ingresa al
+                            condominio identificándose falsamente como residente.</p>
+                        <ul class="agenda-subitems">
+                            <li>La revisión será aleatoria; si se detecta que quien se identifica como residente no lo
+                                es, la sanción al propietario será <strong>directa (1 cuota ordinaria)</strong></li>
+                            <li>Quien se niegue a la revisión o falte al respeto a los vigilantes o personal de
+                                administración será acreedor a una <strong>multa directa</strong></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">18</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Nuevo tratamiento de multas<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
+                        <p class="agenda-desc">Propuesta para homologar el proceso de cobro y seguimiento de multas con
+                            plazos, descuentos por pronto pago e integración al estado de cuenta mensual.</p>
+                        <ul class="agenda-subitems">
+                            <li>Plazo para pagar: <strong>15 días naturales</strong> a partir de la notificación</li>
+                            <li>Descuento de pronto pago del <strong>30%</strong> si se liquida dentro de los primeros
+                                15 días</li>
+                            <li>Si al día 15 la multa no ha sido cubierta, al <strong>día 16 se convierte en cargo
+                                    administrativo</strong> y se adiciona al siguiente estado de cuenta mensual</li>
+                            <li>Los recibos mensuales con cargos administrativos pendientes priorizarán en primer lugar
+                                la <strong>extinción del cargo administrativo</strong> y en segundo lugar la cuota
+                                ordinaria</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 6 · FINANZAS
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 6 · Finanzas</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">19</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Propuestas para la definición de la próxima cuota extraordinaria<span
+                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
+                        <p class="agenda-desc">Presentación y discusión de las necesidades y proyectos candidatos a ser
+                            financiados mediante una nueva cuota extraordinaria. Se evaluará viabilidad, prioridad y
+                            costo estimado de cada propuesta:</p>
+                        <ul class="agenda-subitems">
+                            <li>Reparación de las bombas de calor de la alberca</li>
+                            <li>Mantenimiento de la fachada del condominio</li>
+                            <li>Adquisición de biométrico para salida peatonal (incluyendo 2 unidades adicionales para
+                                acceso oriente)</li>
+                            <li>Instalación de biométrico de reconocimiento facial para la entrada y salida de
+                                condóminos</li>
+                            <li>Reforestación de áreas verdes, incluyendo el terreno de donación entre calle Sequía 200
+                                y 300</li>
+                            <li>Evaluación y cotización de nuevos portones vehiculares</li>
+                            <li>Pintura de señalética vial: pasos de cebra, flechas de sentido vehicular y mantenimiento
+                                del muro perimetral</li>
+                            <li>Reparación de calles levantadas al interior del condominio</li>
+                            <li>Proyecto de cancha de usos múltiples: mejora, cercado con obra civil o rejas, e
+                                integración de cancha de basquetbol</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>

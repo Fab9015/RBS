@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vista Comité · RBS</title>
+    <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background: #fdfaf5;
+            color: #5c4033;
+            min-height: 100vh;
+            padding: 2rem 1rem 4rem;
+        }
+
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid #e6e2dc;
+        }
+
+        .logo {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: #a1b27a;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #5c4033;
+            margin-bottom: 0.4rem;
+        }
+
+        header p {
+            font-size: 0.9rem;
+            color: #8a7060;
+        }
+
+        .notice {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 0.8rem 1rem;
+            font-size: 0.85rem;
+            color: #7a5800;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: #a1b27a;
+            margin-bottom: 0.75rem;
+            padding-left: 0.25rem;
+        }
+
+        .link-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .link-card {
+            display: flex;
+            align-items: center;
+            gap: 0.9rem;
+            padding: 0.9rem 1rem;
+            background: #fefefe;
+            border: 1px solid #e6e2dc;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #5c4033;
+            transition: border-color 0.15s, box-shadow 0.15s;
+        }
+
+        .link-card:hover {
+            border-color: #a1b27a;
+            box-shadow: 0 2px 8px rgba(161, 178, 122, 0.18);
+        }
+
+        .link-icon {
+            font-size: 1.4rem;
+            flex-shrink: 0;
+            width: 2rem;
+            text-align: center;
+        }
+
+        .link-text strong {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 600;
+        }
+
+        .link-text span {
+            font-size: 0.8rem;
+            color: #8a7060;
+        }
+
+        .link-arrow {
+            margin-left: auto;
+            color: #c8b8a8;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            font-size: 0.78rem;
+            color: #b0a090;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <div class="logo">Condominio RBS</div>
+            <h1>Vista Comité</h1>
+            <p>Acceso rápido a documentos para revisión interna</p>
+        </header>
+
+        <div class="notice">
+            🔒 Página de uso interno — no se encuentra en el menú principal
+        </div>
+
+        <section>
+            <div class="section-title">Órdenes del Día</div>
+            <div class="link-list">
+                <a class="link-card" href="orden-del-dia-asamblea.html" target="_blank">
+                    <span class="link-icon">📋</span>
+                    <span class="link-text">
+                        <strong>Orden del Día — Próxima Asamblea</strong>
+                        <span>orden-del-dia-asamblea.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="orden-del-dia-mesa-trabajo-2.html" target="_blank">
+                    <span class="link-icon">🔧</span>
+                    <span class="link-text">
+                        <strong>Mesa de Trabajo 2 — 1 de abril 2026</strong>
+                        <span>orden-del-dia-mesa-trabajo-2.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="orden-del-dia-mesa-trabajo-1.html" target="_blank">
+                    <span class="link-icon">🔧</span>
+                    <span class="link-text">
+                        <strong>Mesa de Trabajo 1 — 18 de marzo 2026</strong>
+                        <span>orden-del-dia-mesa-trabajo-1.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <div class="section-title">Trípticos</div>
+            <div class="link-list">
+                <a class="link-card" href="triptico-alberca.html" target="_blank">
+                    <span class="link-icon">🏊</span>
+                    <span class="link-text">
+                        <strong>Reglamento de la Alberca</strong>
+                        <span>triptico-alberca.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="triptico-asadores.html" target="_blank">
+                    <span class="link-icon">🔥</span>
+                    <span class="link-text">
+                        <strong>Área de Asadores</strong>
+                        <span>triptico-asadores.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="triptico-salon.html" target="_blank">
+                    <span class="link-icon">🏛️</span>
+                    <span class="link-text">
+                        <strong>Salón de Usos Múltiples</strong>
+                        <span>triptico-salon.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="triptico-mascotas.html" target="_blank">
+                    <span class="link-icon">🐾</span>
+                    <span class="link-text">
+                        <strong>Convivencia con Mascotas</strong>
+                        <span>triptico-mascotas.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+                <a class="link-card" href="triptico-estacionamientos.html" target="_blank">
+                    <span class="link-icon">🚗</span>
+                    <span class="link-text">
+                        <strong>Reglamento de Estacionamientos</strong>
+                        <span>triptico-estacionamientos.html</span>
+                    </span>
+                    <span class="link-arrow">›</span>
+                </a>
+            </div>
+        </section>
+
+        <footer>Condominio RBS · Uso exclusivo del comité · Abril 2026</footer>
+
+    </div>
+</body>
+
+</html>

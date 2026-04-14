@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tríptico – Reglamento de la Alberca · RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #a1b27a;
+            --accent-dark: #7a9550;
+            --accent-bg: #f0f5e8;
+            --text: #5c4033;
+            --bg: #fdfaf5;
+            --white: #fefefe;
+            --border: #e6e2dc;
+            --danger: #c0392b;
+            --danger-bg: #fdf2f2;
+            --success: #1e7e45;
+            --success-bg: #edf7f1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #d9d5cf;
+            color: var(--text);
+        }
+
+        .print-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2em 1.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84em;
+            color: #555;
+        }
+
+        .print-bar a {
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-print {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6em 1.4em;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .btn-print:hover {
+            background: var(--accent-dark);
+        }
+
+        .fold-hint {
+            font-size: 0.78em;
+            color: #777;
+            font-style: italic;
+        }
+
+        .trifold-wrap {
+            max-width: 1200px;
+            margin: 0 auto 2em;
+            background: var(--white);
+            display: flex;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            overflow: hidden;
+            min-height: 720px;
+        }
+
+        .fold-line {
+            width: 3px;
+            flex-shrink: 0;
+            background: repeating-linear-gradient(to bottom, var(--border) 0, var(--border) 8px, transparent 8px, transparent 16px);
+        }
+
+        .panel {
+            flex: 1;
+            padding: 1.8em 1.6em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1em;
+            min-width: 0;
+        }
+
+        .panel-1 {
+            background: var(--bg);
+        }
+
+        .panel-2 {
+            background: var(--white);
+        }
+
+        .panel-3 {
+            background: var(--accent-bg);
+        }
+
+        .panel-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.66em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-dark);
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .panel-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25em;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        .panel-title em {
+            color: var(--accent-dark);
+            font-style: normal;
+        }
+
+        .cover-top {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+
+        .cover-top img {
+            width: 52px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .cover-top-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.78em;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .cover-top-text p {
+            font-size: 0.72em;
+            color: #888;
+            margin-top: 0.15em;
+        }
+
+        .cover-big {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6em;
+            color: var(--text);
+            line-height: 1.15;
+            padding: 0.6em 0;
+            border-top: 3px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .cover-big span {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 400;
+            color: #888;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.2em;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* Quick-stats row */
+        .stats-row {
+            display: flex;
+            gap: 0.6em;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 0.55em 0.8em;
+            text-align: center;
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .stat-chip .sv {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1em;
+            color: var(--accent-dark);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-chip .sl {
+            font-size: 0.68em;
+            color: #666;
+            margin-top: 0.2em;
+            line-height: 1.2;
+        }
+
+        .status-card {
+            border-radius: 8px;
+            padding: 0.8em 1em;
+            font-size: 0.82em;
+            line-height: 1.5;
+        }
+
+        .status-card.bad {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+        }
+
+        .status-card.good {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success);
+        }
+
+        .status-card .sc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.92em;
+            margin-bottom: 0.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .status-card.bad .sc-title {
+            color: var(--danger);
+        }
+
+        .status-card.good .sc-title {
+            color: var(--success);
+        }
+
+        .status-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25em;
+        }
+
+        .status-card ul li {
+            padding-left: 1.3em;
+            position: relative;
+        }
+
+        .status-card ul li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .status-card.bad ul li::before {
+            content: '✗';
+            color: var(--danger);
+        }
+
+        .status-card.good ul li::before {
+            content: '✓';
+            color: var(--success);
+        }
+
+        /* Rules grid */
+        .rules-section {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+        }
+
+        .section-mini-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2em;
+        }
+
+        .rule-row {
+            display: flex;
+            gap: 0.5em;
+        }
+
+        .rule-col {
+            flex: 1;
+            border-radius: 8px;
+            padding: 0.6em 0.8em;
+            font-size: 0.79em;
+            line-height: 1.5;
+        }
+
+        .rule-col.ok {
+            background: var(--success-bg);
+            border-left: 3px solid var(--success);
+        }
+
+        .rule-col.no {
+            background: var(--danger-bg);
+            border-left: 3px solid var(--danger);
+        }
+
+        .rule-col .rc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.88em;
+            margin-bottom: 0.35em;
+        }
+
+        .rule-col.ok .rc-title {
+            color: var(--success);
+        }
+
+        .rule-col.no .rc-title {
+            color: var(--danger);
+        }
+
+        .rule-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+        }
+
+        .rule-col.ok ul li::before {
+            content: '✓ ';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .rule-col.no ul li::before {
+            content: '✗ ';
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        /* Hours table */
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.8em;
+        }
+
+        .hours-table th {
+            background: #f4f3ef;
+            padding: 0.4em 0.6em;
+            text-align: left;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+        }
+
+        .hours-table td {
+            padding: 0.4em 0.6em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hours-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .closed {
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        .open {
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Panel 3 */
+        .highlight-box {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1em 1em;
+        }
+
+        .highlight-box .hb-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            color: var(--accent-dark);
+            margin-bottom: 0.5em;
+        }
+
+        .sanction-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4em;
+        }
+
+        .sanction-item {
+            background: white;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 0.5em 0.7em;
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+
+        .insight-item {
+            background: white;
+            border-radius: 8px;
+            padding: 0.7em 0.9em;
+            font-size: 0.81em;
+            line-height: 1.5;
+            display: flex;
+            gap: 0.6em;
+            align-items: flex-start;
+        }
+
+        .insight-item .ii-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+            margin-top: 0.05em;
+        }
+
+        .vote-cta {
+            background: var(--accent);
+            color: white;
+            border-radius: 10px;
+            padding: 1em 1.2em;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        .vote-cta span {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 0.2em;
+        }
+
+        .qr-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.65em 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 0.75em;
+        }
+
+        .qr-block img {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .qr-block .qr-info {
+            font-size: 0.76em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .qr-block .qr-info strong {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.1em;
+            font-size: 0.95em;
+        }
+
+        .qr-block .qr-info span {
+            font-size: 0.88em;
+            color: #aaa;
+            display: block;
+        }
+
+        @media print {
+            @page {
+                size: 11in 8.5in;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+            }
+
+            .print-bar {
+                display: none;
+            }
+
+            .trifold-wrap {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: unset;
+                height: 8.5in;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+            }
+
+            .fold-line {
+                width: 0;
+                height: auto;
+                background: none;
+                border-left: 2px dashed #b0a898;
+                flex-shrink: 0;
+            }
+
+            .panel {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+                padding: 0.9em 0.8em;
+                gap: 0.6em;
+            }
+
+            .panel-1,
+            .panel-2,
+            .panel-3 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Espaciado compacto para impresión */
+            .cover-big {
+                padding: 0.4em 0;
+            }
+
+            .status-card {
+                padding: 0.5em 0.7em;
+            }
+
+            .status-card ul {
+                gap: 0.1em;
+            }
+
+            .insight-item {
+                padding: 0.4em 0.6em;
+            }
+
+            .highlight-box {
+                padding: 0.6em 0.75em;
+            }
+
+            .qr-block {
+                padding: 0.35em 0.5em;
+            }
+
+            .qr-block img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .vote-cta {
+                padding: 0.6em 0.8em;
+            }
+
+            .sanction-item {
+                padding: 0.28em 0.5em;
+                margin-bottom: 0.2em;
+            }
+
+            .stat-chip {
+                padding: 0.3em 0.5em;
+            }
+
+            .stats-row {
+                gap: 0.4em;
+            }
+
+            /* Panel 2: reducir tamaño para que la sección de higiene no se corte */
+            .panel-2 {
+                font-size: 0.9em;
+            }
+
+            .panel-2 .hours-table {
+                font-size: 0.75em;
+            }
+
+            .panel-2 .rule-col {
+                font-size: 0.75em;
+                padding: 0.4em 0.6em;
+            }
+
+            .panel-2 .panel-title {
+                font-size: 1.05em;
+            }
+
+            .panel-2 .section-mini-title {
+                margin-top: 0;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .trifold-wrap {
+                flex-direction: column;
+            }
+
+            .fold-line {
+                width: 100%;
+                height: 3px;
+                background: repeating-linear-gradient(to right, var(--border) 0, var(--border) 8px, transparent 8px, transparent 16px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="print-bar">
+        <div>
+            <a href="reglamento-alberca.html">← Ver reglamento completo</a>
+            &nbsp;·&nbsp;
+            <span class="fold-hint">Imprime en carta horizontal. Dobla primero la derecha sobre el centro, luego la
+                izquierda por detrás.</span>
+        </div>
+        <button class="btn-print" onclick="window.print()">🖨️ Imprimir tríptico</button>
+    </div>
+
+    <div class="trifold-wrap">
+
+        <!-- PANEL 1: PORTADA + DATOS CLAVE -->
+        <div class="panel panel-1">
+            <div class="cover-top">
+                <img src="img/logo.png" alt="Logo RBS">
+                <div class="cover-top-text">
+                    <h2>Condominio<br>Reserva Bosque Sereno</h2>
+                    <p>Próxima asamblea · 2026</p>
+                </div>
+            </div>
+
+            <div class="cover-big">
+                <span>Punto a votación</span>
+                Reglamento de<br>la Alberca 🏊
+            </div>
+
+            <p class="panel-eyebrow">Datos clave del reglamento</p>
+
+            <div class="stats-row">
+                <div class="stat-chip"><span class="sv">50</span><span class="sl">Cap. máx. personas</span></div>
+                <div class="stat-chip"><span class="sv">6</span><span class="sl">Pulseras por unidad</span></div>
+                <div class="stat-chip"><span class="sv">12</span><span class="sl">Edad mín. sin tutor</span></div>
+            </div>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--danger);margin-bottom:-0.3em;">
+                ⚠️ Sin reglamento</p>
+            <div class="status-card bad" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li>Sin límite de ocupación: <strong>riesgo de saturación</strong></li>
+                    <li>Sin control de higiene ni vestimenta</li>
+                    <li>Sin responsabilidad clara ante incidentes</li>
+                    <li>Arrendatarios usan la alberca <strong>sin obligación de respetar nada</strong></li>
+                </ul>
+            </div>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--success);margin-bottom:-0.3em;">
+                ✅ Con el reglamento aprobado</p>
+            <div class="status-card good" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li>Aforo controlado con <strong>sistema de pulseras</strong></li>
+                    <li>Higiene y vestimenta reglamentadas</li>
+                    <li>Menores de 12 <strong>siempre con adulto</strong> responsable</li>
+                    <li>Arrendatarios pueden usar la alberca con <strong>el titular del arrendamiento presente</strong>
+                    </li>
+                    <li>Sanciones claras: de advertencia a <strong>multa de 2 a 5 veces la cuota</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- PANEL 2: HORARIOS + PERMITIDO vs PROHIBIDO -->
+        <div class="panel panel-2">
+            <p class="panel-eyebrow">Horarios y reglas de uso</p>
+            <p class="panel-title">Disfruta la alberca<br><em>con orden y seguridad.</em></p>
+
+            <p class="section-mini-title">📅 Horario de acceso</p>
+            <table class="hours-table">
+                <thead>
+                    <tr>
+                        <th>Día</th>
+                        <th>Horario</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Lunes</td>
+                        <td class="closed">CERRADA (mantenimiento)</td>
+                    </tr>
+                    <tr>
+                        <td>Martes</td>
+                        <td class="open">12:00 – 21:00</td>
+                    </tr>
+                    <tr>
+                        <td>Miércoles – Domingo</td>
+                        <td class="open">09:00 – 21:00</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="rules-section">
+                <div class="rule-row">
+                    <div class="rule-col ok">
+                        <div class="rc-title">✅ Permitido</div>
+                        <ul>
+                            <li>Traje de baño de lycra, poliéster, spandex</li>
+                            <li>Pañal acuático para bebés</li>
+                            <li>Alimentos en zonas designadas</li>
+                            <li>Visitas acompañadas por el propietario</li>
+                        </ul>
+                    </div>
+                    <div class="rule-col no">
+                        <div class="rc-title">🚫 Prohibido</div>
+                        <ul>
+                            <li>Ropa de algodón, jeans o shorts deportivos</li>
+                            <li>Comer o beber dentro o en bordes de alberca</li>
+                            <li>Recipientes de vidrio en toda el área</li>
+                            <li>Alcohol, fumar y cualquier estupefaciente</li>
+                            <li>Mascotas en la alberca y área perimetral</li>
+                            <li>Juegos bruscos, carreras y saltos</li>
+                            <li>Acceso a invitados o asistentes de eventos del salón</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <p class="section-mini-title">🧼 Requisitos de higiene</p>
+            <div class="status-card good" style="margin-top:0;">
+                <ul>
+                    <li><strong>Ducha obligatoria</strong> antes de entrar</li>
+                    <li>Esperar <strong>30 min</strong> tras aplicar bronceador o protector solar</li>
+                    <li>Prohibido entrar con heridas, vendajes o infecciones de piel</li>
+                    <li>Bebés sin control de esfínteres: <strong>pañal acuático especial</strong> obligatorio para
+                        entrar</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- PANEL 3: ACCESO + SANCIONES + CTA -->
+        <div class="panel panel-3">
+            <p class="panel-eyebrow">Acceso y sanciones</p>
+            <p class="panel-title">Reglas claras,<br><em>convivencia sana.</em></p>
+
+            <div class="highlight-box">
+                <div class="hb-title">🏷️ Sistema de pulseras</div>
+                <ul style="font-size:0.82em;line-height:1.7;list-style:none;">
+                    <li>✓ Máximo <strong>6 pulseras</strong> por unidad privativa</li>
+                    <li>✓ Manejo <strong>por casa</strong> — pulseras con <strong>colores por calle</strong> para mejor
+                        control</li>
+                    <li>✓ Aplica para mayores de <strong>5 años</strong> (menores también cuentan al aforo)</li>
+                </ul>
+            </div>
+
+            <div
+                style="background:#fff8e1;border-left:3px solid #e6ac00;border-radius:0 8px 8px 0;padding:0.5em 0.7em;font-size:0.78em;line-height:1.5;">
+                🏠 <strong>Arrendatarios:</strong> pueden usar la alberca, pero el <strong>titular del contrato de
+                    arrendamiento</strong> debe estar presente durante el acceso.
+            </div>
+
+            <p class="section-mini-title">🚨 Sanciones</p>
+            <div class="sanction-item">
+                <ul style="list-style:disc;padding-left:1.2em;display:flex;flex-direction:column;gap:0.25em;">
+                    <li><strong>Amonestación</strong> — primera infracción leve</li>
+                    <li><strong>Suspensión del acceso</strong> — infracciones repetidas o graves</li>
+                    <li><strong>Multa de 2 a 5 veces la cuota ordinaria</strong> — según gravedad</li>
+                    <li><strong>Falta de respeto al personal</strong> — sanción inmediata</li>
+                </ul>
+            </div>
+
+            <div class="insight-item">
+                <span class="ii-icon">💡</span>
+                <span>Las infracciones cometidas por invitados son <strong>responsabilidad del
+                        propietario</strong>.</span>
+            </div>
+
+            <div class="qr-block">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Ffab9015.github.io%2FRBS%2Freglamento-alberca.html"
+                    alt="QR reglamento de la alberca">
+                <div class="qr-info">
+                    <strong>📋 Reglamento completo</strong>
+                    Consulta horarios, pulseras y todas las normas de la alberca
+                    <span>fab9015.github.io/RBS</span>
+                </div>
+            </div>
+
+            <div class="vote-cta">
+                🏘️ Vota <strong>a favor de un mejor condominio</strong>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

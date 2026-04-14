@@ -1,0 +1,837 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tríptico – Área de Asadores · RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --accent: #a1b27a;
+            --accent-dark: #7a9550;
+            --accent-bg: #f0f5e8;
+            --text: #5c4033;
+            --bg: #fdfaf5;
+            --white: #fefefe;
+            --border: #e6e2dc;
+            --danger: #c0392b;
+            --danger-bg: #fdf2f2;
+            --success: #1e7e45;
+            --success-bg: #edf7f1;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #d9d5cf;
+            color: var(--text);
+        }
+
+        .print-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2em 1.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84em;
+            color: #555;
+        }
+
+        .print-bar a {
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-print {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6em 1.4em;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .btn-print:hover {
+            background: var(--accent-dark);
+        }
+
+        .fold-hint {
+            font-size: 0.78em;
+            color: #777;
+            font-style: italic;
+        }
+
+        .trifold-wrap {
+            max-width: 1200px;
+            margin: 0 auto 2em;
+            background: var(--white);
+            display: flex;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            overflow: hidden;
+            min-height: 720px;
+        }
+
+        .fold-line {
+            width: 3px;
+            flex-shrink: 0;
+            background: repeating-linear-gradient(to bottom, var(--border) 0, var(--border) 8px, transparent 8px, transparent 16px);
+        }
+
+        .panel {
+            flex: 1;
+            padding: 1.8em 1.6em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1em;
+            min-width: 0;
+        }
+
+        .panel-1 {
+            background: var(--bg);
+        }
+
+        .panel-2 {
+            background: var(--white);
+        }
+
+        .panel-3 {
+            background: var(--accent-bg);
+        }
+
+        .panel-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.66em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-dark);
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .panel-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25em;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        .panel-title em {
+            color: var(--accent-dark);
+            font-style: normal;
+        }
+
+        .cover-top {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+
+        .cover-top img {
+            width: 52px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .cover-top-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.78em;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .cover-top-text p {
+            font-size: 0.72em;
+            color: #888;
+            margin-top: 0.15em;
+        }
+
+        .cover-big {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6em;
+            color: var(--text);
+            line-height: 1.15;
+            padding: 0.6em 0;
+            border-top: 3px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .cover-big span {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 400;
+            color: #888;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.2em;
+            font-family: 'Lato', sans-serif;
+        }
+
+        .stats-row {
+            display: flex;
+            gap: 0.6em;
+            flex-wrap: wrap;
+        }
+
+        .stat-chip {
+            background: var(--accent-bg);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 0.55em 0.8em;
+            text-align: center;
+            flex: 1;
+            min-width: 70px;
+        }
+
+        .stat-chip .sv {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.1em;
+            color: var(--accent-dark);
+            display: block;
+            line-height: 1;
+        }
+
+        .stat-chip .sl {
+            font-size: 0.68em;
+            color: #666;
+            margin-top: 0.2em;
+            line-height: 1.2;
+        }
+
+        .status-card {
+            border-radius: 8px;
+            padding: 0.8em 1em;
+            font-size: 0.82em;
+            line-height: 1.5;
+        }
+
+        .status-card.bad {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+        }
+
+        .status-card.good {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success);
+        }
+
+        .status-card .sc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.92em;
+            margin-bottom: 0.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .status-card.bad .sc-title {
+            color: var(--danger);
+        }
+
+        .status-card.good .sc-title {
+            color: var(--success);
+        }
+
+        .status-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25em;
+        }
+
+        .status-card ul li {
+            padding-left: 1.3em;
+            position: relative;
+        }
+
+        .status-card ul li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .status-card.bad ul li::before {
+            content: '✗';
+            color: var(--danger);
+        }
+
+        .status-card.good ul li::before {
+            content: '✓';
+            color: var(--success);
+        }
+
+        .section-mini-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.2em;
+        }
+
+        .rule-row {
+            display: flex;
+            gap: 0.5em;
+        }
+
+        .rule-col {
+            flex: 1;
+            border-radius: 8px;
+            padding: 0.6em 0.8em;
+            font-size: 0.79em;
+            line-height: 1.5;
+        }
+
+        .rule-col.ok {
+            background: var(--success-bg);
+            border-left: 3px solid var(--success);
+        }
+
+        .rule-col.no {
+            background: var(--danger-bg);
+            border-left: 3px solid var(--danger);
+        }
+
+        .rule-col .rc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.88em;
+            margin-bottom: 0.35em;
+        }
+
+        .rule-col.ok .rc-title {
+            color: var(--success);
+        }
+
+        .rule-col.no .rc-title {
+            color: var(--danger);
+        }
+
+        .rule-col ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.2em;
+        }
+
+        .rule-col.ok ul li::before {
+            content: '✓ ';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        .rule-col.no ul li::before {
+            content: '✗ ';
+            color: var(--danger);
+            font-weight: 700;
+        }
+
+        /* Process steps */
+        .process-steps {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5em;
+            counter-reset: steps;
+        }
+
+        .step {
+            display: flex;
+            gap: 0.7em;
+            align-items: flex-start;
+            font-size: 0.82em;
+            line-height: 1.5;
+            counter-increment: steps;
+        }
+
+        .step-num {
+            background: var(--accent);
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            min-width: 1.6em;
+            height: 1.6em;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.1em;
+        }
+
+        .highlight-box {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1em;
+        }
+
+        .highlight-box .hb-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.85em;
+            color: var(--accent-dark);
+            margin-bottom: 0.5em;
+        }
+
+        .sanction-item {
+            background: white;
+            border-left: 3px solid var(--accent);
+            border-radius: 0 8px 8px 0;
+            padding: 0.5em 0.7em;
+            font-size: 0.8em;
+            line-height: 1.4;
+            margin-bottom: 0.35em;
+        }
+
+        .insight-item {
+            background: white;
+            border-radius: 8px;
+            padding: 0.7em 0.9em;
+            font-size: 0.81em;
+            line-height: 1.5;
+            display: flex;
+            gap: 0.6em;
+            align-items: flex-start;
+        }
+
+        .insight-item .ii-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+        }
+
+        .vote-cta {
+            background: var(--accent);
+            color: white;
+            border-radius: 10px;
+            padding: 1em 1.2em;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        .vote-cta span {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 0.2em;
+        }
+
+        .qr-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.65em 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 0.75em;
+        }
+
+        .qr-block img {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .qr-block .qr-info {
+            font-size: 0.76em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .qr-block .qr-info strong {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.1em;
+            font-size: 0.95em;
+        }
+
+        .qr-block .qr-info span {
+            font-size: 0.88em;
+            color: #aaa;
+            display: block;
+        }
+
+        @media print {
+            @page {
+                size: 11in 8.5in;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+            }
+
+            .print-bar {
+                display: none;
+            }
+
+            .trifold-wrap {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: unset;
+                height: 8.5in;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+            }
+
+            .fold-line {
+                width: 0;
+                height: auto;
+                background: none;
+                border-left: 2px dashed #b0a898;
+                flex-shrink: 0;
+            }
+
+            .panel {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+                padding: 0.9em 0.8em;
+                gap: 0.6em;
+            }
+
+            .panel-1,
+            .panel-2,
+            .panel-3 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Espaciado compacto para impresión */
+            .cover-big {
+                padding: 0.4em 0;
+            }
+
+            .status-card {
+                padding: 0.5em 0.7em;
+            }
+
+            .status-card ul {
+                gap: 0.1em;
+            }
+
+            .insight-item {
+                padding: 0.4em 0.6em;
+            }
+
+            .highlight-box {
+                padding: 0.6em 0.75em;
+            }
+
+            .qr-block {
+                padding: 0.35em 0.5em;
+            }
+
+            .qr-block img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .vote-cta {
+                padding: 0.6em 0.8em;
+            }
+
+            .sanction-item {
+                padding: 0.28em 0.5em;
+                margin-bottom: 0.2em;
+            }
+
+            .stat-chip {
+                padding: 0.3em 0.5em;
+            }
+
+            .stats-row {
+                gap: 0.4em;
+            }
+
+            .step {
+                gap: 0.5em;
+            }
+
+            /* Panel 2: compactar para que la caja de cancelación no se corte */
+            .panel-2 {
+                font-size: 0.88em;
+            }
+
+            .panel-2 .panel-title {
+                font-size: 1.05em;
+            }
+
+            .panel-2 .rule-col {
+                font-size: 0.74em;
+                padding: 0.4em 0.6em;
+            }
+
+            .panel-2 .rule-col ul {
+                gap: 0.15em;
+            }
+
+            .panel-2 .process-steps {
+                gap: 0.3em;
+            }
+
+            .panel-2 .step {
+                font-size: 0.82em;
+                padding: 0.25em 0.5em;
+            }
+
+            .panel-2 .step-num {
+                width: 18px;
+                height: 18px;
+                font-size: 0.8em;
+                flex-shrink: 0;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .trifold-wrap {
+                flex-direction: column;
+            }
+
+            .fold-line {
+                width: 100%;
+                height: 3px;
+                background: repeating-linear-gradient(to right, var(--border) 0, var(--border) 8px, transparent 8px, transparent 16px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="print-bar">
+        <div>
+            <a href="reglamento-asadores.html">← Ver reglamento completo</a>
+            &nbsp;·&nbsp;
+            <span class="fold-hint">Imprime en carta horizontal. Dobla primero la derecha sobre el centro, luego la
+                izquierda por detrás.</span>
+        </div>
+        <button class="btn-print" onclick="window.print()">🖨️ Imprimir tríptico</button>
+    </div>
+
+    <div class="trifold-wrap">
+
+        <!-- PANEL 1: PORTADA + DATOS CLAVE -->
+        <div class="panel panel-1">
+            <div class="cover-top">
+                <img src="img/logo.png" alt="Logo RBS">
+                <div class="cover-top-text">
+                    <h2>Condominio<br>Reserva Bosque Sereno</h2>
+                    <p>Próxima asamblea · 2026</p>
+                </div>
+            </div>
+
+            <div class="cover-big">
+                <span>Punto a votación</span>
+                Área de<br>Asadores 🔥
+            </div>
+
+            <p class="panel-eyebrow">Datos clave del reglamento</p>
+
+            <div class="stats-row">
+                <div class="stat-chip"><span class="sv">10</span><span class="sl">Personas máx. por asador</span></div>
+                <div class="stat-chip"><span class="sv">$300.00</span><span class="sl">Fianza de reserva</span></div>
+                <div class="stat-chip"><span class="sv">4 veces</span><span class="sl">Multa máx. la cuota
+                        ordinaria</span></div>
+            </div>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--danger);margin-bottom:-0.3em;">
+                ⚠️ Sin reglamento</p>
+            <div class="status-card bad" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li>Sin límite de personas por asador</li>
+                    <li>Sin control de horario de uso y entrega</li>
+                    <li>No hay forma de cobrar daños o limpieza</li>
+                    <li>Administración <strong>no puede sancionar</strong> incumplimientos</li>
+                </ul>
+            </div>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--success);margin-bottom:-0.3em;">
+                ✅ Con el reglamento aprobado</p>
+            <div class="status-card good" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li>Uso ordenado: <strong>un condómino por asador por día</strong></li>
+                    <li>Fianza de $300.00 respaldada por <strong>responsiva firmada</strong> — cubre limpieza y daños
+                    </li>
+                    <li>Entrega verificada con <strong>checklist de revisión</strong> junto con vigilancia</li>
+                    <li>Cancelación: mín. <strong>24 horas antes</strong>, en horario de administración</li>
+                    <li>Sanciones: <strong>hasta 4 veces la cuota ordinaria</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- PANEL 2: REGLAS DE USO -->
+        <div class="panel panel-2">
+            <p class="panel-eyebrow">Reglas de uso del área</p>
+            <p class="panel-title">Disfruta el asador<br><em>respetando a todos.</em></p>
+
+            <div
+                style="background: var(--accent-bg); border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; padding: 0.7em 1em; font-size: 0.83em; line-height: 1.5;">
+                🕘 <strong>Horario:</strong> 9:00 AM – 9:00 PM · Entrega a vigilancia al finalizar<br>
+                👥 <strong>Máximo 10 personas</strong> por asador reservado<br>
+                🏠 <strong>Solo un condómino</strong> por asador por día (no se comparte)
+            </div>
+
+            <div class="rule-row">
+                <div class="rule-col ok">
+                    <div class="rc-title">✅ Permitido</div>
+                    <ul>
+                        <li>Consumo moderado de alcohol</li>
+                        <li>Música a volumen moderado</li>
+                        <li>1 carpa (3×3 m máx.) junto al asador propio</li>
+                        <li>Mascotas con correa y limpiando sus desechos</li>
+                    </ul>
+                </div>
+                <div class="rule-col no">
+                    <div class="rc-title">🚫 Prohibido</div>
+                    <ul>
+                        <li>Recipientes de vidrio o botellas</li>
+                        <li>Confeti, espumas, cañones de pólvora</li>
+                        <li>Asadores o parrillas adicionales</li>
+                        <li>Tanques de gas o equipo de cocina extra</li>
+                        <li>Fuego fuera del asador asignado</li>
+                        <li>Tirar basura fuera de áreas designadas</li>
+                        <li>Estupefacientes o drogas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <p class="section-mini-title">📋 Proceso de reserva y entrega</p>
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-num">1</div><span>Estar al corriente en cuotas y multas</span>
+                </div>
+                <div class="step">
+                    <div class="step-num">2</div><span>Pagar <strong>fianza de $300.00</strong> y firmar la
+                        <strong>responsiva de fianza</strong></span>
+                </div>
+                <div class="step">
+                    <div class="step-num">3</div><span>Recibir el <strong>checklist de revisión</strong> y verificar
+                        estado inicial con vigilancia</span>
+                </div>
+                <div class="step">
+                    <div class="step-num">4</div><span>Usar el asador dentro del horario (9:00–21:00)</span>
+                </div>
+                <div class="step">
+                    <div class="step-num">5</div><span>Limpiar área, retirar basura y entregar a vigilancia con el
+                        <strong>checklist final</strong></span>
+                </div>
+            </div>
+            <div
+                style="background:#fdf2f2;border-left:3px solid var(--danger);border-radius:0 6px 6px 0;padding:0.5em 0.7em;font-size:0.78em;color:#555;line-height:1.5;margin-top:0.2em;">
+                ❌ <strong>Cancelación:</strong> mínimo <strong>24 horas antes</strong>, en horario de
+                administración.<br>
+                Cancelaciones fuera de este plazo pierden la <strong>fianza</strong>.
+            </div>
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- PANEL 3: CHECKLIST + SANCIONES + CTA -->
+        <div class="panel panel-3">
+            <p class="panel-eyebrow">Entrega y sanciones</p>
+            <p class="panel-title">La fianza te<br><em>protege a ti también.</em></p>
+
+            <div class="highlight-box">
+                <div class="hb-title">📑 Dos documentos te respaldan</div>
+                <ul style="font-size:0.82em;line-height:1.7;list-style:none;">
+                    <li><strong>1. Checklist de revisión</strong> — lo recibes al reservar. Vigilancia revisa al inicio
+                        y al final.</li>
+                    <li><strong>2. Responsiva de fianza</strong> — firmada por ti; explica cuándo no se devuelve la
+                        fianza.</li>
+                </ul>
+            </div>
+
+            <div style="background:white;border:1px solid var(--border);border-radius:8px;padding:0.6em 0.8em;">
+                <div
+                    style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--accent-dark);margin-bottom:0.35em;">
+                    ☑️ Al entregar, debes dejar:</div>
+                <ul
+                    style="font-size:0.78em;line-height:1.6;list-style:none;display:flex;flex-direction:column;gap:0.15em;">
+                    <li>✓ Asador y parrilla limpios, <strong>sin residuos de carbón</strong></li>
+                    <li>✓ Toda la basura generada retirada</li>
+                    <li>✓ Checklist firmado y entregado a vigilancia</li>
+                </ul>
+            </div>
+
+            <p class="section-mini-title">💰 ¿Qué pasa con la fianza?</p>
+            <div class="sanction-item">
+                <ul style="list-style:none;display:flex;flex-direction:column;gap:0.4em;">
+                    <li>✅ Si entregas en buen estado: <strong>recuperas la fianza completa</strong></li>
+                    <li>🧹 Si hay suciedad o daños menores: se descuenta del depósito de $300.00</li>
+                    <li>⚠️ Si el daño supera la fianza: el <strong>excedente se agrega al recibo mensual</strong></li>
+                </ul>
+            </div>
+
+            <p class="section-mini-title">🚨 Sanciones por incumplimiento</p>
+            <div class="sanction-item">
+                <ul
+                    style="list-style:disc;padding-left:1.2em;margin-top:0.4em;display:flex;flex-direction:column;gap:0.25em;">
+                    <li><strong>Multa directa:</strong> hasta <strong>4 veces la cuota ordinaria mensual</strong></li>
+                    <li>Conductas contra el orden público o daños a instalaciones: <strong>responsabilidad plena del
+                            titular</strong></li>
+                    <li>El propietario es <strong>completamente responsable</strong> de sus invitados durante el uso del
+                        área</li>
+                </ul>
+                <div style="font-size:0.85em;color:#999;margin-top:0.3em;">Conforme a CAP. III, ART. 105, FRACC. II,
+                    INCISO L</div>
+            </div>
+
+            <div class="qr-block">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Ffab9015.github.io%2FRBS%2Freglamento-asadores.html"
+                    alt="QR reglamento de asadores">
+                <div class="qr-info">
+                    <strong>📋 Reglamento completo</strong>
+                    Consulta el proceso de reserva, fianza y todas las normas
+                    <span>fab9015.github.io/RBS</span>
+                </div>
+            </div>
+
+            <div class="vote-cta">
+                🏘️ Vota <strong>a favor de un mejor condominio</strong>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

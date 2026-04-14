@@ -23,6 +23,9 @@ const sources = {
     EMBEDDED_FAQ: 'faq.json',
     EMBEDDED_GASTOS_EXTRAORDINARIAS: 'control-gastos-cuotas-extraordinarias.json',
     EMBEDDED_MASCOTAS: 'padron-mascotas.json',
+    EMBEDDED_ASAMBLEAS: 'asambleas.json',
+    EMBEDDED_TRANSPARENCIA: 'transparencia.json',
+    EMBEDDED_TUTORIALES: 'tutoriales.json',
 };
 
 const lines = [

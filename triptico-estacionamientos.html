@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tríptico – Reglamento de Estacionamientos · RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Lato:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <style>
+        /* ── Variables ─────────────────────────────────────── */
+        :root {
+            --accent: #a1b27a;
+            --accent-dark: #7a9550;
+            --accent-bg: #f0f5e8;
+            --text: #5c4033;
+            --bg: #fdfaf5;
+            --white: #fefefe;
+            --border: #e6e2dc;
+            --danger: #c0392b;
+            --danger-bg: #fdf2f2;
+            --success: #1e7e45;
+            --success-bg: #edf7f1;
+            --gold: #e67e22;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background: #d9d5cf;
+            color: var(--text);
+        }
+
+        /* ── Print bar (screen only) ───────────────────────── */
+        .print-bar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.2em 1.5em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.84em;
+            color: #555;
+        }
+
+        .print-bar a {
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-decoration: none;
+        }
+
+        .btn-print {
+            background: var(--accent);
+            color: white;
+            border: none;
+            padding: 0.6em 1.4em;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.9em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            transition: background 0.15s;
+        }
+
+        .btn-print:hover {
+            background: var(--accent-dark);
+        }
+
+        .fold-hint {
+            font-size: 0.78em;
+            color: #777;
+            font-style: italic;
+        }
+
+        /* ── Trifold wrapper ───────────────────────────────── */
+        .trifold-wrap {
+            max-width: 1200px;
+            margin: 0 auto 2em;
+            background: var(--white);
+            display: flex;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+            border-radius: 6px;
+            overflow: hidden;
+            min-height: 720px;
+        }
+
+        /* ── Fold lines ────────────────────────────────────── */
+        .fold-line {
+            width: 3px;
+            flex-shrink: 0;
+            background: repeating-linear-gradient(to bottom,
+                    var(--border) 0, var(--border) 8px,
+                    transparent 8px, transparent 16px);
+        }
+
+        /* ── Panels ────────────────────────────────────────── */
+        .panel {
+            flex: 1;
+            padding: 1.8em 1.6em;
+            display: flex;
+            flex-direction: column;
+            gap: 1.1em;
+            min-width: 0;
+        }
+
+        .panel-1 {
+            background: var(--bg);
+        }
+
+        .panel-2 {
+            background: var(--white);
+        }
+
+        .panel-3 {
+            background: var(--accent-bg);
+        }
+
+        /* ── Panel headers ─────────────────────────────────── */
+        .panel-eyebrow {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.66em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent-dark);
+            padding-bottom: 0.5em;
+            border-bottom: 2px solid var(--accent);
+        }
+
+        .panel-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.25em;
+            line-height: 1.25;
+            color: var(--text);
+        }
+
+        .panel-title em {
+            color: var(--accent-dark);
+            font-style: normal;
+        }
+
+        /* ── Panel 1: Cover ────────────────────────────────── */
+        .cover-top {
+            display: flex;
+            align-items: center;
+            gap: 0.8em;
+        }
+
+        .cover-top img {
+            width: 52px;
+            height: auto;
+            flex-shrink: 0;
+        }
+
+        .cover-top-text h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.78em;
+            color: var(--text);
+            line-height: 1.3;
+        }
+
+        .cover-top-text p {
+            font-size: 0.72em;
+            color: #888;
+            margin-top: 0.15em;
+        }
+
+        .cover-big {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.6em;
+            color: var(--text);
+            line-height: 1.15;
+            padding: 0.6em 0;
+            border-top: 3px solid var(--accent);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        .cover-big span {
+            display: block;
+            font-size: 0.6em;
+            font-weight: 400;
+            color: #888;
+            letter-spacing: 0.04em;
+            margin-bottom: 0.2em;
+            font-family: 'Lato', sans-serif;
+        }
+
+        /* Status cards */
+        .status-card {
+            border-radius: 8px;
+            padding: 0.8em 1em;
+            font-size: 0.82em;
+            line-height: 1.5;
+        }
+
+        .status-card.bad {
+            background: var(--danger-bg);
+            border-left: 4px solid var(--danger);
+        }
+
+        .status-card.good {
+            background: var(--success-bg);
+            border-left: 4px solid var(--success);
+        }
+
+        .status-card .sc-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.92em;
+            margin-bottom: 0.5em;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+        }
+
+        .status-card.bad .sc-title {
+            color: var(--danger);
+        }
+
+        .status-card.good .sc-title {
+            color: var(--success);
+        }
+
+        .status-card ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25em;
+        }
+
+        .status-card ul li {
+            padding-left: 1.3em;
+            position: relative;
+        }
+
+        .status-card ul li::before {
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+        }
+
+        .status-card.bad ul li::before {
+            content: '✗';
+            color: var(--danger);
+        }
+
+        .status-card.good ul li::before {
+            content: '✓';
+            color: var(--success);
+        }
+
+        /* ── Panel 2: Comparison ───────────────────────────── */
+        .cmp-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.79em;
+        }
+
+        .cmp-table thead th {
+            padding: 0.5em 0.6em;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.88em;
+            text-align: center;
+        }
+
+        .cmp-table thead .th-label {
+            text-align: left;
+            background: #f4f3ef;
+            color: var(--text);
+        }
+
+        .cmp-table thead .th-sin {
+            background: #fce8e8;
+            color: var(--danger);
+        }
+
+        .cmp-table thead .th-con {
+            background: #d4edda;
+            color: var(--success);
+        }
+
+        .cmp-table tbody td {
+            padding: 0.5em 0.6em;
+            border-bottom: 1px solid var(--border);
+            vertical-align: middle;
+        }
+
+        .cmp-table tbody .td-label {
+            font-weight: 700;
+            color: var(--text);
+            font-size: 0.92em;
+        }
+
+        .cmp-table tbody .td-sin {
+            background: #fffafa;
+            color: #922;
+            text-align: center;
+        }
+
+        .cmp-table tbody .td-con {
+            background: #f5fbf0;
+            color: var(--success);
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Zone count list */
+        .zone-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .zone-row {
+            display: flex;
+            align-items: center;
+            gap: 0.6em;
+            font-size: 0.81em;
+            padding: 0.38em 0.4em;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .zone-row:last-child {
+            border-bottom: none;
+        }
+
+        .zone-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+        }
+
+        .zone-name {
+            flex: 1;
+        }
+
+        .zone-count {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 1em;
+        }
+
+        .zone-total-row {
+            background: var(--accent);
+            color: white;
+            border-radius: 0 0 6px 6px;
+            padding: 0.4em 0.6em;
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.82em;
+        }
+
+        .section-mini-title {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.8em;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.3em;
+        }
+
+        /* ── Panel 3: Benefits ─────────────────────────────── */
+        .big-money {
+            background: var(--accent-bg);
+            border: 2px solid var(--accent);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 1.4em 1.2em;
+            text-align: center;
+        }
+
+        .big-money .bm-eyebrow {
+            font-size: 0.72em;
+            color: var(--accent-dark);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.3em;
+        }
+
+        .big-money .bm-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.8em;
+            color: var(--accent-dark);
+            line-height: 1;
+            letter-spacing: -0.01em;
+        }
+
+        .big-money .bm-suffix {
+            font-size: 0.85em;
+            color: var(--text);
+            opacity: 0.75;
+            margin-top: 0.25em;
+        }
+
+        .calc-breakdown {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3em;
+        }
+
+        .calc-row {
+            background: white;
+            border-radius: 6px;
+            padding: 0.6em 0.9em;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.82em;
+            border-left: 3px solid var(--accent);
+        }
+
+        .calc-row .cval {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            color: var(--accent-dark);
+        }
+
+        .per-house {
+            background: white;
+            border: 2px solid var(--accent);
+            border-radius: 10px;
+            padding: 1em 0.8em;
+            text-align: center;
+        }
+
+        .per-house .ph-label {
+            font-size: 0.75em;
+            color: #777;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .per-house .ph-amount {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.4em;
+            color: var(--text);
+            display: block;
+            margin: 0.15em 0 0.1em;
+            line-height: 1;
+        }
+
+        .per-house .ph-sub {
+            font-size: 0.78em;
+            color: var(--accent-dark);
+            font-weight: 700;
+            line-height: 1.4;
+        }
+
+        .insight-item {
+            background: white;
+            border-radius: 8px;
+            padding: 0.7em 0.9em;
+            font-size: 0.81em;
+            line-height: 1.5;
+            display: flex;
+            gap: 0.6em;
+            align-items: flex-start;
+        }
+
+        .insight-item .ii-icon {
+            font-size: 1.1em;
+            flex-shrink: 0;
+            margin-top: 0.05em;
+        }
+
+        .vote-cta {
+            background: var(--accent);
+            color: white;
+            border-radius: 10px;
+            padding: 1em 1.2em;
+            text-align: center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 0.95em;
+            line-height: 1.4;
+            margin-top: auto;
+        }
+
+        .vote-cta span {
+            display: block;
+            font-size: 1.5em;
+            margin-bottom: 0.2em;
+        }
+
+        .qr-block {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.65em 0.8em;
+            display: flex;
+            align-items: center;
+            gap: 0.75em;
+        }
+
+        .qr-block img {
+            width: 72px;
+            height: 72px;
+            flex-shrink: 0;
+            border-radius: 4px;
+        }
+
+        .qr-block .qr-info {
+            font-size: 0.76em;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        .qr-block .qr-info strong {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text);
+            display: block;
+            margin-bottom: 0.1em;
+            font-size: 0.95em;
+        }
+
+        .qr-block .qr-info span {
+            font-size: 0.88em;
+            color: #aaa;
+            display: block;
+        }
+
+        /* ── Print styles ──────────────────────────────────── */
+        @media print {
+            @page {
+                size: 11in 8.5in;
+                margin: 0;
+            }
+
+            body {
+                background: white;
+            }
+
+            .print-bar {
+                display: none;
+            }
+
+            .trifold-wrap {
+                max-width: 100%;
+                width: 100%;
+                margin: 0;
+                border-radius: 0;
+                box-shadow: none;
+                min-height: unset;
+                height: 8.5in;
+                display: flex;
+                flex-direction: row;
+                overflow: hidden;
+            }
+
+            .fold-line {
+                width: 0;
+                height: auto;
+                background: none;
+                border-left: 2px dashed #b0a898;
+                flex-shrink: 0;
+            }
+
+            .panel {
+                flex: 1;
+                min-width: 0;
+                overflow: hidden;
+                padding: 0.9em 0.8em;
+                gap: 0.6em;
+            }
+
+            .panel-1,
+            .panel-2,
+            .panel-3 {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            /* Espaciado compacto para impresión */
+            .cover-big {
+                padding: 0.4em 0;
+            }
+
+            .status-card {
+                padding: 0.5em 0.7em;
+            }
+
+            .status-card ul {
+                gap: 0.1em;
+            }
+
+            .insight-item {
+                padding: 0.4em 0.6em;
+            }
+
+            .highlight-box {
+                padding: 0.6em 0.75em;
+            }
+
+            .qr-block {
+                padding: 0.35em 0.5em;
+            }
+
+            .qr-block img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .vote-cta {
+                padding: 0.6em 0.8em;
+            }
+
+            .sanction-item {
+                padding: 0.28em 0.5em;
+                margin-bottom: 0.2em;
+            }
+
+            .stat-chip {
+                padding: 0.3em 0.5em;
+            }
+
+            .oblig-item {
+                padding: 0.45em 0.7em;
+            }
+
+            .big-money {
+                padding: 0.7em;
+            }
+
+            .calc-breakdown {
+                gap: 0;
+            }
+
+            .calc-row {
+                padding: 0.3em 0.5em;
+            }
+
+            .per-house {
+                padding: 0.6em 0.8em;
+            }
+        }
+
+        /* ── Responsive (screen): stack below 900px ────────── */
+        @media screen and (max-width: 900px) {
+            .trifold-wrap {
+                flex-direction: column;
+            }
+
+            .fold-line {
+                width: 100%;
+                height: 3px;
+                background: repeating-linear-gradient(to right,
+                        var(--border) 0, var(--border) 8px,
+                        transparent 8px, transparent 16px);
+            }
+
+            .panel {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ── Print bar (screen only) ─────────────────────────── -->
+    <div class="print-bar">
+        <div>
+            <a href="reglamento-estacionamientos.html">← Ver reglamento completo</a>
+            &nbsp;·&nbsp;
+            <span class="fold-hint">Para imprimir: usa hoja carta horizontal (landscape). Dobla primero la derecha sobre
+                el centro, luego la izquierda por detrás.</span>
+        </div>
+        <button class="btn-print" onclick="window.print()">🖨️ Imprimir tríptico</button>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════
+         TRIFOLD
+    ═══════════════════════════════════════════════════════ -->
+    <div class="trifold-wrap">
+
+        <!-- ████████  PANEL 1  ████████ -->
+        <!-- PORTADA / SITUACIÓN HOY -->
+        <div class="panel panel-1">
+
+            <div class="cover-top">
+                <img src="img/logo.png" alt="Logo RBS">
+                <div class="cover-top-text">
+                    <h2>Condominio<br>Reserva Bosque Sereno</h2>
+                    <p>Próxima asamblea · 2026</p>
+                </div>
+            </div>
+
+            <div class="cover-big">
+                <span>Punto a votación</span>
+                Reglamento de<br>Estacionamientos
+            </div>
+
+            <p class="panel-eyebrow">¿Por qué necesitamos aprobarlo?</p>
+
+            <p style="font-size:0.84em;line-height:1.6;color:#666;">
+                El reglamento propuesto es una <strong>mejora clara</strong> respecto al vigente.
+                Queremos que sea aprobado por sus beneficios. Sin embargo, si no se aprueba,
+                lamentablemente la administración tendrá que retomar y aplicar el reglamento actual
+                tal como está — algo que afectaría a muchos vecinos.
+            </p>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--danger);margin-bottom:-0.3em;">
+                ⚠️ Reglamento actual</p>
+            <div class="status-card bad" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li>Solo <strong>24 lugares</strong> de visitas habilitados formalmente</li>
+                    <li>Todos los demás espacios están señalizados como <strong>zonas de no estacionarse</strong> — no
+                        hay lugares libres reconocidos para nadie</li>
+                    <li>Cuando se aplique, todos los vehículos en <strong>lugares no permitidos serán
+                            sancionados</strong></li>
+                    <li>No genera ningún ingreso para el condominio: <strong>$0.00</strong></li>
+                </ul>
+            </div>
+
+            <p
+                style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82em;color:var(--success);margin-bottom:-0.3em;">
+                ✅ Reglamento propuesto</p>
+            <div class="status-card good" style="border-top-left-radius:0;border-top-right-radius:4px;">
+                <ul>
+                    <li><strong>150 lugares señalizados*</strong></li>
+                    <li><strong>37 cajones de visitas*</strong></li>
+                    <li>Sistema de <strong>tarjetones por color con reglas claras</strong></li>
+                    <li>44 cajones de cuota que generan <strong>ingresos</strong> al condominio</li>
+                </ul>
+            </div>
+            <p style="font-size:0.75em;color:#777;margin-top:0.5em;">* Número aproximado; se ajustará una vez que se
+                señalicen físicamente los lugares.</p>
+
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- ████████  PANEL 2  ████████ -->
+        <!-- COMPARACIÓN + DISTRIBUCIÓN DE ESPACIOS -->
+        <div class="panel panel-2">
+
+            <p class="panel-eyebrow">La diferencia que hace un reglamento</p>
+            <p class="panel-title">Reglamento actual vs nuevo:<br><em>tú decides...</em></p>
+
+            <table class="cmp-table">
+                <thead>
+                    <tr>
+                        <th class="th-label">Aspecto</th>
+                        <th class="th-sin">📋 Reglamento actual</th>
+                        <th class="th-con">✅ Nuevo reglamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="td-label">Lugares habilitados</td>
+                        <td class="td-sin">24</td>
+                        <td class="td-con">150*</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">Identificación vehicular</td>
+                        <td class="td-sin">Ninguna</td>
+                        <td class="td-con">Tarjetón por color y casa</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">¿Se pueden sancionar abusos?</td>
+                        <td class="td-sin">Sí, pero con criterios rígidos</td>
+                        <td class="td-con">Sí, multa directa clara</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">Límite por vivienda</td>
+                        <td class="td-sin">Sin límite</td>
+                        <td class="td-con">Máx. 3 (2 cochera + 1 extra/casa)</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">Cajones de cuota</td>
+                        <td class="td-sin">0</td>
+                        <td class="td-con">44* (Máx 1/casa)</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">Cajones de visitas</td>
+                        <td class="td-sin">24</td>
+                        <td class="td-con">37*</td>
+                    </tr>
+                    <tr>
+                        <td class="td-label">Ingreso mensual máximo para el condominio</td>
+                        <td class="td-sin">$0.00</td>
+                        <td class="td-con">$19,800.00 / mes</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="section-mini-title">Distribución de espacios por sección/color con el nuevo reglamento</p>
+
+            <div style="border:1px solid var(--border);border-radius:6px;overflow:hidden;">
+                <div class="zone-list">
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#78716c;"></div>
+                        <div class="zone-name">Cocheras privadas</div>
+                        <div class="zone-count" style="color:#78716c;">888</div>
+                    </div>
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#2563eb;"></div>
+                        <div class="zone-name">Condóminos libres (azul)</div>
+                        <div class="zone-count" style="color:#2563eb;">46*</div>
+                    </div>
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#16a34a;"></div>
+                        <div class="zone-name">Visitas (verde)</div>
+                        <div class="zone-count" style="color:#16a34a;">37*</div>
+                    </div>
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#dc2626;"></div>
+                        <div class="zone-name">Salón de eventos (rojo)</div>
+                        <div class="zone-count" style="color:#dc2626;">22*</div>
+                    </div>
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#eab308;"></div>
+                        <div class="zone-name">Proveedores (amarillo)</div>
+                        <div class="zone-count" style="color:#a08000;">3*</div>
+                    </div>
+                    <div class="zone-row">
+                        <div class="zone-dot" style="background:#1a1a1a;border:2px solid #999;"></div>
+                        <div class="zone-name"><strong>Cuota mensual (negro)</strong></div>
+                        <div class="zone-count" style="color:var(--text);">44*</div>
+                    </div>
+                </div>
+                <div class="zone-total-row" style="-webkit-print-color-adjust:exact;print-color-adjust:exact;">
+                    <span>TOTAL de lugares</span>
+                    <span>1,040*</span>
+                </div>
+            </div>
+
+            <div class="qr-block">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Ffab9015.github.io%2FRBS%2Fmapa-estacionamientos.html"
+                    alt="QR mapa de estacionamientos">
+                <div class="qr-info">
+                    <strong>🗺️ Mapa de estacionamientos</strong>
+                    Plano interactivo con todos los cajones del condominio
+                    <span>fab9015.github.io/RBS</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="fold-line"></div>
+
+        <!-- ████████  PANEL 3  ████████ -->
+        <!-- BENEFICIO ECONÓMICO + CTA -->
+        <div class="panel panel-3">
+
+            <p class="panel-eyebrow">Beneficio económico directo</p>
+            <p class="panel-title">Una <em>cuota extraordinaria</em><br>que no le cuesta a nadie.</p>
+
+            <div class="big-money">
+                <div class="bm-eyebrow">Ingreso anual máximo estimado para el condominio</div>
+                <div class="bm-amount">$237,600.00</div>
+                <div class="bm-suffix">pesos MXN por año (si todos los cajones están rentados)</div>
+            </div>
+
+            <div class="calc-breakdown">
+                <div class="calc-row">
+                    <span>44 cajones negros (cuota)</span>
+                    <span class="cval">×&nbsp;44</span>
+                </div>
+                <div class="calc-row">
+                    <span>Precio mensual por cajón</span>
+                    <span class="cval">$450.00 / mes</span>
+                </div>
+                <div class="calc-row">
+                    <span>Meses al año</span>
+                    <span class="cval">× 12</span>
+                </div>
+                <div class="calc-row" style="border-left-color:var(--text);">
+                    <span><strong>Total anual máximo</strong></span>
+                    <span class="cval" style="color:var(--text);font-size:1.05em;">$237,600.00</span>
+                </div>
+            </div>
+
+            <div class="per-house">
+                <div class="ph-label">Equivale a una cuota extraordinaria de</div>
+                <span class="ph-amount">$535.00</span>
+                <div class="ph-sub">por vivienda · por año<br>
+                    <span style="font-weight:400;color:#888;font-size:0.92em;">sin cobrar un peso a los
+                        condóminos</span>
+                </div>
+            </div>
+
+            <div class="insight-item">
+                <span class="ii-icon">💡</span>
+                <span>Quienes rentan un cajón siempre tendrán su espacio garantizado para estacionarse; el
+                    condominio recibe recursos adicionales para proyectos.
+                    <p
+                        style="text-align:center;font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05em;color:var(--accent-dark);margin:0.6em 0 0.2em;">
+                        Un ganar–ganar.</p>
+                </span>
+
+            </div>
+
+            <div class="insight-item">
+                <span class="ii-icon">🛡️</span>
+                <span>Con la aprobación del reglamento propuesto, la administración puede <strong>actuar, notificar y
+                        multar</strong> cualquier abuso de una forma clara.</span>
+            </div>
+
+            <div class="qr-block">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https%3A%2F%2Ffab9015.github.io%2FRBS%2Freglamento-estacionamientos.html"
+                    alt="QR reglamento de estacionamientos">
+                <div class="qr-info">
+                    <strong>📋 Reglamento completo</strong>
+                    Consulta todas las normas y criterios de asignación
+                    <span>fab9015.github.io/RBS</span>
+                </div>
+            </div>
+
+            <div class="vote-cta">
+                🏘️ Vota <strong>a favor de un mejor condominio</strong>
+            </div>
+
+        </div>
+
+    </div><!-- /trifold-wrap -->
+
+</body>
+
+</html>

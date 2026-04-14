@@ -1,0 +1,48 @@
+{
+    "asambleas": [
+        {
+            "year": 2026,
+            "status": "active",
+            "badgeLabel": "Próxima",
+            "title": "Asamblea General de Condóminos",
+            "desc": "Agenda oficial con todos los puntos a votar, reglamentos propuestos y temas a tratar en la próxima asamblea.",
+            "mainLink": {
+                "url": "orden-del-dia-asamblea.html",
+                "label": "📋 Ver Orden del Día",
+                "disabled": true
+            },
+            "sublinksLabel": "Mesas de trabajo preparatorias",
+            "sublinks": [
+                {
+                    "icon": "🔧",
+                    "label": "Mesa de Trabajo 2 — 1 de abril 2026",
+                    "url": "orden-del-dia-mesa-trabajo-2.html"
+                },
+                {
+                    "icon": "🔧",
+                    "label": "Mesa de Trabajo 1 — 18 de marzo 2026",
+                    "url": "orden-del-dia-mesa-trabajo-1.html"
+                }
+            ]
+        },
+        {
+            "year": 2025,
+            "status": "past",
+            "badgeLabel": "Realizada",
+            "title": "Asamblea 2025",
+            "desc": "Resoluciones aprobadas, reglas del juego, encuesta de aceptación y accesos rápidos de la asamblea anterior.",
+            "mainLink": {
+                "url": "menu-accesos-rapidos.html",
+                "label": "Ver resoluciones"
+            },
+            "sublinksLabel": "Trabajos relacionados",
+            "sublinks": [
+                {
+                    "icon": "📊",
+                    "label": "Informe de mesa de trabajo",
+                    "url": "informe-mesa-trabajo.html"
+                }
+            ]
+        }
+    ]
+}

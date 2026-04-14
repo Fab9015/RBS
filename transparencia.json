@@ -1,0 +1,25 @@
+{
+    "items": [
+        {
+            "emoji": "💰",
+            "title": "Control de Gastos — Cuotas Extraordinarias",
+            "desc": "Seguimiento detallado del gasto ejercido con fondos de cuotas extraordinarias — KPIs y avance en tiempo real.",
+            "url": "control-gastos-cuotas-extraordinarias.html",
+            "cta": "Ver tablero →"
+        },
+        {
+            "emoji": "🏆",
+            "title": "Logros y Avances",
+            "desc": "Todo lo que hemos alcanzado juntos como condominio — mejoras, proyectos completados y metas cumplidas.",
+            "url": "logros.html",
+            "cta": "Ver logros →"
+        },
+        {
+            "emoji": "📅",
+            "title": "Pagos Adelantados",
+            "desc": "Información sobre opciones de pago anticipado para vecinos y beneficios disponibles.",
+            "url": "pagos-adelantados.html",
+            "cta": "Ver opciones →"
+        }
+    ]
+}

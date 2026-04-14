@@ -269,7 +269,7 @@
                 faqs = Array.isArray(json.faqs) ? json.faqs : [];
             } catch (e) {
                 console.warn('No se pudo cargar faq.json, using centralized EMBEDDED_FAQ', e);
-                faqs = Array.isArray(window.EMBEDDED_FAQ) ? window.EMBEDDED_FAQ : [];
+                faqs = (window.EMBEDDED_FAQ && Array.isArray(window.EMBEDDED_FAQ.faqs)) ? window.EMBEDDED_FAQ.faqs : [];
             }
             renderFaq(faqs);
         }

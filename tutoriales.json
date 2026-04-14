@@ -1,0 +1,36 @@
+{
+    "tutoriales": [
+        {
+            "emoji": "📲",
+            "type": "Paso a paso",
+            "title": "Generar QR para visitas",
+            "desc": "Cómo crear códigos QR desde Condovive para que tus visitas accedan de forma rápida y segura.",
+            "url": "qr-condovive.html",
+            "cta": "Ver tutorial →"
+        },
+        {
+            "emoji": "🎬",
+            "type": "Videos",
+            "title": "Videos Condovive",
+            "desc": "Videos explicativos sobre el uso de la plataforma y cómo se aplican las cuotas mensuales.",
+            "url": "condovive.html",
+            "cta": "Ver videos →"
+        }
+    ],
+    "documentos": [
+        {
+            "fileType": "PDF",
+            "title": "Convenio Reserva Bosque Sereno",
+            "desc": "Convenio oficial del condominio",
+            "url": "files/CONVENIO%20RESERVA%20BOSQUE%20SERENO.pdf",
+            "target": "_blank"
+        },
+        {
+            "fileType": "PDF",
+            "title": "Reglamento Interno",
+            "desc": "Documento protocolizado del reglamento del condominio",
+            "url": "files/reglamento_protocolizado.pdf",
+            "target": "_blank"
+        }
+    ]
+}

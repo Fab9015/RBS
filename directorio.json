@@ -76,7 +76,7 @@
     },
     {
       "categoria": "Carpintero",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Servicios de limpieza",
@@ -100,11 +100,11 @@
     },
     {
       "categoria": "Aluminero",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Persianas",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Lavado de muebles",
@@ -116,7 +116,7 @@
     },
     {
       "categoria": "Tiendas de abarrotes",
-      "activo": false
+      "activo": true
     }
   ],
   "trabajadores": [

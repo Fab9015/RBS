@@ -80,7 +80,7 @@ window.EMBEDDED_DIRECTORIO = {
     },
     {
       "categoria": "Carpintero",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Servicios de limpieza",
@@ -104,11 +104,11 @@ window.EMBEDDED_DIRECTORIO = {
     },
     {
       "categoria": "Aluminero",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Persianas",
-      "activo": true
+      "activo": false
     },
     {
       "categoria": "Lavado de muebles",
@@ -120,7 +120,7 @@ window.EMBEDDED_DIRECTORIO = {
     },
     {
       "categoria": "Tiendas de abarrotes",
-      "activo": false
+      "activo": true
     }
   ],
   "trabajadores": [
@@ -5177,7 +5177,7 @@ window.EMBEDDED_BLOG = {
       "date": "1 de abril de 2026",
       "time": "19:00 horas",
       "place": "Salón de Usos Múltiples",
-      "activo": true
+      "activo": false
     },
     {
       "title": "Primer mesa de trabajo",
@@ -5206,23 +5206,13 @@ window.EMBEDDED_MENU = {
       "target": "_self"
     },
     {
-      "title": "Mesa de Trabajo 2 – Orden del Día",
-      "url": "orden-del-dia-mesa-trabajo-2.html",
+      "title": "Asambleas",
+      "url": "asambleas.html",
       "target": "_self"
     },
     {
-      "title": "Mesa de Trabajo 1 – Orden del Día",
-      "url": "orden-del-dia-mesa-trabajo-1.html",
-      "target": "_self"
-    },
-    {
-      "title": "Control de Gastos - Cuotas Extraordinarias",
-      "url": "control-gastos-cuotas-extraordinarias.html",
-      "target": "_self"
-    },
-    {
-      "title": "Logros y Avances",
-      "url": "logros.html",
+      "title": "Transparencia",
+      "url": "transparencia.html",
       "target": "_self"
     },
     {
@@ -5236,8 +5226,8 @@ window.EMBEDDED_MENU = {
       "target": "_blank"
     },
     {
-      "title": "Tutorial - Generar QR para visitas desde Condovive",
-      "url": "qr-condovive.html",
+      "title": "Tutoriales y Documentos",
+      "url": "tutoriales.html",
       "target": "_self"
     },
     {
@@ -5249,16 +5239,6 @@ window.EMBEDDED_MENU = {
       "title": "Reglamento Interno",
       "url": "files/reglamento_protocolizado.pdf",
       "target": "_blank"
-    },
-    {
-      "title": "Asamblea 2025",
-      "url": "menu-accesos-rapidos.html",
-      "target": "_self"
-    },
-    {
-      "title": "Pagos Adelantados",
-      "url": "pagos-adelantados.html",
-      "target": "_self"
     }
   ]
 };
@@ -6647,6 +6627,118 @@ window.EMBEDDED_MASCOTAS = {
       "color": "Plateado",
       "direccion": "Sakura 5",
       "imagen": "https://images.dog.ceo/breeds/poodle-standard/n02113799_4190.jpg"
+    }
+  ]
+};
+
+window.EMBEDDED_ASAMBLEAS = {
+  "asambleas": [
+    {
+      "year": 2026,
+      "status": "active",
+      "badgeLabel": "Próxima",
+      "title": "Asamblea General de Condóminos",
+      "desc": "Agenda oficial con todos los puntos a votar, reglamentos propuestos y temas a tratar en la próxima asamblea.",
+      "mainLink": {
+        "url": "orden-del-dia-asamblea.html",
+        "label": "📋 Ver Orden del Día",
+        "disabled": true
+      },
+      "sublinksLabel": "Mesas de trabajo preparatorias",
+      "sublinks": [
+        {
+          "icon": "🔧",
+          "label": "Mesa de Trabajo 2 — 1 de abril 2026",
+          "url": "orden-del-dia-mesa-trabajo-2.html"
+        },
+        {
+          "icon": "🔧",
+          "label": "Mesa de Trabajo 1 — 18 de marzo 2026",
+          "url": "orden-del-dia-mesa-trabajo-1.html"
+        }
+      ]
+    },
+    {
+      "year": 2025,
+      "status": "past",
+      "badgeLabel": "Realizada",
+      "title": "Asamblea 2025",
+      "desc": "Resoluciones aprobadas, reglas del juego, encuesta de aceptación y accesos rápidos de la asamblea anterior.",
+      "mainLink": {
+        "url": "menu-accesos-rapidos.html",
+        "label": "Ver resoluciones"
+      },
+      "sublinksLabel": "Trabajos relacionados",
+      "sublinks": [
+        {
+          "icon": "📊",
+          "label": "Informe de mesa de trabajo",
+          "url": "informe-mesa-trabajo.html"
+        }
+      ]
+    }
+  ]
+};
+
+window.EMBEDDED_TRANSPARENCIA = {
+  "items": [
+    {
+      "emoji": "💰",
+      "title": "Control de Gastos — Cuotas Extraordinarias",
+      "desc": "Seguimiento detallado del gasto ejercido con fondos de cuotas extraordinarias — KPIs y avance en tiempo real.",
+      "url": "control-gastos-cuotas-extraordinarias.html",
+      "cta": "Ver tablero →"
+    },
+    {
+      "emoji": "🏆",
+      "title": "Logros y Avances",
+      "desc": "Todo lo que hemos alcanzado juntos como condominio — mejoras, proyectos completados y metas cumplidas.",
+      "url": "logros.html",
+      "cta": "Ver logros →"
+    },
+    {
+      "emoji": "📅",
+      "title": "Pagos Adelantados",
+      "desc": "Información sobre opciones de pago anticipado para vecinos y beneficios disponibles.",
+      "url": "pagos-adelantados.html",
+      "cta": "Ver opciones →"
+    }
+  ]
+};
+
+window.EMBEDDED_TUTORIALES = {
+  "tutoriales": [
+    {
+      "emoji": "📲",
+      "type": "Paso a paso",
+      "title": "Generar QR para visitas",
+      "desc": "Cómo crear códigos QR desde Condovive para que tus visitas accedan de forma rápida y segura.",
+      "url": "qr-condovive.html",
+      "cta": "Ver tutorial →"
+    },
+    {
+      "emoji": "🎬",
+      "type": "Videos",
+      "title": "Videos Condovive",
+      "desc": "Videos explicativos sobre el uso de la plataforma y cómo se aplican las cuotas mensuales.",
+      "url": "condovive.html",
+      "cta": "Ver videos →"
+    }
+  ],
+  "documentos": [
+    {
+      "fileType": "PDF",
+      "title": "Convenio Reserva Bosque Sereno",
+      "desc": "Convenio oficial del condominio",
+      "url": "files/CONVENIO%20RESERVA%20BOSQUE%20SERENO.pdf",
+      "target": "_blank"
+    },
+    {
+      "fileType": "PDF",
+      "title": "Reglamento Interno",
+      "desc": "Documento protocolizado del reglamento del condominio",
+      "url": "files/reglamento_protocolizado.pdf",
+      "target": "_blank"
     }
   ]
 };
