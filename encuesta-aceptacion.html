@@ -316,7 +316,7 @@
                 return;
             }
 
-            const datosUrl = (typeof location !== 'undefined') ? new URL('datos.json', location.href).toString() : 'datos.json';
+            const datosUrl = (typeof location !== 'undefined') ? new URL('data/datos.json', location.href).toString() : 'data/datos.json';
             console.log('encuesta-aceptacion: fetching', datosUrl);
             fetch(datosUrl, { cache: 'no-store' })
                 .then(response => response.json())

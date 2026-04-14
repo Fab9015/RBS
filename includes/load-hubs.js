@@ -144,9 +144,9 @@ function renderTutoriales(data) {
 /* ── Loader ── */
 
 const HUB_CONFIG = {
-    asambleas: { json: 'asambleas.json', embedded: 'EMBEDDED_ASAMBLEAS', render: renderAsambleas },
-    transparencia: { json: 'transparencia.json', embedded: 'EMBEDDED_TRANSPARENCIA', render: renderTransparencia },
-    tutoriales: { json: 'tutoriales.json', embedded: 'EMBEDDED_TUTORIALES', render: renderTutoriales }
+    asambleas: { json: 'data/asambleas.json', embedded: 'EMBEDDED_ASAMBLEAS', render: renderAsambleas },
+    transparencia: { json: 'data/transparencia.json', embedded: 'EMBEDDED_TRANSPARENCIA', render: renderTransparencia },
+    tutoriales: { json: 'data/tutoriales.json', embedded: 'EMBEDDED_TUTORIALES', render: renderTutoriales }
 };
 
 async function loadHub(hubName) {

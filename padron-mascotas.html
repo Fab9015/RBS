@@ -374,7 +374,7 @@
         })();
 
         function fetchJSON() {
-            fetch(new URL('padron-mascotas.json', location.href).toString(), { cache: 'no-store' })
+            fetch(new URL('data/padron-mascotas.json', location.href).toString(), { cache: 'no-store' })
                 .then(r => { if (!r.ok) throw new Error(); return r.json(); })
                 .then(applyData)
                 .catch(() => {

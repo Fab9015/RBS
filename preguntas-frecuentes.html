@@ -261,7 +261,7 @@
         async function loadFaq() {
             let faqs = null;
             try {
-                const faqUrl = (typeof location !== 'undefined') ? new URL('faq.json', location.href).toString() : 'faq.json';
+                const faqUrl = (typeof location !== 'undefined') ? new URL('data/faq.json', location.href).toString() : 'data/faq.json';
                 console.log('load-faq: fetching', faqUrl);
                 const resp = await fetch(faqUrl, { cache: 'no-store' });
                 if (!resp.ok) throw new Error('faq.json no disponible');

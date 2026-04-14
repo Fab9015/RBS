@@ -426,7 +426,7 @@
                 let data = null;
 
                 try {
-                    const url = new URL('control-gastos-cuotas-extraordinarias.json', location.href).toString();
+                    const url = new URL('data/control-gastos-cuotas-extraordinarias.json', location.href).toString();
                     const resp = await fetch(url, { cache: 'no-store' });
                     if (!resp.ok) throw new Error('fetch failed');
                     data = await resp.json();

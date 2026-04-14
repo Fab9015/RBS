@@ -1041,14 +1041,14 @@
                 if (embedded) {
                     apply(embedded);
                     if (location.protocol !== 'file:') {
-                        const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+                        const dirUrl = (typeof location !== 'undefined') ? new URL('data/directorio.json', location.href).toString() : 'data/directorio.json';
                         fetch(dirUrl, { cache: 'no-store' }).then(r => r.json()).then(json => apply(json)).catch(() => { });
                     }
                     return;
                 }
 
                 // No embedded fallback after waiting — try network and warn on failure
-                const dirUrl = (typeof location !== 'undefined') ? new URL('directorio.json', location.href).toString() : 'directorio.json';
+                const dirUrl = (typeof location !== 'undefined') ? new URL('data/directorio.json', location.href).toString() : 'data/directorio.json';
                 fetch(dirUrl, { cache: 'no-store' })
                     .then(r => r.json())
                     .then(json => apply(json))

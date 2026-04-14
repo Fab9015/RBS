@@ -13,19 +13,19 @@ const root = path.resolve(__dirname, '..');
 
 // Mapa: nombre de variable => archivo JSON fuente
 const sources = {
-    EMBEDDED_DIRECTORIO: 'directorio.json',
-    EMBEDDED_DATOS: 'datos.json',
-    EMBEDDED_DATA: 'data.json',
-    EMBEDDED_LOGROS: 'logros.json',
-    EMBEDDED_BLOG: 'blog.json',
-    EMBEDDED_MENU: 'menu.json',
-    EMBEDDED_PAGOS: 'pagos_adelantados.json',
-    EMBEDDED_FAQ: 'faq.json',
-    EMBEDDED_GASTOS_EXTRAORDINARIAS: 'control-gastos-cuotas-extraordinarias.json',
-    EMBEDDED_MASCOTAS: 'padron-mascotas.json',
-    EMBEDDED_ASAMBLEAS: 'asambleas.json',
-    EMBEDDED_TRANSPARENCIA: 'transparencia.json',
-    EMBEDDED_TUTORIALES: 'tutoriales.json',
+    EMBEDDED_DIRECTORIO: 'data/directorio.json',
+    EMBEDDED_DATOS: 'data/datos.json',
+    EMBEDDED_DATA: 'data/data.json',
+    EMBEDDED_LOGROS: 'data/logros.json',
+    EMBEDDED_BLOG: 'data/blog.json',
+    EMBEDDED_MENU: 'data/menu.json',
+    EMBEDDED_PAGOS: 'data/pagos_adelantados.json',
+    EMBEDDED_FAQ: 'data/faq.json',
+    EMBEDDED_GASTOS_EXTRAORDINARIAS: 'data/control-gastos-cuotas-extraordinarias.json',
+    EMBEDDED_MASCOTAS: 'data/padron-mascotas.json',
+    EMBEDDED_ASAMBLEAS: 'data/asambleas.json',
+    EMBEDDED_TRANSPARENCIA: 'data/transparencia.json',
+    EMBEDDED_TUTORIALES: 'data/tutoriales.json',
 };
 
 const lines = [
