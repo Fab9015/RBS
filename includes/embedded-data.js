@@ -5767,7 +5767,7 @@ window.EMBEDDED_FAQ = {
     {
       "id": "reservar-salon",
       "question": "¿Cómo puedo reservar el salón de usos múltiples, tiene costo?",
-      "answer": "Es necesario contactar a Administración para revisar disponibilidad. Para el uso de salón se aportará una cuota de recuperación equivalente a una cuota de mantenimiento vigente ($1,050). El apartado se realiza con el pago del mismo y es requisito estar al corriente en sus cuotas."
+      "answer": "<p>Es necesario contactar a Administración para revisar disponibilidad. Para el uso del salón se aportará una cuota de recuperación equivalente a una cuota de mantenimiento vigente ($1,050). El apartado se realiza con el pago del mismo y es requisito estar al corriente en sus cuotas.</p><span class=\"faq-contact-label\">¿Desea hacer una reservación?</span><p><a href=\"tel:+524492133944\" class=\"tel-faq-btn\"><i class=\"fa-solid fa-phone\" aria-hidden=\"true\"></i> Llamar a Administración</a> &nbsp; <a href=\"https://wa.me/524492133944?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20el%20sal%C3%B3n%20de%20usos%20m%C3%BAltiples%2C%20%C2%BFpodr%C3%ADan%20ayudarme%3F\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wa-faq-btn\"><i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i> WhatsApp</a></p>"
     },
     {
       "id": "renta-salon-incluye",
@@ -5777,7 +5777,7 @@ window.EMBEDDED_FAQ = {
     {
       "id": "reservar-asador",
       "question": "¿Cómo puedo reservar un asador, tiene costo?",
-      "answer": "Contactar a Administración para revisar disponibilidad; el uso de asadores no tiene costo. Es requisito estar al corriente en sus cuotas y notificar en caso de no uso."
+      "answer": "<p>Contactar a Administración para revisar disponibilidad; el uso de asadores no tiene costo. Es requisito estar al corriente en sus cuotas y notificar en caso de no uso.</p><span class=\"faq-contact-label\">¿Desea hacer una reservación?</span><p><a href=\"tel:+524492133944\" class=\"tel-faq-btn\"><i class=\"fa-solid fa-phone\" aria-hidden=\"true\"></i> Llamar a Administración</a> &nbsp; <a href=\"https://wa.me/524492133944?text=Hola%2C%20me%20gustar%C3%ADa%20reservar%20un%20asador%2C%20%C2%BFpodr%C3%ADan%20ayudarme%3F\" target=\"_blank\" rel=\"noopener noreferrer\" class=\"wa-faq-btn\"><i class=\"fa-brands fa-whatsapp\" aria-hidden=\"true\"></i> WhatsApp</a></p>"
     },
     {
       "id": "asador-sin-reservacion",

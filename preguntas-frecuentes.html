@@ -144,6 +144,69 @@
         }
     </style>
     <style>
+        /* WhatsApp button inside answers */
+        .wa-faq-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45em;
+            margin-top: 0.5em;
+            padding: 0.45em 1em;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: border-color 0.15s;
+        }
+
+        .wa-faq-btn:hover {
+            border-color: #25d366;
+        }
+
+        .wa-faq-btn i {
+            font-size: 1.1em;
+            color: green;
+        }
+
+        /* Phone call button inside answers */
+        .tel-faq-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45em;
+            margin-top: 0.5em;
+            padding: 0.45em 1em;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--color-text);
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: border-color 0.15s;
+        }
+
+        .tel-faq-btn:hover {
+            border-color: var(--color-accent);
+        }
+
+        .tel-faq-btn i {
+            font-size: 1.1em;
+            color: var(--color-accent);
+        }
+
+        .faq-contact-label {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--color-accent);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 0.9em;
+            margin-bottom: 0.35em;
+        }
+
         /* Copy button inside answers */
         .copy-btn {
             display: inline-block;
