@@ -8,8 +8,7 @@
             "desc": "Agenda oficial con todos los puntos a votar, reglamentos propuestos y temas a tratar en la próxima asamblea.",
             "mainLink": {
                 "url": "orden-del-dia-asamblea.html",
-                "label": "📋 Ver Orden del Día",
-                "disabled": true
+                "label": "📋 Ver Orden del Día"
             },
             "sublinksLabel": "Mesas de trabajo preparatorias",
             "sublinks": [

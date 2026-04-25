@@ -27,7 +27,6 @@
     <style>
         .section {
             margin-bottom: 2.5em;
-            padding-bottom: 2em;
             border-bottom: 1px solid var(--color-border, #e6e2dc);
         }
 
@@ -124,6 +123,7 @@
             font-size: 0.97em;
             color: var(--color-title);
             margin: 0 0 0.3em;
+            text-transform: uppercase;
         }
 
         .agenda-desc {
@@ -150,6 +150,7 @@
             border-left: 3px solid var(--color-accent);
             border-radius: 0 5px 5px 0;
             line-height: 1.4;
+            text-transform: uppercase;
         }
 
         .tag-decision {
@@ -368,109 +369,123 @@
         <div class="section">
             <h2>Información de la Sesión</h2>
             <div class="meta-info">
-                <div><span>Fecha&nbsp;</span><strong>Por confirmar</strong></div>
+                <div><span>Fecha&nbsp;</span><strong>Lunes 27 de abril de 2026</strong></div>
+                <div><span>Primera llamada&nbsp;</span><strong>18:30 horas</strong></div>
+                <div><span>Segunda llamada&nbsp;</span><strong>19:00 horas</strong></div>
                 <div><span>Tipo&nbsp;</span><strong>Asamblea Ordinaria de Condóminos</strong></div>
-                <div><span>Basada en&nbsp;</span><strong>Mesas de Trabajo 1 y 2</strong></div>
+                <div><span>Lugar&nbsp;</span><strong>Salón de Usos Múltiples</strong></div>
             </div>
-            <p style="font-size:0.9em;color:var(--color-muted);line-height:1.6;">
-                El orden del día fue construido a partir de los puntos de <strong>votación</strong> aprobados durante
-                las Mesas de Trabajo 1 (18 de marzo) y 2 (1 de abril de 2026). Todos los puntos listados requieren
-                acuerdo formal de la asamblea. <span class="tag-decision">Votación</span>
-            </p>
 
-            <div class="summary-banner">
-                <span class="count">19</span>
-                <p><strong>puntos a votar</strong><br>distribuidos en 5 bloques temáticos</p>
+            <div class="meta-info" style="align-items:center; gap:0.8em 1.5em;">
+                <span style="font-size:1.6em; line-height:1;">📄</span>
+                <div>
+                    <strong style="display:block; margin-bottom:0.2em;">Convocatoria oficial</strong>
+                    <span>Descarga o consulta el documento de convocatoria tal como fue entregado a los
+                        condóminos.</span>
+                    <br>
+                    <a href="files/CONVOCATORIA-ASAMBLEA-RBS.pdf" target="_blank"
+                        style="color:var(--color-accent); font-weight:600; font-size:0.92em;">Ver convocatoria en PDF
+                        →</a>
+                </div>
             </div>
         </div>
 
+        <h2 style="text-align:center; text-transform:uppercase; letter-spacing:0.06em; margin: 0 0 1.5em;">Orden del Día
+        </h2>
+
         <!-- ══════════════════════════════════════════════════════
-             BLOQUE 1 · ADMINISTRACIÓN
+             BLOQUE 1 · APERTURA
         ═══════════════════════════════════════════════════════ -->
         <div class="section">
-            <span class="group-label">Bloque 1 · Administración</span>
+            <span class="group-label">Bloque 1 · Apertura</span>
             <div class="agenda-list">
 
                 <div class="agenda-item">
                     <div class="agenda-num">1</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Ratificación de la AC<span class="tag-decision">Votación</span><span
-                                class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Votación formal para ratificar la Asociación Civil ADMINISTRACIÓN
-                            CONDOMINIO RESERVA BOSQUE SERENO como administradora del condominio.</p>
+                        <p class="agenda-title">Pase de lista, nombramiento de secretario y escrutador de la asamblea,
+                            verificación del quórum para dar inicio a la Asamblea General Ordinaria y Extraordinaria de
+                            Condóminos, así como la declaración de estar legalmente instalada y de la validez y
+                            obligatoriedad de las resoluciones y acuerdos que en la misma se tomen.</p>
                     </div>
                 </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 2 · ADMINISTRACIÓN
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 2 · Administración</span>
+            <div class="agenda-list">
 
                 <div class="agenda-item">
                     <div class="agenda-num">2</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Conformación y plan de trabajo del Comité Técnico<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Definición de los integrantes del Comité Técnico de condóminos, sus
-                            responsabilidades y calendario de actividades para dar seguimiento a los proyectos del
-                            condominio.</p>
+                        <p class="agenda-title">Ratificación de los integrantes del Comité de Administración de la
+                            Asamblea General de Condóminos.<span class="tag-decision">Votación</span></p>
                     </div>
                 </div>
-
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════════════════
-             BLOQUE 2 · SEGURIDAD Y ACCESO
-        ═══════════════════════════════════════════════════════ -->
-        <div class="section">
-            <span class="group-label">Bloque 2 · Seguridad y Acceso</span>
-            <div class="agenda-list">
 
                 <div class="agenda-item">
                     <div class="agenda-num">3</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Credenciales de identificación para personal y trabajadores<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Propuesta para implementar tarjetas de identificación para trabajadores,
-                            personal de servicio y visitas recurrentes, similar al sistema de conos de visita. Objetivo:
-                            reforzar el control de acceso y la seguridad.</p>
+                        <p class="agenda-title">Presentación y votación para la legitimación como representante legal de
+                            los intereses condominales ante autoridades y particulares de la persona moral denominada
+                            "Administración Condominio Reserva Bosque Sereno" A.C, conforme a lo dispuesto por el
+                            artículo 492, sección IX, del Código Urbano para el Estado de Aguascalientes y cuya
+                            constitución obra en la escritura número 39,950, volumen 2,715 del año 2025, firmado ante la
+                            fe del Notario Público número 56 del Estado de Aguascalientes.<span
+                                class="tag-decision">Votación</span></p>
                     </div>
                 </div>
 
-                <a href="propuesta-porton.html" class="agenda-item is-link fused theme-gate">
+                <div class="agenda-item">
                     <div class="agenda-num">4</div>
                     <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🚧</div>
-                            <p class="agenda-title">Cotización de Portón de Acceso Vehicular<span
-                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Propuesta técnico-comercial para el suministro e instalación de un portón
-                            manual en el acceso vehicular del condominio.</p>
-                        <div class="chip-row">
-                            <span class="chip">$350,560 MXN</span>
-                            <span class="chip">5 semanas</span>
-                            <span class="chip">LUZA SA de CV</span>
-                        </div>
-                        <div class="fused-footer">Ver propuesta completa</div>
+                        <p class="agenda-title">Presentación de informe financiero del periodo comprendido entre
+                            noviembre de 2025 a marzo de 2026 a cargo del Lic. Oscar Adrián Zamudio García como
+                            representante legal de DEFAST Defensa y Asesoría Tributaria, S.C. Gerente del Condominio y,
+                            en su caso, aprobación de los estados financieros resultantes.<span
+                                class="tag-decision">Votación</span></p>
                     </div>
-                </a>
+                </div>
 
                 <div class="agenda-item">
                     <div class="agenda-num">5</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Autorizar acceso a Telmex<span class="tag-decision">Votación</span><span
-                                class="tag-source">Mesa 2</span></p>
-                        <p class="agenda-desc">Votación para permitir el acceso de Telmex al condominio con el fin de
-                            instalar infraestructura de telecomunicaciones y ampliar las opciones de conectividad
-                            disponibles para los condóminos interesados.</p>
+                        <p class="agenda-title">Designación del Comité Técnico de Construcción de la Asamblea General de
+                            Condóminos.<span class="tag-decision">Votación</span></p>
                     </div>
                 </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 3 · SERVICIOS Y ACCESO
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 3 · Servicios y Acceso</span>
+            <div class="agenda-list">
 
                 <div class="agenda-item">
                     <div class="agenda-num">6</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Autorización de acceso a Onfiber (internet por fibra óptica)<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Se solicita aprobación para permitir el acceso de Onfiber al condominio
-                            con el fin de instalar infraestructura de internet por fibra óptica. Esto ampliaría las
-                            opciones de conectividad disponibles para los condóminos interesados.</p>
+                        <p class="agenda-title">Propuesta y en su caso aprobación para permitir el acceso de Telmex y
+                            Onfiber al condominio con el fin de instalar infraestructura de telecomunicaciones y de
+                            internet por fibra óptica.<span class="tag-decision">Votación</span></p>
+                    </div>
+                </div>
+
+                <div class="agenda-item">
+                    <div class="agenda-num">7</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Presentación y en su caso aprobación de la obligatoriedad con relación a
+                            la ubicación de los medidores de agua individuales. Deben estar accesibles y visibles desde
+                            el exterior de cada domicilio, facilitando lecturas periódicas y el control del consumo
+                            colectivo.<span class="tag-decision">Votación</span></p>
                     </div>
                 </div>
 
@@ -478,261 +493,126 @@
         </div>
 
         <!-- ══════════════════════════════════════════════════════
-             BLOQUE 3 · REGLAMENTOS DE ÁREAS COMUNES
+             BLOQUE 4 · MULTAS Y SANCIONES
         ═══════════════════════════════════════════════════════ -->
         <div class="section">
-            <span class="group-label">Bloque 3 · Reglamentos de Áreas Comunes</span>
+            <span class="group-label">Bloque 4 · Multas y Sanciones</span>
             <div class="agenda-list">
 
-                <a href="reglamento-asadores.html" class="agenda-item is-link fused theme-grill">
-                    <div class="agenda-num">7</div>
-                    <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🔥</div>
-                            <p class="agenda-title">Área de Asadores<span class="tag-decision">Votación</span><span
-                                    class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Horarios, fianza, reglas de uso, limpieza y entrega del área de asadores
-                            del condominio.</p>
-                        <div class="chip-row">
-                            <span class="chip">Fianza $300</span>
-                            <span class="chip">Horario 9–21h</span>
-                            <span class="chip">Máx. 10 personas</span>
-                        </div>
-                        <div class="fused-footer">Ver reglamento completo</div>
-                    </div>
-                </a>
-
-                <a href="reglamento-mascotas.html" class="agenda-item is-link fused theme-pets">
+                <div class="agenda-item">
                     <div class="agenda-num">8</div>
                     <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🐾</div>
-                            <p class="agenda-title">Convivencia con Mascotas<span
-                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Reglas y sugerencias para la tenencia responsable de mascotas dentro del
-                            condominio.</p>
-                        <div class="chip-row">
-                            <span class="chip">Correa obligatoria</span>
-                            <span class="chip">Placa de ID</span>
-                            <span class="chip">Padrón voluntario</span>
-                        </div>
-                        <div class="fused-footer">Ver reglamento completo</div>
+                        <p class="agenda-title">Propuesta y en su caso aprobación en la homologación en el proceso de
+                            cobro y seguimiento de multas con plazos, descuentos por pronto pago e integración al estado
+                            de cuenta mensual.<span class="tag-decision">Votación</span></p>
                     </div>
-                </a>
+                </div>
 
-                <a href="reglamento-alberca.html" class="agenda-item is-link fused theme-pool">
-                    <div class="agenda-num">9</div>
-                    <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🏊</div>
-                            <p class="agenda-title">Alberca y Áreas Perimetrales<span
-                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Acceso con pulseras, higiene, vestimenta, capacidad máxima, visitantes y
-                            restricciones de uso.</p>
-                        <div class="chip-row">
-                            <span class="chip">50 pulseras</span>
-                            <span class="chip">Mié–Dom 9–21h · Mar 12–21h</span>
-                            <span class="chip">6 max/casa</span>
-                        </div>
-                        <div class="fused-footer">Ver reglamento completo</div>
-                    </div>
-                </a>
-
-                <a href="reglamento-salon.html" class="agenda-item is-link fused theme-salon">
+                <div class="agenda-item">
                     <div class="agenda-num">10</div>
                     <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🎉</div>
-                            <p class="agenda-title">Salón de Usos Múltiples<span
-                                    class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Reservaciones, horarios por tipo de evento, aforo, reglas de música,
-                            limpieza y sanciones. Incluye propuesta de uso matutino para actividades culturales y
-                            deportivas.</p>
-                        <div class="chip-row">
-                            <span class="chip">Aforo 70</span>
-                            <span class="chip">Horarios por día</span>
-                            <span class="chip">Uso matutino</span>
-                        </div>
-                        <div class="fused-footer">Ver reglamento completo</div>
+                        <p class="agenda-title">Determinación de conductas que violen el reglamento interno para
+                            aplicación de sanciones conforme al reglamento interior:<span
+                                class="tag-decision">Votación</span></p>
+                        <ul class="agenda-subitems">
+                            <li><strong>A)</strong> Votación y en su caso aprobación para establecer una sanción directa
+                                a quien se identifique falsamente como integrante del Comité de Condóminos o de la
+                                Administración.</li>
+                            <li><strong>B)</strong> Votación y en su caso aprobación para establecer una sanción
+                                aplicable cuando se detecte que alguien ingresa al condominio identificándose falsamente
+                                como residente.</li>
+                        </ul>
                     </div>
-                </a>
-
-                <a href="reglamento-estacionamientos.html" class="agenda-item is-link fused theme-parking">
-                    <div class="agenda-num">11</div>
-                    <div class="agenda-content">
-                        <div class="reg-header">
-                            <div class="reg-icon">🚗</div>
-                            <p class="agenda-title">Estacionamientos<span class="tag-decision">Votación</span><span
-                                    class="tag-source">Mesa 2</span></p>
-                        </div>
-                        <p class="agenda-desc">Sistema de tarjetones por color, asignación de cajones, cuotas y normas
-                            de uso de la vialidad interna.</p>
-                        <div class="chip-row">
-                            <span class="chip">Tarjetones</span>
-                            <span class="chip">Código de colores</span>
-                            <span class="chip">Sanciones</span>
-                        </div>
-                        <div class="fused-footer">Ver reglamento completo</div>
-                    </div>
-                </a>
+                </div>
 
             </div>
         </div>
 
         <!-- ══════════════════════════════════════════════════════
-             BLOQUE 4 · NORMAS DE CONVIVENCIA
+             BLOQUE 5 · REGLAMENTOS INTERNOS
         ═══════════════════════════════════════════════════════ -->
         <div class="section">
-            <span class="group-label">Bloque 4 · Normas de Convivencia</span>
+            <span class="group-label">Bloque 5 · Reglamentos Internos</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">9</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Presentación y votación de propuestas para modificación al reglamento
+                            interno del control de acceso, así como propuestas y en su caso aprobación de reglamentos de
+                            uso de áreas comunes:<span class="tag-decision">Votación</span></p>
+                        <ul class="agenda-subitems">
+                            <li><strong>A)</strong> Propuesta de la implementación de tarjetas de identificación para
+                                trabajadores y personal de servicio.</li>
+                            <li><strong>B)</strong> Modificaciones de los reglamentos de uso del
+                                <a href="reglamento-salon.html" style="color:var(--color-accent)">salón de usos
+                                    múltiples</a>,
+                                <a href="reglamento-alberca.html" style="color:var(--color-accent)">alberca</a> y
+                                <a href="reglamento-mascotas.html" style="color:var(--color-accent)">tenencia
+                                    responsable de mascotas</a>.
+                            </li>
+                            <li><strong>C)</strong> Votación y en su caso aprobación de la implementación del <a
+                                    href="reglamento-asadores.html" style="color:var(--color-accent)">reglamento de uso
+                                    de asadores</a>.</li>
+                            <li><strong>D)</strong> Votación y en su caso aprobación de la implementación del <a
+                                    href="reglamento-estacionamientos.html" style="color:var(--color-accent)">reglamento
+                                    de estacionamientos</a>.</li>
+                            <li><strong>E)</strong> Presentación y votación para establecer como requisito que los
+                                condóminos que rentan su propiedad a través de plataformas digitales notifiquen
+                                previamente a la administración, indicando fechas y número de huéspedes.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 6 · PROYECTOS Y CUOTAS EXTRAORDINARIAS
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 6 · Proyectos y Cuotas Extraordinarias</span>
+            <div class="agenda-list">
+
+                <div class="agenda-item">
+                    <div class="agenda-num">11</div>
+                    <div class="agenda-content">
+                        <p class="agenda-title">Presentación y votación de proyectos de mejora para el condominio, y en
+                            su caso implementación de las cuotas extraordinarias que resulten:<span
+                                class="tag-decision">Votación</span></p>
+                        <ul class="agenda-subitems">
+                            <li><strong>A)</strong> Proyecto de instalación de portón manual para el acceso vehicular al
+                                condominio.
+                                <a href="propuesta-porton.html" style="color:var(--color-accent)">Ver propuesta →</a>
+                            </li>
+                            <li><strong>B)</strong> Proyecto de reemplazo de las bombas de calor y reparaciones
+                                necesarias para la puesta en marcha del sistema de calefacción de la alberca.</li>
+                            <li><strong>C)</strong> Proyecto de rehabilitación del condominio.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ══════════════════════════════════════════════════════
+             BLOQUE 7 · CIERRE
+        ═══════════════════════════════════════════════════════ -->
+        <div class="section">
+            <span class="group-label">Bloque 7 · Cierre</span>
             <div class="agenda-list">
 
                 <div class="agenda-item">
                     <div class="agenda-num">12</div>
                     <div class="agenda-content">
-                        <p class="agenda-title">Reubicación de medidores de agua a espacios visibles desde el
-                            exterior<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Se somete a votación la obligatoriedad de que todos los medidores de agua
-                            individuales estén accesibles y visibles desde el exterior de cada domicilio, facilitando
-                            lecturas periódicas y el control del consumo colectivo.</p>
-                    </div>
-                </div>
-
-                <div class="agenda-item">
-                    <div class="agenda-num">13</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Aviso obligatorio de arrendamientos en plataformas digitales (Airbnb y
-                            similares)<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span>
-                        </p>
-                        <p class="agenda-desc">Propuesta para establecer como requisito que los condóminos que renten su
-                            propiedad a través de plataformas digitales notifiquen previamente a la administración,
-                            indicando fechas y número de huéspedes, a fin de mantener el control de acceso y la
-                            seguridad del condominio.</p>
-                    </div>
-                </div>
-
-                <div class="agenda-item">
-                    <div class="agenda-num">14</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Protocolo de autorización para eventos en propiedades colindantes<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Propuesta de reglamentación para que quien desee organizar una fiesta o
-                            evento en horarios extendidos deba recabar la aprobación previa de los domicilios
-                            colindantes, promoviendo el respeto y la convivencia entre vecinos.</p>
-                    </div>
-                </div>
-
-                <div class="agenda-item">
-                    <div class="agenda-num">15</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Uso correcto de los cajones de cochera para evitar invasión de
-                            banqueta<span class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Cada cochera cuenta con dos cajones de diferente tamaño. Se ha observado
-                            que frecuentemente los vehículos más grandes se estacionan en el cajón más pequeño, lo que
-                            provoca que sobresalgan hacia la banqueta y obstaculicen el paso. Se solicita a los
-                            condóminos respetar la distribución de los cajones estacionando el vehículo de mayor tamaño
-                            en el cajón correspondiente.</p>
+                        <p class="agenda-title">Lectura y cierre de la asamblea, con designación de delegado para
+                            protocolización del acta.</p>
                     </div>
                 </div>
 
             </div>
         </div>
 
-        <!-- ══════════════════════════════════════════════════════
-             BLOQUE 5 · MULTAS Y SANCIONES
-        ═══════════════════════════════════════════════════════ -->
-        <div class="section">
-            <span class="group-label">Bloque 5 · Multas y Sanciones</span>
-            <div class="agenda-list">
-
-                <div class="agenda-item">
-                    <div class="agenda-num">16</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Multa para personas que se hagan pasar por integrantes del comité<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        <p class="agenda-desc">Propuesta para establecer una sanción directa a quien se identifique
-                            falsamente como integrante del comité de condóminos o de la administración.</p>
-                    </div>
-                </div>
-
-                <div class="agenda-item">
-                    <div class="agenda-num">17</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Multa directa para personas que se hagan pasar por residentes<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        <p class="agenda-desc">Propuesta de sanción aplicable cuando se detecte que alguien ingresa al
-                            condominio identificándose falsamente como residente.</p>
-                        <ul class="agenda-subitems">
-                            <li>La revisión será aleatoria; si se detecta que quien se identifica como residente no lo
-                                es, la sanción al propietario será <strong>directa (1 cuota ordinaria)</strong></li>
-                            <li>Quien se niegue a la revisión o falte al respeto a los vigilantes o personal de
-                                administración será acreedor a una <strong>multa directa</strong></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="agenda-item">
-                    <div class="agenda-num">18</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Nuevo tratamiento de multas<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 2</span></p>
-                        <p class="agenda-desc">Propuesta para homologar el proceso de cobro y seguimiento de multas con
-                            plazos, descuentos por pronto pago e integración al estado de cuenta mensual.</p>
-                        <ul class="agenda-subitems">
-                            <li>Plazo para pagar: <strong>15 días naturales</strong> a partir de la notificación</li>
-                            <li>Descuento de pronto pago del <strong>30%</strong> si se liquida dentro de los primeros
-                                15 días</li>
-                            <li>Si al día 15 la multa no ha sido cubierta, al <strong>día 16 se convierte en cargo
-                                    administrativo</strong> y se adiciona al siguiente estado de cuenta mensual</li>
-                            <li>Los recibos mensuales con cargos administrativos pendientes priorizarán en primer lugar
-                                la <strong>extinción del cargo administrativo</strong> y en segundo lugar la cuota
-                                ordinaria</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ══════════════════════════════════════════════════════
-             BLOQUE 6 · FINANZAS
-        ═══════════════════════════════════════════════════════ -->
-        <div class="section">
-            <span class="group-label">Bloque 6 · Finanzas</span>
-            <div class="agenda-list">
-
-                <div class="agenda-item">
-                    <div class="agenda-num">19</div>
-                    <div class="agenda-content">
-                        <p class="agenda-title">Propuestas para la definición de la próxima cuota extraordinaria<span
-                                class="tag-decision">Votación</span><span class="tag-source">Mesa 1</span></p>
-                        <p class="agenda-desc">Presentación y discusión de las necesidades y proyectos candidatos a ser
-                            financiados mediante una nueva cuota extraordinaria. Se evaluará viabilidad, prioridad y
-                            costo estimado de cada propuesta:</p>
-                        <ul class="agenda-subitems">
-                            <li>Reparación de las bombas de calor de la alberca</li>
-                            <li>Mantenimiento de la fachada del condominio</li>
-                            <li>Adquisición de biométrico para salida peatonal (incluyendo 2 unidades adicionales para
-                                acceso oriente)</li>
-                            <li>Instalación de biométrico de reconocimiento facial para la entrada y salida de
-                                condóminos</li>
-                            <li>Reforestación de áreas verdes, incluyendo el terreno de donación entre calle Sequía 200
-                                y 300</li>
-                            <li>Evaluación y cotización de nuevos portones vehiculares</li>
-                            <li>Pintura de señalética vial: pasos de cebra, flechas de sentido vehicular y mantenimiento
-                                del muro perimetral</li>
-                            <li>Reparación de calles levantadas al interior del condominio</li>
-                            <li>Proyecto de cancha de usos múltiples: mejora, cercado con obra civil o rejas, e
-                                integración de cancha de basquetbol</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
     </div>
 

@@ -1,6 +1,14 @@
 {
     "blog": [
         {
+            "title": "Asamblea General de Condóminos 2026",
+            "description": "<p>El Comité de Administración convoca a todos los condóminos a la <strong>Asamblea General Ordinaria de Condóminos 2026</strong>.</p><p>La asamblea se llevará a cabo el <strong>lunes 27 de abril de 2026</strong>. La primera llamada será a las <strong>18:30 horas</strong> y la segunda llamada a las <strong>19:00 horas</strong>, en el Salón de Usos Múltiples.</p><p>El orden del día incluye 12 puntos, entre ellos la ratificación del comité, aprobación del informe financiero, proyectos de mejora y la votación de reglamentos internos.<br><br><a href='orden-del-dia-asamblea.html'>🔗 Ver orden del día completo</a></p><p>Los temas que se votarán en la asamblea fueron construidos y discutidos en nuestras dos mesas de trabajo. Te invitamos a revisarlos antes de la asamblea para llegar preparado.<br><br><a href='orden-del-dia-mesa-trabajo-1.html'>🔗 Mesa de Trabajo 1 — 18 de marzo</a><br><br><a href='orden-del-dia-mesa-trabajo-2.html'>🔗 Mesa de Trabajo 2 — 1 de abril</a></p>",
+            "date": "27 de abril de 2026",
+            "time": "Primera llamada: 18:30 · Segunda llamada: 19:00 horas",
+            "place": "Salón de Usos Múltiples",
+            "activo": true
+        },
+        {
             "title": "Segunda mesa de trabajo",
             "description": "<p>El Comité de Administración invita cordialmente a todos los condóminos a participar en la segunda mesa de trabajo.</p><p>Será un espacio de diálogo y colaboración, donde podremos proponer ideas, escuchar distintas perspectivas y tomar decisiones conjuntas que fortalezcan nuestra comunidad.</p><p>Su participación es fundamental para la buena gestión y el desarrollo de nuestro condominio.</p>",
             "date": "1 de abril de 2026",
