@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Propuesta de Cuotas Extraordinarias · Asamblea 2026 · Condominio RBS</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta name="description"
+        content="Propuesta de cuotas extraordinarias para la Asamblea 2026: reparación de alberca, portón de acceso y rehabilitación del condominio — Reserva Bosque Sereno.">
+    <meta property="og:title" content="Propuesta de Cuotas Extraordinarias · Asamblea 2026 · Condominio RBS">
+    <meta property="og:description"
+        content="Proyectos de mejora y sus cuotas extraordinarias correspondientes — Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/propuesta-cuotas-extraordinarias.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Propuesta de Cuotas Extraordinarias · Asamblea 2026 · Condominio RBS">
+    <meta name="twitter:description"
+        content="Proyectos de mejora y sus cuotas extraordinarias correspondientes — Reserva Bosque Sereno.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/propuesta-cuotas-extraordinarias.html">
+    <style>
+        /* ── Layout general ─────────────────────────────────── */
+        .section {
+            margin-bottom: 2.5em;
+            padding-bottom: 2em;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+        }
+
+        .section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section h2 {
+            font-size: 1.4em;
+            margin-bottom: 0.8em;
+            padding-bottom: 0.4em;
+            border-bottom: 2px solid var(--color-accent);
+        }
+
+        /* ── Bloque de proyecto ─────────────────────────────── */
+        .proyecto-card {
+            background: var(--color-white);
+            border: 1px solid var(--color-border, #e6e2dc);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+            margin-bottom: 1.5em;
+        }
+
+        .proyecto-header {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+            padding: 1em 1.4em;
+            background: #f5f5f0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .proyecto-icon {
+            font-size: 2em;
+            flex-shrink: 0;
+        }
+
+        .proyecto-header-text h3 {
+            margin: 0 0 0.15em;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        .proyecto-header-text p {
+            margin: 0;
+            font-size: 0.85em;
+            color: var(--color-muted, #666);
+        }
+
+        .proyecto-body {
+            padding: 1.2em 1.4em;
+        }
+
+        /* ── Datos rápidos del proyecto ─────────────────────── */
+        .facts-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8em;
+            margin-bottom: 1.2em;
+        }
+
+        .fact-chip {
+            background: #f0f4e8;
+            border: 1px solid #d0dbb8;
+            border-radius: 8px;
+            padding: 0.5em 0.9em;
+            font-size: 0.85em;
+        }
+
+        .fact-chip strong {
+            display: block;
+            font-size: 0.78em;
+            color: var(--color-muted, #666);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.2em;
+        }
+
+        .fact-chip span {
+            font-weight: 700;
+            color: var(--color-title);
+        }
+
+        /* ── Tabla de conceptos ─────────────────────────────── */
+        .conceptos-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+            margin-bottom: 1em;
+        }
+
+        .conceptos-table th {
+            background: #a1b27a;
+            color: #fff;
+            padding: 8px 12px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .conceptos-table th.right {
+            text-align: right;
+        }
+
+        .conceptos-table td {
+            padding: 7px 12px;
+            border-bottom: 1px solid var(--color-border, #e6e2dc);
+            vertical-align: top;
+        }
+
+        .conceptos-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .conceptos-table td.right {
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .conceptos-table tr.subtotal td {
+            background: #f7f7f2;
+            font-style: italic;
+            color: var(--color-muted);
+        }
+
+        .conceptos-table tr.iva td {
+            background: #f7f7f2;
+            font-style: italic;
+            color: var(--color-muted);
+        }
+
+        .conceptos-table tr.total-row td {
+            background: #edf4e3;
+            font-weight: 700;
+            font-size: 1em;
+            border-top: 2px solid #a1b27a;
+        }
+
+        /* ── Cotizaciones lado a lado ───────────────────────── */
+        .cotizaciones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.2em;
+            margin-bottom: 1em;
+        }
+
+        .cotizacion-card {
+            background: var(--color-white);
+            border: 2px solid var(--color-border);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .cotizacion-card.destacada {
+            border-color: #5a8a3a;
+        }
+
+        .cotizacion-card-header {
+            padding: 0.8em 1.1em;
+            background: #f5f5f0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .cotizacion-card.destacada .cotizacion-card-header {
+            background: #edf4e3;
+            border-bottom-color: #5a8a3a;
+        }
+
+        .cotizacion-card-proveedor {
+            font-weight: 700;
+            font-size: 0.95em;
+            display: flex;
+            align-items: center;
+            gap: 0.5em;
+            flex-wrap: wrap;
+            margin-bottom: 0.25em;
+        }
+
+        .badge-menor {
+            font-size: 0.7em;
+            padding: 2px 8px;
+            border-radius: 10px;
+            background: #5a8a3a;
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .cotizacion-total {
+            font-size: 1.4em;
+            font-weight: 700;
+            color: var(--color-title);
+        }
+
+        .cotizacion-card.destacada .cotizacion-total {
+            color: #5a8a3a;
+        }
+
+        .cotizacion-meta {
+            font-size: 0.78em;
+            color: var(--color-muted, #666);
+        }
+
+        .cotizacion-card-body {
+            padding: 0.9em 1.1em;
+        }
+
+        .cotizacion-card-footer {
+            padding: 0.6em 1.1em;
+            background: #fafaf8;
+            border-top: 1px solid var(--color-border);
+            font-size: 0.82em;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        /* ── Cuota propuesta box ─────────────────────────────── */
+        .cuota-box {
+            background: #f0f4e8;
+            border: 2px solid #a1b27a;
+            border-radius: 12px;
+            padding: 1.3em 1.5em;
+            display: flex;
+            align-items: center;
+            gap: 1.2em;
+            flex-wrap: wrap;
+            margin-bottom: 1em;
+        }
+
+        .cuota-monto {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #5a8a3a;
+            line-height: 1;
+        }
+
+        .cuota-desc {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .cuota-desc strong {
+            display: block;
+            font-size: 1em;
+            margin-bottom: 0.25em;
+        }
+
+        .cuota-desc p {
+            margin: 0;
+            font-size: 0.88em;
+            color: var(--color-muted, #666);
+            line-height: 1.5;
+        }
+
+        /* ── Nota informativa ───────────────────────────────── */
+        .nota-box {
+            background: #fff8e6;
+            border-left: 4px solid #f39c12;
+            border-radius: 0 8px 8px 0;
+            padding: 0.9em 1.1em;
+            font-size: 0.88em;
+            line-height: 1.55;
+            margin-bottom: 1em;
+        }
+
+        /* ── Tabla comparativa ──────────────────────────────── */
+        .tabla-comparativa {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.93em;
+            margin-bottom: 1.2em;
+        }
+
+        .tabla-comparativa th {
+            background: #a1b27a;
+            color: #fff;
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+
+        .tabla-comparativa th.right {
+            text-align: right;
+        }
+
+        .tabla-comparativa td {
+            padding: 9px 14px;
+            border: 1px solid var(--color-border, #e6e2dc);
+            vertical-align: middle;
+        }
+
+        .tabla-comparativa tr:nth-child(even) td {
+            background: #f7f7f2;
+        }
+
+        .tabla-comparativa td.right {
+            text-align: right;
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .tabla-comparativa tr.total-row td {
+            background: #edf4e3;
+            font-weight: 700;
+            font-size: 1em;
+            border-top: 3px solid #5a8a3a;
+        }
+
+        .tabla-comparativa .num-casa {
+            font-size: 0.85em;
+            color: #5a8a3a;
+            font-weight: 700;
+        }
+
+        /* ── PDF link ────────────────────────────────────────── */
+        .pdf-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            color: var(--color-accent);
+            font-weight: 600;
+            font-size: 0.88em;
+            text-decoration: none;
+        }
+
+        .pdf-link:hover {
+            text-decoration: underline;
+        }
+
+        /* ── Número de tabla ─────────────────────────────────── */
+        .tabla-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.75em;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--color-accent);
+            padding: 0.3em 0.8em;
+            background: #f0f4e8;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 0.6em;
+        }
+
+        /* ── Resumen intro ───────────────────────────────────── */
+        .resumen-intro {
+            background: var(--color-white);
+            border: 1px solid var(--color-border);
+            border-left: 4px solid var(--color-accent);
+            border-radius: 8px;
+            padding: 1em 1.2em;
+            font-size: 0.92em;
+            line-height: 1.6;
+            margin-bottom: 1.5em;
+            color: var(--color-muted, #555);
+        }
+
+        .resumen-intro strong {
+            color: var(--color-title);
+        }
+
+        @media (max-width: 600px) {
+            .facts-row {
+                gap: 0.6em;
+            }
+
+            .cuota-monto {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>Cuotas Extraordinarias</h1>
+            <p>Propuesta de proyectos · Asamblea 2026 · Reserva Bosque Sereno</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+
+    <div id="menuInclude"></div>
+
+    <div class="container">
+
+        <!-- ── Introducción ─────────────────────────────────── -->
+        <div class="section">
+            <h2>Presentación</h2>
+            <div class="resumen-intro">
+                Esta página concentra los <strong>tres grandes apartados</strong> que serán sometidos a votación en la
+                Asamblea General de Condóminos del <strong>27 de abril de 2026</strong> en lo relativo a proyectos de
+                mejora y cuotas extraordinarias. Para cada proyecto se incluye la cotización vigente, el monto total
+                con IVA y, al final, dos tablas comparativas que muestran cuánto correspondería pagar por casa
+                según el escenario de portón que sea aprobado.
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════
+             APARTADO 1 · REPARACIÓN DE ALBERCA
+        ════════════════════════════════════════════════════ -->
+        <div class="section">
+            <h2>1. Reparación del Sistema de Calentamiento de Alberca</h2>
+
+            <p style="font-size:0.93em; color:var(--color-muted); margin-bottom:1.2em; line-height:1.6;">
+                Las bombas de calor de la alberca presentan fallas que impiden poner en marcha el sistema de
+                calefacción. Durante los meses previos se realizaron diversas reparaciones menores financiadas con
+                cuotas extraordinarias; sin embargo, la solución de fondo requiere la <strong>sustitución de las
+                    bombas de calor</strong> y trabajos hidráulicos complementarios.
+                A continuación se presenta la cotización más reciente.
+            </p>
+
+            <div class="proyecto-card">
+                <div class="proyecto-header">
+                    <div class="proyecto-icon">🌊</div>
+                    <div class="proyecto-header-text">
+                        <h3>HIDROMAR — Cotización AGT025</h3>
+                        <p>15 de abril de 2026 · Aguascalientes, Ags.</p>
+                    </div>
+                </div>
+                <div class="proyecto-body">
+                    <div class="facts-row">
+                        <div class="fact-chip">
+                            <strong>Proveedor</strong>
+                            <span>HIDROMAR</span>
+                        </div>
+                        <div class="fact-chip">
+                            <strong>Fecha</strong>
+                            <span>15 abr 2026</span>
+                        </div>
+                        <div class="fact-chip">
+                            <strong>Condiciones de pago</strong>
+                            <span>80% anticipo · 20% al finalizar</span>
+                        </div>
+                    </div>
+
+                    <p style="font-size:0.9em; margin:0 0 0.8em; font-weight:600;">Opción A: Cambio de bombas + ajustes
+                        en tubería</p>
+
+                    <table class="conceptos-table">
+                        <thead>
+                            <tr>
+                                <th>Concepto</th>
+                                <th style="width:80px; text-align:center;">Cant.</th>
+                                <th class="right" style="width:130px;">Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Bomba de calor HAX Inverter Vertical Frío/Calor 155,000 BTU/hr, 220–240V, WiFi R32
+                                    (incluye instalación)</td>
+                                <td style="text-align:center;">2</td>
+                                <td class="right">$138,525.68</td>
+                            </tr>
+                            <tr>
+                                <td>Canastilla de skimmer, válvulas bola PVC 2" y 3", tubo PVC 2" conduit pesado 3 m
+                                </td>
+                                <td style="text-align:center;">—</td>
+                                <td class="right">$7,626.61</td>
+                            </tr>
+                            <tr class="subtotal">
+                                <td>Subtotal</td>
+                                <td></td>
+                                <td class="right">$146,152.29</td>
+                            </tr>
+                            <tr class="iva">
+                                <td>IVA (16%)</td>
+                                <td></td>
+                                <td class="right">$23,384.37</td>
+                            </tr>
+                            <tr class="total-row">
+                                <td><strong>TOTAL CON IVA</strong></td>
+                                <td></td>
+                                <td class="right">$169,539.65</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <a href="files/COTIZACIÓN-REPARACION-ALBERCA.pdf" target="_blank" rel="noopener" class="pdf-link">
+                        📄 Ver cotización completa en PDF →
+                    </a>
+                </div>
+            </div>
+
+            <div class="nota-box">
+                <strong>Contexto:</strong> El historial completo de gastos ejercidos con cuotas extraordinarias —
+                incluidas reparaciones previas a la alberca — puede consultarse en la página de
+                <a href="control-gastos-cuotas-extraordinarias.html"
+                    style="color:var(--color-accent); font-weight:600;">Control de Gasto · Cuotas Extraordinarias</a>.
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════
+             APARTADO 2 · PORTÓN DE ACCESO VEHICULAR
+        ════════════════════════════════════════════════════ -->
+        <div class="section">
+            <h2>2. Instalación de Portón de Acceso Vehicular</h2>
+
+            <p style="font-size:0.93em; color:var(--color-muted); margin-bottom:1.2em; line-height:1.6;">
+                Suministro e instalación de un <strong>portón manual de dos hojas abatibles</strong> en el acceso
+                vehicular al condominio, fabricado en acero A36, con revestimiento de lámina en la parte baja,
+                clausura del acceso izquierdo, puerta peatonal y acondicionamiento para el sistema de Face ID.
+                Se recibieron <strong>dos cotizaciones</strong> que se presentan a continuación para que la
+                Asamblea vote por la propuesta que mejor convenga al condominio.
+            </p>
+
+            <div class="cotizaciones-grid">
+
+                <!-- Cotización 1 – LUZA -->
+                <div class="cotizacion-card">
+                    <div class="cotizacion-card-header">
+                        <div class="cotizacion-card-proveedor">
+                            LUZA SA de CV
+                        </div>
+                        <div class="cotizacion-total">$406,649.60</div>
+                        <div class="cotizacion-meta">Propuesta LUZ-055-AGS-BOS-POR · 31 de marzo de 2026</div>
+                    </div>
+                    <div class="cotizacion-card-body">
+                        <table class="conceptos-table">
+                            <tbody>
+                                <tr>
+                                    <td>Portón para acceso a residencial (material, mano de obra, anclajes, reubicación
+                                        Face ID, envíos, puesta en marcha)</td>
+                                    <td class="right">$350,560.00</td>
+                                </tr>
+                                <tr class="subtotal">
+                                    <td>Subtotal (sin IVA)</td>
+                                    <td class="right">$350,560.00</td>
+                                </tr>
+                                <tr class="iva">
+                                    <td>IVA (16%)</td>
+                                    <td class="right">$56,089.60</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td><strong>Total con IVA</strong></td>
+                                    <td class="right">$406,649.60</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="font-size:0.82em; color:var(--color-muted); margin-top:0.5em;">
+                            Vigencia: 30 días · Fabricación 3 sem · Instalación 2 sem<br>
+                            Pago: 50% anticipo · 40% avance · 10% entrega
+                        </div>
+                    </div>
+                    <div class="cotizacion-card-footer">
+                        <a href="files/PROPUESTA-COMERCIAL-PORTON.pdf" target="_blank" rel="noopener" class="pdf-link">
+                            📄 Ver cotización en PDF →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Cotización 2 – Soluciones Zapata -->
+                <div class="cotizacion-card destacada">
+                    <div class="cotizacion-card-header">
+                        <div class="cotizacion-card-proveedor">
+                            Soluciones Zapata
+                            <span class="badge-menor">Menor precio</span>
+                        </div>
+                        <div class="cotizacion-total">$377,024.13</div>
+                        <div class="cotizacion-meta">Cotización RES-PORTON-0028 · 15 de abril de 2026</div>
+                    </div>
+                    <div class="cotizacion-card-body">
+                        <table class="conceptos-table">
+                            <tbody>
+                                <tr>
+                                    <td>Portón perimetral y acceso peatonal (portón manual 2 hojas abatibles, acero A36,
+                                        PTR Cal. 14, postes cal. 14, lámina, reubicación Face ID, acabado negro mate)
+                                    </td>
+                                    <td class="right">$325,020.80</td>
+                                </tr>
+                                <tr class="subtotal">
+                                    <td>Subtotal (sin IVA)</td>
+                                    <td class="right">$325,020.80</td>
+                                </tr>
+                                <tr class="iva">
+                                    <td>IVA (16%)</td>
+                                    <td class="right">$52,003.33</td>
+                                </tr>
+                                <tr class="total-row">
+                                    <td><strong>Total con IVA</strong></td>
+                                    <td class="right">$377,024.13</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div style="font-size:0.82em; color:var(--color-muted); margin-top:0.5em;">
+                            Vigencia: 10 días desde emisión<br>
+                            Pago: 60% anticipo · 20% avance · 20% al finalizar
+                        </div>
+                    </div>
+                    <div class="cotizacion-card-footer">
+                        <a href="files/SEGUNDA-COTIZACION-PORTONES.pdf" target="_blank" rel="noopener" class="pdf-link">
+                            📄 Ver cotización en PDF →
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="nota-box">
+                La descripción técnica completa del alcance, condiciones de pago y servicios incluidos de ambas
+                cotizaciones puede consultarse también en la página de
+                <a href="propuesta-porton.html" style="color:var(--color-accent); font-weight:600;">Propuesta de
+                    Portón de Acceso</a>.
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════
+             APARTADO 3 · REHABILITACIÓN DEL CONDOMINIO
+        ════════════════════════════════════════════════════ -->
+        <div class="section">
+            <h2>3. Rehabilitación del Condominio</h2>
+
+            <p style="font-size:0.93em; color:var(--color-muted); margin-bottom:1.2em; line-height:1.6;">
+                Para continuar con la rehabilitación de áreas comunes y la atención de pendientes de mantenimiento
+                general del condominio, se propone una cuota extraordinaria mensual destinada exclusivamente a
+                este rubro.
+            </p>
+
+            <div class="cuota-box">
+                <div class="cuota-monto">$400</div>
+                <div class="cuota-desc">
+                    <strong>Cuota extraordinaria mensual propuesta</strong>
+                    <p>Por condómino, destinada a la rehabilitación continua de áreas comunes, mantenimiento
+                        preventivo y mejoras generales del condominio.</p>
+                    <p style="margin-top:0.5em;">Con una participación de <strong>444 condóminos</strong>, esta
+                        cuota generaría <strong>$177,600 mensuales</strong> para el fondo de rehabilitación.</p>
+                </div>
+            </div>
+
+            <div style="display:flex; flex-wrap:wrap; gap:1em; margin-bottom:0.5em;">
+                <div class="fact-chip">
+                    <strong>Cuota por casa</strong>
+                    <span>$400 / mes</span>
+                </div>
+                <div class="fact-chip">
+                    <strong>Total mensual (444 casas)</strong>
+                    <span>$177,600</span>
+                </div>
+                <div class="fact-chip">
+                    <strong>Destino</strong>
+                    <span>Rehabilitación del condominio</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ════════════════════════════════════════════════════
+             TABLAS COMPARATIVAS
+        ════════════════════════════════════════════════════ -->
+        <div class="section">
+            <h2>Tablas Comparativas</h2>
+
+            <p style="font-size:0.93em; color:var(--color-muted); margin-bottom:1.5em; line-height:1.6;">
+                Las siguientes tablas desglosan el costo total de los tres proyectos y lo dividen entre
+                <strong>444 condóminos</strong> para mostrar cuánto correspondería pagar por casa en cada concepto
+                y en total. La diferencia entre las dos tablas es el proveedor del portón que sea aprobado.
+            </p>
+
+            <!-- Tabla 1 -->
+            <span class="tabla-label">Escenario 1 — Portón LUZA SA de CV</span>
+
+            <table class="tabla-comparativa">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th class="right" style="width:160px;">Total</th>
+                        <th class="right" style="width:160px;">Por casa (÷ 444)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Reparación de alberca (HIDROMAR – AGT025)</td>
+                        <td class="right">$169,539.65</td>
+                        <td class="right num-casa">$381.85</td>
+                    </tr>
+                    <tr>
+                        <td>Portón de acceso vehicular (LUZA SA de CV – LUZ-055)</td>
+                        <td class="right">$406,649.60</td>
+                        <td class="right num-casa">$916.33</td>
+                    </tr>
+                    <tr>
+                        <td>Cuota extraordinaria de rehabilitación ($400 × 444)</td>
+                        <td class="right">$177,600.00</td>
+                        <td class="right num-casa">$400.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td class="right"><strong>$753,789.25</strong></td>
+                        <td class="right"><strong>$1,698.18</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <!-- Tabla 2 -->
+            <span class="tabla-label" style="margin-top:1.5em; display:inline-block;">Escenario 2 — Portón Soluciones
+                Zapata</span>
+
+            <table class="tabla-comparativa">
+                <thead>
+                    <tr>
+                        <th>Concepto</th>
+                        <th class="right" style="width:160px;">Total</th>
+                        <th class="right" style="width:160px;">Por casa (÷ 444)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Reparación de alberca (HIDROMAR – AGT025)</td>
+                        <td class="right">$169,539.65</td>
+                        <td class="right num-casa">$381.85</td>
+                    </tr>
+                    <tr>
+                        <td>Portón de acceso vehicular (Soluciones Zapata – RES-PORTON-0028)</td>
+                        <td class="right">$377,024.13</td>
+                        <td class="right num-casa">$849.15</td>
+                    </tr>
+                    <tr>
+                        <td>Cuota extraordinaria de rehabilitación ($400 × 444)</td>
+                        <td class="right">$177,600.00</td>
+                        <td class="right num-casa">$400.00</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr class="total-row">
+                        <td><strong>TOTAL</strong></td>
+                        <td class="right"><strong>$724,163.78</strong></td>
+                        <td class="right"><strong>$1,631.00</strong></td>
+                    </tr>
+                </tfoot>
+            </table>
+
+            <div class="nota-box" style="margin-top:1em;">
+                <strong>Nota:</strong> Los montos de las tablas incluyen IVA. Los totales por casa son la suma
+                exacta de los tres conceptos individuales divididos entre 444. La cuota de rehabilitación
+                es la única que ya expresa directamente el importe por condómino ($400).
+            </div>
+        </div>
+
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+</body>
+
+</html>
