@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot – Demo · Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        /* ── Página de demo ── */
+        .demo-wrapper {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 2em 1.5em 4em;
+        }
+
+        .demo-wrapper h1 {
+            margin-top: .5em;
+        }
+
+        .demo-wrapper p {
+            color: var(--color-texto);
+            line-height: 1.7;
+        }
+
+        /* Sección de código */
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            border-radius: 8px;
+            padding: 1.1em 1.4em;
+            font-size: .88rem;
+            overflow-x: auto;
+            margin: .75em 0 1.5em;
+            line-height: 1.6;
+        }
+
+        .code-block .cm {
+            color: #6a9955;
+        }
+
+        /* comentario */
+        .code-block .kw {
+            color: #569cd6;
+        }
+
+        /* keyword/tag */
+        .code-block .st {
+            color: #ce9178;
+        }
+
+        /* string */
+        .code-block .at {
+            color: #9cdcfe;
+        }
+
+        /* atributo */
+        .code-block .pu {
+            color: #d4d4d4;
+        }
+
+        /* puntuación */
+
+        /* Diagrama de árbol visual */
+        .tree {
+            font-family: 'Lato', monospace;
+            font-size: .82rem;
+            background: var(--color-gris);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            padding: 1em 1.4em;
+            line-height: 2;
+            overflow-x: auto;
+            color: var(--color-texto);
+        }
+
+        .tree .node-id {
+            color: #2e8b57;
+            font-weight: 700;
+        }
+
+        .tree .node-opt {
+            color: #3b82f6;
+        }
+
+        .tree .node-ans {
+            color: #a1b27a;
+            font-weight: 700;
+        }
+
+        /* Comparativa de herramientas */
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: .88rem;
+            margin: 1em 0 2em;
+        }
+
+        .comparison-table th {
+            background: var(--color-accent);
+            color: #fff;
+            padding: .6em .9em;
+            text-align: left;
+        }
+
+        .comparison-table td {
+            padding: .55em .9em;
+            border-bottom: 1px solid var(--color-border);
+            vertical-align: top;
+        }
+
+        .comparison-table tr:nth-child(even) td {
+            background: var(--color-gris);
+        }
+
+        .check {
+            color: #2e8b57;
+            font-weight: 700;
+        }
+
+        .cross {
+            color: #e74c3c;
+            font-weight: 700;
+        }
+
+        .partial {
+            color: #f39c12;
+            font-weight: 700;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            padding: .2em .6em;
+            border-radius: 12px;
+            font-size: .75rem;
+            font-weight: 700;
+            margin-right: .25em;
+        }
+
+        .badge-green {
+            background: #d4edda;
+            color: #2e8b57;
+        }
+
+        .badge-blue {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .badge-orange {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-red {
+            background: #fee2e2;
+            color: #991b1b;
+        }
+
+        /* JSON preview */
+        .json-block {
+            background: #0f172a;
+            color: #94a3b8;
+            border-radius: 8px;
+            padding: 1.1em 1.4em;
+            font-size: .82rem;
+            overflow-x: auto;
+            margin: .75em 0 1.5em;
+            line-height: 1.7;
+        }
+
+        .json-block .jk {
+            color: #7dd3fc;
+        }
+
+        /* key */
+        .json-block .jv {
+            color: #86efac;
+        }
+
+        /* string value */
+        .json-block .jn {
+            color: #f9a8d4;
+        }
+
+        /* null/bool/number */
+        .json-block .jc {
+            color: #64748b;
+        }
+
+        /* comment */
+
+        h2 {
+            color: var(--color-title);
+            margin-top: 2em;
+        }
+
+        h3 {
+            color: var(--color-contrast);
+            margin-top: 1.5em;
+        }
+
+        .notice {
+            background: #fef9c3;
+            border-left: 4px solid #f59e0b;
+            padding: .75em 1em;
+            border-radius: 0 6px 6px 0;
+            margin: 1em 0;
+            font-size: .9rem;
+        }
+
+        .notice strong {
+            color: #92400e;
+        }
+
+        .step {
+            display: flex;
+            gap: 1em;
+            align-items: flex-start;
+            margin-bottom: 1.25em;
+        }
+
+        .step-num {
+            min-width: 2em;
+            height: 2em;
+            border-radius: 50%;
+            background: var(--color-accent);
+            color: #fff;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: .9rem;
+            flex-shrink: 0;
+        }
+
+        .step-body {
+            flex: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+        </a>
+    </header>
+
+    <script src="includes/load-fragments.js"></script>
+
+    <main>
+        <div class="demo-wrapper">
+
+            <h1>🤖 Chatbot embebible — Demo &amp; Documentación</h1>
+            <p>
+                Esta página explica qué es el chatbot de árbol de conversación (también llamado
+                <em>playbook-based chatbot</em>), cómo se diferencia de soluciones como
+                <strong>chatbot-ui de GitHub</strong>, y cómo integrarlo en cualquier página del sitio.
+            </p>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>1. ¿Por qué no usamos <code>mckaywrigley/chatbot-ui</code>?</h2>
+
+            <p>
+                <strong>chatbot-ui</strong> (<a href="https://github.com/mckaywrigley/chatbot-ui" target="_blank"
+                    rel="noopener noreferrer">github.com/mckaywrigley/chatbot-ui</a>)
+                es una aplicación completa, <strong>no un widget embebible</strong>. Requiere:
+            </p>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Requisito</th>
+                        <th>chatbot-ui (mckaywrigley)</th>
+                        <th>Este widget (RBS)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Servidor Node.js / Next.js</td>
+                        <td><span class="cross">✗ Obligatorio</span></td>
+                        <td><span class="check">✓ No necesario</span></td>
+                    </tr>
+                    <tr>
+                        <td>Base de datos (Supabase/Postgres)</td>
+                        <td><span class="cross">✗ Obligatorio</span></td>
+                        <td><span class="check">✓ No necesario</span></td>
+                    </tr>
+                    <tr>
+                        <td>API key de OpenAI/Anthropic</td>
+                        <td><span class="cross">✗ Obligatorio (tiene costo)</span></td>
+                        <td><span class="check">✓ No necesario</span></td>
+                    </tr>
+                    <tr>
+                        <td>Compatible con GitHub Pages (sitio estático)</td>
+                        <td><span class="cross">✗ No</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                    <tr>
+                        <td>Conversaciones definidas en JSON propio</td>
+                        <td><span class="partial">~ Historial en Supabase</span></td>
+                        <td><span class="check">✓ Árbol en <code>chatbot-flow.json</code></span></td>
+                    </tr>
+                    <tr>
+                        <td>Respuestas de IA generativa</td>
+                        <td><span class="check">✓ Sí (GPT-4, Claude…)</span></td>
+                        <td><span class="cross">✗ No (respuestas predefinidas)</span></td>
+                    </tr>
+                    <tr>
+                        <td>Instalación con 1 línea de HTML</td>
+                        <td><span class="cross">✗ No</span></td>
+                        <td><span class="check">✓ Sí</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="notice">
+                <strong>Conclusión:</strong> chatbot-ui es ideal para reemplazar ChatGPT en tu
+                propio servidor. Para <strong>añadir un asistente FAQ a un sitio estático</strong>
+                como éste, la opción correcta es un widget de árbol de conversación con JSON.
+            </div>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>2. Cómo funciona el árbol de conversación (playbook)</h2>
+
+            <p>
+                El chatbot de RBS usa un archivo JSON (<code>data/chatbot-flow.json</code>) que
+                define <strong>nodos</strong>. Cada nodo puede ser:
+            </p>
+            <ul>
+                <li><span class="badge badge-blue">menú</span> — muestra botones de opciones</li>
+                <li><span class="badge badge-green">respuesta</span>
+                    (<code>"type": "answer"</code>) — muestra texto final + enlace opcional</li>
+            </ul>
+
+            <h3>Estructura del JSON (extracto)</h3>
+            <pre class="json-block">{
+  <span class="jc">// Mensaje de bienvenida mostrado al abrir el chat</span>
+  <span class="jk">"welcome"</span>: <span class="jv">"¡Hola! 👋 Soy el asistente de Reserva Bosque Sereno..."</span>,
+
+  <span class="jk">"nodes"</span>: {
+
+    <span class="jc">// Nodo MENÚ — muestra botones</span>
+    <span class="jk">"start"</span>: {
+      <span class="jk">"message"</span>: <span class="jv">"¿Qué tema te interesa?"</span>,
+      <span class="jk">"options"</span>: [
+        { <span class="jk">"label"</span>: <span class="jv">"💰 Pagos y cuotas"</span>,  <span class="jk">"next"</span>: <span class="jv">"pagos"</span> },
+        { <span class="jk">"label"</span>: <span class="jv">"🏊 Amenidades"</span>,       <span class="jk">"next"</span>: <span class="jv">"amenidades"</span> },
+        { <span class="jk">"label"</span>: <span class="jv">"📞 Contacto"</span>,          <span class="jk">"next"</span>: <span class="jv">"contacto"</span> }
+      ]
+    },
+
+    <span class="jc">// Nodo RESPUESTA TERMINAL — muestra texto y enlace</span>
+    <span class="jk">"pagos-cuenta"</span>: {
+      <span class="jk">"type"</span>:    <span class="jv">"answer"</span>,
+      <span class="jk">"message"</span>: <span class="jv">"🏦 BANCO: BBVA\n🔢 Cuenta: 012 649 7268\n💳 CLABE: 012 010 0012 6497 2689"</span>,
+      <span class="jk">"link"</span>:    { <span class="jk">"label"</span>: <span class="jv">"Ir a preguntas frecuentes"</span>, <span class="jk">"url"</span>: <span class="jv">"preguntas-frecuentes.html"</span> },
+      <span class="jk">"back"</span>:    <span class="jv">"pagos"</span>   <span class="jc">// nodo al que vuelve el botón ⬅</span>
+    }
+  }
+}</pre>
+
+            <h3>Árbol de conversación actual</h3>
+            <pre class="tree">
+<span class="node-id">start</span> ──┬── <span class="node-opt">💰 Pagos</span> ──────────────────╮
+        │   ├── <span class="node-ans">¿Cómo pago?</span>             │
+        │   ├── <span class="node-ans">Datos bancarios</span>         │ todos con botón
+        │   ├── <span class="node-ans">Enviar comprobante</span>      │ ⬅ para volver
+        │   ├── <span class="node-ans">Identificar pago</span>        │
+        │   └── <span class="node-ans">Recibo de pago</span>          │
+        │                               ╯
+        ├── <span class="node-opt">🏊 Amenidades</span>
+        │   ├── <span class="node-opt">Alberca</span> ──┬── <span class="node-ans">Horarios</span>
+        │   │            └── <span class="node-ans">Tríptico</span>
+        │   ├── <span class="node-opt">Asadores</span> ─┬── <span class="node-ans">Horarios</span>
+        │   │             └── <span class="node-ans">Cómo reservar</span>
+        │   └── <span class="node-opt">Salón</span> ────┬── <span class="node-ans">Cómo reservar</span>
+        │                   └── <span class="node-ans">¿Qué incluye?</span>
+        │
+        ├── <span class="node-opt">📋 Reglamentos</span> ─ (alberca / asadores / salón / mascotas / estacionamientos)
+        ├── <span class="node-opt">🐾 Mascotas</span>    ─ (reglamento / padrón / tríptico)
+        ├── <span class="node-opt">🕐 Horarios</span>    ─ (alberca / asadores / administración)
+        ├── <span class="node-ans">🆘 Emergencias</span>  (respuesta directa)
+        └── <span class="node-opt">📞 Contacto</span>   ─ (WhatsApp / correo / oficina / Condovive)
+            </pre>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>3. El chatbot está activo en todo el sitio</h2>
+
+            <p>
+                El widget se carga automáticamente desde <code>includes/load-fragments.js</code>,
+                que es el include global que todas las páginas ya usan. <strong>No es necesario
+                    tocar ninguna otra página HTML.</strong>
+            </p>
+
+            <div class="notice">
+                <strong>El widget ya está activo en esta página y en todo el sitio.</strong>
+                Haz clic en el botón 💬 en la esquina inferior derecha para probarlo.
+            </div>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>4. Cómo editar o ampliar las conversaciones</h2>
+
+            <div class="step">
+                <div class="step-num">1</div>
+                <div class="step-body">
+                    Abre <code>data/chatbot-flow.json</code> en cualquier editor de texto.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div class="step-body">
+                    Para <strong>cambiar un texto</strong>, edita el campo <code>"message"</code>
+                    del nodo correspondiente. Puedes usar <code>\n</code> para saltos de línea
+                    y <code>**texto**</code> para negritas.
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div class="step-body">
+                    Para <strong>añadir un tema nuevo</strong>, crea un nodo en <code>"nodes"</code>
+                    con un ID único y agrégalo como opción en el nodo padre. Ejemplo:
+                    <pre class="json-block"><span class="jc">// En el nodo "start", añadir la nueva opción:</span>
+{ <span class="jk">"label"</span>: <span class="jv">"🔧 Mantenimiento"</span>, <span class="jk">"next"</span>: <span class="jv">"mantenimiento"</span> }
+
+<span class="jc">// Y crear el nodo nuevo más abajo:</span>
+<span class="jk">"mantenimiento"</span>: {
+  <span class="jk">"type"</span>:    <span class="jv">"answer"</span>,
+  <span class="jk">"message"</span>: <span class="jv">"Para reportar una falla de mantenimiento, genera un ticket en Condovive."</span>,
+  <span class="jk">"link"</span>:    { <span class="jk">"label"</span>: <span class="jv">"Ir a Condovive"</span>, <span class="jk">"url"</span>: <span class="jv">"condovive.html"</span> },
+  <span class="jk">"back"</span>:    <span class="jv">"start"</span>
+}</pre>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">4</div>
+                <div class="step-body">
+                    Guarda el archivo y recarga la página. No hay compilación ni servidores.
+                </div>
+            </div>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>5. Archivos del proyecto</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Archivo</th>
+                        <th>Descripción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>data/chatbot-flow.json</code></td>
+                        <td>
+                            <span class="badge badge-blue">Editar aquí</span>
+                            Árbol de conversación completo. Todos los textos y opciones.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><code>scripts/chatbot-widget.js</code></td>
+                        <td>
+                            <span class="badge badge-orange">No tocar normalmente</span>
+                            Motor del widget: carga JSON, renderiza mensajes y botones,
+                            maneja estilos y eventos.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Cualquier <code>.html</code> del sitio</td>
+                        <td>
+                            <span class="badge badge-green">1 línea</span>
+                            Solo agrega <code>&lt;script src="scripts/chatbot-widget.js"&gt;&lt;/script&gt;</code>
+                            antes de cerrar el <code>&lt;/body&gt;</code>.
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- ════════════════════════════════════════════════════════════════ -->
+            <h2>6. Limitaciones de este enfoque</h2>
+            <ul>
+                <li>
+                    <span class="badge badge-red">Sin IA</span>
+                    Las respuestas son predefinidas; el bot no entiende preguntas escritas
+                    libremente. Para IA generativa se necesitaría una API key de OpenAI/Groq
+                    (tiene costo mensual).
+                </li>
+                <li>
+                    <span class="badge badge-orange">Sin historial persistente</span>
+                    Al cerrar el chat, la conversación se pierde. No hay base de datos.
+                </li>
+                <li>
+                    <span class="badge badge-green">Sin servidor</span>
+                    Funciona completamente en el navegador; compatible con GitHub Pages.
+                </li>
+            </ul>
+
+        </div><!-- /.demo-wrapper -->
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Cargar menú y footer (el chatbot se carga desde load-fragments.js) -->
+    <script src="includes/load-menu.js"></script>
+    <script src="includes/menu-behavior.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,429 @@
+{
+    "_comentario": "Árbol de conversación para el chatbot de RBS. Cada nodo tiene 'message' y 'options' (menú) o 'type:answer' (respuesta terminal). Edita los textos o añade nodos nuevos siguiendo el mismo patrón.",
+    "welcome": "¡Hola! 👋 Soy el asistente virtual de **Reserva Bosque Sereno**. ¿En qué puedo ayudarte hoy?",
+    "nodes": {
+        "start": {
+            "message": "¿Qué tema te interesa?",
+            "options": [
+                {
+                    "label": "💰 Pagos y cuotas",
+                    "next": "pagos"
+                },
+                {
+                    "label": "🏊 Amenidades",
+                    "next": "amenidades"
+                },
+                {
+                    "label": "📋 Reglamentos",
+                    "next": "reglamentos"
+                },
+                {
+                    "label": "🐾 Mascotas",
+                    "next": "mascotas"
+                },
+                {
+                    "label": "🕐 Horarios",
+                    "next": "horarios"
+                },
+                {
+                    "label": "🆘 Emergencias",
+                    "next": "emergencias"
+                },
+                {
+                    "label": "📞 Contacto",
+                    "next": "contacto"
+                }
+            ]
+        },
+        "pagos": {
+            "message": "¿Qué necesitas saber sobre pagos?",
+            "options": [
+                {
+                    "label": "¿Cómo pago mi cuota?",
+                    "next": "pagos-como"
+                },
+                {
+                    "label": "Datos bancarios",
+                    "next": "pagos-cuenta"
+                },
+                {
+                    "label": "¿A dónde envío mi comprobante?",
+                    "next": "pagos-comprobante"
+                },
+                {
+                    "label": "¿Cómo identifican mi pago?",
+                    "next": "pagos-identificar"
+                },
+                {
+                    "label": "¿Cuándo llega mi recibo?",
+                    "next": "pagos-recibo"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "pagos-como": {
+            "type": "answer",
+            "message": "Puedes pagar tu cuota de las siguientes formas:\n• **Transferencia o depósito bancario** a nuestra cuenta BBVA\n• **En oficina de administración** con terminal bancaria (débito/crédito)\n• **Cajero multipago**\n\nRecuerda siempre enviar tu comprobante a Administración.",
+            "back": "pagos"
+        },
+        "pagos-cuenta": {
+            "type": "answer",
+            "message": "<p><strong>Datos bancarios:</strong></p><p>🏦 BANCO: BBVA BANCOMER<br>🏢 Responsable: Administracion Condo M<br>📄 RFC: ACR 251107 182 <a href=\"#\" class=\"copy-btn\" data-copy=\"ACR251107182\" aria-label=\"Copiar RFC\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a><br>🔢 Cuenta: 012 649 7268 <a href=\"#\" class=\"copy-btn\" data-copy=\"0126497268\" aria-label=\"Copiar cuenta\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a><br>💳 CLABE: 012 010 0012 6497 2689 <a href=\"#\" class=\"copy-btn\" data-copy=\"012010001264972689\" aria-label=\"Copiar CLABE\"><i class=\"fa-regular fa-copy\" aria-hidden=\"true\"></i></a></p>",
+            "back": "pagos"
+        },
+        "pagos-comprobante": {
+            "type": "answer",
+            "message": "<p>Envía tu comprobante de pago por:</p><p>📱 <a href=\"https://wa.me/524492133944?text=Hola%2C%20adjunto%20mi%20comprobante%20de%20pago.\" target=\"_blank\" rel=\"noopener noreferrer\"><strong>WhatsApp: 449 213 3944</strong></a><br>📧 <a href=\"mailto:admonreservabosquesereno@gmail.com\">admonreservabosquesereno@gmail.com</a></p><p>Administración aplica el pago en 72 hrs.</p>",
+            "back": "pagos"
+        },
+        "pagos-identificar": {
+            "type": "answer",
+            "message": "Escribe tu domicilio en el **concepto de la transferencia** (o en el voucher si pagas en efectivo). Omite la palabra «Reserva de», por ejemplo:\n\n• Sequoia 402\n• Sakura 207\n• Sabino 105\n\nEn el concepto también puedes indicar para qué es el pago: *Sequoia 402 Salón*, *Sequoia 402 Tag*, etc.",
+            "back": "pagos"
+        },
+        "pagos-recibo": {
+            "type": "answer",
+            "message": "Tu recibo se envía a través de la **Plataforma Condovive** una vez que Administración haya cotejado tu pago (plazo de 72 horas hábiles).",
+            "link": {
+                "label": "Ir a Condovive",
+                "url": "condovive.html"
+            },
+            "back": "pagos"
+        },
+        "amenidades": {
+            "message": "¿Qué amenidad te interesa?",
+            "options": [
+                {
+                    "label": "🏊 Alberca",
+                    "next": "alberca"
+                },
+                {
+                    "label": "🍖 Asadores",
+                    "next": "asadores"
+                },
+                {
+                    "label": "🎉 Salón de eventos",
+                    "next": "salon"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "alberca": {
+            "message": "¿Qué necesitas saber sobre la alberca?",
+            "options": [
+                {
+                    "label": "Horarios de uso",
+                    "next": "alberca-horario"
+                },
+                {
+                    "label": "Reglamento",
+                    "next": "reg-alberca"
+                },
+                {
+                    "label": "Tríptico informativo",
+                    "next": "triptico-alberca"
+                },
+                {
+                    "label": "⬅ Amenidades",
+                    "next": "amenidades"
+                }
+            ]
+        },
+        "alberca-horario": {
+            "type": "answer",
+            "message": "**Horario de alberca:**\n\n🚫 Lunes: sin servicio\n⏰ Martes: 12:00 pm – 8:00 pm\n⏰ Miércoles a Domingo: 8:00 am – 8:00 pm",
+            "back": "alberca"
+        },
+        "triptico-alberca": {
+            "type": "answer",
+            "message": "Puedes consultar el tríptico completo de la alberca con todas las reglas e información de uso.",
+            "link": {
+                "label": "Ver tríptico alberca",
+                "url": "triptico-alberca.html"
+            },
+            "back": "alberca"
+        },
+        "asadores": {
+            "message": "¿Qué necesitas saber sobre los asadores?",
+            "options": [
+                {
+                    "label": "Horarios de uso",
+                    "next": "asadores-horario"
+                },
+                {
+                    "label": "¿Cómo reservar?",
+                    "next": "asadores-reservar"
+                },
+                {
+                    "label": "Reglamento",
+                    "next": "reg-asadores"
+                },
+                {
+                    "label": "⬅ Amenidades",
+                    "next": "amenidades"
+                }
+            ]
+        },
+        "asadores-horario": {
+            "type": "answer",
+            "message": "**Horario de asadores:**\n\n⏰ Lunes a Domingo: 9:00 am – 9:00 pm\n\nRecuerda que el uso requiere reservación previa.",
+            "back": "asadores"
+        },
+        "asadores-reservar": {
+            "type": "answer",
+            "message": "Para reservar un asador:\n\n1. Contacta a Administración para revisar disponibilidad\n2. Debes estar al corriente en tus cuotas\n3. Es gratuito, pero obligatorio registrar un responsable\n4. Notifica si no lo vas a usar\n\n📱 WhatsApp: 449 213 3944",
+            "back": "asadores"
+        },
+        "salon": {
+            "message": "¿Qué necesitas saber sobre el salón de eventos?",
+            "options": [
+                {
+                    "label": "¿Cómo reservar?",
+                    "next": "salon-reservar"
+                },
+                {
+                    "label": "¿Qué incluye la renta?",
+                    "next": "salon-incluye"
+                },
+                {
+                    "label": "Reglamento",
+                    "next": "reg-salon"
+                },
+                {
+                    "label": "⬅ Amenidades",
+                    "next": "amenidades"
+                }
+            ]
+        },
+        "salon-reservar": {
+            "type": "answer",
+            "message": "Para reservar el salón:\n\n1. Contacta a Administración para ver disponibilidad\n2. La cuota es equivalente a **1 mes de mantenimiento ($1,050)**\n3. Debes estar al corriente en tus cuotas\n4. El apartado se confirma con el pago\n\n📱 WhatsApp: 449 213 3944\n📞 Tel: 449 213 3944",
+            "back": "salon"
+        },
+        "salon-incluye": {
+            "type": "answer",
+            "message": "La renta del salón incluye:\n\n• 6 mesas redondas (sin mantelería)\n• 34 sillas\n• Baño abastecido (papel, sanitas, jabón)\n• Salón entregado limpio\n\n❌ No se permite: confeti, cañones de polvo, bengalas, bombas de humo ni elementos que dañen las instalaciones.",
+            "back": "salon"
+        },
+        "reglamentos": {
+            "message": "¿Qué reglamento quieres consultar?",
+            "options": [
+                {
+                    "label": "🏊 Alberca",
+                    "next": "reg-alberca"
+                },
+                {
+                    "label": "🍖 Asadores",
+                    "next": "reg-asadores"
+                },
+                {
+                    "label": "🎉 Salón",
+                    "next": "reg-salon"
+                },
+                {
+                    "label": "🐾 Mascotas",
+                    "next": "reg-mascotas"
+                },
+                {
+                    "label": "🅿 Estacionamientos",
+                    "next": "reg-estacionamientos"
+                },
+                {
+                    "label": "📄 Reglamento protocolizado",
+                    "next": "reg-general"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "reg-alberca": {
+            "type": "answer",
+            "message": "Puedes consultar el reglamento completo de la alberca en línea.",
+            "link": {
+                "label": "Ver reglamento alberca",
+                "url": "reglamento-alberca.html"
+            },
+            "back": "reglamentos"
+        },
+        "reg-asadores": {
+            "type": "answer",
+            "message": "Puedes consultar el reglamento completo de los asadores en línea.",
+            "link": {
+                "label": "Ver reglamento asadores",
+                "url": "reglamento-asadores.html"
+            },
+            "back": "reglamentos"
+        },
+        "reg-salon": {
+            "type": "answer",
+            "message": "Puedes consultar el reglamento completo del salón de usos múltiples en línea.",
+            "link": {
+                "label": "Ver reglamento salón",
+                "url": "reglamento-salon.html"
+            },
+            "back": "reglamentos"
+        },
+        "reg-mascotas": {
+            "type": "answer",
+            "message": "Puedes consultar el reglamento completo para mascotas en línea.",
+            "link": {
+                "label": "Ver reglamento mascotas",
+                "url": "reglamento-mascotas.html"
+            },
+            "back": "reglamentos"
+        },
+        "reg-estacionamientos": {
+            "type": "answer",
+            "message": "Puedes consultar el reglamento completo de estacionamientos en línea.",
+            "link": {
+                "label": "Ver reglamento estacionamientos",
+                "url": "reglamento-estacionamientos.html"
+            },
+            "back": "reglamentos"
+        },
+        "reg-general": {
+            "type": "answer",
+            "message": "El Reglamento Interno Protocolizado contiene todas las normas del condominio.",
+            "link": {
+                "label": "Descargar reglamento protocolizado (PDF)",
+                "url": "files/reglamento_protocolizado.pdf"
+            },
+            "back": "reglamentos"
+        },
+        "mascotas": {
+            "message": "¿Qué necesitas saber sobre mascotas en el condominio?",
+            "options": [
+                {
+                    "label": "Reglamento mascotas",
+                    "next": "reg-mascotas"
+                },
+                {
+                    "label": "Padrón de mascotas",
+                    "next": "padron-mascotas"
+                },
+                {
+                    "label": "Tríptico mascotas",
+                    "next": "triptico-mascotas"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "padron-mascotas": {
+            "type": "answer",
+            "message": "Todos los residentes con mascotas deben registrarlas en el padrón del condominio. Consulta la información actualizada aquí:",
+            "link": {
+                "label": "Ver padrón de mascotas",
+                "url": "padron-mascotas.html"
+            },
+            "back": "mascotas"
+        },
+        "triptico-mascotas": {
+            "type": "answer",
+            "message": "El tríptico de mascotas contiene un resumen de las reglas más importantes para convivencia con mascotas.",
+            "link": {
+                "label": "Ver tríptico mascotas",
+                "url": "triptico-mascotas.html"
+            },
+            "back": "mascotas"
+        },
+        "horarios": {
+            "message": "¿De qué horarios necesitas información?",
+            "options": [
+                {
+                    "label": "🏊 Alberca",
+                    "next": "alberca-horario"
+                },
+                {
+                    "label": "🍖 Asadores",
+                    "next": "asadores-horario"
+                },
+                {
+                    "label": "🏢 Administración",
+                    "next": "horario-admin"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "horario-admin": {
+            "type": "answer",
+            "message": "<p><strong>Horario de Administración:</strong></p><p>🗓 Lunes a Viernes: 9:00 am – 5:00 pm<br>🗓 Sábado: 10:00 am – 1:00 pm<br>🚫 Domingo: cerrado</p><p>📱 <a href=\"https://wa.me/524492133944\" target=\"_blank\" rel=\"noopener noreferrer\">WhatsApp: 449 213 3944</a><br>📞 <a href=\"tel:+524492133944\">Llamar: 449 213 3944</a></p>",
+            "back": "horarios"
+        },
+        "emergencias": {
+            "type": "answer",
+            "message": "<p><strong>Números de emergencia:</strong></p><ul><li>🚨 Emergencias: <a href=\"tel:911\"><strong>911</strong></a></li><li>🚨 Guardia Nacional: <a href=\"tel:088\"><strong>088</strong></a></li><li>🔕 Denuncia anónima: <a href=\"tel:089\">089</a></li><li>👮 Fiscalía FGE: <a href=\"tel:+524494782800\">449 478 2800</a></li><li>🚔 SSPM Ags C4: <a href=\"tel:+524499946640\">449 994 6640</a></li><li>🚔 SSPE Ags C5: <a href=\"tel:+524499102055\">449 910 2055</a></li></ul><p>Para urgencias también contacta a Vigilancia en la caseta principal.</p>",
+            "back": "start"
+        },
+        "contacto": {
+            "message": "¿Cómo quieres contactar a Administración?",
+            "options": [
+                {
+                    "label": "💬 WhatsApp",
+                    "next": "contacto-wa"
+                },
+                {
+                    "label": "📧 Correo electrónico",
+                    "next": "contacto-email"
+                },
+                {
+                    "label": "🏢 Ir en persona",
+                    "next": "contacto-oficina"
+                },
+                {
+                    "label": "🌐 Condovive",
+                    "next": "contacto-condovive"
+                },
+                {
+                    "label": "⬅ Menú principal",
+                    "next": "start"
+                }
+            ]
+        },
+        "contacto-wa": {
+            "type": "answer",
+            "message": "Puedes enviar un WhatsApp a Administración directamente:",
+            "link": {
+                "label": "Abrir WhatsApp",
+                "url": "https://wa.me/524492133944?text=Hola%2C%20tengo%20una%20consulta%20sobre%20el%20condominio."
+            },
+            "back": "contacto"
+        },
+        "contacto-email": {
+            "type": "answer",
+            "message": "📧 Correo de Administración:\n**admonreservabosquesereno@gmail.com**\n\nRecuerda incluir tu domicilio en el asunto.",
+            "link": {
+                "label": "Enviar correo",
+                "url": "mailto:admonreservabosquesereno@gmail.com"
+            },
+            "back": "contacto"
+        },
+        "contacto-oficina": {
+            "type": "answer",
+            "message": "La oficina de Administración se encuentra dentro del condominio.\n\n🗓 Lunes a Viernes: 9:00 am – 5:00 pm\n🗓 Sábado: 10:00 am – 1:00 pm",
+            "back": "contacto"
+        },
+        "contacto-condovive": {
+            "type": "answer",
+            "message": "Condovive es la plataforma oficial del condominio donde puedes:\n• Generar QR para visitas\n• Consultar estados de cuenta\n• Reportar tickets y quejas\n• Ver comunicados",
+            "link": {
+                "label": "Ir a Condovive",
+                "url": "condovive.html"
+            },
+            "back": "contacto"
+        }
+    }
+}

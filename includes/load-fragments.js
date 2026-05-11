@@ -61,5 +61,6 @@
         s1.onload = () => console.log('load-fragments: load-menu loaded');
         s1.onerror = () => console.error('load-fragments: failed to load load-menu.js');
         document.body.appendChild(s1);
+
     }).catch(err => console.error('load-fragments: Promise.all failed', err));
 })();
