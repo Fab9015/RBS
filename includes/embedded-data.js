@@ -5177,7 +5177,7 @@ window.EMBEDDED_BLOG = {
       "date": "27 de abril de 2026",
       "time": "Primera llamada: 18:30 · Segunda llamada: 19:00 horas",
       "place": "Salón de Usos Múltiples",
-      "activo": true
+      "activo": false
     },
     {
       "title": "Segunda mesa de trabajo",
