@@ -370,6 +370,13 @@
                         body.classList.add('open');
                         header.classList.add('active');
                         item.classList.add('open');
+                        // GA4: rastrear apertura de pregunta en FAQ
+                        if (typeof window.rbsTrack === 'function') {
+                            window.rbsTrack('faq_open', {
+                                question: it.question ? it.question.slice(0, 100) : '',
+                                question_id: it.id || ''
+                            });
+                        }
                         // Update URL hash when opening a question
                         if (it.id) {
                             history.pushState(null, null, '#' + it.id);

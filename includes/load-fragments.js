@@ -1,4 +1,12 @@
 (function () {
+    // ── Cargar analytics.js lo antes posible ──────────────────────────────────
+    (function () {
+        var sAnalytics = document.createElement('script');
+        sAnalytics.src = 'includes/analytics.js';
+        sAnalytics.onerror = function () { console.warn('load-fragments: failed to load analytics.js'); };
+        document.head.appendChild(sAnalytics);
+    })();
+
     // Loader for HTML fragments (menu and footer). Uses fetch when possible,
     // otherwise falls back to embedded strings so file:// previews work.
     const EMBEDDED_MENU = `

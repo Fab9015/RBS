@@ -313,6 +313,16 @@
                             a.target = '_blank';
                             a.rel = 'noopener noreferrer';
                         }
+                        // GA4: rastrear click en link de respuesta del chatbot
+                        a.addEventListener('click', function () {
+                            if (typeof window.rbsTrack === 'function') {
+                                window.rbsTrack('chatbot_link_click', {
+                                    destination: node.link.url,
+                                    link_text: node.link.label,
+                                    origin_node: currentNodeId
+                                });
+                            }
+                        });
                         wrap.appendChild(a);
                         messages.appendChild(wrap);
                         scrollBottom();
@@ -332,6 +342,13 @@
         function handleOptionClick(opt) {
             removeOptions();
             addMsg(opt.label, 'user');
+            // GA4: rastrear selección de tema en el chatbot
+            if (typeof window.rbsTrack === 'function') {
+                window.rbsTrack('chatbot_topic', {
+                    topic: opt.next,
+                    label: opt.label
+                });
+            }
             renderNode(opt.next);
         }
 
@@ -389,6 +406,10 @@
                 isOpen = true;
                 dom.win.classList.remove('rbs-hidden');
                 dom.toggle.setAttribute('aria-label', 'Cerrar asistente virtual');
+                // GA4: rastrear apertura del chatbot
+                if (typeof window.rbsTrack === 'function') {
+                    window.rbsTrack('chatbot_open', { page: window.location.pathname });
+                }
                 dom.toggle.innerHTML = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
                     </svg>`;

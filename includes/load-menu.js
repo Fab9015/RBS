@@ -9,8 +9,8 @@
         if (mobileMenuList) mobileMenuList.innerHTML = '';
         data.menu.forEach(item => {
             const targetAttr = item.target ? ` target="${item.target}" rel="${item.target === '_blank' ? 'noopener noreferrer' : ''}"` : '';
-            if (menu) menu.innerHTML += `<li><a href="${item.url}"${targetAttr}>${item.title}</a></li>`;
-            if (mobileMenuList) mobileMenuList.innerHTML += `<li><a href="${item.url}"${targetAttr}>${item.title}</a></li>`;
+            if (menu) menu.innerHTML += `<li><a href="${item.url}"${targetAttr} onclick="if(typeof rbsTrack==='function')rbsTrack('menu_click',{item_label:'${item.title.replace(/'/g, "\\'")}',destination:'${item.url}'})">${item.title}</a></li>`;
+            if (mobileMenuList) mobileMenuList.innerHTML += `<li><a href="${item.url}"${targetAttr} onclick="if(typeof rbsTrack==='function')rbsTrack('menu_click',{item_label:'${item.title.replace(/'/g, "\\'")}',destination:'${item.url}'})">${item.title}</a></li>`;
         });
     }
 
