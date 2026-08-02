@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Portón – Encuesta – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description"
+        content="Conoce las 3 opciones de portón de acceso propuestas para el condominio y participa en la encuesta de votación.">
+    <meta property="og:title" content="Opciones de Portón – Encuesta – Reserva Bosque Sereno">
+    <meta property="og:description"
+        content="Conoce las 3 opciones de portón de acceso propuestas para el condominio y participa en la encuesta de votación.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/opciones-encuesta.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Opciones de Portón – Encuesta – Reserva Bosque Sereno">
+    <meta name="twitter:description"
+        content="Conoce las 3 opciones de portón de acceso propuestas para el condominio y participa en la encuesta de votación.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/opciones-encuesta.html">
+    <style>
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4em;
+            margin-bottom: 0.5em;
+            color: var(--color-accent);
+            text-decoration: none;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .intro {
+            margin: 1em 0 2em;
+        }
+
+        .intro h2 {
+            font-size: 1.3em;
+            margin: 0 0 0.4em;
+        }
+
+        .intro p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.3em;
+        }
+
+        /* Envoltura más oscura: el espacio entre tarjetas de opción funciona como separador de secciones */
+        .options-band {
+            background: var(--color-border);
+            border-radius: 20px;
+            padding: 1.2em;
+            margin: 1.5em 0 2em;
+        }
+
+        /* Cada opción es una sola tarjeta: título, imagen y texto comparten el mismo fondo */
+        .option-row {
+            background: var(--color-white);
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 1.3em;
+        }
+
+        .option-row+.option-row {
+            margin-top: 1.2em;
+        }
+
+        .option-heading {
+            grid-area: heading;
+        }
+
+        .option-title {
+            margin: 0;
+            font-size: 1.15em;
+        }
+
+        .option-desc {
+            font-size: 0.9em;
+            color: var(--color-contrast);
+            margin: 0 0 1em;
+            line-height: 1.55;
+        }
+
+        .option-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas:
+                "heading image"
+                "text image";
+            gap: 1.2em;
+        }
+
+        .option-text-col {
+            grid-area: text;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-render-note {
+            font-size: 0.8em;
+            font-style: italic;
+            color: #b9550f;
+            background: #fef3e2;
+            border-radius: 6px;
+            padding: 0.5em 0.7em;
+            margin: 0 0 0.8em;
+            line-height: 1.5;
+        }
+
+        .option-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1em;
+        }
+
+        .option-bullets li {
+            font-size: 0.87em;
+            line-height: 1.55;
+            color: var(--color-contrast);
+            padding: 0.3em 0;
+            display: flex;
+            gap: 0.5em;
+        }
+
+        .option-bullets li::before {
+            content: '\2022';
+            color: var(--color-accent);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7em;
+            margin-top: auto;
+        }
+
+        .detail-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 0.6em 1.1em;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85em;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .detail-button:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .specs-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--color-accent);
+            border: 2px solid var(--color-accent);
+            color: #fff;
+            padding: 0.6em 1.1em;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85em;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .specs-button i {
+            transition: transform 0.35s ease;
+        }
+
+        .specs-button:hover {
+            opacity: 0.88;
+        }
+
+        .specs-button:hover i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 480px) {
+            .button-row {
+                flex-direction: column;
+            }
+
+            .button-row .specs-button,
+            .button-row .detail-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Flip card: la columna de texto gira para mostrar las especificaciones completas */
+        .flip-card {
+            flex: 1;
+            min-height: 260px;
+            perspective: 1600px;
+        }
+
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .flip-card.flipped .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            position: absolute;
+            inset: 0;
+            backface-visibility: hidden;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flip-card-back {
+            transform: rotateY(180deg);
+            padding-right: 0.3em;
+        }
+
+        .flip-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            align-self: flex-start;
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 0.85em;
+            cursor: pointer;
+            padding: 0.5em 1em;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            margin: 0 0 0.9em;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .flip-back-btn:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .option-image-col {
+            grid-area: image;
+        }
+
+        .option-image-col figure {
+            margin: 0;
+            height: 100%;
+            background: #f7f5f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-image-col .zoomable {
+            position: relative;
+            cursor: pointer;
+            flex: 1;
+            display: block;
+            overflow: hidden;
+        }
+
+        .option-image-col img {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: 420px;
+            object-fit: contain;
+            background: #f7f5f0;
+        }
+
+        .zoomable-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.45);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 0.4em;
+            font-size: 0.9em;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .zoomable-overlay i {
+            font-size: 1.8em;
+        }
+
+        @media (hover: hover) {
+            .zoomable:hover .zoomable-overlay {
+                opacity: 1;
+            }
+        }
+
+        .tap-hint {
+            display: none;
+        }
+
+        @media (hover: none) {
+            .tap-hint {
+                display: flex;
+                position: absolute;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                align-items: center;
+                justify-content: center;
+                gap: 0.4em;
+                background: rgba(0, 0, 0, 0.6);
+                color: #fff;
+                font-size: 0.78em;
+                font-weight: 600;
+                padding: 0.55em 0.7em;
+            }
+        }
+
+        /* Modal / lightbox de detalle */
+        .img-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.78);
+            backdrop-filter: blur(3px);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1.2em;
+            box-sizing: border-box;
+        }
+
+        .img-modal.open {
+            display: flex;
+        }
+
+        .img-modal-content {
+            position: relative;
+            max-width: 900px;
+            width: 100%;
+            max-height: 90vh;
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 2.8em 1.6em 1.6em;
+            text-align: center;
+            overflow-y: auto;
+            box-sizing: border-box;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            animation: modalPop 0.22s ease;
+        }
+
+        @keyframes modalPop {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .img-modal-title {
+            margin: 0 0 1em;
+            font-size: 1.1em;
+            color: var(--color-title);
+        }
+
+        /* Carrusel: una imagen visible a la vez, flechas superpuestas sobre la imagen */
+        .carousel {
+            position: relative;
+        }
+
+        /* Alto fijo para que el modal no cambie de tamaño al pasar de una imagen a otra */
+        .carousel-track {
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .carousel-track img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            border-radius: 8px;
+            object-fit: contain;
+            background: #f7f5f0;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.3em;
+            height: 2.3em;
+            border-radius: 50%;
+            border: none;
+            background: rgba(0, 0, 0, 0.55);
+            color: #fff;
+            font-size: 1em;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+            z-index: 5;
+        }
+
+        .carousel-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-arrow.prev {
+            left: 0.5em;
+        }
+
+        .carousel-arrow.next {
+            right: 0.5em;
+        }
+
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 0.45em;
+            margin-top: 0.9em;
+        }
+
+        .carousel-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--color-border);
+            cursor: pointer;
+            padding: 0;
+            border: none;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .carousel-dot.active {
+            background: var(--color-accent);
+            transform: scale(1.3);
+        }
+
+        .img-modal-caption {
+            margin: 0.8em 0 0;
+            font-size: 0.9em;
+            color: var(--color-contrast);
+            font-weight: 600;
+        }
+
+        .img-modal-close {
+            position: absolute;
+            top: 0.7em;
+            right: 0.7em;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: none;
+            background: var(--color-accent);
+            color: #fff;
+            font-size: 1.3em;
+            line-height: 1;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            z-index: 10;
+        }
+
+        /* Vote CTA */
+        .vote-cta {
+            text-align: center;
+            margin: 2.5em 0 1em;
+        }
+
+        .vote-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            background: var(--color-accent);
+            color: #fff;
+            padding: 0.85em 1.8em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1em;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .vote-button:hover {
+            opacity: 0.88;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 700px) {
+
+            /* El A/B test confirmó que en mobile conviene mostrar: título, imagen y luego texto */
+            .option-grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "heading"
+                    "image"
+                    "text";
+                gap: 0.9em;
+            }
+
+            .option-image-col img {
+                max-height: 320px;
+            }
+
+            .flip-card {
+                min-height: 280px;
+            }
+
+            /* Opción 1 tiene el texto más largo (incluye la nota de render) y necesita más alto para no generar scroll interno */
+            #flipCard1 {
+                min-height: 380px;
+            }
+
+            .img-modal {
+                padding: 0.6em;
+            }
+
+            .img-modal-content {
+                padding: 2.4em 0.8em 1em;
+                border-radius: 10px;
+            }
+
+            .carousel-track {
+                height: 40vh;
+            }
+
+            .carousel-arrow {
+                width: 2em;
+                height: 2em;
+                font-size: 0.85em;
+            }
+
+            .img-modal-close {
+                top: 0.5em;
+                right: 0.5em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>🚧 Opciones de Portón</h1>
+            <p>Elige la opción que más te convence para la encuesta</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <a href="orden-del-dia-mesa-trabajo-2.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Mesa de
+            Trabajo 2</a>
+
+        <div class="intro">
+            <h2>Vota por el nuevo portón de acceso</h2>
+            <p>
+                Como parte de la propuesta para renovar el portón de acceso al condominio, se presentan
+                <strong>3 opciones</strong> para que la comunidad las conozca antes de participar en la encuesta
+                de votación. Revisa las imágenes de cada opción y elige la que prefieras al momento de votar.
+            </p>
+        </div>
+
+        <div class="alert-box">
+            <strong>💡 Nota</strong>
+            Las imágenes mostradas son de referencia. El resultado final puede variar ligeramente según
+            disponibilidad de materiales y ajustes de instalación.
+        </div>
+
+        <!-- Opción 1 -->
+        <div class="options-band">
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 1 – Privacidad Sólida</h3>
+                    </div>
+                    <div class="option-image-col">
+                        <figure>
+                            <span class="zoomable" onclick="openDetailModal(1)">
+                                <img src="img/porton_opcion1.jpg" alt="Opción 1 – Privacidad Sólida"
+                                    onerror="imgFallback(this,'Opción 1')">
+                                <span class="zoomable-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver
+                                    detalle</span>
+                                <span class="tap-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver
+                                    el
+                                    detalle</span>
+                            </span>
+                        </figure>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCard1">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Diseño, fabricación y montaje de sistema de herrería
+                                        estructural para el control de acceso vehicular y peatonal. El proyecto se
+                                        enfoca
+                                        en el blindaje de áreas vulnerables y la conexión del sistema de identificación
+                                        biométrica ya existente para maximizar la seguridad del residencial.</p>
+                                    <p class="option-render-note">⚠️ Render solo ilustrativo (SOLO REFERENCIA). No
+                                        incluye obra civil para techar el acceso ni construir como en la imagen.</p>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip(1)">
+                                            <i class="fa-solid fa-arrows-rotate"></i> Ver especificaciones técnicas
+                                        </button>
+                                        <button type="button" class="detail-button" onclick="openDetailModal(1)">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i> Ver detalle visual
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip(1)">
+                                        <i class="fa-solid fa-arrow-left"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li><strong>Estructura principal:</strong> portón manual de dos hojas abatibles,
+                                            fabricado en Acero A36 de alta resistencia.</li>
+                                        <li><strong>Bastidores:</strong> PTR de alta durabilidad en Calibre 14,
+                                            garantizando rigidez estructural ante el uso continuo.</li>
+                                        <li>Colocación de malla desplegada cal. 14 para visualización al centro del
+                                            portón y acceso peatonal, herrajes para cierre de portón.</li>
+                                        <li>Silueta de árbol en corte láser al centro de los portones con el fin de
+                                            dar mayor vista al acceso.</li>
+                                        <li>Herrajes y jaladeras para acceso peatonal y portones.</li>
+                                        <li><strong>Soporte:</strong> postes de anclaje reforzados en Calibre 14 /
+                                            calibre rojo, diseñados para soportar el torque y peso de las hojas sin
+                                            deformaciones.</li>
+                                        <li>Revestimiento de perfil de acero 4" x 1.5" en la parte baja del portón
+                                            para mayor privacidad y protección.</li>
+                                        <li>Instalación de secciones fijas en el área de caseta para sellar huecos.</li>
+                                        <li>Clausura del acceso izquierdo (visto de frente) para canalizar el flujo de
+                                            forma segura.</li>
+                                        <li>Fabricación de puerta peatonal integrada, acondicionada y preparada
+                                            específicamente para la integración de tecnología.</li>
+                                        <li><strong>Acabado:</strong> aplicación de recubrimiento y acabado final
+                                            color chocolate de grado industrial.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opción 2 -->
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 2 – Apariencia Vertical con Acero</h3>
+                    </div>
+                    <div class="option-image-col">
+                        <figure>
+                            <span class="zoomable" onclick="openDetailModal(2)">
+                                <img src="img/porton_opcion2.jpg" alt="Opción 2 – Apariencia Vertical con Acero"
+                                    onerror="imgFallback(this,'Opción 2')">
+                                <span class="zoomable-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver
+                                    detalle</span>
+                                <span class="tap-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver
+                                    el
+                                    detalle</span>
+                            </span>
+                        </figure>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCard2">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Diseño jerarquizado que destaca por andador peatonal
+                                        independiente con marco de acero, herrajes de seguridad y listones de perfil de
+                                        acero de 4" x 1.5" colocados de manera vertical (R400).</p>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip(2)">
+                                            <i class="fa-solid fa-arrows-rotate"></i> Ver especificaciones técnicas
+                                        </button>
+                                        <button type="button" class="detail-button" onclick="openDetailModal(2)">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i> Ver detalle visual
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip(2)">
+                                        <i class="fa-solid fa-arrow-left"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li>Puerta de acceso peatonal con perfil de acero 4" x 1.5" cal. 18.</li>
+                                        <li>Base para ID facial para acceso peatonal.</li>
+                                        <li>Resorte para retorno de puerta peatonal.</li>
+                                        <li>Manija en acero para apertura de puerta peatonal.</li>
+                                        <li>Herrajes para cierre de portón.</li>
+                                        <li>Instalación de secciones fijas en el área de caseta para sellar huecos de
+                                            seguridad.</li>
+                                        <li>Clausura del acceso izquierdo (visto de frente) para canalizar el flujo de
+                                            forma segura.</li>
+                                        <li>Fabricación de puerta peatonal integrada, acondicionada y preparada
+                                            específicamente para la integración de tecnología.</li>
+                                        <li><strong>Acabado:</strong> aplicación de recubrimiento y acabado final
+                                            color chocolate de grado industrial.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opción 3 -->
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 3 – Silueta Forestal</h3>
+                    </div>
+                    <div class="option-image-col">
+                        <figure>
+                            <span class="zoomable" onclick="openDetailModal(3)">
+                                <img src="img/porton_opcion3.jpg" alt="Opción 3 – Silueta Forestal"
+                                    onerror="imgFallback(this,'Opción 3')">
+                                <span class="zoomable-overlay"><i class="fa-solid fa-magnifying-glass-plus"></i> Ver
+                                    detalle</span>
+                                <span class="tap-hint"><i class="fa-solid fa-magnifying-glass-plus"></i> Toca para ver
+                                    el
+                                    detalle</span>
+                            </span>
+                        </figure>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCard3">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Diseño, fabricación y montaje de sistema de herrería
+                                        estructural para el control de acceso vehicular y peatonal.</p>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip(3)">
+                                            <i class="fa-solid fa-arrows-rotate"></i> Ver especificaciones técnicas
+                                        </button>
+                                        <button type="button" class="detail-button" onclick="openDetailModal(3)">
+                                            <i class="fa-solid fa-magnifying-glass-plus"></i> Ver detalle visual
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip(3)">
+                                        <i class="fa-solid fa-arrow-left"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li><strong>Estructura principal:</strong> portón manual de dos hojas abatibles,
+                                            fabricado en Acero A36 de alta resistencia.</li>
+                                        <li><strong>Bastidores:</strong> PTR de alta durabilidad en Calibre 14,
+                                            garantizando rigidez estructural ante el uso continuo.</li>
+                                        <li>Silueta forestal en corte láser al centro de los portones con el fin de
+                                            dar mayor vista al acceso.</li>
+                                        <li>Herrajes y jaladeras para acceso peatonal y portones.</li>
+                                        <li><strong>Soporte:</strong> postes de anclaje reforzados en Calibre 14 /
+                                            calibre rojo, diseñados para soportar el torque y peso de las hojas sin
+                                            deformaciones.</li>
+                                        <li>Instalación de secciones fijas en el área de caseta para sellar huecos de
+                                            seguridad.</li>
+                                        <li>Clausura del acceso peatonal izquierdo (visto de frente) para canalizar el
+                                            flujo de forma segura.</li>
+                                        <li><strong>Acabado:</strong> color gris oxford de grado industrial.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="vote-cta">
+            <a href="encuesta-aceptacion.html" class="vote-button">
+                <i class="fa-solid fa-square-poll-vertical"></i> Ir a la encuesta
+            </a>
+        </div>
+    </div>
+
+    <!-- Modal de detalle visual (carrusel: una imagen a la vez) -->
+    <div class="img-modal" id="imgModal" onclick="if(event.target===this) closeDetailModal()">
+        <div class="img-modal-content">
+            <button type="button" class="img-modal-close" onclick="closeDetailModal()"
+                aria-label="Cerrar">&times;</button>
+            <h3 class="img-modal-title" id="imgModalTitle"></h3>
+            <div class="carousel">
+                <button type="button" class="carousel-arrow prev" onclick="carouselNav(-1)"
+                    aria-label="Imagen anterior">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <div class="carousel-track">
+                    <img id="carouselImg" src="" alt="">
+                </div>
+                <button type="button" class="carousel-arrow next" onclick="carouselNav(1)"
+                    aria-label="Imagen siguiente">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            <p class="img-modal-caption" id="carouselCaption"></p>
+            <div class="carousel-dots" id="carouselDots"></div>
+        </div>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        // Muestra un marcador visual mientras las imágenes reales no estén disponibles en el repo
+        function imgFallback(img, label) {
+            img.onerror = null;
+            const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="260">
+                <rect width="100%" height="100%" fill="#e6e2dc"/>
+                <text x="50%" y="50%" font-family="sans-serif" font-size="20" fill="#5c4033"
+                    text-anchor="middle" dominant-baseline="middle">${label}</text>
+            </svg>`;
+            img.src = 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+        }
+
+        // Detalle visual (carrusel) por opción: imagen de vista real + render de diseño
+        const detailImages = {
+            1: [
+                { src: 'img/detalle1.jpeg', label: 'Vista de detalle instalada' },
+                { src: 'img/porton_opcion1_1.jpg', label: 'Render del diseño propuesto (solo referencia)' }
+            ],
+            2: [
+                { src: 'img/detalle2.jpeg', label: 'Vista de detalle instalada' },
+                { src: 'img/porton_opcion2_2.jpg', label: 'Render del diseño propuesto (solo referencia)' }
+            ],
+            3: [
+                { src: 'img/detalle3.jpeg', label: 'Vista de detalle instalada' },
+                { src: 'img/porton_opcion3_3.jpg', label: 'Render del diseño propuesto (solo referencia)' }
+            ]
+        };
+
+        let currentDetailOption = null;
+        let currentSlide = 0;
+
+        function openDetailModal(optionNumber) {
+            if (!detailImages[optionNumber]) return;
+            currentDetailOption = optionNumber;
+            const row = document.querySelectorAll('.option-row')[optionNumber - 1];
+            const heading = row ? row.querySelector('.option-title') : null;
+            document.getElementById('imgModalTitle').textContent = heading ? heading.textContent : 'Detalle visual';
+            renderCarouselDots();
+            showSlide(0);
+            document.getElementById('imgModal').classList.add('open');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function showSlide(index) {
+            const slides = detailImages[currentDetailOption];
+            currentSlide = (index + slides.length) % slides.length;
+            const data = slides[currentSlide];
+            const img = document.getElementById('carouselImg');
+            img.onerror = function () { imgFallback(img, data.label); };
+            img.src = data.src;
+            img.alt = data.label;
+            document.getElementById('carouselCaption').textContent = data.label;
+            updateActiveDot();
+        }
+
+        function carouselNav(direction) {
+            showSlide(currentSlide + direction);
+        }
+
+        function renderCarouselDots() {
+            const dotsContainer = document.getElementById('carouselDots');
+            dotsContainer.innerHTML = '';
+            detailImages[currentDetailOption].forEach((_, i) => {
+                const dot = document.createElement('button');
+                dot.type = 'button';
+                dot.className = 'carousel-dot';
+                dot.setAttribute('aria-label', 'Ir a imagen ' + (i + 1));
+                dot.onclick = () => showSlide(i);
+                dotsContainer.appendChild(dot);
+            });
+        }
+
+        function updateActiveDot() {
+            document.querySelectorAll('#carouselDots .carousel-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+        }
+
+        function closeDetailModal() {
+            document.getElementById('imgModal').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+
+        // Especificaciones técnicas: flip 3D de la columna de texto (front/back)
+        function toggleCardFlip(optionNumber) {
+            const card = document.getElementById('flipCard' + optionNumber);
+            if (card) card.classList.toggle('flipped');
+        }
+
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') closeDetailModal();
+            if (document.getElementById('imgModal').classList.contains('open')) {
+                if (e.key === 'ArrowRight') carouselNav(1);
+                if (e.key === 'ArrowLeft') carouselNav(-1);
+            }
+        });
+    </script>
+</body>
+
+</html>
