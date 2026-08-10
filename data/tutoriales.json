@@ -20,6 +20,20 @@
     "documentos": [
         {
             "fileType": "PDF",
+            "title": "Aviso de Privacidad Integral",
+            "desc": "Política integral de tratamiento de datos personales",
+            "url": "files/Aviso_de_Privacidad_Integral_RsvBS.pdf",
+            "target": "_blank"
+        },
+        {
+            "fileType": "PDF",
+            "title": "Aviso de Privacidad Simplificado",
+            "desc": "Versión breve del aviso de privacidad",
+            "url": "files/Aviso_de_Privacidad_Simplificado_RsvBS.pdf",
+            "target": "_blank"
+        },
+        {
+            "fileType": "PDF",
             "title": "Convenio Reserva Bosque Sereno",
             "desc": "Convenio oficial del condominio",
             "url": "files/CONVENIO-RESERVA-BOSQUE-SERENO.pdf",

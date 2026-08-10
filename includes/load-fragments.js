@@ -24,7 +24,56 @@
 </div>
 `;
 
-    const EMBEDDED_FOOTER = `<footer>\n  <p>Reserva Bosque Sereno · © 2026</p>\n</footer>`;
+    const EMBEDDED_FOOTER = `<footer>
+  <div class="footer-inner">
+    <p>Reserva Bosque Sereno · © 2026</p>
+    <a href="files/Aviso%20de%20Privacidad%20Integral%20RsvBS.pdf" target="_blank" rel="noopener"
+      onclick="if (window.rbsTrack) { window.rbsTrack('privacy_link_click', { link_name: 'Aviso de privacidad integral', page_location: window.location.href, link_url: this.href }); }">
+      Aviso de privacidad integral
+    </a>
+  </div>
+  <style>
+    footer {
+      background: var(--color-accent, #a1b27a);
+      color: var(--color-white, #fff);
+      padding: 1em 1.2em;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1em;
+    }
+    footer p {
+      margin: 0;
+      color: var(--color-white, #fff);
+      font-weight: 600;
+    }
+    .footer-inner a {
+      color: var(--color-white, #fff);
+      text-decoration: underline;
+      text-underline-offset: 0.15em;
+      font-size: 0.88em;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .footer-inner a:hover {
+      opacity: 0.9;
+    }
+    @media (max-width: 768px) {
+      .footer-inner {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+      }
+      .footer-inner a {
+        white-space: normal;
+      }
+    }
+  </style>
+</footer>`;
 
     function insertHTML(selector, html) {
         const container = document.querySelector(selector);
