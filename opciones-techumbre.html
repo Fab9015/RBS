@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opciones de Techumbre – Encuesta – Reserva Bosque Sereno</title>
+    <link rel="icon" href="img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="description"
+        content="Conoce y compara las tres cotizaciones de techumbre propuestas para el acceso de Reserva Bosque Sereno.">
+    <meta property="og:title" content="Opciones de Techumbre – Encuesta – Reserva Bosque Sereno">
+    <meta property="og:description"
+        content="Compara las tres propuestas de techumbre para mejorar el acceso de Reserva Bosque Sereno.">
+    <meta property="og:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:url" content="https://fab9015.github.io/RBS/opciones-techumbre.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="es_MX">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Opciones de Techumbre – Reserva Bosque Sereno">
+    <meta name="twitter:description"
+        content="Compara las cotizaciones para instalar una techumbre en el acceso del condominio.">
+    <meta name="twitter:image" content="https://fab9015.github.io/RBS/img/logo.png">
+    <link rel="canonical" href="https://fab9015.github.io/RBS/opciones-techumbre.html">
+    <style>
+        /* Contención de respaldo: body usa flex-column (ver styles/main.css) y
+           algunos nietos flex/grid pueden forzar un ancho mínimo por su
+           contenido; esto evita que ese mínimo abra un scroll horizontal. */
+        html,
+        body {
+            max-width: 100%;
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1000px;
+            min-width: 0;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 1em 1.2em 3em;
+        }
+
+        .intro {
+            margin: 1em 0 2em;
+        }
+
+        .intro h2 {
+            font-size: 1.3em;
+            margin: 0 0 0.4em;
+        }
+
+        .intro p {
+            font-size: 0.95em;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alert-box {
+            background: #fef3e2;
+            border-left: 4px solid #f39c12;
+            padding: 1em 1.2em;
+            border-radius: 0 8px 8px 0;
+            margin: 1.5em 0;
+            font-size: 0.9em;
+            line-height: 1.55;
+        }
+
+        .alert-box strong {
+            display: block;
+            margin-bottom: 0.35em;
+        }
+
+        .alert-box ul {
+            margin: 0;
+            padding-left: 1.25em;
+        }
+
+        .alert-box li+li {
+            margin-top: 0.3em;
+        }
+
+        .shared-scope-note {
+            margin: 0 0 1.5em;
+            padding: 0.9em 1.1em;
+            border-left: 4px solid #6688a2;
+            background: #edf3f7;
+            color: #354e61;
+            font-size: 0.88em;
+            line-height: 1.55;
+            border-radius: 0 8px 8px 0;
+        }
+
+        /* Envoltura más oscura: el espacio entre tarjetas de opción funciona como separador de secciones */
+        .options-band {
+            background: var(--color-border);
+            border-radius: 20px;
+            padding: 1.2em;
+            margin: 1.5em 0 2em;
+        }
+
+        /* Cada opción es una sola tarjeta: título, cotización y texto comparten el mismo fondo */
+        .option-row {
+            background: var(--color-white);
+            border-radius: 14px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+            padding: 1.3em;
+        }
+
+        .option-row+.option-row {
+            margin-top: 1.2em;
+        }
+
+        .option-heading {
+            grid-area: heading;
+        }
+
+        .option-title {
+            margin: 0;
+            font-size: 1.15em;
+        }
+
+        .option-desc {
+            font-size: 0.9em;
+            color: var(--color-contrast);
+            margin: 0 0 1em;
+            line-height: 1.55;
+        }
+
+        .option-grid {
+            display: grid;
+            /* minmax(0, 1fr) evita que contenido sin espacios (precios, montos)
+               fuerce el ancho de la columna más allá del viewport */
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            grid-template-areas:
+                "heading quote"
+                "text quote";
+            gap: 1.2em;
+        }
+
+        .option-text-col {
+            grid-area: text;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-pros {
+            margin: 0 0 1em;
+        }
+
+        .option-pros h4 {
+            margin: 0 0 0.45em;
+            color: var(--color-title);
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.86em;
+        }
+
+        .option-pros ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .option-pros li {
+            position: relative;
+            padding: 0.22em 0 0.22em 1.3em;
+            color: var(--color-contrast);
+            font-size: 0.87em;
+            line-height: 1.5;
+            overflow-wrap: anywhere;
+        }
+
+        .option-pros li::before {
+            content: '\2713';
+            position: absolute;
+            left: 0;
+            color: #547a50;
+            font-weight: 800;
+        }
+
+        .option-bullets {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1em;
+        }
+
+        .option-bullets li {
+            position: relative;
+            font-size: 0.87em;
+            line-height: 1.55;
+            color: var(--color-contrast);
+            padding: 0.3em 0 0.3em 1.1em;
+            overflow-wrap: anywhere;
+        }
+
+        .option-bullets li::before {
+            content: '\2022';
+            position: absolute;
+            left: 0;
+            color: var(--color-accent);
+            font-weight: 700;
+        }
+
+        .quote-total-note {
+            margin: 0 0 1em;
+            padding: 0.65em 0.8em;
+            background: #f3f5f0;
+            border-left: 3px solid var(--color-accent);
+            font-size: 0.82em;
+            line-height: 1.5;
+            color: var(--color-contrast);
+        }
+
+        .button-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7em;
+            margin-top: auto;
+        }
+
+        .detail-button {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            min-width: 0;
+            max-width: 100%;
+            gap: 0.4em;
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            padding: 0.6em 1.1em;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-align: center;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            text-decoration: none;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .detail-button:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        .specs-button {
+            display: inline-flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+            min-width: 0;
+            max-width: 100%;
+            gap: 0.4em;
+            background: var(--color-accent);
+            border: 2px solid var(--color-accent);
+            color: #fff;
+            padding: 0.6em 1.1em;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.85em;
+            text-align: center;
+            white-space: normal;
+            overflow-wrap: anywhere;
+            cursor: pointer;
+            font-family: 'Lato', sans-serif;
+            transition: opacity 0.2s, transform 0.2s;
+        }
+
+        .specs-button i,
+        .detail-button i {
+            flex-shrink: 0;
+        }
+
+        .specs-button i {
+            transition: transform 0.35s ease;
+        }
+
+        .specs-button:hover {
+            opacity: 0.88;
+        }
+
+        .specs-button:hover i {
+            transform: rotate(180deg);
+        }
+
+        @media (max-width: 480px) {
+            .button-row {
+                flex-direction: column;
+            }
+
+            .button-row .specs-button,
+            .button-row .detail-button {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* Tarjeta de especificaciones: se muestra un panel a la vez (sin 3D ni
+           position:absolute) para que el scroll vertical funcione de forma
+           confiable en todos los navegadores; evita overflow horizontal. */
+        .flip-card {
+            height: 300px;
+            overflow: hidden;
+        }
+
+        .flip-card-inner {
+            height: 100%;
+        }
+
+        .flip-card-front,
+        .flip-card-back {
+            height: 100%;
+            box-sizing: border-box;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+            overscroll-behavior: contain;
+            touch-action: pan-y;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flip-card-back {
+            display: none;
+            padding-right: 0.3em;
+        }
+
+        .flip-card.flipped .flip-card-front {
+            display: none;
+        }
+
+        .flip-card.flipped .flip-card-back {
+            display: flex;
+        }
+
+        .flip-back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5em;
+            align-self: flex-start;
+            flex-shrink: 0;
+            background: var(--color-white);
+            border: 2px solid var(--color-accent);
+            color: var(--color-accent);
+            font-weight: 700;
+            font-size: 0.85em;
+            cursor: pointer;
+            padding: 0.5em 1em;
+            border-radius: 8px;
+            font-family: 'Lato', sans-serif;
+            margin: 0 0 0.9em;
+            position: sticky;
+            top: 0;
+            z-index: 2;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .flip-back-btn:hover {
+            background: var(--color-accent);
+            color: #fff;
+        }
+
+        /* Columna de cotización: ocupa el lugar de la imagen en la encuesta de portón */
+        .option-quote-col {
+            grid-area: quote;
+        }
+
+        .quote-preview {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: space-between;
+            height: 100%;
+            box-sizing: border-box;
+            min-height: 300px;
+            padding: 1.3em;
+            border-radius: 12px;
+            background: linear-gradient(145deg, #f3f5ed 0%, #e6ebdf 100%);
+            border: 1px solid #d8dfce;
+            color: var(--color-title);
+            text-decoration: none;
+            transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+        }
+
+        .quote-preview:hover {
+            border-color: var(--color-accent);
+            box-shadow: 0 8px 24px rgba(55, 75, 40, 0.12);
+            transform: translateY(-2px);
+        }
+
+        .quote-kicker {
+            color: #61734d;
+            font-size: 0.72em;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+
+        .quote-icon {
+            display: grid;
+            width: 56px;
+            height: 56px;
+            margin: 1em 0;
+            place-items: center;
+            border-radius: 10px;
+            background: #fff;
+            color: #a43e34;
+            font-size: 1.6em;
+        }
+
+        .quote-provider {
+            margin: 0 0 0.2em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1em;
+            font-weight: 700;
+        }
+
+        .quote-price-label {
+            display: block;
+            margin-top: 0.6em;
+            color: #6a7460;
+            font-size: 0.76em;
+        }
+
+        .quote-price {
+            display: block;
+            margin-top: 0.15em;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4em;
+            font-weight: 700;
+        }
+
+        .quote-open {
+            margin-top: 1em;
+            color: #52683e;
+            font-size: 0.82em;
+            font-weight: 700;
+        }
+
+        @media (max-width: 700px) {
+
+            /* En mobile: título, cotización y luego texto, igual que la encuesta de portón */
+            .option-grid {
+                grid-template-columns: 1fr;
+                grid-template-areas:
+                    "heading"
+                    "quote"
+                    "text";
+                gap: 0.9em;
+            }
+
+            .quote-preview {
+                min-height: 220px;
+            }
+
+            .flip-card {
+                height: 340px;
+            }
+        }
+
+        /* Comparación final: una tabla por categoría, con colores para distinguirlas */
+        .comparison-section {
+            margin: 2.3em 0;
+        }
+
+        .comparison-section>h2 {
+            margin: 0 0 0.35em;
+            font-size: 1.3em;
+        }
+
+        .comparison-intro {
+            margin: 0 0 1.2em;
+            color: var(--color-contrast);
+            font-size: 0.88em;
+            line-height: 1.5;
+        }
+
+        .compare-section {
+            --section-color: #547a50;
+            --section-bg: #edf4ea;
+            margin: 1.4em 0;
+            border: 1px solid var(--section-color);
+            border-radius: 8px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .compare-section.disadvantages {
+            --section-color: #a34e4b;
+            --section-bg: #f8ebea;
+        }
+
+        .compare-section.consider {
+            --section-color: #9a6a1f;
+            --section-bg: #fbf2df;
+        }
+
+        .compare-heading {
+            display: flex;
+            align-items: center;
+            gap: 0.7em;
+            margin: 0;
+            padding: 0.8em 1em;
+            background: var(--section-bg);
+            color: var(--section-color);
+            font-size: 1.08em;
+        }
+
+        .compare-heading i {
+            width: 1.2em;
+            text-align: center;
+        }
+
+        .compare-table {
+            width: 100%;
+            table-layout: fixed;
+            border-collapse: collapse;
+        }
+
+        .compare-table th,
+        .compare-table td {
+            box-sizing: border-box;
+            width: 33.333%;
+            padding: 0.9em 1em;
+            text-align: left;
+            vertical-align: top;
+            overflow-wrap: anywhere;
+        }
+
+        .compare-table thead th {
+            border-bottom: 1px solid #d9ded6;
+            background: #fafbf9;
+            color: #3e4c3b;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9em;
+        }
+
+        .compare-table thead th+th,
+        .compare-table tbody td+td {
+            border-left: 1px solid #e2e5e0;
+        }
+
+        .provider-price {
+            display: block;
+            margin-top: 0.2em;
+            color: #596455;
+            font-family: 'Lato', sans-serif;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .compare-table ul {
+            margin: 0;
+            padding-left: 1.15em;
+            color: #494f47;
+            font-size: 0.87em;
+            line-height: 1.5;
+        }
+
+        .compare-table li+li {
+            margin-top: 0.55em;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        @media (max-width: 720px) {
+
+            .compare-table,
+            .compare-table tbody,
+            .compare-table tr {
+                display: block;
+                width: 100%;
+            }
+
+            .compare-table thead {
+                position: absolute;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+                clip: rect(0, 0, 0, 0);
+                white-space: nowrap;
+            }
+
+            .compare-table tbody tr {
+                box-sizing: border-box;
+                display: grid;
+                gap: 0.65em;
+                padding: 0.75em;
+            }
+
+            .compare-table td {
+                box-sizing: border-box;
+                display: block;
+                width: 100%;
+                padding: 0.8em;
+                border: 1px solid #e1e5df !important;
+                border-left: 4px solid var(--section-color) !important;
+                background: #fff;
+            }
+
+            .compare-table td::before {
+                display: block;
+                margin-bottom: 0.5em;
+                color: var(--section-color);
+                content: attr(data-provider) " · " attr(data-price);
+                font-family: 'Montserrat', sans-serif;
+                font-size: 0.9em;
+                font-weight: 700;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+
+            *,
+            *::before,
+            *::after {
+                scroll-behavior: auto !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="header-text">
+            <h1>☂️ Opciones de Techumbre</h1>
+            <p>Propuestas para mejorar el acceso de Reserva Bosque Sereno</p>
+        </div>
+        <img src="img/logo.png" alt="Logo Reserva Bosque Sereno">
+    </header>
+    <div id="menuInclude"></div>
+
+    <div class="container">
+        <div class="intro">
+            <h2>Mejora de la entrada y mantenimiento de la estructura</h2>
+            <p>
+                Nuestro condominio avanza con una agenda clara de mejoras: primero el control de acceso, luego los
+                portones que ya están en proceso de instalación, y ahora la techumbre en la entrada principal. Este
+                proyecto no solo brindará protección frente al sol y la lluvia a residentes, visitantes y vigilantes,
+                también nos permitirá atender el mantenimiento que requiere la estructura existente en ese punto de
+                acceso.
+                <br><br>
+                Gracias al esfuerzo compartido de nuestras cuotas de mantenimiento, podemos llevarlo a cabo sin
+                necesidad de una cuota extraordinaria. Este logro es posible porque cada vecino aporta y participa en la
+                vida del condominio, y queremos que esa misma participación se refleje en la decisión. Por eso te
+                invitamos a conocer las tres propuestas y acompañarnos en el análisis de sus beneficios, tiempos y
+                costos, para elegir juntos la opción más conveniente para nuestra comunidad.
+            </p>
+        </div>
+
+        <div class="alert-box">
+            <strong>💡 ¿Por qué se necesita este proyecto?</strong>
+            <ul>
+                <li>Dar mantenimiento y protección a la estructura actual antes de instalar la cubierta.</li>
+                <li>Proteger del sol y la lluvia a residentes, visitas y proveedores durante su ingreso y registro.</li>
+                <li>Resguardar los tótems biométricos faciales y evitar que los conductores tengan que bajar la
+                    ventana bajo la lluvia.</li>
+                <li>Mejorar las condiciones de trabajo de los vigilantes, para que puedan realizar sus labores con
+                    mayor comodidad y continuidad.</li>
+            </ul>
+        </div>
+
+        <!-- Opción 1 -->
+        <div class="options-band">
+            <h2>Opciones/Cotizaciones</h2>
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 1 – Luza</h3>
+                    </div>
+                    <div class="option-quote-col">
+                        <a class="quote-preview" href="files/techumbre_luza.pdf" target="_blank" rel="noopener"
+                            onclick="trackQuoteOpen('Luza')" aria-label="Abrir cotización completa de Luza en PDF">
+                            <div>
+                                <span class="quote-kicker">Cotización · Techumbre</span>
+                                <span class="quote-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span>
+                                <p class="quote-provider">Luza</p>
+                                <span>Techo sobre techo con bastidor PTR</span>
+                                <span class="quote-price-label">Total con IVA</span>
+                                <strong class="quote-price">$124,375.20</strong>
+                            </div>
+                            <span class="quote-open"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    aria-hidden="true"></i> Abrir cotización PDF</span>
+                        </a>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCardLuza">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Instalación de una cubierta nueva sobre la estructura
+                                        actual, con bastidor de perfiles PTR y lámina Pintro.</p>
+                                    <div class="option-pros">
+                                        <h4>Ventajas destacadas</h4>
+                                        <ul>
+                                            <li>Incluye los planos del proyecto.</li>
+                                            <li>Lámina Pintro calibre 24, de mayor espesor que la calibre 26 de las
+                                                otras dos propuestas.</li>
+                                            <li>Impermeabilización y mantenimiento preventivo a los seis meses.</li>
+                                            <li>Anticipo de $87,000; el saldo queda financiado a 30 días sin
+                                                intereses, lo que ayuda a conservar la liquidez del condominio.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip('Luza')">
+                                            <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Ver alcance y
+                                            condiciones
+                                        </button>
+                                        <a class="detail-button" href="files/techumbre_luza.pdf" target="_blank"
+                                            rel="noopener" onclick="trackQuoteOpen('Luza')">
+                                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ver cotización
+                                            completa
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip('Luza')">
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li>Techo sobre techo con bastidor de perfiles PTR y lámina Pintro lisa
+                                            calibre 24.</li>
+                                        <li>Planos del proyecto, ingeniería y supervisión mecánica y eléctrica.</li>
+                                        <li>Lijado y pintura de la estructura existente.</li>
+                                        <li>Impermeabilización de la estructura nueva, canaleta y bajante pluvial.</li>
+                                        <li>Mantenimiento preventivo a los seis meses.</li>
+                                    </ul>
+                                    <p class="quote-total-note"><strong>Pago:</strong> $87,000 de anticipo y saldo a
+                                        crédito a 30 días sin intereses. <strong>Entrega:</strong> tres semanas
+                                        después de la orden de compra.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opción 2 -->
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 2 – Sein</h3>
+                    </div>
+                    <div class="option-quote-col">
+                        <a class="quote-preview" href="files/techumbre_sein.pdf" target="_blank" rel="noopener"
+                            onclick="trackQuoteOpen('Sein')" aria-label="Abrir cotización completa de Sein en PDF">
+                            <div>
+                                <span class="quote-kicker">Cotización · Techumbre</span>
+                                <span class="quote-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span>
+                                <p class="quote-provider">Sein</p>
+                                <span>Techado con servicio eléctrico incluido</span>
+                                <span class="quote-price-label">Total con IVA</span>
+                                <strong class="quote-price">$149,002.00</strong>
+                            </div>
+                            <span class="quote-open"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    aria-hidden="true"></i> Abrir cotización PDF</span>
+                        </a>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCardSein">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Techado de la estructura con lámina Pintro y PTR, más
+                                        instalación eléctrica para luminarias y canaleta pluvial.</p>
+                                    <div class="option-pros">
+                                        <h4>Ventajas destacadas</h4>
+                                        <ul>
+                                            <li>Especifica estructura PTR calibre 14.</li>
+                                            <li>Incluye pintura antiflama y sellado de uniones con poliuretano.</li>
+                                            <li>Considera servicio eléctrico para luminarias.</li>
+                                            <li>Pago dividido: 50% de anticipo y 50% contra entrega.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip('Sein')">
+                                            <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Ver alcance y
+                                            condiciones
+                                        </button>
+                                        <a class="detail-button" href="files/techumbre_sein.pdf" target="_blank"
+                                            rel="noopener" onclick="trackQuoteOpen('Sein')">
+                                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ver cotización
+                                            completa
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip('Sein')">
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li>Lámina Pintro calibre 26 y estructura PTR calibre 14.</li>
+                                        <li>Aplicación de pintura antiflama y sellado de uniones con poliuretano.</li>
+                                        <li>Servicio eléctrico para luminarias e instalación de canaleta pluvial.</li>
+                                        <li>Mantenimiento a la estructura existente, como parte del alcance
+                                            compartido entre las tres propuestas.</li>
+                                    </ul>
+                                    <p class="quote-total-note"><strong>Pago:</strong> 50% de anticipo y 50% contra
+                                        entrega. <strong>Entrega:</strong> 30 días a partir del anticipo. El precio
+                                        puede incrementarse por ISR al contratar con persona moral; la cotización del
+                                        10 de junio de 2026 indicaba vigencia de 10 días.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Opción 3 -->
+            <div class="option-row">
+                <div class="option-grid">
+                    <div class="option-heading">
+                        <h3 class="option-title">Opción 3 – Zapata</h3>
+                    </div>
+                    <div class="option-quote-col">
+                        <a class="quote-preview" href="files/techumbre_zapata.pdf" target="_blank" rel="noopener"
+                            onclick="trackQuoteOpen('Zapata')" aria-label="Abrir cotización completa de Zapata en PDF">
+                            <div>
+                                <span class="quote-kicker">Cotización · Techumbre</span>
+                                <span class="quote-icon"><i class="fa-solid fa-file-pdf" aria-hidden="true"></i></span>
+                                <p class="quote-provider">Zapata</p>
+                                <span>Cubierta para área de 8 × 16 metros</span>
+                                <span class="quote-price-label">Total con IVA</span>
+                                <strong class="quote-price">$98,321.60</strong>
+                            </div>
+                            <span class="quote-open"><i class="fa-solid fa-arrow-up-right-from-square"
+                                    aria-hidden="true"></i> Abrir cotización PDF</span>
+                        </a>
+                    </div>
+                    <div class="option-text-col">
+                        <div class="flip-card" id="flipCardZapata">
+                            <div class="flip-card-inner">
+                                <div class="flip-card-front">
+                                    <p class="option-desc">Cubierta de lámina Pintro blanca para el área indicada de
+                                        8 × 16 metros.</p>
+                                    <div class="option-pros">
+                                        <h4>Ventajas destacadas</h4>
+                                        <ul>
+                                            <li>Es la propuesta de menor importe.</li>
+                                            <li>Indica el plazo de entrega más corto: 10 días hábiles.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="button-row">
+                                        <button type="button" class="specs-button" onclick="toggleCardFlip('Zapata')">
+                                            <i class="fa-solid fa-arrows-rotate" aria-hidden="true"></i> Ver alcance y
+                                            condiciones
+                                        </button>
+                                        <a class="detail-button" href="files/techumbre_zapata.pdf" target="_blank"
+                                            rel="noopener" onclick="trackQuoteOpen('Zapata')">
+                                            <i class="fa-solid fa-file-pdf" aria-hidden="true"></i> Ver cotización
+                                            completa
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="flip-card-back">
+                                    <button type="button" class="flip-back-btn" onclick="toggleCardFlip('Zapata')">
+                                        <i class="fa-solid fa-arrow-left" aria-hidden="true"></i> Volver
+                                    </button>
+                                    <ul class="option-bullets">
+                                        <li>Área de 8 × 16 metros con lámina Pintro blanca calibre 26.</li>
+                                        <li>Perfil tubular de 1 1/2 pulgadas calibre 18 en muros perimetrales para
+                                            fijar la lámina.</li>
+                                        <li>Lijado y pintura de la estructura existente.</li>
+                                        <li>Canalón pluvial con tres salidas de PVC de 10 pulgadas.</li>
+                                        <li>Desmontaje y reinstalación de tubería conduit y cableado de luminarias.
+                                        </li>
+                                        <li>La propuesta no menciona impermeabilización.</li>
+                                    </ul>
+                                    <p class="quote-total-note"><strong>Pago:</strong> 100% de anticipo para iniciar
+                                        los trabajos. <strong>Entrega:</strong> 10 días hábiles.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="comparison-section" aria-labelledby="comparisonTitle">
+            <h2 id="comparisonTitle">Compara las tres propuestas</h2>
+            <p class="comparison-intro">Las mismas tres cotizaciones aparecen en cada tabla. Los colores ayudan a
+                distinguir ventajas, desventajas y aspectos que pueden influir en la evaluación de cada propuesta.</p>
+
+            <p class="shared-scope-note"><strong>Alcances comunes:</strong> las tres propuestas incluyen trabajos de
+                mantenimiento sobre la estructura existente y una solución para conducir el agua de lluvia. Se
+                muestran aquí como alcance compartido, no como ventaja exclusiva de un proveedor.</p>
+
+            <section class="compare-section advantages" aria-labelledby="advantagesTitle">
+                <h3 class="compare-heading" id="advantagesTitle"><i class="fa-solid fa-circle-check"
+                        aria-hidden="true"></i> Ventajas</h3>
+                <table class="compare-table">
+                    <caption class="sr-only">Ventajas de las propuestas de Luza, Sein y Zapata</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Luza<span class="provider-price">$124,375.20</span></th>
+                            <th scope="col">Sein<span class="provider-price">$149,002.00</span></th>
+                            <th scope="col">Zapata<span class="provider-price">$98,321.60</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-provider="Luza" data-price="$124,375.20">
+                                <ul>
+                                    <li>Incluye los planos del proyecto.</li>
+                                    <li>Especifica lámina Pintro calibre 24; calibre 26 en las otras cotizaciones.</li>
+                                    <li>Especifica estructura PTR</li>
+                                    <li>Incluye impermeabilización de la cubierta nueva y mantenimiento preventivo a
+                                        los seis meses.</li>
+                                    <li>Anticipo de $87,000; saldo financiado a 30 días sin intereses, lo que ayuda a
+                                        conservar la liquidez del condominio.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Sein" data-price="$149,002.00">
+                                <ul>
+                                    <li>Especifica PTR calibre 14 para la estructura.</li>
+                                    <li>Incluye pintura antiflama y sellado de uniones con poliuretano.</li>
+                                    <li>Considera servicio eléctrico para luminarias.</li>
+                                    <li>Pago dividido: 50% de anticipo y 50% contra entrega.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Zapata" data-price="$98,321.60">
+                                <ul>
+                                    <li>Es la propuesta de menor importe.</li>
+                                    <li>Indica un plazo de entrega de 10 días hábiles, el más corto.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="compare-section disadvantages" aria-labelledby="disadvantagesTitle">
+                <h3 class="compare-heading" id="disadvantagesTitle"><i class="fa-solid fa-circle-minus"
+                        aria-hidden="true"></i> Desventajas</h3>
+                <table class="compare-table">
+                    <caption class="sr-only">Desventajas principales de las propuestas</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Luza<span class="provider-price">$124,375.20</span></th>
+                            <th scope="col">Sein<span class="provider-price">$149,002.00</span></th>
+                            <th scope="col">Zapata<span class="provider-price">$98,321.60</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-provider="Luza" data-price="$124,375.20">
+                                <ul>
+                                    <li>Su total es $26,053.60 mayor que el de Zapata.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Sein" data-price="$149,002.00">
+                                <ul>
+                                    <li>Es la cotización de mayor importe.</li>
+                                    <li>Propone lámina calibre 26, de menor espesor nominal que el calibre 24 de
+                                        Luza.</li>
+                                    <li>El precio podría aumentar por ISR al contratar con persona moral.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Zapata" data-price="$98,321.60">
+                                <ul>
+                                    <li>Propone lámina calibre 26, de menor espesor nominal que el calibre 24 de
+                                        Luza.</li>
+                                    <li>No incluye impermeabilización en la propuesta.</li>
+                                    <li>Solicita el 100% del pago antes de iniciar los trabajos.</li>
+                                    <li>Describe el perfil tubular perimetral para fijar la lámina, pero no desarrolla
+                                        el diseño completo de la estructura.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section class="compare-section consider" aria-labelledby="considerTitle">
+                <h3 class="compare-heading" id="considerTitle"><i class="fa-solid fa-circle-exclamation"
+                        aria-hidden="true"></i> A considerar en la evaluación</h3>
+                <table class="compare-table">
+                    <caption class="sr-only">Criterios para que la comunidad evalúe las tres propuestas</caption>
+                    <thead>
+                        <tr>
+                            <th scope="col">Luza<span class="provider-price">$124,375.20</span></th>
+                            <th scope="col">Sein<span class="provider-price">$149,002.00</span></th>
+                            <th scope="col">Zapata<span class="provider-price">$98,321.60</span></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td data-provider="Luza" data-price="$124,375.20">
+                                <ul>
+                                    <li>Cuesta $26,053.60 más que Zapata; valorar esa diferencia frente a los planos,
+                                        calibre 24, impermeabilización y mantenimiento preventivo incluidos.</li>
+                                    <li>Desembolsa $87,000 al inicio y conserva $37,375.20 financiados durante 30
+                                        días sin intereses.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Sein" data-price="$149,002.00">
+                                <ul>
+                                    <li>Es la propuesta de mayor importe y la cotización indica posible incremento de
+                                        ISR al contratar con persona moral.</li>
+                                    <li>El sellado de uniones con poliuretano está descrito; no se presenta como una
+                                        partida explícita de impermeabilización general.</li>
+                                </ul>
+                            </td>
+                            <td data-provider="Zapata" data-price="$98,321.60">
+                                <ul>
+                                    <li>Ofrece el menor importe y el plazo más corto, a cambio de requerir el 100% de
+                                        anticipo.</li>
+                                    <li>La propuesta no incluye impermeabilización y describe menos elementos de la
+                                        estructura que Luza y Sein.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </div>
+
+    <div id="footerInclude"></div>
+    <script src="includes/load-fragments.js"></script>
+    <script>
+        function trackRoofSurvey(eventName, params) {
+            if (typeof window.rbsTrack === 'function') {
+                window.rbsTrack(eventName, Object.assign({
+                    page_title: document.title,
+                    page_location: window.location.href,
+                    survey_name: 'encuesta_techumbre'
+                }, params || {}));
+            }
+        }
+
+        // Especificaciones completas: flip 3D de la columna de texto (front/back), igual que en la encuesta de portón
+        function toggleCardFlip(provider) {
+            const card = document.getElementById('flipCard' + provider);
+            if (card) {
+                const isFlipped = card.classList.contains('flipped');
+                card.classList.toggle('flipped');
+                trackRoofSurvey('roof_option_specs_toggle', {
+                    provider: provider.toLowerCase(),
+                    action: isFlipped ? 'close' : 'open'
+                });
+            }
+        }
+
+        function trackQuoteOpen(provider) {
+            trackRoofSurvey('roof_quote_open', {
+                provider: provider.toLowerCase(),
+                quote_file: 'techumbre_' + provider.toLowerCase() + '.pdf'
+            });
+        }
+
+        trackRoofSurvey('roof_survey_page_view');
+    </script>
+</body>
+
+</html>
