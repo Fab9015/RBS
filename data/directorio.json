@@ -122,6 +122,7 @@
   "trabajadores": [
     {
       "id": "a6666666-ffff-4aaa-8bbb-000000000006",
+      "slug": "administracion",
       "nombre": "Administración",
       "telefono": "449-213-3944",
       "correo": "admonreservabosquesereno@gmail.com",
@@ -139,137 +140,137 @@
           "dias": "Sábados",
           "horas": "10:00 am – 1:00 pm"
         }
-      ],
-      "slug": "administracion"
+      ]
     },
     {
       "id": "a7777777-aaaa-4bbb-8ccc-000000000007",
+      "slug": "caseta-de-vigilancia",
       "nombre": "Caseta de vigilancia",
       "telefono": "314-378-5941",
       "correo": "",
       "categoria": "Vigilancia",
       "imagen": "img/vigilancia.png",
       "relevante": true,
-      "tieneWhatsapp": true,
-      "slug": "caseta-de-vigilancia"
+      "tieneWhatsapp": true
     },
     {
       "id": "865c542d-3901-4a91-86b8-4df1d50df0ed",
+      "slug": "ramon-gallardo",
       "nombre": "Ramón Gallardo",
       "telefono": "449-428-3185",
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false,
-      "slug": "ramon-gallardo"
+      "relevante": false
     },
     {
       "id": "8820c33d-1384-4757-a0b1-66a97966362d",
+      "slug": "construcciones-zamora",
       "nombre": "Construcciones Zamora",
       "telefono": "449-107-5522",
       "correo": "",
       "categoria": "Albañil",
       "imagen": "img/trabajador.png",
-      "relevante": false,
-      "slug": "construcciones-zamora"
+      "relevante": false
     },
     {
       "id": "f8662870-a919-466a-802b-0e1eb6715f13",
+      "slug": "ernesto-chata",
       "nombre": "Ernesto Chata",
       "telefono": "449-168-1108",
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "ernesto-chata"
+      "tieneWhatsapp": true
     },
     {
       "id": "22f3d383-2f27-4069-a6ae-6e48cbfa3960",
+      "slug": "los-encinos",
       "nombre": "Los Encinos",
       "telefono": "449-186-1561",
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "los-encinos"
+      "tieneWhatsapp": true
     },
     {
       "id": "f1300015-dad0-45c4-90f0-e5970a8b8d00",
+      "slug": "mario-galvan",
       "nombre": "Mario Galvan",
       "telefono": "886-136-9187",
       "correo": "",
       "categoria": "Jardinero",
       "imagen": "img/jardinero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "mario-galvan"
+      "tieneWhatsapp": true
     },
     {
       "id": "34c9e1c2-aacb-40d5-acdf-7d311cceb8f7",
+      "slug": "jose-luis",
       "nombre": "José Luis",
       "telefono": "449-980-1019",
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false,
-      "slug": "jose-luis"
+      "relevante": false
     },
     {
       "id": "ce89f0b0-fdf9-48ae-bc72-000f8a82b640",
+      "slug": "la-sevillana",
       "nombre": "La Sevillana",
       "telefono": "449-185-7885",
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "la-sevillana"
+      "tieneWhatsapp": true
     },
     {
       "id": "39f09f80-7c36-4a9f-8840-f79f3c992f31",
+      "slug": "osvaldo-guerra",
       "nombre": "Osvaldo Guerra",
       "telefono": "449-138-3110",
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "osvaldo-guerra"
+      "tieneWhatsapp": true
     },
     {
       "id": "360f680a-11b1-4741-8225-d241d8eafc2e",
+      "slug": "carlos-hernandez",
       "nombre": "Carlos Hernández",
       "telefono": "449-553-0538",
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
-      "relevante": false,
-      "slug": "carlos-hernandez"
+      "relevante": false
     },
     {
       "id": "86210de2-b43b-4fba-9107-6fb9b6ca3b43",
+      "slug": "servicios-juarez",
       "nombre": "Servicios Juarez",
       "telefono": "449-197-6774",
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false,
-      "slug": "servicios-juarez"
+      "relevante": false
     },
     {
       "id": "4478d16d-780b-4642-8503-38f5ad714b52",
+      "slug": "juan-juarez",
       "nombre": "Juan Juarez",
       "telefono": "449-552-7564",
       "correo": "",
       "categoria": "Plomero",
       "imagen": "img/plomero.png",
-      "relevante": false,
-      "slug": "juan-juarez"
+      "relevante": false
     },
     {
       "id": "63d23c57-567e-4b82-9e52-3c219a38b503",
+      "slug": "jonas",
       "nombre": "Jonás",
       "telefono": "449-263-5454",
       "correo": "",
@@ -277,11 +278,11 @@
       "imagen": "img/plomero.png",
       "relevante": false,
       "mensajeWhatsapp": "Hola Jonás, me contacto desde Reserva Bosque Sereno porque necesito servicios de plomería. ¿Podrías ayudarme?",
-      "tieneWhatsapp": true,
-      "slug": "jonas"
+      "tieneWhatsapp": true
     },
     {
       "id": "b089cf94-2b0c-40aa-85ee-4151ac4f1521",
+      "slug": "efrain-ntn",
       "nombre": "Efrain NTN",
       "telefono": "449-186-8547",
       "correo": "",
@@ -289,76 +290,76 @@
       "imagen": "img/electricista.png",
       "relevante": false,
       "mensajeWhatsapp": "Buenos días Efrain, soy vecino de Reserva Bosque Sereno y requiero una cotización para trabajos eléctricos.",
-      "tieneWhatsapp": true,
-      "slug": "efrain-ntn"
+      "tieneWhatsapp": true
     },
     {
       "id": "878c3b4c-e6c4-46a3-9a05-7fcf595ed109",
+      "slug": "manuel-mata",
       "nombre": "Manuel Mata",
       "telefono": "449-277-1260",
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
-      "relevante": false,
-      "slug": "manuel-mata"
+      "relevante": false
     },
     {
       "id": "8bb7af62-af8f-44af-8450-c81bd97806d0",
+      "slug": "gas-imperial",
       "nombre": "Gas Imperial",
       "telefono": "449-454-0069",
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false,
-      "slug": "gas-imperial"
+      "tieneWhatsapp": false
     },
     {
       "id": "876bcffc-2f43-4699-a8e2-a04a75c5151d",
+      "slug": "central-de-gas",
       "nombre": "Central de Gas",
       "telefono": "449-912-2222",
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false,
-      "slug": "central-de-gas"
+      "tieneWhatsapp": false
     },
     {
       "id": "77fc7fae-2263-435b-a2fa-ad01d3a5b59f",
+      "slug": "gas-noel",
       "nombre": "Gas Noel",
       "telefono": "449-910-9010",
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false,
-      "slug": "gas-noel"
+      "tieneWhatsapp": false
     },
     {
       "id": "d9f33f82-dc03-44d5-ac9a-c8adab448c36",
+      "slug": "gas-rosa",
       "nombre": "Gas Rosa",
       "telefono": "449-158-1600",
       "correo": "",
       "categoria": "Gaseras",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": false,
-      "slug": "gas-rosa"
+      "tieneWhatsapp": false
     },
     {
       "id": "4fd0766e-3e2e-478b-b851-88cbad5e9b9b",
+      "slug": "luis-reyna",
       "nombre": "Luis Reyna",
       "telefono": "449-368-8719",
       "correo": "",
       "categoria": "Taxi/Uber",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "luis-reyna"
+      "tieneWhatsapp": true
     },
     {
       "id": "92aa03cd-58f2-45d6-be9f-e60b1ad1e135",
+      "slug": "aclaraciones-de-consumo-de-agua-parametro",
       "nombre": "Aclaraciones de Consumo de Agua - Parametro",
       "telefono": "449-153-9085",
       "correo": "cuotas@parametro.mx",
@@ -376,140 +377,150 @@
           "dias": "Sabados",
           "horas": "9:00 am – 1:00 pm"
         }
-      ],
-      "slug": "aclaraciones-de-consumo-de-agua-parametro"
+      ]
     },
     {
       "id": "45c6b8a3-8abe-4f2b-92db-636f42198309",
+      "slug": "home-alum",
       "nombre": "Home Alum",
       "telefono": "449-186-0993",
       "correo": "",
       "categoria": "Aluminero",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "home-alum"
+      "tieneWhatsapp": true
     },
     {
       "id": "69b8179c-d163-484d-b009-b911889aaf90",
+      "slug": "majestic-persianas",
       "nombre": "Majestic Persianas",
       "telefono": "449-476-4493",
       "correo": "",
       "categoria": "Persianas",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "majestic-persianas"
+      "tieneWhatsapp": true
     },
     {
       "id": "cb592857-4afe-47e7-823d-c842ca5342d5",
+      "slug": "persianas-del-centro",
       "nombre": "Persianas del Centro",
       "telefono": "449-291-8046",
       "correo": "",
       "categoria": "Persianas",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "persianas-del-centro"
+      "tieneWhatsapp": true
     },
     {
       "id": "cb750428-cea5-4085-bdcc-59595b1bd2bb",
+      "slug": "closets-carlos",
       "nombre": "Closets Carlos",
       "telefono": "449-198-3331",
       "correo": "",
       "categoria": "Carpintero",
       "imagen": "img/carpintero.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "closets-carlos"
+      "tieneWhatsapp": true
     },
     {
       "id": "8c7747d0-9204-4b3b-a2f4-7bf3d8572aad",
+      "slug": "everclean",
       "nombre": "Everclean",
       "telefono": "449-118-0933",
       "correo": "",
       "categoria": "Lavado de muebles",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "everclean"
+      "tieneWhatsapp": true
     },
     {
       "id": "f42c3448-2948-444f-8949-aa0e6db77615",
+      "slug": "edgar",
       "nombre": "Edgar",
       "telefono": "449-156-8233",
       "correo": "",
       "categoria": "Lavado de autos",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "edgar"
+      "tieneWhatsapp": true
     },
     {
       "id": "cb232194-11e1-4b36-8f68-4e12e8c6f246",
+      "slug": "bosques-market",
       "nombre": "Bosques Market",
       "telefono": "449-253-5768",
       "correo": "",
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "bosques-market"
+      "tieneWhatsapp": true
     },
     {
       "id": "99eb13ee-526f-43e0-b4ab-1f5ae8c262d6",
+      "slug": "la-fortuna",
       "nombre": "La Fortuna",
       "telefono": "449-140-9761",
       "correo": "",
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "la-fortuna"
+      "tieneWhatsapp": true
     },
     {
       "id": "1ac6cccd-c19d-417a-b42d-76aaf2a44f6f",
+      "slug": "mercadito",
       "nombre": "Mercadito",
       "telefono": "449-311-9459",
       "correo": "",
       "categoria": "Tiendas de abarrotes",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "mercadito"
+      "tieneWhatsapp": true
     },
     {
       "id": "6d870b9f-aca0-4845-bf8b-2f4d0002e6f6",
+      "slug": "hector-rodales",
       "nombre": "Hector Rodales",
       "telefono": "449-155-7385",
       "correo": "",
       "categoria": "Electricista",
       "imagen": "img/electricista.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "hector-rodales"
+      "tieneWhatsapp": true
     },
     {
       "id": "29571c67-93c8-485a-8994-5a009e0361f2",
+      "slug": "gabriel",
       "nombre": "Gabriel",
       "telefono": "449-280-2373",
       "correo": "",
       "categoria": "Lavado de autos",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "gabriel"
+      "tieneWhatsapp": true
     },
     {
       "id": "aa448017-bde4-4176-88f5-f21190210526",
+      "slug": "ramon-lomeli",
       "nombre": "Ramon Lomeli",
       "telefono": "449-805-2255",
       "correo": "",
       "categoria": "Aluminero",
       "imagen": "img/trabajador.png",
       "relevante": false,
-      "tieneWhatsapp": true,
-      "slug": "ramon-lomeli"
+      "tieneWhatsapp": true
+    },
+    {
+      "id": "3d7eaf71-b3d5-4356-b3c3-71db3d9ca9a4",
+      "slug": "miguel-tejada-marquez",
+      "nombre": "Miguel Tejada Marquez",
+      "telefono": "8135146029",
+      "correo": "",
+      "categoria": "Jardinero",
+      "imagen": "img/jardinero.png",
+      "relevante": false,
+      "tieneWhatsapp": true
     }
   ]
 }
